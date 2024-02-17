@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 import sys
@@ -3078,7 +3079,6 @@ def compile(file, upload=False, compress=False):
                                    f"по ссылке удалится через &c3 минуты!\n      &fУспейте использовать команду на сервере "
                                    f"за данное время"))
 
-
 old_actions = json.load(open("data/actions.json"))
 actions = dict()
 for i in old_actions:
@@ -3088,5 +3088,10 @@ math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["fi
 events = json.load(open("data/events.json"))
 values = dict()
 for i in json.load(open("data/values.json")):
-    values[i["name"]] = i
-compile("a.jc", upload=True)
+        values[i["name"]] = i
+if __name__ == "__main__":
+    additional=sys.orig_argv[2:]
+    if len(additional) > 1:
+        if additional[0] == "compile":
+            compile(additional[1],upload=additional[-1] == "-u")
+#compile("a.jc", upload=True)
