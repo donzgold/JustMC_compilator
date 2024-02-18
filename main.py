@@ -1,11 +1,9 @@
-import argparse
+import gzip
 import json
 import os
 import sys
-import gzip
-
-from math import floor, ceil
 from codecs import open
+from math import ceil
 
 import requests
 
@@ -89,9 +87,13 @@ for k, v in color_codes.items():
     r, g, b = [int(v[i:i + 2], 16) for i in range(1, len(v), 2)]
     codes[k] = f"\x1b[38;2;{r};{g};{b}m"
 allowed_symbols = "0123456789abcdefABCDEF"
+global_func_count = 0
+global_count = 0
+open_files = dict()
+symbol_table = dict()
 
 
-def minecraft_text(text):
+def minecraft_text(text1):
     def next_symbol(afsd, fdsa):
         if fdsa >= len(afsd):
             return fdsa + 1, None
@@ -106,9 +108,9 @@ def minecraft_text(text):
     strikethrough = False
     color = color_codes["f"]
     bold = False
-    while (s := next_symbol(text, pos))[1] is not None:
+    while (s := next_symbol(text1, pos))[1] is not None:
         pos, symbol = s[0], s[1]
-        if symbol == "&" and (s := next_symbol(text, pos))[1] is not None:
+        if symbol == "&" and (s := next_symbol(text1, pos))[1] is not None:
             pos, symbol = s[0], s[1]
             if symbol in color_codes:
                 if msg != "":
@@ -178,37 +180,37 @@ def minecraft_text(text):
                 continue
             elif symbol == "#":
                 thing = "#"
-                if (s := next_symbol(text, pos))[1] is not None:
+                if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
                     if not symbol in allowed_symbols:
                         msg += "&" + thing
                         continue
-                if (s := next_symbol(text, pos))[1] is not None:
+                if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
                     if not symbol in allowed_symbols:
                         msg += "&" + thing
                         continue
-                if (s := next_symbol(text, pos))[1] is not None:
+                if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
                     if not symbol in allowed_symbols:
                         msg += "&" + thing
                         continue
-                if (s := next_symbol(text, pos))[1] is not None:
+                if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
                     if not symbol in allowed_symbols:
                         msg += "&" + thing
                         continue
-                if (s := next_symbol(text, pos))[1] is not None:
+                if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
                     if not symbol in allowed_symbols:
                         msg += "&" + thing
                         continue
-                if (s := next_symbol(text, pos))[1] is not None:
+                if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
                     if not symbol in allowed_symbols:
@@ -230,13 +232,12 @@ def minecraft_text(text):
         old_msg = {"text": msg, "italic": italic, "obfuscated": obfuscated, "underlined": underlined,
                    "strikethrough": strikethrough, "color": color, "bold": bold}
         full_msg["extra"].append(old_msg)
-        msg = ""
     return full_msg
 
 
-def minecraft_based_text(text, ignore_last_symbol=False):
+def minecraft_based_text(text1, ignore_last_symbol=False):
     if ignore_last_symbol is False:
-        text = text + "&r"
+        text1 = text1 + "&r"
 
     def next_symbol(afsd, fdsa):
         if fdsa >= len(afsd):
@@ -245,46 +246,46 @@ def minecraft_based_text(text, ignore_last_symbol=False):
 
     pos = 0
     msg = ""
-    while (s := next_symbol(text, pos))[1] is not None:
+    while (s := next_symbol(text1, pos))[1] is not None:
         pos, symbol = s[0], s[1]
-        if symbol == "&" and (s := next_symbol(text, pos))[1] is not None:
+        if symbol == "&" and (s := next_symbol(text1, pos))[1] is not None:
             pos, symbol = s[0], s[1]
             if symbol in codes:
                 msg += codes[symbol]
                 continue
             elif symbol == "#":
                 thing = "#"
-                if (s := next_symbol(text, pos))[1] is not None:
+                if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
                     if not symbol in allowed_symbols:
                         msg += "&" + thing
                         continue
-                if (s := next_symbol(text, pos))[1] is not None:
+                if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
                     if not symbol in allowed_symbols:
                         msg += "&" + thing
                         continue
-                if (s := next_symbol(text, pos))[1] is not None:
+                if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
                     if not symbol in allowed_symbols:
                         msg += "&" + thing
                         continue
-                if (s := next_symbol(text, pos))[1] is not None:
+                if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
                     if not symbol in allowed_symbols:
                         msg += "&" + thing
                         continue
-                if (s := next_symbol(text, pos))[1] is not None:
+                if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
                     if not symbol in allowed_symbols:
                         msg += "&" + thing
                         continue
-                if (s := next_symbol(text, pos))[1] is not None:
+                if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
                     if not symbol in allowed_symbols:
@@ -305,12 +306,12 @@ def fix_operations_len(operations, limit=43):
     global global_func_count, global_count
 
     def get_operations_len(ops, coun=True):
-        op_count = 0
-        for i in ops:
-            op_count += 1
-            if "operations" in i.keys():
-                op_count += get_operations_len(i["operations"]) + coun
-        return op_count
+        cont = 0
+        for op in ops:
+            cont += 1
+            if "operations" in op.keys():
+                cont += get_operations_len(op["operations"]) + coun
+        return cont
 
     op_count = get_operations_len(operations)
     additional_events = []
@@ -330,7 +331,7 @@ def fix_operations_len(operations, limit=43):
                     if len(now_operations) == 1:
                         if s_i >= limit and now_i[-1] > 1:
                             while now_operations[-1][ceil(now_i[-1] / 2)]["action"] == "else":
-                                now_i[-1]+=1
+                                now_i[-1] += 1
                             while s_i > limit:
                                 new_ops.append(now_operations[-1][:ceil(now_i[-1] / 2)])
                                 s_i -= ceil(now_i[-1] / 2)
@@ -363,7 +364,7 @@ def fix_operations_len(operations, limit=43):
                                     {"type": "function", "position": global_count, "operations": an_ops[i1],
                                      "is_hidden": False, "name": f"jmcc.{global_func_count}"})
                             now_operations[-2][act_i[-1]]["operations"] = an_ops[0]
-                            s_i-=cur_i[-1]
+                            s_i -= cur_i[-1]
                             cur_i[-1] = 1
                         elif s_i > limit and cur_i[-1] > 1 and now_i[-1] > 1:
                             if cur_i[-1] + cur_i[-2] > limit:
@@ -376,7 +377,7 @@ def fix_operations_len(operations, limit=43):
                                 additional_events.append(
                                     {"type": "function", "position": global_count, "operations": now_operations[-1],
                                      "is_hidden": False, "name": f"jmcc.{global_func_count}"})
-                                s_i -= cur_i[-1]+1
+                                s_i -= cur_i[-1] + 1
                                 cur_i[-1] = 1
                     del now_operations[-1]
                     del now_i[-1]
@@ -384,7 +385,7 @@ def fix_operations_len(operations, limit=43):
                         cur_i[-2] += cur_i[-1]
                     del cur_i[-1]
                     del act_i[-1]
-                if a == True:
+                if a:
                     break
             if len(now_operations) == 1 and s_i >= limit - 1 and now_operations[-1][now_i[-1]]["action"] != "else":
                 new_ops.append(now_operations[-1][:now_i[-1]])
@@ -426,15 +427,15 @@ def create_path(now_path, need_path):
         return dir_path, full_path
     else:
         a = now_path.replace("\\", "/").split("/")
-        b = need_path.replace("\\", "/").split("/")
-        if b[0].count(".") == len(b[0]):
-            back = len(b[0]) - 1
-            del b[0]
+        a2 = need_path.replace("\\", "/").split("/")
+        if a2[0].count(".") == len(a2[0]):
+            back = len(a2[0]) - 1
+            del a2[0]
         else:
             back = 0
 
         full_path = a[:len(a) - back]
-        full_path.extend(b)
+        full_path.extend(a2)
         dir_path = full_path.copy()
         del dir_path[-1]
         dir_path, full_path = "/".join(dir_path), "/".join(full_path)
@@ -468,9 +469,9 @@ class Error:
 class Token:
     global open_files
 
-    def __init__(self, token_type, value, start_line=0, end_line=0, offset_pos=0, limit_offset_pos=0, file=""):
+    def __init__(self, token_type, val, start_line=0, end_line=0, offset_pos=0, limit_offset_pos=0, file=""):
         self.type = token_type
-        self.value = value
+        self.value = val
         self.start_line = start_line
         if end_line == 0:
             end_line = start_line
@@ -483,12 +484,12 @@ class Token:
         self.limit_offset_pos = limit_offset_pos
         self.file = file
 
-    def equals(self, *args, need=False):
-        for i in args:
+    def equals(self, *arg, need=False):
+        for i in arg:
             if self.type == i:
                 return True
-        if need == True:
-            Error("SyntaxError", f"Ожидался один из токенов ({', '.join(args)}), но был получен {self.type}",
+        if need:
+            Error("SyntaxError", "Ожидался один из токенов (" + ', '.join(arg) + f"), но был получен {self.type}",
                   start_line=self.start_line, end_line=self.end_line,
                   offset_pos=self.offset_pos, limit_offset_pos=self.limit_offset_pos,
                   file=self.file)
@@ -620,7 +621,7 @@ class Lexer:
                 string_value = ""
                 block_next_symbol = False
                 while self.current_char is not None and (self.current_char != '\'' or block_next_symbol is True):
-                    if block_next_symbol == True:
+                    if block_next_symbol:
                         block_next_symbol = False
                         string_value += self.current_char
                     elif self.current_char == "\\":
@@ -645,7 +646,7 @@ class Lexer:
                 string_value = ""
                 block_next_symbol = False
                 while self.current_char is not None and (self.current_char != '"' or block_next_symbol is True):
-                    if block_next_symbol == True:
+                    if block_next_symbol:
                         block_next_symbol = False
                         string_value += self.current_char
                     elif self.current_char == "\\":
@@ -670,7 +671,7 @@ class Lexer:
                 var_name = ""
                 block_next_symbol = False
                 while self.current_char is not None and (self.current_char != '`' or block_next_symbol is True):
-                    if block_next_symbol == True:
+                    if block_next_symbol:
                         block_next_symbol = False
                         var_name += self.current_char
                     elif self.current_char == "\\":
@@ -880,7 +881,7 @@ class Lexer:
                     var_name = ""
                     block_next_symbol = False
                     while self.current_char is not None and (self.current_char != '`' or block_next_symbol is True):
-                        if block_next_symbol == True:
+                        if block_next_symbol:
                             block_next_symbol = False
                             var_name += self.current_char
                         elif self.current_char == "\\":
@@ -922,7 +923,7 @@ class Lexer:
                     string_value = ""
                     block_next_symbol = False
                     while self.current_char is not None and (self.current_char != '"' or block_next_symbol is True):
-                        if block_next_symbol == True:
+                        if block_next_symbol:
                             block_next_symbol = False
                             string_value += self.current_char
                         elif self.current_char == "\\":
@@ -963,7 +964,7 @@ class Lexer:
                     string_value = ""
                     block_next_symbol = False
                     while self.current_char is not None and (self.current_char != '\'' or block_next_symbol is True):
-                        if block_next_symbol == True:
+                        if block_next_symbol:
                             block_next_symbol = False
                             string_value += self.current_char
                         elif self.current_char == "\\":
@@ -1018,7 +1019,7 @@ class Lexer:
                               offset_pos=start_pos, limit_offset_pos=self.offset_pos, file=self.file)
                 if self.current_char == ":" and token_value in (
                         "value", "player", "variable", "code", "repeat", "entity", "world", "select", "controller"):
-                    action = token_value
+                    act = token_value
                     self.advance()
                     if self.current_char == ":":
                         self.advance()
@@ -1031,7 +1032,7 @@ class Lexer:
                                 end_line = self.line
                                 end_pos = self.offset_pos
                                 self.advance()
-                            self.last_token = Token(action.upper(), sub_action, start_line=start_line,
+                            self.last_token = Token(act.upper(), sub_action, start_line=start_line,
                                                     end_line=end_line,
                                                     offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                             return self.last_token
@@ -1135,9 +1136,9 @@ class Lexer:
 
 
 class assign:
-    def __init__(self, key, value, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
+    def __init__(self, key, val, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
         self.key = key
-        self.value = value
+        self.value = val
         self.start_line = start_line
         self.end_line = end_line
         self.offset_pos = offset_pos
@@ -1145,7 +1146,7 @@ class assign:
         self.file = file
 
     def __str__(self):
-        return f'a({self.key}={self.value})'
+        return f'assign({self.key}={self.value})'
 
     def __repr__(self):
         return self.__str__()
@@ -1155,6 +1156,7 @@ class args:
     def __init__(self, arg_list=None, positional=None, unpositional=None, start_line=None, end_line=None,
                  offset_pos=None,
                  limit_offset_pos=None, file=None, assigning=None, origin=None, lamba=None):
+        self.args = dict()
         if unpositional is None:
             unpositional = []
         if positional is None:
@@ -1175,7 +1177,7 @@ class args:
     def get_args(self):
         self.args = dict()
         if self.arg_list is not None:
-            dct = [None] * len(self.arg_list)
+            dect = [None] * len(self.arg_list)
             for i in self.unpositional:
                 if i.key == "assigning":
                     i.key = self.assigning[0]
@@ -1183,35 +1185,36 @@ class args:
                     i.key = self.origin
                 elif i.key.startswith("lamba") and self.lamba is not None:
                     i.key = self.lamba[int(i.key[6:]) - 1]
-                if type(i.key) != var:
+                if i.key is not var:
                     if i.key in self.arg_list:
-                        dct[self.arg_list.index(i.key)] = i.value
+                        dect[self.arg_list.index(i.key)] = i.value
                     else:
-                        Error("UnexistsArgument",f"Указан несуществующий аргумент : {i.key}",i.start_line,i.end_line,i.offset_pos,i.limit_offset_pos,i.file)
+                        Error("UnexistsArgument", f"Указан несуществующий аргумент : {i.key}", i.start_line, i.end_line,
+                              i.offset_pos, i.limit_offset_pos, i.file)
                 else:
-                    dct[self.arg_list.index(i.key.name)] = i.value
+                    dect[self.arg_list.index(i.key.name)] = i.value
             i1 = 0
-            if len(dct) != 0:
+            if len(dect) != 0:
                 for i in self.positional:
-                    while dct[i1] != None:
+                    while dect[i1] is not None:
                         i1 += 1
-                    dct[i1] = i
-                for i in range(len(dct)):
-                    self.args[self.arg_list[i]] = dct[i]
+                    dect[i1] = i
+                for i in range(len(dect)):
+                    self.args[self.arg_list[i]] = dect[i]
         return self.args
 
     def __str__(self):
-        return f'args(unpositional={self.unpositional},positional={self.positional})'
+        return f'args(unpos={self.unpositional},pos={self.positional})'
 
     def __repr__(self):
         return self.__str__()
 
 
 class text:
-    def __init__(self, text, text_type="legacy", start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
+    def __init__(self, txt, text_type="legacy", start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
                  file=None):
         self.text_type = text_type
-        self.text = text
+        self.text = txt
         self.type = "text"
         self.start_line = start_line
         self.end_line = end_line
@@ -1226,15 +1229,15 @@ class text:
         return self.__str__()
 
     def json(self, normal=False):
-        if normal == False:
+        if not normal:
             return {"type": "text", "text": self.text, "parsing": self.text_type}, []
         return self.text, []
 
 
 class number:
-    def __init__(self, value, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
+    def __init__(self, val, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
         self.type = "number"
-        self.value = value
+        self.value = val
         self.start_line = start_line
         self.end_line = end_line
         self.offset_pos = offset_pos
@@ -1248,17 +1251,17 @@ class number:
         return self.__str__()
 
     def json(self, normal=False, in_text=False):
-        if in_text == True:
+        if in_text:
             return str(self.value)
-        if normal == False:
+        if not normal:
             return {"type": "number", "number": self.value}, []
         return self.value, []
 
 
 class lst:
-    def __init__(self, values, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
+    def __init__(self, vals, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
         self.type = "array"
-        self.values = values
+        self.values = vals
         self.start_line = start_line
         self.end_line = end_line
         self.offset_pos = offset_pos
@@ -1266,29 +1269,29 @@ class lst:
         self.file = file
 
     def __str__(self):
-        return f'lst({', '.join(list(map(str, self.values)))})'
+        return "lst(" + ",".join(list(map(str, self.values))) + ")"
 
     def __repr__(self):
         return self.__str__()
 
     def json(self, normal=False):
         additional_actions = []
-        values = []
+        vals = []
         for i in self.values:
-            if type(i) == var and i.var_type == "INLINE":
-                a=symbol_table["inlines"][i.name]
-                values.append(a)
+            if i is var and i.var_type == "INLINE":
+                a = symbol_table["inlines"][i.name]
+                vals.append(a)
             else:
-                a, additional = i.json()
-                values.append(a)
-                additional_actions.extend(additional)
-        if normal == False:
+                a, additional1 = i.json()
+                vals.append(a)
+                additional_actions.extend(additional1)
+        if not normal:
             return {"type": "array", "values": actions}, additional_actions
-        return values, additional_actions
+        return vals, additional_actions
 
 
 class dct:
-    def __init__(self, keys, values, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
+    def __init__(self, keys, vals, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
         self.type = "map"
         self.start_line = start_line
         self.end_line = end_line
@@ -1296,61 +1299,65 @@ class dct:
         self.limit_offset_pos = limit_offset_pos
         self.file = file
         self.keys = keys
-        self.values = values
+        self.values = vals
 
     def __str__(self):
-        return "dct(" + f'{",".join([f'{self.keys[i]}:{self.values[i]}' for i in range(len(self.keys))])})' + ")"
+        return "dct(" + ",".join([str(self.keys[i]) + ":" + str(self.values[i]) for i in range(len(self.keys))]) + ")"
 
     def __repr__(self):
         return self.__str__()
 
     def json(self, normal=True):
         additional_actions = []
-        if normal == False:
+        if not normal:
             return None, additional_actions
-        dct = dict()
+        dect = dict()
         for i in range(len(self.keys)):
-            a, additional = self.keys[i].json(normal=True)
-            additional_actions.extend(additional)
-            b, additional = self.values[i].json(normal=True)
-            additional_actions.extend(additional)
-            dct[a] = b
-        return dct, additional_actions
+            a, additional1 = self.keys[i].json(normal=True)
+            additional_actions.extend(additional1)
+            a1, additional1 = self.values[i].json(normal=True)
+            additional_actions.extend(additional1)
+            dect[a] = a1
+        return dect, additional_actions
 
 
-def check(checking=None, *args):
+def check(checking=None, *arg):
     if checking is None:
         return checking
-    for i in args:
+    for i in arg:
         if checking.type == i:
             return checking
-    Error("TypeError", f"Ожидался объект типа ({",".join(args)}), но был получен {checking.type}",
+    Error("TypeError", "Ожидался объект типа (" + ",".join(arg) + "), но был получен {checking.type}",
           start_line=checking.start_line, end_line=checking.end_line, offset_pos=checking.offset_pos,
           limit_offset_pos=checking.limit_offset_pos, file=checking.file)
 
 
 class item:
-    def __init__(self, id=None, name=None, count=None, lore=None, nbt=None, args=None, start_line=None, end_line=None,
+    def __init__(self, item_id=None, name=None, count=None, lore=None, nbt=None, arg=None, start_line=None,
+                 end_line=None,
                  offset_pos=None, limit_offset_pos=None, file=None):
         self.type = "item"
-        if args != None:
-            args.arg_list = ["id", "name", "count", "lore", "nbt"]
-            args = args.get_args()
-            id = args["id"]
-            name = args["name"]
-            count = args["count"]
+        if arg is not None:
+            arg.arg_list = ["id", "name", "count", "lore", "nbt"]
+            arg = arg.get_args()
+            for k1, v1 in arg.items():
+                if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
+                    arg[k1] = symbol_table["inlines"][v1.name]
+            item_id = arg["id"]
+            name = arg["name"]
+            count = arg["count"]
             if count is None:
                 count = number(1)
-            lore = args["lore"]
-            nbt = args["nbt"]
+            lore = arg["lore"]
+            nbt = arg["nbt"]
         self.start_line = start_line
         self.end_line = end_line
         self.offset_pos = offset_pos
         self.limit_offset_pos = limit_offset_pos
         self.file = file
-        self.id = check(id, "text")
+        self.id = check(item_id, "variable", "text")
         self.name = check(name, "text")
-        self.count = check(count, "text", "number")
+        self.count = check(count, "number")
         self.lore = check(lore, "text", "array")
         self.nbt = check(nbt, "map")
 
@@ -1362,16 +1369,16 @@ class item:
 
     def json(self):
         try:
-            id = self.id.json(normal=True)
-            if type(id) != str:
+            item_id, additional1 = self.id.json(normal=True)
+            if item_id is not str:
                 raise Exception
-            count = self.count.json(normal=True)
-            if type(count) != int:
+            count, additional1 = self.count.json(normal=True)
+            if count is int:
                 raise Exception
-            a = {"id": id, "Count": count}
+            a = {"id": item_id, "Count": count}
             if self.nbt is not None:
-                nbt = self.nbt.json(normal=True)
-                if type(nbt) != dict:
+                nbt, additional1 = self.nbt.json(normal=True)
+                if nbt is not dict:
                     raise Exception
                 a["tag"] = nbt
             if self.name is not None or self.lore is not None:
@@ -1380,21 +1387,27 @@ class item:
                 if not "display" in a.keys():
                     a["tag"]["display"] = {}
                 if self.name is not None:
-                    a["tag"]["display"]["Name"] = json.dumps(minecraft_text(self.name.json(normal=True)))
+                    name, additional1 = self.name.json(normal=True)
+                    if name is not str:
+                        raise Exception
+                    a["tag"]["display"]["Name"] = json.dumps(minecraft_text(name))
                 if self.lore is not None:
                     if self.lore.type != "array":
-                        lore = self.lore.json(normal=True).split("\\n")
+                        lore, additional1 = self.lore.json(normal=True)
+                        lore = lore.split("\\n")
                     else:
-                        lore = self.lore.json(normal=True)
+                        lore, additional1 = self.lore.json(normal=True)
+                    if lore is not list:
+                        raise Exception
                     a["tag"]["display"]["Lore"] = list(map(json.dumps, map(minecraft_text, lore)))
             return {"type": "item", "item": json.dumps(a)}, []
-        except Exception as e:
+        except:
             Error("WrongItem", "Неправильно созданный предмет", self.start_line, self.end_line, self.offset_pos,
                   self.limit_offset_pos, self.file)
 
 
 class location:
-    def __init__(self, x=None, y=None, z=None, yaw=number(0), pitch=number(0), args=None, start_line=None,
+    def __init__(self, x=None, y=None, z=None, yaw=number(0), pitch=number(0), arg=None, start_line=None,
                  end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
         self.type = "location"
         self.start_line = start_line
@@ -1402,23 +1415,26 @@ class location:
         self.offset_pos = offset_pos
         self.limit_offset_pos = limit_offset_pos
         self.file = file
-        if args != None:
-            args.arg_list = ["x", "y", "z", "yaw", "pitch"]
-            args = args.get_args()
-            x = args["x"]
-            y = args["y"]
-            z = args["z"]
-            yaw = args["yaw"]
+        if arg is not None:
+            arg.arg_list = ["x", "y", "z", "yaw", "pitch"]
+            arg = arg.get_args()
+            for k1, v1 in arg.items():
+                if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
+                    arg[k1] = symbol_table["inlines"][v1.name]
+            x = arg["x"]
+            y = arg["y"]
+            z = arg["z"]
+            yaw = arg["yaw"]
             if yaw is None:
                 yaw = number(0)
-            pitch = args["pitch"]
+            pitch = arg["pitch"]
             if pitch is None:
                 pitch = number(0)
         self.x = check(x, "variable", "number")
-        self.y = check(y, "variable", "number")
-        self.z = check(z, "variable", "number")
-        self.yaw = check(yaw, "variable", "number")
-        self.pitch = check(pitch, "variable", "number")
+        self.y = check(y, "number")
+        self.z = check(z, "number")
+        self.yaw = check(yaw, "number")
+        self.pitch = check(pitch, "number")
 
     def __str__(self):
         return f'location({self.x},{self.y},{self.z},{self.yaw},{self.pitch})'
@@ -1427,13 +1443,24 @@ class location:
         return self.__str__()
 
     def json(self):
-        return {"type": "location", "x": self.x.json(normal=True), "y": self.y.json(normal=True),
-                "z": self.z.json(normal=True), "yaw": self.yaw.json(normal=True),
-                "pitch": self.pitch.json(normal=True)}, []
+        additional_actions = []
+        x, additional1 = self.x.json(normal=True)
+        additional_actions.extend(additional1)
+        y, additional1 = self.y.json(normal=True)
+        additional_actions.extend(additional1)
+        z, additional1 = self.z.json(normal=True)
+        additional_actions.extend(additional1)
+        yaw, additional1 = self.yaw.json(normal=True)
+        additional_actions.extend(additional1)
+        pitch, additional1 = self.pitch.json(normal=True)
+        additional_actions.extend(additional1)
+        return {"type": "location", "x": x, "y": y,
+                "z": z, "yaw": yaw,
+                "pitch": pitch}, additional_actions
 
 
 class vector:
-    def __init__(self, x=None, y=None, z=None, args=None, start_line=None, end_line=None, offset_pos=None,
+    def __init__(self, x=None, y=None, z=None, arg=None, start_line=None, end_line=None, offset_pos=None,
                  limit_offset_pos=None, file=None):
         self.type = "vector"
         self.start_line = start_line
@@ -1441,15 +1468,18 @@ class vector:
         self.offset_pos = offset_pos
         self.limit_offset_pos = limit_offset_pos
         self.file = file
-        if args != None:
-            args.arg_list = ["x", "y", "z"]
-            args = args.get_args()
-            x = args["x"]
-            y = args["y"]
-            z = args["z"]
-        self.x = check(x, "variable", "number")
-        self.y = check(y, "variable", "number")
-        self.z = check(z, "variable", "number")
+        if arg is not None:
+            arg.arg_list = ["x", "y", "z"]
+            arg = arg.get_args()
+            for k1, v1 in arg.items():
+                if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
+                    arg[k1] = symbol_table["inlines"][v1.name]
+            x = arg["x"]
+            y = arg["y"]
+            z = arg["z"]
+        self.x = check(x, "number")
+        self.y = check(y, "number")
+        self.z = check(z, "number")
 
     def __str__(self):
         return f'vector({self.x},{self.y},{self.z})'
@@ -1458,12 +1488,16 @@ class vector:
         return self.__str__()
 
     def json(self):
-        return {"type": "vector", "x": self.x.json(normal=True), "y": self.y.json(normal=True),
-                "z": self.z.json(normal=True)}, []
+        x, additional1 = self.x.json(normal=True)
+        y, additional1 = self.y.json(normal=True)
+        z, additional1 = self.z.json(normal=True)
+        return {"type": "vector", "x": x, "y": y,
+                "z": z}, []
 
 
 class potion:
-    def __init__(self, potion=None, amplifier=number(0), duration=number(0), args=None, start_line=None, end_line=None,
+    def __init__(self, potion_type=None, amplifier=number(0), duration=number(0), arg=None, start_line=None,
+                 end_line=None,
                  offset_pos=None, limit_offset_pos=None, file=None):
         self.type = "potion"
         self.start_line = start_line
@@ -1471,19 +1505,19 @@ class potion:
         self.offset_pos = offset_pos
         self.limit_offset_pos = limit_offset_pos
         self.file = file
-        if args is not None:
-            args.arg_list = ["potion", "amplifier", "duration"]
-            args = args.get_args()
-            potion = args["potion"]
-            amplifier = args["amplifier"]
+        if arg is not None:
+            arg.arg_list = ["potion", "amplifier", "duration"]
+            arg = arg.get_args()
+            potion_type = arg["potion"]
+            amplifier = arg["amplifier"]
             if amplifier is None:
                 amplifier = number(0)
-            duration = args["duration"]
+            duration = arg["duration"]
             if duration is None:
                 duration = number(0)
-        self.potion = check(potion, "variable", "number")
-        self.amplifier = check(amplifier, "variable", "number")
-        self.duration = check(duration, "variable", "number")
+        self.potion = check(potion_type, "text")
+        self.amplifier = check(amplifier, "number")
+        self.duration = check(duration, "number")
 
     def __str__(self):
         return f'potion({self.potion},{self.amplifier},{self.duration})'
@@ -1491,9 +1525,15 @@ class potion:
     def __repr__(self):
         return self.__str__()
 
+    def json(self):
+        potion_type, additional_1 = self.potion.json(normal=True)
+        amplifier, additional_1 = self.amplifier.json(normal=True)
+        duration, additional_1 = self.duration.json(normal=True)
+        return {"type": "potion", "potion": potion_type, "amplifier": amplifier, "duration": duration}
+
 
 class sound:
-    def __init__(self, sound=None, volume=number(0), pitch=number(0), args=None, start_line=None, end_line=None,
+    def __init__(self, sound_id=None, volume=number(0), pitch=number(0), arg=None, start_line=None, end_line=None,
                  offset_pos=None, limit_offset_pos=None, file=None):
         self.type = "sound"
         self.start_line = start_line
@@ -1501,19 +1541,22 @@ class sound:
         self.offset_pos = offset_pos
         self.limit_offset_pos = limit_offset_pos
         self.file = file
-        if args is not None:
-            args.arg_list = ["sound", "volume", "pitch"]
-            args = args.get_args()
-            sound = args["sound"]
-            volume = args["volume"]
+        if arg is not None:
+            arg.arg_list = ["sound", "volume", "pitch"]
+            for k1, v1 in arg.items():
+                if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
+                    arg[k1] = symbol_table["inlines"][v1.name]
+            arg = arg.get_args()
+            sound_id = arg["sound"]
+            volume = arg["volume"]
             if volume is None:
                 volume = number(0)
-            pitch = args["pitch"]
+            pitch = arg["pitch"]
             if pitch is None:
                 pitch = number(0)
-        self.sound = check(sound, "text", "variable")
-        self.volume = check(volume, "variable", "number")
-        self.pitch = check(pitch, "variable", "number")
+        self.sound = check(sound_id, "text")
+        self.volume = check(volume, "number")
+        self.pitch = check(pitch, "number")
 
     def __str__(self):
         return f'sound({self.sound},{self.volume},{self.pitch})'
@@ -1521,10 +1564,17 @@ class sound:
     def __repr__(self):
         return self.__str__()
 
+    def json(self):
+        sound_id, additional1 = self.sound.json(normal=True)
+        volume, additional1 = self.volume.json(normal=True)
+        pitch, additional1 = self.pitch.json(normal=True)
+        return {"type": "sound", "sound": sound_id, "volume": volume, "pitch": pitch}
+
 
 class particle:
-    def __init__(self, particle=None, count=number(0), spread_x=number(0), spread_y=number(0), motion_x=number(0),
-                 motion_y=number(0), motion_z=number(0), material=None, color=None, args=None, start_line=None,
+    def __init__(self, particle_type=None, count=number(0), spread_x=number(0), spread_y=number(0), motion_x=number(0),
+                 motion_y=number(0), motion_z=number(0), material=None, color=None, arg=None, size=None,
+                 start_line=None,
                  end_line=None,
                  offset_pos=None, limit_offset_pos=None, file=None):
         self.type = "sound"
@@ -1533,62 +1583,76 @@ class particle:
         self.offset_pos = offset_pos
         self.limit_offset_pos = limit_offset_pos
         self.file = file
-        if args is not None:
-            args.arg_list = ["particle", "count", "spread_x", "spread_y", "motion_x", "motion_y", "motion_z",
-                             "material", "color", "size"]
-            args = args.get_args()
-            particle = args["particle"]
-            count = args["count"]
+        if arg is not None:
+            arg.arg_list = ["particle", "count", "spread_x", "spread_y", "motion_x", "motion_y", "motion_z",
+                            "material", "color", "size"]
+            arg = arg.get_args()
+            for k1, v1 in arg.items():
+                if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
+                    arg[k1] = symbol_table["inlines"][v1.name]
+            particle_type = arg["particle"]
+            count = arg["count"]
             if count is None:
                 count = number(1)
-            spread_x = args["spread_x"]
+            spread_x = arg["spread_x"]
             if spread_x is None:
                 spread_x = number(0)
-            spread_y = args["spread_y"]
+            spread_y = arg["spread_y"]
             if spread_y is None:
                 spread_y = number(0)
-            motion_x = args["motion_x"]
+            motion_x = arg["motion_x"]
             if motion_x is None:
                 motion_x = number(0)
-            motion_y = args["motion_y"]
+            motion_y = arg["motion_y"]
             if motion_y is None:
                 motion_y = number(0)
-            motion_z = args["motion_z"]
+            motion_z = arg["motion_z"]
             if motion_z is None:
                 motion_z = number(0)
-            material = args["material"]
-            color = args["color"]
-            size = args["size"]
+            material = arg["material"]
+            color = arg["color"]
+            size = arg["size"]
             if size is None:
                 size = number(0)
-        self.particle = check(particle, "variable", "text")
-        self.count = check(count, "variable", "number")
-        self.spread_x = check(spread_x, "variable", "number")
-        self.spread_y = check(spread_y, "variable", "number")
-        self.motion_x = check(motion_x, "variable", "number")
-        self.motion_y = check(motion_y, "variable", "number")
-        self.motion_z = check(motion_y, "variable", "number")
-        self.material = check(material, "variable", "text")
-        self.color = check(color, "variable", "text")
-        self.size = check(color, "variable", "number")
+        self.particle = check(particle_type, "text")
+        self.count = check(count, "number")
+        self.spread_x = check(spread_x, "number")
+        self.spread_y = check(spread_y, "number")
+        self.motion_x = check(motion_x, "number")
+        self.motion_y = check(motion_y, "number")
+        self.motion_z = check(motion_z, "number")
+        self.material = check(material, "text")
+        self.color = check(color, "text")
+        self.size = check(size, "number")
 
     def __str__(self):
-        return f'particle({self.particle},{self.count},{self.spread_x},{self.spread_y},{self.motion_x},{self.motion_y},{self.material},{self.color},{self.size})'
+        return (f'particle({self.particle},{self.count},{self.spread_x},'
+                f'{self.spread_y},{self.motion_x},{self.motion_y},{self.material},{self.color},{self.size})')
 
     def __repr__(self):
         return self.__str__()
 
     def json(self):
-        a = {"type": "particle", "particle_type": self.particle.json(normal=True),
-             "count": self.count.json(normal=True), "first_spread": self.spread_x.json(normal=True),
-             "second_spread": self.spread_y.json(normal=True), "x_motion": self.motion_x.json(normal=True),
-             "y_motion": self.motion_y.json(normal=True), "z_motion": self.motion_z.json(normal=True)}
+        particle_type, additional1 = self.particle.json(normal=True)
+        count, additional1 = self.count.json(normal=True)
+        spread_x, additional1 = self.spread_x.json(normal=True)
+        spread_y, additional1 = self.spread_y.json(normal=True)
+        motion_x, additional1 = self.motion_x.json(normal=True)
+        motion_y, additional1 = self.motion_y.json(normal=True)
+        motion_z, additional1 = self.motion_z.json(normal=True)
+        a = {"type": "particle", "particle_type": particle_type,
+             "count": count, "first_spread": spread_x,
+             "second_spread": spread_y, "x_motion": motion_x,
+             "y_motion": motion_y, "z_motion": motion_z}
         if self.color is not None:
-            a["color"] = self.color.json(normal=True)
+            color, additional1 = self.color.json(normal=True)
+            a["color"] = color
         if self.material is not None:
-            a["material"] = self.material.json(normal=True)
+            material, additional1 = self.material.json(normal=True)
+            a["material"] = material
         if self.size is not None:
-            a["size"] = self.size.json(normal=True)
+            size, additional1 = self.size.json(normal=True)
+            a["size"] = size
         return a, []
 
 
@@ -1628,22 +1692,29 @@ class value:
 
 def try_action(act):
     if act.sub_action == "=":
-        if type(act.args.unpositional[0].value) == var and act.args.unpositional[0].value.var_type == "INLINE":
+        if act.args.unpositional[0].value is var and act.args.unpositional[0].value.var_type == "INLINE":
             symbol_table["inlines"][act.args.unpositional[0].value.name] = act.args.positional[0]
             return
-        if type(act.args.unpositional[0].value) == action:
+        if act.args.unpositional[0].value is action:
             if act.args.unpositional[0].value.sub_action == "subscript":
                 if type(act.args.positional[0]) in (
                         number, text, item, sound, particle, vector, location, potion, value, var):
                     return try_action(action("variable", "set_list_value", args(
                         unpositional=[act.args.unpositional[0].value.args.unpositional[0],
-                                      assign("origin", act.args.unpositional[0].value.args.unpositional[0].value,act.args.unpositional[0].value.args.unpositional[0].start_line,act.args.unpositional[0].value.args.unpositional[0].end_line,act.args.unpositional[0].value.args.unpositional[0].offset_pos,act.args.unpositional[0].value.args.unpositional[0].limit_offset_pos,act.args.unpositional[0].value.args.unpositional[0].file)],
-                        positional=[act.args.unpositional[0].value.args.positional[0], act.args.positional[0]]),None,None,act.start_line,act.end_line,act.offset_pos,act.limit_offset_pos,act.file))
+                                      assign("origin", act.args.unpositional[0].value.args.unpositional[0].value,
+                                             act.args.unpositional[0].value.args.unpositional[0].start_line,
+                                             act.args.unpositional[0].value.args.unpositional[0].end_line,
+                                             act.args.unpositional[0].value.args.unpositional[0].offset_pos,
+                                             act.args.unpositional[0].value.args.unpositional[0].limit_offset_pos,
+                                             act.args.unpositional[0].value.args.unpositional[0].file)],
+                        positional=[act.args.unpositional[0].value.args.positional[0], act.args.positional[0]]), None,
+                                             None, act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
+                                             act.file))
                 else:
                     Error("WrongAction",
                           f"Ожидался один из типов, но был получен {act.args.positional[0].__class__.__name__}",
                           act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos, act.file)
-        if type(act.args.positional[0]) == action:
+        if act.args.positional[0] is action:
             if act.args.positional[0].sub_action == "subscript":
                 if len(act.args.positional[0].args.positional) == 2:
                     act.args.unpositional.extend([assign("origin", act.args.positional[0].args.positional[0]),
@@ -1669,12 +1740,15 @@ def try_action(act):
             else:
                 Error("ActionWithoutResult", "Выражение не имеет значения и не может быть приравнено", act.start_line,
                       act.end_line, act.offset_pos, act.limit_offset_pos, act.file)
-        elif type(act.args.positional[0]) == lst:
+        elif act.args.positional[0] is lst:
             act.args.unpositional.append(assign("values", act.args.positional[0]))
             return try_action(
-                action("variable", "create_list", args(unpositional=act.args.unpositional,start_line=act.start_line,end_line=act.end_line,offset_pos=act.offset_pos,limit_offset_pos=act.limit_offset_pos,file=act.file), None, None, act.start_line,
+                action("variable", "create_list",
+                       args(unpositional=act.args.unpositional, start_line=act.start_line, end_line=act.end_line,
+                            offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos, file=act.file), None,
+                       None, act.start_line,
                        act.end_line, act.offset_pos, act.limit_offset_pos, act.file))
-        elif type(act.args.positional[0]) == dct:
+        elif act.args.positional[0] is dct:
             act.args.unpositional.extend([assign("values",
                                                  lst(act.args.positional[0].values, act.args.positional[0].start_line,
                                                      act.args.positional[0].end_line, act.args.positional[0].offset_pos,
@@ -1690,7 +1764,10 @@ def try_action(act):
                                                  act.args.positional[0].end_line, act.args.positional[0].offset_pos,
                                                  act.args.positional[0].limit_offset_pos, act.args.positional[0].file)])
             return try_action(
-                action("variable", "create_map", args(unpositional=act.args.unpositional,start_line=act.start_line,end_line=act.end_line,offset_pos=act.offset_pos,limit_offset_pos=act.limit_offset_pos,file=act.file), None, None, act.start_line,
+                action("variable", "create_map",
+                       args(unpositional=act.args.unpositional, start_line=act.start_line, end_line=act.end_line,
+                            offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos, file=act.file), None,
+                       None, act.start_line,
                        act.end_line, act.offset_pos, act.limit_offset_pos, act.file))
         else:
             act.sub_action = "set_value"
@@ -1712,7 +1789,13 @@ def try_action(act):
             return
         return try_action(action("variable", "multiply", args(
             unpositional=[act.args.unpositional[0],
-                          assign("value", lst([act.args.unpositional[0].value, act.args.positional[0]],start_line=act.start_line,end_line=act.end_line,offset_pos=act.offset_pos,limit_offset_pos=act.limit_offset_pos,file=act.file),start_line=act.start_line,end_line=act.end_line,offset_pos=act.offset_pos,limit_offset_pos=act.limit_offset_pos,file=act.file)],start_line=act.start_line,end_line=act.end_line,offset_pos=act.offset_pos,limit_offset_pos=act.limit_offset_pos,file=act.file), None,
+                          assign("value", lst([act.args.unpositional[0].value, act.args.positional[0]],
+                                              start_line=act.start_line, end_line=act.end_line,
+                                              offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos,
+                                              file=act.file), start_line=act.start_line, end_line=act.end_line,
+                                 offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos, file=act.file)],
+            start_line=act.start_line, end_line=act.end_line, offset_pos=act.offset_pos,
+            limit_offset_pos=act.limit_offset_pos, file=act.file), None,
                                  False,
                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos, act.file))
     elif act.sub_action == "-=":
@@ -1722,7 +1805,11 @@ def try_action(act):
                      act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos, act.file))
             return
         return try_action(action("variable", "decrement", args(
-            unpositional=[act.args.unpositional[0], assign("number", act.args.positional[0],start_line=act.start_line,end_line=act.end_line,offset_pos=act.offset_pos,limit_offset_pos=act.limit_offset_pos,file=act.file)],start_line=act.start_line,end_line=act.end_line,offset_pos=act.offset_pos,limit_offset_pos=act.limit_offset_pos,file=act.file), None, False,
+            unpositional=[act.args.unpositional[0],
+                          assign("number", act.args.positional[0], start_line=act.start_line, end_line=act.end_line,
+                                 offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos, file=act.file)],
+            start_line=act.start_line, end_line=act.end_line, offset_pos=act.offset_pos,
+            limit_offset_pos=act.limit_offset_pos, file=act.file), None, False,
                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos, act.file))
     elif act.sub_action == "/=":
         if act.args.unpositional[0].value.var_type == "INLINE":
@@ -1768,12 +1855,12 @@ def try_action(act):
                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos, act.file))
     thing = act.args.unpositional.copy()
     for i in range(len(act.args.unpositional)):
-        if type(act.args.unpositional[i].value) == var and act.args.unpositional[i].value.var_type == "INLINE":
+        if act.args.unpositional[i].value is var and act.args.unpositional[i].value.var_type == "INLINE":
             thing[i] = symbol_table["inlines"][act.args.unpositional[i].value.name]
     act.args.unpositional = thing
     thing = act.args.positional.copy()
     for i in range(len(act.args.positional)):
-        if type(act.args.positional[i]) == var and act.args.positional[i].var_type == "INLINE":
+        if act.args.positional[i] is var and act.args.positional[i].var_type == "INLINE":
             thing[i] = symbol_table["inlines"][act.args.positional[i].name]
     act.args.positional = thing
 
@@ -1781,9 +1868,9 @@ def try_action(act):
 
 
 class action:
-    def __init__(self, act_type, sub_action, args=None, selector=None, no=None, start_line=None, end_line=None,
+    def __init__(self, act_type, sub_action, arg=None, selector=None, no=None, start_line=None, end_line=None,
                  offset_pos=None, limit_offset_pos=None, file=None, operations=None, conditional=None):
-        self.type="action"
+        self.type = "action"
         self.start_line = start_line
         self.end_line = end_line
         self.offset_pos = offset_pos
@@ -1794,7 +1881,7 @@ class action:
             Error("UnexistsAction", f"Указано несуществующее действие {sub_action}", start_line, end_line, offset_pos,
                   limit_offset_pos, file)
         self.sub_action = sub_action
-        self.args = args
+        self.args = arg
         if selector is not None:
             if act_type == "player" and not selector in (
                     "current", "default_player", "killer_player", "damager_player", "shooter_player", "victim_player",
@@ -1819,8 +1906,8 @@ class action:
     def __repr__(self):
         return self.__str__()
 
-    def json(self,in_text=None):
-        if in_text != None:
+    def json(self, in_text=None):
+        if in_text is not None:
             Error("UnexistsAction", f"Указано несуществующее действие {self.sub_action}", self.start_line,
                   self.end_line, self.offset_pos, self.limit_offset_pos, self.file)
         additional_actions = []
@@ -1831,7 +1918,7 @@ class action:
             if need_type == "text":
                 return True
             elif need_type == "variable":
-                if obj.type == need_type or type(obj) == value:
+                if obj.type == need_type or obj is value:
                     return True
             elif need_type == "any":
                 return True
@@ -1850,7 +1937,7 @@ class action:
                 if i["name"] == self.sub_action and i["object"] == self.act_type:
                     sub_action = i["id"]
                     break
-            if sub_action == None:
+            if sub_action is None:
                 Error("UnexistsAction", f"Указано несуществующее действие {self.act_type}::{self.sub_action}",
                       self.start_line,
                       self.end_line, self.offset_pos, self.limit_offset_pos, self.file)
@@ -1862,49 +1949,51 @@ class action:
         self.args.origin = actions[self.sub_action].setdefault("origin", None)
         self.args.lamba = actions[self.sub_action].setdefault("lambda", None)
         self.args.get_args()
-        args = []
+        arg = []
         types = {i["name"]: i for i in actions[self.sub_action]["args"]}
-        for k, v in self.args.args.items():
-            if v is not None:
-                if types[k]["type"] in ("enum", "boolean"):
-                    additional=[]
-                    if type(v) == text:
-                        if (types[k]["type"] == "enum" and not v.text in types[k]["enum"]) or (
-                                types[k]["type"] == "boolean" and not v.text in ("TRUE", "FALSE")):
+        for k1, v1 in self.args.args.items():
+            if v1 is not None:
+                if types[k1]["type"] in ("enum", "boolean"):
+                    additional2 = []
+                    if v1 is text:
+                        if (types[k1]["type"] == "enum" and not v1.text in types[k1]["enum"]) or (
+                                types[k1]["type"] == "boolean" and not v1.text in ("TRUE", "FALSE")):
                             Error("UnknownArgument",
-                                  f"Неизвестный тип перечисления {v.text}",
-                                  v.start_line, v.end_line, v.offset_pos, v.limit_offset_pos, v.file)
-                        a = {"type": "enum", "enum": v.text}
-                    elif v.type == "variable":
-                        if types[k]["type"] == "enum":
-                            a = {"type": "enum", "enum": types[k]["enum"][0]}
+                                  f"Неизвестный тип перечисления {v1.text}",
+                                  v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file)
+                        a = {"type": "enum", "enum": v1.text}
+                    elif v1.type == "variable":
+                        if types[k1]["type"] == "enum":
+                            a = {"type": "enum", "enum": types[k1]["enum"][0]}
                         else:
                             a = {"type": "enum", "enum": "FALSE"}
-                        a["variable"] = v.name
-                        a["scope"] = v.var_type.lower()
+                        a["variable"] = v1.name
+                        a["scope"] = v1.var_type.lower()
                     else:
-                        a=None
-                        Error("TypeError", f"Ожидался объект типа {types[k]["type"]}, но был получен {v.type}",
-                              v.start_line, v.end_line, v.offset_pos, v.limit_offset_pos, v.file)
-                elif types[k].setdefault("array", False) == True and v.type == "array":
-                    if len(v.values) > types[k]["length"]:
+                        a = None
+                        Error("TypeError", "Ожидался объект типа " + types[k1]["type"] + f", но был получен {v1.type}",
+                              v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file)
+                elif types[k1].setdefault("array", False) and v1.type == "array":
+                    if len(v1.values) > types[k1]["length"]:
                         Error("SizeError",
-                              f"В объекте array[{types[k]["type"]}], максимальное количество элементов {types[k]["length"]}, но было указано {len(v.values)}",
-                              v.start_line, v.end_line, v.offset_pos, v.limit_offset_pos, v.file)
-                    for i in v.values:
-                        if not check_type(types[k]["type"], i):
-                            Error("TypeError", f"Ожидался объект типа {types[k]["type"]}, но был получен {i.type}",
+                              f"В объекте array[" + types[k1]["type"] + "], максимальное количество элементов " +
+                              types[k1]["length"] + f", но было указано {len(v1.values)}",
+                              v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file)
+                    for i in v1.values:
+                        if not check_type(types[k1]["type"], i):
+                            Error("TypeError",
+                                  "Ожидался объект типа " + "types[k]['type']" + f", но был получен {i.type}",
                                   i.start_line, i.end_line, i.offset_pos, i.limit_offset_pos, i.file)
-                    a, additional = v.json()
-                elif check_type(types[k]["type"], v):
-                    a, additional = v.json()
+                    a, additional2 = v1.json()
+                elif check_type(types[k1]["type"], v1):
+                    a, additional2 = v1.json()
                 else:
-                    a, additional = None, []
-                    Error("TypeError", f"Ожидался объект типа {types[k]["type"]}, но был получен {v.type}",
-                          v.start_line, v.end_line, v.offset_pos, v.limit_offset_pos, v.file)
-                additional_actions.extend(additional)
-                args.append({"name": k, "value": a})
-        a = {"action": sub_action, "values": args}
+                    a, additional2 = None, []
+                    Error("TypeError", "Ожидался объект типа " + types[k1]['type'] + f", но был получен {v1.type}",
+                          v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file)
+                additional_actions.extend(additional2)
+                arg.append({"name": k1, "value": a})
+        a = {"action": sub_action, "values": arg}
         if self.selector is not None:
             if self.act_type == "player" and not self.selector in (
                     "current", "default_player", "killer_player", "damager_player", "shooter_player", "victim_player",
@@ -1930,13 +2019,13 @@ class action:
                     self.no = self.conditional.no
             else:
                 self.conditional.no = False
-            a["conditional"], additional = self.conditional.json()
-            additional_actions.extend(additional)
+            a["conditional"], additional2 = self.conditional.json()
+            additional_actions.extend(additional2)
             a["values"].extend(a["conditional"]["values"])
         if self.operations is not None:
-            operations, additional = self.operations.json(normal=True)
+            operations, additional2 = self.operations.json(normal=True)
             a["operations"] = operations
-            additional_actions.extend(additional)
+            additional_actions.extend(additional2)
 
         return a, additional_actions
 
@@ -1998,10 +2087,10 @@ class if_:
 
     def json(self):
         additional_actions = []
-        act, additional = self.act.json()
-        additional_actions.extend(additional)
-        operations, additional = self.operations.json(normal=True)
-        additional_actions.extend(additional)
+        act, additional2 = self.act.json()
+        additional_actions.extend(additional2)
+        operations, additional2 = self.operations.json(normal=True)
+        additional_actions.extend(additional2)
         act["operations"] = operations
         return act, additional_actions
 
@@ -2024,8 +2113,8 @@ class else_:
 
     def json(self):
         additional_actions = []
-        operations, additional = self.operations.json(normal=True)
-        additional_actions.extend(additional)
+        operations, additional2 = self.operations.json(normal=True)
+        additional_actions.extend(additional2)
         a = {"action": "else", "values": [], "operations": operations}
         return a, additional_actions
 
@@ -2059,14 +2148,14 @@ class event:
         additional_events = []
         operations, additional_actions = self.operations.json(normal=True)
         operations.extend(additional_actions)
-        operations, additional = fix_operations_len(operations)
-        additional_events.extend(additional)
+        operations, additional2 = fix_operations_len(operations)
+        additional_events.extend(additional2)
         a["operations"] = operations
         return a, additional_events
 
 
 def try_math(mat):
-    if type(mat.first) == number and type(mat.second) == number:
+    if mat.first is number and mat.second is number:
         if mat.operation == "*":
             return number(mat.first.value * mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
                           mat.limit_offset_pos, mat.file)
@@ -2088,11 +2177,11 @@ def try_math(mat):
         elif mat.operation == "^":
             return number(mat.first.value ** mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
                           mat.limit_offset_pos, mat.file)
-    elif type(mat.first) == text and type(mat.second) == number:
+    elif mat.first is text and mat.second is number:
         if mat.operation == "*":
             return text(mat.first.text * mat.second.value, mat.first.text_type, mat.start_line, mat.end_line,
                         mat.offset_pos, mat.limit_offset_pos, mat.file)
-    elif type(mat.first) == text and type(mat.second) == text:
+    elif mat.first is text and mat.second is text:
         if mat.operation == "+":
             return text(mat.first.text + mat.second.text, mat.first.text_type, mat.start_line, mat.end_line,
                         mat.offset_pos, mat.limit_offset_pos, mat.file)
@@ -2112,10 +2201,10 @@ class math:
         self.limit_offset_pos = limit_offset_pos
         self.file = file
         self.operation = operation
-        if type(first) == var and first.var_type == "INLINE":
+        if first is var and first.var_type == "INLINE":
             first = symbol_table["inlines"][first.name]
         self.first = first
-        if type(second) == var and second.var_type == "INLINE":
+        if second is var and second.var_type == "INLINE":
             second = symbol_table["inlines"][second.name]
         self.second = second
         self.type = "number"
@@ -2127,7 +2216,7 @@ class math:
         return self.__str__()
 
     def json(self, in_text=False):
-        if in_text == True:
+        if in_text:
             return f"({self.first.json(in_text=True)}{self.operation}{self.second.json(in_text=True)})"
 
         return {"type": "number",
@@ -2135,7 +2224,7 @@ class math:
 
 
 class function:
-    def __init__(self, name, actions=None, start_line=None, end_line=None, offset_pos=None,
+    def __init__(self, name, operations=None, start_line=None, end_line=None, offset_pos=None,
                  limit_offset_pos=None, file=None):
         self.start_line = start_line
         self.end_line = end_line
@@ -2143,7 +2232,7 @@ class function:
         self.limit_offset_pos = limit_offset_pos
         self.file = file
         self.name = name
-        self.actions = actions
+        self.actions = operations
 
     def __str__(self):
         return f'function({self.name},{self.actions})'
@@ -2159,8 +2248,8 @@ class function:
         additional_events = []
         operations, additional_actions = self.actions.json(normal=True)
         operations.extend(additional_actions)
-        operations, additional = fix_operations_len(operations)
-        additional_events.extend(additional)
+        operations, additional2 = fix_operations_len(operations)
+        additional_events.extend(additional2)
         a["operations"] = operations
         return a, additional_events
 
@@ -2168,10 +2257,10 @@ class function:
 def try_function(call_func):
     if call_func.name in allowed_actions:
         if call_func.name == "round":
-            if type(call_func.args.args["first"]) == number:
+            if call_func.args.args["first"] is number:
                 if call_func.args.args["second"] is None:
                     call_func.args.args["second"] = number(0)
-                if type(call_func.args.args["second"]) == number:
+                if call_func.args.args["second"] is number:
                     return number(round(call_func.args.args["first"].value, call_func.args.args["second"].value),
                                   call_func.start_line, call_func.end_line, call_func.offset_pos,
                                   call_func.limit_offset_pos, call_func.file)
@@ -2200,18 +2289,20 @@ class call_function:
         return self.__str__()
 
     def json(self, in_text=False):
-        if in_text == True:
+        if in_text:
             arg = []
-            for k, v in self.args.args.items():
-                if v is not None:
-                    arg.append(v.json(in_text=True))
-            return f"{self.name}({"".join(arg)})"
-        act,additional=action("code", "call_function", args(positional=[text(self.name)]), None, None, self.start_line,self.end_line, self.offset_pos, self.limit_offset_pos, self.file).json()
-        return act,additional
+            for k1, v1 in self.args.args.items():
+                if v1 is not None:
+                    arg.append(v1.json(in_text=True))
+            return f"{self.name}(" + ", ".join(arg) + ")"
+        act, additional1 = action("code", "call_function", args(positional=[text(self.name)]), None, None,
+                                  self.start_line, self.end_line, self.offset_pos, self.limit_offset_pos,
+                                  self.file).json()
+        return act, additional1
 
 
 class process:
-    def __init__(self, name, actions, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
+    def __init__(self, name, operations, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
                  file=None):
         self.start_line = start_line
         self.end_line = end_line
@@ -2219,7 +2310,7 @@ class process:
         self.limit_offset_pos = limit_offset_pos
         self.file = file
         self.name = name
-        self.actions = actions
+        self.actions = operations
 
     def __str__(self):
         return f'process({self.name},{self.actions})'
@@ -2236,13 +2327,13 @@ class process:
         additional_events = []
         operations, additional_actions = self.actions.json(normal=True)
         operations.extend(additional_actions)
-        operations, additional = fix_operations_len(operations)
-        additional_events.extend(additional)
+        operations, additional2 = fix_operations_len(operations)
+        additional_events.extend(additional2)
         a["operations"] = operations
         return a, additional_events
 
 
-class Parser():
+class Parser:
     global open_files
 
     def __init__(self, lexer, tree):
@@ -2294,7 +2385,7 @@ class Parser():
                     unpositional = []
                     while self.current_token.type != EOF and self.current_token.type != RPAREN:
                         a = self.expr(assigning=True)
-                        if type(a) == assign:
+                        if a is assign:
                             unpositional.append(a)
                         else:
                             positional.append(a)
@@ -2304,8 +2395,10 @@ class Parser():
                     limit_offset_pos = self.current_token.limit_offset_pos
                     self.eat(RPAREN)
                     return try_function(
-                        call_function(token.value, arg=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file),
+                        call_function(token.value,
+                                      arg=args(positional=positional, unpositional=unpositional, start_line=start_line,
+                                               end_line=end_line, offset_pos=offset_pos,
+                                               limit_offset_pos=limit_offset_pos, file=self.lexer.file),
                                       start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                                       limit_offset_pos=limit_offset_pos, file=self.lexer.file))
                 return var(token.value, start_line=token.start_line, end_line=token.end_line,
@@ -2336,7 +2429,7 @@ class Parser():
                 positional = []
                 while self.current_token.type != EOF and self.current_token.type != RPAREN:
                     a = self.expr(assigning=True)
-                    if type(a) == assign:
+                    if a is assign:
                         unpositional.append(a)
                     else:
                         positional.append(a)
@@ -2345,10 +2438,12 @@ class Parser():
                 end_line = self.current_token.end_line
                 limit_offset_pos = self.current_token.limit_offset_pos
                 self.eat(RPAREN)
-                return item(args=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
-                            end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                            file=self.lexer.file)
+                return item(
+                    arg=args(positional=positional, unpositional=unpositional, start_line=start_line, end_line=end_line,
+                             offset_pos=offset_pos,
+                             limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
+                    end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
+                    file=self.lexer.file)
             return var("item", start_line=token.start_line, end_line=token.end_line, offset_pos=token.offset_pos,
                        limit_offset_pos=token.limit_offset_pos, file=self.lexer.file)
         elif token.type == LOCATION:
@@ -2361,7 +2456,7 @@ class Parser():
                 positional = []
                 while self.current_token.type != EOF and self.current_token.type != RPAREN:
                     a = self.expr(assigning=True)
-                    if type(a) == assign:
+                    if a is assign:
                         unpositional.append(a)
                     else:
                         positional.append(a)
@@ -2370,10 +2465,12 @@ class Parser():
                 end_line = self.current_token.end_line
                 limit_offset_pos = self.current_token.limit_offset_pos
                 self.eat(RPAREN)
-                return location(args=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
-                                end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                                file=self.lexer.file)
+                return location(
+                    arg=args(positional=positional, unpositional=unpositional, start_line=start_line, end_line=end_line,
+                             offset_pos=offset_pos,
+                             limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
+                    end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
+                    file=self.lexer.file)
             return var("location", end_line=token.end_line, offset_pos=token.offset_pos,
                        limit_offset_pos=token.limit_offset_pos, file=self.lexer.file)
         elif token.type == VECTOR:
@@ -2386,7 +2483,7 @@ class Parser():
                 positional = []
                 while self.current_token.type != EOF and self.current_token.type != RPAREN:
                     a = self.expr(assigning=True)
-                    if type(a) == assign:
+                    if a is assign:
                         unpositional.append(a)
                     else:
                         positional.append(a)
@@ -2395,10 +2492,12 @@ class Parser():
                 end_line = self.current_token.end_line
                 limit_offset_pos = self.current_token.limit_offset_pos
                 self.eat(RPAREN)
-                return vector(args=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
-                              end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                              file=self.lexer.file)
+                return vector(
+                    arg=args(positional=positional, unpositional=unpositional, start_line=start_line, end_line=end_line,
+                             offset_pos=offset_pos,
+                             limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
+                    end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
+                    file=self.lexer.file)
             return var("vector", end_line=token.end_line, offset_pos=token.offset_pos,
                        limit_offset_pos=token.limit_offset_pos, file=self.lexer.file)
         elif token.type == POTION:
@@ -2411,7 +2510,7 @@ class Parser():
                 positional = []
                 while self.current_token.type != EOF and self.current_token.type != RPAREN:
                     a = self.expr(assigning=True)
-                    if type(a) == assign:
+                    if a is assign:
                         unpositional.append(a)
                     else:
                         positional.append(a)
@@ -2420,10 +2519,12 @@ class Parser():
                 end_line = self.current_token.end_line
                 limit_offset_pos = self.current_token.limit_offset_pos
                 self.eat(RPAREN)
-                return potion(args=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
-                              end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                              file=self.lexer.file)
+                return potion(
+                    arg=args(positional=positional, unpositional=unpositional, start_line=start_line, end_line=end_line,
+                             offset_pos=offset_pos,
+                             limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
+                    end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
+                    file=self.lexer.file)
             return var("potion", end_line=token.end_line, offset_pos=token.offset_pos,
                        limit_offset_pos=token.limit_offset_pos, file=self.lexer.file)
         elif token.type == SOUND:
@@ -2436,7 +2537,7 @@ class Parser():
                 positional = []
                 while self.current_token.type != EOF and self.current_token.type != RPAREN:
                     a = self.expr(assigning=True)
-                    if type(a) == assign:
+                    if a is assign:
                         unpositional.append(a)
                     else:
                         positional.append(a)
@@ -2445,10 +2546,12 @@ class Parser():
                 end_line = self.current_token.end_line
                 limit_offset_pos = self.current_token.limit_offset_pos
                 self.eat(RPAREN)
-                return sound(args=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
-                             end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                             file=self.lexer.file)
+                return sound(
+                    arg=args(positional=positional, unpositional=unpositional, start_line=start_line, end_line=end_line,
+                             offset_pos=offset_pos,
+                             limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
+                    end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
+                    file=self.lexer.file)
             return var("sound", end_line=token.end_line, offset_pos=token.offset_pos,
                        limit_offset_pos=token.limit_offset_pos, file=self.lexer.file)
         elif token.type == PARTICLE:
@@ -2461,7 +2564,7 @@ class Parser():
                 positional = []
                 while self.current_token.type != EOF and self.current_token.type != RPAREN:
                     a = self.expr(assigning=True)
-                    if type(a) == assign:
+                    if a is assign:
                         unpositional.append(a)
                     else:
                         positional.append(a)
@@ -2470,10 +2573,12 @@ class Parser():
                 end_line = self.current_token.end_line
                 limit_offset_pos = self.current_token.limit_offset_pos
                 self.eat(RPAREN)
-                return particle(args=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
-                                end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                                file=self.lexer.file)
+                return particle(
+                    arg=args(positional=positional, unpositional=unpositional, start_line=start_line, end_line=end_line,
+                             offset_pos=offset_pos,
+                             limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
+                    end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
+                    file=self.lexer.file)
             return var("particle", end_line=token.end_line, offset_pos=token.offset_pos,
                        limit_offset_pos=token.limit_offset_pos, file=self.lexer.file)
         elif token.type == LPAREN:
@@ -2485,32 +2590,32 @@ class Parser():
             start_line = token.start_line
             offset_pos = token.offset_pos
             self.eat(LSPAREN)
-            values = []
+            vals = []
             while self.current_token.type != EOF and self.current_token.type != RSPAREN:
-                values.append(self.expr())
+                vals.append(self.expr())
                 if self.current_token.type == COMMA:
                     self.eat(COMMA)
             end_line = self.current_token.end_line
             limit_offset_pos = self.current_token.limit_offset_pos
             self.eat(RSPAREN)
-            return lst(values, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+            return lst(vals, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                        limit_offset_pos=limit_offset_pos, file=self.lexer.file)
         elif token.type == LCPAREN:
             start_line = token.start_line
             offset_pos = token.offset_pos
             self.eat(LCPAREN)
             keys = []
-            values = []
+            vals = []
             while self.current_token.type != EOF and self.current_token.type != RCPAREN:
                 keys.append(self.expr())
                 self.eat(COLON)
-                values.append(self.expr())
+                vals.append(self.expr())
                 if self.current_token.type == COMMA:
                     self.eat(COMMA)
             end_line = self.current_token.end_line
             limit_offset_pos = self.current_token.limit_offset_pos
             self.eat(RCPAREN)
-            return dct(keys, values, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+            return dct(keys, vals, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                        limit_offset_pos=limit_offset_pos, file=self.lexer.file)
         elif token.type == VALUE:
             start_line = token.start_line
@@ -2540,7 +2645,7 @@ class Parser():
             positional = []
             while self.current_token.type != EOF and self.current_token.type != RPAREN:
                 a = self.expr(assigning=True)
-                if type(a) == assign:
+                if a is assign:
                     unpositional.append(a)
                 else:
                     positional.append(a)
@@ -2550,8 +2655,10 @@ class Parser():
             limit_offset_pos = self.current_token.limit_offset_pos
             self.eat(RPAREN)
             return try_action(action(sub_action.type.lower(), sub_action.value,
-                                     args=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file), selector=selector,
+                                     arg=args(positional=positional, unpositional=unpositional, start_line=start_line,
+                                              end_line=end_line, offset_pos=offset_pos,
+                                              limit_offset_pos=limit_offset_pos, file=self.lexer.file),
+                                     selector=selector,
                                      start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file))
         else:
@@ -2563,7 +2670,7 @@ class Parser():
     def expr(self, assigning=False, work_with=None, pr=1):
         if self.current_token.equals(OEL):
             self.eat(OEL)
-        if work_with == None:
+        if work_with is None:
             result = self.up_factor(assigning=assigning, work_with=work_with)
         else:
             result = work_with
@@ -2632,7 +2739,7 @@ class Parser():
             positional = []
             while self.current_token.type != EOF and self.current_token.type != RPAREN:
                 a = self.expr(assigning=True)
-                if type(a) == assign:
+                if a is assign:
                     unpositional.append(a)
                 else:
                     positional.append(a)
@@ -2641,25 +2748,29 @@ class Parser():
             end_line = self.current_token.end_line
             limit_offset_pos = self.current_token.limit_offset_pos
             self.eat(RPAREN)
-            return try_action(action("special", act, args=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file),
+            return try_action(action("special", act,
+                                     arg=args(positional=positional, unpositional=unpositional, start_line=start_line,
+                                              end_line=end_line, offset_pos=offset_pos,
+                                              limit_offset_pos=limit_offset_pos, file=self.lexer.file),
                                      start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file))
         elif self.current_token.equals(LSPAREN):
             start_line = result.start_line
             offset_pos = result.offset_pos
             self.eat(LSPAREN)
-            values = [result]
+            vals = [result]
             while self.current_token.type != EOF and self.current_token.type != RSPAREN:
-                values.append(self.expr())
+                vals.append(self.expr())
                 if self.current_token.type == COLON:
                     self.eat(COLON)
             end_line = self.current_token.end_line
             limit_offset_pos = self.current_token.limit_offset_pos
             self.eat(RSPAREN)
             return try_action(
-                action("special", "subscript", args=args(positional=values,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line, end_line=end_line,
+                action("special", "subscript",
+                       arg=args(positional=vals, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+                                limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
+                       end_line=end_line,
                        offset_pos=offset_pos, limit_offset_pos=limit_offset_pos, file=self.lexer.file))
         if self.current_token.equals(ASSIGN) and assigning is True:
             start_line = result.start_line
@@ -2668,11 +2779,11 @@ class Parser():
             second = self.expr()
             end_line = second.end_line
             limit_offset_pos = second.limit_offset_pos
-            if type(result) == var:
+            if result is var:
                 result = result.name
-            elif type(result) == text:
+            elif result is text:
                 result = result.text
-            elif type(result) == number:
+            elif result is number:
                 result = str(result.value)
             else:
                 Error("Impossible", f"значение типа {result.type} не может быть установлено как ключ",
@@ -2726,7 +2837,7 @@ class Parser():
                     positional = []
                     while self.current_token.type != EOF and self.current_token.type != RPAREN:
                         a = self.expr(assigning=True)
-                        if type(a) == assign:
+                        if a is assign:
                             unpositional.append(a)
                         else:
                             positional.append(a)
@@ -2735,8 +2846,10 @@ class Parser():
                     end_line = self.current_token.end_line
                     limit_offset_pos = self.current_token.limit_offset_pos
                     self.eat(RPAREN)
-                    return call_function(var_name, arg=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file),
+                    return call_function(var_name, arg=args(positional=positional, unpositional=unpositional,
+                                                            start_line=start_line, end_line=end_line,
+                                                            offset_pos=offset_pos,
+                                                            limit_offset_pos=limit_offset_pos, file=self.lexer.file),
                                          start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                                          limit_offset_pos=limit_offset_pos, file=self.lexer.file)
                 if not var_name in symbol_table["variables"].keys():
@@ -2782,7 +2895,7 @@ class Parser():
                 positional = []
                 while self.current_token.type != EOF and self.current_token.type != RSPAREN:
                     a = self.expr(assigning=True)
-                    if type(a) == assign:
+                    if a is assign:
                         unpositional.append(a)
                     else:
                         positional.append(a)
@@ -2792,8 +2905,10 @@ class Parser():
                 limit_offset_pos = self.current_token.limit_offset_pos
                 self.eat(RSPAREN)
                 result = try_action(
-                    action("special", "subscript", args=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file),
+                    action("special", "subscript",
+                           arg=args(positional=positional, unpositional=unpositional, start_line=start_line,
+                                    end_line=end_line, offset_pos=offset_pos,
+                                    limit_offset_pos=limit_offset_pos, file=self.lexer.file),
                            start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                            limit_offset_pos=limit_offset_pos, file=self.lexer.file))
             if self.current_token.equals(ASSIGN, PR_WITH_ASSIGN, DEG_WITH_ASSIGN, PLUS_WITH_ASSIGN, DIVIDE_WITH_ASSIGN,
@@ -2805,9 +2920,12 @@ class Parser():
                     end_line = second.end_line
                     limit_offset_pos = second.limit_offset_pos
                     return try_action(action("special", thing,
-                                             args=args(positional=[second], unpositional=[assign("assigning", result,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file)],start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file),
+                                             arg=args(positional=[second], unpositional=[
+                                                 assign("assigning", result, start_line=start_line, end_line=end_line,
+                                                        offset_pos=offset_pos,
+                                                        limit_offset_pos=limit_offset_pos, file=self.lexer.file)],
+                                                      start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+                                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file),
                                              start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                                              limit_offset_pos=limit_offset_pos, file=self.lexer.file))
             elif self.current_token.equals(DOT):
@@ -2815,12 +2933,13 @@ class Parser():
                 act = self.current_token.value
                 self.eat(VAR)
                 self.eat(LPAREN)
-                unpositional = [assign("origin", result,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
+                unpositional = [
+                    assign("origin", result, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+                           limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
                 positional = []
                 while self.current_token.type != EOF and self.current_token.type != RPAREN:
                     a = self.expr(assigning=True)
-                    if type(a) == assign:
+                    if a is assign:
                         unpositional.append(a)
                     else:
                         positional.append(a)
@@ -2829,11 +2948,14 @@ class Parser():
                 end_line = self.current_token.end_line
                 limit_offset_pos = self.current_token.limit_offset_pos
                 self.eat(RPAREN)
-                return try_action(action("special", act, args=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file),
+                return try_action(action("special", act, arg=args(positional=positional, unpositional=unpositional,
+                                                                  start_line=start_line, end_line=end_line,
+                                                                  offset_pos=offset_pos,
+                                                                  limit_offset_pos=limit_offset_pos,
+                                                                  file=self.lexer.file),
                                          start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                                          limit_offset_pos=limit_offset_pos, file=self.lexer.file))
-            if type(result) != var:
+            if result is not var:
                 return result
 
         elif self.current_token.equals(IMPORT):
@@ -2849,9 +2971,8 @@ class Parser():
                 another_thing = Parser(Lexer(full_path, work_dir=path), self.tree)
                 another_thing.parse()
             else:
-                print(minecraft_based_text("&6",
-                                           ignore_last_symbol=True) + f"файл {full_path} уже был однажды импортирован, пропускаем" + minecraft_based_text(
-                    ""))
+                print(minecraft_based_text("&6", ignore_last_symbol=True) +
+                      f"файл {full_path} уже был однажды импортирован, пропускаем" + minecraft_based_text(""))
         elif self.current_token.equals(WORLD, VARIABLE, ENTITY, REPEAT, CODE, PLAYER, SELECT, CONTROLLER):
             start_line = self.current_token.start_line
             offset_pos = self.current_token.offset_pos
@@ -2872,9 +2993,9 @@ class Parser():
             conditional = None
             while self.current_token.type != EOF and self.current_token.type != RPAREN:
                 a = self.expr(assigning=True)
-                if type(a) == assign:
+                if a is assign:
                     unpositional.append(a)
-                elif type(a) == action and sub_action.value == "while":
+                elif a is action and sub_action.value == "while" and conditional is None:
                     conditional = a
                 else:
                     positional.append(a)
@@ -2886,11 +3007,13 @@ class Parser():
             if sub_action.equals(REPEAT):
                 self.eat(LCPAREN)
                 count = 0
-                while self.current_token.type != EOF and self.current_token.type != CYCLE_THING and self.current_token.type != OEL:
+                while (self.current_token.type != EOF and self.current_token.type != CYCLE_THING and
+                       self.current_token.type != OEL):
                     a = self.expr()
                     count += 1
-                    unpositional.append(assign(f"lamba_{count}", a,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file))
+                    unpositional.append(
+                        assign(f"lamba_{count}", a, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+                               limit_offset_pos=limit_offset_pos, file=self.lexer.file))
                     if self.current_token.type != CYCLE_THING and self.current_token.type != OEL:
                         self.eat(COMMA)
                 if self.current_token.equals(CYCLE_THING):
@@ -2900,8 +3023,8 @@ class Parser():
                     a = self.statement()
                     if a is not None:
                         acts.append(a)
-                operations = lst(acts,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file)
+                operations = lst(acts, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+                                 limit_offset_pos=limit_offset_pos, file=self.lexer.file)
                 end_line = self.current_token.end_line
                 limit_offset_pos = self.current_token.limit_offset_pos
                 self.eat(RCPAREN)
@@ -2913,16 +3036,18 @@ class Parser():
                     a = self.statement()
                     if a is not None:
                         acts.append(a)
-                operations = lst(acts,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file)
+                operations = lst(acts, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+                                 limit_offset_pos=limit_offset_pos, file=self.lexer.file)
                 end_line = self.current_token.end_line
                 limit_offset_pos = self.current_token.limit_offset_pos
                 self.eat(RCPAREN)
             else:
                 operations = None
             return try_action(action(sub_action.type.lower(), sub_action.value,
-                                     args=args(positional=positional, unpositional=unpositional,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file), selector=selector,
+                                     arg=args(positional=positional, unpositional=unpositional, start_line=start_line,
+                                              end_line=end_line, offset_pos=offset_pos,
+                                              limit_offset_pos=limit_offset_pos, file=self.lexer.file),
+                                     selector=selector,
                                      no=no,
                                      start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file, operations=operations,
@@ -2936,16 +3061,17 @@ class Parser():
             self.eat(LPAREN)
             self.eat(RPAREN)
             self.eat(LCPAREN)
-            values = []
+            vals = []
             while self.current_token.type != EOF and self.current_token.type != RCPAREN:
                 a = self.statement()
                 if a is not None:
-                    values.append(a)
+                    vals.append(a)
             end_line = self.current_token.end_line
             limit_offset_pos = self.current_token.limit_offset_pos
             self.eat(RCPAREN)
-            return function(function_name, lst(values,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+            return function(function_name, lst(vals, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+                                               limit_offset_pos=limit_offset_pos, file=self.lexer.file),
+                            start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                             limit_offset_pos=limit_offset_pos, file=self.lexer.file)
         elif self.current_token.equals(PROCESS):
             start_line = self.current_token.start_line
@@ -2956,16 +3082,17 @@ class Parser():
             self.eat(LPAREN)
             self.eat(RPAREN)
             self.eat(LCPAREN)
-            values = []
+            vals = []
             while self.current_token.type != EOF and self.current_token.type != RCPAREN:
                 a = self.statement()
                 if a is not None:
-                    values.append(a)
+                    vals.append(a)
             end_line = self.current_token.end_line
             limit_offset_pos = self.current_token.limit_offset_pos
             self.eat(RCPAREN)
-            return process(process_name, lst(values,start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+            return process(process_name, lst(vals, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+                                             limit_offset_pos=limit_offset_pos, file=self.lexer.file),
+                           start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                            limit_offset_pos=limit_offset_pos, file=self.lexer.file)
         elif self.current_token.equals(EVENT):
             start_line = self.current_token.start_line
@@ -2973,15 +3100,15 @@ class Parser():
             event_name = self.current_token.value
             self.eat(EVENT)
             self.eat(LCPAREN)
-            values = []
+            vals = []
             while self.current_token.type != EOF and self.current_token.type != RCPAREN:
                 a = self.statement()
                 if a is not None:
-                    values.append(a)
+                    vals.append(a)
             end_line = self.current_token.end_line
             limit_offset_pos = self.current_token.limit_offset_pos
             self.eat(RCPAREN)
-            return event(event_name, lst(values), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+            return event(event_name, lst(vals), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                          limit_offset_pos=limit_offset_pos, file=self.lexer.file)
         elif self.current_token.equals(IF, ELSE):
             start_line = self.current_token.start_line
@@ -3002,19 +3129,19 @@ class Parser():
                 act.no = no
                 self.eat(RPAREN)
             self.eat(LCPAREN)
-            values = []
+            vals = []
             while self.current_token.type != EOF and self.current_token.type != RCPAREN:
                 a = self.statement()
                 if a is not None:
-                    values.append(a)
+                    vals.append(a)
             end_line = self.current_token.end_line
             limit_offset_pos = self.current_token.limit_offset_pos
             self.eat(RCPAREN)
             if act1.equals(IF):
-                return if_(act, lst(values), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+                return if_(act, lst(vals), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                            limit_offset_pos=limit_offset_pos, file=self.lexer.file)
             else:
-                return else_(lst(values), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+                return else_(lst(vals), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                              limit_offset_pos=limit_offset_pos, file=self.lexer.file)
         elif self.current_token.equals(OEL):
             self.eat(OEL)
@@ -3049,7 +3176,7 @@ class Parser():
         return json.dumps({"handlers": eventes}, indent=2)
 
 
-def compile(file, upload=False, compress=False):
+def compile_file(file, upload=False, compress=False):
     global open_files, symbol_table, global_count, global_func_count
     open_files = {}
     symbol_table = {"variables": {}, "inlines": {}}
@@ -3057,41 +3184,44 @@ def compile(file, upload=False, compress=False):
     global_count = -1
     global_func_count = 0
     thing = create_path(os.getcwd(), file)
-    if thing == None:
+    if thing is None:
         print(minecraft_based_text(f"&cUnexistsFile : Файл {file} не найден."))
         sys.exit()
     dir_path, full_path = thing
     lexer = Lexer(full_path, work_dir=dir_path)
     thing = Parser(lexer, tree)
     code = thing.compile()
-    if upload == False:
+    if not upload:
         file_name = full_path.replace(dir_path, "", 1)
         i = file_name.rfind(".")
         new_file_name = file_name[:i] + ".json"
-        if compress == True:
+        if compress:
             open(dir_path + "/" + new_file_name, "wb").write(gzip.compress(code.encode('utf-8')))
         else:
             open(dir_path + "/" + new_file_name, "w").write(code)
     else:
         response = requests.post('https://m.justmc.ru/api/upload', data=code).json()["id"]
         print(minecraft_based_text(f"&aФайл успешно загружен\n\n&7Используйте данную команду на сервере для загрузки "
-                                   f"модуля:\n&9/module loadUrl force https://m.justmc.ru/api/{response}\n\n&eВажно &fМодуль "
-                                   f"по ссылке удалится через &c3 минуты!\n      &fУспейте использовать команду на сервере "
-                                   f"за данное время"))
+                                   f"модуля:\n&9/module loadUrl force https://m.justmc.ru/api/{response}\n"
+                                   f"\n&eВажно &fМодуль по ссылке удалится через &c3 минуты!"
+                                   f"\n      &fУспейте использовать команду на сервере за данное время"))
+
 
 old_actions = json.load(open("data/actions.json"))
 actions = dict()
 for i in old_actions:
     actions[i["name"]] = i
 allowed_actions = ["=", "+=", "-=", "%=", "^=", "//=", "/=", "*=", "subscript"]
-math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["first"],"abs":["first"],"sqrt":["first"],"cbrt:":["first"],"pow":["first"],"min":[],"max":[],"sign":["first"]}
+math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["first"], "abs": ["first"],
+                  "sqrt": ["first"], "cbrt:": ["first"], "pow": ["first"], "min": [], "max": [], "sign": ["first"]}
 events = json.load(open("data/events.json"))
 values = dict()
 for i in json.load(open("data/values.json")):
-        values[i["name"]] = i
+    values[i["name"]] = i
 if __name__ == "__main__":
-    additional=sys.orig_argv[2:]
+    additional = sys.orig_argv[2:]
     if len(additional) > 1:
         if additional[0] == "compile":
-            compile(additional[1],upload=additional[-1] == "-u")
-#compile("a.jc", upload=True )
+            compile_file(additional[1], upload=additional[-1] == "-u")
+
+# compile("a.jc", upload=False )
