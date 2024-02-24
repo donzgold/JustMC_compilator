@@ -1378,7 +1378,7 @@ class item:
             a = {"id": item_id, "Count": count}
             if self.nbt is not None:
                 nbt, additional1 = self.nbt.json(normal=True)
-                if isinstance(nbt,dict):
+                if not isinstance(nbt,dict):
                     raise Exception
                 a["tag"] = nbt
             if self.name is not None or self.lore is not None:
@@ -1388,7 +1388,7 @@ class item:
                     a["tag"]["display"] = {}
                 if self.name is not None:
                     name, additional1 = self.name.json(normal=True)
-                    if isinstance(name,str):
+                    if not isinstance(name,str):
                         raise Exception
                     a["tag"]["display"]["Name"] = json.dumps(minecraft_text(name))
                 if self.lore is not None:
@@ -1397,7 +1397,7 @@ class item:
                         lore = lore.split("\\n")
                     else:
                         lore, additional1 = self.lore.json(normal=True)
-                    if isinstance(lore,list):
+                    if not isinstance(lore,list):
                         raise Exception
                     a["tag"]["display"]["Lore"] = list(map(json.dumps, map(minecraft_text, lore)))
             return {"type": "item", "item": json.dumps(a)}, []
