@@ -1128,7 +1128,7 @@ class Lexer:
                                             offset_pos=start_pos,
                                             limit_offset_pos=end_pos, file=self.file)
                     return self.last_token
-
+            print([self.current_char])
             Error("SyntaxError", f"Неизвестный символ &4&n{self.current_char}", start_line=self.line,
                   offset_pos=self.offset_pos, file=self.file)
         self.last_token = Token(EOF, None, start_line=self.line, offset_pos=self.offset_pos, file=self.file)
@@ -1370,15 +1370,15 @@ class item:
     def json(self):
         try:
             item_id, additional1 = self.id.json(normal=True)
-            if item_id is not str:
+            if not isinstance(item_id,str):
                 raise Exception
             count, additional1 = self.count.json(normal=True)
-            if count is int:
+            if not isinstance(count,int):
                 raise Exception
             a = {"id": item_id, "Count": count}
             if self.nbt is not None:
                 nbt, additional1 = self.nbt.json(normal=True)
-                if nbt is not dict:
+                if isinstance(nbt,dict):
                     raise Exception
                 a["tag"] = nbt
             if self.name is not None or self.lore is not None:
@@ -1388,7 +1388,7 @@ class item:
                     a["tag"]["display"] = {}
                 if self.name is not None:
                     name, additional1 = self.name.json(normal=True)
-                    if name is not str:
+                    if isinstance(name,str):
                         raise Exception
                     a["tag"]["display"]["Name"] = json.dumps(minecraft_text(name))
                 if self.lore is not None:
@@ -1397,7 +1397,7 @@ class item:
                         lore = lore.split("\\n")
                     else:
                         lore, additional1 = self.lore.json(normal=True)
-                    if lore is not list:
+                    if isinstance(lore,list):
                         raise Exception
                     a["tag"]["display"]["Lore"] = list(map(json.dumps, map(minecraft_text, lore)))
             return {"type": "item", "item": json.dumps(a)}, []
@@ -1692,10 +1692,10 @@ class value:
 
 def try_action(act):
     if act.sub_action == "=":
-        if act.args.unpositional[0].value is var and act.args.unpositional[0].value.var_type == "INLINE":
+        if isinstance(act.args.unpositional[0].value,var) and act.args.unpositional[0].value.var_type == "INLINE":
             symbol_table["inlines"][act.args.unpositional[0].value.name] = act.args.positional[0]
             return
-        if act.args.unpositional[0].value is action:
+        if isinstance(act.args.unpositional[0].value,action):
             if act.args.unpositional[0].value.sub_action == "subscript":
                 if type(act.args.positional[0]) in (
                         number, text, item, sound, particle, vector, location, potion, value, var):
@@ -1714,7 +1714,7 @@ def try_action(act):
                     Error("WrongAction",
                           f"Ожидался один из типов, но был получен {act.args.positional[0].__class__.__name__}",
                           act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos, act.file)
-        if act.args.positional[0] is action:
+        if isinstance(act.args.positional[0],action):
             if act.args.positional[0].sub_action == "subscript":
                 if len(act.args.positional[0].args.positional) == 2:
                     act.args.unpositional.extend([assign("origin", act.args.positional[0].args.positional[0]),
@@ -1740,7 +1740,7 @@ def try_action(act):
             else:
                 Error("ActionWithoutResult", "Выражение не имеет значения и не может быть приравнено", act.start_line,
                       act.end_line, act.offset_pos, act.limit_offset_pos, act.file)
-        elif act.args.positional[0] is lst:
+        elif isinstance(act.args.positional[0],lst):
             act.args.unpositional.append(assign("values", act.args.positional[0]))
             return try_action(
                 action("variable", "create_list",
@@ -1748,7 +1748,7 @@ def try_action(act):
                             offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos, file=act.file), None,
                        None, act.start_line,
                        act.end_line, act.offset_pos, act.limit_offset_pos, act.file))
-        elif act.args.positional[0] is dct:
+        elif isinstance(act.args.positional[0],dct):
             act.args.unpositional.extend([assign("values",
                                                  lst(act.args.positional[0].values, act.args.positional[0].start_line,
                                                      act.args.positional[0].end_line, act.args.positional[0].offset_pos,
@@ -1855,12 +1855,12 @@ def try_action(act):
                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos, act.file))
     thing = act.args.unpositional.copy()
     for i in range(len(act.args.unpositional)):
-        if act.args.unpositional[i].value is var and act.args.unpositional[i].value.var_type == "INLINE":
+        if isinstance(act.args.unpositional[i].value, var) and act.args.unpositional[i].value.var_type == "INLINE":
             thing[i] = symbol_table["inlines"][act.args.unpositional[i].value.name]
     act.args.unpositional = thing
     thing = act.args.positional.copy()
     for i in range(len(act.args.positional)):
-        if act.args.positional[i] is var and act.args.positional[i].var_type == "INLINE":
+        if isinstance(act.args.positional[i],var) and act.args.positional[i].var_type == "INLINE":
             thing[i] = symbol_table["inlines"][act.args.positional[i].name]
     act.args.positional = thing
 
@@ -1918,7 +1918,7 @@ class action:
             if need_type == "text":
                 return True
             elif need_type == "variable":
-                if obj.type == need_type or obj is value:
+                if obj.type == need_type or isinstance(obj,value):
                     return True
             elif need_type == "any":
                 return True
@@ -1955,7 +1955,7 @@ class action:
             if v1 is not None:
                 if types[k1]["type"] in ("enum", "boolean"):
                     additional2 = []
-                    if v1 is text:
+                    if isinstance(v1,text):
                         if (types[k1]["type"] == "enum" and not v1.text in types[k1]["enum"]) or (
                                 types[k1]["type"] == "boolean" and not v1.text in ("TRUE", "FALSE")):
                             Error("UnknownArgument",
@@ -2155,7 +2155,7 @@ class event:
 
 
 def try_math(mat):
-    if mat.first is number and mat.second is number:
+    if isinstance(mat.first,number) and isinstance(mat.second,number):
         if mat.operation == "*":
             return number(mat.first.value * mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
                           mat.limit_offset_pos, mat.file)
@@ -2177,11 +2177,11 @@ def try_math(mat):
         elif mat.operation == "^":
             return number(mat.first.value ** mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
                           mat.limit_offset_pos, mat.file)
-    elif mat.first is text and mat.second is number:
+    elif isinstance(mat.first,text) and isinstance(mat.second,number):
         if mat.operation == "*":
             return text(mat.first.text * mat.second.value, mat.first.text_type, mat.start_line, mat.end_line,
                         mat.offset_pos, mat.limit_offset_pos, mat.file)
-    elif mat.first is text and mat.second is text:
+    elif isinstance(mat.first,text) and isinstance(mat.second,text):
         if mat.operation == "+":
             return text(mat.first.text + mat.second.text, mat.first.text_type, mat.start_line, mat.end_line,
                         mat.offset_pos, mat.limit_offset_pos, mat.file)
@@ -2201,10 +2201,10 @@ class math:
         self.limit_offset_pos = limit_offset_pos
         self.file = file
         self.operation = operation
-        if first is var and first.var_type == "INLINE":
+        if isinstance(first,var) and first.var_type == "INLINE":
             first = symbol_table["inlines"][first.name]
         self.first = first
-        if second is var and second.var_type == "INLINE":
+        if isinstance(second,var) and second.var_type == "INLINE":
             second = symbol_table["inlines"][second.name]
         self.second = second
         self.type = "number"
@@ -2257,10 +2257,10 @@ class function:
 def try_function(call_func):
     if call_func.name in allowed_actions:
         if call_func.name == "round":
-            if call_func.args.args["first"] is number:
+            if isinstance(call_func.args.args["first"],number):
                 if call_func.args.args["second"] is None:
                     call_func.args.args["second"] = number(0)
-                if call_func.args.args["second"] is number:
+                if isinstance(call_func.args.args["second"],number):
                     return number(round(call_func.args.args["first"].value, call_func.args.args["second"].value),
                                   call_func.start_line, call_func.end_line, call_func.offset_pos,
                                   call_func.limit_offset_pos, call_func.file)
@@ -3224,4 +3224,4 @@ if __name__ == "__main__":
         if additional[0] == "compile":
             compile_file(additional[1], upload=additional[-1] == "-u")
 
-# compile("a.jc", upload=False )
+#compile_file("a.jc", upload=False)
