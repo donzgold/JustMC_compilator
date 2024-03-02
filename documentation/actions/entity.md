@@ -16,7 +16,9 @@
 | `<random_entity>`  | Случайная сущность    |
 | `<all_mobs>`       | Все мобы              |
 | `<all_entities>`   | Все сущности          |
-| `<last_entity>`    | Последняя сущность    |<h3 id=entity_attach_lead>
+| `<last_entity>`    | Последняя сущность    |
+
+<h3 id=entity_attach_lead>
   <code>entity::attach_lead</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>

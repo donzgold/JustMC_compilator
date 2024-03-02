@@ -14,7 +14,9 @@
 | `<shooter_player>` | Стрелок            |
 | `<victim_player>`  | Жертва             |
 | `<random_player>`  | Случайный игрок    |
-| `<all_players>`    | Все игроки         |<h3 id=if_player_chat_message_equals>
+| `<all_players>`    | Все игроки         |
+
+<h3 id=if_player_chat_message_equals>
   <code>player::chat_message_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
