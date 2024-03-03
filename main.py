@@ -2391,6 +2391,8 @@ class action:
         arg = []
         self.args = self.args.get_args()
         for k1, v1 in self.args.items():
+            if v1 is None:
+                continue
             if self.arg_list[k1]["type"] == "variable":
                 if isinstance(v1, var):
                     continue
