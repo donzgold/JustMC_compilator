@@ -2763,6 +2763,9 @@ class Parser:
         self.tree = tree
 
     def eat(self, token_type):
+        if token_type != "OEL":
+            while self.current_token.type == "OEL":
+                self.current_token = self.lexer.get_next_token
         if self.current_token.type == token_type:
             self.current_token = self.lexer.get_next_token
         else:
@@ -3586,6 +3589,7 @@ class Parser:
                        self.current_token.type != OEL):
                     variables.append(self.expr())
                     if self.current_token.type != CYCLE_THING and self.current_token.type != OEL:
+                        print(self.current_token)
                         self.eat(COMMA)
                 if len(variables) > 0:
                     unpositional.append(
