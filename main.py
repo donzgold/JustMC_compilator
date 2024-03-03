@@ -2668,7 +2668,7 @@ class function:
     def __repr__(self):
         return self.__str__()
 
-    def json(self):
+    def json(self,normal=None):
         global global_count
         global_count += 1
         a = {"type": "function", "position": global_count, "operations": [], "is_hidden": False, "name": self.name}
@@ -2741,7 +2741,7 @@ class process:
     def __repr__(self):
         return self.__str__()
 
-    def json(self):
+    def json(self,normal=None):
         global global_count
         global_count += 1
         a = {"type": "process", "position": global_count, "operations": [], "name": self.name, "is_hidden": False}
@@ -3616,7 +3616,7 @@ class Parser:
                 self.eat(RCPAREN)
             else:
                 operations = None
-            return [action(sub_action.type.lower(), sub_action.value,
+            thing1, thing2, thing3 =try_action(action(sub_action.type.lower(), sub_action.value,
                            arg=args(positional=positional, unpositional=unpositional, start_line=start_line,
                                     end_line=end_line, offset_pos=offset_pos,
                                     limit_offset_pos=limit_offset_pos, file=self.lexer.file),
@@ -3624,7 +3624,10 @@ class Parser:
                            no=no,
                            start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                            limit_offset_pos=limit_offset_pos, file=self.lexer.file, operations=operations,
-                           conditional=conditional if isinstance(conditional, action) else None)]
+                           conditional=conditional if isinstance(conditional, action) else None))
+            thing2.append(thing1)
+            thing2.extend(thing3)
+            return thing2
         elif self.current_token.equals(FUNCTION) and start == True:
             start_line = self.current_token.start_line
             offset_pos = self.current_token.offset_pos
@@ -3811,6 +3814,7 @@ math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["fi
                   "sign": ["first"]}
 events = dict()
 values = dict()
+compile_file("a.jc")
 if __name__ == "__main__":
     additional = sys.orig_argv[2:]
     if len(additional) == 0:
