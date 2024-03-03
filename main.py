@@ -2713,7 +2713,7 @@ class call_function:
     def __repr__(self):
         return self.__str__()
 
-    def json(self, in_text=False):
+    def json(self, in_text=False, normal=None):
         if in_text:
             arg = []
             for k1, v1 in self.args.args.items():
