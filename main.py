@@ -3814,7 +3814,7 @@ math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["fi
                   "sign": ["first"]}
 events = dict()
 values = dict()
-compile_file("a.jc")
+#compile_file("a.jc")
 if __name__ == "__main__":
     additional = sys.orig_argv[2:]
     if len(additional) == 0:
