@@ -2519,7 +2519,7 @@ class if_:
     def __repr__(self):
         return self.__str__()
 
-    def json(self):
+    def json(self, normal=None):
         act = self.act.json()
         act["operations"] = self.operations.json(normal=True)
         return act
@@ -2541,7 +2541,7 @@ class else_:
     def __repr__(self):
         return self.__str__()
 
-    def json(self):
+    def json(self, normal=None):
         return {"action": "else", "values": [], "operations": self.operations.json(normal=True)}
 
 
