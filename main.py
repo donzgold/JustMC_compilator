@@ -1353,7 +1353,7 @@ def check(checking=None, *arg):
     for i2 in arg:
         if checking.type == i2:
             return checking
-    error("TypeError", "Ожидался объект типа (" + ",".join(arg) + "), но был получен {checking.type}",
+    error("TypeError", "Ожидался объект типа (" + ",".join(arg) + f"), но был получен {checking.type}",
           start_line=checking.start_line, end_line=checking.end_line, offset_pos=checking.offset_pos,
           limit_offset_pos=checking.limit_offset_pos, file=checking.file)
 
@@ -2421,14 +2421,16 @@ class action:
                         error("UnknownArgument",
                               f"Неизвестный тип перечисления {v1.text}",
                               v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file)
-                    self.args[k1] = enum(v1.text, v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file)
+                    self.args[k1] = enum(v1.text, v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos,
+                                         v1.file)
                     continue
                 elif isinstance(v1, var):
                     if self.arg_list[k1]["type"] == "enum":
                         enu = self.arg_list[k1]["values"].keys()[0]
                     else:
                         enu = "FALSE"
-                    self.args[k1] = enum(enu, v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file, vare=v1)
+                    self.args[k1] = enum(enu, v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file,
+                                         vare=v1)
                     continue
             if not (typ == "any" or self.arg_list[k1]["type"] == typ or
                     self.arg_list[k1]["type"] == "any" or typ == "text" or self.arg_list[k1]["type"] == "text"):
@@ -2670,7 +2672,7 @@ class function:
     def __repr__(self):
         return self.__str__()
 
-    def json(self,normal=None):
+    def json(self, normal=None):
         global global_count
         global_count += 1
         a = {"type": "function", "position": global_count, "operations": [], "is_hidden": False, "name": self.name}
@@ -2743,7 +2745,7 @@ class process:
     def __repr__(self):
         return self.__str__()
 
-    def json(self,normal=None):
+    def json(self, normal=None):
         global global_count
         global_count += 1
         a = {"type": "process", "position": global_count, "operations": [], "name": self.name, "is_hidden": False}
@@ -3622,15 +3624,19 @@ class Parser:
                 self.eat(RCPAREN)
             else:
                 operations = None
-            thing1, thing2, thing3 =try_action(action(sub_action.type.lower(), sub_action.value,
-                           arg=args(positional=positional, unpositional=unpositional, start_line=start_line,
-                                    end_line=end_line, offset_pos=offset_pos,
-                                    limit_offset_pos=limit_offset_pos, file=self.lexer.file),
-                           selector=selector,
-                           no=no,
-                           start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                           limit_offset_pos=limit_offset_pos, file=self.lexer.file, operations=operations,
-                           conditional=conditional if isinstance(conditional, action) else None))
+            thing1, thing2, thing3 = try_action(action(sub_action.type.lower(), sub_action.value,
+                                                       arg=args(positional=positional, unpositional=unpositional,
+                                                                start_line=start_line,
+                                                                end_line=end_line, offset_pos=offset_pos,
+                                                                limit_offset_pos=limit_offset_pos,
+                                                                file=self.lexer.file),
+                                                       selector=selector,
+                                                       no=no,
+                                                       start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+                                                       limit_offset_pos=limit_offset_pos, file=self.lexer.file,
+                                                       operations=operations,
+                                                       conditional=conditional if isinstance(conditional,
+                                                                                             action) else None))
             thing2.append(thing1)
             thing2.extend(thing3)
             return thing2
@@ -3820,7 +3826,7 @@ math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["fi
                   "sign": ["first"]}
 events = dict()
 values = dict()
-#compile_file("a.jc")
+# compile_file("a.jc")
 if __name__ == "__main__":
     additional = sys.orig_argv[2:]
     if len(additional) == 0:
