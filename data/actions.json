@@ -1977,7 +1977,8 @@
       {
         "id": "row_major_matrix",
         "type": "number",
-        "localized_name": "\u041c\u0430\u0442\u0440\u0438\u0446\u0430 \u0438\u0437 16 \u0447\u0438\u0441\u0435\u043b"
+        "localized_name": "\u041c\u0430\u0442\u0440\u0438\u0446\u0430 \u0438\u0437 16 \u0447\u0438\u0441\u0435\u043b",
+        "array": 16
       }
     ],
     "type": "basic"
@@ -8484,7 +8485,8 @@
       {
         "id": "slots",
         "type": "number",
-        "localized_name": "\u041d\u043e\u043c\u0435\u0440 \u0441\u043b\u043e\u0442\u0430 \u0434\u043b\u044f \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0438"
+        "localized_name": "\u041d\u043e\u043c\u0435\u0440 \u0441\u043b\u043e\u0442\u0430 \u0434\u043b\u044f \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0438",
+        "array": 12
       },
       {
         "id": "comparison_mode",
@@ -8684,7 +8686,8 @@
       {
         "id": "slots",
         "type": "number",
-        "localized_name": "\u041d\u043e\u043c\u0435\u0440 \u0441\u043b\u043e\u0442\u0430 \u0434\u043b\u044f \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0438"
+        "localized_name": "\u041d\u043e\u043c\u0435\u0440 \u0441\u043b\u043e\u0442\u0430 \u0434\u043b\u044f \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0438",
+        "array": 12
       },
       {
         "id": "comparison_mode",
@@ -14854,7 +14857,8 @@
       {
         "id": "value",
         "type": "number",
-        "localized_name": "\u0427\u0438\u0441\u043b\u0430 \u0434\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u044f"
+        "localized_name": "\u0427\u0438\u0441\u043b\u0430 \u0434\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u044f",
+        "array": 21
       }
     ],
     "assign": [
@@ -19134,7 +19138,8 @@
       {
         "id": "value",
         "type": "number",
-        "localized_name": "\u0427\u0438\u0441\u043b\u0430 \u0434\u043b\u044f \u0432\u044b\u0431\u043e\u0440\u0430"
+        "localized_name": "\u0427\u0438\u0441\u043b\u0430 \u0434\u043b\u044f \u0432\u044b\u0431\u043e\u0440\u0430",
+        "array": 21
       }
     ],
     "assign": [
@@ -19158,7 +19163,8 @@
       {
         "id": "value",
         "type": "number",
-        "localized_name": "\u0427\u0438\u0441\u043b\u0430 \u0434\u043b\u044f \u0432\u044b\u0431\u043e\u0440\u0430"
+        "localized_name": "\u0427\u0438\u0441\u043b\u0430 \u0434\u043b\u044f \u0432\u044b\u0431\u043e\u0440\u0430",
+        "array": 21
       }
     ],
     "assign": [

@@ -1565,14 +1565,14 @@ entity::set_display_teleport_duration(1);
 
 **Пример использования:** 
 ```ts
-entity::set_display_transformation_matrix(1);
+entity::set_display_transformation_matrix([1, 2]);
 ```
 
 **Аргументы:**
 
-| **Имя**            | **Тип** | **Описание**        |
-| ------------------ | ------- | ------------------- |
-| `row_major_matrix` | Число   | Матрица из 16 чисел |
+| **Имя**            | **Тип**       | **Описание**        |
+| ------------------ | ------------- | ------------------- |
+| `row_major_matrix` | список[Число] | Матрица из 16 чисел |
 <h3 id=entity_set_display_translation>
   <code>entity::set_display_translation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

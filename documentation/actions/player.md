@@ -202,7 +202,7 @@ if(player::has_item_at_least(item("stick"),1,"EXACTLY"){
 
 **Пример использования:** 
 ```ts
-if(player::has_item_in_slot([item("stick"), item("stick")],1,"EXACTLY"){
+if(player::has_item_in_slot([item("stick"), item("stick")],[1, 2],"EXACTLY"){
     player::message("Условие верно");
 }
 ```
@@ -212,7 +212,7 @@ if(player::has_item_in_slot([item("stick"), item("stick")],1,"EXACTLY"){
 | **Имя**           | **Тип**                                                                                                                                                                                                                     | **Описание**             |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `items`           | список[Предмет]                                                                                                                                                                                                             | Предметы для проверки    |
-| `slots`           | Число                                                                                                                                                                                                                       | Номер слота для проверки |
+| `slots`           | список[Число]                                                                                                                                                                                                               | Номер слота для проверки |
 | `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения          |
 <h3 id=if_player_has_potion_effect>
   <code>player::has_potion_effect</code>
@@ -315,7 +315,7 @@ if(player::hotbar_slot_equals(1){
 
 **Пример использования:** 
 ```ts
-if(player::inventory_menu_slot_equals([item("stick"), item("stick")],1,"EXACTLY"){
+if(player::inventory_menu_slot_equals([item("stick"), item("stick")],[1, 2],"EXACTLY"){
     player::message("Условие верно");
 }
 ```
@@ -325,7 +325,7 @@ if(player::inventory_menu_slot_equals([item("stick"), item("stick")],1,"EXACTLY"
 | **Имя**           | **Тип**                                                                                                                                                                                                                     | **Описание**             |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `items`           | список[Предмет]                                                                                                                                                                                                             | Предметы для проверки    |
-| `slots`           | Число                                                                                                                                                                                                                       | Номер слота для проверки |
+| `slots`           | список[Число]                                                                                                                                                                                                               | Номер слота для проверки |
 | `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения          |
 <h3 id=if_player_inventory_type_open>
   <code>player::inventory_type_open</code>
