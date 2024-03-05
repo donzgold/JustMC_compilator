@@ -1013,117 +1013,97 @@ def minecraft_text(text1):
 def fix_operations_len(operations, limit=43):
     global global_func_count, global_count
 
-    def get_operations_len(ops, coun=True):
+    def get_operations(ops):
         cont = 0
         for op in ops:
             cont += 1
-            if "operations" in op.keys():
-                cont += get_operations_len(op["operations"]) + coun
-        return cont
+            op["weight"] = 1
+            if "operations" in op:
+                op_opers, cont_op = get_operations(op["operations"])
+                op["operations"] = op_opers
+                cont += cont_op + 1
+                op["weight"] += cont_op + 1
+        return ops, cont
 
-    op_count = get_operations_len(operations)
+    def remove_weight(ops):
+        for op in ops:
+            if "weight" in op:
+                del op["weight"]
+            if "operations" in op:
+                op["operations"] = remove_weight(op["operations"])
+        return ops
+
+    operations, op_count = get_operations(operations)
     additional_events = []
     if op_count > limit:
-        i = 0
-        s_i = 0
-        now_operations = [operations]
-        now_i = [0]
-        cur_i = [0]
-        act_i = [0]
-        op_count = get_operations_len(operations, coun=False)
-        new_ops = []
-        while i < op_count:
-            if now_i[-1] >= len(now_operations[-1]):
-                a = False
-                while now_i[-1] >= len(now_operations[-1]):
-                    if len(now_operations) == 1:
-                        if s_i >= limit and now_i[-1] > 1:
-                            while now_operations[-1][ceil(now_i[-1] / 2)]["action"] == "else":
-                                now_i[-1] += 1
-                            while s_i > limit:
-                                new_ops.append(now_operations[-1][:ceil(now_i[-1] / 2)])
-                                s_i -= ceil(now_i[-1] / 2)
-                                now_i[-1] -= ceil(now_i[-1] / 2)
-                                now_operations[-1] = now_operations[-1][ceil(now_i[-1] / 2):]
-                            s_i = 0
-                            now_i[-1] = 0
-                            cur_i[-1] = 0
-                        new_ops.append(now_operations[-1])
-                        a = True
-                        break
-                    else:
-                        if cur_i[-1] >= limit and now_i[-1] > 1:
-                            an_ops = [[]]
-                            first = limit
-                            while cur_i[-1] >= limit - 1:
-                                an_ops.append(now_operations[-1][:first])
-                                now_operations[-1] = now_operations[-1][first:]
-                                cur_i[-1] -= first
-                                first = limit - 1
-                            an_ops.append(now_operations[-1])
-                            for i1 in range(1, len(an_ops)):
-                                global_func_count += 1
-                                global_count += 1
-                                an_ops[i1 - 1].append({"action": "call_function", "values": [
-                                    {"name": "function_name",
-                                     "value": {"type": "text", "text": f"jmcc.{global_func_count}",
-                                               "parsing": "legacy"}}]})
-                                additional_events.append(
-                                    {"type": "function", "position": global_count, "operations": an_ops[i1],
-                                     "is_hidden": False, "name": f"jmcc.{global_func_count}"})
-                            now_operations[-2][act_i[-1]]["operations"] = an_ops[0]
-                            s_i -= cur_i[-1]
-                            cur_i[-1] = 1
-                        elif s_i > limit and cur_i[-1] > 1 and now_i[-1] > 1:
-                            if cur_i[-1] + cur_i[-2] > limit:
-                                global_func_count += 1
-                                global_count += 1
-                                now_operations[-2][act_i[-1]]["operations"] = [{"action": "call_function", "values": [
-                                    {"name": "function_name",
-                                     "value": {"type": "text", "text": f"jmcc.{global_func_count}",
-                                               "parsing": "legacy"}}]}]
-                                additional_events.append(
-                                    {"type": "function", "position": global_count, "operations": now_operations[-1],
-                                     "is_hidden": False, "name": f"jmcc.{global_func_count}"})
-                                s_i -= cur_i[-1] + 1
-                                cur_i[-1] = 1
-                    del now_operations[-1]
-                    del now_i[-1]
-                    if len(now_operations) > 0:
-                        cur_i[-2] += cur_i[-1]
-                    del cur_i[-1]
-                    del act_i[-1]
-                if a:
-                    break
-            if len(now_operations) == 1 and s_i >= limit - 1 and now_operations[-1][now_i[-1]]["action"] != "else":
-                new_ops.append(now_operations[-1][:now_i[-1]])
-                now_operations[-1] = now_operations[-1][now_i[-1]:]
-                s_i = 0
-                now_i[-1] = 0
-                cur_i[-1] = 0
-            if "operations" in now_operations[-1][now_i[-1]].keys():
-                now_operations.append(now_operations[-1][now_i[-1]]["operations"])
-                s_i += 1
-                act_i.append(now_i[-1])
-                now_i[-1] += 1
-                cur_i.append(1)
-                now_i.append(0)
-            now_i[-1] += 1
-            i += 1
-            s_i += 1
-            cur_i[-1] += 1
-        for i in range(1, len(new_ops)):
-            global_func_count += 1
-            global_count += 1
-            new_ops[i - 1].append({"action": "call_function", "values": [{"name": "function_name",
-                                                                          "value": {"type": "text",
-                                                                                    "text": f"jmcc.{global_func_count}",
-                                                                                    "parsing": "legacy"}}]})
-            additional_events.append(
-                {"type": "function", "position": global_count, "operations": new_ops[i], "is_hidden": False,
-                 "name": f"jmcc.{global_func_count}"})
-        operations = new_ops[0]
+        print(op_count)
 
+        def spl(ops, curr_limit=43, lim=43):
+            global global_func_count, global_count
+            additional2 = []
+            i = 0
+            cur_weight = 0
+            new_ops = []
+            while i < len(ops):
+                op = ops[i]
+                weight = op["weight"]
+                next_weight = cur_weight + weight
+                if next_weight >= curr_limit-1:
+                    if weight <= lim:
+                        if i != 0:
+                            save_ops = ops[:i]
+                            ops = ops[i:]
+                            i = 0
+                            cur_weight = 1
+                            new_ops.append(save_ops)
+                        else:
+                            cur_weight = 1
+                            new_ops.append(ops)
+                            ops=[]
+                    else:
+                        next_l=curr_limit - (cur_weight + 3 + len(ops))
+                        if next_l <= 0:
+                            save_ops, additional3, thing2 = spl(op["operations"], curr_limit=lim-3, lim=lim)
+                            global_func_count += 1
+                            global_count += 1
+                            additional2.extend(additional3)
+                            ops[i] = {"action": "call_function", "values": [{"name": "function_name","value": {"type": "text","text": f"jmcc.{global_func_count}","parsing": "legacy"}}],"weight":1}
+                            additional2.append({"type": "function", "position": global_count, "operations": remove_weight([op]),"is_hidden": False, "name": f"jmcc.{global_func_count}"})
+                            cur_weight += 1
+                        else:
+                            save_ops, additional3, thing2 = spl(op["operations"], curr_limit=next_l, lim=lim)
+                            additional2.extend(additional3)
+                            if cur_weight+thing2+2 > curr_limit:
+                                cur_weight += 1
+                                global_func_count += 1
+                                global_count += 1
+                                ops[i] = {"action": "call_function", "values": [{"name": "function_name","value": {"type": "text","text": f"jmcc.{global_func_count}","parsing": "legacy"}}],"weight": 1}
+                                additional2.append({"type": "function", "position": global_count, "operations": remove_weight([op]),"is_hidden": False, "name": f"jmcc.{global_func_count}"})
+                            else:
+                                op["operations"] = save_ops
+                                cur_weight += thing2 + 2
+                        i += 1
+                else:
+                    cur_weight = next_weight
+                    i += 1
+            if len(ops) > 0:
+                new_ops.append(ops)
+            else:
+                new_ops.insert(0,[])
+            for i in range(1, len(new_ops)):
+                global_func_count += 1
+                global_count += 1
+                new_ops[i - 1].append({"action": "call_function", "values": [{"name": "function_name",
+                                                                              "value": {"type": "text",
+                                                                                        "text": f"jmcc.{global_func_count}",
+                                                                                        "parsing": "legacy"}}],"weight":1})
+                additional2.append(
+                    {"type": "function", "position": global_count, "operations": remove_weight(new_ops[i]),
+                     "is_hidden": False, "name": f"jmcc.{global_func_count}"})
+            return remove_weight(new_ops[0]), additional2, cur_weight
+
+        operations, additional_events, thing = spl(operations, lim=limit, curr_limit=limit)
+        print(len(additional_events))
     return operations, additional_events
 
 
@@ -3826,10 +3806,10 @@ math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["fi
                   "sign": ["first"]}
 events = dict()
 values = dict()
-# compile_file("a.jc")
 if __name__ == "__main__":
     additional = sys.orig_argv[2:]
     if len(additional) == 0:
+        #compile_file("a.jc")
         additional = ["help"]
     if len(additional) >= 1:
         if additional[0] == "compile":
