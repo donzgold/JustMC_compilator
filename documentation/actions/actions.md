@@ -795,4 +795,5 @@
   - [*code::skip_iteration [ Пропустить повторение ]*](./code.md#control_skip_iteration)
   - [*code::stop_repeat [ Остановить повторение ]*](./code.md#control_stop_repeat)
   - [*code::wait [ Ждать ]*](./code.md#control_wait)
+  - [*code::else [ Иначе ]*](./code.md#else)
   - [*code::start_process [ Запустить процесс ]*](./code.md#start_process)

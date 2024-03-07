@@ -1036,7 +1036,6 @@ def fix_operations_len(operations, limit=43):
     operations, op_count = get_operations(operations)
     additional_events = []
     if op_count > limit:
-        print(op_count)
 
         def spl(ops, curr_limit=43, lim=43):
             global global_func_count, global_count
@@ -1048,7 +1047,7 @@ def fix_operations_len(operations, limit=43):
                 op = ops[i]
                 weight = op["weight"]
                 next_weight = cur_weight + weight
-                if next_weight >= curr_limit-1:
+                if next_weight >= curr_limit - 1:
                     if weight <= lim:
                         if i != 0:
                             save_ops = ops[:i]
@@ -1059,26 +1058,36 @@ def fix_operations_len(operations, limit=43):
                         else:
                             cur_weight = 1
                             new_ops.append(ops)
-                            ops=[]
+                            ops = []
                     else:
-                        next_l=curr_limit - (cur_weight + 3 + len(ops))
+                        next_l = curr_limit - (cur_weight + 3 + len(ops))
                         if next_l <= 0:
-                            save_ops, additional3, thing2 = spl(op["operations"], curr_limit=lim-3, lim=lim)
+                            save_ops, additional3, thing2 = spl(op["operations"], curr_limit=lim - 3, lim=lim)
                             global_func_count += 1
                             global_count += 1
                             additional2.extend(additional3)
-                            ops[i] = {"action": "call_function", "values": [{"name": "function_name","value": {"type": "text","text": f"jmcc.{global_func_count}","parsing": "legacy"}}],"weight":1}
-                            additional2.append({"type": "function", "position": global_count, "operations": remove_weight([op]),"is_hidden": False, "name": f"jmcc.{global_func_count}"})
+                            ops[i] = {"action": "call_function", "values": [{"name": "function_name",
+                                                                             "value": {"type": "text",
+                                                                                       "text": f"jmcc.{global_func_count}",
+                                                                                       "parsing": "legacy"}}]}
+                            additional2.append(
+                                {"type": "function", "position": global_count, "operations": remove_weight([op]),
+                                 "is_hidden": False, "name": f"jmcc.{global_func_count}"})
                             cur_weight += 1
                         else:
                             save_ops, additional3, thing2 = spl(op["operations"], curr_limit=next_l, lim=lim)
                             additional2.extend(additional3)
-                            if cur_weight+thing2+2 > curr_limit:
+                            if cur_weight + thing2 + 2 > curr_limit:
                                 cur_weight += 1
                                 global_func_count += 1
                                 global_count += 1
-                                ops[i] = {"action": "call_function", "values": [{"name": "function_name","value": {"type": "text","text": f"jmcc.{global_func_count}","parsing": "legacy"}}],"weight": 1}
-                                additional2.append({"type": "function", "position": global_count, "operations": remove_weight([op]),"is_hidden": False, "name": f"jmcc.{global_func_count}"})
+                                ops[i] = {"action": "call_function", "values": [{"name": "function_name",
+                                                                                 "value": {"type": "text",
+                                                                                           "text": f"jmcc.{global_func_count}",
+                                                                                           "parsing": "legacy"}}]}
+                                additional2.append(
+                                    {"type": "function", "position": global_count, "operations": remove_weight([op]),
+                                     "is_hidden": False, "name": f"jmcc.{global_func_count}"})
                             else:
                                 op["operations"] = save_ops
                                 cur_weight += thing2 + 2
@@ -1089,21 +1098,22 @@ def fix_operations_len(operations, limit=43):
             if len(ops) > 0:
                 new_ops.append(ops)
             else:
-                new_ops.insert(0,[])
+                new_ops.insert(0, [])
             for i in range(1, len(new_ops)):
                 global_func_count += 1
                 global_count += 1
                 new_ops[i - 1].append({"action": "call_function", "values": [{"name": "function_name",
                                                                               "value": {"type": "text",
                                                                                         "text": f"jmcc.{global_func_count}",
-                                                                                        "parsing": "legacy"}}],"weight":1})
+                                                                                        "parsing": "legacy"}}]})
                 additional2.append(
                     {"type": "function", "position": global_count, "operations": remove_weight(new_ops[i]),
                      "is_hidden": False, "name": f"jmcc.{global_func_count}"})
             return remove_weight(new_ops[0]), additional2, cur_weight
 
         operations, additional_events, thing = spl(operations, lim=limit, curr_limit=limit)
-        print(len(additional_events))
+    else:
+        operations = remove_weight(operations)
     return operations, additional_events
 
 
@@ -1503,7 +1513,8 @@ class potion:
 
 
 class sound:
-    def __init__(self, sound_id=None, volume=number(0), pitch=number(0), arg=None, start_line=None, end_line=None,
+    def __init__(self, sound_id=None, volume=number(0), pitch=number(0), variation=text(""), source=text("MASTER"),
+                 arg=None, start_line=None, end_line=None,
                  offset_pos=None, limit_offset_pos=None, file=None):
         self.type = "sound"
         self.start_line = start_line
@@ -1512,11 +1523,11 @@ class sound:
         self.limit_offset_pos = limit_offset_pos
         self.file = file
         if arg is not None:
-            arg.arg_list = ["sound", "volume", "pitch"]
+            arg.arg_list = ["sound", "volume", "pitch", "variation", "source"]
+            arg = arg.get_args()
             for k1, v1 in arg.items():
                 if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
                     arg[k1] = symbol_table["inlines"][v1.name]
-            arg = arg.get_args()
             sound_id = arg["sound"]
             volume = arg["volume"]
             if volume is None:
@@ -1524,9 +1535,14 @@ class sound:
             pitch = arg["pitch"]
             if pitch is None:
                 pitch = number(0)
+            variation = arg["variation"]
+            if variation is None:
+                variation = text("")
         self.sound = check(sound_id, "text")
         self.volume = check(volume, "number")
         self.pitch = check(pitch, "number")
+        self.variation = check(variation, "text")
+        self.source = check(source, "text")
 
     def __str__(self):
         return f'sound({self.sound},{self.volume},{self.pitch})'
@@ -1536,7 +1552,8 @@ class sound:
 
     def json(self, normal=None):
         return {"type": "sound", "sound": self.sound.json(normal=True), "volume": self.volume.json(normal=True),
-                "pitch": self.pitch.json(normal=True)}
+                "pitch": self.pitch.json(normal=True), "variation": self.variation.json(normal=True),
+                "source": self.source.json(normal=True)}
 
 
 class particle:
@@ -1877,6 +1894,10 @@ def try_action(act, in_var=False, set_var=False, ignore_lst=False):
             act.args.positional = []
             additional_acts.append(act)
             return spec_var, additional_acts
+        elif isinstance(act, math):
+            act, additional2 = try_math(act)
+            additional_acts.extend(additional2)
+
         return act, additional_acts
 
     if isinstance(act, true_assign):
@@ -1900,13 +1921,13 @@ def try_action(act, in_var=False, set_var=False, ignore_lst=False):
                 elif act.assign_type == "^=":
                     symbol_table["inlines"][act.args["first"]] **= try_action(act.args["second"])
                     return
-            if not isinstance(act.args["first"][0], var):
+            if not isinstance(act.args["first"][0], var) or isinstance(act.args["second"], math):
                 act.args["second"], additional2 = try_action(act.args["second"], in_var=True)
                 additional_acts.extend(additional2)
             if act.assign_type == "=":
                 if isinstance(act.args["first"][0], slice):
                     if (type(act.args["second"]) in
-                            (number, text, item, sound, particle, vector, location, potion, value, var)):
+                            (number, text, item, sound, particle, vector, location, potion, value, var, math)):
                         act.args["first"][0].obj, additional2 = try_action(act.args["first"][0].obj, set_var=True)
                         additional_acts.extend(additional2)
                         act.args["first"][0].arg["start"], additional2 = try_action(act.args["first"][0].arg["start"],
@@ -2037,7 +2058,7 @@ def try_action(act, in_var=False, set_var=False, ignore_lst=False):
             after_acts.extend(additional2)
         act.args["first"] = variables
         if act.assign_type == "=":
-            if type(act.args["second"]) in (number, text, item, sound, particle, vector, location, potion, value, var):
+            if type(act.args["second"]) in (number, text, item, sound, particle, vector, location, potion, value, var, math):
                 return action("variable", "set_value", args(
                     unpositional=[assign("assigning", act.args["first"]), assign("value", act.args["second"])]),
                               None, None, act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
@@ -2300,8 +2321,8 @@ class enum:
     def json(self, normal=False):
         a = {"type": "enum", "enum": self.enum}
         if self.var is not None:
-            a["variable"] = v.name
-            a["scope"] = v.var_type.lower()
+            a["variable"] = self.var.name
+            a["scope"] = self.var.var_type.lower()
         return a
 
 
@@ -2406,7 +2427,7 @@ class action:
                     continue
                 elif isinstance(v1, var):
                     if self.arg_list[k1]["type"] == "enum":
-                        enu = self.arg_list[k1]["values"].keys()[0]
+                        enu = list(self.arg_list[k1]["values"][0].keys())[0]
                     else:
                         enu = "FALSE"
                     self.args[k1] = enum(enu, v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file,
@@ -2562,38 +2583,61 @@ class event:
 
 
 def try_math(mat):
+    global var_count
+    additional_actions = []
+    if isinstance(mat.first, math):
+        mat.first, additional2 = try_math(mat.first)
+        additional_actions.extend(additional2)
+    elif type(mat.first) in (slice, atribute, action, lst, dct):
+        mat.first, additional2 = try_action(mat.first, in_var=True)
+        additional_actions.extend(additional2)
+    elif type(mat.first) in (item, location, vector, sound, particle, potion, value):
+        print("thing")
+        spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", mat.start_line, mat.end_line,
+                       mat.offset_pos, mat.limit_offset_pos, mat.file)
+        additional_actions.append(action("variable", "set_value", args(
+            unpositional=[assign("assigning", [spec_var]), assign("value", mat.first)]),
+                                         None, None, mat.start_line, mat.end_line, mat.offset_pos, mat.limit_offset_pos,
+                                         mat.file))
+        mat.first = spec_var
+    if isinstance(mat.second, math):
+        mat.second, additional2 = try_math(mat.second)
+        additional_actions.extend(additional2)
+    elif type(mat.second) in (slice, atribute, action, lst, dct):
+        mat.second, additional2 = try_action(mat.second, in_var=True)
+        additional_actions.extend(additional2)
+    elif type(mat.second) in (item, location, vector, sound, particle, potion, value):
+        spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", mat.start_line, mat.end_line,
+                       mat.offset_pos, mat.limit_offset_pos, mat.file)
+        additional_actions.append(action("variable", "set_value", args(
+            unpositional=[assign("assigning", [spec_var]), assign("value", mat.second)]),
+                                         None, None, mat.start_line, mat.end_line, mat.offset_pos, mat.limit_offset_pos,
+                                         mat.file))
+        mat.second = spec_var
     if isinstance(mat.first, number) and isinstance(mat.second, number):
         if mat.operation == "*":
             return number(mat.first.value * mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file)
+                          mat.limit_offset_pos, mat.file), additional_actions
         elif mat.operation == "+":
             return number(mat.first.value + mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file)
+                          mat.limit_offset_pos, mat.file), additional_actions
         elif mat.operation == "/":
             return number(mat.first.value / mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file)
+                          mat.limit_offset_pos, mat.file), additional_actions
         elif mat.operation == "//":
             return number(mat.first.value // mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file)
+                          mat.limit_offset_pos, mat.file), additional_actions
         elif mat.operation == "-":
             return number(mat.first.value - mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file)
+                          mat.limit_offset_pos, mat.file), additional_actions
         elif mat.operation == "%":
             return number(mat.first.value % mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file)
+                          mat.limit_offset_pos, mat.file), additional_actions
         elif mat.operation == "^":
             return number(mat.first.value ** mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file)
-    elif isinstance(mat.first, text) and isinstance(mat.second, number):
-        if mat.operation == "*":
-            return text(mat.first.text * mat.second.value, mat.first.text_type, mat.start_line, mat.end_line,
-                        mat.offset_pos, mat.limit_offset_pos, mat.file)
-    elif isinstance(mat.first, text) and isinstance(mat.second, text):
-        if mat.operation == "+":
-            return text(mat.first.text + mat.second.text, mat.first.text_type, mat.start_line, mat.end_line,
-                        mat.offset_pos, mat.limit_offset_pos, mat.file)
+                          mat.limit_offset_pos, mat.file), additional_actions
     else:
-        return mat
+        return mat, additional_actions
     error("UnsopportedOperand",
           f"Действие {mat.operation} невозможно между {mat.first.type} и {mat.second.type}", mat.start_line,
           mat.end_line, mat.offset_pos, mat.limit_offset_pos, mat.file)
@@ -2631,7 +2675,7 @@ class math:
             return f"({self.first.json(in_text=True)}{self.operation}{self.second.json(in_text=True)})"
 
         return {"type": "number",
-                "number": f"%math({self.first.json(in_text=True)}{self.operation}{self.second.json(in_text=True)})"}, []
+                "number": f"%math({self.first.json(in_text=True)}{self.operation}{self.second.json(in_text=True)})"}
 
 
 class function:
@@ -3180,9 +3224,8 @@ class Parser:
                     second = self.expr(pr=1)
                 end_line = second.end_line
                 limit_offset_pos = second.limit_offset_pos
-                first = try_math(
-                    math(operation=operation, first=first, second=second, start_line=start_line, end_line=end_line,
-                         offset_pos=offset_pos, limit_offset_pos=limit_offset_pos, file=self.lexer.file))
+                first = math(operation=operation, first=first, second=second, start_line=start_line, end_line=end_line,
+                             offset_pos=offset_pos, limit_offset_pos=limit_offset_pos, file=self.lexer.file)
             return first
         elif self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG, INT_DIVIDE) and (pr == 0 or pr == 2):
             first = result
@@ -3194,9 +3237,8 @@ class Parser:
                 second = self.up_factor()
                 end_line = second.end_line
                 limit_offset_pos = second.limit_offset_pos
-                first = try_math(
-                    math(operation=operation, first=first, second=second, start_line=start_line, end_line=end_line,
-                         offset_pos=offset_pos, limit_offset_pos=limit_offset_pos, file=self.lexer.file))
+                first = math(operation=operation, first=first, second=second, start_line=start_line, end_line=end_line,
+                             offset_pos=offset_pos, limit_offset_pos=limit_offset_pos, file=self.lexer.file)
             return first
         return result
 
@@ -3571,7 +3613,6 @@ class Parser:
                        self.current_token.type != OEL):
                     variables.append(self.expr())
                     if self.current_token.type != CYCLE_THING and self.current_token.type != OEL:
-                        print(self.current_token)
                         self.eat(COMMA)
                 if len(variables) > 0:
                     unpositional.append(
@@ -3806,14 +3847,4 @@ math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["fi
                   "sign": ["first"]}
 events = dict()
 values = dict()
-if __name__ == "__main__":
-    additional = sys.orig_argv[2:]
-    if len(additional) == 0:
-        #compile_file("a.jc")
-        additional = ["help"]
-    if len(additional) >= 1:
-        if additional[0] == "compile":
-            compile_file(additional[1], upload=additional[-1] == "-u")
-        elif additional[0] == "help":
-            print(minecraft_based_text(
-                "&eJMCC &fdonzgold edition:\nЕто джей эм си си\nКоманды:\n compile <file_path> [-u] &7- &fскомпилировать файл, -u для загрузки на сервер."))
+#compile_file("a.jc", upload=False)

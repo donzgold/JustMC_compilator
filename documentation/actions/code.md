@@ -122,6 +122,22 @@ code::wait(1,"TICKS");
 | ----------- | ------------------------------------------------------------------------------ | --------------------- |
 | `duration`  | Число                                                                          | Длительность ожидания |
 | `time_unit` | Маркер<br/>**TICKS** - Тики<br/>**SECONDS** - Секунды<br/>**MINUTES** - Минуты | Единица времени       |
+<h3 id=else>
+  <code>code::else</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Иначе\
+**Тип:** Действие без значения\
+**Описание:** ...
+
+**Пример использования:** 
+```ts
+code::else(){
+    player::message("Всё работает");
+}
+```
+
 <h3 id=start_process>
   <code>code::start_process</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
