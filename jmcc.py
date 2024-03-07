@@ -192,6 +192,7 @@ path = path[:path.rfind("\\")]
 os.chdir(path)
 if not os.path.isfile("jmcc.properties"):
     download_latest_release()
+    exit()
 else:
     data = {i[:i.find("=")].strip(): fix_type(
         i[i.find("=") + 1:].encode('raw_unicode_escape').decode('unicode_escape').strip()) for i in
