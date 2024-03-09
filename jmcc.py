@@ -182,7 +182,7 @@ def check_updates():
             return
     if data["data_version"] < checking["data_version"]:
         print(minecraft_based_text(
-            f"&6Бета версия jmcc отстаёт от последней на {checking['data_version'] - data['data_version']}"))
+            f"&6База кода jmcc отстаёт от последней на {checking['data_version'] - data['data_version']}"))
         print(minecraft_based_text("&fИсправляем..."))
         download_latest_data()
 

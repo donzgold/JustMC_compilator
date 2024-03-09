@@ -2378,6 +2378,13 @@ class action:
                 selector = None
         self.selector = selector
         self.operations = operations
+        if conditional is not None:
+            if not isinstance(conditional, action):
+                error("TypeError", f"Ожидалось условие, но было получено {conditional.type}", conditional.start_line, conditional.end_line,
+                      conditional.offset_pos, conditional.limit_offset_pos, conditional.file)
+            if not actions[conditional.act_type + "::" + conditional.sub_action].setdefault("boolean", False):
+                error("TypeError", "Ожидалось условие, но было получено обычное действие", conditional.start_line, conditional.end_line,
+                      conditional.offset_pos, conditional.limit_offset_pos, conditional.file)
         self.conditional = conditional
         self.no = no
 
@@ -2514,6 +2521,11 @@ class if_:
         self.offset_pos = offset_pos
         self.limit_offset_pos = limit_offset_pos
         self.file = file
+        if not isinstance(act,action):
+            error("TypeError", f"Ожидалось условие, но было получено {act.type}", act.start_line, act.end_line,
+                  act.offset_pos, act.limit_offset_pos, act.file)
+        if not actions[act.act_type + "::" + act.sub_action].setdefault("boolean", False):
+            error("TypeError", "Ожидалось условие, но было получено обычное действие",act.start_line,act.end_line,act.offset_pos,act.limit_offset_pos,act.file)
         self.act = act
         self.type = "if"
         self.operations = operations
@@ -2592,7 +2604,6 @@ def try_math(mat):
         mat.first, additional2 = try_action(mat.first, in_var=True)
         additional_actions.extend(additional2)
     elif type(mat.first) in (item, location, vector, sound, particle, potion, value):
-        print("thing")
         spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", mat.start_line, mat.end_line,
                        mat.offset_pos, mat.limit_offset_pos, mat.file)
         additional_actions.append(action("variable", "set_value", args(
@@ -3753,8 +3764,11 @@ class Parser:
             limit_offset_pos = self.current_token.limit_offset_pos
             self.eat(RCPAREN)
             if act1.equals(IF):
-                return [if_(act, lst(vals), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                            limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
+                thing1, thing2, thing3 = try_action(act)
+                thing2.append(if_(thing1, lst(vals), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
+                            limit_offset_pos=limit_offset_pos, file=self.lexer.file))
+                thing2.extend(thing3)
+                return thing2
             else:
                 return [else_(lst(vals), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                               limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
