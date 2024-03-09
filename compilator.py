@@ -1234,10 +1234,12 @@ class text:
     def __repr__(self):
         return self.__str__()
 
-    def json(self, normal=False):
-        if not normal:
-            return {"type": "text", "text": self.text, "parsing": self.text_type}
-        return self.text
+    def json(self, normal=False,in_text=False):
+        if in_text:
+            return self.text
+        if normal:
+            return self.text
+        return {"type": "text", "text": self.text, "parsing": self.text_type}
 
 
 class number:
@@ -3861,4 +3863,4 @@ math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["fi
                   "sign": ["first"]}
 events = dict()
 values = dict()
-#compile_file("a.jc", upload=False)
+compile_file("a.jc", upload=False)
