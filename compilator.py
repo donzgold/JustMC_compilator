@@ -3863,4 +3863,4 @@ math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["fi
                   "sign": ["first"]}
 events = dict()
 values = dict()
-compile_file("a.jc", upload=False)
+#compile_file("a.jc", upload=False)
