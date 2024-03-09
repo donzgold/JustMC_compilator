@@ -112,23 +112,22 @@ def download_latest_release(reload=False):
     url = requests.get("https://api.github.com/repos/donzgold/JustMC_compilator/releases/latest").json()["assets"][-1][
         "browser_download_url"]
     filereq = requests.get(url, stream=True)
-    with open("release.zip", "wb") as receive:
-        shutil.copyfileobj(filereq.raw, receive)
-    receive.close()
+    open("release.zip", "wb").write(filereq.content)
     if os.path.isfile("jmcc.properties"):
         with zipfile.ZipFile(f"release.zip", "a") as z:
             for zip_info in z.infolist():
                 if zip_info.filename != 'jmcc.properties':
                     z.extract(zip_info)
                 else:
-                    zip_info.filename = "jmcc2.properties"
+                    z.getinfo(zip_info.filename).filename = "jmcc2.properties"
+                    z.extract("jmcc.properties")
         an_data = {i[:i.find("=")].strip(): fix_type(
             i[i.find("=") + 1:].encode('raw_unicode_escape').decode('unicode_escape').strip()) for i in
             open("jmcc2.properties", "r+")}
         data["release_version"] = an_data["release_version"]
         data["data_version"] = an_data["data_version"]
         data["current_version"] = an_data["current_version"]
-        open("jmcc.properties", "w+").write(f"{k}={v}" for k, v in data.items())
+        open("jmcc.properties", "w+").write("\n".join([f"{k}={v}" for k, v in data.items()]))
         os.remove("jmcc2.properties")
     else:
         shutil.unpack_archive("release.zip")
@@ -143,22 +142,21 @@ def download_latest_release(reload=False):
 def download_latest_version(reload=False):
     global data, an_data
     filereq = requests.get('https://raw.githubusercontent.com/donzgold/JustMC_compilator/master/release.zip')
-    with open("release.zip", "wb") as receive:
-        shutil.copyfileobj(filereq.raw, receive)
-    receive.close()
+    open("release.zip", "wb").write(filereq.content)
     if os.path.isfile("jmcc.properties"):
         with zipfile.ZipFile(f"release.zip", "a") as z:
             for zip_info in z.infolist():
                 if zip_info.filename != 'jmcc.properties':
                     z.extract(zip_info)
                 else:
-                    zip_info.filename = "jmcc2.properties"
+                    z.getinfo(zip_info.filename).filename = "jmcc2.properties"
+                    z.extract("jmcc.properties")
         an_data = {i[:i.find("=")].strip(): fix_type(
             i[i.find("=") + 1:].encode('raw_unicode_escape').decode('unicode_escape').strip()) for i in open("jmcc2.properties", "r+")}
         data["release_version"] = an_data["release_version"]
         data["data_version"] = an_data["data_version"]
         data["current_version"] = an_data["current_version"]
-        open("jmcc.properties", "w+").write(f"{k}={v}" for k, v in data.items())
+        open("jmcc.properties", "w+").write("\n".join([f"{k}={v}" for k, v in data.items()]))
         os.remove("jmcc2.properties")
     else:
         shutil.unpack_archive("release.zip")
@@ -190,7 +188,7 @@ def check_updates():
     an_data = {i[:i.find("=")].strip(): fix_type(
         i[i.find("=") + 1:].encode('raw_unicode_escape').decode('unicode_escape').strip()) for i in requests.get(
         'https://raw.githubusercontent.com/donzgold/JustMC_compilator/master/jmcc.properties').text.split("\n")}
-    if data["check_beta_versions"] and data["release_version"] < an_data["release_version"]:
+    if data["check_beta_versions"] and (data["release_version"] < an_data["release_version"]):
         print(minecraft_based_text(
             f"&6Релизная версия jmcc отстаёт от последней на {an_data['release_version'] - data['release_version']}"))
         if data["auto_update"]:
@@ -198,7 +196,7 @@ def check_updates():
             download_latest_release()
             return
 
-    elif not data["check_beta_versions"] and data["current_version"] < an_data["current_version"]:
+    elif data["check_beta_versions"] and (data["current_version"] < an_data["current_version"]):
         print(minecraft_based_text(
             f"&6Бета версия jmcc отстаёт от последней на {an_data['current_version'] - data['current_version']}"))
         if data["auto_update"]:
