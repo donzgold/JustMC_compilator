@@ -244,7 +244,10 @@ class Lexer:
         self.work_dir = work_dir
         open_files[self.file] = open(self.file, "r", encoding="UTF-8").read()
         self.pos = 0
-        self.current_char = self.text()[self.pos]
+        if self.pos < len(self.text()):
+            self.current_char = self.text()[self.pos]
+        else:
+            self.current_char = None
         self.last_token = Token(OEL, "OEL", start_line=0, offset_pos=0, file=self.file)
         self.line = 0
         self.offset_pos = 0
@@ -2446,9 +2449,9 @@ class action:
                     self.arg_list[k1]["type"] == "any" or typ == "text" or self.arg_list[k1]["type"] == "text"):
                 error("TypeError", "Ожидался объект типа " + self.arg_list[k1]["type"] + f", но был получен {v1.type}",
                       v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file)
-        for kay, val in self.args.items():
+        for key, val in self.args.items():
             if val is not None:
-                arg.append({"name": kay, "value": val.json()})
+                arg.append({"name": key, "value": val.json()})
         a = {"action": act_id, "values": arg}
         if self.no is not None:
             a["is_inverted"] = self.no
