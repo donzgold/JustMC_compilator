@@ -1199,6 +1199,10 @@
           {
             "value": "HORSE_JUMP_STRENGTH",
             "localized_name": "\u0421\u0438\u043b\u0430 \u043f\u0440\u044b\u0436\u043a\u0430 \u043b\u043e\u0448\u0430\u0434\u0438"
+          },
+          {
+            "value": "ZOMBIE_SPAWN_REINFORCEMENTS",
+            "localized_name": "None"
           }
         ]
       }
@@ -3057,6 +3061,30 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_mob_aggressive",
+    "name": "set_mob_aggressive",
+    "localized_name": "None",
+    "object": "entity",
+    "args": [
+      {
+        "id": "aggressive",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "TRUE",
+            "localized_name": "None"
+          },
+          {
+            "value": "FALSE",
+            "localized_name": "None"
+          }
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_mushroom_cow_type",
     "name": "set_mushroom_cow_type",
     "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0442\u0438\u043f \u0433\u0440\u0438\u0431\u043d\u043e\u0439 \u043a\u043e\u0440\u043e\u0432\u044b",
@@ -3366,6 +3394,20 @@
         "id": "shrinking_speed",
         "type": "number",
         "localized_name": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_primed_tnt_block",
+    "name": "set_primed_tnt_block",
+    "localized_name": "None",
+    "object": "entity",
+    "args": [
+      {
+        "id": "block",
+        "type": "block",
+        "localized_name": "None"
       }
     ],
     "type": "basic"
@@ -4119,6 +4161,44 @@
             "localized_name": "\u0412\u044b\u043a\u043b\u044e\u0447\u0435\u043d\u043e"
           }
         ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_vex_charging",
+    "name": "set_vex_charging",
+    "localized_name": "None",
+    "object": "entity",
+    "args": [
+      {
+        "id": "charging",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "TRUE",
+            "localized_name": "None"
+          },
+          {
+            "value": "FALSE",
+            "localized_name": "None"
+          }
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_vex_limited_lifetime_ticks",
+    "name": "set_vex_limited_lifetime_ticks",
+    "localized_name": "None",
+    "object": "entity",
+    "args": [
+      {
+        "id": "lifetime",
+        "type": "number",
+        "localized_name": "None"
       }
     ],
     "type": "basic"
@@ -5596,6 +5676,20 @@
     "type": "basic"
   },
   {
+    "id": "game_set_event_exhaustion",
+    "name": "set_event_exhaustion",
+    "localized_name": "None",
+    "object": "world",
+    "args": [
+      {
+        "id": "exhaustion",
+        "type": "number",
+        "localized_name": "None"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "game_set_event_experience",
     "name": "set_event_experience",
     "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u043e\u043f\u044b\u0442 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
@@ -5903,6 +5997,180 @@
         "localized_name": "\u041f\u0440\u043e\u0442\u0438\u0432\u043e\u043f\u043e\u043b\u043e\u0436\u043d\u044b\u0439 \u0443\u0433\u043e\u043b \u0440\u0435\u0433\u0438\u043e\u043d\u0430"
       }
     ],
+    "type": "basic"
+  },
+  {
+    "id": "game_set_scoreboard_line",
+    "name": "set_scoreboard_line",
+    "localized_name": "None",
+    "object": "world",
+    "args": [
+      {
+        "id": "id",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "line",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "display",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "score",
+        "type": "number",
+        "localized_name": "None"
+      },
+      {
+        "id": "format_content",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "format",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "BLANK",
+            "localized_name": "None"
+          },
+          {
+            "value": "FIXED",
+            "localized_name": "None"
+          },
+          {
+            "value": "STYLED",
+            "localized_name": "None"
+          },
+          {
+            "value": "RESET",
+            "localized_name": "None"
+          }
+        ]
+      }
+    ],
+    "origin": "id",
+    "type": "basic"
+  },
+  {
+    "id": "game_set_scoreboard_line_display",
+    "name": "set_scoreboard_line_display",
+    "localized_name": "None",
+    "object": "world",
+    "args": [
+      {
+        "id": "id",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "line",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "display",
+        "type": "text",
+        "localized_name": "None"
+      }
+    ],
+    "origin": "id",
+    "type": "basic"
+  },
+  {
+    "id": "game_set_scoreboard_line_format",
+    "name": "set_scoreboard_line_format",
+    "localized_name": "None",
+    "object": "world",
+    "args": [
+      {
+        "id": "id",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "line",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "format_content",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "format",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "BLANK",
+            "localized_name": "None"
+          },
+          {
+            "value": "FIXED",
+            "localized_name": "None"
+          },
+          {
+            "value": "STYLED",
+            "localized_name": "None"
+          },
+          {
+            "value": "RESET",
+            "localized_name": "None"
+          }
+        ]
+      }
+    ],
+    "origin": "id",
+    "type": "basic"
+  },
+  {
+    "id": "game_set_scoreboard_number_format",
+    "name": "set_scoreboard_number_format",
+    "localized_name": "None",
+    "object": "world",
+    "args": [
+      {
+        "id": "id",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "format_content",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "format",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "BLANK",
+            "localized_name": "None"
+          },
+          {
+            "value": "FIXED",
+            "localized_name": "None"
+          },
+          {
+            "value": "STYLED",
+            "localized_name": "None"
+          },
+          {
+            "value": "RESET",
+            "localized_name": "None"
+          }
+        ]
+      }
+    ],
+    "origin": "id",
     "type": "basic"
   },
   {
@@ -6214,6 +6482,26 @@
         ]
       }
     ],
+    "type": "basic"
+  },
+  {
+    "id": "game_set_spawner_entity",
+    "name": "set_spawner_entity",
+    "localized_name": "None",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location",
+        "localized_name": "None"
+      },
+      {
+        "id": "entity",
+        "type": "item",
+        "localized_name": "None"
+      }
+    ],
+    "origin": "location",
     "type": "basic"
   },
   {
@@ -6932,6 +7220,11 @@
         "id": "custom_name",
         "type": "text",
         "localized_name": "\u0418\u043c\u044f"
+      },
+      {
+        "id": "block",
+        "type": "block",
+        "localized_name": "None"
       }
     ],
     "type": "basic"
@@ -6994,7 +7287,7 @@
         "id": "displayed_text",
         "type": "text",
         "localized_name": "\u041e\u0442\u043e\u0431\u0440\u0430\u0436\u0430\u0435\u043c\u044b\u0439 \u0442\u0435\u043a\u0441\u0442",
-        "array": 24
+        "array": 28
       }
     ],
     "type": "basic"
@@ -9556,6 +9849,32 @@
     "type": "container"
   },
   {
+    "id": "if_variable_item_has_enchantment",
+    "name": "item_has_enchantment",
+    "localized_name": "None",
+    "object": "variable",
+    "args": [
+      {
+        "id": "item",
+        "type": "item",
+        "localized_name": "None"
+      },
+      {
+        "id": "enchant",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "level",
+        "type": "number",
+        "localized_name": "None"
+      }
+    ],
+    "origin": "item",
+    "boolean": true,
+    "type": "container"
+  },
+  {
     "id": "if_variable_item_has_tag",
     "name": "item_has_tag",
     "localized_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442 \u0438\u043c\u0435\u0435\u0442 \u0442\u0435\u0433",
@@ -10348,6 +10667,48 @@
     "type": "basic"
   },
   {
+    "id": "player_display_bell_ring",
+    "name": "display_bell_ring",
+    "localized_name": "None",
+    "object": "player",
+    "args": [
+      {
+        "id": "location",
+        "type": "location",
+        "localized_name": "None"
+      },
+      {
+        "id": "direction",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "DOWN",
+            "localized_name": "None"
+          },
+          {
+            "value": "NORTH",
+            "localized_name": "None"
+          },
+          {
+            "value": "SOUTH",
+            "localized_name": "None"
+          },
+          {
+            "value": "WEST",
+            "localized_name": "None"
+          },
+          {
+            "value": "EAST",
+            "localized_name": "None"
+          }
+        ]
+      }
+    ],
+    "origin": "location",
+    "type": "basic"
+  },
+  {
     "id": "player_display_block",
     "name": "display_block",
     "localized_name": "\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0431\u043b\u043e\u043a",
@@ -10534,6 +10895,54 @@
     "type": "basic"
   },
   {
+    "id": "player_display_particle_cube",
+    "name": "display_particle_cube",
+    "localized_name": "None",
+    "object": "player",
+    "args": [
+      {
+        "id": "particle",
+        "type": "particle",
+        "localized_name": "None"
+      },
+      {
+        "id": "first_corner",
+        "type": "location",
+        "localized_name": "None"
+      },
+      {
+        "id": "second_corner",
+        "type": "location",
+        "localized_name": "None"
+      },
+      {
+        "id": "spacing",
+        "type": "number",
+        "localized_name": "None"
+      },
+      {
+        "id": "type",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "SOLID",
+            "localized_name": "None"
+          },
+          {
+            "value": "HOLLOW",
+            "localized_name": "None"
+          },
+          {
+            "value": "WIREFRAME",
+            "localized_name": "None"
+          }
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "player_display_particle_line",
     "name": "display_particle_line",
     "localized_name": "\u041e\u0442\u043e\u0431\u0440\u0430\u0437\u0438\u0442\u044c \u043b\u0438\u043d\u0438\u044e \u0447\u0430\u0441\u0442\u0438\u0446",
@@ -10615,6 +11024,94 @@
           {
             "value": "DISTANCE",
             "localized_name": "\u041f\u043e \u0440\u0430\u0441\u0441\u0442\u043e\u044f\u043d\u0438\u044e"
+          }
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "player_display_particle_sphere",
+    "name": "display_particle_sphere",
+    "localized_name": "None",
+    "object": "player",
+    "args": [
+      {
+        "id": "particle",
+        "type": "particle",
+        "localized_name": "None"
+      },
+      {
+        "id": "center",
+        "type": "location",
+        "localized_name": "None"
+      },
+      {
+        "id": "radius",
+        "type": "number",
+        "localized_name": "None"
+      },
+      {
+        "id": "points",
+        "type": "number",
+        "localized_name": "None"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "player_display_particle_spiral",
+    "name": "display_particle_spiral",
+    "localized_name": "None",
+    "object": "player",
+    "args": [
+      {
+        "id": "particle",
+        "type": "particle",
+        "localized_name": "None"
+      },
+      {
+        "id": "center",
+        "type": "location",
+        "localized_name": "None"
+      },
+      {
+        "id": "distance",
+        "type": "number",
+        "localized_name": "None"
+      },
+      {
+        "id": "radius",
+        "type": "number",
+        "localized_name": "None"
+      },
+      {
+        "id": "points",
+        "type": "number",
+        "localized_name": "None"
+      },
+      {
+        "id": "rotations",
+        "type": "number",
+        "localized_name": "None"
+      },
+      {
+        "id": "start_angle",
+        "type": "number",
+        "localized_name": "None"
+      },
+      {
+        "id": "angle_unit",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "DEGREES",
+            "localized_name": "None"
+          },
+          {
+            "value": "RADIANS",
+            "localized_name": "None"
           }
         ]
       }
@@ -11342,6 +11839,25 @@
     "type": "basic"
   },
   {
+    "id": "player_remove_display_blocks",
+    "name": "remove_display_blocks",
+    "localized_name": "None",
+    "object": "player",
+    "args": [
+      {
+        "id": "pos_1",
+        "type": "location",
+        "localized_name": "None"
+      },
+      {
+        "id": "pos_2",
+        "type": "location",
+        "localized_name": "None"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "player_remove_inventory_menu_row",
     "name": "remove_inventory_menu_row",
     "localized_name": "\u0423\u0431\u0440\u0430\u0442\u044c \u0441\u0442\u0440\u043e\u043a\u0438 \u043c\u0435\u043d\u044e",
@@ -11848,6 +12364,83 @@
     "type": "basic"
   },
   {
+    "id": "player_set_attribute",
+    "name": "set_attribute",
+    "localized_name": "None",
+    "object": "player",
+    "args": [
+      {
+        "id": "value",
+        "type": "number",
+        "localized_name": "None"
+      },
+      {
+        "id": "attribute_type",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "MAX_HEALTH",
+            "localized_name": "None"
+          },
+          {
+            "value": "MAX_ABSORPTION",
+            "localized_name": "None"
+          },
+          {
+            "value": "FOLLOW_RANGE",
+            "localized_name": "None"
+          },
+          {
+            "value": "KNOCKBACK_RESISTANCE",
+            "localized_name": "None"
+          },
+          {
+            "value": "MOVEMENT_SPEED",
+            "localized_name": "None"
+          },
+          {
+            "value": "FLYING_SPEED",
+            "localized_name": "None"
+          },
+          {
+            "value": "ATTACK_DAMAGE",
+            "localized_name": "None"
+          },
+          {
+            "value": "ATTACK_KNOCKBACK",
+            "localized_name": "None"
+          },
+          {
+            "value": "ATTACK_SPEED",
+            "localized_name": "None"
+          },
+          {
+            "value": "ARMOR",
+            "localized_name": "None"
+          },
+          {
+            "value": "ARMOR_TOUGHNESS",
+            "localized_name": "None"
+          },
+          {
+            "value": "LUCK",
+            "localized_name": "None"
+          },
+          {
+            "value": "HORSE_JUMP_STRENGTH",
+            "localized_name": "None"
+          },
+          {
+            "value": "ZOMBIE_SPAWN_REINFORCEMENTS",
+            "localized_name": "None"
+          }
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "player_set_bee_stingers_in_body",
     "name": "set_bee_stingers_in_body",
     "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0436\u0430\u043b\u043e \u043f\u0447\u0435\u043b\u044b \u043d\u0430 \u0438\u0433\u0440\u043e\u043a\u0435",
@@ -11964,6 +12557,40 @@
           {
             "value": "FOG_AND_DARK_SKY",
             "localized_name": "\u0422\u0443\u043c\u0430\u043d \u0438 \u0442\u0451\u043c\u043d\u043e\u0435 \u043d\u0435\u0431\u043e"
+          }
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "player_set_chat_completions",
+    "name": "set_chat_completions",
+    "localized_name": "None",
+    "object": "player",
+    "args": [
+      {
+        "id": "completions",
+        "type": "text",
+        "localized_name": "None",
+        "array": 18
+      },
+      {
+        "id": "setting_mode",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "ADD",
+            "localized_name": "None"
+          },
+          {
+            "value": "SET",
+            "localized_name": "None"
+          },
+          {
+            "value": "REMOVE",
+            "localized_name": "None"
           }
         ]
       }
@@ -12201,6 +12828,35 @@
           {
             "value": "OFF_HAND",
             "localized_name": "\u0412\u0442\u043e\u0440\u043e\u0441\u0442\u0435\u043f\u0435\u043d\u043d\u0430\u044f \u0440\u0443\u043a\u0430"
+          }
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "player_set_exhaustion",
+    "name": "set_exhaustion",
+    "localized_name": "None",
+    "object": "player",
+    "args": [
+      {
+        "id": "exhaustion",
+        "type": "number",
+        "localized_name": "None"
+      },
+      {
+        "id": "mode",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "SET",
+            "localized_name": "None"
+          },
+          {
+            "value": "ADD",
+            "localized_name": "None"
           }
         ]
       }
@@ -13001,6 +13657,20 @@
         "id": "thunder_level",
         "type": "number",
         "localized_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0433\u0440\u043e\u0437\u044b (\u043e\u0442 0 \u0434\u043e 100)"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "player_set_tick_rate",
+    "name": "set_tick_rate",
+    "localized_name": "None",
+    "object": "player",
+    "args": [
+      {
+        "id": "tick_rate",
+        "type": "number",
+        "localized_name": "None"
       }
     ],
     "type": "basic"
@@ -13928,7 +14598,7 @@
     "localized_name": "\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u044c \u043f\u043e \u0443\u0441\u043b\u043e\u0432\u0438\u044e",
     "object": "select",
     "args": [],
-    "type": "basic_with_conditional"
+    "type": "basic"
   },
   {
     "id": "select_add_entity_by_name",
@@ -14022,7 +14692,7 @@
     "localized_name": "\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0438\u0433\u0440\u043e\u043a\u0430 \u043f\u043e \u0443\u0441\u043b\u043e\u0432\u0438\u044e",
     "object": "select",
     "args": [],
-    "type": "basic_with_conditional"
+    "type": "basic"
   },
   {
     "id": "select_add_player_by_name",
@@ -16255,6 +16925,26 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_get_bundle_items",
+    "name": "get_bundle_items",
+    "localized_name": "None",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable",
+        "localized_name": "None"
+      },
+      {
+        "id": "bundle",
+        "type": "item",
+        "localized_name": "None"
+      }
+    ],
+    "origin": "bundle",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_get_char_at",
     "name": "get_char_at",
     "localized_name": "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0441\u0438\u043c\u0432\u043e\u043b \u043f\u043e \u0438\u043d\u0434\u0435\u043a\u0441\u0443",
@@ -16972,6 +17662,26 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_get_item_destroyable_blocks",
+    "name": "get_item_destroyable_blocks",
+    "localized_name": "None",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable",
+        "localized_name": "None"
+      },
+      {
+        "id": "item",
+        "type": "item",
+        "localized_name": "None"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_get_item_durability",
     "name": "get_item_durability",
     "localized_name": "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u043f\u0440\u043e\u0447\u043d\u043e\u0441\u0442\u044c \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u0430",
@@ -17217,6 +17927,26 @@
     "assign": [
       {
         "variable": "map"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_get_item_placeable_blocks",
+    "name": "get_item_placeable_blocks",
+    "localized_name": "None",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable",
+        "localized_name": "None"
+      },
+      {
+        "id": "item",
+        "type": "item",
+        "localized_name": "None"
       }
     ],
     "origin": "item",
@@ -19999,6 +20729,90 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_remove_item_attribute",
+    "name": "remove_item_attribute",
+    "localized_name": "None",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable",
+        "localized_name": "None"
+      },
+      {
+        "id": "item",
+        "type": "item",
+        "localized_name": "None"
+      },
+      {
+        "id": "name_or_uuid",
+        "type": "text",
+        "localized_name": "None"
+      },
+      {
+        "id": "attribute",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "GENERIC_ARMOR",
+            "localized_name": "None"
+          },
+          {
+            "value": "GENERIC_ARMOR_TOUGHNESS",
+            "localized_name": "None"
+          },
+          {
+            "value": "GENERIC_ATTACK_DAMAGE",
+            "localized_name": "None"
+          },
+          {
+            "value": "GENERIC_ATTACK_KNOCKBACK",
+            "localized_name": "None"
+          },
+          {
+            "value": "GENERIC_ATTACK_SPEED",
+            "localized_name": "None"
+          },
+          {
+            "value": "GENERIC_FLYING_SPEED",
+            "localized_name": "None"
+          },
+          {
+            "value": "GENERIC_FOLLOW_RANGE",
+            "localized_name": "None"
+          },
+          {
+            "value": "GENERIC_KNOCKBACK_RESISTANCE",
+            "localized_name": "None"
+          },
+          {
+            "value": "GENERIC_LUCK",
+            "localized_name": "None"
+          },
+          {
+            "value": "GENERIC_MAX_HEALTH",
+            "localized_name": "None"
+          },
+          {
+            "value": "GENERIC_MOVEMENT_SPEED",
+            "localized_name": "None"
+          },
+          {
+            "value": "HORSE_JUMP_STRENGTH",
+            "localized_name": "None"
+          },
+          {
+            "value": "ZOMBIE_SPAWN_REINFORCEMENTS",
+            "localized_name": "None"
+          }
+        ]
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_remove_item_custom_model_data",
     "name": "remove_item_custom_model_data",
     "localized_name": "\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u0434\u0430\u043d\u043d\u044b\u0435 \u043c\u043e\u0434\u0435\u043b\u0438 \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u0430",
@@ -20703,6 +21517,36 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_set_armor_trim",
+    "name": "set_armor_trim",
+    "localized_name": "None",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable",
+        "localized_name": "None"
+      },
+      {
+        "id": "armor",
+        "type": "item",
+        "localized_name": "None"
+      },
+      {
+        "id": "material",
+        "type": "item",
+        "localized_name": "None"
+      },
+      {
+        "id": "pattern",
+        "type": "item",
+        "localized_name": "None"
+      }
+    ],
+    "origin": "armor",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_set_book_page",
     "name": "set_book_page",
     "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0442\u0435\u043a\u0441\u0442 \u043a\u043d\u0438\u0433\u0438 \u043d\u0430 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435",
@@ -20781,6 +21625,51 @@
       }
     ],
     "origin": "book",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_set_bundle_items",
+    "name": "set_bundle_items",
+    "localized_name": "None",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable",
+        "localized_name": "None"
+      },
+      {
+        "id": "bundle",
+        "type": "item",
+        "localized_name": "None"
+      },
+      {
+        "id": "items",
+        "type": "item",
+        "localized_name": "None",
+        "array": 35
+      },
+      {
+        "id": "setting_mode",
+        "type": "enum",
+        "localized_name": "None",
+        "values": [
+          {
+            "value": "ADD",
+            "localized_name": "None"
+          },
+          {
+            "value": "SET",
+            "localized_name": "None"
+          },
+          {
+            "value": "REMOVE",
+            "localized_name": "None"
+          }
+        ]
+      }
+    ],
+    "origin": "bundle",
     "type": "basic"
   },
   {

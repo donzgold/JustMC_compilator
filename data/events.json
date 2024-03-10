@@ -165,6 +165,11 @@
     "cancellable": true
   },
   {
+    "id": "player_furnace_extract",
+    "localize_name": "None",
+    "cancellable": false
+  },
+  {
     "id": "player_shot_bow",
     "localize_name": "\u0418\u0433\u0440\u043e\u043a \u0441\u0442\u0440\u0435\u043b\u044f\u0435\u0442",
     "cancellable": true
@@ -197,7 +202,7 @@
   {
     "id": "player_stop_using_item",
     "localize_name": "\u0418\u0433\u0440\u043e\u043a \u043f\u0435\u0440\u0435\u0441\u0442\u0430\u0435\u0442 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u043f\u0440\u0435\u0434\u043c\u0435\u0442",
-    "cancellable": true
+    "cancellable": false
   },
   {
     "id": "player_edit_book",
@@ -325,6 +330,11 @@
     "cancellable": true
   },
   {
+    "id": "player_exhaustion",
+    "localize_name": "None",
+    "cancellable": true
+  },
+  {
     "id": "player_projectile_hit",
     "localize_name": "\u041f\u043e\u043f\u0430\u0434\u0430\u043d\u0438\u0435 \u0441\u043d\u0430\u0440\u044f\u0434\u0430 \u0438\u0433\u0440\u043e\u043a\u0430",
     "cancellable": true
@@ -337,6 +347,11 @@
   {
     "id": "player_pre_attack_entity",
     "localize_name": "\u0418\u0433\u0440\u043e\u043a \u0441\u043e\u0431\u0438\u0440\u0430\u0435\u0442\u0441\u044f \u043d\u0430\u043d\u0435\u0441\u0442\u0438 \u0443\u0440\u043e\u043d \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438",
+    "cancellable": true
+  },
+  {
+    "id": "elder_guardian_appears_at_player",
+    "localize_name": "None",
     "cancellable": true
   },
   {
@@ -512,6 +527,11 @@
   {
     "id": "piglin_barter",
     "localize_name": "\u041f\u0438\u0433\u043b\u0438\u043d \u0442\u043e\u0440\u0433\u0443\u0435\u0442\u0441\u044f",
+    "cancellable": true
+  },
+  {
+    "id": "goat_ram_entity",
+    "localize_name": "None",
     "cancellable": true
   },
   {
@@ -692,6 +712,21 @@
   {
     "id": "hopper_pickup_item",
     "localize_name": "\u0412\u043e\u0440\u043e\u043d\u043a\u0430 \u043f\u043e\u0434\u0431\u0438\u0440\u0430\u0435\u0442 \u043f\u0440\u0435\u0434\u043c\u0435\u0442",
+    "cancellable": true
+  },
+  {
+    "id": "furnace_smelt",
+    "localize_name": "None",
+    "cancellable": true
+  },
+  {
+    "id": "furnace_start_smelt",
+    "localize_name": "None",
+    "cancellable": false
+  },
+  {
+    "id": "furnace_burn",
+    "localize_name": "None",
     "cancellable": true
   }
 ]

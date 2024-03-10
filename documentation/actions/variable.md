@@ -198,6 +198,35 @@ if(item("stick").item_equals([item("stick"), item("stick")],"EXACTLY"){
 | `value`           | Предмет                                                                                                                                                                                                              | Сравниваемая переменная предмета |
 | `compare`         | список[Предмет]                                                                                                                                                                                                      | Сравниваемые значения            |
 | `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_STACK_SIZE** - Игнорировать количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения                  |
+<h3 id=if_variable_item_has_enchantment>
+  <code>variable::item_has_enchantment</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие, проверяющее условие\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+if(variable::item_has_enchantment(item("stick"),"None",1){
+    player::message("Условие верно");
+}
+
+#Или от объекта
+
+if(item("stick").item_has_enchantment("None",1){
+    player::message("Условие верно");
+}
+```
+
+**Аргументы:**
+
+| **Имя**   | **Тип** | **Описание** |
+| --------- | ------- | ------------ |
+| `item`    | Предмет | None         |
+| `enchant` | Текст   | None         |
+| `level`   | Число   | None         |
 <h3 id=if_variable_item_has_tag>
   <code>variable::item_has_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2052,6 +2081,30 @@ variable::get_brushable_block_item(a1,location(0,0,0,0,0));
 | ---------- | -------------- | ------------------------- |
 | `variable` | Переменная     | Переменная для присвоения |
 | `location` | Местоположение | Местоположение блока      |
+<h3 id=set_variable_get_bundle_items>
+  <code>variable::get_bundle_items</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+variable::get_bundle_items(a1,item("stick"));
+
+#Или от объекта
+
+item("stick").get_bundle_items(a1);
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**    | **Описание** |
+| ---------- | ---------- | ------------ |
+| `variable` | Переменная | None         |
+| `bundle`   | Предмет    | None         |
 <h3 id=set_variable_get_char_at>
   <code>variable::get_char_at</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2598,6 +2651,30 @@ variable::get_item_custom_tags(a1,item("stick"));
 | ---------- | ---------- | ------------------------- |
 | `variable` | Переменная | Переменная для присвоения |
 | `item`     | Предмет    | Предмет                   |
+<h3 id=set_variable_get_item_destroyable_blocks>
+  <code>variable::get_item_destroyable_blocks</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+variable::get_item_destroyable_blocks(a1,item("stick"));
+
+#Или от объекта
+
+item("stick").get_item_destroyable_blocks(a1);
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**    | **Описание** |
+| ---------- | ---------- | ------------ |
+| `variable` | Переменная | None         |
+| `item`     | Предмет    | None         |
 <h3 id=set_variable_get_item_durability>
   <code>variable::get_item_durability</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2825,6 +2902,30 @@ variable::get_item_nbt_tags(a1,item("stick"));
 | ---------- | ---------- | ------------------------- |
 | `variable` | Переменная | Переменная для присвоения |
 | `item`     | Предмет    | Предмет                   |
+<h3 id=set_variable_get_item_placeable_blocks>
+  <code>variable::get_item_placeable_blocks</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+variable::get_item_placeable_blocks(a1,item("stick"));
+
+#Или от объекта
+
+item("stick").get_item_placeable_blocks(a1);
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**    | **Описание** |
+| ---------- | ---------- | ------------ |
+| `variable` | Переменная | None         |
+| `item`     | Предмет    | None         |
 <h3 id=set_variable_get_item_potion_effects>
   <code>variable::get_item_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4939,6 +5040,32 @@ variable::remove_compass_lodestone(a1,item("stick"));
 | ---------- | ---------- | ------------------------- |
 | `variable` | Переменная | Переменная для присвоения |
 | `item`     | Предмет    | Намагниченный компас      |
+<h3 id=set_variable_remove_item_attribute>
+  <code>variable::remove_item_attribute</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+variable::remove_item_attribute(a1,item("stick"),"None","GENERIC_ARMOR");
+
+#Или от объекта
+
+item("stick").remove_item_attribute(a1,"None","GENERIC_ARMOR");
+```
+
+**Аргументы:**
+
+| **Имя**        | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | **Описание** |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `variable`     | Переменная                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | None         |
+| `item`         | Предмет                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | None         |
+| `name_or_uuid` | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | None         |
+| `attribute`    | Маркер<br/>**GENERIC_ARMOR** - None<br/>**GENERIC_ARMOR_TOUGHNESS** - None<br/>**GENERIC_ATTACK_DAMAGE** - None<br/>**GENERIC_ATTACK_KNOCKBACK** - None<br/>**GENERIC_ATTACK_SPEED** - None<br/>**GENERIC_FLYING_SPEED** - None<br/>**GENERIC_FOLLOW_RANGE** - None<br/>**GENERIC_KNOCKBACK_RESISTANCE** - None<br/>**GENERIC_LUCK** - None<br/>**GENERIC_MAX_HEALTH** - None<br/>**GENERIC_MOVEMENT_SPEED** - None<br/>**HORSE_JUMP_STRENGTH** - None<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - None | None         |
 <h3 id=set_variable_remove_item_custom_model_data>
   <code>variable::remove_item_custom_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5466,6 +5593,32 @@ variable::set_all_coordinates(a1,1,2,3,4,5);
 | `z`        | Число      | Координата Z              |
 | `yaw`      | Число      | Горизонтальный поворот    |
 | `pitch`    | Число      | Вертикальный поворот      |
+<h3 id=set_variable_set_armor_trim>
+  <code>variable::set_armor_trim</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+variable::set_armor_trim(a1,item("stick"),item("stick"),item("stick"));
+
+#Или от объекта
+
+item("stick").set_armor_trim(a1,item("stick"),item("stick"));
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**    | **Описание** |
+| ---------- | ---------- | ------------ |
+| `variable` | Переменная | None         |
+| `armor`    | Предмет    | None         |
+| `material` | Предмет    | None         |
+| `pattern`  | Предмет    | None         |
 <h3 id=set_variable_set_book_page>
   <code>variable::set_book_page</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5526,6 +5679,32 @@ variable::set_book_pages(a1,item("stick"),["Новый текст", "Новый 
 | `variable` | Переменная    | Переменная для присвоения |
 | `book`     | Предмет       | Книга для изменения       |
 | `text`     | список[Текст] | Новый текст               |
+<h3 id=set_variable_set_bundle_items>
+  <code>variable::set_bundle_items</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+variable::set_bundle_items(a1,item("stick"),[item("stick"), item("stick")],"ADD");
+
+#Или от объекта
+
+item("stick").set_bundle_items(a1,[item("stick"), item("stick")],"ADD");
+```
+
+**Аргументы:**
+
+| **Имя**        | **Тип**                                                            | **Описание** |
+| -------------- | ------------------------------------------------------------------ | ------------ |
+| `variable`     | Переменная                                                         | None         |
+| `bundle`       | Предмет                                                            | None         |
+| `items`        | список[Предмет]                                                    | None         |
+| `setting_mode` | Маркер<br/>**ADD** - None<br/>**SET** - None<br/>**REMOVE** - None | None         |
 <h3 id=set_variable_set_compass_lodestone>
   <code>variable::set_compass_lodestone</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

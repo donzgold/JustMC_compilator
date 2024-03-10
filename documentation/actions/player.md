@@ -998,6 +998,34 @@ player::disguise_as_item(item("stick"),"TRUE");
 | ----------------- | ---------------------------------------------------- | ---------------------- |
 | `item`            | Предмет                                              | Предмет для маскировки |
 | `visible_to_self` | Маркер<br/>**TRUE** - Видно<br/>**FALSE** - Не видно | Видимость для игрока   |
+<h3 id=player_display_bell_ring>
+  <code>player::display_bell_ring</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None\
+**Дополнительная информация:**\
+&nbsp;&nbsp;None\
+**Работает с:**\
+&nbsp;&nbsp;None
+
+**Пример использования:** 
+```ts
+player::display_bell_ring(location(0,0,0,0,0),"DOWN");
+
+#Или от объекта
+
+location(0,0,0,0,0).display_bell_ring("DOWN");
+```
+
+**Аргументы:**
+
+| **Имя**     | **Тип**                                                                                                      | **Описание** |
+| ----------- | ------------------------------------------------------------------------------------------------------------ | ------------ |
+| `location`  | Местоположение                                                                                               | None         |
+| `direction` | Маркер<br/>**DOWN** - None<br/>**NORTH** - None<br/>**SOUTH** - None<br/>**WEST** - None<br/>**EAST** - None | None         |
 <h3 id=player_display_block>
   <code>player::display_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1150,6 +1178,29 @@ player::display_particle_circle(particle("fire"),location(0,0,0,0,0),1,2,3,vecto
 | `start_angle`   | Число                                                      | Начальный угол                                                |
 | `perpendicular` | Вектор                                                     | Нормаль плоскости, к которой окружность будет перпендикулярна |
 | `angle_unit`    | Маркер<br/>**DEGREES** - Градусы<br/>**RADIANS** - Радианы | Тип угла                                                      |
+<h3 id=player_display_particle_cube>
+  <code>player::display_particle_cube</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+player::display_particle_cube(particle("fire"),location(0,0,0,0,0),location(0,0,0,0,0),1,"SOLID");
+```
+
+**Аргументы:**
+
+| **Имя**         | **Тип**                                                                    | **Описание** |
+| --------------- | -------------------------------------------------------------------------- | ------------ |
+| `particle`      | Эффект частиц                                                              | None         |
+| `first_corner`  | Местоположение                                                             | None         |
+| `second_corner` | Местоположение                                                             | None         |
+| `spacing`       | Число                                                                      | None         |
+| `type`          | Маркер<br/>**SOLID** - None<br/>**HOLLOW** - None<br/>**WIREFRAME** - None | None         |
 <h3 id=player_display_particle_line>
   <code>player::display_particle_line</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1196,6 +1247,54 @@ player::display_particle_ray(particle("fire"),location(0,0,0,0,0),vector(0,0,0),
 | `ray`                 | Вектор                                                                 | Направление луча                      |
 | `divider`             | Число                                                                  | Количество/расстояние между частицами |
 | `unit_of_measurement` | Маркер<br/>**POINTS** - По количеству<br/>**DISTANCE** - По расстоянию | Тип отображения частиц                |
+<h3 id=player_display_particle_sphere>
+  <code>player::display_particle_sphere</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+player::display_particle_sphere(particle("fire"),location(0,0,0,0,0),1,2);
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание** |
+| ---------- | -------------- | ------------ |
+| `particle` | Эффект частиц  | None         |
+| `center`   | Местоположение | None         |
+| `radius`   | Число          | None         |
+| `points`   | Число          | None         |
+<h3 id=player_display_particle_spiral>
+  <code>player::display_particle_spiral</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+player::display_particle_spiral(particle("fire"),location(0,0,0,0,0),1,2,3,4,5,"DEGREES");
+```
+
+**Аргументы:**
+
+| **Имя**       | **Тип**                                              | **Описание** |
+| ------------- | ---------------------------------------------------- | ------------ |
+| `particle`    | Эффект частиц                                        | None         |
+| `center`      | Местоположение                                       | None         |
+| `distance`    | Число                                                | None         |
+| `radius`      | Число                                                | None         |
+| `points`      | Число                                                | None         |
+| `rotations`   | Число                                                | None         |
+| `start_angle` | Число                                                | None         |
+| `angle_unit`  | Маркер<br/>**DEGREES** - None<br/>**RADIANS** - None | None         |
 <h3 id=player_display_pick_up_animation>
   <code>player::display_pick_up_animation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1782,6 +1881,26 @@ player::remove_boss_bar("ID босс-бара");
 player::remove_disguise();
 ```
 
+<h3 id=player_remove_display_blocks>
+  <code>player::remove_display_blocks</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+player::remove_display_blocks(location(0,0,0,0,0),location(0,0,0,0,0));
+```
+
+**Аргументы:**
+
+| **Имя** | **Тип**        | **Описание** |
+| ------- | -------------- | ------------ |
+| `pos_1` | Местоположение | None         |
+| `pos_2` | Местоположение | None         |
 <h3 id=player_remove_inventory_menu_row>
   <code>player::remove_inventory_menu_row</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2301,6 +2420,26 @@ player::set_attack_speed(1);
 | **Имя** | **Тип** | **Описание**   |
 | ------- | ------- | -------------- |
 | `speed` | Число   | Скорость атаки |
+<h3 id=player_set_attribute>
+  <code>player::set_attribute</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+player::set_attribute(1,"MAX_HEALTH");
+```
+
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                 | **Описание** |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `value`          | Число                                                                                                                                                                                                                                                                                                                                                                                                                                   | None         |
+| `attribute_type` | Маркер<br/>**MAX_HEALTH** - None<br/>**MAX_ABSORPTION** - None<br/>**FOLLOW_RANGE** - None<br/>**KNOCKBACK_RESISTANCE** - None<br/>**MOVEMENT_SPEED** - None<br/>**FLYING_SPEED** - None<br/>**ATTACK_DAMAGE** - None<br/>**ATTACK_KNOCKBACK** - None<br/>**ATTACK_SPEED** - None<br/>**ARMOR** - None<br/>**ARMOR_TOUGHNESS** - None<br/>**LUCK** - None<br/>**HORSE_JUMP_STRENGTH** - None<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - None | None         |
 <h3 id=player_set_bee_stingers_in_body>
   <code>player::set_bee_stingers_in_body</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2344,6 +2483,26 @@ player::set_boss_bar("ID босс-бара","Текст",1,"PINK","PROGRESS","NO
 | `color`      | Маркер<br/>**PINK** - Розовый<br/>**BLUE** - Синий<br/>**RED** - Красный<br/>**GREEN** - Зелёный<br/>**YELLOW** - Жёлтый<br/>**PURPLE** - Фиолетовый<br/>**WHITE** - Белый | Цвет                  |
 | `style`      | Маркер<br/>**PROGRESS** - Сплошной<br/>**NOTCHED_6** - 6 сегментов<br/>**NOTCHED_10** - 10 сегментов<br/>**NOTCHED_12** - 12 сегментов<br/>**NOTCHED_20** - 20 сегментов   | Стиль                 |
 | `sky_effect` | Маркер<br/>**NONE** - Отсутствует<br/>**FOG** - Туман<br/>**DARK_SKY** - Тёмное небо<br/>**FOG_AND_DARK_SKY** - Туман и тёмное небо                                        | Эффект неба           |
+<h3 id=player_set_chat_completions>
+  <code>player::set_chat_completions</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+player::set_chat_completions(["None", "None"],"ADD");
+```
+
+**Аргументы:**
+
+| **Имя**        | **Тип**                                                            | **Описание** |
+| -------------- | ------------------------------------------------------------------ | ------------ |
+| `completions`  | список[Текст]                                                      | None         |
+| `setting_mode` | Маркер<br/>**ADD** - None<br/>**SET** - None<br/>**REMOVE** - None | None         |
 <h3 id=player_set_collidable>
   <code>player::set_collidable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2480,6 +2639,26 @@ player::set_equipment(item("stick"),"CHEST");
 | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | `item`  | Предмет                                                                                                                                                               | Предметы для выдачи |
 | `slot`  | Маркер<br/>**CHEST** - Нагрудник<br/>**FEET** - Ботинки<br/>**HAND** - Основная рука<br/>**HEAD** - Шлем<br/>**LEGS** - Поножи<br/>**OFF_HAND** - Второстепенная рука | Слот снаряжения     |
+<h3 id=player_set_exhaustion>
+  <code>player::set_exhaustion</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+player::set_exhaustion(1,"SET");
+```
+
+**Аргументы:**
+
+| **Имя**      | **Тип**                                      | **Описание** |
+| ------------ | -------------------------------------------- | ------------ |
+| `exhaustion` | Число                                        | None         |
+| `mode`       | Маркер<br/>**SET** - None<br/>**ADD** - None | None         |
 <h3 id=player_set_experience>
   <code>player::set_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3125,6 +3304,25 @@ player::set_thunder_level(1);
 | **Имя**         | **Тип** | **Описание**                |
 | --------------- | ------- | --------------------------- |
 | `thunder_level` | Число   | Уровень грозы (от 0 до 100) |
+<h3 id=player_set_tick_rate>
+  <code>player::set_tick_rate</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+player::set_tick_rate(1);
+```
+
+**Аргументы:**
+
+| **Имя**     | **Тип** | **Описание** |
+| ----------- | ------- | ------------ |
+| `tick_rate` | Число   | None         |
 <h3 id=player_set_time>
   <code>player::set_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

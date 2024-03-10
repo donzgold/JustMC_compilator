@@ -40,6 +40,16 @@
     "type": "number"
   },
   {
+    "id": "attack_cooldown_ticks",
+    "localize_name": "None",
+    "type": "number"
+  },
+  {
+    "id": "attack_cooldown_strength",
+    "localize_name": "None",
+    "type": "number"
+  },
+  {
     "id": "armor_points",
     "localize_name": "\u041e\u0447\u043a\u0438 \u0437\u0430\u0449\u0438\u0442\u044b",
     "type": "number"
@@ -450,6 +460,16 @@
     "type": "text"
   },
   {
+    "id": "event_exhaustion_amount",
+    "localize_name": "None",
+    "type": "number"
+  },
+  {
+    "id": "event_exhaustion_reason",
+    "localize_name": "None",
+    "type": "text"
+  },
+  {
     "id": "event_new_potion_effect",
     "localize_name": "\u041d\u043e\u0432\u044b\u0439 \u044d\u0444\u0444\u0435\u043a\u0442",
     "type": "potion"
@@ -658,16 +678,6 @@
     "id": "world_weather",
     "localize_name": "\u0422\u0435\u043a\u0443\u0449\u0430\u044f \u043f\u043e\u0433\u043e\u0434\u0430 \u043c\u0438\u0440\u0430",
     "type": "text"
-  },
-  {
-    "id": "server_stopped_time",
-    "localize_name": "\u0412\u0440\u0435\u043c\u044f \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0438 \u0441\u0435\u0440\u0432\u0435\u0440\u0430",
-    "type": "number"
-  },
-  {
-    "id": "action_count_per_tick",
-    "localize_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439 \u0437\u0430 \u0442\u0438\u043a",
-    "type": "number"
   },
   {
     "id": "owner_uuid",

@@ -846,6 +846,27 @@ world::set_event_damage(1);
 | **Имя**  | **Тип** | **Описание**     |
 | -------- | ------- | ---------------- |
 | `damage` | Число   | Количество урона |
+<h3 id=game_set_event_exhaustion>
+  <code>world::set_event_exhaustion</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+**Работает с:**\
+&nbsp;&nbsp;None
+
+**Пример использования:** 
+```ts
+world::set_event_exhaustion(1);
+```
+
+**Аргументы:**
+
+| **Имя**      | **Тип** | **Описание** |
+| ------------ | ------- | ------------ |
+| `exhaustion` | Число   | None         |
 <h3 id=game_set_event_experience>
   <code>world::set_event_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1193,6 +1214,110 @@ world::set_region(item("stone"),location(0,0,0,0,0),location(0,0,0,0,0));
 | `block` | Блок           | Блок                         |
 | `pos_1` | Местоположение | Угол региона                 |
 | `pos_2` | Местоположение | Противоположный угол региона |
+<h3 id=game_set_scoreboard_line>
+  <code>world::set_scoreboard_line</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+world::set_scoreboard_line("None","None","None",1,"None","BLANK");
+
+#Или от объекта
+
+"None".set_scoreboard_line("None","None",1,"None","BLANK");
+```
+
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                                                     | **Описание** |
+| ---------------- | ------------------------------------------------------------------------------------------- | ------------ |
+| `id`             | Текст                                                                                       | None         |
+| `line`           | Текст                                                                                       | None         |
+| `display`        | Текст                                                                                       | None         |
+| `score`          | Число                                                                                       | None         |
+| `format_content` | Текст                                                                                       | None         |
+| `format`         | Маркер<br/>**BLANK** - None<br/>**FIXED** - None<br/>**STYLED** - None<br/>**RESET** - None | None         |
+<h3 id=game_set_scoreboard_line_display>
+  <code>world::set_scoreboard_line_display</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+world::set_scoreboard_line_display("None","None","None");
+
+#Или от объекта
+
+"None".set_scoreboard_line_display("None","None");
+```
+
+**Аргументы:**
+
+| **Имя**   | **Тип** | **Описание** |
+| --------- | ------- | ------------ |
+| `id`      | Текст   | None         |
+| `line`    | Текст   | None         |
+| `display` | Текст   | None         |
+<h3 id=game_set_scoreboard_line_format>
+  <code>world::set_scoreboard_line_format</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+world::set_scoreboard_line_format("None","None","None","BLANK");
+
+#Или от объекта
+
+"None".set_scoreboard_line_format("None","None","BLANK");
+```
+
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                                                     | **Описание** |
+| ---------------- | ------------------------------------------------------------------------------------------- | ------------ |
+| `id`             | Текст                                                                                       | None         |
+| `line`           | Текст                                                                                       | None         |
+| `format_content` | Текст                                                                                       | None         |
+| `format`         | Маркер<br/>**BLANK** - None<br/>**FIXED** - None<br/>**STYLED** - None<br/>**RESET** - None | None         |
+<h3 id=game_set_scoreboard_number_format>
+  <code>world::set_scoreboard_number_format</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+
+**Пример использования:** 
+```ts
+world::set_scoreboard_number_format("None","None","BLANK");
+
+#Или от объекта
+
+"None".set_scoreboard_number_format("None","BLANK");
+```
+
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                                                     | **Описание** |
+| ---------------- | ------------------------------------------------------------------------------------------- | ------------ |
+| `id`             | Текст                                                                                       | None         |
+| `format_content` | Текст                                                                                       | None         |
+| `format`         | Маркер<br/>**BLANK** - None<br/>**FIXED** - None<br/>**STYLED** - None<br/>**RESET** - None | None         |
 <h3 id=game_set_scoreboard_score>
   <code>world::set_scoreboard_score</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1370,6 +1495,32 @@ world::set_sign_waxed(location(0,0,0,0,0),"TRUE");
 | ---------- | -------------------------------------------------------- | ----------------------- |
 | `location` | Местоположение                                           | Местоположение таблички |
 | `waxed`    | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Вощённость              |
+<h3 id=game_set_spawner_entity>
+  <code>world::set_spawner_entity</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** None\
+**Тип:** Действие без значения\
+**Описание:** None
+**Работает с:**\
+&nbsp;&nbsp;None
+
+**Пример использования:** 
+```ts
+world::set_spawner_entity(location(0,0,0,0,0),item("stick"));
+
+#Или от объекта
+
+location(0,0,0,0,0).set_spawner_entity(item("stick"));
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание** |
+| ---------- | -------------- | ------------ |
+| `location` | Местоположение | None         |
+| `entity`   | Предмет        | None         |
 <h3 id=game_set_world_difficulty>
   <code>world::set_world_difficulty</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1761,7 +1912,7 @@ world::spawn_mob(item("stick"),location(0,0,0,0,0),1,"Имя",[potion("slow_fall
 
 **Пример использования:** 
 ```ts
-world::spawn_primed_tnt(location(0,0,0,0,0),1,2,"Имя");
+world::spawn_primed_tnt(location(0,0,0,0,0),1,2,"Имя",item("stone"));
 ```
 
 **Аргументы:**
@@ -1772,6 +1923,7 @@ world::spawn_primed_tnt(location(0,0,0,0,0),1,2,"Имя");
 | `tnt_power`     | Число          | Мощность динамита (от 0 до 4) |
 | `fuse_duration` | Число          | Время задержки взрыва         |
 | `custom_name`   | Текст          | Имя                           |
+| `block`         | Блок           | None                          |
 <h3 id=game_spawn_shulker_bullet>
   <code>world::spawn_shulker_bullet</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

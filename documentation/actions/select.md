@@ -51,7 +51,7 @@ select::add_all_players();
 
 **Пример использования:** 
 ```ts
-select::add_entity_by_conditional(a1.exists());
+select::add_entity_by_conditional();
 ```
 
 <h3 id=select_add_entity_by_name>
@@ -150,7 +150,7 @@ select::add_mob_by_name(["Имя или UUID моба", "Имя или UUID мо
 
 **Пример использования:** 
 ```ts
-select::add_player_by_conditional(a1.exists());
+select::add_player_by_conditional();
 ```
 
 <h3 id=select_add_player_by_name>
