@@ -206,8 +206,9 @@ def check_updates():
     if data["data_version"] < an_data["data_version"]:
         print(minecraft_based_text(
             f"&6База кода jmcc отстаёт от последней на {an_data['data_version'] - data['data_version']}"))
-        print(minecraft_based_text("&fИсправляем..."))
-        download_latest_data()
+        if data["auto_update"]:
+            print(minecraft_based_text("&fИсправляем..."))
+            download_latest_data()
 
 
 path = os.path.realpath(__file__)

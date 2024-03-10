@@ -109,23 +109,23 @@ def decompile(thing):
         return None
     elif typ == "event":
         ret = f"event<{thing['event']}>" + "{" + ("\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
-                    "\n" + " " * (current_indent * 4)).join(
+                "\n" + " " * (current_indent * 4)).join(
             list(filter(is_not_none, map(decompile, thing["operations"])))) + (
-                          "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
+                      "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
         return ret
     elif typ == "function":
         ret = f"function {fix_var_name(thing['name'])}()" + "{" + (
-                    "\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
-                          "\n" + " " * (current_indent * 4)).join(
+                "\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
+                      "\n" + " " * (current_indent * 4)).join(
             list(filter(is_not_none, map(decompile, thing["operations"])))) + (
-                          "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
+                      "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
         return ret
     elif typ == "process":
         ret = f"process {fix_var_name(thing['name'])}()" + "{" + (
-                    "\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
-                          "\n" + " " * (current_indent * 4)).join(
+                "\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
+                      "\n" + " " * (current_indent * 4)).join(
             list(filter(is_not_none, map(decompile, thing["operations"])))) + (
-                          "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
+                      "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
         return ret
     elif typ == "text":
         return (thing['parsing'][0] if thing['parsing'] != 'legacy' else '') + "\"" + thing['text'].replace("\\",
@@ -279,9 +279,9 @@ def decompile(thing):
                 if "boolean" in act:
                     ret = "if(" + ret + ")"
             ret = ret + "{" + ("\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
-                        "\n" + " " * (current_indent * 4)).join(
+                    "\n" + " " * (current_indent * 4)).join(
                 list(filter(is_not_none, map(decompile, thing["operations"])))) + (
-                              "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
+                          "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
             return ret
         elif act["type"] == "container_with_conditional":
             new_thing = thing["conditional"]
@@ -312,10 +312,10 @@ def decompile(thing):
             new_ret = ((ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
                 arg_text) + ")"
             ret = act["object"] + "::" + act["name"] + "(" + new_ret + ")" + "{" + (
-                        "\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
-                              "\n" + " " * (current_indent * 4)).join(
+                    "\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
+                          "\n" + " " * (current_indent * 4)).join(
                 list(filter(is_not_none, map(decompile, thing["operations"])))) + (
-                              "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
+                          "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
             return ret
     print(thing)
     print(minecraft_based_text("&cНеизвестный тип"))
@@ -333,5 +333,4 @@ def decompile_file(file):
     for i in json.load(open(file, encoding="UTF-8"))["handlers"]:
         writing.write(decompile(i) + "\n")
 
-
-#decompile_file("b.json")
+# decompile_file("b.json")
