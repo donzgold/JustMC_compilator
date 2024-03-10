@@ -244,7 +244,10 @@ class Lexer:
         self.work_dir = work_dir
         open_files[self.file] = open(self.file, "r", encoding="UTF-8").read()
         self.pos = 0
-        self.current_char = self.text()[self.pos]
+        if self.pos < len(self.text()):
+            self.current_char = self.text()[self.pos]
+        else:
+            self.current_char = None
         self.last_token = Token(OEL, "OEL", start_line=0, offset_pos=0, file=self.file)
         self.line = 0
         self.offset_pos = 0
