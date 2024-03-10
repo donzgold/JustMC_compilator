@@ -2449,9 +2449,9 @@ class action:
                     self.arg_list[k1]["type"] == "any" or typ == "text" or self.arg_list[k1]["type"] == "text"):
                 error("TypeError", "Ожидался объект типа " + self.arg_list[k1]["type"] + f", но был получен {v1.type}",
                       v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file)
-        for kay, val in self.args.items():
+        for key, val in self.args.items():
             if val is not None:
-                arg.append({"name": kay, "value": val.json()})
+                arg.append({"name": key, "value": val.json()})
         a = {"action": act_id, "values": arg}
         if self.no is not None:
             a["is_inverted"] = self.no
