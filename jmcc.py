@@ -225,7 +225,7 @@ a = is_connected()
 if a:
     check_updates()
 if __name__ == "__main__":
-    additional = sys.orig_argv[2:]
+    additional = sys.argv[1:]
     if len(additional) == 0:
         additional = ["about"]
     if len(additional) >= 1:
