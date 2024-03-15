@@ -2469,6 +2469,8 @@ class action:
             a["values"].extend(a["conditional"]["values"])
         if self.operations is not None:
             a["operations"] = self.operations.json(normal=True)
+        if self.selector is not None:
+            a["selection"] = {"type": self.selector}
 
         return a
 
@@ -3867,4 +3869,4 @@ math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["fi
 events = dict()
 values = dict()
 
-# compile_file("a.jc", upload=False)
+#compile_file("a.jc", upload=True)
