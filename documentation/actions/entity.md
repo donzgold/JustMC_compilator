@@ -2380,9 +2380,9 @@ entity::set_minecart_block(item("stone"),1);
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** None\
+**Имя:** Установить агрессивность\
 **Тип:** Действие без значения\
-**Описание:** None
+**Описание:** Устанавливает агрессивность сущности.
 
 **Пример использования:** 
 ```ts
@@ -2391,9 +2391,9 @@ entity::set_mob_aggressive("TRUE");
 
 **Аргументы:**
 
-| **Имя**      | **Тип**                                         | **Описание** |
-| ------------ | ----------------------------------------------- | ------------ |
-| `aggressive` | Маркер<br/>**TRUE** - None<br/>**FALSE** - None | None         |
+| **Имя**      | **Тип**                                      | **Описание**  |
+| ------------ | -------------------------------------------- | ------------- |
+| `aggressive` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Агрессивность |
 <h3 id=entity_set_mushroom_cow_type>
   <code>entity::set_mushroom_cow_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2612,11 +2612,11 @@ entity::set_potion_cloud_radius(1,2);
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** None\
+**Имя:** Замаскировать зажженный динамит под блок\
 **Тип:** Действие без значения\
-**Описание:** None
+**Описание:** Маскирует зажженный динамит под указанный блок.
 **Работает с:**\
-&nbsp;&nbsp;None
+&nbsp;&nbsp;Зажженным динамитом
 
 **Пример использования:** 
 ```ts
@@ -2627,7 +2627,7 @@ entity::set_primed_tnt_block(item("stone"));
 
 | **Имя** | **Тип** | **Описание** |
 | ------- | ------- | ------------ |
-| `block` | Блок    | None         |
+| `block` | Блок    | Блок         |
 <h3 id=entity_set_projectile_display_item>
   <code>entity::set_projectile_display_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3162,11 +3162,11 @@ entity::set_location(vector(0,0,0),"TRUE");
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** None\
+**Имя:** Установить Вредине злость\
 **Тип:** Действие без значения\
-**Описание:** None
+**Описание:** Устанавливает Вредине стадию злости.
 **Работает с:**\
-&nbsp;&nbsp;None
+&nbsp;&nbsp;Врединами
 
 **Пример использования:** 
 ```ts
@@ -3175,19 +3175,19 @@ entity::set_vex_charging("TRUE");
 
 **Аргументы:**
 
-| **Имя**    | **Тип**                                         | **Описание** |
-| ---------- | ----------------------------------------------- | ------------ |
-| `charging` | Маркер<br/>**TRUE** - None<br/>**FALSE** - None | None         |
+| **Имя**    | **Тип**                                         | **Описание**  |
+| ---------- | ----------------------------------------------- | ------------- |
+| `charging` | Маркер<br/>**TRUE** - None<br/>**FALSE** - None | Стадия злости |
 <h3 id=entity_set_vex_limited_lifetime_ticks>
   <code>entity::set_vex_limited_lifetime_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** None\
+**Имя:** Установить время жизни Вредины\
 **Тип:** Действие без значения\
-**Описание:** None
+**Описание:** Устаналивает время жизни Вредины в тиках.
 **Работает с:**\
-&nbsp;&nbsp;None
+&nbsp;&nbsp;Врединами
 
 **Пример использования:** 
 ```ts
@@ -3198,7 +3198,7 @@ entity::set_vex_limited_lifetime_ticks(1);
 
 | **Имя**    | **Тип** | **Описание** |
 | ---------- | ------- | ------------ |
-| `lifetime` | Число   | None         |
+| `lifetime` | Число   | Время жизни  |
 <h3 id=entity_set_villager_biome>
   <code>entity::set_villager_biome</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

@@ -203,30 +203,30 @@ if(item("stick").item_equals([item("stick"), item("stick")],"EXACTLY"){
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** None\
+**Имя:** Предмет имеет зачарование\
 **Тип:** Действие, проверяющее условие\
-**Описание:** None
+**Описание:** Проверяет, имеет ли предметная переменная указанное зачарование определенного уровня.
 
 **Пример использования:** 
 ```ts
-if(variable::item_has_enchantment(item("stick"),"None",1){
+if(variable::item_has_enchantment(item("stick"),"Ключ зачарования",1){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(item("stick").item_has_enchantment("None",1){
+if(item("stick").item_has_enchantment("Ключ зачарования",1){
     player::message("Условие верно");
 }
 ```
 
 **Аргументы:**
 
-| **Имя**   | **Тип** | **Описание** |
-| --------- | ------- | ------------ |
-| `item`    | Предмет | None         |
-| `enchant` | Текст   | None         |
-| `level`   | Число   | None         |
+| **Имя**   | **Тип** | **Описание**          |
+| --------- | ------- | --------------------- |
+| `item`    | Предмет | Предметная переменная |
+| `enchant` | Текст   | Ключ зачарования      |
+| `level`   | Число   | Уровень               |
 <h3 id=if_variable_item_has_tag>
   <code>variable::item_has_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2086,9 +2086,9 @@ variable::get_brushable_block_item(a1,location(0,0,0,0,0));
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** None\
+**Имя:** Получить содержимое мешка\
 **Тип:** Действие без значения\
-**Описание:** None
+**Описание:** Получает содержимое мешка и присваивает результат к переменной.
 
 **Пример использования:** 
 ```ts
@@ -2101,10 +2101,10 @@ item("stick").get_bundle_items(a1);
 
 **Аргументы:**
 
-| **Имя**    | **Тип**    | **Описание** |
-| ---------- | ---------- | ------------ |
-| `variable` | Переменная | None         |
-| `bundle`   | Предмет    | None         |
+| **Имя**    | **Тип**    | **Описание**              |
+| ---------- | ---------- | ------------------------- |
+| `variable` | Переменная | Переменная для присвоения |
+| `bundle`   | Предмет    | Мешок                     |
 <h3 id=set_variable_get_char_at>
   <code>variable::get_char_at</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2656,9 +2656,9 @@ variable::get_item_custom_tags(a1,item("stick"));
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** None\
+**Имя:** Получить блоки для ломания предметом\
 **Тип:** Действие без значения\
-**Описание:** None
+**Описание:** Получает блоки, которые может ломать предмет, и присваивает результат к переменной.
 
 **Пример использования:** 
 ```ts
@@ -2671,10 +2671,10 @@ item("stick").get_item_destroyable_blocks(a1);
 
 **Аргументы:**
 
-| **Имя**    | **Тип**    | **Описание** |
-| ---------- | ---------- | ------------ |
-| `variable` | Переменная | None         |
-| `item`     | Предмет    | None         |
+| **Имя**    | **Тип**    | **Описание**              |
+| ---------- | ---------- | ------------------------- |
+| `variable` | Переменная | Переменная для присвоения |
+| `item`     | Предмет    | Предмет                   |
 <h3 id=set_variable_get_item_durability>
   <code>variable::get_item_durability</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2907,9 +2907,9 @@ variable::get_item_nbt_tags(a1,item("stick"));
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** None\
+**Имя:** Получить блоки для установки предмета\
 **Тип:** Действие без значения\
-**Описание:** None
+**Описание:** Получает блоки на которые может быть установлен предмет и присваивает результат к переменной.
 
 **Пример использования:** 
 ```ts
@@ -2922,10 +2922,10 @@ item("stick").get_item_placeable_blocks(a1);
 
 **Аргументы:**
 
-| **Имя**    | **Тип**    | **Описание** |
-| ---------- | ---------- | ------------ |
-| `variable` | Переменная | None         |
-| `item`     | Предмет    | None         |
+| **Имя**    | **Тип**    | **Описание**              |
+| ---------- | ---------- | ------------------------- |
+| `variable` | Переменная | Переменная для присвоения |
+| `item`     | Предмет    | Предмет                   |
 <h3 id=set_variable_get_item_potion_effects>
   <code>variable::get_item_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5045,27 +5045,27 @@ variable::remove_compass_lodestone(a1,item("stick"));
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** None\
+**Имя:** Удалить атрибут у предмета\
 **Тип:** Действие без значения\
-**Описание:** None
+**Описание:** Удаляет атрибут у предмета и присваевает результат к переменной.
 
 **Пример использования:** 
 ```ts
-variable::remove_item_attribute(a1,item("stick"),"None","GENERIC_ARMOR");
+variable::remove_item_attribute(a1,item("stick"),"Имя или UUID атрибута","GENERIC_ARMOR");
 
 #Или от объекта
 
-item("stick").remove_item_attribute(a1,"None","GENERIC_ARMOR");
+item("stick").remove_item_attribute(a1,"Имя или UUID атрибута","GENERIC_ARMOR");
 ```
 
 **Аргументы:**
 
-| **Имя**        | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | **Описание** |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `variable`     | Переменная                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | None         |
-| `item`         | Предмет                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | None         |
-| `name_or_uuid` | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | None         |
-| `attribute`    | Маркер<br/>**GENERIC_ARMOR** - None<br/>**GENERIC_ARMOR_TOUGHNESS** - None<br/>**GENERIC_ATTACK_DAMAGE** - None<br/>**GENERIC_ATTACK_KNOCKBACK** - None<br/>**GENERIC_ATTACK_SPEED** - None<br/>**GENERIC_FLYING_SPEED** - None<br/>**GENERIC_FOLLOW_RANGE** - None<br/>**GENERIC_KNOCKBACK_RESISTANCE** - None<br/>**GENERIC_LUCK** - None<br/>**GENERIC_MAX_HEALTH** - None<br/>**GENERIC_MOVEMENT_SPEED** - None<br/>**HORSE_JUMP_STRENGTH** - None<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - None | None         |
+| **Имя**        | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Описание**              |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `variable`     | Переменная                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Переменная для присвоения |
+| `item`         | Предмет                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Предмет                   |
+| `name_or_uuid` | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Имя или UUID атрибута     |
+| `attribute`    | Маркер<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**HORSE_JUMP_STRENGTH** - Сила прыжка лошади (horse.jump_strength)<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Сила прыжка лошади (zombie.spawn_reinforcements) | Тип атрибута              |
 <h3 id=set_variable_remove_item_custom_model_data>
   <code>variable::remove_item_custom_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5598,9 +5598,9 @@ variable::set_all_coordinates(a1,1,2,3,4,5);
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** None\
+**Имя:** Установить броне шаблон\
 **Тип:** Действие без значения\
-**Описание:** None
+**Описание:** Устанавливает броне указанный шаблон и присваивает результат к переменной.
 
 **Пример использования:** 
 ```ts
@@ -5613,12 +5613,12 @@ item("stick").set_armor_trim(a1,item("stick"),item("stick"));
 
 **Аргументы:**
 
-| **Имя**    | **Тип**    | **Описание** |
-| ---------- | ---------- | ------------ |
-| `variable` | Переменная | None         |
-| `armor`    | Предмет    | None         |
-| `material` | Предмет    | None         |
-| `pattern`  | Предмет    | None         |
+| **Имя**    | **Тип**    | **Описание**              |
+| ---------- | ---------- | ------------------------- |
+| `variable` | Переменная | Переменная для присвоения |
+| `armor`    | Предмет    | Броня                     |
+| `material` | Предмет    | Материал шаблона          |
+| `pattern`  | Предмет    | Шаблон                    |
 <h3 id=set_variable_set_book_page>
   <code>variable::set_book_page</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5684,9 +5684,9 @@ variable::set_book_pages(a1,item("stick"),["Новый текст", "Новый 
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** None\
+**Имя:** Изменить содержимое мешка\
 **Тип:** Действие без значения\
-**Описание:** None
+**Описание:** Изменяет содержимое мешка и присваивает результат к переменной.
 
 **Пример использования:** 
 ```ts
@@ -5699,12 +5699,12 @@ item("stick").set_bundle_items(a1,[item("stick"), item("stick")],"ADD");
 
 **Аргументы:**
 
-| **Имя**        | **Тип**                                                            | **Описание** |
-| -------------- | ------------------------------------------------------------------ | ------------ |
-| `variable`     | Переменная                                                         | None         |
-| `bundle`       | Предмет                                                            | None         |
-| `items`        | список[Предмет]                                                    | None         |
-| `setting_mode` | Маркер<br/>**ADD** - None<br/>**SET** - None<br/>**REMOVE** - None | None         |
+| **Имя**        | **Тип**                                                                         | **Описание**              |
+| -------------- | ------------------------------------------------------------------------------- | ------------------------- |
+| `variable`     | Переменная                                                                      | Переменная для присвоения |
+| `bundle`       | Предмет                                                                         | Мешок                     |
+| `items`        | список[Предмет]                                                                 | Предметы для изменения    |
+| `setting_mode` | Маркер<br/>**ADD** - Добавить<br/>**SET** - Установить<br/>**REMOVE** - Удалить | Тип изменения             |
 <h3 id=set_variable_set_compass_lodestone>
   <code>variable::set_compass_lodestone</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

@@ -3063,21 +3063,21 @@
   {
     "id": "entity_set_mob_aggressive",
     "name": "set_mob_aggressive",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0430\u0433\u0440\u0435\u0441\u0441\u0438\u0432\u043d\u043e\u0441\u0442\u044c",
     "object": "entity",
     "args": [
       {
         "id": "aggressive",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u0410\u0433\u0440\u0435\u0441\u0441\u0438\u0432\u043d\u043e\u0441\u0442\u044c",
         "values": [
           {
             "value": "TRUE",
-            "localized_name": "None"
+            "localized_name": "\u0414\u0430"
           },
           {
             "value": "FALSE",
-            "localized_name": "None"
+            "localized_name": "\u041d\u0435\u0442"
           }
         ]
       }
@@ -3401,13 +3401,13 @@
   {
     "id": "entity_set_primed_tnt_block",
     "name": "set_primed_tnt_block",
-    "localized_name": "None",
+    "localized_name": "\u0417\u0430\u043c\u0430\u0441\u043a\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0437\u0430\u0436\u0436\u0435\u043d\u043d\u044b\u0439 \u0434\u0438\u043d\u0430\u043c\u0438\u0442 \u043f\u043e\u0434 \u0431\u043b\u043e\u043a",
     "object": "entity",
     "args": [
       {
         "id": "block",
         "type": "block",
-        "localized_name": "None"
+        "localized_name": "\u0411\u043b\u043e\u043a"
       }
     ],
     "type": "basic"
@@ -4168,13 +4168,13 @@
   {
     "id": "entity_set_vex_charging",
     "name": "set_vex_charging",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0412\u0440\u0435\u0434\u0438\u043d\u0435 \u0437\u043b\u043e\u0441\u0442\u044c",
     "object": "entity",
     "args": [
       {
         "id": "charging",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u0421\u0442\u0430\u0434\u0438\u044f \u0437\u043b\u043e\u0441\u0442\u0438",
         "values": [
           {
             "value": "TRUE",
@@ -4192,13 +4192,13 @@
   {
     "id": "entity_set_vex_limited_lifetime_ticks",
     "name": "set_vex_limited_lifetime_ticks",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0432\u0440\u0435\u043c\u044f \u0436\u0438\u0437\u043d\u0438 \u0412\u0440\u0435\u0434\u0438\u043d\u044b",
     "object": "entity",
     "args": [
       {
         "id": "lifetime",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u0412\u0440\u0435\u043c\u044f \u0436\u0438\u0437\u043d\u0438"
       }
     ],
     "type": "basic"
@@ -5189,7 +5189,7 @@
       {
         "id": "text",
         "type": "text",
-        "localized_name": "\u0422\u0435\u043a\u0441\u0442 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u044f \u0434\u043b\u044f \u0443\u0434\u0430\u043b\u0435\u043d\u0438\u044f"
+        "localized_name": "ID \u043b\u0438\u043d\u0438\u0438"
       }
     ],
     "type": "basic"
@@ -5678,13 +5678,13 @@
   {
     "id": "game_set_event_exhaustion",
     "name": "set_event_exhaustion",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0438\u0441\u0442\u043e\u0449\u0435\u043d\u0438\u0435 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "object": "world",
     "args": [
       {
         "id": "exhaustion",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0438\u0441\u0442\u043e\u0449\u0435\u043d\u0438\u044f"
       }
     ],
     "type": "basic"
@@ -6002,54 +6002,54 @@
   {
     "id": "game_set_scoreboard_line",
     "name": "set_scoreboard_line",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u043b\u0438\u043d\u0438\u044e \u0432 \u0441\u043a\u043e\u0440\u0431\u043e\u0440\u0434\u0435",
     "object": "world",
     "args": [
       {
         "id": "id",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "ID \u0441\u043a\u043e\u0440\u0431\u043e\u0440\u0434\u0430"
       },
       {
         "id": "line",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "ID \u043b\u0438\u043d\u0438\u0438"
       },
       {
         "id": "display",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "\u041e\u0442\u043e\u0431\u0440\u0430\u0436\u0430\u0435\u043c\u044b\u0439 \u0442\u0435\u043a\u0441\u0442"
       },
       {
         "id": "score",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435"
       },
       {
         "id": "format_content",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "\u0424\u043e\u0440\u043c\u0430\u0442 \u0442\u0435\u043a\u0441\u0442\u0430"
       },
       {
         "id": "format",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u0422\u0438\u043f \u0444\u043e\u0440\u043c\u0430\u0442\u0430",
         "values": [
           {
             "value": "BLANK",
-            "localized_name": "None"
+            "localized_name": "\u041f\u0443\u0441\u0442\u043e\u0435"
           },
           {
             "value": "FIXED",
-            "localized_name": "None"
+            "localized_name": "\u0422\u0435\u043a\u0441\u0442\u043e\u0432\u043e\u0435"
           },
           {
             "value": "STYLED",
-            "localized_name": "None"
+            "localized_name": "\u0421\u0442\u0438\u043b\u044c"
           },
           {
             "value": "RESET",
-            "localized_name": "None"
+            "localized_name": "\u041e\u0431\u044b\u0447\u043d\u043e\u0435"
           }
         ]
       }
@@ -6060,23 +6060,23 @@
   {
     "id": "game_set_scoreboard_line_display",
     "name": "set_scoreboard_line_display",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u043e\u0442\u043e\u0431\u0440\u0430\u0436\u0430\u0435\u043c\u044b\u0439 \u0442\u0435\u043a\u0441\u0442 \u043b\u0438\u043d\u0438\u0438 \u0441\u043a\u043e\u0440\u0431\u043e\u0440\u0434\u0430",
     "object": "world",
     "args": [
       {
         "id": "id",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "ID \u0441\u043a\u043e\u0440\u0431\u043e\u0440\u0434\u0430"
       },
       {
         "id": "line",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "ID \u043b\u0438\u043d\u0438\u0438"
       },
       {
         "id": "display",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "\u041e\u0442\u043e\u0431\u0440\u0430\u0436\u0430\u0435\u043c\u044b\u0439 \u0442\u0435\u043a\u0441\u0442"
       }
     ],
     "origin": "id",
@@ -6085,44 +6085,44 @@
   {
     "id": "game_set_scoreboard_line_format",
     "name": "set_scoreboard_line_format",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0444\u043e\u0440\u043c\u0430\u0442 \u0442\u0435\u043a\u0441\u0442\u0430 \u043b\u0438\u043d\u0438\u0438 \u0441\u043a\u043e\u0440\u0431\u043e\u0440\u0434\u0430",
     "object": "world",
     "args": [
       {
         "id": "id",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "ID \u0441\u043a\u043e\u0440\u0431\u043e\u0440\u0434\u0430"
       },
       {
         "id": "line",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "ID \u043b\u0438\u043d\u0438\u0438"
       },
       {
         "id": "format_content",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "\u0424\u043e\u0440\u043c\u0430\u0442 \u0442\u0435\u043a\u0441\u0442\u0430"
       },
       {
         "id": "format",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u0422\u0438\u043f \u0444\u043e\u0440\u043c\u0430\u0442\u0430",
         "values": [
           {
             "value": "BLANK",
-            "localized_name": "None"
+            "localized_name": "\u041f\u0443\u0441\u0442\u043e\u0435"
           },
           {
             "value": "FIXED",
-            "localized_name": "None"
+            "localized_name": "\u0422\u0435\u043a\u0441\u0442\u043e\u0432\u043e\u0435"
           },
           {
             "value": "STYLED",
-            "localized_name": "None"
+            "localized_name": "\u0421\u0442\u0438\u043b\u044c"
           },
           {
             "value": "RESET",
-            "localized_name": "None"
+            "localized_name": "\u041e\u0431\u044b\u0447\u043d\u043e\u0435"
           }
         ]
       }
@@ -6133,39 +6133,39 @@
   {
     "id": "game_set_scoreboard_number_format",
     "name": "set_scoreboard_number_format",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0444\u043e\u0440\u043c\u0430\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0439 \u0441\u043a\u043e\u0440\u0431\u043e\u0440\u0434\u0430",
     "object": "world",
     "args": [
       {
         "id": "id",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "ID \u0441\u043a\u043e\u0440\u0431\u043e\u0440\u0434\u0430"
       },
       {
         "id": "format_content",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "\u0424\u043e\u0440\u043c\u0430\u0442 \u0442\u0435\u043a\u0441\u0442\u0430"
       },
       {
         "id": "format",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u0422\u0438\u043f \u0444\u043e\u0440\u043c\u0430\u0442\u0430",
         "values": [
           {
             "value": "BLANK",
-            "localized_name": "None"
+            "localized_name": "\u041f\u0443\u0441\u0442\u043e\u0435"
           },
           {
             "value": "FIXED",
-            "localized_name": "None"
+            "localized_name": "\u0422\u0435\u043a\u0441\u0442\u043e\u0432\u043e\u0435"
           },
           {
             "value": "STYLED",
-            "localized_name": "None"
+            "localized_name": "\u0421\u0442\u0438\u043b\u044c"
           },
           {
             "value": "RESET",
-            "localized_name": "None"
+            "localized_name": "\u041e\u0431\u044b\u0447\u043d\u043e\u0435"
           }
         ]
       }
@@ -6187,7 +6187,7 @@
       {
         "id": "text",
         "type": "text",
-        "localized_name": "\u041e\u0442\u043e\u0431\u0440\u0430\u0436\u0430\u0435\u043c\u044b\u0439 \u0442\u0435\u043a\u0441\u0442"
+        "localized_name": "ID \u043b\u0438\u043d\u0438\u0438"
       },
       {
         "id": "score",
@@ -6487,18 +6487,18 @@
   {
     "id": "game_set_spawner_entity",
     "name": "set_spawner_entity",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u044c \u0432 \u0441\u043f\u0430\u0432\u043d\u0435\u0440\u0435",
     "object": "world",
     "args": [
       {
         "id": "location",
         "type": "location",
-        "localized_name": "None"
+        "localized_name": "\u041c\u0435\u0441\u0442\u043e\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0441\u043f\u0430\u0432\u043d\u0435\u0440\u0430"
       },
       {
         "id": "entity",
         "type": "item",
-        "localized_name": "None"
+        "localized_name": "\u042f\u0439\u0446\u043e \u043f\u0440\u0438\u0437\u044b\u0432\u0430 \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438"
       }
     ],
     "origin": "location",
@@ -9851,23 +9851,23 @@
   {
     "id": "if_variable_item_has_enchantment",
     "name": "item_has_enchantment",
-    "localized_name": "None",
+    "localized_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442 \u0438\u043c\u0435\u0435\u0442 \u0437\u0430\u0447\u0430\u0440\u043e\u0432\u0430\u043d\u0438\u0435",
     "object": "variable",
     "args": [
       {
         "id": "item",
         "type": "item",
-        "localized_name": "None"
+        "localized_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442\u043d\u0430\u044f \u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f"
       },
       {
         "id": "enchant",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "\u041a\u043b\u044e\u0447 \u0437\u0430\u0447\u0430\u0440\u043e\u0432\u0430\u043d\u0438\u044f"
       },
       {
         "id": "level",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c"
       }
     ],
     "origin": "item",
@@ -10669,38 +10669,38 @@
   {
     "id": "player_display_bell_ring",
     "name": "display_bell_ring",
-    "localized_name": "None",
+    "localized_name": "\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0443\u0434\u0430\u0440 \u0432 \u043a\u043e\u043b\u043e\u043a\u043e\u043b",
     "object": "player",
     "args": [
       {
         "id": "location",
         "type": "location",
-        "localized_name": "None"
+        "localized_name": "\u041c\u0435\u0441\u0442\u043e\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u043a\u043e\u043b\u043e\u043a\u043e\u043b\u0430"
       },
       {
         "id": "direction",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u041d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0443\u0434\u0430\u0440\u0430",
         "values": [
           {
             "value": "DOWN",
-            "localized_name": "None"
+            "localized_name": "\u0412\u043d\u0438\u0437 (down)"
           },
           {
             "value": "NORTH",
-            "localized_name": "None"
+            "localized_name": "\u0421\u0435\u0432\u0435\u0440 (north)"
           },
           {
             "value": "SOUTH",
-            "localized_name": "None"
+            "localized_name": "\u042e\u0433 (south)"
           },
           {
             "value": "WEST",
-            "localized_name": "None"
+            "localized_name": "\u0417\u0430\u043f\u0430\u0434 (west)"
           },
           {
             "value": "EAST",
-            "localized_name": "None"
+            "localized_name": "\u0412\u043e\u0441\u0442\u043e\u043a (east)"
           }
         ]
       }
@@ -10897,45 +10897,45 @@
   {
     "id": "player_display_particle_cube",
     "name": "display_particle_cube",
-    "localized_name": "None",
+    "localized_name": "\u041e\u0442\u043e\u0431\u0440\u0430\u0437\u0438\u0442\u044c \u043a\u0443\u0431 \u0447\u0430\u0441\u0442\u0438\u0446",
     "object": "player",
     "args": [
       {
         "id": "particle",
         "type": "particle",
-        "localized_name": "None"
+        "localized_name": "\u042d\u0444\u0444\u0435\u043a\u0442 \u0447\u0430\u0441\u0442\u0438\u0446 \u0434\u043b\u044f \u043e\u0442\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u044f"
       },
       {
         "id": "first_corner",
         "type": "location",
-        "localized_name": "None"
+        "localized_name": "\u041f\u0435\u0440\u0432\u044b\u0439 \u0443\u0433\u043e\u043b \u043a\u0443\u0431\u0430"
       },
       {
         "id": "second_corner",
         "type": "location",
-        "localized_name": "None"
+        "localized_name": "\u0412\u0442\u043e\u0440\u043e\u0439 \u0443\u0433\u043e\u043b \u043a\u0443\u0431\u0430"
       },
       {
         "id": "spacing",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u0420\u0430\u0441\u0441\u0442\u043e\u044f\u043d\u0438\u0435 \u043c\u0435\u0436\u0434\u0443 \u0447\u0430\u0441\u0442\u0438\u0446\u0430\u043c\u0438"
       },
       {
         "id": "type",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u0422\u0438\u043f \u043a\u0443\u0431\u0430",
         "values": [
           {
             "value": "SOLID",
-            "localized_name": "None"
+            "localized_name": "\u0417\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u043d\u044b\u0439"
           },
           {
             "value": "HOLLOW",
-            "localized_name": "None"
+            "localized_name": "\u041f\u043e\u043b\u044b\u0439"
           },
           {
             "value": "WIREFRAME",
-            "localized_name": "None"
+            "localized_name": "\u041a\u0430\u0440\u043a\u0430\u0441"
           }
         ]
       }
@@ -11033,28 +11033,28 @@
   {
     "id": "player_display_particle_sphere",
     "name": "display_particle_sphere",
-    "localized_name": "None",
+    "localized_name": "\u041e\u0442\u043e\u0431\u0440\u0430\u0437\u0438\u0442\u044c \u0441\u0444\u0435\u0440\u0443 \u0447\u0430\u0441\u0442\u0438\u0446",
     "object": "player",
     "args": [
       {
         "id": "particle",
         "type": "particle",
-        "localized_name": "None"
+        "localized_name": "\u042d\u0444\u0444\u0435\u043a\u0442 \u0447\u0430\u0441\u0442\u0438\u0446 \u0434\u043b\u044f \u043e\u0442\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u044f"
       },
       {
         "id": "center",
         "type": "location",
-        "localized_name": "None"
+        "localized_name": "\u0426\u0435\u043d\u0442\u0440 \u0441\u0444\u0435\u0440\u044b"
       },
       {
         "id": "radius",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u0420\u0430\u0434\u0438\u0443\u0441 \u0441\u0444\u0435\u0440\u044b"
       },
       {
         "id": "points",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0442\u043e\u0447\u0435\u043a \u0441\u0444\u0435\u0440\u044b"
       }
     ],
     "type": "basic"
@@ -11062,56 +11062,56 @@
   {
     "id": "player_display_particle_spiral",
     "name": "display_particle_spiral",
-    "localized_name": "None",
+    "localized_name": "\u041e\u0442\u043e\u0431\u0440\u0430\u0437\u0438\u0442\u044c \u0441\u043f\u0438\u0440\u0430\u043b\u044c \u0447\u0430\u0441\u0442\u0438\u0446",
     "object": "player",
     "args": [
       {
         "id": "particle",
         "type": "particle",
-        "localized_name": "None"
+        "localized_name": "\u042d\u0444\u0444\u0435\u043a\u0442 \u0447\u0430\u0441\u0442\u0438\u0446 \u0434\u043b\u044f \u043e\u0442\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u044f"
       },
       {
         "id": "center",
         "type": "location",
-        "localized_name": "None"
+        "localized_name": "\u0426\u0435\u043d\u0442\u0440 \u0441\u043f\u0438\u0440\u0430\u043b\u0438"
       },
       {
         "id": "distance",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u0414\u0438\u0441\u0442\u0430\u043d\u0446\u0438\u044f \u0441\u043f\u0438\u0440\u0430\u043b\u0438"
       },
       {
         "id": "radius",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u0420\u0430\u0434\u0438\u0443\u0441 \u0441\u043f\u0438\u0440\u0430\u043b\u0438"
       },
       {
         "id": "points",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0442\u043e\u0447\u0435\u043a \u0441\u043f\u0438\u0440\u0430\u043b\u0438"
       },
       {
         "id": "rotations",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u043e\u0431\u043e\u0440\u043e\u0442\u043e\u0432"
       },
       {
         "id": "start_angle",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u041d\u0430\u0447\u0430\u043b\u044c\u043d\u044b\u0439 \u0443\u0433\u043e\u043b"
       },
       {
         "id": "angle_unit",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u0422\u0438\u043f \u0443\u0433\u043b\u0430",
         "values": [
           {
             "value": "DEGREES",
-            "localized_name": "None"
+            "localized_name": "\u0413\u0440\u0430\u0434\u0443\u0441\u044b"
           },
           {
             "value": "RADIANS",
-            "localized_name": "None"
+            "localized_name": "\u0420\u0430\u0434\u0438\u0430\u043d\u044b"
           }
         ]
       }
@@ -11841,18 +11841,18 @@
   {
     "id": "player_remove_display_blocks",
     "name": "remove_display_blocks",
-    "localized_name": "None",
+    "localized_name": "\u0421\u043a\u0440\u044b\u0442\u044c \u0432\u0438\u0437\u0443\u0430\u043b\u0438\u0437\u0430\u0442\u043e\u0440\u044b",
     "object": "player",
     "args": [
       {
         "id": "pos_1",
         "type": "location",
-        "localized_name": "None"
+        "localized_name": "\u041c\u0435\u0441\u0442\u043e\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u043f\u0435\u0440\u0432\u043e\u0433\u043e \u0443\u0433\u043b\u0430"
       },
       {
         "id": "pos_2",
         "type": "location",
-        "localized_name": "None"
+        "localized_name": "\u041c\u0435\u0441\u0442\u043e\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0432\u0442\u043e\u0440\u043e\u0433\u043e \u0443\u0433\u043b\u0430"
       }
     ],
     "type": "basic"
@@ -12366,74 +12366,74 @@
   {
     "id": "player_set_attribute",
     "name": "set_attribute",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0430\u0442\u0440\u0438\u0431\u0443\u0442",
     "object": "player",
     "args": [
       {
         "id": "value",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0430\u0442\u0440\u0438\u0431\u0443\u0442\u0430"
       },
       {
         "id": "attribute_type",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u0422\u0438\u043f \u0430\u0442\u0440\u0438\u0431\u0443\u0442\u0430",
         "values": [
           {
             "value": "MAX_HEALTH",
-            "localized_name": "None"
+            "localized_name": "\u041c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u043e\u0435 \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u0435"
           },
           {
             "value": "MAX_ABSORPTION",
-            "localized_name": "None"
+            "localized_name": "\u041c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u043e\u0435 \u043f\u043e\u0433\u043b\u043e\u0449\u0435\u043d\u0438\u0435"
           },
           {
             "value": "FOLLOW_RANGE",
-            "localized_name": "None"
+            "localized_name": "\u0414\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u044c \u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f"
           },
           {
             "value": "KNOCKBACK_RESISTANCE",
-            "localized_name": "None"
+            "localized_name": "\u0421\u0442\u043e\u0439\u043a\u043e\u0441\u0442\u044c \u043a \u043e\u0442\u0442\u0430\u043b\u043a\u0438\u0432\u0430\u043d\u0438\u044e"
           },
           {
             "value": "MOVEMENT_SPEED",
-            "localized_name": "None"
+            "localized_name": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0445\u043e\u0434\u044c\u0431\u044b"
           },
           {
             "value": "FLYING_SPEED",
-            "localized_name": "None"
+            "localized_name": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u043f\u043e\u043b\u0435\u0442\u0430"
           },
           {
             "value": "ATTACK_DAMAGE",
-            "localized_name": "None"
+            "localized_name": "\u0423\u0440\u043e\u043d"
           },
           {
             "value": "ATTACK_KNOCKBACK",
-            "localized_name": "None"
+            "localized_name": "\u041e\u0442\u0442\u0430\u043b\u043a\u0438\u0432\u0430\u043d\u0438\u0435 \u043f\u0440\u0438 \u0430\u0442\u0430\u043a\u0435"
           },
           {
             "value": "ATTACK_SPEED",
-            "localized_name": "None"
+            "localized_name": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0430\u0442\u0430\u043a\u0438"
           },
           {
             "value": "ARMOR",
-            "localized_name": "None"
+            "localized_name": "\u0411\u0440\u043e\u043d\u044f"
           },
           {
             "value": "ARMOR_TOUGHNESS",
-            "localized_name": "None"
+            "localized_name": "\u0422\u0432\u0435\u0440\u0434\u043e\u0441\u0442\u044c \u0431\u0440\u043e\u043d\u0438"
           },
           {
             "value": "LUCK",
-            "localized_name": "None"
+            "localized_name": "\u0423\u0434\u0430\u0447\u0430"
           },
           {
             "value": "HORSE_JUMP_STRENGTH",
-            "localized_name": "None"
+            "localized_name": "\u0421\u0438\u043b\u0430 \u043f\u0440\u044b\u0436\u043a\u0430 \u043b\u043e\u0448\u0430\u0434\u0438"
           },
           {
             "value": "ZOMBIE_SPAWN_REINFORCEMENTS",
-            "localized_name": "None"
+            "localized_name": "\u0428\u0430\u043d\u0441 \u043f\u043e\u0434\u043a\u0440\u0435\u043f\u043b\u0435\u043d\u0438\u044f \u0437\u043e\u043c\u0431\u0438"
           }
         ]
       }
@@ -12566,31 +12566,31 @@
   {
     "id": "player_set_chat_completions",
     "name": "set_chat_completions",
-    "localized_name": "None",
+    "localized_name": "\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u043f\u043e\u0434\u0441\u043a\u0430\u0437\u043e\u043a \u0432 \u0447\u0430\u0442\u0435",
     "object": "player",
     "args": [
       {
         "id": "completions",
         "type": "text",
-        "localized_name": "None",
+        "localized_name": "\u041f\u043e\u0434\u0441\u043a\u0430\u0437\u043a\u0438",
         "array": 18
       },
       {
         "id": "setting_mode",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u0422\u0438\u043f \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u044f",
         "values": [
           {
             "value": "ADD",
-            "localized_name": "None"
+            "localized_name": "\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c"
           },
           {
             "value": "SET",
-            "localized_name": "None"
+            "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c"
           },
           {
             "value": "REMOVE",
-            "localized_name": "None"
+            "localized_name": "\u0423\u0434\u0430\u043b\u0438\u0442\u044c"
           }
         ]
       }
@@ -12837,26 +12837,26 @@
   {
     "id": "player_set_exhaustion",
     "name": "set_exhaustion",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u0441\u0442\u043e\u0449\u0435\u043d\u0438\u044f",
     "object": "player",
     "args": [
       {
         "id": "exhaustion",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u0441\u0442\u043e\u0449\u0435\u043d\u0438\u044f"
       },
       {
         "id": "mode",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u0420\u0435\u0436\u0438\u043c \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0438",
         "values": [
           {
             "value": "SET",
-            "localized_name": "None"
+            "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c"
           },
           {
             "value": "ADD",
-            "localized_name": "None"
+            "localized_name": "\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c"
           }
         ]
       }
@@ -13664,13 +13664,13 @@
   {
     "id": "player_set_tick_rate",
     "name": "set_tick_rate",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0442\u0438\u043a-\u0440\u0435\u0439\u0442",
     "object": "player",
     "args": [
       {
         "id": "tick_rate",
         "type": "number",
-        "localized_name": "None"
+        "localized_name": "\u0422\u0438\u043a-\u0440\u0435\u0439\u0442"
       }
     ],
     "type": "basic"
@@ -16927,18 +16927,18 @@
   {
     "id": "set_variable_get_bundle_items",
     "name": "get_bundle_items",
-    "localized_name": "None",
+    "localized_name": "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0441\u043e\u0434\u0435\u0440\u0436\u0438\u043c\u043e\u0435 \u043c\u0435\u0448\u043a\u0430",
     "object": "variable",
     "args": [
       {
         "id": "variable",
         "type": "variable",
-        "localized_name": "None"
+        "localized_name": "\u041f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u0434\u043b\u044f \u043f\u0440\u0438\u0441\u0432\u043e\u0435\u043d\u0438\u044f"
       },
       {
         "id": "bundle",
         "type": "item",
-        "localized_name": "None"
+        "localized_name": "\u041c\u0435\u0448\u043e\u043a"
       }
     ],
     "origin": "bundle",
@@ -17664,18 +17664,18 @@
   {
     "id": "set_variable_get_item_destroyable_blocks",
     "name": "get_item_destroyable_blocks",
-    "localized_name": "None",
+    "localized_name": "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0431\u043b\u043e\u043a\u0438 \u0434\u043b\u044f \u043b\u043e\u043c\u0430\u043d\u0438\u044f \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u043e\u043c",
     "object": "variable",
     "args": [
       {
         "id": "variable",
         "type": "variable",
-        "localized_name": "None"
+        "localized_name": "\u041f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u0434\u043b\u044f \u043f\u0440\u0438\u0441\u0432\u043e\u0435\u043d\u0438\u044f"
       },
       {
         "id": "item",
         "type": "item",
-        "localized_name": "None"
+        "localized_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442"
       }
     ],
     "origin": "item",
@@ -17935,18 +17935,18 @@
   {
     "id": "set_variable_get_item_placeable_blocks",
     "name": "get_item_placeable_blocks",
-    "localized_name": "None",
+    "localized_name": "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0431\u043b\u043e\u043a\u0438 \u0434\u043b\u044f \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0438 \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u0430",
     "object": "variable",
     "args": [
       {
         "id": "variable",
         "type": "variable",
-        "localized_name": "None"
+        "localized_name": "\u041f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u0434\u043b\u044f \u043f\u0440\u0438\u0441\u0432\u043e\u0435\u043d\u0438\u044f"
       },
       {
         "id": "item",
         "type": "item",
-        "localized_name": "None"
+        "localized_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442"
       }
     ],
     "origin": "item",
@@ -20731,80 +20731,80 @@
   {
     "id": "set_variable_remove_item_attribute",
     "name": "remove_item_attribute",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u0430\u0442\u0440\u0438\u0431\u0443\u0442 \u0443 \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u0430",
     "object": "variable",
     "args": [
       {
         "id": "variable",
         "type": "variable",
-        "localized_name": "None"
+        "localized_name": "\u041f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u0434\u043b\u044f \u043f\u0440\u0438\u0441\u0432\u043e\u0435\u043d\u0438\u044f"
       },
       {
         "id": "item",
         "type": "item",
-        "localized_name": "None"
+        "localized_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442"
       },
       {
         "id": "name_or_uuid",
         "type": "text",
-        "localized_name": "None"
+        "localized_name": "\u0418\u043c\u044f \u0438\u043b\u0438 UUID \u0430\u0442\u0440\u0438\u0431\u0443\u0442\u0430"
       },
       {
         "id": "attribute",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u0422\u0438\u043f \u0430\u0442\u0440\u0438\u0431\u0443\u0442\u0430",
         "values": [
           {
             "value": "GENERIC_ARMOR",
-            "localized_name": "None"
+            "localized_name": "\u041e\u0447\u043a\u0438 \u0437\u0430\u0449\u0438\u0442\u044b (generic.armor)"
           },
           {
             "value": "GENERIC_ARMOR_TOUGHNESS",
-            "localized_name": "None"
+            "localized_name": "\u041e\u0447\u043a\u0438 \u043f\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u0438 \u0437\u0430\u0449\u0438\u0442\u044b (generic.armor_toughness)"
           },
           {
             "value": "GENERIC_ATTACK_DAMAGE",
-            "localized_name": "None"
+            "localized_name": "\u0423\u0440\u043e\u043d \u0430\u0442\u0430\u043a\u0438 (generic.attack_damage)"
           },
           {
             "value": "GENERIC_ATTACK_KNOCKBACK",
-            "localized_name": "None"
+            "localized_name": "\u041e\u0442\u0442\u0430\u043b\u043a\u0438\u0432\u0430\u043d\u0438\u0435 \u0430\u0442\u0430\u043a\u0438 (generic.attack_knockback)"
           },
           {
             "value": "GENERIC_ATTACK_SPEED",
-            "localized_name": "None"
+            "localized_name": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0430\u0442\u0430\u043a\u0438 (generic.attack_speed)"
           },
           {
             "value": "GENERIC_FLYING_SPEED",
-            "localized_name": "None"
+            "localized_name": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u043f\u043e\u043b\u0451\u0442\u0430 (generic.flying_speed)"
           },
           {
             "value": "GENERIC_FOLLOW_RANGE",
-            "localized_name": "None"
+            "localized_name": "\u0420\u0430\u0441\u0441\u0442\u043e\u044f\u043d\u0438\u0435 \u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f (generic.follow_range)"
           },
           {
             "value": "GENERIC_KNOCKBACK_RESISTANCE",
-            "localized_name": "None"
+            "localized_name": "\u0421\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u0435 \u043e\u0442\u0442\u0430\u043b\u043a\u0438\u0432\u0430\u043d\u0438\u044e (generic.knockback_resistance)"
           },
           {
             "value": "GENERIC_LUCK",
-            "localized_name": "None"
+            "localized_name": "\u0423\u0434\u0430\u0447\u0430 \u0440\u044b\u0431\u0430\u043b\u043a\u0438 (generic.luck)"
           },
           {
             "value": "GENERIC_MAX_HEALTH",
-            "localized_name": "None"
+            "localized_name": "\u041c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u043e\u0435 \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u0435 (generic.max_health)"
           },
           {
             "value": "GENERIC_MOVEMENT_SPEED",
-            "localized_name": "None"
+            "localized_name": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u043f\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f (generic.movement_speed)"
           },
           {
             "value": "HORSE_JUMP_STRENGTH",
-            "localized_name": "None"
+            "localized_name": "\u0421\u0438\u043b\u0430 \u043f\u0440\u044b\u0436\u043a\u0430 \u043b\u043e\u0448\u0430\u0434\u0438 (horse.jump_strength)"
           },
           {
             "value": "ZOMBIE_SPAWN_REINFORCEMENTS",
-            "localized_name": "None"
+            "localized_name": "\u0421\u0438\u043b\u0430 \u043f\u0440\u044b\u0436\u043a\u0430 \u043b\u043e\u0448\u0430\u0434\u0438 (zombie.spawn_reinforcements)"
           }
         ]
       }
@@ -21519,28 +21519,28 @@
   {
     "id": "set_variable_set_armor_trim",
     "name": "set_armor_trim",
-    "localized_name": "None",
+    "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0431\u0440\u043e\u043d\u0435 \u0448\u0430\u0431\u043b\u043e\u043d",
     "object": "variable",
     "args": [
       {
         "id": "variable",
         "type": "variable",
-        "localized_name": "None"
+        "localized_name": "\u041f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u0434\u043b\u044f \u043f\u0440\u0438\u0441\u0432\u043e\u0435\u043d\u0438\u044f"
       },
       {
         "id": "armor",
         "type": "item",
-        "localized_name": "None"
+        "localized_name": "\u0411\u0440\u043e\u043d\u044f"
       },
       {
         "id": "material",
         "type": "item",
-        "localized_name": "None"
+        "localized_name": "\u041c\u0430\u0442\u0435\u0440\u0438\u0430\u043b \u0448\u0430\u0431\u043b\u043e\u043d\u0430"
       },
       {
         "id": "pattern",
         "type": "item",
-        "localized_name": "None"
+        "localized_name": "\u0428\u0430\u0431\u043b\u043e\u043d"
       }
     ],
     "origin": "armor",
@@ -21630,41 +21630,41 @@
   {
     "id": "set_variable_set_bundle_items",
     "name": "set_bundle_items",
-    "localized_name": "None",
+    "localized_name": "\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c \u0441\u043e\u0434\u0435\u0440\u0436\u0438\u043c\u043e\u0435 \u043c\u0435\u0448\u043a\u0430",
     "object": "variable",
     "args": [
       {
         "id": "variable",
         "type": "variable",
-        "localized_name": "None"
+        "localized_name": "\u041f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u0434\u043b\u044f \u043f\u0440\u0438\u0441\u0432\u043e\u0435\u043d\u0438\u044f"
       },
       {
         "id": "bundle",
         "type": "item",
-        "localized_name": "None"
+        "localized_name": "\u041c\u0435\u0448\u043e\u043a"
       },
       {
         "id": "items",
         "type": "item",
-        "localized_name": "None",
+        "localized_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442\u044b \u0434\u043b\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f",
         "array": 35
       },
       {
         "id": "setting_mode",
         "type": "enum",
-        "localized_name": "None",
+        "localized_name": "\u0422\u0438\u043f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f",
         "values": [
           {
             "value": "ADD",
-            "localized_name": "None"
+            "localized_name": "\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c"
           },
           {
             "value": "SET",
-            "localized_name": "None"
+            "localized_name": "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c"
           },
           {
             "value": "REMOVE",
-            "localized_name": "None"
+            "localized_name": "\u0423\u0434\u0430\u043b\u0438\u0442\u044c"
           }
         ]
       }
