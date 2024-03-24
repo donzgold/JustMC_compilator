@@ -127,6 +127,8 @@ def decompile(thing):
             list(filter(is_not_none, map(decompile, thing["operations"])))) + (
                       "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
         return ret
+    elif typ == "block":
+        return "\"" + thing['block'].replace("\\","\\\\").replace("\"", "\\\"") + "\""
     elif typ == "text":
         return (thing['parsing'][0] if thing['parsing'] != 'legacy' else '') + "\"" + thing['text'].replace("\\",
                                                                                                             "\\\\").replace(
@@ -165,6 +167,12 @@ def decompile(thing):
     elif "action" in thing:
         if thing["action"] == "empty":
             return None
+        elif thing["action"] == "else":
+            ret = "else{" + ("\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
+                    "\n" + " " * (current_indent * 4)).join(
+                list(filter(is_not_none, map(decompile, thing["operations"])))) + (
+                          "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
+            return ret
         act = actions[thing["action"]]
         if act["type"] == "basic":
             args = {arg["name"]: arg for arg in thing["values"]}
