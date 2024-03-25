@@ -149,21 +149,31 @@ def decompile(thing):
     elif typ == "item":
         try:
             it = json.loads(thing["item"])
-            return f"item({it['id']}, {it['Count']}" + f", nbt={json.dumps(it['tag'])})" if "tag" in it else ")"
+            if len(it) == 0:
+                return None
+            return f"item({it['id']}, {it['Count']}" + (f", nbt={json.dumps(it['tag'])})" if "tag" in it else ")")
         except:
-            return "\"" + thing["item"].replace("\"", "\\\"") + "\""
+            return ("\"" + thing["item"].replace("\"", "\\\"") + "\"").replace('\n', '\\n')
     elif typ == "game_value":
         return f"value::{thing['game_value']}" + (
             f"<{json.loads(thing['selection'])['type']}>" if thing["selection"] != "null" else "")
     elif typ == "sound":
         return f"sound(\"{thing['sound']}\", {thing['volume']}, {thing['pitch']}" + (
-            f", {thing['variation']})" if thing['variation'] != "" else ")")
+            f", \"{thing['variation']}\"" if thing['variation'] != "" else "") + (
+            f", \"{thing['source']}\"" if thing['source'] != "" else "") + ")"
     elif typ == "potion":
-        return f"potion({thing['potion']}, {thing['amplifier']}, {thing['duration']})"
+        return f"potion(\"{thing['potion']}\", {thing['amplifier']}, {thing['duration']})"
     elif typ == "vector":
         return f"vector({thing['x']}, {thing['y']}, {thing['z']})"
     elif typ == "location":
         return f"location({thing['x']}, {thing['y']}, {thing['z']}, {thing['yaw']}, {thing['pitch']})"
+    elif typ == "particle":
+        material = thing.setdefault("material", None)
+        color = thing.setdefault("color", None)
+        size = thing.setdefault("size", None)
+        to_color = thing.setdefault("to_color", None)
+        a = f', material=\"{material}\"' if material is not None else '' + f', color={color}' if color is not None else '' + f', size={size}' if size is not None else '' + f', to_color={to_color}' if to_color is not None else ''
+        return f"particle(\"{thing['particle_type']}\", {thing['count']}, {thing['first_spread']}, {thing['second_spread']}, {thing.setdefault('x_motion',0)}, {thing.setdefault('y_motion',0)}, {thing.setdefault('z_motion',0)}{a})"
     elif "action" in thing:
         if thing["action"] == "empty":
             return None
@@ -208,7 +218,7 @@ def decompile(thing):
                         if pos:
                             arg_text.append(arg_t)
                         else:
-                            arg_text.append(arg["id"] + "= " + arg_t)
+                            arg_text.append(arg["id"] + "=" + arg_t)
                     elif pos:
                         pos = False
                 elif pos:
@@ -247,7 +257,9 @@ def decompile(thing):
                         if pos:
                             arg_text.append(decompile(args[arg["id"]]["value"]))
                         else:
-                            arg_text.append(arg["id"] + "= " + decompile(args[arg["id"]]["value"]))
+                            arg_text.append(arg["id"] + "=" + decompile(args[arg["id"]]["value"]))
+                    else:
+                        pos = False
                 elif pos:
                     pos = False
             new_ret = ((ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
@@ -274,7 +286,9 @@ def decompile(thing):
                         if pos:
                             arg_text.append(arg_t)
                         else:
-                            arg_text.append(arg["id"] + "= " + arg_t)
+                            arg_text.append(arg["id"] + "=" + arg_t)
+                    else:
+                        pos = False
                 elif pos:
                     pos = False
             if act["id"] == "else":
@@ -314,7 +328,9 @@ def decompile(thing):
                         if pos:
                             arg_text.append(arg_t)
                         else:
-                            arg_text.append(arg["id"] + "= " + arg_t)
+                            arg_text.append(arg["id"] + "=" + arg_t)
+                    else:
+                        pos = False
                 elif pos:
                     pos = False
             new_ret = ((ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
@@ -341,4 +357,4 @@ def decompile_file(file):
     for i in json.load(open(file, encoding="UTF-8"))["handlers"]:
         writing.write(decompile(i) + "\n")
 
-# decompile_file("b.json")
+#decompile_file("a.json")

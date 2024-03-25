@@ -1563,11 +1563,11 @@ class sound:
 
 class particle:
     def __init__(self, particle_type=None, count=number(0), spread_x=number(0), spread_y=number(0), motion_x=number(0),
-                 motion_y=number(0), motion_z=number(0), material=None, color=None, arg=None, size=None,
+                 motion_y=number(0), motion_z=number(0), material=None, color=None, to_color=None, arg=None, size=None,
                  start_line=None,
                  end_line=None,
                  offset_pos=None, limit_offset_pos=None, file=None):
-        self.type = "sound"
+        self.type = "particle"
         self.start_line = start_line
         self.end_line = end_line
         self.offset_pos = offset_pos
@@ -1575,7 +1575,7 @@ class particle:
         self.file = file
         if arg is not None:
             arg.arg_list = ["particle", "count", "spread_x", "spread_y", "motion_x", "motion_y", "motion_z",
-                            "material", "color", "size"]
+                            "material", "color", "size", "to_color"]
             arg = arg.get_args()
             for k1, v1 in arg.items():
                 if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
@@ -1604,6 +1604,7 @@ class particle:
             size = arg["size"]
             if size is None:
                 size = number(0)
+            to_color=arg["to_color"]
         self.particle = check(particle_type, "text")
         self.count = check(count, "number")
         self.spread_x = check(spread_x, "number")
@@ -1612,8 +1613,9 @@ class particle:
         self.motion_y = check(motion_y, "number")
         self.motion_z = check(motion_z, "number")
         self.material = check(material, "text")
-        self.color = check(color, "text")
+        self.color = check(color, "number")
         self.size = check(size, "number")
+        self.to_color = check(to_color,"number")
 
     def __str__(self):
         return (f'particle({self.particle},{self.count},{self.spread_x},'
@@ -1633,6 +1635,8 @@ class particle:
             a["material"] = self.material.json(normal=True)
         if self.size is not None:
             a["size"] = self.size.json(normal=True)
+        if self.to_color is not None:
+            a["to_color"] = self.to_color.json(normal=True)
         return a
 
 
