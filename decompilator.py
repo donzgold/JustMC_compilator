@@ -128,7 +128,7 @@ def decompile(thing):
                       "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
         return ret
     elif typ == "block":
-        return "\"" + thing['block'].replace("\\","\\\\").replace("\"", "\\\"") + "\""
+        return "\"" + thing['block'].replace("\\", "\\\\").replace("\"", "\\\"") + "\""
     elif typ == "text":
         return (thing['parsing'][0] if thing['parsing'] != 'legacy' else '') + "\"" + thing['text'].replace("\\",
                                                                                                             "\\\\").replace(
@@ -153,7 +153,7 @@ def decompile(thing):
                 return None
             return f"item({it['id']}, {it['Count']}" + (f", nbt={json.dumps(it['tag'])})" if "tag" in it else ")")
         except:
-            return ("\"" + thing["item"].replace("\"", "\\\"") + "\"").replace('\n', '\\n')
+            return ("\"\\\"" + thing["item"].replace("\\", "\\\\").replace("\"", "\\\\\\\"") + "\\\"\"").replace('\n', '\\n')
     elif typ == "game_value":
         return f"value::{thing['game_value']}" + (
             f"<{json.loads(thing['selection'])['type']}>" if thing["selection"] != "null" else "")
@@ -357,4 +357,4 @@ def decompile_file(file):
     for i in json.load(open(file, encoding="UTF-8"))["handlers"]:
         writing.write(decompile(i) + "\n")
 
-#decompile_file("a.json")
+#decompile_file("b.json")
