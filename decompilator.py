@@ -262,7 +262,7 @@ def decompile(thing):
                         pos = False
                 elif pos:
                     pos = False
-            new_ret = ((ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
+            new_ret = ('not ' if new_thing.setdefault('is_inverted', False) else '') + ((ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
                 arg_text) + ")"
             return act["object"] + "::" + act["name"] + "(" + new_ret + ")"
         elif act["type"] == "container":
@@ -299,7 +299,7 @@ def decompile(thing):
                 ret = ((ori + ".") if ori != "" else (act["object"] + "::")) + act["name"] + "(" + ", ".join(
                     arg_text) + ")"
                 if "boolean" in act:
-                    ret = "if(" + ret + ")"
+                    ret = f"if{' not ' if thing.setdefault('is_inverted', False) else ''}(" + ret + ")"
             ret = ret + "{" + ("\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
                     "\n" + " " * (current_indent * 4)).join(
                 list(filter(is_not_none, map(decompile, thing["operations"])))) + (
@@ -333,7 +333,7 @@ def decompile(thing):
                         pos = False
                 elif pos:
                     pos = False
-            new_ret = ((ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
+            new_ret = ('not ' if new_thing.setdefault('is_inverted', False) else '') + ((ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
                 arg_text) + ")"
             ret = act["object"] + "::" + act["name"] + "(" + new_ret + ")" + "{" + (
                     "\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
