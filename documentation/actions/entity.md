@@ -1328,7 +1328,7 @@ entity::set_despawning("TRUE");
 | ------------ | -------------------------------------------------------- | ------------------- |
 | `despawning` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Пропадание существа |
 <h3 id=entity_set_display_billboard>
-  <code>entity::entity_set_display_billboard</code>
+  <code>entity::set_display_billboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
@@ -1340,7 +1340,7 @@ entity::set_despawning("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::entity_set_display_billboard("CENTER");
+entity::set_display_billboard("CENTER");
 ```
 
 **Аргументы:**

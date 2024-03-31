@@ -658,7 +658,7 @@ if("Текстовая переменная для проверки".text_starts
 | `compare`     | список[Текст]                                | Текст для сравнения               |
 | `ignore_case` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Игнорировать регистр              |
 <h3 id=if_variable_list_is_empty>
-  <code>variable::is_empty</code>
+  <code>variable::list_is_empty</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
@@ -672,13 +672,13 @@ if("Текстовая переменная для проверки".text_starts
 
 **Пример использования:** 
 ```ts
-if(variable::is_empty("любое значение"){
+if(variable::list_is_empty("любое значение"){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if("любое значение".is_empty(){
+if("любое значение".list_is_empty(){
     player::message("Условие верно");
 }
 ```
@@ -827,7 +827,7 @@ variable::add_item_potion_effects(a1,item("stick"),[potion("slow_falling"), poti
 | `show_icon`     | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                 | Показывать иконку эффекта           |
 | `particle_mode` | Маркер<br/>**REGULAR** - Да<br/>**AMBIENT** - Прозрачными<br/>**NONE** - Нет | Показывать частицы                  |
 <h3 id=set_variable_add_vectors>
-  <code>variable::add_item_potion_effects</code>
+  <code>variable::add_vectors</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
@@ -837,11 +837,11 @@ variable::add_item_potion_effects(a1,item("stick"),[potion("slow_falling"), poti
 
 **Пример использования:** 
 ```ts
-a1 = variable::add_item_potion_effects([vector(0,0,0), vector(0,0,0)]);
+a1 = variable::add_vectors([vector(0,0,0), vector(0,0,0)]);
 
 #Или в сухую
 
-variable::add_item_potion_effects(a1,[vector(0,0,0), vector(0,0,0)]);
+variable::add_vectors(a1,[vector(0,0,0), vector(0,0,0)]);
 ```
 
 **Аргументы:**
@@ -1149,7 +1149,7 @@ variable::char_to_number(a1,"Символ для получения числа")
 | `variable` | Переменная | Переменная для присвоения  |
 | `char`     | Текст      | Символ для получения числа |
 <h3 id=set_variable_clamp>
-  <code>variable::char_to_number</code>
+  <code>variable::clamp</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
@@ -1159,11 +1159,11 @@ variable::char_to_number(a1,"Символ для получения числа")
 
 **Пример использования:** 
 ```ts
-a1 = variable::char_to_number(1,2,3);
+a1 = variable::clamp(1,2,3);
 
 #Или в сухую
 
-variable::char_to_number(a1,1,2,3);
+variable::clamp(a1,1,2,3);
 ```
 
 **Аргументы:**
@@ -2955,7 +2955,7 @@ variable::get_item_potion_effects(a1,item("stick"));
 | `variable` | Переменная | Переменная для присвоения |
 | `item`     | Предмет    | Предмет                   |
 <h3 id=set_variable_get_item_rarity>
-  <code>variable::get_item_potion_effects</code>
+  <code>variable::get_item_rarity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
@@ -2965,15 +2965,15 @@ variable::get_item_potion_effects(a1,item("stick"));
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_item_potion_effects(item("stick"));
+a1 = variable::get_item_rarity(item("stick"));
 
 #Или от объекта
 
-a1 = item("stick").get_item_potion_effects();
+a1 = item("stick").get_item_rarity();
 
 #Или в сухую
 
-variable::get_item_potion_effects(a1,item("stick"));
+variable::get_item_rarity(a1,item("stick"));
 ```
 
 **Аргументы:**
@@ -4283,7 +4283,7 @@ variable::get_vector_length(a1,vector(0,0,0),"LENGTH");
 | `vector`      | Вектор                                                                           | Вектор для получения длины |
 | `length_type` | Маркер<br/>**LENGTH** - Реальная длина<br/>**LENGTH_SQUARED** - Длина в квадрате | Тип значения               |
 <h3 id=set_variable_hash>
-  <code>variable::get_hash</code>
+  <code>variable::get_text_hash</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
@@ -4293,15 +4293,15 @@ variable::get_vector_length(a1,vector(0,0,0),"LENGTH");
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_hash("Исходный текст","MD5");
+a1 = variable::get_text_hash("Исходный текст","MD5");
 
 #Или от объекта
 
-a1 = "Исходный текст".get_hash("MD5");
+a1 = "Исходный текст".get_text_hash("MD5");
 
 #Или в сухую
 
-variable::get_hash(a1,"Исходный текст","MD5");
+variable::get_text_hash(a1,"Исходный текст","MD5");
 ```
 
 **Аргументы:**
@@ -4433,7 +4433,7 @@ variable::lerp_number(a1,1,2,3);
 | `stop`     | Число      | Второе число              |
 | `amount`   | Число      | Коэффициент (от 0 до 1)   |
 <h3 id=set_variable_location_relative>
-  <code>variable::get_location_relative</code>
+  <code>variable::location_relative</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
@@ -4443,15 +4443,15 @@ variable::lerp_number(a1,1,2,3);
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_location_relative(location(0,0,0,0,0),1,"NORTH");
+a1 = variable::location_relative(location(0,0,0,0,0),1,"NORTH");
 
 #Или от объекта
 
-a1 = location(0,0,0,0,0).get_location_relative(1,"NORTH");
+a1 = location(0,0,0,0,0).location_relative(1,"NORTH");
 
 #Или в сухую
 
-variable::get_location_relative(a1,location(0,0,0,0,0),1,"NORTH");
+variable::location_relative(a1,location(0,0,0,0,0),1,"NORTH");
 ```
 
 **Аргументы:**
@@ -4463,7 +4463,7 @@ variable::get_location_relative(a1,location(0,0,0,0,0),1,"NORTH");
 | `distance`   | Число                                                                                                                                                                                                                                                               | Расстояние                   |
 | `block_face` | Маркер<br/>**NORTH** - Север<br/>**EAST** - Восток<br/>**SOUTH** - Юг<br/>**WEST** - Запад<br/>**UP** - Верх<br/>**DOWN** - Низ<br/>**NORTH_EAST** - Северо-восток<br/>**NORTH_WEST** - Северо-запад<br/>**SOUTH_EAST** - Юго-восток<br/>**SOUTH_WEST** - Юго-запад | Сторона блока                |
 <h3 id=set_variable_locations_distance>
-  <code>variable::get_locations_distance</code>
+  <code>variable::locations_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
@@ -4473,11 +4473,11 @@ variable::get_location_relative(a1,location(0,0,0,0,0),1,"NORTH");
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_locations_distance(location(0,0,0,0,0),location(0,0,0,0,0),"THREE_D");
+a1 = variable::locations_distance(location(0,0,0,0,0),location(0,0,0,0,0),"THREE_D");
 
 #Или в сухую
 
-variable::get_locations_distance(a1,location(0,0,0,0,0),location(0,0,0,0,0),"THREE_D");
+variable::locations_distance(a1,location(0,0,0,0,0),location(0,0,0,0,0),"THREE_D");
 ```
 
 **Аргументы:**
