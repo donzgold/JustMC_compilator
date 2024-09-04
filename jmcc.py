@@ -7,6 +7,85 @@ import os
 import socket
 
 
+class Properties:
+    def __init__(self, file=None, text=None):
+        self.file = file
+        self.text = text
+        self.properties = {}
+        self.positions = {}
+        if text is not None:
+            self.get_properties(text=text)
+        else:
+            self.get_properties()
+        if len(self.positions) == 0:
+            self.positions[-1] = "#properties"
+
+    def __getitem__(self, item):
+        return self.properties[item]
+
+    def __setitem__(self, key, value):
+        if not key in self.properties:
+            self.positions[max(self.positions.keys()) + 1] = key
+        self.properties[key] = value
+
+    def __contains__(self, item):
+        return item in self.properties
+
+    def get_properties(self, file=None, text=None):
+        if file is None:
+            file = self.file
+        c = 0
+        if text is not None:
+            for line in text.split("\n"):
+                c += 1
+                if line.startswith("#"):
+                    self.positions[c] = line
+                else:
+                    key = line[:line.find("=")].strip()
+                    value = fix_type(
+                        line[line.find("=") + 1:].encode('raw_unicode_escape').decode('unicode_escape').strip())
+                    self.positions[c] = key
+                    self.properties[key] = value
+            return
+        while (line := file.readline()) != "":
+            c += 1
+            if line.startswith("#"):
+                self.positions[c] = line
+            else:
+                key = line[:line.find("=")].strip()
+                value = fix_type(
+                    line[line.find("=") + 1:].encode('raw_unicode_escape').decode('unicode_escape').strip())
+                self.positions[c] = key
+                self.properties[key] = value
+
+    def save_properties(self, file=None):
+        if file is None:
+            file = self.file
+        a1 = sorted(self.positions.items(), key=lambda x: x[0])
+        for i in range(len(a1) - 1):
+            if isinstance(a1[i][1], str):
+                if a1[i][1].startswith("#"):
+                    file.write(str(a1[i][1]).replace("\n", "\\n") + "\n")
+                    continue
+            file.write(a1[i][1].replace("\n", "\\n") + " = " + self.properties[a1[i][1]].replace("\n", "\\n") + "\n")
+        if isinstance(a1[-1][1], str):
+            if a1[-1][1].startswith("#"):
+                file.write(str(a1[-1][1]).replace("\n", "\\n"))
+                return
+        file.write(a1[-1][1].replace("\n", "\\n") + " = " + self.properties[a1[-1][1]].replace("\n", "\\n"))
+
+
+def translate(message: str, insert: dict = None):
+    global lang
+    if not message in lang:
+        return message
+    message = lang[message]
+    if insert is not None:
+        for k1, v1 in insert.items():
+            message = message.replace("{" + str(k1) + "}", str(v1))
+    return message
+
+
 def is_connected():
     try:
         socket.create_connection(("1.1.1.1", 53))
@@ -108,6 +187,7 @@ def fix_type(thing):
 
 
 def download_latest_release(reload=False):
+    exit()
     global data, an_data
     url = requests.get("https://api.github.com/repos/donzgold/JustMC_compilator/releases/latest").json()["assets"][-1][
         "browser_download_url"]
@@ -121,25 +201,24 @@ def download_latest_release(reload=False):
                 else:
                     z.getinfo(zip_info.filename).filename = "jmcc2.properties"
                     z.extract("jmcc.properties")
-        an_data = {i[:i.find("=")].strip(): fix_type(
-            i[i.find("=") + 1:].encode('raw_unicode_escape').decode('unicode_escape').strip()) for i in
-            open("jmcc2.properties", "r+")}
+        an_data = Properties(open("jmcc2.properties", "r+"))
         data["release_version"] = an_data["release_version"]
         data["data_version"] = an_data["data_version"]
         data["current_version"] = an_data["current_version"]
-        open("jmcc.properties", "w+").write("\n".join([f"{k}={v}" for k, v in data.items()]))
+        data.save_properties(open("jmcc.properties", "w+"))
         os.remove("jmcc2.properties")
     else:
         shutil.unpack_archive("release.zip")
     os.remove("release.zip")
     del filereq
-    print(minecraft_based_text("&fУстановлен последний релиз jmcc"))
+    print(minecraft_based_text("&f" + translate("jmcc.download.last_release")))
     if reload:
-        print(minecraft_based_text("&cК сожалению запуск прервался из-за обновления."))
+        print(minecraft_based_text("&c" + translate("error.load.because.update")))
     exit()
 
 
 def download_latest_version(reload=False):
+    exit()
     global data, an_data
     filereq = requests.get('https://raw.githubusercontent.com/donzgold/JustMC_compilator/master/release.zip')
     open("release.zip", "wb").write(filereq.content)
@@ -151,24 +230,23 @@ def download_latest_version(reload=False):
                 else:
                     z.getinfo(zip_info.filename).filename = "jmcc2.properties"
                     z.extract("jmcc.properties")
-        an_data = {i[:i.find("=")].strip(): fix_type(
-            i[i.find("=") + 1:].encode('raw_unicode_escape').decode('unicode_escape').strip()) for i in open("jmcc2.properties", "r+")}
+        an_data = Properties(open("jmcc2.properties", "r+"))
         data["release_version"] = an_data["release_version"]
         data["data_version"] = an_data["data_version"]
         data["current_version"] = an_data["current_version"]
-        open("jmcc.properties", "w+").write("\n".join([f"{k}={v}" for k, v in data.items()]))
+        data.save_properties(open("jmcc.properties", "w+"))
         os.remove("jmcc2.properties")
     else:
         shutil.unpack_archive("release.zip")
     os.remove("release.zip")
     del filereq
-    print(minecraft_based_text("&fУстановлена последняя версия jmcc"))
+    print(minecraft_based_text("&f" + translate("jmcc.download.last_version")))
     if reload:
-        print(minecraft_based_text("&cК сожалению запуск прервался из-за обновления."))
-    exit()
+        print(minecraft_based_text("&c" + translate("error.load.because.update")))
 
 
 def download_latest_data():
+    exit()
     global data, an_data
     if not os.path.isdir("data"):
         os.mkdir("data")
@@ -179,61 +257,60 @@ def download_latest_data():
     open("data/values.json", "w+").write(
         requests.get('https://raw.githubusercontent.com/donzgold/JustMC_compilator/master/data/values.json').text)
     data["data_version"] = an_data["data_version"]
-    open("jmcc.properties").write(f"{k}={v}" for k, v in data.items())
-    print(minecraft_based_text("&fУстановлена последняя версия базы"))
+    data.save_properties(open("jmcc.properties", "w+"))
+    print(minecraft_based_text("&f" + translate("jmcc.download.last_data")))
 
 
 def check_updates():
-    global an_data
-    an_data = {i[:i.find("=")].strip(): fix_type(
-        i[i.find("=") + 1:].encode('raw_unicode_escape').decode('unicode_escape').strip()) for i in requests.get(
-        'https://raw.githubusercontent.com/donzgold/JustMC_compilator/master/jmcc.properties').text.split("\n")}
+    global data, an_data
+    an_data = Properties(text=requests.get(
+        'https://raw.githubusercontent.com/donzgold/JustMC_compilator/master/jmcc.properties').text)
     if data["check_beta_versions"] and (data["release_version"] < an_data["release_version"]):
-        print(minecraft_based_text(
-            f"&6Релизная версия jmcc отстаёт от последней на {an_data['release_version'] - data['release_version']}"))
+        print(minecraft_based_text("&6" + translate("warning.jmcc_release_version.is_not_last",
+                                                    {0: an_data['release_version'] - data['release_version']})))
         if data["auto_update"]:
-            print(minecraft_based_text("&fИсправляем..."))
+            print(minecraft_based_text("&f" + translate("jmcc.fixing")))
             download_latest_release()
             return
 
     elif data["check_beta_versions"] and (data["current_version"] < an_data["current_version"]):
-        print(minecraft_based_text(
-            f"&6Бета версия jmcc отстаёт от последней на {an_data['current_version'] - data['current_version']}"))
+        print(minecraft_based_text("&6" + translate("warning.jmcc_beta_version.is_not_last",
+                                                    {0: an_data['current_version'] - data['current_version']})))
         if data["auto_update"]:
-            print(minecraft_based_text("&fИсправляем..."))
+            print(minecraft_based_text("&f" + translate("jmcc.fixing")))
             download_latest_version()
             return
     if data["data_version"] < an_data["data_version"]:
-        print(minecraft_based_text(
-            f"&6База кода jmcc отстаёт от последней на {an_data['data_version'] - data['data_version']}"))
+        print(minecraft_based_text("&6" + translate("warning.jmcc_data_version.is_not_last",
+                                                    {0: an_data['data_version'] - data['data_version']})))
         if data["auto_update"]:
-            print(minecraft_based_text("&fИсправляем..."))
+            print(minecraft_based_text("&f" + translate("jmcc.fixing")))
             download_latest_data()
 
 
+os.system('color')
 path = os.path.realpath(__file__)
 path = path[:path.rfind("\\")]
 os.chdir(path)
-an_data = {}
+an_data = Properties(text="")
 if not os.path.isfile("jmcc.properties"):
     download_latest_release()
     exit()
 else:
-    data = {i[:i.find("=")].strip(): fix_type(
-        i[i.find("=") + 1:].encode('raw_unicode_escape').decode('unicode_escape').strip()) for i in
-        open("jmcc.properties", "r").readlines()}
-a = is_connected()
-if a:
-    check_updates()
+    data = Properties(text=open("jmcc.properties", "r").read())
+    lang = Properties(text=open("data/lang/" + data["lang"] + ".properties", "r").read())
 if __name__ == "__main__":
+    if data["check_updates"]:
+        a = is_connected()
+        if a:
+            check_updates()
     additional = sys.argv[1:]
     if len(additional) == 0:
         additional = ["about"]
     if len(additional) >= 1:
         if additional[0] == "compile" and len(additional) > 1:
-            from compilator import compile_file
-
-            compile_file(additional[1], upload=additional[-1] == "-u")
+            from old_compilator import compile_file
+            compile_file(additional[1], upload=(additional[-1] == "-u"))
         elif additional[0] == "decompile" and len(additional) > 1:
             from decompilator import decompile_file
 
@@ -246,19 +323,10 @@ if __name__ == "__main__":
             elif additional[1] == "to_version":
                 download_latest_version(reload=False)
             else:
-                print(minecraft_based_text("&cНеизвестная команда, попробуйте команду &4help"))
+                print(minecraft_based_text("&c" + translate("error.unknown_command", {0: "&4help"})))
         elif additional[0] == "help":
-            print(minecraft_based_text("&fПомощь по &eJMCC &fdonzgold edition:\n"
-                                       "Команды:\n"
-                                       " about - выести сведения о программе\n"
-                                       " help - вывести это сообщение\n"
-                                       " compile <file_path> [-u] &7- &fскомпилировать файл, -u для загрузки на сервер.\n"
-                                       " decompile <file_path> &7- &fдекомпилировать json в код\n"
-                                       " update data &7- &fобновить базу кода\n"
-                                       " update to_release &7- &fобновиться до последнего релиза\n"
-                                       " update to_version &7- &fобновиться до последней версии"))
+            print(minecraft_based_text("&f" + translate("jmcc.command.help")))
         elif additional[0] == "about":
-            print(minecraft_based_text(
-                "&eJMCC &fdonzgold edition:\nЭто джей эм си си, он компилирует код в json, который используется на сервере justmc.ru\nПомощь по командам доступна с помощью команды &ehelp"))
+            print(minecraft_based_text("&f" + translate("jmcc.command.about")))
         else:
-            print(minecraft_based_text("&cНеизвестная команда, попробуйте команду &4help"))
+            print(minecraft_based_text("&c" + translate("error.unknown_command", {0: "&4help"})))

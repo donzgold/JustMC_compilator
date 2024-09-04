@@ -29,15 +29,9 @@
 
 **Пример использования:** 
 ```ts
-entity::attach_lead("Имя существа или UUID",location(0,0,0,0,0));
+entity::attach_lead("name_or_uuid",location(0,0,0,0,0));
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип**        | **Описание**          |
-| -------------- | -------------- | --------------------- |
-| `name_or_uuid` | Текст          | Имя существа или UUID |
-| `location`     | Местоположение | Местоположение забора |
 <h3 id=entity_clear_merchant_recipes>
   <code>entity::clear_merchant_recipes</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -80,15 +74,9 @@ entity::clear_potion_effects();
 
 **Пример использования:** 
 ```ts
-entity::damage(1,"Источник урона (имя или UUID существа)");
+entity::damage(1,"source");
 ```
 
-**Аргументы:**
-
-| **Имя**  | **Тип** | **Описание**                           |
-| -------- | ------- | -------------------------------------- |
-| `damage` | Число   | Количество урона                       |
-| `source` | Текст   | Источник урона (имя или UUID существа) |
 <h3 id=entity_disguise_as_block>
   <code>entity::disguise_as_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -103,11 +91,6 @@ entity::damage(1,"Источник урона (имя или UUID существ
 entity::disguise_as_block(item("stone"));
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**        |
-| ------- | ------- | ------------------- |
-| `block` | Блок    | Блок для маскировки |
 <h3 id=entity_disguise_as_entity>
   <code>entity::disguise_as_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -122,11 +105,6 @@ entity::disguise_as_block(item("stone"));
 entity::disguise_as_entity(item("stick"));
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип** | **Описание**            |
-| ------------- | ------- | ----------------------- |
-| `entity_type` | Предмет | Сущность для маскировки |
 <h3 id=entity_disguise_as_item>
   <code>entity::disguise_as_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -141,11 +119,6 @@ entity::disguise_as_entity(item("stick"));
 entity::disguise_as_item(item("stick"));
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**           |
-| ------- | ------- | ---------------------- |
-| `item`  | Предмет | Предмет для маскировки |
 <h3 id=entity_disguise_as_player>
   <code>entity::disguise_as_player</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -157,16 +130,9 @@ entity::disguise_as_item(item("stick"));
 
 **Пример использования:** 
 ```ts
-entity::disguise_as_player("Имя или UUID","Отображаемое имя сущности","MOJANG");
+entity::disguise_as_player("name_or_uuid","display_name","MOJANG");
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип**                                                          | **Описание**              |
-| -------------- | ---------------------------------------------------------------- | ------------------------- |
-| `name_or_uuid` | Текст                                                            | Имя или UUID              |
-| `display_name` | Текст                                                            | Отображаемое имя сущности |
-| `server_type`  | Маркер<br/>**MOJANG** - Скин Mojang<br/>**SERVER** - Скин JustMC | Тип сервера скинов        |
 <h3 id=entity_eat_grass>
   <code>entity::eat_grass</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -196,14 +162,9 @@ entity::eat_grass();
 
 **Пример использования:** 
 ```ts
-entity::eat_target("Имя или UUID цели");
+entity::eat_target("name_or_uuid");
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип** | **Описание**      |
-| -------------- | ------- | ----------------- |
-| `name_or_uuid` | Текст   | Имя или UUID цели |
 <h3 id=entity_explode>
   <code>entity::explode</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -236,11 +197,6 @@ entity::explode();
 entity::face_location(location(0,0,0,0,0));
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип**        | **Описание**   |
-| ---------- | -------------- | -------------- |
-| `location` | Местоположение | Местоположение |
 <h3 id=entity_get_custom_tag>
   <code>entity::get_custom_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -252,20 +208,13 @@ entity::face_location(location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-a1 = entity::get_custom_tag("Имя тега","любое значение");
+a1 = entity::get_custom_tag("name","any value");
 
 #Или в сухую
 
-entity::get_custom_tag(a1,"Имя тега","любое значение");
+entity::get_custom_tag(a1,"name","any value");
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип**        | **Описание**              |
-| ---------- | -------------- | ------------------------- |
-| `variable` | Переменная     | Переменная для присвоения |
-| `name`     | Текст          | Имя тега                  |
-| `default`  | Любое значение | Значение по умолчанию     |
 <h3 id=entity_give_potion_effects>
   <code>entity::give_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -280,14 +229,6 @@ entity::get_custom_tag(a1,"Имя тега","любое значение");
 entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"TRUE","TRUE","REGULAR");
 ```
 
-**Аргументы:**
-
-| **Имя**         | **Тип**                                                                      | **Описание**                        |
-| --------------- | ---------------------------------------------------------------------------- | ----------------------------------- |
-| `potions`       | список[Зелье]                                                                | Эффекты для выдачи                  |
-| `overwrite`     | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                 | Перезаписывать существующие эффекты |
-| `show_icon`     | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                 | Показывать иконку эффекта           |
-| `particle_mode` | Маркер<br/>**REGULAR** - Да<br/>**AMBIENT** - Прозрачными<br/>**NONE** - Нет | Показывать частицы                  |
 <h3 id=entity_heal>
   <code>entity::heal</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -302,11 +243,6 @@ entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"TR
 entity::heal(1);
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**                              |
-| ------- | ------- | ----------------------------------------- |
-| `heal`  | Число   | Количество половинок сердец для излечения |
 <h3 id=entity_ignite_creeper>
   <code>entity::ignite_creeper</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -353,13 +289,6 @@ entity::jump();
 entity::launch_forward(1,"TRUE","YAW_AND_PITCH");
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип**                                                                    | **Описание**              |
-| ------------- | -------------------------------------------------------------------------- | ------------------------- |
-| `power`       | Число                                                                      | Сила подбрасывания        |
-| `increment`   | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено                   | Учитывать текущую инерцию |
-| `launch_axis` | Маркер<br/>**YAW_AND_PITCH** - Все оси<br/>**YAW** - Только по горизонтали | Ось запуска               |
 <h3 id=entity_launch_projectile>
   <code>entity::launch_projectile</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -371,19 +300,9 @@ entity::launch_forward(1,"TRUE","YAW_AND_PITCH");
 
 **Пример использования:** 
 ```ts
-entity::launch_projectile(item("stick"),location(0,0,0,0,0),"Имя снаряда",1,2,particle("fire"));
+entity::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle("fire"));
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**        | **Описание**                                    |
-| ------------ | -------------- | ----------------------------------------------- |
-| `projectile` | Предмет        | Снаряд для запуска                              |
-| `location`   | Местоположение | Место запуска                                   |
-| `name`       | Текст          | Имя снаряда                                     |
-| `speed`      | Число          | Скорость снаряда                                |
-| `inaccuracy` | Число          | Отклонение снаряда (0 чтобы снаряд летел ровно) |
-| `trail`      | Эффект частиц  | След, который будет оставаться за снарядом      |
 <h3 id=entity_launch_to_location>
   <code>entity::launch_to_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -398,13 +317,6 @@ entity::launch_projectile(item("stick"),location(0,0,0,0,0),"Имя снаряд
 entity::launch_to_location(location(0,0,0,0,0),1,"TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**     | **Тип**                                                  | **Описание**              |
-| ----------- | -------------------------------------------------------- | ------------------------- |
-| `location`  | Местоположение                                           | Конечная позиция          |
-| `power`     | Число                                                    | Сила запуска              |
-| `increment` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Учитывать текущую инерцию |
 <h3 id=entity_launch_up>
   <code>entity::launch_up</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -419,12 +331,6 @@ entity::launch_to_location(location(0,0,0,0,0),1,"TRUE");
 entity::launch_up(1,"TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**     | **Тип**                                                  | **Описание**              |
-| ----------- | -------------------------------------------------------- | ------------------------- |
-| `power`     | Число                                                    | Сила подбрасывания        |
-| `increment` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Учитывать текущую инерцию |
 <h3 id=entity_modify_piglin_barter_materials>
   <code>entity::modify_piglin_barter_materials</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -443,12 +349,6 @@ entity::launch_up(1,"TRUE");
 entity::modify_piglin_barter_materials([item("stick"), item("stick")],"ADD");
 ```
 
-**Аргументы:**
-
-| **Имя**             | **Тип**                                                   | **Описание**           |
-| ------------------- | --------------------------------------------------------- | ---------------------- |
-| `materials`         | список[Предмет]                                           | Предметы для изменения |
-| `modification_mode` | Маркер<br/>**ADD** - Добавление<br/>**REMOVE** - Удаление | Режим изменения        |
 <h3 id=entity_modify_piglin_interested_materials>
   <code>entity::modify_piglin_interested_materials</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -467,12 +367,6 @@ entity::modify_piglin_barter_materials([item("stick"), item("stick")],"ADD");
 entity::modify_piglin_interested_materials([item("stick"), item("stick")],"ADD");
 ```
 
-**Аргументы:**
-
-| **Имя**             | **Тип**                                                   | **Описание**           |
-| ------------------- | --------------------------------------------------------- | ---------------------- |
-| `materials`         | список[Предмет]                                           | Предметы для изменения |
-| `modification_mode` | Маркер<br/>**ADD** - Добавление<br/>**REMOVE** - Удаление | Режим изменения        |
 <h3 id=entity_move_to_location>
   <code>entity::move_to_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -489,12 +383,6 @@ entity::modify_piglin_interested_materials([item("stick"), item("stick")],"ADD")
 entity::move_to_location(location(0,0,0,0,0),1);
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип**        | **Описание**            |
-| ---------- | -------------- | ----------------------- |
-| `location` | Местоположение | Конечное местоположение |
-| `speed`    | Число          | Скорость передвижения   |
 <h3 id=entity_move_to_location_stop>
   <code>entity::move_to_location_stop</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -525,11 +413,6 @@ entity::move_to_location_stop();
 entity::play_damage_animation("DAMAGE");
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип**                                                                                                   | **Описание** |
-| ------------- | --------------------------------------------------------------------------------------------------------- | ------------ |
-| `damage_type` | Маркер<br/>**DAMAGE** - Обычный<br/>**CRITICAL_DAMAGE** - Критический<br/>**MAGICAL_DAMAGE** - Магический | Тип урона    |
 <h3 id=entity_play_hurt_animation>
   <code>entity::play_hurt_animation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -544,11 +427,6 @@ entity::play_damage_animation("DAMAGE");
 entity::play_hurt_animation(1);
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**                 |
-| ------- | ------- | ---------------------------- |
-| `yaw`   | Число   | Угол получения урона (0-360) |
 <h3 id=entity_ram_target>
   <code>entity::ram_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -562,14 +440,9 @@ entity::play_hurt_animation(1);
 
 **Пример использования:** 
 ```ts
-entity::ram_target("Имя или UUID сущности");
+entity::ram_target("name_or_uuid");
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип** | **Описание**          |
-| -------------- | ------- | --------------------- |
-| `name_or_uuid` | Текст   | Имя или UUID сущности |
 <h3 id=entity_remove>
   <code>entity::remove</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -595,14 +468,9 @@ entity::remove();
 
 **Пример использования:** 
 ```ts
-entity::remove_custom_tag("Имя тега");
+entity::remove_custom_tag("name");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание** |
-| ------- | ------- | ------------ |
-| `name`  | Текст   | Имя тега     |
 <h3 id=entity_remove_disguise>
   <code>entity::remove_disguise</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -634,11 +502,6 @@ entity::remove_disguise();
 entity::remove_merchant_recipe(1);
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип** | **Описание**  |
-| -------------- | ------- | ------------- |
-| `recipe_index` | Число   | Индекс товара |
 <h3 id=entity_remove_potion_effect>
   <code>entity::remove_potion_effect</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -653,11 +516,6 @@ entity::remove_merchant_recipe(1);
 entity::remove_potion_effect([potion("slow_falling"), potion("slow_falling")]);
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**       | **Описание**         |
-| --------- | ------------- | -------------------- |
-| `effects` | список[Зелье] | Эффекты для удаления |
 <h3 id=entity_reset_display_brightness>
   <code>entity::reset_display_brightness</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -718,14 +576,9 @@ entity::reset_text_display_background();
 
 **Пример использования:** 
 ```ts
-entity::ride_entity("Имя или UUID цели");
+entity::ride_entity("name_or_uuid");
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип** | **Описание**      |
-| -------------- | ------- | ----------------- |
-| `name_or_uuid` | Текст   | Имя или UUID цели |
 <h3 id=entity_set_absorption_health>
   <code>entity::set_absorption_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -740,11 +593,6 @@ entity::ride_entity("Имя или UUID цели");
 entity::set_absorption_health(1);
 ```
 
-**Аргументы:**
-
-| **Имя**  | **Тип** | **Описание**                        |
-| -------- | ------- | ----------------------------------- |
-| `health` | Число   | Количество дополнительного здоровья |
 <h3 id=entity_set_ai>
   <code>entity::set_ai</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -759,11 +607,6 @@ entity::set_absorption_health(1);
 entity::set_ai("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                  | **Описание** |
-| ------- | -------------------------------------------------------- | ------------ |
-| `ai`    | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Интеллект    |
 <h3 id=entity_set_allay_dancing>
   <code>entity::set_allay_dancing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -780,11 +623,6 @@ entity::set_ai("TRUE");
 entity::set_allay_dancing("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                  | **Описание**   |
-| ------- | -------------------------------------------------------- | -------------- |
-| `dance` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Анимация танца |
 <h3 id=entity_set_angry>
   <code>entity::set_angry</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -804,15 +642,9 @@ entity::set_allay_dancing("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_angry("TRUE","Имя цели");
+entity::set_angry("TRUE","target");
 ```
 
-**Аргументы:**
-
-| **Имя**  | **Тип**                                                  | **Описание** |
-| -------- | -------------------------------------------------------- | ------------ |
-| `angry`  | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим гнева  |
-| `target` | Текст                                                    | Имя цели     |
 <h3 id=entity_set_animal_age>
   <code>entity::set_animal_age</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -827,12 +659,6 @@ entity::set_angry("TRUE","Имя цели");
 entity::set_animal_age(1,"ENABLE");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                                                        | **Описание**          |
-| ------- | ---------------------------------------------------------------------------------------------- | --------------------- |
-| `age`   | Число                                                                                          | Возраст               |
-| `lock`  | Маркер<br/>**ENABLE** - Включено<br/>**DISABLE** - Выключено<br/>**DONT_CHANGE** - Не заменять | Остановить взросление |
 <h3 id=entity_set_armor_items>
   <code>entity::set_armor_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -847,14 +673,6 @@ entity::set_animal_age(1,"ENABLE");
 entity::set_armor_items(item("stick"),item("stick"),item("stick"),item("stick"));
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип** | **Описание**  |
-| ------------ | ------- | ------------- |
-| `helmet`     | Предмет | Головной убор |
-| `chestplate` | Предмет | Нагрудник     |
-| `leggings`   | Предмет | Штаны         |
-| `boots`      | Предмет | Ботинки       |
 <h3 id=entity_set_armor_stand_parts>
   <code>entity::set_armor_stand_parts</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -871,12 +689,6 @@ entity::set_armor_items(item("stick"),item("stick"),item("stick"),item("stick"))
 entity::set_armor_stand_parts("ENABLE","ENABLE");
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**                                                                                        | **Описание**    |
-| ------------ | ---------------------------------------------------------------------------------------------- | --------------- |
-| `arms`       | Маркер<br/>**ENABLE** - Включить<br/>**DISABLE** - Выключить<br/>**DONT_CHANGE** - Не изменять | Видимость рук   |
-| `base_plate` | Маркер<br/>**ENABLE** - Включить<br/>**DISABLE** - Выключить<br/>**DONT_CHANGE** - Не изменять | Видимость плиты |
 <h3 id=entity_set_armor_stand_pose>
   <code>entity::set_armor_stand_pose</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -893,14 +705,6 @@ entity::set_armor_stand_parts("ENABLE","ENABLE");
 entity::set_armor_stand_pose(1,2,3,"HEAD");
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**                                                                                                                                                                      | **Описание**               |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `x_rotation` | Число                                                                                                                                                                        | Поворот по оси X           |
-| `y_rotation` | Число                                                                                                                                                                        | Поворот по оси Y           |
-| `z_rotation` | Число                                                                                                                                                                        | Поворот по оси Z           |
-| `body_part`  | Маркер<br/>**HEAD** - Голова<br/>**BODY** - Тело<br/>**LEFT_ARM** - Левая рука<br/>**RIGHT_ARM** - Правая рука<br/>**LEFT_LEG** - Левая нога<br/>**RIGHT_LEG** - Правая нога | Часть стойки для изменения |
 <h3 id=entity_set_attribute>
   <code>entity::set_attribute</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -915,12 +719,6 @@ entity::set_armor_stand_pose(1,2,3,"HEAD");
 entity::set_attribute(1,"MAX_HEALTH");
 ```
 
-**Аргументы:**
-
-| **Имя**          | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | **Описание**      |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `value`          | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Значение атрибута |
-| `attribute_type` | Маркер<br/>**MAX_HEALTH** - Максимальное здоровье<br/>**MAX_ABSORPTION** - None<br/>**FOLLOW_RANGE** - Расстояние следования<br/>**KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию<br/>**MOVEMENT_SPEED** - Скорость передвижения<br/>**FLYING_SPEED** - Скорость полёта<br/>**ATTACK_DAMAGE** - Урон атаки<br/>**ATTACK_KNOCKBACK** - Отталкивание атаки<br/>**ATTACK_SPEED** - Скорость атаки<br/>**ARMOR** - Очки защиты<br/>**ARMOR_TOUGHNESS** - Очки плотности защиты<br/>**LUCK** - Удача рыбалки<br/>**HORSE_JUMP_STRENGTH** - Сила прыжка лошади<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - None | Тип атрибута      |
 <h3 id=entity_set_aware>
   <code>entity::set_aware</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -937,11 +735,6 @@ entity::set_attribute(1,"MAX_HEALTH");
 entity::set_aware("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                  | **Описание**    |
-| ------- | -------------------------------------------------------- | --------------- |
-| `aware` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Осведомлённость |
 <h3 id=entity_set_axolotl_type>
   <code>entity::set_axolotl_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -958,11 +751,6 @@ entity::set_aware("TRUE");
 entity::set_axolotl_type("BLUE");
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип**                                                                                                                    | **Описание**  |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `axolotl_type` | Маркер<br/>**BLUE** - Синий<br/>**CYAN** - Голубой<br/>**GOLD** - Золотой<br/>**LUCY** - Лейкист<br/>**WILD** - Коричневый | Тип аксолотля |
 <h3 id=entity_set_baby>
   <code>entity::set_baby</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -977,11 +765,6 @@ entity::set_axolotl_type("BLUE");
 entity::set_baby("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                  | **Описание**  |
-| ------- | -------------------------------------------------------- | ------------- |
-| `baby`  | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим ребёнка |
 <h3 id=entity_set_bee_nectar>
   <code>entity::set_bee_nectar</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -998,11 +781,6 @@ entity::set_baby("TRUE");
 entity::set_bee_nectar("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**  | **Тип**                                                 | **Описание**     |
-| -------- | ------------------------------------------------------- | ---------------- |
-| `nectar` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Включить | Видимость пыльцы |
 <h3 id=entity_set_block_display_block>
   <code>entity::set_block_display_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1019,11 +797,6 @@ entity::set_bee_nectar("TRUE");
 entity::set_block_display_block(item("stone"));
 ```
 
-**Аргументы:**
-
-| **Имя**           | **Тип** | **Описание**      |
-| ----------------- | ------- | ----------------- |
-| `displayed_block` | Блок    | Отображаемый блок |
 <h3 id=entity_set_camel_dashing>
   <code>entity::set_camel_dashing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1040,11 +813,6 @@ entity::set_block_display_block(item("stone"));
 entity::set_camel_dashing("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**                                                  | **Описание**   |
-| --------- | -------------------------------------------------------- | -------------- |
-| `dashing` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Анимация рывка |
 <h3 id=entity_set_carrying_chest>
   <code>entity::set_carrying_chest</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1063,11 +831,6 @@ entity::set_camel_dashing("TRUE");
 entity::set_carrying_chest("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип**                                                  | **Описание**    |
-| ---------- | -------------------------------------------------------- | --------------- |
-| `carrying` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Наличие сундука |
 <h3 id=entity_set_cat_lying_down>
   <code>entity::set_cat_lying_down</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1084,11 +847,6 @@ entity::set_carrying_chest("TRUE");
 entity::set_cat_lying_down("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**                                                  | **Описание**  |
-| ------------ | -------------------------------------------------------- | ------------- |
-| `lying_down` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим лежания |
 <h3 id=entity_set_cat_type>
   <code>entity::set_cat_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1105,11 +863,6 @@ entity::set_cat_lying_down("TRUE");
 entity::set_cat_type("ALL_BLACK");
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип**                                                                                                                                                                                                                                                                                                                            | **Описание** |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `cat_type` | Маркер<br/>**ALL_BLACK** - Чёрная<br/>**BLACK** - Черно-белая<br/>**BRITISH_SHORTHAIR** - Британская короткошёрстная<br/>**CALICO** - Ситцевая<br/>**JELLIE** - Бело-серая<br/>**PERSIAN** - Персидская<br/>**RAGDOLL** - Тряпичная<br/>**RED** - Рыжая<br/>**SIAMESE** - Сиамская<br/>**TABBY** - Полосатая<br/>**WHITE** - Белая | Тип кота     |
 <h3 id=entity_set_celebrating>
   <code>entity::set_celebrating</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1127,11 +880,6 @@ entity::set_cat_type("ALL_BLACK");
 entity::set_celebrating("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип**                                                  | **Описание**       |
-| ------------- | -------------------------------------------------------- | ------------------ |
-| `celebrating` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим празднования |
 <h3 id=entity_set_collidable>
   <code>entity::set_collidable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1146,11 +894,6 @@ entity::set_celebrating("TRUE");
 entity::set_collidable("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**                                                                                                      | **Описание**       |
-| ------------ | ------------------------------------------------------------------------------------------------------------ | ------------------ |
-| `collidable` | Маркер<br/>**TRUE** - Сталкивается с другими существами<br/>**FALSE** - Не сталкивается с другими существами | Режим столкновения |
 <h3 id=entity_set_creeper_charge>
   <code>entity::set_creeper_charge</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1167,11 +910,6 @@ entity::set_collidable("TRUE");
 entity::set_creeper_charge("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**                                                  | **Описание**         |
-| --------- | -------------------------------------------------------- | -------------------- |
-| `charged` | Маркер<br/>**TRUE** - Заряжен<br/>**FALSE** - Не заряжен | Заряженность крипера |
 <h3 id=entity_set_creeper_fuse>
   <code>entity::set_creeper_fuse</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1188,11 +926,6 @@ entity::set_creeper_charge("TRUE");
 entity::set_creeper_fuse(1);
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип** | **Описание**              |
-| ------------ | ------- | ------------------------- |
-| `fuse_ticks` | Число   | Время до взрыва (в тиках) |
 <h3 id=entity_set_current_health>
   <code>entity::set_current_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1207,11 +940,6 @@ entity::set_creeper_fuse(1);
 entity::set_current_health(1);
 ```
 
-**Аргументы:**
-
-| **Имя**  | **Тип** | **Описание**        |
-| -------- | ------- | ------------------- |
-| `health` | Число   | Количество здоровья |
 <h3 id=entity_set_custom_name>
   <code>entity::set_custom_name</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1223,14 +951,9 @@ entity::set_current_health(1);
 
 **Пример использования:** 
 ```ts
-entity::set_custom_name("Имя существа");
+entity::set_custom_name("custom_name");
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип** | **Описание** |
-| ------------- | ------- | ------------ |
-| `custom_name` | Текст   | Имя существа |
 <h3 id=entity_set_custom_name_visibility>
   <code>entity::set_custom_name_visibility</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1245,11 +968,6 @@ entity::set_custom_name("Имя существа");
 entity::set_custom_name_visibility("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**                                                  | **Описание**    |
-| ------------ | -------------------------------------------------------- | --------------- |
-| `visibility` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Видимость имени |
 <h3 id=entity_set_custom_tag>
   <code>entity::set_custom_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1261,15 +979,9 @@ entity::set_custom_name_visibility("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_custom_tag("Имя тега","Значение тега");
+entity::set_custom_tag("name","value");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**  |
-| ------- | ------- | ------------- |
-| `name`  | Текст   | Имя тега      |
-| `value` | Текст   | Значение тега |
 <h3 id=entity_set_death_drops>
   <code>entity::set_death_drops</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1284,11 +996,6 @@ entity::set_custom_tag("Имя тега","Значение тега");
 entity::set_death_drops("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                  | **Описание**        |
-| ------- | -------------------------------------------------------- | ------------------- |
-| `drops` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Выпадение предметов |
 <h3 id=entity_set_death_time>
   <code>entity::set_death_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1303,11 +1010,6 @@ entity::set_death_drops("TRUE");
 entity::set_death_time(1);
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип** | **Описание**                  |
-| ------------ | ------- | ----------------------------- |
-| `death_time` | Число   | Длительность смерти (в тиках) |
 <h3 id=entity_set_despawning>
   <code>entity::set_despawning</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1322,11 +1024,6 @@ entity::set_death_time(1);
 entity::set_despawning("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**                                                  | **Описание**        |
-| ------------ | -------------------------------------------------------- | ------------------- |
-| `despawning` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Пропадание существа |
 <h3 id=entity_set_display_billboard>
   <code>entity::set_display_billboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1343,11 +1040,6 @@ entity::set_despawning("TRUE");
 entity::set_display_billboard("CENTER");
 ```
 
-**Аргументы:**
-
-| **Имя**          | **Тип**                                                                                                                                                                        | **Описание**      |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| `billboard_type` | Маркер<br/>**CENTER** - Всегда повёрнут к игроку<br/>**FIXED** - Фиксированный<br/>**HORIZONTAL** - Фиксированный по горизонтали<br/>**VERTICAL** - Фиксированный по вертикали | Режим отображения |
 <h3 id=entity_set_display_brightness>
   <code>entity::set_display_brightness</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1364,12 +1056,6 @@ entity::set_display_billboard("CENTER");
 entity::set_display_brightness(1,2);
 ```
 
-**Аргументы:**
-
-| **Имя**             | **Тип** | **Описание**            |
-| ------------------- | ------- | ----------------------- |
-| `block_light_level` | Число   | Уровень света от блоков |
-| `sky_light_level`   | Число   | Уровень света от неба   |
 <h3 id=entity_set_display_culling_suze>
   <code>entity::set_display_culling_suze</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1386,12 +1072,6 @@ entity::set_display_brightness(1,2);
 entity::set_display_culling_suze(1,2);
 ```
 
-**Аргументы:**
-
-| **Имя**  | **Тип** | **Описание**          |
-| -------- | ------- | --------------------- |
-| `width`  | Число   | Горизонтальный размер |
-| `height` | Число   | Вертикальный размер   |
 <h3 id=entity_set_display_glow_color>
   <code>entity::set_display_glow_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1406,14 +1086,9 @@ entity::set_display_culling_suze(1,2);
 
 **Пример использования:** 
 ```ts
-entity::set_display_glow_color("HEX цвет");
+entity::set_display_glow_color("color_hexadecimal");
 ```
 
-**Аргументы:**
-
-| **Имя**             | **Тип** | **Описание** |
-| ------------------- | ------- | ------------ |
-| `color_hexadecimal` | Текст   | HEX цвет     |
 <h3 id=entity_set_display_interpolation>
   <code>entity::set_display_interpolation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1430,12 +1105,6 @@ entity::set_display_glow_color("HEX цвет");
 entity::set_display_interpolation(1,2);
 ```
 
-**Аргументы:**
-
-| **Имя**                  | **Тип** | **Описание**                 |
-| ------------------------ | ------- | ---------------------------- |
-| `interpolation_duration` | Число   | Длительность интерполяции    |
-| `interpolation_delay`    | Число   | Задержка перед интерполяцией |
 <h3 id=entity_set_display_rotation_from_axis_angle>
   <code>entity::set_display_rotation_from_axis_angle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1452,15 +1121,6 @@ entity::set_display_interpolation(1,2);
 entity::set_display_rotation_from_axis_angle(vector(0,0,0),1,"SET","DEGREES","LEFT_ROTATION");
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип**                                                                                                                    | **Описание**                |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| `axis_vector` | Вектор                                                                                                                     | Осевой вектор               |
-| `angle`       | Число                                                                                                                      | Угол поворота               |
-| `mode`        | Маркер<br/>**SET** - Установка<br/>**ADD** - Добавление                                                                    | Режим установки             |
-| `input`       | Маркер<br/>**DEGREES** - Градусы<br/>**RADIANS** - Радианы                                                                 | Тип угла                    |
-| `rotation`    | Маркер<br/>**LEFT_ROTATION** - Левый поворот (Поворот х Размер)<br/>**RIGHT_ROTATION** - Правый поворот (Размер х Поворот) | Порядок применения поворота |
 <h3 id=entity_set_display_rotation_from_euler_angles>
   <code>entity::set_display_rotation_from_euler_angles</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1477,16 +1137,6 @@ entity::set_display_rotation_from_axis_angle(vector(0,0,0),1,"SET","DEGREES","LE
 entity::set_display_rotation_from_euler_angles(1,2,3,"SET","DEGREES","LEFT_ROTATION");
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип**                                                                                                                    | **Описание**                |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| `pitch`    | Число                                                                                                                      | Угол тангажа (pitch)        |
-| `yaw`      | Число                                                                                                                      | Угол рыскания (yaw)         |
-| `roll`     | Число                                                                                                                      | Угол крена (roll)           |
-| `mode`     | Маркер<br/>**SET** - Установка<br/>**ADD** - Добавление                                                                    | Режим установки             |
-| `input`    | Маркер<br/>**DEGREES** - Градусы<br/>**RADIANS** - Радианы                                                                 | Тип угла                    |
-| `rotation` | Маркер<br/>**LEFT_ROTATION** - Левый поворот (Поворот х Размер)<br/>**RIGHT_ROTATION** - Правый поворот (Размер х Поворот) | Порядок применения поворота |
 <h3 id=entity_set_display_scale>
   <code>entity::set_display_scale</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1503,12 +1153,6 @@ entity::set_display_rotation_from_euler_angles(1,2,3,"SET","DEGREES","LEFT_ROTAT
 entity::set_display_scale(vector(0,0,0),"SET");
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип**                                                 | **Описание**    |
-| -------------- | ------------------------------------------------------- | --------------- |
-| `scale_vector` | Вектор                                                  | Новый размер    |
-| `mode`         | Маркер<br/>**SET** - Установка<br/>**ADD** - Добавление | Режим установки |
 <h3 id=entity_set_display_shadow>
   <code>entity::set_display_shadow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1525,12 +1169,6 @@ entity::set_display_scale(vector(0,0,0),"SET");
 entity::set_display_shadow(1,2);
 ```
 
-**Аргументы:**
-
-| **Имя**                     | **Тип** | **Описание**           |
-| --------------------------- | ------- | ---------------------- |
-| `shadow_radius`             | Число   | Радиус тени            |
-| `shadow_opacity_percentage` | Число   | Процент непрозрачности |
 <h3 id=entity_set_display_teleport_duration>
   <code>entity::set_display_teleport_duration</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1547,11 +1185,6 @@ entity::set_display_shadow(1,2);
 entity::set_display_teleport_duration(1);
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип** | **Описание**           |
-| ---------- | ------- | ---------------------- |
-| `duration` | Число   | Длительность телепорта |
 <h3 id=entity_set_display_transformation_matrix>
   <code>entity::set_display_transformation_matrix</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1568,11 +1201,6 @@ entity::set_display_teleport_duration(1);
 entity::set_display_transformation_matrix([1, 2]);
 ```
 
-**Аргументы:**
-
-| **Имя**            | **Тип**       | **Описание**        |
-| ------------------ | ------------- | ------------------- |
-| `row_major_matrix` | список[Число] | Матрица из 16 чисел |
 <h3 id=entity_set_display_translation>
   <code>entity::set_display_translation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1589,12 +1217,6 @@ entity::set_display_transformation_matrix([1, 2]);
 entity::set_display_translation(vector(0,0,0),"SET");
 ```
 
-**Аргументы:**
-
-| **Имя**              | **Тип**                                                 | **Описание**    |
-| -------------------- | ------------------------------------------------------- | --------------- |
-| `translation_vector` | Вектор                                                  | Новое смещение  |
-| `mode`               | Маркер<br/>**SET** - Установка<br/>**ADD** - Добавление | Режим установки |
 <h3 id=entity_set_display_view_range>
   <code>entity::set_display_view_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1611,11 +1233,6 @@ entity::set_display_translation(vector(0,0,0),"SET");
 entity::set_display_view_range(1);
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип** | **Описание**        |
-| ------------ | ------- | ------------------- |
-| `view_range` | Число   | Дальность видимости |
 <h3 id=entity_set_dragon_phase>
   <code>entity::set_dragon_phase</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1632,11 +1249,6 @@ entity::set_display_view_range(1);
 entity::set_dragon_phase("BREATH_ATTACK");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Описание**       |
-| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `phase` | Маркер<br/>**BREATH_ATTACK** - Атака дыханием<br/>**CHARGE_PLAYER** - Атака на игрока<br/>**CIRCLING** - Кружение<br/>**DYING** - Смерть<br/>**FLY_TO_PORTAL** - Полёт к порталу<br/>**HOVER** - Полёт<br/>**LAND_ON_PORTAL** - Приземление на портал<br/>**LEAVE_PORTAL** - Покидание портала<br/>**ROAR_BEFORE_ATTACK** - Крик перед атакой<br/>**SEARCH_FOR_BREATH_ATTACK_TARGET** - Поиск цели для атаки дыханием<br/>**STRAFING** - Уворот | Фаза Эндер-дракона |
 <h3 id=entity_set_dye_color>
   <code>entity::set_dye_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1656,11 +1268,6 @@ entity::set_dragon_phase("BREATH_ATTACK");
 entity::set_dye_color("BLACK");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                  | **Описание**  |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
-| `color` | Маркер<br/>**BLACK** - Чёрный<br/>**BLUE** - Синий<br/>**BROWN** - Коричневый<br/>**CYAN** - Бирюзовый<br/>**GRAY** - Серый<br/>**GREEN** - Зелёный<br/>**LIGHT_BLUE** - Голубой<br/>**LIGHT_GRAY** - Светло-серый<br/>**LIME** - Лаймовый<br/>**MAGENTA** - Пурпурный<br/>**ORANGE** - Оранжевый<br/>**PINK** - Розовый<br/>**PURPLE** - Фиолетовый<br/>**RED** - Красный<br/>**WHITE** - Белый<br/>**YELLOW** - Жёлтый | Цвет сущности |
 <h3 id=entity_set_end_crystal_beam>
   <code>entity::set_end_crystal_beam</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1677,11 +1284,6 @@ entity::set_dye_color("BLACK");
 entity::set_end_crystal_beam(location(0,0,0,0,0));
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**        | **Описание**                |
-| ------- | -------------- | --------------------------- |
-| `beam`  | Местоположение | Местоположение для указания |
 <h3 id=entity_set_enderman_block>
   <code>entity::set_enderman_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1698,11 +1300,6 @@ entity::set_end_crystal_beam(location(0,0,0,0,0));
 entity::set_enderman_block(item("stone"));
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**      |
-| ------- | ------- | ----------------- |
-| `block` | Блок    | Отображаемый блок |
 <h3 id=entity_set_equipment_item>
   <code>entity::set_equipment_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1717,12 +1314,6 @@ entity::set_enderman_block(item("stone"));
 entity::set_equipment_item(item("stick"),"CHEST");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                                                                                                                               | **Описание**        |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `item`  | Предмет                                                                                                                                                               | Предметы для выдачи |
-| `slot`  | Маркер<br/>**CHEST** - Нагрудник<br/>**FEET** - Ботинки<br/>**HAND** - Основная рука<br/>**HEAD** - Шлем<br/>**LEGS** - Поножи<br/>**OFF_HAND** - Второстепенная рука | Слот снаряжения     |
 <h3 id=entity_set_explosive_power>
   <code>entity::set_explosive_power</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1741,11 +1332,6 @@ entity::set_equipment_item(item("stick"),"CHEST");
 entity::set_explosive_power(1);
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание** |
-| ------- | ------- | ------------ |
-| `power` | Число   | Сила взрыва  |
 <h3 id=entity_set_fall_distance>
   <code>entity::set_fall_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1760,11 +1346,6 @@ entity::set_explosive_power(1);
 entity::set_fall_distance(1);
 ```
 
-**Аргументы:**
-
-| **Имя**         | **Тип** | **Описание**      |
-| --------------- | ------- | ----------------- |
-| `fall_distance` | Число   | Дистанция падения |
 <h3 id=entity_set_falling_block_type>
   <code>entity::set_falling_block_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1781,11 +1362,6 @@ entity::set_fall_distance(1);
 entity::set_falling_block_type(item("stone"));
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание** |
-| ------- | ------- | ------------ |
-| `block` | Блок    | Новый блок   |
 <h3 id=entity_set_fire_ticks>
   <code>entity::set_fire_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1800,11 +1376,6 @@ entity::set_falling_block_type(item("stone"));
 entity::set_fire_ticks(1);
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**           |
-| ------- | ------- | ---------------------- |
-| `ticks` | Число   | Длительность (в тиках) |
 <h3 id=entity_set_fishing_wait>
   <code>entity::set_fishing_wait</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1821,11 +1392,6 @@ entity::set_fire_ticks(1);
 entity::set_fishing_wait(1);
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание** |
-| ------- | ------- | ------------ |
-| `time`  | Число   | Задержка     |
 <h3 id=entity_set_fox_leaping>
   <code>entity::set_fox_leaping</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1842,11 +1408,6 @@ entity::set_fishing_wait(1);
 entity::set_fox_leaping("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**                                                  | **Описание**    |
-| --------- | -------------------------------------------------------- | --------------- |
-| `leaping` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Анимация прыжка |
 <h3 id=entity_set_fox_type>
   <code>entity::set_fox_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1863,11 +1424,6 @@ entity::set_fox_leaping("TRUE");
 entity::set_fox_type("RED");
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип**                                                | **Описание** |
-| ---------- | ------------------------------------------------------ | ------------ |
-| `fox_type` | Маркер<br/>**RED** - Стандартный<br/>**SNOW** - Зимний | Тип лисы     |
 <h3 id=entity_set_freeze_ticks>
   <code>entity::set_freeze_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1882,12 +1438,6 @@ entity::set_fox_type("RED");
 entity::set_freeze_ticks(1,"TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**          | **Тип**                                                  | **Описание**                                     |
-| ---------------- | -------------------------------------------------------- | ------------------------------------------------ |
-| `ticks`          | Число                                                    | Время заморозки в тиках                          |
-| `ticking_locked` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Блокировка состояния (время не будет изменяться) |
 <h3 id=entity_set_frog_type>
   <code>entity::set_frog_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1904,11 +1454,6 @@ entity::set_freeze_ticks(1,"TRUE");
 entity::set_frog_type("COLD");
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип**                                                                            | **Описание** |
-| -------------- | ---------------------------------------------------------------------------------- | ------------ |
-| `frog_variant` | Маркер<br/>**COLD** - Холодный<br/>**TEMPERATE** - Умеренный<br/>**WARM** - Тёплый | Тип жабы     |
 <h3 id=entity_set_gliding>
   <code>entity::set_gliding</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1923,11 +1468,6 @@ entity::set_frog_type("COLD");
 entity::set_gliding("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**                                                  | **Описание**     |
-| ------------ | -------------------------------------------------------- | ---------------- |
-| `is_gliding` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Полёт на элитрах |
 <h3 id=entity_set_glowing>
   <code>entity::set_glowing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1942,11 +1482,6 @@ entity::set_gliding("TRUE");
 entity::set_glowing("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**                                                  | **Описание** |
-| --------- | -------------------------------------------------------- | ------------ |
-| `glowing` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Свечение     |
 <h3 id=entity_set_glow_squid_dark>
   <code>entity::set_glow_squid_dark</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1963,11 +1498,6 @@ entity::set_glowing("TRUE");
 entity::set_glow_squid_dark(1);
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип** | **Описание**         |
-| ------------ | ------- | -------------------- |
-| `dark_ticks` | Число   | Время тьмы (в тиках) |
 <h3 id=entity_set_goat_screaming>
   <code>entity::set_goat_screaming</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1984,11 +1514,6 @@ entity::set_glow_squid_dark(1);
 entity::set_goat_screaming("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**                                                  | **Описание**   |
-| --------- | -------------------------------------------------------- | -------------- |
-| `screams` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Тег "Кричащий" |
 <h3 id=entity_set_gravity>
   <code>entity::set_gravity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2003,11 +1528,6 @@ entity::set_goat_screaming("TRUE");
 entity::set_gravity("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**                                                  | **Описание** |
-| --------- | -------------------------------------------------------- | ------------ |
-| `gravity` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Гравитация   |
 <h3 id=entity_set_horse_jump>
   <code>entity::set_horse_jump</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2027,11 +1547,6 @@ entity::set_gravity("TRUE");
 entity::set_horse_jump(1);
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание** |
-| ------- | ------- | ------------ |
-| `power` | Число   | Сила прыжка  |
 <h3 id=entity_set_horse_pattern>
   <code>entity::set_horse_pattern</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2048,12 +1563,6 @@ entity::set_horse_jump(1);
 entity::set_horse_pattern("WHITE","NONE");
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип**                                                                                                                                                                                                                                        | **Описание** |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `horse_color` | Маркер<br/>**WHITE** - Белый<br/>**CREAMY** - Бежевый<br/>**CHESTNUT** - Рыжий<br/>**BROWN** - Коричневый<br/>**DARK_BROWN** - Тёмно-коричневый<br/>**GRAY** - Серый<br/>**BLACK** - Чёрный<br/>**DO_NOT_CHANGE** - Не изменять                | Цвет лошади  |
-| `horse_style` | Маркер<br/>**NONE** - Без узора<br/>**WHITE** - Белые полосы на ногах и голове<br/>**WHITEFIELD** - Крупные белые пятна<br/>**WHITE_DOTS** - Мелкие белые пятна<br/>**BLACK_DOTS** - Тёмные пятна на спине<br/>**DO_NOT_CHANGE** - Не изменять | Узор лошади  |
 <h3 id=entity_set_immune_to_zombification>
   <code>entity::set_immune_to_zombification</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2072,11 +1581,6 @@ entity::set_horse_pattern("WHITE","NONE");
 entity::set_immune_to_zombification("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**     | **Тип**                                                  | **Описание**                 |
-| ----------- | -------------------------------------------------------- | ---------------------------- |
-| `is_immune` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Иммунитет к зомбифицированию |
 <h3 id=entity_set_interaction_responsive>
   <code>entity::set_interaction_responsive</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2091,11 +1595,6 @@ entity::set_immune_to_zombification("TRUE");
 entity::set_interaction_responsive("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**                                                  | **Описание** |
-| ------------ | -------------------------------------------------------- | ------------ |
-| `responsive` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Отзывчивость |
 <h3 id=entity_set_interaction_size>
   <code>entity::set_interaction_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2110,12 +1609,6 @@ entity::set_interaction_responsive("TRUE");
 entity::set_interaction_size(1,2);
 ```
 
-**Аргументы:**
-
-| **Имя**  | **Тип** | **Описание**          |
-| -------- | ------- | --------------------- |
-| `width`  | Число   | Горизонтальный размер |
-| `height` | Число   | Вертикальный размер   |
 <h3 id=entity_set_invisible>
   <code>entity::set_invisible</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2130,11 +1623,6 @@ entity::set_interaction_size(1,2);
 entity::set_invisible("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**     | **Тип**                                                  | **Описание**      |
-| ----------- | -------------------------------------------------------- | ----------------- |
-| `invisible` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим невидимости |
 <h3 id=entity_set_invulnerability_ticks>
   <code>entity::set_invulnerability_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2149,11 +1637,6 @@ entity::set_invisible("TRUE");
 entity::set_invulnerability_ticks(1);
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**                        |
-| ------- | ------- | ----------------------------------- |
-| `ticks` | Число   | Длительность неуязвимости (в тиках) |
 <h3 id=entity_set_invulnerable>
   <code>entity::set_invulnerable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2168,11 +1651,6 @@ entity::set_invulnerability_ticks(1);
 entity::set_invulnerable("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип**                                                  | **Описание** |
-| -------------- | -------------------------------------------------------- | ------------ |
-| `invulnerable` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Неуязвимость |
 <h3 id=entity_set_item>
   <code>entity::set_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2189,11 +1667,6 @@ entity::set_invulnerable("TRUE");
 entity::set_item(item("stick"));
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**          |
-| ------- | ------- | --------------------- |
-| `item`  | Предмет | Предмет для установки |
 <h3 id=entity_set_item_display_item>
   <code>entity::set_item_display_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2210,11 +1683,6 @@ entity::set_item(item("stick"));
 entity::set_item_display_item(item("stick"));
 ```
 
-**Аргументы:**
-
-| **Имя**          | **Тип** | **Описание**         |
-| ---------------- | ------- | -------------------- |
-| `displayed_item` | Предмет | Отображаемый предмет |
 <h3 id=entity_set_item_display_model_type>
   <code>entity::set_item_display_model_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2231,11 +1699,6 @@ entity::set_item_display_item(item("stick"));
 entity::set_item_display_model_type("FIRSTPERSON_LEFTHAND");
 ```
 
-**Аргументы:**
-
-| **Имя**              | **Тип**                                                                                                                                                                                                                                                                                                                                                                               | **Описание** |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `display_model_type` | Маркер<br/>**FIRSTPERSON_LEFTHAND** - Левая рука от первого лица<br/>**FIRSTPERSON_RIGHTHAND** - Правая рука от первого лица<br/>**FIXED** - Фиксированный<br/>**GROUND** - На земле<br/>**GUI** - Инвентарь<br/>**HEAD** - Голова<br/>**NONE** - Стандартный<br/>**THIRDPERSON_LEFTHAND** - Левая рука от третьего лица<br/>**THIRDPERSON_RIGHTHAND** - Правая рука от третьего лица | Тип модели   |
 <h3 id=entity_set_item_in_frame>
   <code>entity::set_item_in_frame</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2252,11 +1715,6 @@ entity::set_item_display_model_type("FIRSTPERSON_LEFTHAND");
 entity::set_item_in_frame(item("stick"));
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание** |
-| ------- | ------- | ------------ |
-| `item`  | Предмет | Предмет      |
 <h3 id=entity_set_llama_type>
   <code>entity::set_llama_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2273,11 +1731,6 @@ entity::set_item_in_frame(item("stick"));
 entity::set_llama_type("BROWN");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                                                               | **Описание**       |
-| ------- | ----------------------------------------------------------------------------------------------------- | ------------------ |
-| `type`  | Маркер<br/>**BROWN** - Коричневый<br/>**CREAMY** - Бежевый<br/>**GRAY** - Серый<br/>**WHITE** - Белый | Цвет для установки |
 <h3 id=entity_set_marker>
   <code>entity::set_marker</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2294,11 +1747,6 @@ entity::set_llama_type("BROWN");
 entity::set_marker("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**  | **Тип**                                                  | **Описание**  |
-| -------- | -------------------------------------------------------- | ------------- |
-| `marker` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим маркера |
 <h3 id=entity_set_max_health>
   <code>entity::set_max_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2313,12 +1761,6 @@ entity::set_marker("TRUE");
 entity::set_max_health(1,"TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип**                                      | **Описание**                     |
-| ------------- | -------------------------------------------- | -------------------------------- |
-| `max_health`  | Число                                        | Максимальное количество здоровья |
-| `heal_to_max` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Исцелить существо                |
 <h3 id=entity_set_merchant_recipe>
   <code>entity::set_merchant_recipe</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2336,23 +1778,6 @@ entity::set_max_health(1,"TRUE");
 entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"MERGE",2,3,4,5,6,7,"TRUE","TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**               | **Тип**                                                   | **Описание**                          |
-| --------------------- | --------------------------------------------------------- | ------------------------------------- |
-| `result`              | Предмет                                                   | Покупаемый товар                      |
-| `ingredient_one`      | Предмет                                                   | Первый предмет                        |
-| `ingredient_two`      | Предмет                                                   | Второй предмет                        |
-| `index`               | Число                                                     | Индекс товара                         |
-| `mode`                | Маркер<br/>**MERGE** - Замена<br/>**APPEND** - Добавление | Режим установки                       |
-| `uses`                | Число                                                     | Количество использований              |
-| `max_uses`            | Число                                                     | Максимальное количество использований |
-| `villager_experience` | Число                                                     | Опыт для Жителя                       |
-| `price_multiplifier`  | Число                                                     | Множитель цены                        |
-| `demand`              | Число                                                     | Спрос товара                          |
-| `special_price`       | Число                                                     | Особая цена                           |
-| `ignore_discounts`    | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить  | Игнорирование скидок                  |
-| `experience_reward`   | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить  | Награда опытом                        |
 <h3 id=entity_set_minecart_block>
   <code>entity::set_minecart_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2369,12 +1794,6 @@ entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"MERGE",
 entity::set_minecart_block(item("stone"),1);
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип** | **Описание**       |
-| -------------- | ------- | ------------------ |
-| `block`        | Блок    | Блок для установки |
-| `block_offset` | Число   | Сдвиг блоках       |
 <h3 id=entity_set_mob_aggressive>
   <code>entity::set_mob_aggressive</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2389,11 +1808,6 @@ entity::set_minecart_block(item("stone"),1);
 entity::set_mob_aggressive("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**                                      | **Описание**  |
-| ------------ | -------------------------------------------- | ------------- |
-| `aggressive` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Агрессивность |
 <h3 id=entity_set_mushroom_cow_type>
   <code>entity::set_mushroom_cow_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2410,11 +1824,6 @@ entity::set_mob_aggressive("TRUE");
 entity::set_mushroom_cow_type("BROWN");
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип**                                                 | **Описание**       |
-| ---------- | ------------------------------------------------------- | ------------------ |
-| `cow_type` | Маркер<br/>**BROWN** - Коричневая<br/>**RED** - Красная | Тип грибной коровы |
 <h3 id=entity_set_panda_gene>
   <code>entity::set_panda_gene</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2431,12 +1840,6 @@ entity::set_mushroom_cow_type("BROWN");
 entity::set_panda_gene("MAIN","NORMAL");
 ```
 
-**Аргументы:**
-
-| **Имя**     | **Тип**                                                                                                                                                                                        | **Описание** |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `gene`      | Маркер<br/>**MAIN** - Главный ген<br/>**HIDDEN** - Скрытый ген<br/>**BOTH** - Оба гена                                                                                                         | Ген          |
-| `gene_type` | Маркер<br/>**NORMAL** - Нормальный<br/>**LAZY** - Ленивый<br/>**WORRIED** - Тревожный<br/>**PLAYFUL** - Игривый<br/>**BROWN** - Суровый<br/>**WEAK** - Слабый<br/>**AGGRESSIVE** - Агрессивный | Тип гена     |
 <h3 id=entity_set_parrot_type>
   <code>entity::set_parrot_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2453,11 +1856,6 @@ entity::set_panda_gene("MAIN","NORMAL");
 entity::set_parrot_type("BLUE");
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип**                                                                                                                 | **Описание** |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `parrot_type` | Маркер<br/>**BLUE** - Синий<br/>**CYAN** - Бирюзовый<br/>**GRAY** - Серый<br/>**GREEN** - Зелёный<br/>**RED** - Красный | Тип попугая  |
 <h3 id=entity_set_persistence>
   <code>entity::set_persistence</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2475,11 +1873,6 @@ entity::set_parrot_type("BLUE");
 entity::set_persistence("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип**                                                                | **Описание**       |
-| ------------- | ---------------------------------------------------------------------- | ------------------ |
-| `persistence` | Маркер<br/>**TRUE** - Не будет исчезать<br/>**FALSE** - Будет исчезать | Исчезание существа |
 <h3 id=entity_set_pickup_delay>
   <code>entity::set_pickup_delay</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2496,11 +1889,6 @@ entity::set_persistence("TRUE");
 entity::set_pickup_delay(1);
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание** |
-| ------- | ------- | ------------ |
-| `delay` | Число   | Задержка     |
 <h3 id=entity_set_piglin_able_to_hunt>
   <code>entity::set_piglin_able_to_hunt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2517,11 +1905,6 @@ entity::set_pickup_delay(1);
 entity::set_piglin_able_to_hunt("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                    | **Описание**    |
-| ------- | ---------------------------------------------------------- | --------------- |
-| `able`  | Маркер<br/>**TRUE** - Охотится<br/>**FALSE** - Не охотится | Состояние охоты |
 <h3 id=entity_set_piglin_charging_crossbow>
   <code>entity::set_piglin_charging_crossbow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2538,11 +1921,6 @@ entity::set_piglin_able_to_hunt("TRUE");
 entity::set_piglin_charging_crossbow("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип**                                         | **Описание**      |
-| ---------- | ----------------------------------------------- | ----------------- |
-| `charging` | Маркер<br/>**TRUE** - None<br/>**FALSE** - None | Состояние зарядки |
 <h3 id=entity_set_piglin_dancing>
   <code>entity::set_piglin_dancing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2561,11 +1939,6 @@ entity::set_piglin_charging_crossbow("TRUE");
 entity::set_piglin_dancing(1);
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип** | **Описание**                      |
-| -------------- | ------- | --------------------------------- |
-| `dancing_time` | Число   | Продолжительность танца (в тиках) |
 <h3 id=entity_set_pose>
   <code>entity::set_pose</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2580,11 +1953,6 @@ entity::set_piglin_dancing(1);
 entity::set_pose("CROAKING");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Описание**      |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `pose`  | Маркер<br/>**CROAKING** - Кваканье (для Жаб)<br/>**DIGGING** - Зарывание в землю (для Хранителя)<br/>**DYING** - Смерть<br/>**EMERGING** - Появление из земли (для Хранителя)<br/>**FALL_FLYING** - Полёт на Элитрах<br/>**LONG_JUMPING** - Длинный прыжок<br/>**ROARING** - Рёв (для Хранителя)<br/>**SLEEPING** - Лежание<br/>**SNEAKING** - None<br/>**SNIFFING** - Нюханье (для Хранителя)<br/>**SPIN_ATTACK** - Использование Тягуна<br/>**STANDING** - Обычное состояние<br/>**SWIMMING** - Плавание<br/>**USING_TONGUE** - Использование языка (для Жаб) | Отображаемая поза |
 <h3 id=entity_set_potion_cloud_radius>
   <code>entity::set_potion_cloud_radius</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2601,12 +1969,6 @@ entity::set_pose("CROAKING");
 entity::set_potion_cloud_radius(1,2);
 ```
 
-**Аргументы:**
-
-| **Имя**           | **Тип** | **Описание** |
-| ----------------- | ------- | ------------ |
-| `radius`          | Число   | Радиус       |
-| `shrinking_speed` | Число   | Скорость     |
 <h3 id=entity_set_primed_tnt_block>
   <code>entity::set_primed_tnt_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2623,11 +1985,6 @@ entity::set_potion_cloud_radius(1,2);
 entity::set_primed_tnt_block(item("stone"));
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание** |
-| ------- | ------- | ------------ |
-| `block` | Блок    | Блок         |
 <h3 id=entity_set_projectile_display_item>
   <code>entity::set_projectile_display_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2642,11 +1999,6 @@ entity::set_primed_tnt_block(item("stone"));
 entity::set_projectile_display_item(item("stick"));
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**          |
-| ------- | ------- | --------------------- |
-| `item`  | Предмет | Предмет для установки |
 <h3 id=entity_set_projectile_shooter>
   <code>entity::set_projectile_shooter</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2658,14 +2010,9 @@ entity::set_projectile_display_item(item("stick"));
 
 **Пример использования:** 
 ```ts
-entity::set_projectile_shooter("Имя или UUID стрелка");
+entity::set_projectile_shooter("uuid");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**         |
-| ------- | ------- | -------------------- |
-| `uuid`  | Текст   | Имя или UUID стрелка |
 <h3 id=entity_set_rabbit_type>
   <code>entity::set_rabbit_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2682,11 +2029,6 @@ entity::set_projectile_shooter("Имя или UUID стрелка");
 entity::set_rabbit_type("BLACK");
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип**                                                                                                                                                                                                                        | **Описание** |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
-| `rabbit_type` | Маркер<br/>**BLACK** - Чёрный<br/>**BLACK_AND_WHITE** - Черно-белый<br/>**BROWN** - Коричневый<br/>**GOLD** - Золотой<br/>**SALT_AND_PEPPER** - Бело-коричневый<br/>**THE_KILLER_BUNNY** - Кролик-убийца<br/>**WHITE** - Белый | Тип кролика  |
 <h3 id=entity_set_rearing>
   <code>entity::set_rearing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2703,11 +2045,6 @@ entity::set_rabbit_type("BLACK");
 entity::set_rearing("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**                                                                        | **Описание** |
-| --------- | ------------------------------------------------------------------------------ | ------------ |
-| `rearing` | Маркер<br/>**TRUE** - Стоять на задних ногах<br/>**FALSE** - Обычное состояние | Поза лошади  |
 <h3 id=entity_set_riptiding>
   <code>entity::set_riptiding</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2722,11 +2059,6 @@ entity::set_rearing("TRUE");
 entity::set_riptiding("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**     | **Тип**                                                  | **Описание**     |
-| ----------- | -------------------------------------------------------- | ---------------- |
-| `riptiding` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Анимация 'Тягун' |
 <h3 id=entity_set_rotation>
   <code>entity::set_rotation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2741,12 +2073,6 @@ entity::set_riptiding("TRUE");
 entity::set_rotation(1,2);
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**                 |
-| ------- | ------- | ---------------------------- |
-| `yaw`   | Число   | Горизонтальный поворот (yaw) |
-| `pitch` | Число   | Вертикальный поворот (pitch) |
 <h3 id=entity_set_rotation_by_vector>
   <code>entity::set_rotation_by_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2761,11 +2087,6 @@ entity::set_rotation(1,2);
 entity::set_rotation_by_vector(vector(0,0,0));
 ```
 
-**Аргументы:**
-
-| **Имя**  | **Тип** | **Описание**        |
-| -------- | ------- | ------------------- |
-| `vector` | Вектор  | Вектор для поворота |
 <h3 id=entity_set_sheep_sheared>
   <code>entity::set_sheep_sheared</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2782,11 +2103,6 @@ entity::set_rotation_by_vector(vector(0,0,0));
 entity::set_sheep_sheared("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**                                                    | **Описание**       |
-| --------- | ---------------------------------------------------------- | ------------------ |
-| `sheared` | Маркер<br/>**TRUE** - С шерстью<br/>**FALSE** - Без шерсти | Присутствие шерсти |
 <h3 id=entity_set_shulker_bullet_target>
   <code>entity::set_shulker_bullet_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2800,14 +2116,9 @@ entity::set_sheep_sheared("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_shulker_bullet_target("Имя или UUID цели");
+entity::set_shulker_bullet_target("target");
 ```
 
-**Аргументы:**
-
-| **Имя**  | **Тип** | **Описание**      |
-| -------- | ------- | ----------------- |
-| `target` | Текст   | Имя или UUID цели |
 <h3 id=entity_set_silenced>
   <code>entity::set_silenced</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2822,11 +2133,6 @@ entity::set_shulker_bullet_target("Имя или UUID цели");
 entity::set_silenced("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип**                                                  | **Описание** |
-| ---------- | -------------------------------------------------------- | ------------ |
-| `silenced` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Заглушение   |
 <h3 id=entity_set_sitting>
   <code>entity::set_sitting</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2847,11 +2153,6 @@ entity::set_silenced("TRUE");
 entity::set_sitting("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**                                                  | **Описание**  |
-| --------- | -------------------------------------------------------- | ------------- |
-| `sitting` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим сидения |
 <h3 id=entity_set_size>
   <code>entity::set_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2869,11 +2170,6 @@ entity::set_sitting("TRUE");
 entity::set_size(1);
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание** |
-| ------- | ------- | ------------ |
-| `size`  | Число   | Размер       |
 <h3 id=entity_set_sniffer_state>
   <code>entity::set_sniffer_state</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2890,19 +2186,14 @@ entity::set_size(1);
 entity::set_sniffer_state("DIGGING");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                                                                                                                                                                                              | **Описание**     |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| `state` | Маркер<br/>**DIGGING** - Копает<br/>**FEELING_HAPPY** - Чувстует себя счастливым<br/>**IDLING** - Обычное состояние<br/>**RISING** - Поднимается<br/>**SCENTING** - Идёт по следу<br/>**SEARCHING** - Ищет<br/>**SNIFFING** - Нюхает | Состояние нюхача |
 <h3 id=entity_set_snowman_pumpkin>
   <code>entity::set_snowman_pumpkin</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** Установить тыкву Снежнему голему\
+**Имя:** Установить тыкву снеговику\
 **Тип:** Действие без значения\
-**Описание:** Устанавливает видимость тыквы Снежнему голему.
+**Описание:** Устанавливает видимость тыквы снеговику.
 **Работает с:**\
 &nbsp;&nbsp;Снежными големами
 
@@ -2911,11 +2202,6 @@ entity::set_sniffer_state("DIGGING");
 entity::set_snowman_pumpkin("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**                                                  | **Описание**    |
-| --------- | -------------------------------------------------------- | --------------- |
-| `pumpkin` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Видимость тыквы |
 <h3 id=entity_set_tame>
   <code>entity::set_tame</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2934,14 +2220,9 @@ entity::set_snowman_pumpkin("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_tame("Имя или UUID хозяина");
+entity::set_tame("name_or_uuid");
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип** | **Описание**         |
-| -------------- | ------- | -------------------- |
-| `name_or_uuid` | Текст   | Имя или UUID хозяина |
 <h3 id=entity_set_target>
   <code>entity::set_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2957,14 +2238,9 @@ entity::set_tame("Имя или UUID хозяина");
 
 **Пример использования:** 
 ```ts
-entity::set_target("Имя или UUID цели");
+entity::set_target("name_or_uuid");
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип** | **Описание**      |
-| -------------- | ------- | ----------------- |
-| `name_or_uuid` | Текст   | Имя или UUID цели |
 <h3 id=entity_set_text_display_alignment>
   <code>entity::set_text_display_alignment</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2981,11 +2257,6 @@ entity::set_target("Имя или UUID цели");
 entity::set_text_display_alignment("CENTER");
 ```
 
-**Аргументы:**
-
-| **Имя**          | **Тип**                                                                       | **Описание**        |
-| ---------------- | ----------------------------------------------------------------------------- | ------------------- |
-| `text_alignment` | Маркер<br/>**CENTER** - По центру<br/>**LEFT** - Слева<br/>**RIGHT** - Справа | Выравнивание текста |
 <h3 id=entity_set_text_display_background>
   <code>entity::set_text_display_background</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2999,15 +2270,9 @@ entity::set_text_display_alignment("CENTER");
 
 **Пример использования:** 
 ```ts
-entity::set_text_display_background("HEX цвет",1);
+entity::set_text_display_background("color_hexadecimal",1);
 ```
 
-**Аргументы:**
-
-| **Имя**             | **Тип** | **Описание**           |
-| ------------------- | ------- | ---------------------- |
-| `color_hexadecimal` | Текст   | HEX цвет               |
-| `opacity`           | Число   | Процент непрозрачности |
 <h3 id=entity_set_text_display_line_width>
   <code>entity::set_text_display_line_width</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3024,11 +2289,6 @@ entity::set_text_display_background("HEX цвет",1);
 entity::set_text_display_line_width(1);
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип** | **Описание**  |
-| ------------ | ------- | ------------- |
-| `line_width` | Число   | Ширина строки |
 <h3 id=entity_set_text_display_opacity>
   <code>entity::set_text_display_opacity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3045,11 +2305,6 @@ entity::set_text_display_line_width(1);
 entity::set_text_display_opacity(1);
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип** | **Описание**        |
-| -------------- | ------- | ------------------- |
-| `text_opacity` | Число   | Прозрачность текста |
 <h3 id=entity_set_text_display_see_through>
   <code>entity::set_text_display_see_through</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3066,11 +2321,6 @@ entity::set_text_display_opacity(1);
 entity::set_text_display_see_through("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**              | **Тип**                                                  | **Описание**          |
-| -------------------- | -------------------------------------------------------- | --------------------- |
-| `enable_see_through` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Видимость через блоки |
 <h3 id=entity_set_text_display_text>
   <code>entity::set_text_display_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3084,15 +2334,9 @@ entity::set_text_display_see_through("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_text_display_text(["Отображаемый текст", "Отображаемый текст"],"SPACES");
+entity::set_text_display_text(["displayed_text", "displayed_text"],"SPACES");
 ```
 
-**Аргументы:**
-
-| **Имя**          | **Тип**                                                                                                                       | **Описание**       |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `displayed_text` | список[Текст]                                                                                                                 | Отображаемый текст |
-| `merging_mode`   | Маркер<br/>**SPACES** - Разделение пробелом<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки | Объединение текста |
 <h3 id=entity_set_text_display_text_shadow>
   <code>entity::set_text_display_text_shadow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3109,11 +2353,6 @@ entity::set_text_display_text(["Отображаемый текст", "Отоб�
 entity::set_text_display_text_shadow("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**              | **Тип**                                                  | **Описание** |
-| -------------------- | -------------------------------------------------------- | ------------ |
-| `enable_text_shadow` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Тень текста  |
 <h3 id=entity_set_tropical_fish_pattern>
   <code>entity::set_tropical_fish_pattern</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3130,13 +2369,6 @@ entity::set_text_display_text_shadow("TRUE");
 entity::set_tropical_fish_pattern("WHITE","WHITE","KOB");
 ```
 
-**Аргументы:**
-
-| **Имя**         | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                      | **Описание** |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
-| `pattern_color` | Маркер<br/>**WHITE** - Белый<br/>**ORANGE** - Оранжевый<br/>**MAGENTA** - Пурпурный<br/>**LIGHT_BLUE** - Голубой<br/>**YELLOW** - Жёлтый<br/>**LIME** - Лаймовый<br/>**PINK** - Розовый<br/>**GRAY** - Серый<br/>**LIGHT_GRAY** - Светло-серый<br/>**CYAN** - Бирюзовый<br/>**PURPLE** - Фиолетовый<br/>**BLUE** - Синий<br/>**BROWN** - Коричневый<br/>**GREEN** - Зелёный<br/>**RED** - Красный<br/>**BLACK** - Чёрный<br/>**DO_NOT_CHANGE** - Не изменять | Цвет узора   |
-| `body_color`    | Маркер<br/>**WHITE** - Белый<br/>**ORANGE** - Оранжевый<br/>**MAGENTA** - Пурпурный<br/>**LIGHT_BLUE** - Голубой<br/>**YELLOW** - Жёлтый<br/>**LIME** - Лаймовый<br/>**PINK** - Розовый<br/>**GRAY** - Серый<br/>**LIGHT_GRAY** - Светло-серый<br/>**CYAN** - Бирюзовый<br/>**PURPLE** - Фиолетовый<br/>**BLUE** - Синий<br/>**BROWN** - Коричневый<br/>**GREEN** - Зелёный<br/>**RED** - Красный<br/>**BLACK** - Чёрный<br/>**DO_NOT_CHANGE** - Не изменять | Цвет тела    |
-| `pattern`       | Маркер<br/>**KOB** - Kob<br/>**SUNSTREAK** - SunStreak<br/>**SNOOPER** - Snooper<br/>**DASHER** - Dasher<br/>**BRINELY** - Brinely<br/>**SPOTTY** - Spotty<br/>**FLOPPER** - Flopper<br/>**STRIPEY** - Stripey<br/>**GLITTER** - Glitter<br/>**BLOCKFISH** - Blockfish<br/>**BETTY** - Betty<br/>**CLAYFISH** - Clayfish<br/>**DO_NOT_CHANGE** - Не изменять                                                                                                 | Узор         |
 <h3 id=entity_set_location>
   <code>entity::set_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3151,12 +2383,6 @@ entity::set_tropical_fish_pattern("WHITE","WHITE","KOB");
 entity::set_location(vector(0,0,0),"TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**     | **Тип**                                                  | **Описание**              |
-| ----------- | -------------------------------------------------------- | ------------------------- |
-| `velocity`  | Вектор                                                   | Вектор движения           |
-| `increment` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Учитывать текущую инерцию |
 <h3 id=entity_set_vex_charging>
   <code>entity::set_vex_charging</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3173,11 +2399,6 @@ entity::set_location(vector(0,0,0),"TRUE");
 entity::set_vex_charging("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип**                                         | **Описание**  |
-| ---------- | ----------------------------------------------- | ------------- |
-| `charging` | Маркер<br/>**TRUE** - None<br/>**FALSE** - None | Стадия злости |
 <h3 id=entity_set_vex_limited_lifetime_ticks>
   <code>entity::set_vex_limited_lifetime_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3185,7 +2406,7 @@ entity::set_vex_charging("TRUE");
 
 **Имя:** Установить время жизни Вредины\
 **Тип:** Действие без значения\
-**Описание:** Устаналивает время жизни Вредины в тиках.
+**Описание:** Устанавливает время жизни Вредины в тиках.
 **Работает с:**\
 &nbsp;&nbsp;Врединами
 
@@ -3194,11 +2415,6 @@ entity::set_vex_charging("TRUE");
 entity::set_vex_limited_lifetime_ticks(1);
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип** | **Описание** |
-| ---------- | ------- | ------------ |
-| `lifetime` | Число   | Время жизни  |
 <h3 id=entity_set_villager_biome>
   <code>entity::set_villager_biome</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3215,11 +2431,6 @@ entity::set_vex_limited_lifetime_ticks(1);
 entity::set_villager_biome("DESERT");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                                                                                                                                           | **Описание** |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `biome` | Маркер<br/>**DESERT** - Пустынный<br/>**JUNGLE** - Джунгли<br/>**PLAINS** - Равнины<br/>**SAVANNA** - Саванна<br/>**SNOW** - Снежный<br/>**SWAMP** - Болото<br/>**TAIGA** - Тайга | Биом         |
 <h3 id=entity_set_villager_experience>
   <code>entity::set_villager_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3236,11 +2447,6 @@ entity::set_villager_biome("DESERT");
 entity::set_villager_experience(1);
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип** | **Описание**     |
-| ------------ | ------- | ---------------- |
-| `experience` | Число   | Количество опыта |
 <h3 id=entity_set_villager_profession>
   <code>entity::set_villager_profession</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3258,11 +2464,6 @@ entity::set_villager_experience(1);
 entity::set_villager_profession("NONE");
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Описание**     |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `profession` | Маркер<br/>**NONE** - Без профессии<br/>**ARMORER** - Бронник<br/>**BUTCHER** - Мясник<br/>**CARTOGRAPHER** - Картограф<br/>**CLERIC** - Священник<br/>**FARMER** - Фермер<br/>**FISHERMAN** - Рыбак<br/>**FLETCHER** - Лучник<br/>**LEATHERWORKER** - Кожевник<br/>**LIBRARIAN** - Библиотекарь<br/>**MASON** - Каменщик<br/>**NITWIT** - Нищий<br/>**SHEPHERD** - Пастух<br/>**TOOLSMITH** - Инструментальщик<br/>**WEAPONSMITH** - Оружейник | Профессия жителя |
 <h3 id=entity_set_visual_fire>
   <code>entity::set_visual_fire</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3277,11 +2478,6 @@ entity::set_villager_profession("NONE");
 entity::set_visual_fire("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип**                                                  | **Описание**     |
-| ------------- | -------------------------------------------------------- | ---------------- |
-| `visual_fire` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Отображение огня |
 <h3 id=entity_set_warden_anger_level>
   <code>entity::set_warden_anger_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3291,21 +2487,15 @@ entity::set_visual_fire("TRUE");
 **Тип:** Действие без значения\
 **Описание:** Устанавливает определённый уровень гнева Хранителя на указанное существо.\
 **Дополнительная информация:**\
-&nbsp;&nbsp;Если уровень гнева досигает 80 для сущности, Хранитель начинает активно преследовать её.\
+&nbsp;&nbsp;Если уровень гнева на сущность достигает 80, Хранитель начинает активно преследовать её.\
 **Работает с:**\
 &nbsp;&nbsp;Хранителями
 
 **Пример использования:** 
 ```ts
-entity::set_warden_anger_level("Имя или UUID сущности",1);
+entity::set_warden_anger_level("name_or_uuid",1);
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип** | **Описание**                |
-| -------------- | ------- | --------------------------- |
-| `name_or_uuid` | Текст   | Имя или UUID сущности       |
-| `anger`        | Число   | Уровень гнева (от 0 до 150) |
 <h3 id=entity_set_warden_digging>
   <code>entity::set_warden_digging</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3320,11 +2510,6 @@ entity::set_warden_anger_level("Имя или UUID сущности",1);
 entity::set_warden_digging("EMERGE");
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**                                              | **Описание** |
-| --------- | ---------------------------------------------------- | ------------ |
-| `digging` | Маркер<br/>**EMERGE** - None<br/>**DIG_DOWN** - None | None         |
 <h3 id=entity_set_wearing_saddle>
   <code>entity::set_wearing_saddle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3343,32 +2528,22 @@ entity::set_warden_digging("EMERGE");
 entity::set_wearing_saddle("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**   | **Тип**                                                  | **Описание**  |
-| --------- | -------------------------------------------------------- | ------------- |
-| `wearing` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Наличие седла |
 <h3 id=entity_set_wither_invulnerability_ticks>
   <code>entity::set_wither_invulnerability_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** Установить неуязвимость визеру\
+**Имя:** Установить неуязвимость иссушителю\
 **Тип:** Действие без значения\
-**Описание:** Устанавливает длительность неуязвимости визеру.
+**Описание:** Устанавливает длительность неуязвимости иссушителю.
 **Работает с:**\
-&nbsp;&nbsp;Визером
+&nbsp;&nbsp;Иссушителем
 
 **Пример использования:** 
 ```ts
 entity::set_wither_invulnerability_ticks(1);
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип** | **Описание**                        |
-| ------- | ------- | ----------------------------------- |
-| `ticks` | Число   | Длительность неуязвимости (в тиках) |
 <h3 id=entity_set_zombie_arms_raised>
   <code>entity::set_zombie_arms_raised</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3383,11 +2558,6 @@ entity::set_wither_invulnerability_ticks(1);
 entity::set_zombie_arms_raised("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**       | **Тип**                                                  | **Описание** |
-| ------------- | -------------------------------------------------------- | ------------ |
-| `arms_raised` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Поднятие рук |
 <h3 id=entity_shear_sheep>
   <code>entity::shear_sheep</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3420,11 +2590,6 @@ entity::shear_sheep();
 entity::sleep("TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**                                                  | **Описание** |
-| ------- | -------------------------------------------------------- | ------------ |
-| `sleep` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим сна    |
 <h3 id=entity_swing_hand>
   <code>entity::swing_hand</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3439,11 +2604,6 @@ entity::sleep("TRUE");
 entity::swing_hand("MAIN");
 ```
 
-**Аргументы:**
-
-| **Имя**     | **Тип**                                                    | **Описание** |
-| ----------- | ---------------------------------------------------------- | ------------ |
-| `hand_type` | Маркер<br/>**MAIN** - Главная<br/>**OFF** - Второстепенная | Тип руки     |
 <h3 id=entity_teleport>
   <code>entity::teleport</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3458,12 +2618,6 @@ entity::swing_hand("MAIN");
 entity::teleport(location(0,0,0,0,0),"TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**         | **Тип**                                                  | **Описание**             |
-| --------------- | -------------------------------------------------------- | ------------------------ |
-| `location`      | Местоположение                                           | Новая позиция            |
-| `keep_rotation` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Оставить текущий поворот |
 <h3 id=entity_use_item>
   <code>entity::use_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3480,12 +2634,6 @@ entity::teleport(location(0,0,0,0,0),"TRUE");
 entity::use_item("MAIN_HAND","TRUE");
 ```
 
-**Аргументы:**
-
-| **Имя**  | **Тип**                                                                         | **Описание**  |
-| -------- | ------------------------------------------------------------------------------- | ------------- |
-| `hand`   | Маркер<br/>**MAIN_HAND** - Основная рука<br/>**OFF_HAND** - Второстепенная рука | Тип руки      |
-| `enable` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить                        | Использование |
 <h3 id=if_entity_collides_at_location>
   <code>entity::collides_at_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3502,11 +2650,6 @@ if(entity::collides_at_location(location(0,0,0,0,0)){
 }
 ```
 
-**Аргументы:**
-
-| **Имя**    | **Тип**        | **Описание**                |
-| ---------- | -------------- | --------------------------- |
-| `location` | Местоположение | Местоположение для проверки |
 <h3 id=if_entity_collides_using_hitbox>
   <code>entity::collides_using_hitbox</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3523,12 +2666,6 @@ if(entity::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
 }
 ```
 
-**Аргументы:**
-
-| **Имя** | **Тип**        | **Описание**         |
-| ------- | -------------- | -------------------- |
-| `min`   | Местоположение | Первый угол хитбокса |
-| `max`   | Местоположение | Второй угол хитбокса |
 <h3 id=if_entity_collides_with_entity>
   <code>entity::collides_with_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3540,17 +2677,11 @@ if(entity::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
 
 **Пример использования:** 
 ```ts
-if(entity::collides_with_entity("Имя или UUID сущности","OVERLAPS"){
+if(entity::collides_with_entity("name_or_uuid","OVERLAPS"){
     player::message("Условие верно");
 }
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип**                                                            | **Описание**              |
-| -------------- | ------------------------------------------------------------------ | ------------------------- |
-| `name_or_uuid` | Текст                                                              | Имя или UUID сущности     |
-| `check_type`   | Маркер<br/>**OVERLAPS** - Пересекается<br/>**CONTAINS** - Содержит | Тип проверки столкновения |
 <h3 id=if_entity_exists>
   <code>entity::exists</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3578,17 +2709,11 @@ if(entity::exists(){
 
 **Пример использования:** 
 ```ts
-if(entity::has_custom_tag("Название тега","Значение тега"){
+if(entity::has_custom_tag("tag","tag_value"){
     player::message("Условие верно");
 }
 ```
 
-**Аргументы:**
-
-| **Имя**     | **Тип** | **Описание**  |
-| ----------- | ------- | ------------- |
-| `tag`       | Текст   | Название тега |
-| `tag_value` | Текст   | Значение тега |
 <h3 id=if_entity_has_potion_effect>
   <code>entity::has_potion_effect</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3605,12 +2730,6 @@ if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 }
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**                                                     | **Описание**       |
-| ------------ | ----------------------------------------------------------- | ------------------ |
-| `potions`    | список[Зелье]                                               | Зелья для проверки |
-| `check_mode` | Маркер<br/>**ANY** - Любой эффект<br/>**ALL** - Все эффекты | Режим проверки     |
 <h3 id=if_entity_is_disguised>
   <code>entity::is_disguised</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3659,15 +2778,6 @@ if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"TRUE","POINT","OVERL
 }
 ```
 
-**Аргументы:**
-
-| **Имя**          | **Тип**                                                            | **Описание**          |
-| ---------------- | ------------------------------------------------------------------ | --------------------- |
-| `location_1`     | Местоположение                                                     | Первый угол региона   |
-| `location_2`     | Местоположение                                                     | Второй угол региона   |
-| `ignore_y_axis`  | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать | Игнорировать ось Y    |
-| `intersect_type` | Маркер<br/>**POINT** - Местоположение<br/>**HITBOX** - Хитбокс     | Тип пересечения       |
-| `check_type`     | Маркер<br/>**OVERLAPS** - Пересекается<br/>**CONTAINS** - Содержит | Тип проверки хитбокса |
 <h3 id=if_entity_is_item>
   <code>entity::is_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3716,13 +2826,6 @@ if(entity::is_near_location("TRUE",location(0,0,0,0,0),1){
 }
 ```
 
-**Аргументы:**
-
-| **Имя**         | **Тип**                                                            | **Описание**                |
-| --------------- | ------------------------------------------------------------------ | --------------------------- |
-| `ignore_y_axis` | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать | Игнорировать ось Y          |
-| `location`      | Местоположение                                                     | Местоположение для проверки |
-| `range`         | Число                                                              | Радиус проверки             |
 <h3 id=if_entity_is_projectile>
   <code>entity::is_projectile</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3744,23 +2847,17 @@ if(entity::is_projectile(){
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** Оседлало сущность\
+**Имя:** Сущность оседлала сущность\
 **Тип:** Действие, проверяющее условие\
-**Описание:** Проверяет, оседлало ли сущность любую из других указанных сущностей.
+**Описание:** Проверяет, оседлала ли сущность любую из других указанных сущностей.
 
 **Пример использования:** 
 ```ts
-if(entity::is_riding_entity(["Имя или UUID сущностей", "Имя или UUID сущностей"],"NEAREST"){
+if(entity::is_riding_entity(["entity_ids", "entity_ids"],"NEAREST"){
     player::message("Условие верно");
 }
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип**                                               | **Описание**           |
-| -------------- | ----------------------------------------------------- | ---------------------- |
-| `entity_ids`   | список[Текст]                                         | Имя или UUID сущностей |
-| `compare_mode` | Маркер<br/>**NEAREST** - None<br/>**FARTHEST** - None | Режим проверки         |
 <h3 id=if_entity_is_standing_on_block>
   <code>entity::is_standing_on_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3768,7 +2865,7 @@ if(entity::is_riding_entity(["Имя или UUID сущностей", "Имя и
 
 **Имя:** Стоит на блоке\
 **Тип:** Действие, проверяющее условие\
-**Описание:** Проверяет, стоит ли сущность на блоке определенной категории или определенном местоположении.
+**Описание:** Проверяет, стоит ли сущность на блоке определенном блоке или местоположении.
 
 **Пример использования:** 
 ```ts
@@ -3777,13 +2874,6 @@ if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 }
 ```
 
-**Аргументы:**
-
-| **Имя**      | **Тип**                                         | **Описание**                |
-| ------------ | ----------------------------------------------- | --------------------------- |
-| `blocks`     | список[Блок]                                    | Блоки для проверки          |
-| `locations`  | список[Местоположение]                          | Местоположения для проверки |
-| `only_solid` | Маркер<br/>**TRUE** - None<br/>**FALSE** - None | Учитывать проходимые блоки  |
 <h3 id=if_entity_is_type>
   <code>entity::is_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3800,11 +2890,6 @@ if(entity::is_type([item("stick"), item("stick")]){
 }
 ```
 
-**Аргументы:**
-
-| **Имя**        | **Тип**         | **Описание** |
-| -------------- | --------------- | ------------ |
-| `entity_types` | список[Предмет] | Тип существа |
 <h3 id=if_entity_is_vehicle>
   <code>entity::is_vehicle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3832,16 +2917,11 @@ if(entity::is_vehicle(){
 
 **Пример использования:** 
 ```ts
-if(entity::name_equals(["Имена или UUID для проверки", "Имена или UUID для проверки"]){
+if(entity::name_equals(["names_or_uuids", "names_or_uuids"]){
     player::message("Условие верно");
 }
 ```
 
-**Аргументы:**
-
-| **Имя**          | **Тип**       | **Описание**                |
-| ---------------- | ------------- | --------------------------- |
-| `names_or_uuids` | список[Текст] | Имена или UUID для проверки |
 <h3 id=if_entity_spawn_reason_equals>
   <code>entity::spawn_reason_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3858,8 +2938,3 @@ if(entity::spawn_reason_equals("BEEHIVE"){
 }
 ```
 
-**Аргументы:**
-
-| **Имя**  | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | **Описание**   |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| `reason` | Маркер<br/>**BEEHIVE** - Появление с улья<br/>**BREEDING** - От размножения<br/>**BUILD_IRONGOLEM** - От постройки Железного голема<br/>**BUILD_SNOWMAN** - От постройки Снежного голема<br/>**BUILD_WITHER** - От постройки Визера<br/>**COMMAND** - От команды<br/>**CURED** - Вылечивание Жителя<br/>**CUSTOM** - Кастомная<br/>**DEFAULT** - Стандартная<br/>**DISPENSE_EGG** - Появление с Раздатчика<br/>**DROWNED** - От утопления<br/>**EGG** - Появление с яйца<br/>**ENDER_PEARL** - Появление с Жемчуга Энда<br/>**EXPLOSION** - После взрыва<br/>**FROZEN** - От заморозки<br/>**INFECTION** - От заражения Зомби<br/>**JOCKEY** - Как жокей сущности<br/>**LIGHTNING** - От молнии<br/>**MOUNT** - Как транспорт сущности<br/>**NATURAL** - Натуральный спавн<br/>**NETHER_PORTAL** - С портала в Незер<br/>**OCELOT_BABY** - Ребёнок Оцелота<br/>**PATROL** - Патруль Разбойников<br/>**PIGLIN_ZOMBIFIED** - Зомбифицирование<br/>**RAID** - От рейда<br/>**REINFORCEMENTS** - Подкрепление<br/>**SHEARED** - От подстригания<br/>**SHOULDER_ENTITY** - Спрыгивание с плеча<br/>**SILVERFISH_BLOCK** - С блока<br/>**SLIME_SPLIT** - Разделение Слизней<br/>**SPAWNER** - Со спавнера мобов<br/>**SPAWNER_EGG** - С Яйца Призыва<br/>**TRAP** - Ловушка<br/>**VILLAGER_DEFENSE** - Защита деревни<br/>**VILLAGE_INVASION** - Наступление на деревню | Причина спавна |

@@ -2,6 +2,7 @@ import gzip
 import json
 import os
 import requests
+import nbtworker
 import sys
 from math import ceil, floor
 
@@ -12,6 +13,7 @@ STRING = "STRING"
 MINUS = "MINUS"
 ASSIGN = "ASSIGN"
 PLUS = "PLUS"
+SNBT = "SNBT"
 ELSE = "ELSE"
 MULTIPLY = "MULTIPLY"
 SELECT = "SELECT"
@@ -19,12 +21,10 @@ DIVIDE = "DIVIDE"
 COLON = "COLON"
 CODE = "CODE"
 VARIABLE = "VARIABLE"
-INT_DIVIDE = "INT_DIVIDE"
 MINUS_WITH_ASSIGN = "MINUS_WITH_ASSIGN"
 PLUS_WITH_ASSIGN = "PLUS_WITH_ASSIGN"
 MULTIPLY_WITH_ASSIGN = "MULTIPLY_WITH_ASSIGN"
 DIVIDE_WITH_ASSIGN = "DIVIDE_WITH_ASSIGN"
-INT_DIVIDE_WITH_ASSIGN = "INT_DIVIDE_WITH_ASSIGN"
 PR_WITH_ASSIGN = "PR_WITH_ASSIGN"
 DEG_WITH_ASSIGN = "DEG_WITH_ASSIGN"
 CYCLE_THING = "CYCLE_THING"
@@ -248,7 +248,6 @@ class Lexer:
             self.current_char = self.text()[self.pos]
         else:
             self.current_char = None
-        self.last_token = Token(OEL, "OEL", start_line=0, offset_pos=0, file=self.file)
         self.line = 0
         self.offset_pos = 0
 
@@ -278,13 +277,11 @@ class Lexer:
     def skip_whitespace(self):
         while self.current_char is not None and (self.current_char.isspace() or self.current_char == ";"):
             if self.current_char == "\n" or self.current_char == "\t":
-                self.last_token = Token(OEL, "OEL", start_line=self.line, offset_pos=self.offset_pos, file=self.file)
                 self.advance()
-                return self.last_token
+                return Token(OEL, "OEL", start_line=self.line, offset_pos=self.offset_pos, file=self.file)
             elif self.current_char == ";":
-                self.last_token = Token(EL, "EL", start_line=self.line, offset_pos=self.offset_pos, file=self.file)
                 self.advance()
-                return self.last_token
+                return Token(EL, "EL", start_line=self.line, offset_pos=self.offset_pos, file=self.file)
             self.advance()
         return None
 
@@ -334,15 +331,12 @@ class Lexer:
                     else:
                         token_type = NUMBER
                 try:
-                    self.last_token = Token(token_type, int(token_value), start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(token_type, int(token_value), start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                 except:
                     try:
-                        self.last_token = Token(token_type, float(token_value), start_line=start_line,
-                                                end_line=end_line,
-                                                offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(token_type, float(token_value), start_line=start_line,
+                                     end_line=end_line, offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                     except:
                         if len(token_value) == 1:
                             self.return_pos(self.pos - 1)
@@ -370,9 +364,8 @@ class Lexer:
                     end_line = self.line
                     end_pos = self.offset_pos
                     self.advance()
-                    self.last_token = Token(STRING, string_value, start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(STRING, string_value, start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                 else:
                     error("IncorrectSymbol", "Строка не была закрыта", start_line=start_line, end_line=self.line,
                           offset_pos=start_pos, limit_offset_pos=self.offset_pos + 1, file=self.file)
@@ -395,9 +388,8 @@ class Lexer:
                     end_line = self.line
                     end_pos = self.offset_pos
                     self.advance()
-                    self.last_token = Token(STRING, string_value, start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(STRING, string_value, start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                 else:
                     error("IncorrectSymbol", "Строка не была закрыта", start_line=start_line, end_line=self.line,
                           offset_pos=start_pos, limit_offset_pos=self.offset_pos + 1, file=self.file)
@@ -420,10 +412,9 @@ class Lexer:
                     end_line = self.line
                     end_pos = self.offset_pos
                     self.advance()
-                    self.last_token = Token(VAR, var_name, start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(VAR, var_name, start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 else:
                     error("IncorrectSymbol", "Переменная не была закрыта", start_line=start_line, end_line=self.line,
                           offset_pos=start_pos, limit_offset_pos=self.offset_pos + 1, file=self.file)
@@ -439,167 +430,142 @@ class Lexer:
                     end_line = self.line
                     end_pos = self.offset_pos
                     self.advance()
-                    self.last_token = Token(SELECTOR, selector, start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(SELECTOR, selector, start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 else:
                     error("IncorrectSymbol", "Селектор не был закрыт", start_line=start_line, end_line=self.line,
                           offset_pos=start_pos, limit_offset_pos=self.offset_pos + 1, file=self.file)
             if self.current_char == '=':
                 end_line = self.line
                 end_pos = self.offset_pos
-                self.last_token = Token(ASSIGN, '=', start_line=end_line, offset_pos=end_pos, file=self.file)
                 self.advance()
-                return self.last_token
+                return Token(ASSIGN, '=', start_line=end_line, offset_pos=end_pos, file=self.file)
             if self.current_char in ('+', '-', '*', '/', '%', '^'):
                 action_type = self.current_char
                 end_line = self.line
                 end_pos = self.offset_pos
                 self.advance()
-                if action_type == "/" and self.current_char == "/":
-                    action_type = "//"
-                    end_line = self.line
-                    end_pos = self.offset_pos
-                    self.advance()
+                if action_type == "/":
+                    if self.current_char == "/":
+                        while self.current_char is not None:
+                            if self.current_char == "\n" or self.current_char == "\t":
+                                self.advance()
+                                return Token(OEL, "OEL", start_line=self.line,
+                                             offset_pos=self.offset_pos, file=self.file)
+                            self.advance()
+                        return Token(EOF, None)
+                    elif self.current_char == "*":
+                        while self.current_char is not None:
+                            if self.current_char == "*":
+                                self.advance()
+                                if self.current_char == "/":
+                                    self.advance()
+                                    return Token(OEL, "OEL", start_line=self.line,
+                                                 offset_pos=self.offset_pos, file=self.file)
+                            self.advance()
+                        return Token(EOF, None)
                 if action_type == "-" and self.current_char == ">":
                     end_line = self.line
                     end_pos = self.offset_pos
                     self.advance()
-                    self.last_token = Token(CYCLE_THING, '->', start_line=end_line, offset_pos=end_pos - 1,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(CYCLE_THING, '->', start_line=end_line, offset_pos=end_pos - 1,
+                                 limit_offset_pos=end_pos, file=self.file)
                 if self.current_char == "=":
                     if action_type == '+':
                         end_line = self.line
                         end_pos = self.offset_pos
                         self.advance()
-                        self.last_token = Token(PLUS_WITH_ASSIGN, '+=', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(PLUS_WITH_ASSIGN, '+=', start_line=end_line, offset_pos=end_pos - 1,
+                                     limit_offset_pos=end_pos, file=self.file)
 
                     if action_type == '-':
                         end_line = self.line
                         end_pos = self.offset_pos
                         self.advance()
-                        self.last_token = Token(MINUS_WITH_ASSIGN, '-=', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(MINUS_WITH_ASSIGN, '-=', start_line=end_line, offset_pos=end_pos - 1,
+                                     limit_offset_pos=end_pos, file=self.file)
 
                     if action_type == '*':
                         end_line = self.line
                         end_pos = self.offset_pos
                         self.advance()
-                        self.last_token = Token(MULTIPLY_WITH_ASSIGN, '*=', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(MULTIPLY_WITH_ASSIGN, '*=', start_line=end_line, offset_pos=end_pos - 1,
+                                     limit_offset_pos=end_pos, file=self.file)
 
                     if action_type == '/':
                         end_line = self.line
                         end_pos = self.offset_pos
                         self.advance()
-                        self.last_token = Token(DIVIDE_WITH_ASSIGN, '/=', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
-                    if action_type == '//':
-                        end_line = self.line
-                        end_pos = self.offset_pos
-                        self.advance()
-                        self.last_token = Token(INT_DIVIDE_WITH_ASSIGN, '//=', start_line=end_line,
-                                                offset_pos=end_pos - 2,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(DIVIDE_WITH_ASSIGN, '/=', start_line=end_line, offset_pos=end_pos - 1,
+                                     limit_offset_pos=end_pos, file=self.file)
 
                     if action_type == '%':
                         end_line = self.line
                         end_pos = self.offset_pos
                         self.advance()
-                        self.last_token = Token(PR_WITH_ASSIGN, '%=', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(PR_WITH_ASSIGN, '%=', start_line=end_line, offset_pos=end_pos - 1,
+                                     limit_offset_pos=end_pos, file=self.file)
 
                     if action_type == '^':
                         end_line = self.line
                         end_pos = self.offset_pos
                         self.advance()
-                        self.last_token = Token(DEG_WITH_ASSIGN, '^=', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(DEG_WITH_ASSIGN, '^=', start_line=end_line, offset_pos=end_pos - 1,
+                                     limit_offset_pos=end_pos, file=self.file)
                 else:
                     if action_type == '+':
-                        self.last_token = Token(PLUS, '+', start_line=end_line, offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(PLUS, '+', start_line=end_line, offset_pos=end_pos, file=self.file)
 
                     if action_type == '-':
-                        self.last_token = Token(MINUS, '-', start_line=end_line, offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(MINUS, '-', start_line=end_line, offset_pos=end_pos, file=self.file)
 
                     if action_type == '*':
-                        self.last_token = Token(MULTIPLY, '*', start_line=end_line, offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(MULTIPLY, '*', start_line=end_line, offset_pos=end_pos, file=self.file)
 
                     if action_type == '/':
-                        self.last_token = Token(DIVIDE, '/', start_line=end_line, offset_pos=end_pos, file=self.file)
-                        return self.last_token
-                    if action_type == '//':
-                        self.last_token = Token(INT_DIVIDE, '//', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(DIVIDE, '/', start_line=end_line, offset_pos=end_pos, file=self.file)
 
                     if action_type == '%':
-                        self.last_token = Token(PR, '%', start_line=end_line, offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(PR, '%', start_line=end_line, offset_pos=end_pos, file=self.file)
 
                     if action_type == '^':
-                        self.last_token = Token(DEG, '^', start_line=end_line, offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(DEG, '^', start_line=end_line, offset_pos=end_pos, file=self.file)
             if self.current_char == '#':
                 while self.current_char is not None:
                     if self.current_char == "\n" or self.current_char == "\t":
-                        self.last_token = Token(OEL, "OEL", start_line=self.line,
-                                                offset_pos=self.offset_pos, file=self.file)
                         self.advance()
-                        return self.last_token
+                        return Token(OEL, "OEL", start_line=self.line,
+                                     offset_pos=self.offset_pos, file=self.file)
                     self.advance()
-                self.last_token = Token(EOF, None, start_line=self.line, offset_pos=self.offset_pos,
-                                        file=self.file)
                 return Token(EOF, None)
             if self.current_char == '(':
-                self.last_token = Token(LPAREN, '(', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
                 self.advance()
-                return self.last_token
+                return Token(LPAREN, '(', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
             if self.current_char == ':':
-                self.last_token = Token(COLON, ':', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
                 self.advance()
-                return self.last_token
+                return Token(COLON, ':', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
             if self.current_char == ')':
-                self.last_token = Token(RPAREN, ')', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
                 self.advance()
-                return self.last_token
+                return Token(RPAREN, ')', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
             if self.current_char == '[':
-                self.last_token = Token(LSPAREN, '[', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
                 self.advance()
-                return self.last_token
+                return Token(LSPAREN, '[', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
             if self.current_char == ']':
-                self.last_token = Token(RSPAREN, ']', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
                 self.advance()
-                return self.last_token
+                return Token(RSPAREN, ']', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
             if self.current_char == '{':
-                self.last_token = Token(LCPAREN, '{', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
                 self.advance()
-                return self.last_token
+                return Token(LCPAREN, '{', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
             if self.current_char == '}':
-                self.last_token = Token(RCPAREN, '}', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
                 self.advance()
-                return self.last_token
+                return Token(RCPAREN, '}', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
             if self.current_char == ',':
-                self.last_token = Token(COMMA, ',', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
                 self.advance()
-                return self.last_token
+                return Token(COMMA, ',', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
             if self.current_char == ".":
-                self.last_token = Token(DOT, '.', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
                 self.advance()
-                return self.last_token
+                return Token(DOT, '.', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
             if self.current_char.isalpha() or self.current_char == "_":
                 token_value = ""
                 start_pos = self.offset_pos
@@ -631,25 +597,21 @@ class Lexer:
                         end_pos = self.offset_pos
                         self.advance()
                         if token_value in ("l", "local"):
-                            self.last_token = Token(LOCAL_VAR, var_name, start_line=start_line, end_line=end_line,
-                                                    offset_pos=start_pos,
-                                                    limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(LOCAL_VAR, var_name, start_line=start_line, end_line=end_line,
+                                         offset_pos=start_pos,
+                                         limit_offset_pos=end_pos, file=self.file)
                         if token_value in ("g", "game"):
-                            self.last_token = Token(GAME_VAR, var_name, start_line=start_line, end_line=end_line,
-                                                    offset_pos=start_pos,
-                                                    limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(GAME_VAR, var_name, start_line=start_line, end_line=end_line,
+                                         offset_pos=start_pos,
+                                         limit_offset_pos=end_pos, file=self.file)
                         if token_value in ("s", "save"):
-                            self.last_token = Token(SAVE_VAR, var_name, start_line=start_line, end_line=end_line,
-                                                    offset_pos=start_pos,
-                                                    limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(SAVE_VAR, var_name, start_line=start_line, end_line=end_line,
+                                         offset_pos=start_pos,
+                                         limit_offset_pos=end_pos, file=self.file)
                         if token_value in ("i", "inline"):
-                            self.last_token = Token(INLINE_VAR, var_name, start_line=start_line, end_line=end_line,
-                                                    offset_pos=start_pos,
-                                                    limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(INLINE_VAR, var_name, start_line=start_line, end_line=end_line,
+                                         offset_pos=start_pos,
+                                         limit_offset_pos=end_pos, file=self.file)
                     else:
                         error("IncorrectSymbol", "Переменная не была закрыта", start_line=start_line,
                               end_line=self.line, offset_pos=start_pos, limit_offset_pos=self.offset_pos,
@@ -673,25 +635,21 @@ class Lexer:
                         end_pos = self.offset_pos
                         self.advance()
                         if token_value in ("p", "plain"):
-                            self.last_token = Token(PLAIN_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(PLAIN_STRING, string_value, start_line=start_line,
+                                         end_line=end_line,
+                                         offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                         if token_value in ("l", "legacy"):
-                            self.last_token = Token(LEGACY_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(LEGACY_STRING, string_value, start_line=start_line,
+                                         end_line=end_line,
+                                         offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                         if token_value in ("m", "minimessage"):
-                            self.last_token = Token(MINIMESSAGE_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(MINIMESSAGE_STRING, string_value, start_line=start_line,
+                                         end_line=end_line,
+                                         offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                         if token_value in ("j", "json"):
-                            self.last_token = Token(JSON_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(JSON_STRING, string_value, start_line=start_line,
+                                         end_line=end_line,
+                                         offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                     else:
                         error("IncorrectSymbol", "Строка не была закрыта", start_line=start_line, end_line=self.line,
                               offset_pos=start_pos, limit_offset_pos=self.offset_pos, file=self.file)
@@ -714,25 +672,21 @@ class Lexer:
                         end_pos = self.offset_pos
                         self.advance()
                         if token_value in ("p", "plain"):
-                            self.last_token = Token(PLAIN_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(PLAIN_STRING, string_value, start_line=start_line,
+                                         end_line=end_line,
+                                         offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                         if token_value in ("l", "legacy"):
-                            self.last_token = Token(LEGACY_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(LEGACY_STRING, string_value, start_line=start_line,
+                                         end_line=end_line,
+                                         offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                         if token_value in ("m", "minimessage"):
-                            self.last_token = Token(MINIMESSAGE_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(MINIMESSAGE_STRING, string_value, start_line=start_line,
+                                         end_line=end_line,
+                                         offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                         if token_value in ("j", "json"):
-                            self.last_token = Token(JSON_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(JSON_STRING, string_value, start_line=start_line,
+                                         end_line=end_line,
+                                         offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
                     else:
                         error("IncorrectSymbol", "Строка не была закрыта", start_line=start_line, end_line=self.line,
                               offset_pos=start_pos, limit_offset_pos=self.offset_pos, file=self.file)
@@ -746,10 +700,9 @@ class Lexer:
                         end_line = self.line
                         end_pos = self.offset_pos
                         self.advance()
-                        self.last_token = Token(EVENT, event_name, start_line=start_line, end_line=end_line,
-                                                offset_pos=start_pos,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                        return Token(EVENT, event_name, start_line=start_line, end_line=end_line,
+                                     offset_pos=start_pos,
+                                     limit_offset_pos=end_pos, file=self.file)
                     else:
                         error("IncorrectSymbol", "Значение ивента не было закрыто", start_line=start_line,
                               end_line=self.line,
@@ -769,106 +722,101 @@ class Lexer:
                                 end_line = self.line
                                 end_pos = self.offset_pos
                                 self.advance()
-                            self.last_token = Token(act.upper(), sub_action, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
+                            return Token(act.upper(), sub_action, start_line=start_line,
+                                         end_line=end_line,
+                                         offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
+                    self.return_pos(self.pos - 1)
+                if self.current_char == "{" and token_value in ("m", "minecraft", "minecraft_json"):
+                    self.advance()
+                    count = 1
+                    token_value = "{"
+                    while self.current_char is not None and (count != 0):
+                        token_value += self.current_char
+                        if self.current_char == "{":
+                            count += 1
+                        elif self.current_char == "}":
+                            count -= 1
+                        end_line = self.line
+                        end_pos = self.offset_pos
+                        self.advance()
+                    return Token(SNBT, token_value, start_line=start_line, end_line=end_line, offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 if token_value == "if":
-                    self.last_token = Token(IF, "if", start_line=start_line, end_line=end_line, offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(IF, "if", start_line=start_line, end_line=end_line, offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "else":
-                    self.last_token = Token(ELSE, "ELSE", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(ELSE, "ELSE", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "not":
-                    self.last_token = Token(NOT, "NOT", start_line=start_line, end_line=end_line, offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(NOT, "NOT", start_line=start_line, end_line=end_line, offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "function":
-                    self.last_token = Token(FUNCTION, "function", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(FUNCTION, "function", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "None":
-                    self.last_token = Token(NONE, "", start_line=start_line, end_line=end_line, offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(NONE, "", start_line=start_line, end_line=end_line, offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "process":
-                    self.last_token = Token(PROCESS, "process", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(PROCESS, "process", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "location":
-                    self.last_token = Token(LOCATION, "location", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(LOCATION, "location", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "sound":
-                    self.last_token = Token(SOUND, "sound", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(SOUND, "sound", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "vector":
-                    self.last_token = Token(VECTOR, "vector", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(VECTOR, "vector", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "particle":
-                    self.last_token = Token(PARTICLE, "particle", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(PARTICLE, "particle", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "item":
-                    self.last_token = Token(ITEM, "item", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(ITEM, "item", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "potion":
-                    self.last_token = Token(POTION, "potion", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(POTION, "potion", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "import":
-                    self.last_token = Token(IMPORT, "import", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(IMPORT, "import", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "save":
-                    self.last_token = Token(SAVE_DEFINE, "save", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(SAVE_DEFINE, "save", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "game":
-                    self.last_token = Token(GAME_DEFINE, "game", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(GAME_DEFINE, "game", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "local":
-                    self.last_token = Token(LOCAL_DEFINE, "local", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(LOCAL_DEFINE, "local", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "inline":
-                    self.last_token = Token(INLINE_DEFINE, "inline", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(INLINE_DEFINE, "inline", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 elif token_value == "var":
-                    self.last_token = Token(VAR_DEFINE, "var", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(VAR_DEFINE, "var", start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
                 else:
-                    self.last_token = Token(VAR, token_value, start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(VAR, token_value, start_line=start_line, end_line=end_line,
+                                 offset_pos=start_pos,
+                                 limit_offset_pos=end_pos, file=self.file)
             error("SyntaxError", f"Неизвестный символ &4&n{self.current_char}", start_line=self.line,
                   offset_pos=self.offset_pos, file=self.file)
-        self.last_token = Token(EOF, None, start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-        return self.last_token
+        return Token(EOF, None, start_line=self.line, offset_pos=self.offset_pos, file=self.file)
 
 
 def minecraft_text(text1):
@@ -1237,7 +1185,7 @@ class text:
     def __repr__(self):
         return self.__str__()
 
-    def json(self, normal=False,in_text=False):
+    def json(self, normal=False, in_text=False):
         if in_text:
             return self.text
         if normal:
@@ -1354,12 +1302,12 @@ def check(checking=None, *arg):
 
 
 class item:
-    def __init__(self, item_id=None, name=None, count=None, lore=None, nbt=None, arg=None, start_line=None,
+    def __init__(self, item_id=None, name=None, count=None, lore=None, nbt=None, custom_tags=None, arg=None, start_line=None,
                  end_line=None,
                  offset_pos=None, limit_offset_pos=None, file=None):
         self.type = "item"
         if arg is not None:
-            arg.arg_list = ["id", "name", "count", "lore", "nbt"]
+            arg.arg_list = ["id", "name", "count", "lore", "nbt", "custom_tags"]
             arg = arg.get_args()
             for k1, v1 in arg.items():
                 if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
@@ -1371,6 +1319,7 @@ class item:
                 count = number(1)
             lore = arg["lore"]
             nbt = arg["nbt"]
+            custom_tags = arg["custom_tags"]
         self.start_line = start_line
         self.end_line = end_line
         self.offset_pos = offset_pos
@@ -1380,7 +1329,8 @@ class item:
         self.name = check(name, "text")
         self.count = check(count, "number")
         self.lore = check(lore, "text", "array")
-        self.nbt = check(nbt, "map")
+        self.nbt = check(nbt, "nbt")
+        self.custom_tags = check(custom_tags,"map")
 
     def __str__(self):
         return f'item({self.id},{self.name},{self.lore},{self.nbt})'
@@ -1389,23 +1339,33 @@ class item:
         return self.__str__()
 
     def json(self, normal=None):
-        a = {"id": self.id.json(normal=True), "Count": self.count.json(normal=True)}
+        a = nbtworker.Compound(id=nbtworker.String(self.id.json(normal=True)),
+                               Count=nbtworker.Byte(self.count.json(normal=True)))
         if self.nbt is not None:
-            a["tag"] = self.nbt.json(full_normal=True)
+            a["tag"] = self.nbt.nbt
         if self.name is not None or self.lore is not None:
             if not "tag" in a:
-                a["tag"] = {}
-            if not "display" in a:
-                a["tag"]["display"] = {}
+                a["tag"] = nbtworker.Compound()
+            if not "display" in a["tag"]:
+                a["tag"]["display"] = nbtworker.Compound()
             if self.name is not None:
-                a["tag"]["display"]["Name"] = json.dumps(minecraft_text(self.name.json(normal=True)))
+                a["tag"]["display"]["Name"] = nbtworker.String(json.dumps(minecraft_text(self.name.json(normal=True))))
             if self.lore is not None:
                 if self.lore.type != "array":
                     lore = self.lore.json(full_normal=True, normal=True).split("\\n")
                 else:
                     lore = self.lore.json(full_normal=True, normal=True)
-                a["tag"]["display"]["Lore"] = list(map(json.dumps, map(minecraft_text, lore)))
-        return {"type": "item", "item": json.dumps(a)}
+                a["tag"]["display"]["Lore"] = nbtworker.List(
+                    *list(map(nbtworker.String, map(json.dumps, map(minecraft_text, lore)))))
+        if self.custom_tags is not None:
+            if not "tag" in a:
+                a["tag"] = nbtworker.Compound()
+            if not "PublicBukkitValues" in a["tag"]:
+                a["tag"]["PublicBukkitValues"] = nbtworker.Compound()
+            for k1, v1 in self.custom_tags.json(full_normal=True).items():
+                a["tag"]["PublicBukkitValues"][f"justcreativeplus:{k1}"]=nbtworker.String(str(v1))
+
+        return {"type": "item", "item": str(a)}
 
 
 class location:
@@ -1604,7 +1564,7 @@ class particle:
             size = arg["size"]
             if size is None:
                 size = number(0)
-            to_color=arg["to_color"]
+            to_color = arg["to_color"]
         self.particle = check(particle_type, "text")
         self.count = check(count, "number")
         self.spread_x = check(spread_x, "number")
@@ -1615,7 +1575,7 @@ class particle:
         self.material = check(material, "text")
         self.color = check(color, "number")
         self.size = check(size, "number")
-        self.to_color = check(to_color,"number")
+        self.to_color = check(to_color, "number")
 
     def __str__(self):
         return (f'particle({self.particle},{self.count},{self.spread_x},'
@@ -1672,6 +1632,30 @@ class value:
     def json(self, normal=None):
         return {"type": "game_value", "game_value": values[self.name]["id"],
                 "selection": json.dumps({"type": self.selector})}
+
+
+class NBT:
+    def __init__(self, nbt_object, start_line=None, end_line=None,
+                 offset_pos=None, limit_offset_pos=None, file=None):
+        self.type = "nbt"
+        self.nbt = nbt_object
+        self.start_line = start_line
+        self.end_line = end_line
+        self.offset_pos = offset_pos
+        self.limit_offset_pos = limit_offset_pos
+        self.file = file
+
+    def __str__(self):
+        return f'nbt({self.nbt})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    def json(self, normal=None):
+        if "id" in self.nbt and "Count" in self.nbt:
+            return {"type":"item", "item":str(self.nbt)}
+        else:
+            error("UnknownNBT","Неизвестный нбт",self.start_line,self.end_line,self.offset_pos,self.limit_offset_pos,self.file)
 
 
 def try_action(act, in_var=False, set_var=False, ignore_lst=False):
@@ -1906,7 +1890,9 @@ def try_action(act, in_var=False, set_var=False, ignore_lst=False):
         elif isinstance(act, math):
             act, additional2 = try_math(act)
             additional_acts.extend(additional2)
-
+        elif isinstance(act, call_function):
+            act, additional2 = try_function(act)
+            additional_acts.extend(additional2)
         return act, additional_acts
 
     if isinstance(act, true_assign):
@@ -1923,9 +1909,6 @@ def try_action(act, in_var=False, set_var=False, ignore_lst=False):
                     return
                 elif act.assign_type == "/=":
                     symbol_table["inlines"][act.args["first"]] /= try_action(act.args["second"])
-                    return
-                elif act.assign_type == "//=":
-                    symbol_table["inlines"][act.args["first"]] //= try_action(act.args["second"])
                     return
                 elif act.assign_type == "^=":
                     symbol_table["inlines"][act.args["first"]] **= try_action(act.args["second"])
@@ -2067,7 +2050,8 @@ def try_action(act, in_var=False, set_var=False, ignore_lst=False):
             after_acts.extend(additional2)
         act.args["first"] = variables
         if act.assign_type == "=":
-            if type(act.args["second"]) in (number, text, item, sound, particle, vector, location, potion, value, var, math):
+            if type(act.args["second"]) in (
+                    number, text, item, sound, particle, vector, location, potion, value, var, math, NBT):
                 return action("variable", "set_value", args(
                     unpositional=[assign("assigning", act.args["first"]), assign("value", act.args["second"])]),
                               None, None, act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
@@ -2171,6 +2155,12 @@ def try_action(act, in_var=False, set_var=False, ignore_lst=False):
                     else:
                         error("UnsupportedOperation", "", act.start_line, act.end_line, act.offset_pos,
                               act.limit_offset_pos, act.file)
+            elif isinstance(act.args["second"], call_function):
+                if act.args["second"].name in math_functions:
+                    return action("variable", "set_value", args(
+                        unpositional=[assign("assigning", act.args["first"]), assign("value", act.args["second"])]),
+                                  None, None, act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
+                                  act.file), additional_acts, after_acts
         else:
             act.args["second"], additional2 = try_action(act.args["second"], in_var=True)
             additional_acts.extend(additional2)
@@ -2207,15 +2197,6 @@ def try_action(act, in_var=False, set_var=False, ignore_lst=False):
                                                          start_line=act.start_line, end_line=act.end_line,
                                                          offset_pos=act.offset_pos,
                                                          limit_offset_pos=act.limit_offset_pos, file=act.file),
-                              None, None, act.start_line, act.end_line, act.offset_pos,
-                              act.limit_offset_pos,
-                              act.file), additional_acts, after_acts
-            elif act.assign_type == "//=":
-                return action("variable", "divide", args(
-                    unpositional=[assign("division_mode", text("FLOOR")), assign("assigning", act.args["first"]),
-                                  assign("value", lst([act.args["first"][0], act.args["second"]]))],
-                    start_line=act.start_line, end_line=act.end_line, offset_pos=act.offset_pos,
-                    limit_offset_pos=act.limit_offset_pos, file=act.file),
                               None, None, act.start_line, act.end_line, act.offset_pos,
                               act.limit_offset_pos,
                               act.file), additional_acts, after_acts
@@ -2389,10 +2370,12 @@ class action:
         self.operations = operations
         if conditional is not None:
             if not isinstance(conditional, action):
-                error("TypeError", f"Ожидалось условие, но было получено {conditional.type}", conditional.start_line, conditional.end_line,
+                error("TypeError", f"Ожидалось условие, но было получено {conditional.type}", conditional.start_line,
+                      conditional.end_line,
                       conditional.offset_pos, conditional.limit_offset_pos, conditional.file)
             if not actions[conditional.act_type + "::" + conditional.sub_action].setdefault("boolean", False):
-                error("TypeError", "Ожидалось условие, но было получено обычное действие", conditional.start_line, conditional.end_line,
+                error("TypeError", "Ожидалось условие, но было получено обычное действие", conditional.start_line,
+                      conditional.end_line,
                       conditional.offset_pos, conditional.limit_offset_pos, conditional.file)
         self.conditional = conditional
         self.no = no
@@ -2449,6 +2432,8 @@ class action:
                     self.args[k1] = enum(enu, v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file,
                                          vare=v1)
                     continue
+            if self.arg_list[k1]["type"] == "block" and typ == "item":
+                continue
             if not (typ == "any" or self.arg_list[k1]["type"] == typ or
                     self.arg_list[k1]["type"] == "any" or typ == "text" or self.arg_list[k1]["type"] == "text"):
                 error("TypeError", "Ожидался объект типа " + self.arg_list[k1]["type"] + f", но был получен {v1.type}",
@@ -2532,11 +2517,12 @@ class if_:
         self.offset_pos = offset_pos
         self.limit_offset_pos = limit_offset_pos
         self.file = file
-        if not isinstance(act,action):
+        if not isinstance(act, action):
             error("TypeError", f"Ожидалось условие, но было получено {act.type}", act.start_line, act.end_line,
                   act.offset_pos, act.limit_offset_pos, act.file)
         if not actions[act.act_type + "::" + act.sub_action].setdefault("boolean", False):
-            error("TypeError", "Ожидалось условие, но было получено обычное действие",act.start_line,act.end_line,act.offset_pos,act.limit_offset_pos,act.file)
+            error("TypeError", "Ожидалось условие, но было получено обычное действие", act.start_line, act.end_line,
+                  act.offset_pos, act.limit_offset_pos, act.file)
         self.act = act
         self.type = "if"
         self.operations = operations
@@ -2730,7 +2716,7 @@ class function:
 
 
 def try_function(call_func):
-    if call_func.name in allowed_actions:
+    if call_func.name in math_functions:
         if call_func.name == "round":
             if isinstance(call_func.args.args["first"], number):
                 if call_func.args.args["second"] is None:
@@ -2739,6 +2725,62 @@ def try_function(call_func):
                     return number(round(call_func.args.args["first"].value, call_func.args.args["second"].value),
                                   call_func.start_line, call_func.end_line, call_func.offset_pos,
                                   call_func.limit_offset_pos, call_func.file)
+        elif call_func.name == "floor":
+            if isinstance(call_func.args.args["first"], number):
+                return number(floor(call_func.args.args["first"].value),
+                              call_func.start_line, call_func.end_line, call_func.offset_pos,
+                              call_func.limit_offset_pos, call_func.file)
+        elif call_func.name == "ceil":
+            if isinstance(call_func.args.args["first"], number):
+                return number(ceil(call_func.args.args["first"].value),
+                              call_func.start_line, call_func.end_line, call_func.offset_pos,
+                              call_func.limit_offset_pos, call_func.file)
+        elif call_func.name == "abs":
+            if isinstance(call_func.args.args["first"], number):
+                return number(abs(call_func.args.args["first"].value),
+                              call_func.start_line, call_func.end_line, call_func.offset_pos,
+                              call_func.limit_offset_pos, call_func.file)
+        elif call_func.name == "sqrt":
+            if isinstance(call_func.args.args["first"], number):
+                return number(call_func.args.args["first"].value ** 0.5,
+                              call_func.start_line, call_func.end_line, call_func.offset_pos,
+                              call_func.limit_offset_pos, call_func.file)
+        elif call_func.name == "cbrt":
+            if isinstance(call_func.args.args["first"], number):
+                return number(call_func.args.args["first"].value ** (1 / 3),
+                              call_func.start_line, call_func.end_line, call_func.offset_pos,
+                              call_func.limit_offset_pos, call_func.file)
+        elif call_func.name == "pow":
+            if isinstance(call_func.args.args["first"], number):
+                if call_func.args.args["second"] is None:
+                    call_func.args.args["second"] = number(0)
+                if isinstance(call_func.args.args["second"], number):
+                    return number(call_func.args.args["first"].value ** call_func.args.args["second"].value,
+                                  call_func.start_line, call_func.end_line, call_func.offset_pos,
+                                  call_func.limit_offset_pos, call_func.file)
+        elif call_func.name == "min":
+            if isinstance(call_func.args.args["first"], number):
+                if call_func.args.args["second"] is None:
+                    call_func.args.args["second"] = number(0)
+                if isinstance(call_func.args.args["second"], number):
+                    return number(min(call_func.args.args["first"].value, call_func.args.args["second"].value),
+                                  call_func.start_line, call_func.end_line, call_func.offset_pos,
+                                  call_func.limit_offset_pos, call_func.file)
+        elif call_func.name == "max":
+            if isinstance(call_func.args.args["first"], number):
+                if call_func.args.args["second"] is None:
+                    call_func.args.args["second"] = number(0)
+                if isinstance(call_func.args.args["second"], number):
+                    return number(max(call_func.args.args["first"].value, call_func.args.args["second"].value),
+                                  call_func.start_line, call_func.end_line, call_func.offset_pos,
+                                  call_func.limit_offset_pos, call_func.file)
+        elif call_func.name == "sign":
+            if isinstance(call_func.args.args["first"], number):
+                return number(-1 if (call_func.args.args["first"].value < 0) else (
+                    0 if (call_func.args.args["first"].value == 0) else 1),
+                              call_func.start_line, call_func.end_line, call_func.offset_pos,
+                              call_func.limit_offset_pos, call_func.file)
+
     return call_func
 
 
@@ -2752,7 +2794,7 @@ class call_function:
         self.limit_offset_pos = limit_offset_pos
         self.file = file
         self.name = name
-        if name in math_functions.keys():
+        if name in math_functions:
             arg.arg_list = math_functions[name]
             arg.get_args()
         self.args = arg
@@ -2770,6 +2812,12 @@ class call_function:
                 if v1 is not None:
                     arg.append(v1.json(in_text=True))
             return f"{self.name}(" + ", ".join(arg) + ")"
+        if self.name in math_functions:
+            arg = []
+            for k1, v1 in self.args.args.items():
+                if v1 is not None:
+                    arg.append(v1.json(in_text=True))
+            return {"type": "number", "number": f"{self.name}(" + ", ".join(arg) + ")"}
         return action("code", "call_function", args(positional=[text(self.name)]), None, None, self.start_line,
                       self.end_line, self.offset_pos, self.limit_offset_pos, self.file).json()
 
@@ -2822,7 +2870,7 @@ class Parser:
                   offset_pos=self.current_token.offset_pos, limit_offset_pos=self.current_token.limit_offset_pos,
                   file=self.lexer.file)
 
-    def factor(self, var_types=False):
+    def factor(self, var_types=False, define_var=False):
         token = self.current_token
         if token.equals(PLUS_NUMBER, MINUS_NUMBER, NUMBER):
             self.eat(token.type)
@@ -3204,17 +3252,62 @@ class Parser:
                           selector=selector,
                           start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                           limit_offset_pos=limit_offset_pos, file=self.lexer.file)
+        elif token.equals(VAR_DEFINE, SAVE_DEFINE, GAME_DEFINE, LOCAL_DEFINE, INLINE_DEFINE) and define_var:
+            start_line = self.current_token.start_line
+            offset_pos = self.current_token.offset_pos
+            if token.equals(VAR_DEFINE):
+                self.eat(VAR_DEFINE)
+                var_name = self.current_token.value
+                symbol_table["variables"][var_name] = ["LOCAL", "any"]
+                var_type = "LOCAL"
+            elif token.equals(SAVE_DEFINE):
+                self.eat(SAVE_DEFINE)
+                self.eat(VAR_DEFINE)
+                var_name = self.current_token.value
+                symbol_table["variables"][var_name] = ["SAVE", "any"]
+                var_type = "SAVE"
+            elif token.equals(GAME_DEFINE):
+                self.eat(GAME_DEFINE)
+                self.eat(VAR_DEFINE)
+                var_name = self.current_token.value
+                symbol_table["variables"][var_name] = ["GAME", "any"]
+                var_type = "GAME"
+            elif token.equals(LOCAL_DEFINE):
+                self.eat(LOCAL_DEFINE)
+                self.eat(VAR_DEFINE)
+                var_name = self.current_token.value
+                symbol_table["variables"][var_name] = ["LOCAL", "any"]
+                var_type = "LOCAL"
+            else:
+                self.eat(INLINE_DEFINE)
+                self.eat(VAR_DEFINE)
+                var_name = self.current_token.value
+                symbol_table["variables"][var_name] = ["INLINE", "any"]
+                var_type = "INLINE"
+            if self.current_token.equals(COLON) and var_types:
+                self.eat(COLON)
+                type_hint = self.current_token.value
+                symbol_table["variables"][var_name][1] = type_hint
+            else:
+                type_hint = None
+            self.eat(VAR)
+            return var(var_name, var_type, start_line=start_line, end_line=self.current_token.end_line,
+                       offset_pos=offset_pos,
+                       limit_offset_pos=self.current_token.limit_offset_pos, file=self.lexer.file, type_hint=type_hint)
+        elif token.type == SNBT:
+            self.eat(SNBT)
+            return NBT(nbtworker.load(token.value), token.start_line, token.end_line, token.offset_pos,
+                       token.limit_offset_pos, token.file)
         else:
             error("SyntaxError", f"Неожиданный токен {self.current_token.type}",
                   start_line=self.current_token.start_line, end_line=self.current_token.end_line,
                   offset_pos=self.current_token.offset_pos, limit_offset_pos=self.current_token.limit_offset_pos,
                   file=self.lexer.file)
 
-    def expr(self, assigning=False, work_with=None, pr=1, var_types=False):
-        if self.current_token.equals(OEL):
-            self.eat(OEL)
+    def expr(self, assigning=False, work_with=None, pr=1, var_types=False, define_var=False):
         if work_with is None:
-            result = self.up_factor(assigning=assigning, work_with=work_with, var_types=var_types)
+            result = self.up_factor(assigning=assigning, work_with=work_with, var_types=var_types,
+                                    define_var=define_var)
         else:
             result = work_with
         if pr == 1:
@@ -3230,7 +3323,7 @@ class Parser:
                                     end_line=self.current_token.end_line, offset_pos=self.current_token.offset_pos + 1,
                                     limit_offset_pos=self.current_token.limit_offset_pos, file=self.lexer.file)
                     self.eat(self.current_token.type)
-                    if self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG, INT_DIVIDE):
+                    if self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG):
                         second = self.expr(work_with=second, pr=2)
                 elif self.current_token.equals(PLUS_NUMBER):
                     operation = "+"
@@ -3238,7 +3331,7 @@ class Parser:
                                     end_line=self.current_token.end_line, offset_pos=self.current_token.offset_pos + 1,
                                     limit_offset_pos=self.current_token.limit_offset_pos, file=self.lexer.file)
                     self.eat(self.current_token.type)
-                    if self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG, INT_DIVIDE):
+                    if self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG):
                         second = self.expr(work_with=second, pr=2)
                 else:
                     operation = self.current_token.value
@@ -3249,9 +3342,9 @@ class Parser:
                 first = math(operation=operation, first=first, second=second, start_line=start_line, end_line=end_line,
                              offset_pos=offset_pos, limit_offset_pos=limit_offset_pos, file=self.lexer.file)
             return first
-        elif self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG, INT_DIVIDE) and (pr == 0 or pr == 2):
+        elif self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG) and (pr == 0 or pr == 2):
             first = result
-            while self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG, INT_DIVIDE):
+            while self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG):
                 start_line = result.start_line
                 offset_pos = result.offset_pos
                 operation = self.current_token.value
@@ -3264,9 +3357,9 @@ class Parser:
             return first
         return result
 
-    def up_factor(self, assigning=False, work_with=None, var_types=False):
+    def up_factor(self, assigning=False, work_with=None, var_types=False, define_var=False):
         if work_with is None:
-            result = self.factor(var_types=var_types)
+            result = self.factor(var_types=var_types, define_var=define_var)
         else:
             result = work_with
         if self.current_token.equals(LSPAREN):
@@ -3346,242 +3439,9 @@ class Parser:
 
     def statement(self, start=False):
         global symbol_table
-        if self.current_token.equals(VAR, LOCAL_VAR, GAME_VAR, SAVE_VAR, INLINE_VAR, VAR_DEFINE, SAVE_DEFINE,
-                                     GAME_DEFINE, LOCAL_DEFINE, INLINE_DEFINE, LOCATION, SOUND, ITEM, PARTICLE, VECTOR,
-                                     POTION):
-            variables = []
-            start_line = self.current_token.start_line
-            offset_pos = self.current_token.offset_pos
-            while not self.current_token.equals(ASSIGN, PR_WITH_ASSIGN, DEG_WITH_ASSIGN, PLUS_WITH_ASSIGN,
-                                                DIVIDE_WITH_ASSIGN,
-                                                MINUS_WITH_ASSIGN, MULTIPLY_WITH_ASSIGN, INT_DIVIDE_WITH_ASSIGN, RPAREN,
-                                                EOF, OEL, DOT):
-                eat = True
-                start_line = self.current_token.start_line
-                offset_pos = self.current_token.offset_pos
-                if self.current_token.equals(VAR_DEFINE):
-                    self.eat(VAR_DEFINE)
-                    var_name = self.current_token.value
-                    symbol_table["variables"][var_name] = ["LOCAL", "any"]
-                    var_type = "LOCAL"
-                elif self.current_token.equals(SAVE_DEFINE):
-                    self.eat(SAVE_DEFINE)
-                    self.eat(VAR_DEFINE)
-                    var_name = self.current_token.value
-                    symbol_table["variables"][var_name] = ["SAVE", "any"]
-                    var_type = "SAVE"
-                elif self.current_token.equals(GAME_DEFINE):
-                    self.eat(GAME_DEFINE)
-                    self.eat(VAR_DEFINE)
-                    var_name = self.current_token.value
-                    symbol_table["variables"][var_name] = ["GAME", "any"]
-                    var_type = "GAME"
-                elif self.current_token.equals(LOCAL_DEFINE):
-                    self.eat(LOCAL_DEFINE)
-                    self.eat(VAR_DEFINE)
-                    var_name = self.current_token.value
-                    symbol_table["variables"][var_name] = ["LOCAL", "any"]
-                    var_type = "LOCAL"
-                elif self.current_token.equals(INLINE_DEFINE):
-                    self.eat(INLINE_DEFINE)
-                    self.eat(VAR_DEFINE)
-                    var_name = self.current_token.value
-                    symbol_table["variables"][var_name] = ["INLINE", "any"]
-                    var_type = "INLINE"
-                elif self.current_token.equals(VAR):
-                    var_name = self.current_token.value
-                    self.eat(VAR)
-                    if self.current_token.equals(LPAREN):
-                        self.eat(LPAREN)
-                        unpositional = []
-                        positional = []
-                        while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                            a = self.expr(assigning=True)
-                            if isinstance(a, assign):
-                                unpositional.append(a)
-                            else:
-                                positional.append(a)
-                            if self.current_token.type == COMMA:
-                                self.eat(COMMA)
-                        end_line = self.current_token.end_line
-                        limit_offset_pos = self.current_token.limit_offset_pos
-                        self.eat(RPAREN)
-                        thing1, thing2, thing3 = try_action(
-                            call_function(var_name, arg=args(positional=positional, unpositional=unpositional,
-                                                             start_line=start_line, end_line=end_line,
-                                                             offset_pos=offset_pos,
-                                                             limit_offset_pos=limit_offset_pos,
-                                                             file=self.lexer.file),
-                                          start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                          limit_offset_pos=limit_offset_pos, file=self.lexer.file))
-                        thing2.append(thing1)
-                        thing2.extend(thing3)
-                        return thing2
-                    if not var_name in symbol_table["variables"].keys():
-                        symbol_table["variables"][var_name] = ["LOCAL", "any"]
-                    var_type = symbol_table["variables"][var_name][0]
-                    eat = False
-                elif self.current_token.equals(LOCAL_VAR):
-                    var_name = self.current_token.value
-                    if not var_name in symbol_table.keys():
-                        symbol_table["variables"][var_name] = ["LOCAL", "any"]
-                    var_type = "LOCAL"
-                elif self.current_token.equals(GAME_VAR):
-                    var_name = self.current_token.value
-                    if not var_name in symbol_table.keys():
-                        symbol_table["variables"][var_name] = ["GAME", "any"]
-                    var_type = "GAME"
-                elif self.current_token.equals(SAVE_VAR):
-                    var_name = self.current_token.value
-                    if not var_name in symbol_table.keys():
-                        symbol_table["variables"][var_name] = ["SAVE", "any"]
-                    var_type = "SAVE"
-                elif self.current_token.equals(INLINE_VAR):
-                    var_name = self.current_token.value
-                    symbol_table["variables"][var_name] = ["INLINE", None]
-                    var_type = "INLINE"
-                else:
-                    var_name = self.current_token.value
-                    if not var_name in symbol_table.keys():
-                        symbol_table["variables"][var_name] = ["LOCAL", "any"]
-                    var_type = symbol_table["variables"][var_name][0]
-                end_line = self.current_token.end_line
-                limit_offset_pos = self.current_token.limit_offset_pos
-                if self.current_token.equals(LOCATION, SOUND, ITEM, PARTICLE, VECTOR, POTION, LOCAL_VAR, GAME_VAR,
-                                             INLINE_VAR, SAVE_VAR):
-                    self.eat(self.current_token.type)
-                elif eat:
-                    self.eat(VAR)
-                if self.current_token.equals(COLON):
-                    self.eat(COLON)
-                    type_hint = self.current_token.value
-                    symbol_table["variables"][var_name][1] = type_hint
-                    self.eat(VAR)
-                else:
-                    type_hint = None
-                result = var(var_name, var_type, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                             limit_offset_pos=limit_offset_pos, file=self.lexer.file, type_hint=type_hint)
-                if self.current_token.equals(LSPAREN):
-                    self.eat(LSPAREN)
-                    unpositional = []
-                    positional = []
-                    while self.current_token.type != EOF and self.current_token.type != RSPAREN:
-                        a = self.expr(assigning=True)
-                        if isinstance(a, assign):
-                            unpositional.append(a)
-                        else:
-                            positional.append(a)
-                        if self.current_token.type == COLON:
-                            self.eat(COLON)
-                    end_line = self.current_token.end_line
-                    limit_offset_pos = self.current_token.limit_offset_pos
-                    self.eat(RSPAREN)
-                    result = slice(result,
-                                   arg=args(positional=positional, unpositional=unpositional, start_line=start_line,
-                                            end_line=end_line, offset_pos=offset_pos,
-                                            limit_offset_pos=limit_offset_pos, file=self.lexer.file),
-                                   start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                   limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-                elif self.current_token.equals(DOT):
-                    self.eat(DOT)
-                    act = self.current_token.value
-                    self.eat(VAR)
-                    if self.current_token.equals(LPAREN):
-                        self.eat(LPAREN)
-                        unpositional = [
-                            assign("origin", result, start_line=start_line, end_line=end_line,
-                                   offset_pos=offset_pos,
-                                   limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
-                        positional = []
-                        while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                            a = self.expr(assigning=True)
-                            if isinstance(a, assign):
-                                unpositional.append(a)
-                            else:
-                                positional.append(a)
-                            if self.current_token.type == COMMA:
-                                self.eat(COMMA)
-                        end_line = self.current_token.end_line
-                        limit_offset_pos = self.current_token.limit_offset_pos
-                        self.eat(RPAREN)
-                        thing1, thing2, thing3 = try_action(
-                            action("special", act, arg=args(positional=positional, unpositional=unpositional,
-                                                            start_line=start_line, end_line=end_line,
-                                                            offset_pos=offset_pos,
-                                                            limit_offset_pos=limit_offset_pos,
-                                                            file=self.lexer.file),
-                                   start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                   limit_offset_pos=limit_offset_pos, file=self.lexer.file))
-                        thing2.append(thing1)
-                        thing2.extend(thing3)
-                        return thing2
-                    else:
-                        result = atribute(result, act, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                          limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-                variables.append(result)
-                if self.current_token.equals(COMMA):
-                    self.eat(COMMA)
-            if self.current_token.equals(ASSIGN, PR_WITH_ASSIGN, DEG_WITH_ASSIGN, PLUS_WITH_ASSIGN, DIVIDE_WITH_ASSIGN,
-                                         MINUS_WITH_ASSIGN, MULTIPLY_WITH_ASSIGN, INT_DIVIDE_WITH_ASSIGN):
-                thing = self.current_token.value
-                self.eat(self.current_token.type)
-                second = self.expr()
-                if second is not None:
-                    end_line = second.end_line
-                    limit_offset_pos = second.limit_offset_pos
-                    thing1, thing2, thing3 = try_action(true_assign(thing, arg=args(positional=[second], unpositional=[
-                        assign("first", variables, start_line=start_line,
-                               end_line=end_line,
-                               offset_pos=offset_pos,
-                               limit_offset_pos=limit_offset_pos, file=self.lexer.file)],
-                                                                                    start_line=start_line,
-                                                                                    end_line=end_line,
-                                                                                    offset_pos=offset_pos,
-                                                                                    limit_offset_pos=limit_offset_pos,
-                                                                                    file=self.lexer.file),
-                                                                    start_line=start_line, end_line=end_line,
-                                                                    offset_pos=offset_pos,
-                                                                    limit_offset_pos=limit_offset_pos,
-                                                                    file=self.lexer.file))
-                    thing2.append(thing1)
-                    thing2.extend(thing3)
-                    return thing2
-            if not isinstance(variables[0], var):
-                if self.current_token.equals(DOT):
-                    self.eat(DOT)
-                    act = self.current_token
-                    self.eat(VAR)
-                    self.eat(LPAREN)
-                    unpositional = [assign("origin", variables[0], start_line=variables[0].start_line,
-                                           end_line=variables[0].end_line,
-                                           offset_pos=variables[0].offset_pos,
-                                           limit_offset_pos=variables[0].limit_offset_pos, file=self.lexer.file)]
-                    positional = []
-                    while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                        a = self.expr(assigning=True)
-                        if isinstance(a, assign):
-                            unpositional.append(a)
-                        else:
-                            positional.append(a)
-                        if self.current_token.type == COMMA:
-                            self.eat(COMMA)
-                    end_line = self.current_token.end_line
-                    limit_offset_pos = self.current_token.limit_offset_pos
-                    self.eat(RPAREN)
-                    thing1, thing2, thing3 = try_action(
-                        action("special", act.value, arg=args(positional=positional, unpositional=unpositional,
-                                                              start_line=act.start_line, end_line=end_line,
-                                                              offset_pos=act.offset_pos,
-                                                              limit_offset_pos=limit_offset_pos,
-                                                              file=self.lexer.file),
-                               start_line=act.start_line, end_line=end_line, offset_pos=act.offset_pos,
-                               limit_offset_pos=limit_offset_pos, file=self.lexer.file))
-                    thing2.append(thing1)
-                    thing2.extend(thing3)
-                    return thing2
-                return [variables[0]]
-
-        elif self.current_token.equals(IMPORT) and start == True:
+        start_line = self.current_token.start_line
+        offset_pos = self.current_token.offset_pos
+        if self.current_token.equals(IMPORT) and start == True:
             self.eat(IMPORT)
             thing = self.current_token.value
             self.eat(STRING)
@@ -3597,8 +3457,6 @@ class Parser:
                 print(minecraft_based_text("&6", ignore_last_symbol=True) +
                       f"файл {full_path} уже был однажды импортирован, пропускаем" + minecraft_based_text(""))
         elif self.current_token.equals(WORLD, VARIABLE, ENTITY, REPEAT, CODE, PLAYER, SELECT, CONTROLLER):
-            start_line = self.current_token.start_line
-            offset_pos = self.current_token.offset_pos
             sub_action = self.current_token
             self.eat(self.current_token.type)
             if self.current_token.equals(SELECTOR):
@@ -3684,8 +3542,6 @@ class Parser:
             thing2.extend(thing3)
             return thing2
         elif self.current_token.equals(FUNCTION) and start == True:
-            start_line = self.current_token.start_line
-            offset_pos = self.current_token.offset_pos
             self.eat(FUNCTION)
             function_name = self.current_token.value
             self.eat(VAR)
@@ -3711,8 +3567,6 @@ class Parser:
                              start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                              limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
         elif self.current_token.equals(PROCESS) and start == True:
-            start_line = self.current_token.start_line
-            offset_pos = self.current_token.offset_pos
             self.eat(PROCESS)
             process_name = self.current_token.value
             self.eat(VAR)
@@ -3732,8 +3586,6 @@ class Parser:
                             start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                             limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
         elif self.current_token.equals(EVENT) and start == True:
-            start_line = self.current_token.start_line
-            offset_pos = self.current_token.offset_pos
             event_name = self.current_token.value
             self.eat(EVENT)
             self.eat(LCPAREN)
@@ -3748,8 +3600,6 @@ class Parser:
             return [event(event_name, lst(vals), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
                           limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
         elif self.current_token.equals(IF, ELSE):
-            start_line = self.current_token.start_line
-            offset_pos = self.current_token.offset_pos
             act1 = self.current_token
             self.eat(self.current_token.type)
             act = None
@@ -3777,7 +3627,7 @@ class Parser:
             if act1.equals(IF):
                 thing1, thing2, thing3 = try_action(act)
                 thing2.append(if_(thing1, lst(vals), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                            limit_offset_pos=limit_offset_pos, file=self.lexer.file))
+                                  limit_offset_pos=limit_offset_pos, file=self.lexer.file))
                 thing2.extend(thing3)
                 return thing2
             else:
@@ -3788,6 +3638,51 @@ class Parser:
         elif self.current_token.equals(EL):
             self.eat(EL)
         else:
+            assigining = []
+            while not self.current_token.equals(ASSIGN, PR_WITH_ASSIGN, DEG_WITH_ASSIGN, PLUS_WITH_ASSIGN,
+                                                DIVIDE_WITH_ASSIGN, MINUS_WITH_ASSIGN, MULTIPLY_WITH_ASSIGN, OEL, EL,
+                                                EOF):
+                result = self.expr(var_types=True, define_var=True)
+                assigining.append(result)
+                if self.current_token.equals(COMMA):
+                    self.eat(COMMA)
+            if self.current_token.equals(ASSIGN, PR_WITH_ASSIGN, DEG_WITH_ASSIGN, PLUS_WITH_ASSIGN, DIVIDE_WITH_ASSIGN,
+                                         MINUS_WITH_ASSIGN, MULTIPLY_WITH_ASSIGN):
+                thing = self.current_token.value
+                self.eat(self.current_token.type)
+                second = self.expr()
+                if second is not None:
+                    end_line = second.end_line
+                    limit_offset_pos = second.limit_offset_pos
+                    thing1, thing2, thing3 = try_action(true_assign(thing, arg=args(positional=[second], unpositional=[
+                        assign("first", assigining, start_line=start_line,
+                               end_line=end_line,
+                               offset_pos=offset_pos,
+                               limit_offset_pos=limit_offset_pos, file=self.lexer.file)],
+                                                                                    start_line=start_line,
+                                                                                    end_line=end_line,
+                                                                                    offset_pos=offset_pos,
+                                                                                    limit_offset_pos=limit_offset_pos,
+                                                                                    file=self.lexer.file),
+                                                                    start_line=start_line, end_line=end_line,
+                                                                    offset_pos=offset_pos,
+                                                                    limit_offset_pos=limit_offset_pos,
+                                                                    file=self.lexer.file))
+                    thing2.append(thing1)
+                    thing2.extend(thing3)
+                    return thing2
+            else:
+                if len(assigining) == 1:
+                    if isinstance(assigining[0], var):
+                        return
+                    return assigining
+                else:
+                    error("SyntaxError", f"Нельзя писать через запятую код",
+                          start_line=self.current_token.start_line, end_line=self.current_token.end_line,
+                          offset_pos=self.current_token.offset_pos,
+                          limit_offset_pos=self.current_token.limit_offset_pos,
+                          file=self.lexer.file)
+
             error("SyntaxError", f"Неожиданный токен {self.current_token.type}",
                   start_line=self.current_token.start_line, end_line=self.current_token.end_line,
                   offset_pos=self.current_token.offset_pos, limit_offset_pos=self.current_token.limit_offset_pos,
@@ -3797,23 +3692,23 @@ class Parser:
         while self.current_token.type != EOF:
             a = self.statement(start=True)
             if a is not None:
-                self.tree.extend(a)
+                for i in a:
+                    if type(i) in (function, process, event):
+                        self.tree.append(i)
+                    elif type(i) in (action, true_assign):
+                        self.tree[0].operations.values.append(i)
+                    else:
+                        error("SyntaxError", f"{i.__class__.__name__} не может быть вызван как действие", i.start_line,
+                              i.end_line, i.offset_pos, i.limit_offset_pos, i.file)
 
     def compile(self):
+        self.tree.insert(0, event("world_start", lst([]), start_line=-1))
         self.parse()
-        acts = []
-        default = []
-        for i in self.tree:
-            if not type(i) in (function, process, event):
-                acts.append(i)
-            else:
-                default.append(i)
-        self.tree = default
-        if len(acts) != 0:
-            self.tree.insert(0, event("world_start", lst(acts)))
+        if len(self.tree[0].operations.values) == 0:
+            del self.tree[0]
         eventes, additional_events = lst(self.tree).json(normal=True, with_ret=True)
         eventes.extend(additional_events)
-        return json.dumps({"handlers": eventes}, indent=2)
+        return {"handlers": eventes}
 
 
 def compile_file(file, upload=False, compress=False):
@@ -3846,11 +3741,11 @@ def compile_file(file, upload=False, compress=False):
         i2 = file_name.rfind(".")
         new_file_name = file_name[:i2] + ".json"
         if compress:
-            open(dir_path + "/" + new_file_name, "wb").write(gzip.compress(code.encode('utf-8')))
+            open(dir_path + "/" + new_file_name, "wb").write(gzip.compress(json.dumps(code).encode('utf-8')))
         else:
-            open(dir_path + "/" + new_file_name, "w").write(code)
+            open(dir_path + "/" + new_file_name, "w").write(json.dumps(code, indent=2))
     else:
-        response = requests.post('https://m.justmc.ru/api/upload', data=code).json()["id"]
+        response = requests.post('https://m.justmc.ru/api/upload', data=json.dumps(code)).json()["id"]
         print(minecraft_based_text(f"&aФайл успешно загружен\n\n&7Используйте данную команду на сервере для загрузки "
                                    f"модуля:\n&9/module loadUrl force https://m.justmc.ru/api/{response}\n"
                                    f"\n&eВажно &fМодуль по ссылке удалится через &c3 минуты!"
@@ -3865,12 +3760,9 @@ symbol_table = dict()
 actions = dict()
 origin_actions = dict()
 non_origin_actions = dict()
-allowed_actions = ["=", "+=", "-=", "%=", "^=", "//=", "/=", "*=", "subscript"]
 math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["first"], "abs": ["first"],
-                  "sqrt": ["first"], "cbrt:": ["first"], "pow": ["first"], "min": ["first", "second"],
+                  "sqrt": ["first"], "cbrt:": ["first"], "pow": ["first", "second"], "min": ["first", "second"],
                   "max": ["first", "second"],
                   "sign": ["first"]}
 events = dict()
 values = dict()
-
-#compile_file("b.jc", upload=True)

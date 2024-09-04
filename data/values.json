@@ -1,697 +1,558 @@
 [
   {
     "id": "current_health",
-    "localize_name": "\u0422\u0435\u043a\u0443\u0449\u0435\u0435 \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u0435",
     "type": "number"
   },
   {
     "id": "max_health",
-    "localize_name": "\u041c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u043e\u0435 \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u0435",
     "type": "number"
   },
   {
     "id": "absorption_health",
-    "localize_name": "\u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u0435",
     "type": "number"
   },
   {
     "id": "food_level",
-    "localize_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0433\u043e\u043b\u043e\u0434\u0430",
     "type": "number"
   },
   {
     "id": "food_saturation",
-    "localize_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u043d\u0430\u0441\u044b\u0449\u0435\u043d\u0438\u044f",
     "type": "number"
   },
   {
     "id": "food_exhaustion",
-    "localize_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u0441\u0442\u043e\u0449\u0435\u043d\u0438\u044f",
     "type": "number"
   },
   {
     "id": "attack_damage",
-    "localize_name": "\u0423\u0440\u043e\u043d \u043e\u0442 \u0430\u0442\u0430\u043a\u0438",
     "type": "number"
   },
   {
     "id": "attack_speed",
-    "localize_name": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0430\u0442\u0430\u043a\u0438",
     "type": "number"
   },
   {
     "id": "attack_cooldown_ticks",
-    "localize_name": "\u041a\u0443\u043b\u0434\u0430\u0443\u043d \u0430\u0442\u0430\u043a\u0438 \u0432 \u0442\u0438\u043a\u0430\u0445",
     "type": "number"
   },
   {
     "id": "attack_cooldown_strength",
-    "localize_name": "\u041a\u0443\u043b\u0434\u0430\u0443\u043d \u0430\u0442\u0430\u043a\u0438",
     "type": "number"
   },
   {
     "id": "armor_points",
-    "localize_name": "\u041e\u0447\u043a\u0438 \u0437\u0430\u0449\u0438\u0442\u044b",
     "type": "number"
   },
   {
     "id": "armor_toughness",
-    "localize_name": "\u0422\u0432\u0451\u0440\u0434\u043e\u0441\u0442\u044c \u0431\u0440\u043e\u043d\u0438",
     "type": "number"
   },
   {
     "id": "invulnerability_ticks",
-    "localize_name": "\u0412\u0440\u0435\u043c\u044f \u0431\u0435\u0441\u0441\u043c\u0435\u0440\u0442\u0438\u044f",
     "type": "number"
   },
   {
     "id": "experience_level",
-    "localize_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u043e\u043f\u044b\u0442\u0430",
     "type": "number"
   },
   {
     "id": "experience_progress",
-    "localize_name": "\u041f\u0440\u043e\u0433\u0440\u0435\u0441\u0441 \u043e\u043f\u044b\u0442\u0430",
     "type": "number"
   },
   {
     "id": "fire_ticks",
-    "localize_name": "\u0412\u0440\u0435\u043c\u044f \u0433\u043e\u0440\u0435\u043d\u0438\u044f",
     "type": "number"
   },
   {
     "id": "freeze_ticks",
-    "localize_name": "\u0412\u0440\u0435\u043c\u044f \u0437\u0430\u043c\u043e\u0440\u043e\u0437\u043a\u0438",
     "type": "number"
   },
   {
     "id": "remaining_air",
-    "localize_name": "\u041e\u0441\u0442\u0430\u0432\u0448\u0438\u0439\u0441\u044f \u0432\u043e\u0437\u0434\u0443\u0445",
     "type": "number"
   },
   {
     "id": "fall_distance",
-    "localize_name": "\u0414\u0438\u0441\u0442\u0430\u043d\u0446\u0438\u044f \u043f\u0430\u0434\u0435\u043d\u0438\u044f",
     "type": "number"
   },
   {
     "id": "held_slot",
-    "localize_name": "\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439 \u0441\u043b\u043e\u0442 \u0432 \u0445\u043e\u0442-\u0431\u0430\u0440\u0435",
     "type": "number"
   },
   {
     "id": "walking_speed",
-    "localize_name": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0445\u043e\u0434\u044c\u0431\u044b",
     "type": "number"
   },
   {
     "id": "flying_speed",
-    "localize_name": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u043f\u043e\u043b\u0451\u0442\u0430",
     "type": "number"
   },
   {
     "id": "ping",
-    "localize_name": "\u041f\u0438\u043d\u0433 \u0438\u0433\u0440\u043e\u043a\u0430",
     "type": "number"
   },
   {
     "id": "protocol_version",
-    "localize_name": "\u0412\u0435\u0440\u0441\u0438\u044f \u043f\u0440\u043e\u0442\u043e\u043a\u043e\u043b\u0430 \u043a\u043b\u0438\u0435\u043d\u0442\u0430",
     "type": "number"
   },
   {
     "id": "item_usage_progress",
-    "localize_name": "\u041f\u0440\u043e\u0433\u0440\u0435\u0441\u0441 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u0430",
     "type": "number"
   },
   {
     "id": "entity_ticks_lived",
-    "localize_name": "\u0412\u0440\u0435\u043c\u044f \u0436\u0438\u0437\u043d\u0438 \u0446\u0435\u043b\u0438",
     "type": "number"
   },
   {
     "id": "arrows_in_body",
-    "localize_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0442\u0440\u0435\u043b \u0432 \u0442\u0435\u043b\u0435",
     "type": "number"
   },
   {
     "id": "age",
-    "localize_name": "\u0412\u043e\u0437\u0440\u0430\u0441\u0442 \u0446\u0435\u043b\u0438",
     "type": "number"
   },
   {
     "id": "steer_forward",
-    "localize_name": "\u041f\u0440\u044f\u043c\u043e\u043b\u0438\u043d\u0435\u0439\u043d\u043e\u0435 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435 \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442\u0430",
     "type": "number"
   },
   {
     "id": "steer_sideways",
-    "localize_name": "\u0414\u0432\u0438\u0436\u0435\u043d\u0438\u0435 \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442\u0430 \u0432 \u0441\u0442\u043e\u0440\u043e\u043d\u044b",
     "type": "number"
   },
   {
     "id": "merchant_recipe_count",
-    "localize_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0442\u043e\u0440\u0433\u043e\u0432 \u0416\u0438\u0442\u0435\u043b\u044f",
     "type": "number"
   },
   {
     "id": "open_inventory_size",
-    "localize_name": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043e\u0442\u043a\u0440\u044b\u0442\u043e\u0433\u043e \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u044f",
     "type": "number"
   },
   {
     "id": "entity_width_x",
-    "localize_name": "\u0428\u0438\u0440\u0438\u043d\u0430 \u0445\u0438\u0442\u0431\u043e\u043a\u0441\u0430",
     "type": "number"
   },
   {
     "id": "entity_height",
-    "localize_name": "\u0412\u044b\u0441\u043e\u0442\u0430 \u0445\u0438\u0442\u0431\u043e\u043a\u0441\u0430",
     "type": "number"
   },
   {
     "id": "entity_width_z",
-    "localize_name": "\u0414\u043b\u0438\u043d\u0430 \u0445\u0438\u0442\u0431\u043e\u043a\u0441\u0430",
     "type": "number"
   },
   {
     "id": "location",
-    "localize_name": "\u041c\u0435\u0441\u0442\u043e\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435",
     "type": "location"
   },
   {
     "id": "target_block_location",
-    "localize_name": "\u041c\u0435\u0441\u0442\u043e\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0446\u0435\u043b\u0435\u0432\u043e\u0433\u043e \u0431\u043b\u043e\u043a\u0430",
     "type": "location"
   },
   {
     "id": "target_fluid_location",
-    "localize_name": "\u041c\u0435\u0441\u0442\u043e\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0446\u0435\u043b\u0435\u0432\u043e\u0439 \u0436\u0438\u0434\u043a\u043e\u0441\u0442\u0438",
     "type": "location"
   },
   {
     "id": "target_block_face",
-    "localize_name": "\u0421\u0442\u043e\u0440\u043e\u043d\u0430 \u0446\u0435\u043b\u0435\u0432\u043e\u0433\u043e \u0431\u043b\u043e\u043a\u0430",
     "type": "text"
   },
   {
     "id": "eye_location",
-    "localize_name": "\u041c\u0435\u0441\u0442\u043e\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0433\u043b\u0430\u0437",
     "type": "location"
   },
   {
     "id": "x_coordinate",
-    "localize_name": "\u041a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u0430 X",
     "type": "number"
   },
   {
     "id": "y_coordinate",
-    "localize_name": "\u041a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u0430 Y",
     "type": "number"
   },
   {
     "id": "z_coordinate",
-    "localize_name": "\u041a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u0430 Z",
     "type": "number"
   },
   {
     "id": "pitch",
-    "localize_name": "\u0412\u0435\u0440\u0442\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u043e\u0432\u043e\u0440\u043e\u0442",
     "type": "number"
   },
   {
     "id": "yaw",
-    "localize_name": "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u043e\u0432\u043e\u0440\u043e\u0442",
     "type": "number"
   },
   {
     "id": "direction_of_view",
-    "localize_name": "\u041d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0432\u0437\u0433\u043b\u044f\u0434\u0430",
     "type": "vector"
   },
   {
     "id": "cardinal_direction",
-    "localize_name": "\u041a\u0430\u0440\u0434\u0438\u043d\u0430\u043b\u044c\u043d\u043e\u0435 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435",
     "type": "text"
   },
   {
     "id": "hitbox_midpoint_location",
-    "localize_name": "\u0426\u0435\u043d\u0442\u0440 \u0445\u0438\u0442\u0431\u043e\u043a\u0441\u0430",
     "type": "location"
   },
   {
     "id": "spawn_location",
-    "localize_name": "\u041c\u0435\u0441\u0442\u043e\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0441\u043f\u0430\u0432\u043d\u0430 \u043c\u0438\u0440\u0430",
     "type": "location"
   },
   {
     "id": "origin",
-    "localize_name": "\u041c\u0435\u0441\u0442\u043e\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u043f\u0435\u0440\u0432\u043e\u0433\u043e \u043f\u043e\u044f\u0432\u043b\u0435\u043d\u0438\u044f",
     "type": "location"
   },
   {
     "id": "velocity",
-    "localize_name": "\u0412\u0435\u043a\u0442\u043e\u0440 \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u0438",
     "type": "vector"
   },
   {
     "id": "body_yaw",
-    "localize_name": "\u041f\u043e\u0432\u043e\u0440\u043e\u0442 \u0442\u0435\u043b\u0430",
     "type": "number"
   },
   {
     "id": "block_beneath",
-    "localize_name": "\u041c\u0435\u0441\u0442\u043e\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0431\u043b\u043e\u043a\u0430 \u043f\u043e\u0434 \u0446\u0435\u043b\u044c\u044e",
     "type": "location"
   },
   {
     "id": "blocks_beneath",
-    "localize_name": "\u0411\u043b\u043e\u043a\u0438 \u043f\u043e\u0434 \u0446\u0435\u043b\u044c\u044e",
     "type": "array"
   },
   {
     "id": "main_hand_item",
-    "localize_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442 \u0432 \u0432\u0435\u0434\u0443\u0449\u0435\u0439 \u0440\u0443\u043a\u0435",
     "type": "item"
   },
   {
     "id": "off_hand_item",
-    "localize_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442 \u0432\u043e \u0432\u0442\u043e\u0440\u043e\u0439 \u0440\u0443\u043a\u0435",
     "type": "item"
   },
   {
     "id": "armor_items",
-    "localize_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442\u044b \u0431\u0440\u043e\u043d\u0438",
     "type": "array"
   },
   {
     "id": "hotbar_items",
-    "localize_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442\u044b \u0432 \u0445\u043e\u0442-\u0431\u0430\u0440\u0435",
     "type": "array"
   },
   {
     "id": "inventory_items",
-    "localize_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442\u044b \u0432 \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u0435",
     "type": "array"
   },
   {
     "id": "custom_inventory_items",
-    "localize_name": "\u0421\u043f\u0438\u0441\u043e\u043a \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u043e\u0432 \u0432 \u043e\u0442\u043a\u0440\u044b\u0442\u043e\u043c \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u0435",
     "type": "array"
   },
   {
     "id": "cursor_item",
-    "localize_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442 \u043d\u0430 \u043a\u0443\u0440\u0441\u043e\u0440\u0435",
     "type": "item"
   },
   {
     "id": "saddle_item",
-    "localize_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442 \u043d\u0430 \u0441\u0435\u0434\u043b\u0435",
     "type": "item"
   },
   {
     "id": "entity_item",
-    "localize_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442 \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438",
     "type": "item"
   },
   {
     "id": "name",
-    "localize_name": "\u0418\u043c\u044f",
     "type": "text"
   },
   {
     "id": "uuid",
-    "localize_name": "UUID",
     "type": "text"
   },
   {
     "id": "display_name",
-    "localize_name": "\u041e\u0442\u043e\u0431\u0440\u0430\u0436\u0430\u0435\u043c\u043e\u0435 \u0438\u043c\u044f",
     "type": "text"
   },
   {
     "id": "entity_type",
-    "localize_name": "\u0422\u0438\u043f \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438",
     "type": "text"
   },
   {
     "id": "client_brand_name",
-    "localize_name": "\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043a\u043b\u0438\u0435\u043d\u0442\u0430 \u0438\u0433\u0440\u043e\u043a\u0430",
     "type": "text"
   },
   {
     "id": "user_locale",
-    "localize_name": "\u042f\u0437\u044b\u043a \u043a\u043b\u0438\u0435\u043d\u0442\u0430 \u0438\u0433\u0440\u043e\u043a\u0430",
     "type": "text"
   },
   {
     "id": "open_inventory_title",
-    "localize_name": "\u0417\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a \u043e\u0442\u043a\u0440\u044b\u0442\u043e\u0433\u043e \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u044f",
     "type": "text"
   },
   {
     "id": "open_inventory_type",
-    "localize_name": "\u0422\u0438\u043f \u043e\u0442\u043a\u0440\u044b\u0442\u043e\u0433\u043e \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u044f",
     "type": "text"
   },
   {
     "id": "gamemode",
-    "localize_name": "\u0420\u0435\u0436\u0438\u043c \u0438\u0433\u0440\u044b",
     "type": "text"
   },
   {
     "id": "last_damage_cause",
-    "localize_name": "\u041f\u043e\u0441\u043b\u0435\u0434\u043d\u044f\u044f \u043f\u0440\u0438\u0447\u0438\u043d\u0430 \u0443\u0440\u043e\u043d\u0430",
     "type": "text"
   },
   {
     "id": "potion_effects",
-    "localize_name": "\u042d\u0444\u0444\u0435\u043a\u0442\u044b \u0437\u0435\u043b\u0438\u0439",
     "type": "array"
   },
   {
     "id": "vehicle",
-    "localize_name": "\u0422\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442",
     "type": "text"
   },
   {
     "id": "passengers",
-    "localize_name": "\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u044b",
     "type": "array"
   },
   {
     "id": "lead_holder",
-    "localize_name": "\u041f\u043e\u0432\u043e\u0434\u044b\u0440\u044c",
     "type": "text"
   },
   {
     "id": "attached_leads",
-    "localize_name": "\u041f\u0440\u0438\u0432\u044f\u0437\u0430\u043d\u043d\u044b\u0435 \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438",
     "type": "array"
   },
   {
     "id": "targeted_entity",
-    "localize_name": "\u0426\u0435\u043b\u044c \u0434\u043b\u044f \u0430\u0442\u0430\u043a\u0438",
     "type": "text"
   },
   {
     "id": "spawn_reason",
-    "localize_name": "\u041f\u0440\u0438\u0447\u0438\u043d\u0430 \u0441\u043f\u0430\u0432\u043d\u0430",
     "type": "text"
   },
   {
     "id": "main_hand",
-    "localize_name": "\u0412\u0435\u0434\u0443\u0449\u0430\u044f \u0440\u0443\u043a\u0430",
     "type": "text"
   },
   {
     "id": "event_block_location",
-    "localize_name": "\u041c\u0435\u0441\u0442\u043e\u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0431\u043b\u043e\u043a\u0430 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "location"
   },
   {
     "id": "event_block_face",
-    "localize_name": "\u0421\u0442\u043e\u0440\u043e\u043d\u0430 \u0431\u043b\u043e\u043a\u0430 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "text"
   },
   {
     "id": "event_blocks_involved",
-    "localize_name": "\u0417\u0430\u0434\u0435\u0439\u0441\u0442\u0432\u043e\u0432\u0430\u043d\u043d\u044b\u0435 \u0431\u043b\u043e\u043a\u0438 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "array"
   },
   {
     "id": "event_interaction",
-    "localize_name": "\u0422\u0438\u043f \u0432\u0437\u0430\u0438\u043c\u043e\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "text"
   },
   {
     "id": "event_new_location",
-    "localize_name": "\u041d\u043e\u0432\u0430\u044f \u043b\u043e\u043a\u0430\u0446\u0438\u044f \u0438\u0433\u0440\u043e\u043a\u0430",
     "type": "location"
   },
   {
     "id": "event_damage",
-    "localize_name": "\u041d\u0430\u043d\u0435\u0441\u0451\u043d\u043d\u044b\u0439 \u0443\u0440\u043e\u043d",
     "type": "number"
   },
   {
     "id": "event_damage_cause",
-    "localize_name": "\u041f\u0440\u0438\u0447\u0438\u043d\u0430 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u043d\u043e\u0433\u043e \u0443\u0440\u043e\u043d\u0430",
     "type": "text"
   },
   {
     "id": "event_chat_message",
-    "localize_name": "\u0421\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435 \u0447\u0430\u0442\u0430",
     "type": "text"
   },
   {
     "id": "event_message",
-    "localize_name": "\u0421\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "text"
   },
   {
     "id": "event_heal_amount",
-    "localize_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u043d\u043e\u0433\u043e \u0437\u0434\u043e\u0440\u043e\u0432\u044c\u044f",
     "type": "number"
   },
   {
     "id": "event_heal_cause",
-    "localize_name": "\u041f\u0440\u0438\u0447\u0438\u043d\u0430 \u0438\u0441\u0446\u0435\u043b\u0435\u043d\u0438\u044f",
     "type": "text"
   },
   {
     "id": "event_exhaustion_amount",
-    "localize_name": "\u0418\u0441\u0442\u043e\u0449\u0435\u043d\u0438\u0435 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "number"
   },
   {
     "id": "event_exhaustion_reason",
-    "localize_name": "\u041f\u0440\u0438\u0447\u0438\u043d\u0430 \u0438\u0441\u0442\u043e\u0449\u0435\u043d\u0438\u044f",
     "type": "text"
   },
   {
     "id": "event_new_potion_effect",
-    "localize_name": "\u041d\u043e\u0432\u044b\u0439 \u044d\u0444\u0444\u0435\u043a\u0442",
     "type": "potion"
   },
   {
     "id": "event_power",
-    "localize_name": "\u041f\u0440\u043e\u0446\u0435\u043d\u0442 \u0441\u0438\u043b\u044b \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f",
     "type": "number"
   },
   {
     "id": "event_item",
-    "localize_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "item"
   },
   {
     "id": "event_items",
-    "localize_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442\u044b \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "array"
   },
   {
     "id": "event_equipment_slot",
-    "localize_name": "\u0422\u0438\u043f \u0437\u0430\u0434\u0435\u0439\u0441\u0442\u0432\u043e\u0432\u0430\u043d\u043d\u043e\u0433\u043e \u0441\u043b\u043e\u0442\u0430",
     "type": "text"
   },
   {
     "id": "event_slot",
-    "localize_name": "\u0421\u043b\u043e\u0442 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "number"
   },
   {
     "id": "event_hotbar_slot",
-    "localize_name": "\u0421\u043b\u043e\u0442 \u0445\u043e\u0442-\u0431\u0430\u0440\u0430 \u0432 \u0441\u043e\u0431\u044b\u0442\u0438\u0438",
     "type": "number"
   },
   {
     "id": "event_added_items",
-    "localize_name": "\u0420\u0430\u0441\u043f\u0440\u0435\u0434\u0435\u043b\u0451\u043d\u043d\u044b\u0435 \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u044b",
     "type": "dictionary"
   },
   {
     "id": "event_slot_type",
-    "localize_name": "\u0422\u0438\u043f \u0441\u043b\u043e\u0442\u0430 \u043f\u0440\u0438 \u043a\u043b\u0438\u043a\u0435",
     "type": "text"
   },
   {
     "id": "event_close_inventory_cause",
-    "localize_name": "\u041f\u0440\u0438\u0447\u0438\u043d\u0430 \u0437\u0430\u043a\u0440\u044b\u0442\u0438\u044f \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u044f",
     "type": "text"
   },
   {
     "id": "event_inventory_click_type",
-    "localize_name": "\u0422\u0438\u043f \u043a\u043b\u0438\u043a\u0430 \u043f\u043e \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u044e",
     "type": "text"
   },
   {
     "id": "event_inventory_action",
-    "localize_name": "\u0414\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u0432 \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u0435 \u043f\u0440\u0438 \u043a\u043b\u0438\u043a\u0435",
     "type": "text"
   },
   {
     "id": "event_drag_type",
-    "localize_name": "\u0422\u0438\u043f \u043f\u0435\u0440\u0435\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u044f \u043f\u043e \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u044e",
     "type": "text"
   },
   {
     "id": "event_slots_involved",
-    "localize_name": "\u0417\u0430\u0434\u0435\u0439\u0441\u0442\u0432\u043e\u0432\u0430\u043d\u043d\u044b\u0435 \u0441\u043b\u043e\u0442\u044b",
     "type": "array"
   },
   {
     "id": "event_fish_state",
-    "localize_name": "\u041f\u0440\u0438\u0447\u0438\u043d\u0430 \u0441\u043e\u0431\u044b\u0442\u0438\u044f \u0440\u044b\u0431\u0430\u043b\u043a\u0438",
     "type": "text"
   },
   {
     "id": "event_tree_type",
-    "localize_name": "\u0422\u0438\u043f \u0434\u0435\u0440\u0435\u0432\u0430",
     "type": "text"
   },
   {
     "id": "event_experience",
-    "localize_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u043e\u043f\u044b\u0442\u0430 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "number"
   },
   {
     "id": "event_hanging_break_cause",
-    "localize_name": "\u041f\u0440\u0438\u0447\u0438\u043d\u0430 \u0443\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u0432\u0438\u0441\u044f\u0449\u0435\u0439 \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438",
     "type": "text"
   },
   {
     "id": "event_time_skip_reason",
-    "localize_name": "\u041f\u0440\u0438\u0447\u0438\u043d\u0430 \u043f\u0440\u043e\u043f\u0443\u0441\u043a\u0430 \u0432\u0440\u0435\u043c\u0435\u043d\u0438",
     "type": "text"
   },
   {
     "id": "event_time_skip_amount",
-    "localize_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0442\u0438\u043a\u043e\u0432 \u043f\u0440\u043e\u043f\u0443\u0441\u043a\u0430 \u0432\u0440\u0435\u043c\u0435\u043d\u0438",
     "type": "number"
   },
   {
     "id": "event_food_level",
-    "localize_name": "\u0412\u043e\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u043d\u044b\u0439 \u0433\u043e\u043b\u043e\u0434 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "number"
   },
   {
     "id": "event_projectile_item",
-    "localize_name": "\u041f\u0440\u0435\u0434\u043c\u0435\u0442 \u0441\u043d\u0430\u0440\u044f\u0434\u0430 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "item"
   },
   {
     "id": "event_teleport_cause",
-    "localize_name": "\u041f\u0440\u0438\u0447\u0438\u043d\u0430 \u0442\u0435\u043b\u0435\u043f\u043e\u0440\u0442\u0430\u0446\u0438\u0438",
     "type": "text"
   },
   {
     "id": "event_ticks_held_for",
-    "localize_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0442\u0438\u043a\u043e\u0432 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u0430",
     "type": "number"
   },
   {
     "id": "event_query_info",
-    "localize_name": "\u041e\u0442\u043b\u0430\u0434\u043e\u0447\u043d\u0430\u044f \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f",
     "type": "text"
   },
   {
     "id": "event_fail_move_reason",
-    "localize_name": "\u041f\u0440\u0438\u0447\u0438\u043d\u0430 \u043d\u0435\u0443\u0434\u0430\u0447\u043d\u043e\u0433\u043e \u043f\u0435\u0440\u0435\u043c\u0435\u0449\u0435\u043d\u0438\u044f",
     "type": "text"
   },
   {
     "id": "event_transformed_entities",
-    "localize_name": "\u0417\u0430\u043c\u0435\u043d\u0435\u043d\u043d\u044b\u0435 \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438 \u0441\u043e\u0431\u044b\u0442\u0438\u044f",
     "type": "array"
   },
   {
     "id": "event_transform_reason",
-    "localize_name": "\u041f\u0440\u0438\u0447\u0438\u043d\u0430 \u0437\u0430\u043c\u0435\u043d\u044b \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438",
     "type": "text"
   },
   {
     "id": "event_replaced_block",
-    "localize_name": "\u0417\u0430\u043c\u0435\u043d\u0451\u043d\u043d\u044b\u0439 \u0431\u043b\u043e\u043a",
     "type": "text"
   },
   {
     "id": "player_count",
-    "localize_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0438\u0433\u0440\u043e\u043a\u043e\u0432 \u0432 \u043c\u0438\u0440\u0435",
     "type": "number"
   },
   {
     "id": "cpu_usage",
-    "localize_name": "\u041f\u0440\u043e\u0446\u0435\u043d\u0442 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u0440\u0430",
     "type": "number"
   },
   {
     "id": "server_tps",
-    "localize_name": "TPS \u0441\u0435\u0440\u0432\u0435\u0440\u0430",
     "type": "number"
   },
   {
     "id": "timestamp",
-    "localize_name": "UNIX-\u0432\u0440\u0435\u043c\u044f",
     "type": "number"
   },
   {
     "id": "server_current_tick",
-    "localize_name": "\u0422\u0435\u043a\u0443\u0449\u0435\u0435 \u0432\u0440\u0435\u043c\u044f \u0441\u0435\u0440\u0432\u0435\u0440\u0430",
     "type": "number"
   },
   {
     "id": "selection_size",
-    "localize_name": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0445 \u0446\u0435\u043b\u0435\u0439",
     "type": "number"
   },
   {
     "id": "selection_target_names",
-    "localize_name": "\u0418\u043c\u0435\u043d\u0430 \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0445 \u0446\u0435\u043b\u0435\u0439",
     "type": "array"
   },
   {
     "id": "selection_target_uuids",
-    "localize_name": "UUID \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0445 \u0446\u0435\u043b\u0435\u0439",
     "type": "array"
   },
   {
     "id": "url_response",
-    "localize_name": "\u041e\u0442\u0432\u0435\u0442 \u043d\u0430 \u0432\u0435\u0431-\u0437\u0430\u043f\u0440\u043e\u0441",
     "type": "text"
   },
   {
     "id": "url_response_code",
-    "localize_name": "\u041a\u043e\u0434 \u043e\u0442\u0432\u0435\u0442\u0430 \u043d\u0430 \u0432\u0435\u0431-\u0437\u0430\u043f\u0440\u043e\u0441",
     "type": "number"
   },
   {
     "id": "url",
-    "localize_name": "\u0421\u0441\u044b\u043b\u043a\u0430 \u0432\u0435\u0431-\u0437\u0430\u043f\u0440\u043e\u0441\u0430",
     "type": "text"
   },
   {
     "id": "world_time",
-    "localize_name": "\u0422\u0435\u043a\u0443\u0449\u0435\u0435 \u0432\u0440\u0435\u043c\u044f \u043c\u0438\u0440\u0430",
     "type": "number"
   },
   {
     "id": "world_weather",
-    "localize_name": "\u0422\u0435\u043a\u0443\u0449\u0430\u044f \u043f\u043e\u0433\u043e\u0434\u0430 \u043c\u0438\u0440\u0430",
     "type": "text"
   },
   {
     "id": "owner_uuid",
-    "localize_name": "UUID \u0432\u043b\u0430\u0434\u0435\u043b\u044c\u0446\u0430 \u043c\u0438\u0440\u0430",
     "type": "text"
   },
   {
     "id": "world_size",
-    "localize_name": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043c\u0438\u0440\u0430",
     "type": "number"
   },
   {
     "id": "world_id",
-    "localize_name": "ID \u043c\u0438\u0440\u0430",
     "type": "text"
   }
 ]
