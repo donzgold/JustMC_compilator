@@ -187,7 +187,6 @@ def fix_type(thing):
 
 
 def download_latest_release(reload=False):
-    exit()
     global data, an_data
     url = requests.get("https://api.github.com/repos/donzgold/JustMC_compilator/releases/latest").json()["assets"][-1][
         "browser_download_url"]
@@ -201,11 +200,11 @@ def download_latest_release(reload=False):
                 else:
                     z.getinfo(zip_info.filename).filename = "jmcc2.properties"
                     z.extract("jmcc.properties")
-        an_data = Properties(open("jmcc2.properties", "r+",encoding="UTF-8"))
+        an_data = Properties(open("jmcc2.properties", "r+", encoding="UTF-8"))
         data["release_version"] = an_data["release_version"]
         data["data_version"] = an_data["data_version"]
         data["current_version"] = an_data["current_version"]
-        data.save_properties(open("jmcc.properties", "w+",encoding="UTF-8"))
+        data.save_properties(open("jmcc.properties", "w+", encoding="UTF-8"))
         os.remove("jmcc2.properties")
     else:
         shutil.unpack_archive("release.zip")
@@ -218,7 +217,6 @@ def download_latest_release(reload=False):
 
 
 def download_latest_version(reload=False):
-    exit()
     global data, an_data
     filereq = requests.get('https://raw.githubusercontent.com/donzgold/JustMC_compilator/master/release.zip')
     open("release.zip", "wb").write(filereq.content)
@@ -230,11 +228,11 @@ def download_latest_version(reload=False):
                 else:
                     z.getinfo(zip_info.filename).filename = "jmcc2.properties"
                     z.extract("jmcc.properties")
-        an_data = Properties(open("jmcc2.properties", "r+",encoding="UTF-8"))
+        an_data = Properties(open("jmcc2.properties", "r+", encoding="UTF-8"))
         data["release_version"] = an_data["release_version"]
         data["data_version"] = an_data["data_version"]
         data["current_version"] = an_data["current_version"]
-        data.save_properties(open("jmcc.properties", "w+",encoding="UTF-8"))
+        data.save_properties(open("jmcc.properties", "w+", encoding="UTF-8"))
         os.remove("jmcc2.properties")
     else:
         shutil.unpack_archive("release.zip")
@@ -246,7 +244,6 @@ def download_latest_version(reload=False):
 
 
 def download_latest_data():
-    exit()
     global data, an_data
     if not os.path.isdir("data"):
         os.mkdir("data")
@@ -257,7 +254,7 @@ def download_latest_data():
     open("data/values.json", "w+").write(
         requests.get('https://raw.githubusercontent.com/donzgold/JustMC_compilator/master/data/values.json').text)
     data["data_version"] = an_data["data_version"]
-    data.save_properties(open("jmcc.properties", "w+",encoding="UTF-8"))
+    data.save_properties(open("jmcc.properties", "w+", encoding="UTF-8"))
     print(minecraft_based_text("&f" + translate("jmcc.download.last_data")))
 
 
@@ -297,7 +294,7 @@ if not os.path.isfile("jmcc.properties"):
     download_latest_release()
     exit()
 else:
-    data = Properties(text=open("jmcc.properties", "r",encoding="UTF-8").read())
+    data = Properties(text=open("jmcc.properties", "r", encoding="UTF-8").read())
     lang = Properties(text=open("data/lang/" + data["lang"] + ".properties", "r", encoding="UTF-8").read())
 if __name__ == "__main__":
     if data["check_updates"]:
@@ -310,6 +307,7 @@ if __name__ == "__main__":
     if len(additional) >= 1:
         if additional[0] == "compile" and len(additional) > 1:
             from compilator import compile_file
+
             compile_file(additional[1], upload=(additional[-1] == "-u"))
         elif additional[0] == "decompile" and len(additional) > 1:
             from decompilator import decompile_file
