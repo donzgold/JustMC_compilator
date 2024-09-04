@@ -1,6 +1,5 @@
 import json
-import nbtworker
-from jmcc import translate
+
 symbol_table = dict()
 actions = dict()
 origin_actions = dict()
@@ -149,13 +148,12 @@ def decompile(thing):
         return f"[{', '.join(list(filter(is_not_none, map(decompile, thing['values']))))}]"
     elif typ == "item":
         try:
-            it = nbtworker.load(thing["item"])
+            it = json.loads(thing["item"])
             if len(it) == 0:
                 return None
-            return f"item({it['id']}, {it['Count'].value}" + (f", nbt=m{it['tag']})" if "tag" in it else ")")
+            return f"item({it['id']}, {it['Count']}" + (f", nbt={json.dumps(it['tag'])})" if "tag" in it else ")")
         except:
-            return ("\"\\\"" + thing["item"].replace("\\", "\\\\").replace("\"", "\\\\\\\"") + "\\\"\"").replace('\n',
-                                                                                                                 '\\n')
+            return ("\"\\\"" + thing["item"].replace("\\", "\\\\").replace("\"", "\\\\\\\"") + "\\\"\"").replace('\n', '\\n')
     elif typ == "game_value":
         return f"value::{thing['game_value']}" + (
             f"<{json.loads(thing['selection'])['type']}>" if thing["selection"] != "null" else "")
@@ -175,7 +173,7 @@ def decompile(thing):
         size = thing.setdefault("size", None)
         to_color = thing.setdefault("to_color", None)
         a = f', material=\"{material}\"' if material is not None else '' + f', color={color}' if color is not None else '' + f', size={size}' if size is not None else '' + f', to_color={to_color}' if to_color is not None else ''
-        return f"particle(\"{thing['particle_type']}\", {thing['count']}, {thing['first_spread']}, {thing['second_spread']}, {thing.setdefault('x_motion', 0)}, {thing.setdefault('y_motion', 0)}, {thing.setdefault('z_motion', 0)}{a})"
+        return f"particle(\"{thing['particle_type']}\", {thing['count']}, {thing['first_spread']}, {thing['second_spread']}, {thing.setdefault('x_motion',0)}, {thing.setdefault('y_motion',0)}, {thing.setdefault('z_motion',0)}{a})"
     elif "action" in thing:
         if thing["action"] == "empty":
             return None
@@ -214,7 +212,7 @@ def decompile(thing):
                             ass_pos = False
                         if ori_pos:
                             if arg["id"] == act["origin"]:
-                                ori = "(" + arg_t + ")" if "." in arg_t else arg_t
+                                ori = arg_t
                                 ori_pos = False
                                 continue
                         if pos:
@@ -228,7 +226,7 @@ def decompile(thing):
             if act["id"] == "set_variable_value":
                 ret = (f"{', '.join(ass_text)} = {', '.join(arg_text)}" if len(ass_text) != 0 else "")
             elif act["id"] == "set_variable_create_list":
-                ret = (f"{', '.join(ass_text)} = [{', '.join(arg_text)}]" if len(ass_text) != 0 else "")
+                ret = (f"{', '.join(ass_text)} = {', '.join(arg_text)}" if len(ass_text) != 0 else "")
             else:
                 ret = ""
             if ret == "":
@@ -253,20 +251,18 @@ def decompile(thing):
                     if is_not_none(arg_t):
                         if ori_pos:
                             if arg["id"] == new_act["origin"]:
-                                ori = "(" + arg_t + ")" if "." in arg_t else arg_t
-
+                                ori = decompile(args[arg["id"]]["value"])
                                 ori_pos = False
                                 continue
                         if pos:
-                            arg_text.append(arg_t)
+                            arg_text.append(decompile(args[arg["id"]]["value"]))
                         else:
-                            arg_text.append(arg["id"] + "=" + arg_t)
+                            arg_text.append(arg["id"] + "=" + decompile(args[arg["id"]]["value"]))
                     else:
                         pos = False
                 elif pos:
                     pos = False
-            new_ret = ('not ' if new_thing.setdefault('is_inverted', False) else '') + (
-                (ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
+            new_ret = ('not ' if new_thing.setdefault('is_inverted', False) else '') + ((ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
                 arg_text) + ")"
             return act["object"] + "::" + act["name"] + "(" + new_ret + ")"
         elif act["type"] == "container":
@@ -284,7 +280,7 @@ def decompile(thing):
                     if is_not_none(arg_t):
                         if ori_pos:
                             if arg["id"] == act["origin"]:
-                                ori = "(" + arg_t + ")" if "." in arg_t else arg_t
+                                ori = arg_t
                                 ori_pos = False
                                 continue
                         if pos:
@@ -326,7 +322,7 @@ def decompile(thing):
                     if is_not_none(arg_t):
                         if ori_pos:
                             if arg["id"] == new_act["origin"]:
-                                ori = "(" + arg_t + ")" if "." in arg_t else arg_t
+                                ori = arg_t
                                 ori_pos = False
                                 continue
                         if pos:
@@ -337,8 +333,7 @@ def decompile(thing):
                         pos = False
                 elif pos:
                     pos = False
-            new_ret = ('not ' if new_thing.setdefault('is_inverted', False) else '') + (
-                (ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
+            new_ret = ('not ' if new_thing.setdefault('is_inverted', False) else '') + ((ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
                 arg_text) + ")"
             ret = act["object"] + "::" + act["name"] + "(" + new_ret + ")" + "{" + (
                     "\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
@@ -347,11 +342,11 @@ def decompile(thing):
                           "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
             return ret
     print(thing)
-    print(minecraft_based_text("&c" + translate("error.unknown_type")))
+    print(minecraft_based_text("&cНеизвестный тип"))
     exit()
 
 
-def decompile_file(file, properties=None):
+def decompile_file(file):
     for i in json.load(open("data/actions.json")):
         actions[i["id"]] = i
     for i in json.load(open("data/events.json")):
