@@ -32,6 +32,12 @@ controller::catch_exception(a1,"WARNING"){
 }
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                               | **Description**    |
+| ---------------- | ------------------------------------------------------ | ------------------ |
+| `variable`       | Variable                                               | Variable to Assign |
+| `exception_type` | Marker<br/>**WARNING** - Warning<br/>**ERROR** - Error | Error Type         |
 <h3 id=controller_measure_time>
   <code>controller::measure_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -50,3 +56,9 @@ controller::measure_time(a1,"NANOSECONDS"){
 }
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                                                                                         | **Description**    |
+| ---------- | ---------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `variable` | Variable                                                                                                         | Variable to Assign |
+| `duration` | Marker<br/>**NANOSECONDS** - Nanoseconds<br/>**MICROSECONDS** - Microseconds<br/>**MILLISECONDS** - Milliseconds | Time Format        |

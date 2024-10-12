@@ -68,6 +68,11 @@ select::add_entity_by_conditional();
 select::add_entity_by_name(["name_or_uuid", "name_or_uuid"]);
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**   | **Description** |
+| -------------- | ---------- | --------------- |
+| `name_or_uuid` | list[Text] | None            |
 <h3 id=select_add_event_target>
   <code>select::add_event_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -82,6 +87,11 @@ select::add_entity_by_name(["name_or_uuid", "name_or_uuid"]);
 select::add_event_target("DEFAULT");
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                                                                                                                          | **Description** |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `selection_type` | Marker<br/>**DEFAULT** - None<br/>**KILLER** - None<br/>**DAMAGER** - None<br/>**VICTIM** - None<br/>**SHOOTER** - None<br/>**PROJECTILE** - None | None            |
 <h3 id=select_add_last_entity>
   <code>select::add_last_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -124,6 +134,11 @@ select::add_last_mob();
 select::add_mob_by_name(["name_or_uuid", "name_or_uuid"]);
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**   | **Description** |
+| -------------- | ---------- | --------------- |
+| `name_or_uuid` | list[Text] | None            |
 <h3 id=select_add_player_by_conditional>
   <code>select::add_player_by_conditional</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -152,6 +167,11 @@ select::add_player_by_conditional();
 select::add_player_by_name(["name_or_uuid", "name_or_uuid"]);
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**   | **Description** |
+| -------------- | ---------- | --------------- |
+| `name_or_uuid` | list[Text] | None            |
 <h3 id=select_add_random_entity>
   <code>select::add_random_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -264,6 +284,11 @@ select::entity_by_conditional(a1.exists());
 select::entity_by_name(["name_or_uuid", "name_or_uuid"]);
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**   | **Description**            |
+| -------------- | ---------- | -------------------------- |
+| `name_or_uuid` | list[Text] | Name or UUID of the target |
 <h3 id=select_event_target>
   <code>select::event_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -278,6 +303,11 @@ select::entity_by_name(["name_or_uuid", "name_or_uuid"]);
 select::event_target("DEFAULT");
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                                                                                                                                                      | **Description**    |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `selection_type` | Marker<br/>**DEFAULT** - Default<br/>**KILLER** - Killer<br/>**DAMAGER** - Attacker<br/>**VICTIM** - Victim<br/>**SHOOTER** - Shooter<br/>**PROJECTILE** - Projectile Shooter | Select Target Type |
 <h3 id=select_filter_by_conditional>
   <code>select::filter_by_conditional</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -306,6 +336,14 @@ select::filter_by_conditional(a1.exists());
 select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                                             | **Description**   |
+| ---------------- | -------------------------------------------------------------------- | ----------------- |
+| `location`       | Location                                                             | Center Location   |
+| `selection_size` | Number                                                               | Number of Targets |
+| `ignore_y_axis`  | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't Ignore            | Ignore Y Axis     |
+| `compare_mode`   | Marker<br/>**NEAREST** - Nearest Targets<br/>**FARTHEST** - Farthest | Compare Type      |
 <h3 id=select_filter_by_raycast>
   <code>select::filter_by_raycast</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -320,6 +358,18 @@ select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
 select::filter_by_raycast(a1,location(0,0,0,0,0),1,2,3,"TRUE","TRUE","NEVER");
 ```
 
+**Arguments:**
+
+| **Name**                 | **Type**                                                                                                             | **Description**        |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `variable`               | Variable                                                                                                             | Ray End Point          |
+| `origin`                 | Location                                                                                                             | Ray Origin             |
+| `max_distance`           | Number                                                                                                               | Ray Length             |
+| `ray_size`               | Number                                                                                                               | Ray Width              |
+| `selection_size`         | Number                                                                                                               | Selection Size         |
+| `consider_blocks`        | Marker<br/>**TRUE** - Consider<br/>**FALSE** - Don't Consider                                                        | Consider Blocks        |
+| `ignore_passable_blocks` | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't Ignore                                                            | Ignore Passable Blocks |
+| `fluid_collision_mode`   | Marker<br/>**NEVER** - Totally Ignore<br/>**SOURCE_ONLY** - Consider fluid source only<br/>**ALWAYS** - Don't Ignore | Ignore Fluid           |
 <h3 id=select_filter_randomly>
   <code>select::filter_randomly</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -334,6 +384,11 @@ select::filter_by_raycast(a1,location(0,0,0,0,0),1,2,3,"TRUE","TRUE","NEVER");
 select::filter_randomly(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**   |
+| -------- | -------- | ----------------- |
+| `size`   | Number   | Number of Targets |
 <h3 id=select_invert>
   <code>select::invert</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -390,6 +445,11 @@ select::last_mob();
 select::mob_by_name(["name_or_uuid", "name_or_uuid"]);
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**   | **Description**            |
+| -------------- | ---------- | -------------------------- |
+| `name_or_uuid` | list[Text] | Name or UUID of the target |
 <h3 id=select_player_by_conditional>
   <code>select::player_by_conditional</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -418,6 +478,11 @@ select::player_by_conditional(a1.exists());
 select::player_by_name(["name_or_uuid", "name_or_uuid"]);
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**   | **Description**            |
+| -------------- | ---------- | -------------------------- |
+| `name_or_uuid` | list[Text] | Name or UUID of the target |
 <h3 id=select_random_entity>
   <code>select::random_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

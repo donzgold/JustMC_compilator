@@ -12,6 +12,11 @@
 code::call_function("function_name");
 ```
 
+**Arguments:**
+
+| **Name**        | **Type** | **Description** |
+| --------------- | -------- | --------------- |
+| `function_name` | Text     | Function Name   |
 <h3 id=control_call_exception>
   <code>code::call_exception</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -28,6 +33,13 @@ code::call_function("function_name");
 code::call_exception("id","message","WARNING");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                                                     | **Description** |
+| --------- | ---------------------------------------------------------------------------- | --------------- |
+| `id`      | Text                                                                         | Error ID        |
+| `message` | Text                                                                         | Error Message   |
+| `type`    | Marker<br/>**WARNING** - Warning<br/>**ERROR** - Error<br/>**FATAL** - Fatal | Error Type      |
 <h3 id=control_end_thread>
   <code>code::break</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -104,6 +116,12 @@ code::stop_repeat();
 code::wait(1,"TICKS");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                                                         | **Description** |
+| ----------- | -------------------------------------------------------------------------------- | --------------- |
+| `duration`  | Number                                                                           | Wait Duration   |
+| `time_unit` | Marker<br/>**TICKS** - Ticks<br/>**SECONDS** - Seconds<br/>**MINUTES** - Minutes | Time Unit       |
 <h3 id=else>
   <code>code::else</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -134,3 +152,10 @@ code::else(){
 code::start_process("process_name","CURRENT_TARGET","DONT_COPY");
 ```
 
+**Arguments:**
+
+| **Name**               | **Type**                                                                                                                                                                       | **Description** |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| `process_name`         | Text                                                                                                                                                                           | Process name    |
+| `target_mode`          | Marker<br/>**CURRENT_TARGET** - Event Target<br/>**CURRENT_SELECTION** - Current Target<br/>**NO_TARGET** - No Target<br/>**FOR_EACH_IN_SELECTION** - Each Target in Selection | Process Target  |
+| `local_variables_mode` | Marker<br/>**DONT_COPY** - Don't duplicate<br/>**COPY** - Duplicate<br/>**SHARE** - General                                                                                    | Variable Mode   |

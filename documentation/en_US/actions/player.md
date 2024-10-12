@@ -32,6 +32,11 @@ if(player::chat_message_equals(["chat_messages", "chat_messages"]){
 }
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**   | **Description** |
+| --------------- | ---------- | --------------- |
+| `chat_messages` | list[Text] | Message         |
 <h3 id=if_player_collides_at_location>
   <code>player::collides_at_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -48,6 +53,11 @@ if(player::collides_at_location(location(0,0,0,0,0)){
 }
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `location` | Location | None            |
 <h3 id=if_player_collides_using_hitbox>
   <code>player::collides_using_hitbox</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -64,6 +74,12 @@ if(player::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
 }
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `min`    | Location | None            |
+| `max`    | Location | None            |
 <h3 id=if_player_collides_with_entity>
   <code>player::collides_with_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -80,6 +96,12 @@ if(player::collides_with_entity("name_or_uuid","OVERLAPS"){
 }
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                               | **Description** |
+| -------------- | ------------------------------------------------------ | --------------- |
+| `name_or_uuid` | Text                                                   | None            |
+| `check_type`   | Marker<br/>**OVERLAPS** - None<br/>**CONTAINS** - None | None            |
 <h3 id=if_player_cursor_item_equals>
   <code>player::cursor_item_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -96,6 +118,12 @@ if(player::cursor_item_equals([item("stick"), item("stick")],"EXACTLY"){
 }
 ```
 
+**Arguments:**
+
+| **Name**          | **Type**                                                                                                                                                                                               | **Description** |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| `items`           | list[Item]                                                                                                                                                                                             | Items to Check  |
+| `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_gamemode_equals>
   <code>player::gamemode_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -112,6 +140,11 @@ if(player::gamemode_equals("SURVIVAL"){
 }
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                                                                                                   | **Description** |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `gamemode` | Marker<br/>**SURVIVAL** - Survival<br/>**CREATIVE** - Creative<br/>**ADVENTURE** - Adventure<br/>**SPECTATOR** - Spectator | Game Mode       |
 <h3 id=if_player_has_item>
   <code>player::has_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -128,6 +161,13 @@ if(player::has_item([item("stick"), item("stick")],"ANY","EXACTLY"){
 }
 ```
 
+**Arguments:**
+
+| **Name**          | **Type**                                                                                                                                                                                          | **Description** |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `items`           | list[Item]                                                                                                                                                                                        | Items to Check  |
+| `check_mode`      | Marker<br/>**ANY** - Any Item<br/>**ALL** - All Items                                                                                                                                             | Check Mode      |
+| `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_STACK_SIZE** - Ignore quantity<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_has_item_at_least>
   <code>player::has_item_at_least</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -144,6 +184,13 @@ if(player::has_item_at_least(item("stick"),1,"EXACTLY"){
 }
 ```
 
+**Arguments:**
+
+| **Name**          | **Type**                                                                    | **Description**  |
+| ----------------- | --------------------------------------------------------------------------- | ---------------- |
+| `item`            | Item                                                                        | Item to Check    |
+| `count`           | Number                                                                      | Minimum Quantity |
+| `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**TYPE_ONLY** - Item Type Only | Comparison Mode  |
 <h3 id=if_player_has_item_in_slot>
   <code>player::has_item_in_slot</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -160,6 +207,13 @@ if(player::has_item_in_slot([item("stick"), item("stick")],[1, 2],"EXACTLY"){
 }
 ```
 
+**Arguments:**
+
+| **Name**          | **Type**                                                                                                                                                                                               | **Description**      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| `items`           | list[Item]                                                                                                                                                                                             | Items to Check       |
+| `slots`           | list[Number]                                                                                                                                                                                           | Slot number to check |
+| `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**TYPE_ONLY** - Item Type Only | Comparison Mode      |
 <h3 id=if_player_has_potion_effect>
   <code>player::has_potion_effect</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -176,6 +230,12 @@ if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 }
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                                  | **Description** |
+| ------------ | --------------------------------------------------------- | --------------- |
+| `potions`    | list[Potion]                                              | Potions to Test |
+| `check_mode` | Marker<br/>**ANY** - Any Effect<br/>**ALL** - All Effects | Check Mode      |
 <h3 id=if_player_has_privilege>
   <code>player::has_privilege</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -194,6 +254,12 @@ if(player::has_privilege("BUILDER","TRUE"){
 }
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                                                                                                                                                           | **Description** |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `privilege` | Marker<br/>**BUILDER** - Builder<br/>**DEVELOPER** - Developer<br/>**BUILDER_AND_DEVELOPER** - Builder and Developer<br/>**WHITELISTED** - Whitelisted<br/>**OWNER** - World Owner | Right           |
+| `exact`     | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable                                                                                                                               | Check Accuracy  |
 <h3 id=if_player_has_room_for_item>
   <code>player::has_room_for_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -210,6 +276,13 @@ if(player::has_room_for_item([item("stick"), item("stick")],"ANY","ENTIRE_INVENT
 }
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**                                                                                                                                                                         | **Description**    |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `items`         | list[Item]                                                                                                                                                                       | Items to Check     |
+| `check_mode`    | Marker<br/>**ANY** - Any Items<br/>**ALL** - All Items                                                                                                                           | Check Item Mode    |
+| `checked_slots` | Marker<br/>**ENTIRE_INVENTORY** - All Inventory<br/>**MAIN_INVENTORY** - Main Inventory<br/>**UPPER_INVENTORY** - Upper Inventory<br/>**HOTBAR** - Hot Bar<br/>**ARMOR** - Armor | Checked Slots Mode |
 <h3 id=if_player_hotbar_slot_equals>
   <code>player::hotbar_slot_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -226,6 +299,11 @@ if(player::hotbar_slot_equals(1){
 }
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**      |
+| -------- | -------- | -------------------- |
+| `slot`   | Number   | Slot number to check |
 <h3 id=if_player_inventory_menu_slot_equals>
   <code>player::inventory_menu_slot_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -242,6 +320,13 @@ if(player::inventory_menu_slot_equals([item("stick"), item("stick")],[1, 2],"EXA
 }
 ```
 
+**Arguments:**
+
+| **Name**          | **Type**                                                                                                                                                                                               | **Description**      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| `items`           | list[Item]                                                                                                                                                                                             | Items to Check       |
+| `slots`           | list[Number]                                                                                                                                                                                           | Slot number to check |
+| `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**TYPE_ONLY** - Item Type Only | Comparison Mode      |
 <h3 id=if_player_inventory_type_open>
   <code>player::inventory_type_open</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -258,6 +343,11 @@ if(player::inventory_type_open("CHEST"){
 }
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | **Description** |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `inventory_type` | Marker<br/>**CHEST** - Chest<br/>**DISPENSER** - Dispenser<br/>**DROPPER** - Dropper<br/>**FURNACE** - Furnace<br/>**WORKBENCH** - Workbench<br/>**CRAFTING** - Not Open<br/>**ENCHANTING** - Enchanting Table<br/>**BREWING** - Potion Brewing<br/>**PLAYER** - Player Inventory<br/>**CREATIVE** - Creative Inventory<br/>**MERCHANT** - Merchant<br/>**ENDER_CHEST** - Ender Chest<br/>**ANVIL** - Anvil<br/>**SMITHING** - Blacksmith's Table<br/>**BEACON** - Beacon<br/>**HOPPER** - Funnel<br/>**SHULKER_BOX** - Shulker Box<br/>**BARREL** - Barrel<br/>**BLAST_FURNACE** - Smelter<br/>**LECTERN** - Pulpit<br/>**SMOKER** - Smoker<br/>**LOOM** - Loom<br/>**CARTOGRAPHY** - Cartographer's Desk<br/>**GRINDSTONE** - Grindstone<br/>**STONECUTTER** - Stonecutter<br/>**COMPOSTER** - Composter | Inventory Type  |
 <h3 id=if_player_is_blocking>
   <code>player::is_blocking</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -338,6 +428,13 @@ if(player::holding([item("stick"), item("stick")],"EITHER_HAND","EXACTLY"){
 }
 ```
 
+**Arguments:**
+
+| **Name**          | **Type**                                                                                                                                                                                               | **Description** |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| `items`           | list[Item]                                                                                                                                                                                             | Items to Check  |
+| `hand_slot`       | Marker<br/>**EITHER_HAND** - Any hand<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Sub Hand                                                                                                        | Hand            |
+| `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_in_area>
   <code>player::in_area</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -354,6 +451,15 @@ if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"TRUE","POINT","OVERL
 }
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                                  | **Description**        |
+| ---------------- | --------------------------------------------------------- | ---------------------- |
+| `location_1`     | Location                                                  | First corner of region |
+| `location_2`     | Location                                                  | Second Region Corner   |
+| `ignore_y_axis`  | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't ignore | Ignore Y Axis          |
+| `intersect_type` | Marker<br/>**POINT** - None<br/>**HITBOX** - None         | None                   |
+| `check_type`     | Marker<br/>**OVERLAPS** - None<br/>**CONTAINS** - None    | None                   |
 <h3 id=if_player_item_is_not_on_cooldown>
   <code>player::item_is_not_on_cooldown</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -370,6 +476,11 @@ if(player::item_is_not_on_cooldown([item("stick"), item("stick")]){
 }
 ```
 
+**Arguments:**
+
+| **Name** | **Type**   | **Description** |
+| -------- | ---------- | --------------- |
+| `items`  | list[Item] | Items to Check  |
 <h3 id=if_player_is_looking_at_block>
   <code>player::is_looking_at_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -386,6 +497,14 @@ if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,
 }
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                                                                                           | **Description**             |
+| ------------ | ------------------------------------------------------------------------------------------------------------------ | --------------------------- |
+| `blocks`     | list[Block]                                                                                                        | Block(s) to check           |
+| `locations`  | list[Location]                                                                                                     | Location(s) to check        |
+| `distance`   | Number                                                                                                             | Max Block Distance to Check |
+| `fluid_mode` | Marker<br/>**NEVER** - Ignore Fluids<br/>**SOURCE_ONLY** - Fluid Sources Only<br/>**ALWAYS** - All kinds of fluids | Fluid Mode                  |
 <h3 id=if_player_is_near>
   <code>player::is_near</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -402,6 +521,13 @@ if(player::is_near("TRUE",location(0,0,0,0,0),1){
 }
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**                                                  | **Description**   |
+| --------------- | --------------------------------------------------------- | ----------------- |
+| `ignore_y_axis` | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't Ignore | Ignore Y Axis     |
+| `location`      | Location                                                  | Location to check |
+| `range`         | Number                                                    | Check Range       |
 <h3 id=if_player_is_on_ground>
   <code>player::is_on_ground</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -450,6 +576,12 @@ if(player::is_riding_entity(["entity_ids", "entity_ids"],"NEAREST"){
 }
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                              | **Description**                        |
+| -------------- | ----------------------------------------------------- | -------------------------------------- |
+| `entity_ids`   | list[Text]                                            | Name, UUID, or type of entity to check |
+| `compare_mode` | Marker<br/>**NEAREST** - None<br/>**FARTHEST** - None | Compare Mode                           |
 <h3 id=if_player_is_self_disguised>
   <code>player::is_self_disguised</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -530,6 +662,13 @@ if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 }
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                        | **Description**   |
+| ------------ | ----------------------------------------------- | ----------------- |
+| `blocks`     | list[Block]                                     | Blocks to Check   |
+| `locations`  | list[Location]                                  | Location to check |
+| `only_solid` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None              |
 <h3 id=if_player_is_swimming>
   <code>player::is_swimming</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -562,6 +701,12 @@ if(player::is_using_item([item("stick"), item("stick")],"EXACTLY"){
 }
 ```
 
+**Arguments:**
+
+| **Name**          | **Type**                                                                                                                                                                                               | **Description** |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| `items`           | list[Item]                                                                                                                                                                                             | Items to Check  |
+| `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_is_wearing_item>
   <code>player::is_wearing_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -578,6 +723,13 @@ if(player::is_wearing_item([item("stick"), item("stick")],"ANY","EXACTLY"){
 }
 ```
 
+**Arguments:**
+
+| **Name**          | **Type**                                                                                                                                                                                               | **Description** |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| `items`           | list[Item]                                                                                                                                                                                             | Item to check   |
+| `check_mode`      | Marker<br/>**ANY** - Wearing something<br/>**ALL** - Wearing All                                                                                                                                       | Check Mode      |
+| `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_name_equals>
   <code>player::name_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -594,6 +746,11 @@ if(player::name_equals(["names_or_uuids", "names_or_uuids"]){
 }
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**   | **Description**         |
+| ---------------- | ---------- | ----------------------- |
+| `names_or_uuids` | list[Text] | Names or UUIDs to check |
 <h3 id=player_add_inventory_menu_row>
   <code>player::add_inventory_menu_row</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -608,6 +765,12 @@ if(player::name_equals(["names_or_uuids", "names_or_uuids"]){
 player::add_inventory_menu_row([item("stick"), item("stick")],"TOP");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                                           | **Description** |
+| ---------- | ------------------------------------------------------------------ | --------------- |
+| `items`    | list[Item]                                                         | Items           |
+| `position` | Marker<br/>**TOP** - Add row to top<br/>**BUTTON** - Add Row Below | Row Position    |
 <h3 id=player_allow_placing_breaking_blocks>
   <code>player::allow_placing_breaking_blocks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -622,6 +785,12 @@ player::add_inventory_menu_row([item("stick"), item("stick")],"TOP");
 player::allow_placing_breaking_blocks("TRUE",[item("stone"), item("stone")]);
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                        | **Description** |
+| -------- | ----------------------------------------------- | --------------- |
+| `allow`  | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
+| `blocks` | list[Block]                                     | None            |
 <h3 id=player_boost_elytra>
   <code>player::boost_elytra</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -636,6 +805,11 @@ player::allow_placing_breaking_blocks("TRUE",[item("stone"), item("stone")]);
 player::boost_elytra(item("stick"));
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `firework` | Item     | Firework Boost  |
 <h3 id=player_clear_chat>
   <code>player::clear_chat</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -692,6 +866,11 @@ player::clear_ender_chest_contents();
 player::clear_inventory("ENTIRE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                                                                                                                           | **Description** |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `clear_mode` | Marker<br/>**ENTIRE** - All Inventory<br/>**MAIN** - Main Inventory<br/>**UPPER** - Upper Inventory<br/>**HOTBAR** - Hot Bar<br/>**ARMOR** - Armor | Clear Mode      |
 <h3 id=player_clear_items>
   <code>player::clear_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -706,6 +885,11 @@ player::clear_inventory("ENTIRE");
 player::clear_items([item("stick"), item("stick")]);
 ```
 
+**Arguments:**
+
+| **Name** | **Type**   | **Description** |
+| -------- | ---------- | --------------- |
+| `items`  | list[Item] | Items to Clear  |
 <h3 id=player_clear_potion_effects>
   <code>player::clear_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -748,6 +932,12 @@ player::close_inventory();
 player::damage(1,"source");
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**                       |
+| -------- | -------- | ------------------------------------- |
+| `damage` | Number   | Damage Amount                         |
+| `source` | Text     | Damage Source (creature name or UUID) |
 <h3 id=player_disguise_as_block>
   <code>player::disguise_as_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -762,6 +952,12 @@ player::damage(1,"source");
 player::disguise_as_block(item("stone"),"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**          | **Type**                                        | **Description** |
+| ----------------- | ----------------------------------------------- | --------------- |
+| `block`           | Block                                           | Disguise Block  |
+| `visible_to_self` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=player_disguise_as_entity>
   <code>player::disguise_as_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -776,6 +972,12 @@ player::disguise_as_block(item("stone"),"TRUE");
 player::disguise_as_entity(item("stick"),"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**          | **Type**                                        | **Description**    |
+| ----------------- | ----------------------------------------------- | ------------------ |
+| `entity_type`     | Item                                            | Entity to Disguise |
+| `visible_to_self` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None               |
 <h3 id=player_disguise_as_item>
   <code>player::disguise_as_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -790,6 +992,12 @@ player::disguise_as_entity(item("stick"),"TRUE");
 player::disguise_as_item(item("stick"),"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**          | **Type**                                        | **Description** |
+| ----------------- | ----------------------------------------------- | --------------- |
+| `item`            | Item                                            | Disguise Item   |
+| `visible_to_self` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=player_display_bell_ring>
   <code>player::display_bell_ring</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -812,6 +1020,12 @@ player::display_bell_ring(location(0,0,0,0,0),"DOWN");
 location(0,0,0,0,0).display_bell_ring("DOWN");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                                                                                     | **Description** |
+| ----------- | ------------------------------------------------------------------------------------------------------------ | --------------- |
+| `location`  | Location                                                                                                     | None            |
+| `direction` | Marker<br/>**DOWN** - None<br/>**NORTH** - None<br/>**SOUTH** - None<br/>**WEST** - None<br/>**EAST** - None | None            |
 <h3 id=player_display_block>
   <code>player::display_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -826,6 +1040,12 @@ location(0,0,0,0,0).display_bell_ring("DOWN");
 player::display_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stone"));
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**       | **Description**  |
+| ---------- | -------------- | ---------------- |
+| `location` | list[Location] | Block Location   |
+| `block`    | Block          | Block to display |
 <h3 id=player_set_block_opened_state>
   <code>player::set_block_opened_state</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -846,6 +1066,12 @@ player::display_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stone"));
 player::set_block_opened_state(location(0,0,0,0,0),"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                          | **Description** |
+| ----------- | ------------------------------------------------- | --------------- |
+| `location`  | Location                                          | Block Location  |
+| `is_opened` | Marker<br/>**TRUE** - Open<br/>**FALSE** - Closed | State           |
 <h3 id=player_display_end_gateway_beam>
   <code>player::display_end_gateway_beam</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -860,6 +1086,12 @@ player::set_block_opened_state(location(0,0,0,0,0),"TRUE");
 player::display_end_gateway_beam(location(0,0,0,0,0),"LIGHT_PURPLE");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                                                     | **Description** |
+| ---------- | ---------------------------------------------------------------------------- | --------------- |
+| `location` | Location                                                                     | Beam Location   |
+| `color`    | Marker<br/>**LIGHT_PURPLE** - Light Purple<br/>**DARK_PURPLE** - Dark Purple | Beam color      |
 <h3 id=player_display_hologram>
   <code>player::display_hologram</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -876,6 +1108,12 @@ player::display_end_gateway_beam(location(0,0,0,0,0),"LIGHT_PURPLE");
 player::display_hologram(location(0,0,0,0,0),"text");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description**   |
+| ---------- | -------- | ----------------- |
+| `location` | Location | Hologram Location |
+| `text`     | Text     | Hologram Text     |
 <h3 id=player_display_lightning>
   <code>player::display_lightning</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -890,6 +1128,11 @@ player::display_hologram(location(0,0,0,0,0),"text");
 player::display_lightning(location(0,0,0,0,0));
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description**           |
+| ---------- | -------- | ------------------------- |
+| `location` | Location | Lightning Strike Location |
 <h3 id=player_display_particle>
   <code>player::display_particle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -904,6 +1147,12 @@ player::display_lightning(location(0,0,0,0,0));
 player::display_particle([particle("fire"), particle("fire")],[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**              | **Description**            |
+| ---------- | --------------------- | -------------------------- |
+| `particle` | list[Particle Effect] | Particle Effect to Display |
+| `location` | list[Location]        | Effect Location            |
 <h3 id=player_display_particle_circle>
   <code>player::display_particle_circle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -918,6 +1167,17 @@ player::display_particle([particle("fire"), particle("fire")],[location(0,0,0,0,
 player::display_particle_circle(particle("fire"),location(0,0,0,0,0),1,2,3,vector(0,0,0),"DEGREES");
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**                                             | **Description** |
+| --------------- | ---------------------------------------------------- | --------------- |
+| `particle`      | Particle Effect                                      | None            |
+| `center`        | Location                                             | None            |
+| `radius`        | Number                                               | None            |
+| `points`        | Number                                               | None            |
+| `start_angle`   | Number                                               | None            |
+| `perpendicular` | Vector                                               | None            |
+| `angle_unit`    | Marker<br/>**DEGREES** - None<br/>**RADIANS** - None | None            |
 <h3 id=player_display_particle_cube>
   <code>player::display_particle_cube</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -932,6 +1192,15 @@ player::display_particle_circle(particle("fire"),location(0,0,0,0,0),1,2,3,vecto
 player::display_particle_cube(particle("fire"),location(0,0,0,0,0),location(0,0,0,0,0),1,"SOLID");
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**                                                                   | **Description** |
+| --------------- | -------------------------------------------------------------------------- | --------------- |
+| `particle`      | Particle Effect                                                            | None            |
+| `first_corner`  | Location                                                                   | None            |
+| `second_corner` | Location                                                                   | None            |
+| `spacing`       | Number                                                                     | None            |
+| `type`          | Marker<br/>**SOLID** - None<br/>**HOLLOW** - None<br/>**WIREFRAME** - None | None            |
 <h3 id=player_display_particle_line>
   <code>player::display_particle_line</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -946,6 +1215,15 @@ player::display_particle_cube(particle("fire"),location(0,0,0,0,0),location(0,0,
 player::display_particle_line(particle("fire"),location(0,0,0,0,0),location(0,0,0,0,0),1,"POINTS");
 ```
 
+**Arguments:**
+
+| **Name**              | **Type**                                                           | **Description**                |
+| --------------------- | ------------------------------------------------------------------ | ------------------------------ |
+| `particle`            | Particle Effect                                                    | Particle Effect to Display     |
+| `start`               | Location                                                           | Start Location                 |
+| `end`                 | Location                                                           | End Location                   |
+| `divider`             | Number                                                             | Number/Space Between Particles |
+| `unit_of_measurement` | Marker<br/>**POINTS** - By Quantity<br/>**DISTANCE** - By distance | Particle Display Type          |
 <h3 id=player_display_particle_ray>
   <code>player::display_particle_ray</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -960,6 +1238,15 @@ player::display_particle_line(particle("fire"),location(0,0,0,0,0),location(0,0,
 player::display_particle_ray(particle("fire"),location(0,0,0,0,0),vector(0,0,0),1,"POINTS");
 ```
 
+**Arguments:**
+
+| **Name**              | **Type**                                                           | **Description**                |
+| --------------------- | ------------------------------------------------------------------ | ------------------------------ |
+| `particle`            | Particle Effect                                                    | Particle Effect to Display     |
+| `start`               | Location                                                           | Start Location                 |
+| `ray`                 | Vector                                                             | Ray Direction                  |
+| `divider`             | Number                                                             | Number/Space Between Particles |
+| `unit_of_measurement` | Marker<br/>**POINTS** - By Quantity<br/>**DISTANCE** - By distance | Particle Display Type          |
 <h3 id=player_display_particle_sphere>
   <code>player::display_particle_sphere</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -974,6 +1261,14 @@ player::display_particle_ray(particle("fire"),location(0,0,0,0,0),vector(0,0,0),
 player::display_particle_sphere(particle("fire"),location(0,0,0,0,0),1,2);
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**        | **Description** |
+| ---------- | --------------- | --------------- |
+| `particle` | Particle Effect | None            |
+| `center`   | Location        | None            |
+| `radius`   | Number          | None            |
+| `points`   | Number          | None            |
 <h3 id=player_display_particle_spiral>
   <code>player::display_particle_spiral</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -988,6 +1283,18 @@ player::display_particle_sphere(particle("fire"),location(0,0,0,0,0),1,2);
 player::display_particle_spiral(particle("fire"),location(0,0,0,0,0),1,2,3,4,5,"DEGREES");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                             | **Description** |
+| ------------- | ---------------------------------------------------- | --------------- |
+| `particle`    | Particle Effect                                      | None            |
+| `center`      | Location                                             | None            |
+| `distance`    | Number                                               | None            |
+| `radius`      | Number                                               | None            |
+| `points`      | Number                                               | None            |
+| `rotations`   | Number                                               | None            |
+| `start_angle` | Number                                               | None            |
+| `angle_unit`  | Marker<br/>**DEGREES** - None<br/>**RADIANS** - None | None            |
 <h3 id=player_display_pick_up_animation>
   <code>player::display_pick_up_animation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1004,6 +1311,13 @@ player::display_particle_spiral(particle("fire"),location(0,0,0,0,0),1,2,3,4,5,"
 player::display_pick_up_animation("collected_name_or_uuid","collector_name_or_uuid",1);
 ```
 
+**Arguments:**
+
+| **Name**                 | **Type** | **Description**                            |
+| ------------------------ | -------- | ------------------------------------------ |
+| `collected_name_or_uuid` | Text     | Name or UUID of the entity being picked up |
+| `collector_name_or_uuid` | Text     | Name or UUID of the entity that picks up   |
+| `amount`                 | Number   | Amount to pick up                          |
 <h3 id=player_display_sign_text>
   <code>player::display_sign_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1018,6 +1332,15 @@ player::display_pick_up_animation("collected_name_or_uuid","collector_name_or_uu
 player::display_sign_text(location(0,0,0,0,0),"line_1","line_2","line_3","line_4");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description**    |
+| ---------- | -------- | ------------------ |
+| `location` | Location | Sign location      |
+| `line_1`   | Text     | First Sign Line    |
+| `line_2`   | Text     | Second Sign Line   |
+| `line_3`   | Text     | Third line of sign |
+| `line_4`   | Text     | Fourth Sign Line   |
 <h3 id=player_display_vibration>
   <code>player::display_vibration</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1032,6 +1355,13 @@ player::display_sign_text(location(0,0,0,0,0),"line_1","line_2","line_3","line_4
 player::display_vibration(location(0,0,0,0,0),location(0,0,0,0,0),1);
 ```
 
+**Arguments:**
+
+| **Name**           | **Type** | **Description**           |
+| ------------------ | -------- | ------------------------- |
+| `from`             | Location | Starting Location         |
+| `to`               | Location | Final Location            |
+| `destination_time` | Number   | Destination time in ticks |
 <h3 id=player_expand_inventory_menu>
   <code>player::expand_inventory_menu</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1046,6 +1376,12 @@ player::display_vibration(location(0,0,0,0,0),location(0,0,0,0,0),1);
 player::expand_inventory_menu([item("stick"), item("stick")],1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type**   | **Description**          |
+| -------- | ---------- | ------------------------ |
+| `items`  | list[Item] | Items to Fill            |
+| `size`   | Number     | Number of rows to expand |
 <h3 id=player_face_location>
   <code>player::face_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1060,6 +1396,11 @@ player::expand_inventory_menu([item("stick"), item("stick")],1);
 player::face_location(location(0,0,0,0,0));
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `location` | Location | Location        |
 <h3 id=player_force_flight_mode>
   <code>player::force_flight_mode</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1074,6 +1415,11 @@ player::face_location(location(0,0,0,0,0));
 player::force_flight_mode("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                        | **Description** |
+| ----------- | ----------------------------------------------- | --------------- |
+| `is_flying` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=player_give_experience>
   <code>player::give_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1088,6 +1434,12 @@ player::force_flight_mode("TRUE");
 player::give_experience(1,"POINTS");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                                                                                                  | **Description** |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `experience` | Number                                                                                                                    | Give Amount     |
+| `mode`       | Marker<br/>**POINTS** - As experience points<br/>**LEVEL** - As Level<br/>**LEVEL_PERCENTAGE** - As a percentage of level | Give Type       |
 <h3 id=player_give_items>
   <code>player::give_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1102,6 +1454,12 @@ player::give_experience(1,"POINTS");
 player::give_items([item("stick"), item("stick")],1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type**   | **Description**             |
+| -------- | ---------- | --------------------------- |
+| `items`  | list[Item] | Items                       |
+| `amount` | Number     | Amount of items to give out |
 <h3 id=player_give_potion_effect>
   <code>player::give_potion_effect</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1116,6 +1474,14 @@ player::give_items([item("stick"), item("stick")],1);
 player::give_potion_effect([potion("slow_falling"), potion("slow_falling")],"TRUE","TRUE","REGULAR");
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**                                                                       | **Description**            |
+| --------------- | ------------------------------------------------------------------------------ | -------------------------- |
+| `potions`       | list[Potion]                                                                   | Effects to Give            |
+| `overwrite`     | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None                                 | Overwrite existing effects |
+| `show_icon`     | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None                                 | Show Effect Icon           |
+| `particle_mode` | Marker<br/>**REGULAR** - Yes<br/>**AMBIENT** - Transparent<br/>**NONE** - None | Give Particles             |
 <h3 id=player_give_random_item>
   <code>player::give_random_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1130,6 +1496,11 @@ player::give_potion_effect([potion("slow_falling"), potion("slow_falling")],"TRU
 player::give_random_item([item("stick"), item("stick")]);
 ```
 
+**Arguments:**
+
+| **Name** | **Type**   | **Description** |
+| -------- | ---------- | --------------- |
+| `items`  | list[Item] | Items to Pick   |
 <h3 id=player_heal>
   <code>player::heal</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1144,6 +1515,11 @@ player::give_random_item([item("stick"), item("stick")]);
 player::heal(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**               |
+| -------- | -------- | ----------------------------- |
+| `heal`   | Number   | Amount of Half Hearts to Heal |
 <h3 id=player_hide_entity>
   <code>player::hide_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1158,6 +1534,12 @@ player::heal(1);
 player::hide_entity(["name_or_uuid", "name_or_uuid"],"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                             | **Description**            |
+| -------------- | ---------------------------------------------------- | -------------------------- |
+| `name_or_uuid` | list[Text]                                           | Name or UUID of the entity |
+| `hide`         | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Hide                       |
 <h3 id=player_hide_scoreboard>
   <code>player::hide_scoreboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1200,6 +1582,13 @@ player::kick();
 player::launch_forward(1,"TRUE","YAW_AND_PITCH");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                                              | **Description**          |
+| ------------- | --------------------------------------------------------------------- | ------------------------ |
+| `power`       | Number                                                                | Knock Up Power           |
+| `increment`   | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled                | Consider current inertia |
+| `launch_axis` | Marker<br/>**YAW_AND_PITCH** - All Axis<br/>**YAW** - Horizontal Only | Launch Axis              |
 <h3 id=player_launch_projectile>
   <code>player::launch_projectile</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1214,6 +1603,16 @@ player::launch_forward(1,"TRUE","YAW_AND_PITCH");
 player::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle("fire"));
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**        | **Description**                                                  |
+| ------------ | --------------- | ---------------------------------------------------------------- |
+| `projectile` | Item            | Projectile to Launch                                             |
+| `location`   | Location        | Launch Location                                                  |
+| `name`       | Text            | Projectile Name                                                  |
+| `speed`      | Number          | Projectile Speed                                                 |
+| `inaccuracy` | Number          | Projectile deflection (0 to keep the projectile flying straight) |
+| `trail`      | Particle Effect | The trail that the projectile will leave                         |
 <h3 id=player_launch_to_location>
   <code>player::launch_to_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1228,6 +1627,13 @@ player::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle(
 player::launch_to_location(location(0,0,0,0,0),1,"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                               | **Description**          |
+| ----------- | ------------------------------------------------------ | ------------------------ |
+| `location`  | Location                                               | End Position             |
+| `power`     | Number                                                 | Launch Power             |
+| `increment` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Consider current inertia |
 <h3 id=player_launch_up>
   <code>player::launch_up</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1242,6 +1648,12 @@ player::launch_to_location(location(0,0,0,0,0),1,"TRUE");
 player::launch_up(1,"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                               | **Description**          |
+| ----------- | ------------------------------------------------------ | ------------------------ |
+| `power`     | Number                                                 | Power                    |
+| `increment` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Consider current inertia |
 <h3 id=player_load_inventory>
   <code>player::load_inventory</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1270,6 +1682,11 @@ player::load_inventory();
 player::open_book(item("stick"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `book`   | Item     | Book to Open    |
 <h3 id=player_open_container_inventory>
   <code>player::open_container_inventory</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1284,6 +1701,11 @@ player::open_book(item("stick"));
 player::open_container_inventory(location(0,0,0,0,0));
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description**           |
+| ---------- | -------- | ------------------------- |
+| `location` | Location | Location of block to open |
 <h3 id=player_play_animation_action>
   <code>player::play_animation_action</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1298,6 +1720,11 @@ player::open_container_inventory(location(0,0,0,0,0));
 player::play_animation_action("DAMAGE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                                                                                                            | **Description** |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `animation` | Marker<br/>**DAMAGE** - Taking Damage<br/>**WAKE_UP** - Wake Up From Bed<br/>**TOTEM** - Totem<br/>**JUMPSCARE** - Ancient Guardian | Animation Type  |
 <h3 id=player_play_hurt_animation>
   <code>player::play_hurt_animation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1312,6 +1739,11 @@ player::play_animation_action("DAMAGE");
 player::play_hurt_animation(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `yaw`    | Number   | None            |
 <h3 id=player_play_sound>
   <code>player::play_sound</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1326,6 +1758,12 @@ player::play_hurt_animation(1);
 player::play_sound(sound("entity.zombie.hurt"),location(0,0,0,0,0));
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `sound`    | Sound    | Sound to Play   |
+| `location` | Location | Sound Location  |
 <h3 id=player_play_sound_from_entity>
   <code>player::play_sound_from_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1342,6 +1780,12 @@ player::play_sound(sound("entity.zombie.hurt"),location(0,0,0,0,0));
 player::play_sound_from_entity([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")],"name_or_uuid");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**    | **Description**     |
+| -------------- | ----------- | ------------------- |
+| `sounds`       | list[Sound] | Sound to play       |
+| `name_or_uuid` | Text        | Entity name or UUID |
 <h3 id=player_play_sound_sequence>
   <code>player::play_sound_sequence</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1356,6 +1800,13 @@ player::play_sound_from_entity([sound("entity.zombie.hurt"), sound("entity.zombi
 player::play_sound_sequence([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")],1,location(0,0,0,0,0));
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**    | **Description** |
+| ---------- | ----------- | --------------- |
+| `sounds`   | list[Sound] | Playable Sounds |
+| `delay`    | Number      | Delay in ticks  |
+| `location` | Location    | Sound Location  |
 <h3 id=player_randomized_teleport>
   <code>player::randomized_teleport</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1370,6 +1821,14 @@ player::play_sound_sequence([sound("entity.zombie.hurt"), sound("entity.zombie.h
 player::randomized_teleport([location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE","TRUE","TRUE");
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**                                               | **Description**            |
+| --------------- | ------------------------------------------------------ | -------------------------- |
+| `locations`     | list[Location]                                         | Teleport Locations         |
+| `keep_rotation` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Keep current rotation      |
+| `keep_velocity` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Keep Off  | Keep Momentum              |
+| `dismount`      | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None         | Dismount after teleporting |
 <h3 id=player_redirect_world>
   <code>player::redirect_world</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1384,6 +1843,11 @@ player::randomized_teleport([location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE","T
 player::redirect_world("world_id");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `world_id` | Text     | World ID        |
 <h3 id=player_remove_boss_bar>
   <code>player::remove_boss_bar</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1398,6 +1862,11 @@ player::redirect_world("world_id");
 player::remove_boss_bar("id");
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `id`     | Text     | Boss Bar ID     |
 <h3 id=player_remove_disguise>
   <code>player::remove_disguise</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1426,6 +1895,12 @@ player::remove_disguise();
 player::remove_display_blocks(location(0,0,0,0,0),location(0,0,0,0,0));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `pos_1`  | Location | None            |
+| `pos_2`  | Location | None            |
 <h3 id=player_remove_inventory_menu_row>
   <code>player::remove_inventory_menu_row</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1440,6 +1915,12 @@ player::remove_display_blocks(location(0,0,0,0,0),location(0,0,0,0,0));
 player::remove_inventory_menu_row(1,"TOP");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                                              | **Description** |
+| ---------- | --------------------------------------------------------------------- | --------------- |
+| `size`     | Number                                                                | Number of Rows  |
+| `position` | Marker<br/>**TOP** - Remove Top Row<br/>**BUTTON** - Remove Row Below | Row Position    |
 <h3 id=player_remove_items>
   <code>player::remove_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1454,6 +1935,11 @@ player::remove_inventory_menu_row(1,"TOP");
 player::remove_items([item("stick"), item("stick")]);
 ```
 
+**Arguments:**
+
+| **Name** | **Type**   | **Description** |
+| -------- | ---------- | --------------- |
+| `items`  | list[Item] | Items to Remove |
 <h3 id=player_remove_pose>
   <code>player::remove_pose</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1482,6 +1968,11 @@ player::remove_pose();
 player::remove_potion_effect([potion("slow_falling"), potion("slow_falling")]);
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**     | **Description**   |
+| --------- | ------------ | ----------------- |
+| `potions` | list[Potion] | Effects to Remove |
 <h3 id=player_remove_self_disguise>
   <code>player::remove_self_disguise</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1538,6 +2029,13 @@ player::remove_world_border();
 player::replace_items([item("stick"), item("stick")],item("stick"),1);
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**   | **Description**            |
+| --------- | ---------- | -------------------------- |
+| `items`   | list[Item] | Replace Items              |
+| `replace` | Item       | Replacement Item           |
+| `count`   | Number     | Number of Items to Replace |
 <h3 id=player_reset_weather>
   <code>player::reset_weather</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1566,6 +2064,11 @@ player::reset_weather();
 player::ride_entity("name_or_uuid");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description**            |
+| -------------- | -------- | -------------------------- |
+| `name_or_uuid` | Text     | Name or UUID of the target |
 <h3 id=player_save_inventory>
   <code>player::save_inventory</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1594,6 +2097,11 @@ player::save_inventory();
 player::self_disguise_as_block(item("stone"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `block`  | Block    | Disguise Block  |
 <h3 id=player_self_disguise_as_entity>
   <code>player::self_disguise_as_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1608,6 +2116,11 @@ player::self_disguise_as_block(item("stone"));
 player::self_disguise_as_entity(item("stick"));
 ```
 
+**Arguments:**
+
+| **Name**      | **Type** | **Description**    |
+| ------------- | -------- | ------------------ |
+| `entity_type` | Item     | Entity to Disguise |
 <h3 id=player_self_disguise_as_item>
   <code>player::self_disguise_as_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1622,6 +2135,11 @@ player::self_disguise_as_entity(item("stick"));
 player::self_disguise_as_item(item("stick"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `item`   | Item     | None            |
 <h3 id=player_send_action_bar>
   <code>player::send_action_bar</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1636,6 +2154,12 @@ player::self_disguise_as_item(item("stick"));
 player::send_action_bar(["messages", "messages"],"SPACES");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                                               | **Description**     |
+| ---------- | ---------------------------------------------------------------------- | ------------------- |
+| `messages` | list[Text]                                                             | Action Bar Messages |
+| `merging`  | Marker<br/>**SPACES** - Space Separation<br/>**CONCATENATION** - Merge | Merge Text          |
 <h3 id=player_send_advancement>
   <code>player::send_advancement</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1650,6 +2174,13 @@ player::send_action_bar(["messages", "messages"],"SPACES");
 player::send_advancement("TASK","name",item("stick"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                        | **Description** |
+| -------- | ------------------------------------------------------------------------------- | --------------- |
+| `frame`  | Marker<br/>**TASK** - Regular<br/>**CHALLENGE** - Challenge<br/>**GOAL** - Goal | Type            |
+| `name`   | Text                                                                            | Name            |
+| `icon`   | Item                                                                            | Icon            |
 <h3 id=player_send_break_animation>
   <code>player::send_break_animation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1664,6 +2195,12 @@ player::send_advancement("TASK","name",item("stick"));
 player::send_break_animation([location(0,0,0,0,0), location(0,0,0,0,0)],1);
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**       | **Description**             |
+| ----------- | -------------- | --------------------------- |
+| `locations` | list[Location] | Block Locations             |
+| `stage`     | Number         | Block Break Level (0 to 10) |
 <h3 id=player_send_dialogue>
   <code>player::send_dialogue</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1678,6 +2215,12 @@ player::send_break_animation([location(0,0,0,0,0), location(0,0,0,0,0)],1);
 player::send_dialogue(["messages", "messages"],1);
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**   | **Description**        |
+| ---------- | ---------- | ---------------------- |
+| `messages` | list[Text] | Text to send           |
+| `delay`    | Number     | Delay between messages |
 <h3 id=player_send_hover>
   <code>player::send_hover</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1692,6 +2235,12 @@ player::send_dialogue(["messages", "messages"],1);
 player::send_hover("message","hover");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type** | **Description** |
+| --------- | -------- | --------------- |
+| `message` | Text     | Message to Send |
+| `hover`   | Text     | Hover Message   |
 <h3 id=player_send_message>
   <code>player::message</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1706,6 +2255,12 @@ player::send_hover("message","hover");
 player::message(["messages", "messages"],"SPACES");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                                                                                       | **Description** |
+| ---------- | -------------------------------------------------------------------------------------------------------------- | --------------- |
+| `messages` | list[Text]                                                                                                     | Text to send    |
+| `merging`  | Marker<br/>**SPACES** - Space Separation<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines | Merge Text      |
 <h3 id=player_send_minimessage>
   <code>player::send_minimessage</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1720,6 +2275,11 @@ player::message(["messages", "messages"],"SPACES");
 player::send_minimessage("minimessage");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type** | **Description**            |
+| ------------- | -------- | -------------------------- |
+| `minimessage` | Text     | MiniMessage Format Message |
 <h3 id=player_send_title>
   <code>player::send_title</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1734,6 +2294,15 @@ player::send_minimessage("minimessage");
 player::send_title("title","subtitle",1,2,3);
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description**        |
+| ---------- | -------- | ---------------------- |
+| `title`    | Text     | Title Text             |
+| `subtitle` | Text     | Subtitle Text          |
+| `fade_in`  | Number   | Fade Time in Ticks     |
+| `stay`     | Number   | Tick Delay             |
+| `fade_out` | Number   | Fade Out Time in Ticks |
 <h3 id=player_set_absorption_health>
   <code>player::set_absorption_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1748,6 +2317,11 @@ player::send_title("title","subtitle",1,2,3);
 player::set_absorption_health(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**        |
+| -------- | -------- | ---------------------- |
+| `health` | Number   | Amount of Extra Health |
 <h3 id=player_set_air_ticks>
   <code>player::set_air_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1762,6 +2336,11 @@ player::set_absorption_health(1);
 player::set_air_ticks(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**                    |
+| -------- | -------- | ---------------------------------- |
+| `ticks`  | Number   | Amount of Air Remaining (in ticks) |
 <h3 id=player_set_allow_flying>
   <code>player::set_allow_flying</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1776,6 +2355,11 @@ player::set_air_ticks(1);
 player::set_allow_flying("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                     | **Description** |
+| -------------- | -------------------------------------------- | --------------- |
+| `allow_flying` | Marker<br/>**TRUE** - Yes<br/>**FALSE** - No | Can fly         |
 <h3 id=player_set_armor>
   <code>player::set_armor</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1790,6 +2374,14 @@ player::set_allow_flying("TRUE");
 player::set_armor(item("stick"),item("stick"),item("stick"),item("stick"));
 ```
 
+**Arguments:**
+
+| **Name**     | **Type** | **Description** |
+| ------------ | -------- | --------------- |
+| `helmet`     | Item     | Helmet          |
+| `chestplate` | Item     | Chestplate      |
+| `leggings`   | Item     | Leggings        |
+| `boots`      | Item     | Boots           |
 <h3 id=player_set_arrows_in_body>
   <code>player::set_arrows_in_body</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1804,6 +2396,11 @@ player::set_armor(item("stick"),item("stick"),item("stick"),item("stick"));
 player::set_arrows_in_body(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**             |
+| -------- | -------- | --------------------------- |
+| `amount` | Number   | Number of arrows to display |
 <h3 id=player_set_attack_speed>
   <code>player::set_attack_speed</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1818,6 +2415,11 @@ player::set_arrows_in_body(1);
 player::set_attack_speed(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `speed`  | Number   | Attack Speed    |
 <h3 id=player_set_attribute>
   <code>player::set_attribute</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1832,6 +2434,12 @@ player::set_attack_speed(1);
 player::set_attribute(1,"MAX_HEALTH");
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                | **Description** |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `value`          | Number                                                                                                                                                                                                                                                                                                                                                                                                                                  | None            |
+| `attribute_type` | Marker<br/>**MAX_HEALTH** - None<br/>**MAX_ABSORPTION** - None<br/>**FOLLOW_RANGE** - None<br/>**KNOCKBACK_RESISTANCE** - None<br/>**MOVEMENT_SPEED** - None<br/>**FLYING_SPEED** - None<br/>**ATTACK_DAMAGE** - None<br/>**ATTACK_KNOCKBACK** - None<br/>**ATTACK_SPEED** - None<br/>**ARMOR** - None<br/>**ARMOR_TOUGHNESS** - None<br/>**LUCK** - None<br/>**HORSE_JUMP_STRENGTH** - None<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - None | None            |
 <h3 id=player_set_bee_stingers_in_body>
   <code>player::set_bee_stingers_in_body</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1846,6 +2454,11 @@ player::set_attribute(1,"MAX_HEALTH");
 player::set_bee_stingers_in_body(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**                   |
+| -------- | -------- | --------------------------------- |
+| `amount` | Number   | Amount of bee stingers to display |
 <h3 id=player_set_boss_bar>
   <code>player::set_boss_bar</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1860,6 +2473,16 @@ player::set_bee_stingers_in_body(1);
 player::set_boss_bar("id","title",1,"PINK","PROGRESS","NONE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                                                                                                                                          | **Description**   |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| `id`         | Text                                                                                                                                                              | Boss Bar ID       |
+| `title`      | Text                                                                                                                                                              | Text              |
+| `progress`   | Number                                                                                                                                                            | Occupancy (0-100) |
+| `color`      | Marker<br/>**PINK** - Pink<br/>**BLUE** - Blue<br/>**RED** - Red<br/>**GREEN** - Green<br/>**YELLOW** - Yellow<br/>**PURPLE** - Purple<br/>**WHITE** - White      | Color             |
+| `style`      | Marker<br/>**PROGRESS** - Solid<br/>**NOTCHED_6** - 6 segments<br/>**NOTCHED_10** - 10 segments<br/>**NOTCHED_12** - 12 segments<br/>**NOTCHED_20** - 20 segments | Style             |
+| `sky_effect` | Marker<br/>**NONE** - None<br/>**FOG** - Fog<br/>**DARK_SKY** - Dark Sky<br/>**FOG_AND_DARK_SKY** - Fog and dark sky                                              | Sky Effect        |
 <h3 id=player_set_chat_completions>
   <code>player::set_chat_completions</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1874,6 +2497,12 @@ player::set_boss_bar("id","title",1,"PINK","PROGRESS","NONE");
 player::set_chat_completions(["completions", "completions"],"ADD");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                                           | **Description** |
+| -------------- | ------------------------------------------------------------------ | --------------- |
+| `completions`  | list[Text]                                                         | None            |
+| `setting_mode` | Marker<br/>**ADD** - None<br/>**SET** - None<br/>**REMOVE** - None | None            |
 <h3 id=player_set_collidable>
   <code>player::set_collidable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1888,6 +2517,11 @@ player::set_chat_completions(["completions", "completions"],"ADD");
 player::set_collidable("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                                                                              | **Description** |
+| ------------ | ----------------------------------------------------------------------------------------------------- | --------------- |
+| `collidable` | Marker<br/>**TRUE** - Collides with other players<br/>**FALSE** - Does not collide with other players | Collision Mode  |
 <h3 id=player_set_compass_target>
   <code>player::set_compass_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1902,6 +2536,11 @@ player::set_collidable("TRUE");
 player::set_compass_target(location(0,0,0,0,0));
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `location` | Location | Compass Target  |
 <h3 id=player_set_cursor_item>
   <code>player::set_cursor_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1916,6 +2555,11 @@ player::set_compass_target(location(0,0,0,0,0));
 player::set_cursor_item(item("stick"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `item`   | Item     | Item to Set     |
 <h3 id=player_set_death_drops>
   <code>player::set_death_drops</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1930,6 +2574,11 @@ player::set_cursor_item(item("stick"));
 player::set_death_drops("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                                 | **Description** |
+| ------------- | -------------------------------------------------------- | --------------- |
+| `death_drops` | Marker<br/>**TRUE** - Drop<br/>**FALSE** - Does not drop | Item Drops      |
 <h3 id=player_set_ender_chest_contents>
   <code>player::set_ender_chest_contents</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1944,6 +2593,11 @@ player::set_death_drops("TRUE");
 player::set_ender_chest_contents([item("stick"), item("stick")]);
 ```
 
+**Arguments:**
+
+| **Name** | **Type**   | **Description** |
+| -------- | ---------- | --------------- |
+| `items`  | list[Item] | Items to Set    |
 <h3 id=player_set_entity_glowing>
   <code>player::set_entity_glowing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1958,6 +2612,13 @@ player::set_ender_chest_contents([item("stick"), item("stick")]);
 player::set_entity_glowing(["name_or_uuid", "name_or_uuid"],"WHITE","TRUE");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                                                                                                                                                                                                                                                                                                                                                     | **Description** |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `name_or_uuid` | list[Text]                                                                                                                                                                                                                                                                                                                                                                   | None            |
+| `color`        | Marker<br/>**WHITE** - None<br/>**GRAY** - None<br/>**DARK_GRAY** - None<br/>**BLACK** - None<br/>**DARK_RED** - None<br/>**RED** - None<br/>**GOLD** - None<br/>**YELLOW** - None<br/>**GREEN** - None<br/>**DARK_GREEN** - None<br/>**DARK_AQUA** - None<br/>**AQUA** - None<br/>**BLUE** - None<br/>**DARK_BLUE** - None<br/>**DARK_PURPLE** - None<br/>**PURPLE** - None | None            |
+| `glow`         | Marker<br/>**TRUE** - None<br/>**FALSE** - None                                                                                                                                                                                                                                                                                                                              | None            |
 <h3 id=player_set_equipment>
   <code>player::set_equipment</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1972,6 +2633,12 @@ player::set_entity_glowing(["name_or_uuid", "name_or_uuid"],"WHITE","TRUE");
 player::set_equipment(item("stick"),"CHEST");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                                                                                        | **Description** |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `item`   | Item                                                                                                                                            | Items to give   |
+| `slot`   | Marker<br/>**CHEST** - Chest<br/>**FEET** - Boots<br/>**HAND** - Main Hand<br/>**HEAD** - Helmet<br/>**LEGS** - Legs<br/>**OFF_HAND** - OffHand | Equipment slot  |
 <h3 id=player_set_exhaustion>
   <code>player::set_exhaustion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1986,6 +2653,12 @@ player::set_equipment(item("stick"),"CHEST");
 player::set_exhaustion(1,"SET");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                     | **Description** |
+| ------------ | -------------------------------------------- | --------------- |
+| `exhaustion` | Number                                       | None            |
+| `mode`       | Marker<br/>**SET** - None<br/>**ADD** - None | None            |
 <h3 id=player_set_experience>
   <code>player::set_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2000,6 +2673,12 @@ player::set_exhaustion(1,"SET");
 player::set_experience(1,"POINTS");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                                                                                                  | **Description** |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `experience` | Number                                                                                                                    | Amount to Set   |
+| `mode`       | Marker<br/>**POINTS** - As experience points<br/>**LEVEL** - As Level<br/>**LEVEL_PERCENTAGE** - As a percentage of level | Set Type        |
 <h3 id=player_set_fall_distance>
   <code>player::set_fall_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2014,6 +2693,11 @@ player::set_experience(1,"POINTS");
 player::set_fall_distance(1);
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `distance` | Number   | Fall Distance   |
 <h3 id=player_set_fire_ticks>
   <code>player::set_fire_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2028,6 +2712,11 @@ player::set_fall_distance(1);
 player::set_fire_ticks(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**  |
+| -------- | -------- | ---------------- |
+| `ticks`  | Number   | Duration (Ticks) |
 <h3 id=player_set_flying>
   <code>player::set_flying</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2042,6 +2731,11 @@ player::set_fire_ticks(1);
 player::set_flying("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                               | **Description** |
+| ----------- | ------------------------------------------------------ | --------------- |
+| `is_flying` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Flying          |
 <h3 id=player_set_fog_distance>
   <code>player::set_fog_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2056,6 +2750,11 @@ player::set_flying("TRUE");
 player::set_fog_distance(1);
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description**               |
+| ---------- | -------- | ----------------------------- |
+| `distance` | Number   | Fog distance in chunks (2-32) |
 <h3 id=player_set_food>
   <code>player::set_food</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2070,6 +2769,12 @@ player::set_fog_distance(1);
 player::set_food(1,"SET");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                   | **Description** |
+| -------- | ------------------------------------------ | --------------- |
+| `food`   | Number                                     | Hunger Level    |
+| `mode`   | Marker<br/>**SET** - Set<br/>**ADD** - Add | Set Mode        |
 <h3 id=player_set_freeze_ticks>
   <code>player::set_freeze_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2084,6 +2789,12 @@ player::set_food(1,"SET");
 player::set_freeze_ticks(1,"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                             | **Description**                     |
+| ---------------- | ---------------------------------------------------- | ----------------------------------- |
+| `ticks`          | Number                                               | Freeze Time in Ticks                |
+| `ticking_locked` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | State Locked (Time will not change) |
 <h3 id=player_set_gamemode>
   <code>player::set_gamemode</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2098,6 +2809,12 @@ player::set_freeze_ticks(1,"TRUE");
 player::set_gamemode("SURVIVAL","RESPECT_GAMEMODE");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                                                                                                   | **Description** |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `gamemode`    | Marker<br/>**SURVIVAL** - Survival<br/>**CREATIVE** - Creative<br/>**ADVENTURE** - Adventure<br/>**SPECTATOR** - Spectator | Game Mode       |
+| `flight_mode` | Marker<br/>**RESPECT_GAMEMODE** - Respect Game Mode<br/>**KEEP_ORIGINAL** - Keep Original                                  | Flight Mode     |
 <h3 id=player_set_gliding>
   <code>player::set_gliding</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2112,6 +2829,11 @@ player::set_gamemode("SURVIVAL","RESPECT_GAMEMODE");
 player::set_gliding("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                               | **Description** |
+| ------------ | ------------------------------------------------------ | --------------- |
+| `is_gliding` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Elytra Flying   |
 <h3 id=player_set_health>
   <code>player::set_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2126,6 +2848,11 @@ player::set_gliding("TRUE");
 player::set_health(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**  |
+| -------- | -------- | ---------------- |
+| `health` | Number   | Amount of Health |
 <h3 id=player_set_hotbar_slot>
   <code>player::set_hotbar_slot</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2140,6 +2867,11 @@ player::set_health(1);
 player::set_hotbar_slot(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `slot`   | Number   | Slot            |
 <h3 id=player_set_instant_respawn>
   <code>player::set_instant_respawn</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2154,6 +2886,11 @@ player::set_hotbar_slot(1);
 player::set_instant_respawn("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**          | **Type**                                               | **Description** |
+| ----------------- | ------------------------------------------------------ | --------------- |
+| `instant_respawn` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Instant Respawn |
 <h3 id=player_set_inventory_kept>
   <code>player::set_inventory_kept</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2168,6 +2905,11 @@ player::set_instant_respawn("TRUE");
 player::set_inventory_kept("TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                               | **Description** |
+| -------- | ------------------------------------------------------ | --------------- |
+| `kept`   | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Keep Inventory  |
 <h3 id=player_set_inventory_menu_item>
   <code>player::set_inventory_menu_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2182,6 +2924,12 @@ player::set_inventory_kept("TRUE");
 player::set_inventory_menu_item(item("stick"),1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `item`   | Item     | Item to Set     |
+| `slot`   | Number   | Set Slot        |
 <h3 id=player_set_inventory_menu_name>
   <code>player::set_inventory_menu_name</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2196,6 +2944,11 @@ player::set_inventory_menu_item(item("stick"),1);
 player::set_inventory_menu_name("text");
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `text`   | Text     | New name        |
 <h3 id=player_set_invulnerability_ticks>
   <code>player::set_invulnerability_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2210,6 +2963,11 @@ player::set_inventory_menu_name("text");
 player::set_invulnerability_ticks(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**                  |
+| -------- | -------- | -------------------------------- |
+| `ticks`  | Number   | Invulnerability Duration (Ticks) |
 <h3 id=player_set_item_cooldown>
   <code>player::set_item_cooldown</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2224,6 +2982,13 @@ player::set_invulnerability_ticks(1);
 player::set_item_cooldown(item("stick"),1,sound("entity.zombie.hurt"));
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description**   |
+| ---------- | -------- | ----------------- |
+| `item`     | Item     | Delay Item Type   |
+| `cooldown` | Number   | Delay in ticks    |
+| `sound`    | Sound    | Delay reset sound |
 <h3 id=player_set_items>
   <code>player::set_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2238,6 +3003,11 @@ player::set_item_cooldown(item("stick"),1,sound("entity.zombie.hurt"));
 player::set_items([item("stick"), item("stick")]);
 ```
 
+**Arguments:**
+
+| **Name** | **Type**   | **Description**                             |
+| -------- | ---------- | ------------------------------------------- |
+| `items`  | list[Item] | Items to give out in their respective slots |
 <h3 id=player_set_max_health>
   <code>player::set_max_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2252,6 +3022,12 @@ player::set_items([item("stick"), item("stick")]);
 player::set_max_health(1,"TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                       | **Description** |
+| -------- | ---------------------------------------------- | --------------- |
+| `health` | Number                                         | Max Health      |
+| `heal`   | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None | Heal Player     |
 <h3 id=player_set_movement_speed>
   <code>player::set_movement_speed</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2266,6 +3042,12 @@ player::set_max_health(1,"TRUE");
 player::set_movement_speed(1,"WALK");
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**                                     | **Description** |
+| --------------- | -------------------------------------------- | --------------- |
+| `distance`      | Number                                       | Movement Speed  |
+| `movement_type` | Marker<br/>**WALK** - Walk<br/>**FLY** - Fly | Movement Type   |
 <h3 id=player_set_nametag_visible>
   <code>player::set_nametag_visible</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2280,6 +3062,11 @@ player::set_movement_speed(1,"WALK");
 player::set_nametag_visible("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                                     | **Description** |
+| --------- | ------------------------------------------------------------ | --------------- |
+| `visible` | Marker<br/>**TRUE** - Display<br/>**FALSE** - Do not display | Nick Display    |
 <h3 id=player_set_player_list_info>
   <code>player::set_player_list_info</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2294,6 +3081,13 @@ player::set_nametag_visible("TRUE");
 player::set_player_list_info(["text", "text"],"HEADER","SPACES");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                                                                                       | **Description**     |
+| ---------- | -------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `text`     | list[Text]                                                                                                     | Text in Player List |
+| `position` | Marker<br/>**HEADER** - Top<br/>**FOOTER** - Bottom                                                            | Position            |
+| `merging`  | Marker<br/>**SPACES** - Space Separation<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines | Merge Text          |
 <h3 id=player_set_pose>
   <code>player::set_pose</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2308,6 +3102,12 @@ player::set_player_list_info(["text", "text"],"HEADER","SPACES");
 player::set_pose("CROAKING","TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **Description** |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| `pose`   | Marker<br/>**CROAKING** - Croaking (for Toads)<br/>**DIGGING** - Digging (For Guardian)<br/>**DYING** - Death<br/>**EMERGING** - Emerging from the Earth (for Guardian)<br/>**FALL_FLYING** - Elytra Flying<br/>**LONG_JUMPING** - Long Jump<br/>**ROARING** - Roar (for Guardian)<br/>**SLEEPING** - Sleeping<br/>**SNEAKING** - None<br/>**SNIFFING** - Sniffing (for Guardian)<br/>**SPIN_ATTACK** - Use Thrust<br/>**STANDING** - Normal State<br/>**SWIMMING** - Swimming<br/>**USING_TONGUE** - Using Tongue (For Toads) | Display Pose    |
+| `locked` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Lock Pose       |
 <h3 id=player_set_pvp>
   <code>player::set_pvp</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2322,6 +3122,11 @@ player::set_pose("CROAKING","TRUE");
 player::set_pvp("TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                       | **Description** |
+| -------- | ---------------------------------------------- | --------------- |
+| `pvp`    | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None | Can Attack      |
 <h3 id=player_set_rain_level>
   <code>player::set_rain_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2336,6 +3141,11 @@ player::set_pvp("TRUE");
 player::set_rain_level(1);
 ```
 
+**Arguments:**
+
+| **Name**     | **Type** | **Description** |
+| ------------ | -------- | --------------- |
+| `rain_level` | Number   | None            |
 <h3 id=player_set_rotation>
   <code>player::set_rotation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2350,6 +3160,12 @@ player::set_rain_level(1);
 player::set_rotation(1,2);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**           |
+| -------- | -------- | ------------------------- |
+| `yaw`    | Number   | Horizontal rotation (yaw) |
+| `pitch`  | Number   | Pitch                     |
 <h3 id=player_set_rotation_by_vector>
   <code>player::set_rotation_by_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2364,6 +3180,11 @@ player::set_rotation(1,2);
 player::set_rotation_by_vector(vector(0,0,0));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**  |
+| -------- | -------- | ---------------- |
+| `vector` | Vector   | Vector to Rotate |
 <h3 id=player_set_saturation>
   <code>player::set_saturation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2378,6 +3199,12 @@ player::set_rotation_by_vector(vector(0,0,0));
 player::set_saturation(1,"SET");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                   | **Description**  |
+| ------------ | ------------------------------------------ | ---------------- |
+| `saturation` | Number                                     | Saturation Level |
+| `mode`       | Marker<br/>**SET** - Set<br/>**ADD** - Add | Set Mode         |
 <h3 id=player_set_simulation_distance>
   <code>player::set_simulation_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2392,6 +3219,11 @@ player::set_saturation(1,"SET");
 player::set_simulation_distance(1);
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description**                      |
+| ---------- | -------- | ------------------------------------ |
+| `distance` | Number   | Simulation Distance in Chunks (2-32) |
 <h3 id=player_set_skin>
   <code>player::set_skin</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2406,6 +3238,12 @@ player::set_simulation_distance(1);
 player::set_skin("name_or_uuid","MOJANG");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                                         | **Description**          |
+| -------------- | ---------------------------------------------------------------- | ------------------------ |
+| `name_or_uuid` | Text                                                             | Name or UUID of the skin |
+| `server_type`  | Marker<br/>**MOJANG** - Mojang Skin<br/>**SERVER** - JustMC Skin | Skin Server Type         |
 <h3 id=player_set_slot_item>
   <code>player::set_slot_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2420,6 +3258,12 @@ player::set_skin("name_or_uuid","MOJANG");
 player::set_slot_item(item("stick"),1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `item`   | Item     | Item to give    |
+| `slot`   | Number   | Giveaway slot   |
 <h3 id=player_set_spawn_point>
   <code>player::set_spawn_point</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2434,6 +3278,11 @@ player::set_slot_item(item("stick"),1);
 player::set_spawn_point(location(0,0,0,0,0));
 ```
 
+**Arguments:**
+
+| **Name**      | **Type** | **Description** |
+| ------------- | -------- | --------------- |
+| `spawn_point` | Location | Spawn Location  |
 <h3 id=player_set_thunder_level>
   <code>player::set_thunder_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2450,6 +3299,11 @@ player::set_spawn_point(location(0,0,0,0,0));
 player::set_thunder_level(1);
 ```
 
+**Arguments:**
+
+| **Name**        | **Type** | **Description** |
+| --------------- | -------- | --------------- |
+| `thunder_level` | Number   | None            |
 <h3 id=player_set_tick_rate>
   <code>player::set_tick_rate</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2464,6 +3318,11 @@ player::set_thunder_level(1);
 player::set_tick_rate(1);
 ```
 
+**Arguments:**
+
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `tick_rate` | Number   | None            |
 <h3 id=player_set_time>
   <code>player::set_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2478,6 +3337,11 @@ player::set_tick_rate(1);
 player::set_time(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `time`   | Number   | Time in ticks   |
 <h3 id=player_set_velocity>
   <code>player::set_velocity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2492,6 +3356,12 @@ player::set_time(1);
 player::set_velocity(vector(0,0,0),"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                               | **Description**          |
+| ----------- | ------------------------------------------------------ | ------------------------ |
+| `velocity`  | Vector                                                 | Motion Vector            |
+| `increment` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Consider current inertia |
 <h3 id=player_set_visual_fire>
   <code>player::set_visual_fire</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2506,6 +3376,11 @@ player::set_velocity(vector(0,0,0),"TRUE");
 player::set_visual_fire("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                             | **Description** |
+| ------------- | ---------------------------------------------------- | --------------- |
+| `visual_fire` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Visual Fire     |
 <h3 id=player_set_weather>
   <code>player::set_weather</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2520,6 +3395,11 @@ player::set_visual_fire("TRUE");
 player::set_weather("DOWNFALL");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                              | **Description** |
+| -------------- | ----------------------------------------------------- | --------------- |
+| `weather_type` | Marker<br/>**DOWNFALL** - Rainy<br/>**CLEAR** - Solar | Weather Type    |
 <h3 id=player_set_world_border>
   <code>player::set_world_border</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2534,6 +3414,13 @@ player::set_weather("DOWNFALL");
 player::set_world_border(location(0,0,0,0,0),1,2);
 ```
 
+**Arguments:**
+
+| **Name**  | **Type** | **Description**                    |
+| --------- | -------- | ---------------------------------- |
+| `center`  | Location | World Border Center                |
+| `size`    | Number   | World Border Size                  |
+| `warning` | Number   | Distance before red border appears |
 <h3 id=player_shift_world_border>
   <code>player::shift_world_border</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2548,6 +3435,13 @@ player::set_world_border(location(0,0,0,0,0),1,2);
 player::shift_world_border(1,2,3);
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description**       |
+| ---------- | -------- | --------------------- |
+| `old_size` | Number   | Old World Border Size |
+| `size`     | Number   | New World Border Size |
+| `time`     | Number   | Size Time             |
 <h3 id=player_show_debug_marker>
   <code>player::show_debug_marker</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2564,6 +3458,17 @@ player::shift_world_border(1,2,3);
 player::show_debug_marker(location(0,0,0,0,0),"name",1,2,3,4,5);
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description**                     |
+| ---------- | -------- | ----------------------------------- |
+| `location` | Location | Spawn Location                      |
+| `name`     | Text     | Display Name                        |
+| `duration` | Number   | Duration in milliseconds (optional) |
+| `red`      | Number   | Color Red (0 to 100)                |
+| `green`    | Number   | Green Color (0 to 100)              |
+| `blue`     | Number   | Color Blue (0 to 100)               |
+| `alpha`    | Number   | Transparency (0 to 100)             |
 <h3 id=player_show_demo_screen>
   <code>player::show_demo_screen</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2592,6 +3497,13 @@ player::show_demo_screen();
 player::show_inventory_menu([item("stick"), item("stick")],"name","CHEST");
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Description** |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `items`          | list[Item]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Inventory Items |
+| `name`           | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Inventory name  |
+| `inventory_type` | Marker<br/>**CHEST** - Chest<br/>**DISPENSER** - Dispenser<br/>**DROPPER** - Dropper<br/>**FURNACE** - Furnace<br/>**WORKBENCH** - Workbench<br/>**ENCHANTING** - Enchanting Table<br/>**BREWING** - Potion Brewing<br/>**ANVIL** - Anvil<br/>**SMITHING** - Blacksmith's Table<br/>**BEACON** - Beacon<br/>**HOPPER** - Funnel<br/>**BLAST_FURNACE** - Smelter<br/>**SMOKER** - Smoker<br/>**CARTOGRAPHY** - Cartographer's Desk<br/>**GRINDSTONE** - Grindstone<br/>**STONECUTTER** - Stonecutter | Inventory Type  |
 <h3 id=player_show_scoreboard>
   <code>player::show_scoreboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2606,6 +3518,11 @@ player::show_inventory_menu([item("stick"), item("stick")],"name","CHEST");
 player::show_scoreboard("id");
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `id`     | Text     | Scoreboard ID   |
 <h3 id=player_show_win_screen>
   <code>player::show_win_screen</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2634,6 +3551,11 @@ player::show_win_screen();
 player::spectate_target("name_or_uuid");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description**            |
+| -------------- | -------- | -------------------------- |
+| `name_or_uuid` | Text     | Name or UUID of the target |
 <h3 id=player_stop_sound>
   <code>player::stop_sound</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2648,6 +3570,11 @@ player::spectate_target("name_or_uuid");
 player::stop_sound([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 ```
 
+**Arguments:**
+
+| **Name** | **Type**    | **Description** |
+| -------- | ----------- | --------------- |
+| `sounds` | list[Sound] | Stop Effects    |
 <h3 id=player_stop_sounds_by_source>
   <code>player::stop_sounds_by_source</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2662,6 +3589,11 @@ player::stop_sound([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 player::stop_sounds_by_source("AMBIENT");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                             | **Description** |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| `source` | Marker<br/>**AMBIENT** - Environment (ambient)<br/>**BLOCK** - Blocks<br/>**HOSTILE** - Hostile creatures (hostile)<br/>**MASTER** - General (master)<br/>**MUSIC** - Music (music)<br/>**NEUTRAL** - Friendly Creatures (neutral)<br/>**PLAYER** - Players (player)<br/>**RECORD** - Music blocks (record)<br/>**VOICE** - Voice/Speech (voice)<br/>**WEATHER** - Weather (weather) | Sound Source    |
 <h3 id=player_swing_hand>
   <code>player::swing_hand</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2676,6 +3608,11 @@ player::stop_sounds_by_source("AMBIENT");
 player::swing_hand("MAIN");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                       | **Description** |
+| ----------- | ---------------------------------------------- | --------------- |
+| `hand_type` | Marker<br/>**MAIN** - Main<br/>**OFF** - Minor | Hand Type       |
 <h3 id=player_teleport>
   <code>player::teleport</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2692,6 +3629,14 @@ player::swing_hand("MAIN");
 player::teleport(location(0,0,0,0,0),"TRUE","TRUE","TRUE");
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**                                               | **Description**            |
+| --------------- | ------------------------------------------------------ | -------------------------- |
+| `location`      | Location                                               | New Position               |
+| `keep_rotation` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Keep Current Rotation      |
+| `keep_velocity` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Keep Off  | Keep Momentum              |
+| `dismount`      | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None         | Dismount After Teleporting |
 <h3 id=player_teleport_sequence>
   <code>player::teleport_sequence</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2706,3 +3651,9 @@ player::teleport(location(0,0,0,0,0),"TRUE","TRUE","TRUE");
 player::teleport_sequence(1,[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**       | **Description**    |
+| ----------- | -------------- | ------------------ |
+| `delay`     | Number         | Delay in ticks     |
+| `locations` | list[Location] | Teleport Locations |

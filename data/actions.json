@@ -303,10 +303,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "any"
+      }
     ],
     "type": "basic"
   },
@@ -9649,12 +9649,10 @@
       }
     ],
     "lambda": [
-      [
-        [
-          "variable",
-          "location"
-        ]
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "type": "container"
   },
@@ -9677,18 +9675,14 @@
       }
     ],
     "lambda": [
-      [
-        [
-          "index_variable",
-          "any"
-        ]
-      ],
-      [
-        [
-          "value_variable",
-          "any"
-        ]
-      ]
+      {
+        "id": "index_variable",
+        "type": "any"
+      },
+      {
+        "id": "value_variable",
+        "type": "any"
+      }
     ],
     "type": "container"
   },
@@ -9711,18 +9705,14 @@
       }
     ],
     "lambda": [
-      [
-        [
-          "key_variable",
-          "any"
-        ]
-      ],
-      [
-        [
-          "value_variable",
-          "any"
-        ]
-      ]
+      {
+        "id": "key_variable",
+        "type": "any"
+      },
+      {
+        "id": "value_variable",
+        "type": "any"
+      }
     ],
     "type": "container"
   },
@@ -9748,12 +9738,10 @@
       }
     ],
     "lambda": [
-      [
-        [
-          "variable",
-          "number"
-        ]
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "container"
   },
@@ -9796,12 +9784,10 @@
       }
     ],
     "lambda": [
-      [
-        [
-          "variable",
-          "location"
-        ]
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "type": "container"
   },
@@ -9824,12 +9810,10 @@
       }
     ],
     "lambda": [
-      [
-        [
-          "variable",
-          "location"
-        ]
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "type": "container"
   },
@@ -9861,12 +9845,10 @@
       }
     ],
     "lambda": [
-      [
-        [
-          "variable",
-          "location"
-        ]
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "type": "container"
   },
@@ -9893,12 +9875,10 @@
       }
     ],
     "lambda": [
-      [
-        [
-          "variable",
-          "number"
-        ]
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "container"
   },
@@ -9934,12 +9914,10 @@
       }
     ],
     "lambda": [
-      [
-        [
-          "variable",
-          "location"
-        ]
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "type": "container"
   },
@@ -10341,10 +10319,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "number",
     "type": "basic"
@@ -10364,10 +10342,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "any"
+      }
     ],
     "type": "basic"
   },
@@ -10387,10 +10365,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -10417,10 +10395,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -10470,10 +10448,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -10494,10 +10472,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "type": "basic"
   },
@@ -10541,10 +10519,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -10572,10 +10550,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "origin": "vector",
     "type": "basic"
@@ -10605,10 +10583,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "type": "basic"
   },
@@ -10631,10 +10609,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "list_1",
     "type": "basic"
@@ -10658,10 +10636,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "map"
-      ]
+      {
+        "id": "variable",
+        "type": "map"
+      }
     ],
     "origin": "map",
     "type": "basic"
@@ -10700,10 +10678,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -10739,10 +10717,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -10762,10 +10740,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "type": "basic"
   },
@@ -10794,10 +10772,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -10817,10 +10795,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "char",
     "type": "basic"
@@ -10848,10 +10826,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -10870,10 +10848,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -10906,10 +10884,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -10930,10 +10908,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "type": "basic"
   },
@@ -10956,10 +10934,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "number",
     "type": "basic"
@@ -10983,10 +10961,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -11023,10 +11001,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "number",
     "type": "basic"
@@ -11063,10 +11041,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "number",
     "type": "basic"
@@ -11086,10 +11064,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "type": "basic"
   },
@@ -11109,10 +11087,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "type": "basic"
   },
@@ -11135,10 +11113,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "map"
-      ]
+      {
+        "id": "variable",
+        "type": "map"
+      }
     ],
     "type": "basic"
   },
@@ -11163,10 +11141,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "map"
-      ]
+      {
+        "id": "variable",
+        "type": "map"
+      }
     ],
     "type": "basic"
   },
@@ -11190,10 +11168,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "type": "basic"
   },
@@ -11216,10 +11194,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "type": "basic"
   },
@@ -11238,10 +11216,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -11271,10 +11249,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -11297,10 +11275,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "type": "basic"
   },
@@ -11323,10 +11301,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -11349,10 +11327,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -11372,10 +11350,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -11425,10 +11403,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "time",
     "type": "basic"
@@ -11460,10 +11438,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -11490,10 +11468,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -11529,26 +11507,26 @@
       }
     ],
     "assign": [
-      [
-        "x",
-        "number"
-      ],
-      [
-        "y",
-        "number"
-      ],
-      [
-        "z",
-        "number"
-      ],
-      [
-        "yaw",
-        "number"
-      ],
-      [
-        "pitch",
-        "number"
-      ]
+      {
+        "id": "x",
+        "type": "number"
+      },
+      {
+        "id": "y",
+        "type": "number"
+      },
+      {
+        "id": "z",
+        "type": "number"
+      },
+      {
+        "id": "yaw",
+        "type": "number"
+      },
+      {
+        "id": "pitch",
+        "type": "number"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -11580,10 +11558,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -11614,10 +11592,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "any"
+      }
     ],
     "type": "basic"
   },
@@ -11640,10 +11618,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -11671,10 +11649,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -11704,10 +11682,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -11736,10 +11714,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "block",
     "type": "basic"
@@ -11759,10 +11737,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -11786,10 +11764,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "book",
     "type": "basic"
@@ -11809,10 +11787,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -11853,10 +11831,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -11885,10 +11863,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "color",
     "type": "basic"
@@ -11908,10 +11886,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -11931,10 +11909,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -11954,10 +11932,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -11977,10 +11955,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -12000,10 +11978,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -12031,10 +12009,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -12054,10 +12032,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -12077,10 +12055,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -12111,10 +12089,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -12144,10 +12122,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -12183,10 +12161,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -12206,10 +12184,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12274,10 +12252,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "map"
-      ]
+      {
+        "id": "variable",
+        "type": "map"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12297,10 +12275,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12320,10 +12298,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12351,10 +12329,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "any"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12374,10 +12352,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "map"
-      ]
+      {
+        "id": "variable",
+        "type": "map"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12425,10 +12403,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12448,10 +12426,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "map"
-      ]
+      {
+        "id": "variable",
+        "type": "map"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12471,10 +12449,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12498,10 +12476,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12530,10 +12508,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "type",
     "type": "basic"
@@ -12553,10 +12531,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12576,10 +12554,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12599,10 +12577,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "map"
-      ]
+      {
+        "id": "variable",
+        "type": "map"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12639,10 +12617,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12662,10 +12640,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -12685,10 +12663,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -12708,10 +12686,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -12740,10 +12718,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -12775,10 +12753,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -12798,10 +12776,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -12821,10 +12799,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "any"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -12852,10 +12830,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "any"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -12880,10 +12858,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "type": "basic"
   },
@@ -12902,10 +12880,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -12933,10 +12911,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "any"
+      }
     ],
     "origin": "map",
     "type": "basic"
@@ -12956,10 +12934,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "map",
     "type": "basic"
@@ -12996,10 +12974,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "map",
     "type": "basic"
@@ -13019,10 +12997,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "map",
     "type": "basic"
@@ -13050,10 +13028,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "any"
+      }
     ],
     "origin": "map",
     "type": "basic"
@@ -13081,10 +13059,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "any"
+      }
     ],
     "origin": "map",
     "type": "basic"
@@ -13104,10 +13082,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "map",
     "type": "basic"
@@ -13131,10 +13109,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "type": "basic"
   },
@@ -13153,10 +13131,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -13184,10 +13162,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -13207,10 +13185,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -13230,10 +13208,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -13253,10 +13231,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -13284,10 +13262,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -13307,10 +13285,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -13338,10 +13316,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "type": "basic"
   },
@@ -13369,10 +13347,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "head",
     "type": "basic"
@@ -13401,10 +13379,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -13424,10 +13402,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "potion",
     "type": "basic"
@@ -13447,10 +13425,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "potion",
     "type": "basic"
@@ -13470,10 +13448,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "potion",
     "type": "basic"
@@ -13493,10 +13471,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -13536,10 +13514,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -13559,10 +13537,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "sound",
     "type": "basic"
@@ -13582,10 +13560,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "sound",
     "type": "basic"
@@ -13605,10 +13583,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "sound",
     "type": "basic"
@@ -13628,10 +13606,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "sound",
     "type": "basic"
@@ -13651,10 +13629,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "sound",
     "type": "basic"
@@ -13674,10 +13652,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "sound",
     "type": "basic"
@@ -13705,10 +13683,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "map"
-      ]
+      {
+        "id": "variable",
+        "type": "map"
+      }
     ],
     "origin": "template",
     "type": "basic"
@@ -13728,10 +13706,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -13751,10 +13729,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -13782,18 +13760,18 @@
       }
     ],
     "assign": [
-      [
-        "x",
-        "number"
-      ],
-      [
-        "y",
-        "number"
-      ],
-      [
-        "z",
-        "number"
-      ]
+      {
+        "id": "x",
+        "type": "number"
+      },
+      {
+        "id": "y",
+        "type": "number"
+      },
+      {
+        "id": "z",
+        "type": "number"
+      }
     ],
     "origin": "vector",
     "type": "basic"
@@ -13817,10 +13795,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "type": "basic"
   },
@@ -13848,10 +13826,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "vector",
     "type": "basic"
@@ -13871,10 +13849,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "type": "basic"
   },
@@ -13901,10 +13879,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "vector",
     "type": "basic"
@@ -13933,10 +13911,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -13956,10 +13934,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "number",
     "type": "basic"
@@ -13987,10 +13965,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -14030,10 +14008,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -14061,10 +14039,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "amount",
     "type": "basic"
@@ -14104,10 +14082,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -14140,10 +14118,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -14166,10 +14144,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "number",
     "type": "basic"
@@ -14205,10 +14183,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "number",
     "type": "basic"
@@ -14229,10 +14207,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -14252,10 +14230,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -14275,10 +14253,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -14301,10 +14279,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "type": "basic"
   },
@@ -14323,10 +14301,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "type": "basic"
   },
@@ -14355,10 +14333,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -14414,10 +14392,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -14440,10 +14418,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "base",
     "type": "basic"
@@ -14503,10 +14481,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "any"
+      }
     ],
     "type": "basic"
   },
@@ -14525,10 +14503,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -14560,10 +14538,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "type": "basic"
   },
@@ -14594,10 +14572,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -14666,22 +14644,22 @@
       }
     ],
     "assign": [
-      [
-        "variable_for_hit_location",
-        "location"
-      ],
-      [
-        "variable_for_hit_block_location",
-        "location"
-      ],
-      [
-        "variable_for_hit_block_face",
-        "text"
-      ],
-      [
-        "variable_for_hit_entity_uuid",
-        "array"
-      ]
+      {
+        "id": "variable_for_hit_location",
+        "type": "location"
+      },
+      {
+        "id": "variable_for_hit_block_location",
+        "type": "location"
+      },
+      {
+        "id": "variable_for_hit_block_face",
+        "type": "text"
+      },
+      {
+        "id": "variable_for_hit_entity_uuid",
+        "type": "array"
+      }
     ],
     "type": "basic"
   },
@@ -14708,10 +14686,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "type": "basic"
   },
@@ -14802,10 +14780,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -14837,10 +14815,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "dividend",
     "type": "basic"
@@ -14860,10 +14838,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -14923,10 +14901,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -14950,10 +14928,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -14977,10 +14955,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -15004,10 +14982,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -15032,10 +15010,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -15055,10 +15033,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -15091,10 +15069,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -15122,14 +15100,14 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ],
-      [
-        "removed_value",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      },
+      {
+        "id": "removed_value",
+        "type": "any"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -15162,14 +15140,14 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "map"
-      ],
-      [
-        "removed_value",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "map"
+      },
+      {
+        "id": "removed_value",
+        "type": "any"
+      }
     ],
     "origin": "map",
     "type": "basic"
@@ -15202,10 +15180,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -15229,10 +15207,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -15276,10 +15254,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -15299,10 +15277,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -15326,10 +15304,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -15369,10 +15347,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "origin": "vector",
     "type": "basic"
@@ -15408,10 +15386,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "origin": "rotating_vector",
     "type": "basic"
@@ -15444,10 +15422,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "number",
     "type": "basic"
@@ -15483,10 +15461,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "type": "basic"
   },
@@ -15546,10 +15524,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "book",
     "type": "basic"
@@ -15574,10 +15552,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "book",
     "type": "basic"
@@ -15640,10 +15618,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -15668,10 +15646,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -15705,10 +15683,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -15773,10 +15751,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -15800,10 +15778,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -15831,10 +15809,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -15858,10 +15836,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -15885,10 +15863,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -15912,10 +15890,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -15939,10 +15917,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "component",
     "type": "basic"
@@ -15977,10 +15955,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -16004,10 +15982,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16076,10 +16054,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16103,10 +16081,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16130,10 +16108,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16161,10 +16139,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16189,10 +16167,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16226,10 +16204,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16253,10 +16231,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16281,10 +16259,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16320,10 +16298,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16347,10 +16325,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16374,10 +16352,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16402,10 +16380,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16433,10 +16411,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16528,10 +16506,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "item",
     "type": "basic"
@@ -16559,10 +16537,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -16586,10 +16564,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -16617,10 +16595,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "map"
-      ]
+      {
+        "id": "variable",
+        "type": "map"
+      }
     ],
     "origin": "map",
     "type": "basic"
@@ -16644,10 +16622,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "particle"
-      ]
+      {
+        "id": "variable",
+        "type": "particle"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -16679,10 +16657,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "particle"
-      ]
+      {
+        "id": "variable",
+        "type": "particle"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -16706,10 +16684,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "particle"
-      ]
+      {
+        "id": "variable",
+        "type": "particle"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -16733,10 +16711,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "particle"
-      ]
+      {
+        "id": "variable",
+        "type": "particle"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -16760,10 +16738,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "particle"
-      ]
+      {
+        "id": "variable",
+        "type": "particle"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -16791,10 +16769,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "particle"
-      ]
+      {
+        "id": "variable",
+        "type": "particle"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -16818,10 +16796,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "particle"
-      ]
+      {
+        "id": "variable",
+        "type": "particle"
+      }
     ],
     "origin": "particle",
     "type": "basic"
@@ -16845,10 +16823,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "potion"
-      ]
+      {
+        "id": "variable",
+        "type": "potion"
+      }
     ],
     "origin": "potion",
     "type": "basic"
@@ -16872,10 +16850,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "potion"
-      ]
+      {
+        "id": "variable",
+        "type": "potion"
+      }
     ],
     "origin": "potion",
     "type": "basic"
@@ -16899,10 +16877,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "potion"
-      ]
+      {
+        "id": "variable",
+        "type": "potion"
+      }
     ],
     "origin": "potion",
     "type": "basic"
@@ -16926,10 +16904,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "sound"
-      ]
+      {
+        "id": "variable",
+        "type": "sound"
+      }
     ],
     "origin": "sound",
     "type": "basic"
@@ -16965,10 +16943,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "sound"
-      ]
+      {
+        "id": "variable",
+        "type": "sound"
+      }
     ],
     "origin": "sound",
     "type": "basic"
@@ -16996,10 +16974,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "sound"
-      ]
+      {
+        "id": "variable",
+        "type": "sound"
+      }
     ],
     "origin": "sound",
     "type": "basic"
@@ -17023,10 +17001,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "sound"
-      ]
+      {
+        "id": "variable",
+        "type": "sound"
+      }
     ],
     "origin": "sound",
     "type": "basic"
@@ -17050,10 +17028,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "sound"
-      ]
+      {
+        "id": "variable",
+        "type": "sound"
+      }
     ],
     "origin": "sound",
     "type": "basic"
@@ -17077,10 +17055,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "template",
     "type": "basic"
@@ -17104,10 +17082,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "item"
-      ]
+      {
+        "id": "variable",
+        "type": "item"
+      }
     ],
     "origin": "map",
     "type": "basic"
@@ -17140,10 +17118,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "origin": "vector",
     "type": "basic"
@@ -17167,10 +17145,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "origin": "vector",
     "type": "basic"
@@ -17210,10 +17188,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -17248,10 +17226,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -17284,10 +17262,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -17315,10 +17293,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -17346,10 +17324,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "location"
-      ]
+      {
+        "id": "variable",
+        "type": "location"
+      }
     ],
     "origin": "location_from",
     "type": "basic"
@@ -17405,10 +17383,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -17445,10 +17423,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "number",
     "type": "basic"
@@ -17476,10 +17454,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -17515,10 +17493,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "map"
-      ]
+      {
+        "id": "variable",
+        "type": "map"
+      }
     ],
     "origin": "map",
     "type": "basic"
@@ -17542,10 +17520,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -17575,10 +17553,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -17599,10 +17577,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "type": "basic"
   },
@@ -17622,10 +17600,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "type": "basic"
   },
@@ -17661,10 +17639,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "number",
     "type": "basic"
@@ -17694,10 +17672,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "type": "basic"
   },
@@ -17727,10 +17705,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -17750,10 +17728,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "number",
     "type": "basic"
@@ -17781,10 +17759,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "type": "basic"
   },
@@ -17811,10 +17789,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "type": "basic"
   },
@@ -17841,10 +17819,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "any"
-      ]
+      {
+        "id": "variable",
+        "type": "any"
+      }
     ],
     "type": "basic"
   },
@@ -17871,10 +17849,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "type": "basic"
   },
@@ -17901,10 +17879,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "array"
-      ]
+      {
+        "id": "variable",
+        "type": "array"
+      }
     ],
     "origin": "list",
     "type": "basic"
@@ -17932,10 +17910,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "text",
     "type": "basic"
@@ -17963,10 +17941,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "vector"
-      ]
+      {
+        "id": "variable",
+        "type": "vector"
+      }
     ],
     "type": "basic"
   },
@@ -17985,10 +17963,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "text"
-      ]
+      {
+        "id": "variable",
+        "type": "text"
+      }
     ],
     "origin": "vector",
     "type": "basic"
@@ -18036,10 +18014,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "location",
     "type": "basic"
@@ -18067,10 +18045,10 @@
       }
     ],
     "assign": [
-      [
-        "variable",
-        "number"
-      ]
+      {
+        "id": "variable",
+        "type": "number"
+      }
     ],
     "origin": "number",
     "type": "basic"

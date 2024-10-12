@@ -68,6 +68,11 @@ select::add_entity_by_conditional();
 select::add_entity_by_name(["name_or_uuid", "name_or_uuid"]);
 ```
 
+**Аргументы:**
+
+| **Имя**        | **Тип**       | **Описание**          |
+| -------------- | ------------- | --------------------- |
+| `name_or_uuid` | список[Текст] | Имя или UUID сущности |
 <h3 id=select_add_event_target>
   <code>select::add_event_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -82,6 +87,11 @@ select::add_entity_by_name(["name_or_uuid", "name_or_uuid"]);
 select::add_event_target("DEFAULT");
 ```
 
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                                                                                                                                         | **Описание**     |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `selection_type` | Маркер<br/>**DEFAULT** - По умолчанию<br/>**KILLER** - Убийца<br/>**DAMAGER** - Атакующий<br/>**VICTIM** - Жертва<br/>**SHOOTER** - Стрелок<br/>**PROJECTILE** - Снаряд стрелка | Тип цели выборки |
 <h3 id=select_add_last_entity>
   <code>select::add_last_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -124,6 +134,11 @@ select::add_last_mob();
 select::add_mob_by_name(["name_or_uuid", "name_or_uuid"]);
 ```
 
+**Аргументы:**
+
+| **Имя**        | **Тип**       | **Описание**      |
+| -------------- | ------------- | ----------------- |
+| `name_or_uuid` | список[Текст] | Имя или UUID моба |
 <h3 id=select_add_player_by_conditional>
   <code>select::add_player_by_conditional</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -152,6 +167,11 @@ select::add_player_by_conditional();
 select::add_player_by_name(["name_or_uuid", "name_or_uuid"]);
 ```
 
+**Аргументы:**
+
+| **Имя**        | **Тип**       | **Описание**        |
+| -------------- | ------------- | ------------------- |
+| `name_or_uuid` | список[Текст] | Имя или UUID игрока |
 <h3 id=select_add_random_entity>
   <code>select::add_random_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -264,6 +284,11 @@ select::entity_by_conditional(a1.exists());
 select::entity_by_name(["name_or_uuid", "name_or_uuid"]);
 ```
 
+**Аргументы:**
+
+| **Имя**        | **Тип**       | **Описание**      |
+| -------------- | ------------- | ----------------- |
+| `name_or_uuid` | список[Текст] | Имя или UUID цели |
 <h3 id=select_event_target>
   <code>select::event_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -278,6 +303,11 @@ select::entity_by_name(["name_or_uuid", "name_or_uuid"]);
 select::event_target("DEFAULT");
 ```
 
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                                                                                                                                         | **Описание**     |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `selection_type` | Маркер<br/>**DEFAULT** - По умолчанию<br/>**KILLER** - Убийца<br/>**DAMAGER** - Атакующий<br/>**VICTIM** - Жертва<br/>**SHOOTER** - Стрелок<br/>**PROJECTILE** - Снаряд стрелка | Тип цели выборки |
 <h3 id=select_filter_by_conditional>
   <code>select::filter_by_conditional</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -306,6 +336,14 @@ select::filter_by_conditional(a1.exists());
 select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
 ```
 
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                                 | **Описание**          |
+| ---------------- | ----------------------------------------------------------------------- | --------------------- |
+| `location`       | Местоположение                                                          | Местоположение центра |
+| `selection_size` | Число                                                                   | Количество целей      |
+| `ignore_y_axis`  | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать      | Игнорировать ось Y    |
+| `compare_mode`   | Маркер<br/>**NEAREST** - Ближайшие цели<br/>**FARTHEST** - Дальние цели | Тип сравнения         |
 <h3 id=select_filter_by_raycast>
   <code>select::filter_by_raycast</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -320,6 +358,18 @@ select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
 select::filter_by_raycast(a1,location(0,0,0,0,0),1,2,3,"TRUE","TRUE","NEVER");
 ```
 
+**Аргументы:**
+
+| **Имя**                  | **Тип**                                                                                                                                 | **Описание**                      |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| `variable`               | Переменная                                                                                                                              | Точка конца луча                  |
+| `origin`                 | Местоположение                                                                                                                          | Начало луча                       |
+| `max_distance`           | Число                                                                                                                                   | Длина луча                        |
+| `ray_size`               | Число                                                                                                                                   | Ширина луча                       |
+| `selection_size`         | Число                                                                                                                                   | Максимальное количество сущностей |
+| `consider_blocks`        | Маркер<br/>**TRUE** - Учитывать<br/>**FALSE** - Не учитывать                                                                            | Учитывать блоки                   |
+| `ignore_passable_blocks` | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать                                                                      | Игнорировать проходимые блоки     |
+| `fluid_collision_mode`   | Маркер<br/>**NEVER** - Полностью игнорировать<br/>**SOURCE_ONLY** - Учитывать только источник жидкости<br/>**ALWAYS** - Не игнорировать | Игнорировать жидкость             |
 <h3 id=select_filter_randomly>
   <code>select::filter_randomly</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -334,6 +384,11 @@ select::filter_by_raycast(a1,location(0,0,0,0,0),1,2,3,"TRUE","TRUE","NEVER");
 select::filter_randomly(1);
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип** | **Описание**     |
+| ------- | ------- | ---------------- |
+| `size`  | Число   | Количество целей |
 <h3 id=select_invert>
   <code>select::invert</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -390,6 +445,11 @@ select::last_mob();
 select::mob_by_name(["name_or_uuid", "name_or_uuid"]);
 ```
 
+**Аргументы:**
+
+| **Имя**        | **Тип**       | **Описание**      |
+| -------------- | ------------- | ----------------- |
+| `name_or_uuid` | список[Текст] | Имя или UUID цели |
 <h3 id=select_player_by_conditional>
   <code>select::player_by_conditional</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -418,6 +478,11 @@ select::player_by_conditional(a1.exists());
 select::player_by_name(["name_or_uuid", "name_or_uuid"]);
 ```
 
+**Аргументы:**
+
+| **Имя**        | **Тип**       | **Описание**      |
+| -------------- | ------------- | ----------------- |
+| `name_or_uuid` | список[Текст] | Имя или UUID цели |
 <h3 id=select_random_entity>
   <code>select::random_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

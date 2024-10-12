@@ -32,6 +32,12 @@
 entity::attach_lead("name_or_uuid",location(0,0,0,0,0));
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description**     |
+| -------------- | -------- | ------------------- |
+| `name_or_uuid` | Text     | Entity name or UUID |
+| `location`     | Location | Fence Location      |
 <h3 id=entity_clear_merchant_recipes>
   <code>entity::clear_merchant_recipes</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -77,6 +83,12 @@ entity::clear_potion_effects();
 entity::damage(1,"source");
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**                     |
+| -------- | -------- | ----------------------------------- |
+| `damage` | Number   | Damage Amount                       |
+| `source` | Text     | Damage Source (Entity Name or UUID) |
 <h3 id=entity_disguise_as_block>
   <code>entity::disguise_as_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -91,6 +103,11 @@ entity::damage(1,"source");
 entity::disguise_as_block(item("stone"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `block`  | Block    | Disguise Block  |
 <h3 id=entity_disguise_as_entity>
   <code>entity::disguise_as_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -105,6 +122,11 @@ entity::disguise_as_block(item("stone"));
 entity::disguise_as_entity(item("stick"));
 ```
 
+**Arguments:**
+
+| **Name**      | **Type** | **Description**    |
+| ------------- | -------- | ------------------ |
+| `entity_type` | Item     | Entity to Disguise |
 <h3 id=entity_disguise_as_item>
   <code>entity::disguise_as_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -119,6 +141,11 @@ entity::disguise_as_entity(item("stick"));
 entity::disguise_as_item(item("stick"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `item`   | Item     | Disguise Item   |
 <h3 id=entity_disguise_as_player>
   <code>entity::disguise_as_player</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -133,6 +160,13 @@ entity::disguise_as_item(item("stick"));
 entity::disguise_as_player("name_or_uuid","display_name","MOJANG");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                                         | **Description**     |
+| -------------- | ---------------------------------------------------------------- | ------------------- |
+| `name_or_uuid` | Text                                                             | Name or UUID        |
+| `display_name` | Text                                                             | Entity Display Name |
+| `server_type`  | Marker<br/>**MOJANG** - Mojang Skin<br/>**SERVER** - JustMC Skin | Skin Server Type    |
 <h3 id=entity_eat_grass>
   <code>entity::eat_grass</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -165,6 +199,11 @@ entity::eat_grass();
 entity::eat_target("name_or_uuid");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description**            |
+| -------------- | -------- | -------------------------- |
+| `name_or_uuid` | Text     | Name or UUID of the target |
 <h3 id=entity_explode>
   <code>entity::explode</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -197,6 +236,11 @@ entity::explode();
 entity::face_location(location(0,0,0,0,0));
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `location` | Location | Location        |
 <h3 id=entity_get_custom_tag>
   <code>entity::get_custom_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -215,6 +259,13 @@ a1 = entity::get_custom_tag("name","any value");
 entity::get_custom_tag(a1,"name","any value");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**  | **Description**    |
+| ---------- | --------- | ------------------ |
+| `variable` | Variable  | Variable to Assign |
+| `name`     | Text      | Tag name           |
+| `default`  | Any Value | None               |
 <h3 id=entity_give_potion_effects>
   <code>entity::give_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -229,6 +280,14 @@ entity::get_custom_tag(a1,"name","any value");
 entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"TRUE","TRUE","REGULAR");
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**                                                                       | **Description**            |
+| --------------- | ------------------------------------------------------------------------------ | -------------------------- |
+| `potions`       | list[Potion]                                                                   | Effects to Give            |
+| `overwrite`     | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None                                 | Overwrite existing effects |
+| `show_icon`     | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None                                 | Show Effect Icon           |
+| `particle_mode` | Marker<br/>**REGULAR** - Yes<br/>**AMBIENT** - Transparent<br/>**NONE** - None | Give Particles             |
 <h3 id=entity_heal>
   <code>entity::heal</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -243,6 +302,11 @@ entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"TR
 entity::heal(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**               |
+| -------- | -------- | ----------------------------- |
+| `heal`   | Number   | Amount of Half Hearts to Heal |
 <h3 id=entity_ignite_creeper>
   <code>entity::ignite_creeper</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -289,6 +353,13 @@ entity::jump();
 entity::launch_forward(1,"TRUE","YAW_AND_PITCH");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                                              | **Description**          |
+| ------------- | --------------------------------------------------------------------- | ------------------------ |
+| `power`       | Number                                                                | Forward Force            |
+| `increment`   | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled                | Consider current inertia |
+| `launch_axis` | Marker<br/>**YAW_AND_PITCH** - All Axis<br/>**YAW** - Horizontal Only | Launch Axis              |
 <h3 id=entity_launch_projectile>
   <code>entity::launch_projectile</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -303,6 +374,16 @@ entity::launch_forward(1,"TRUE","YAW_AND_PITCH");
 entity::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle("fire"));
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**        | **Description**                                               |
+| ------------ | --------------- | ------------------------------------------------------------- |
+| `projectile` | Item            | Projectile to Launch                                          |
+| `location`   | Location        | Launch Location                                               |
+| `name`       | Text            | Projectile Name                                               |
+| `speed`      | Number          | Projectile Speed                                              |
+| `inaccuracy` | Number          | Projectile deflection (0 to make the projectile fly straight) |
+| `trail`      | Particle Effect | The trail the projectile will leave                           |
 <h3 id=entity_launch_to_location>
   <code>entity::launch_to_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -317,6 +398,13 @@ entity::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle(
 entity::launch_to_location(location(0,0,0,0,0),1,"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                               | **Description**          |
+| ----------- | ------------------------------------------------------ | ------------------------ |
+| `location`  | Location                                               | End Position             |
+| `power`     | Number                                                 | Launch Power             |
+| `increment` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Consider current inertia |
 <h3 id=entity_launch_up>
   <code>entity::launch_up</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -331,6 +419,12 @@ entity::launch_to_location(location(0,0,0,0,0),1,"TRUE");
 entity::launch_up(1,"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                               | **Description**          |
+| ----------- | ------------------------------------------------------ | ------------------------ |
+| `power`     | Number                                                 | Power                    |
+| `increment` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Consider current inertia |
 <h3 id=entity_modify_piglin_barter_materials>
   <code>entity::modify_piglin_barter_materials</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -349,6 +443,12 @@ entity::launch_up(1,"TRUE");
 entity::modify_piglin_barter_materials([item("stick"), item("stick")],"ADD");
 ```
 
+**Arguments:**
+
+| **Name**            | **Type**                                        | **Description** |
+| ------------------- | ----------------------------------------------- | --------------- |
+| `materials`         | list[Item]                                      | None            |
+| `modification_mode` | Marker<br/>**ADD** - None<br/>**REMOVE** - None | None            |
 <h3 id=entity_modify_piglin_interested_materials>
   <code>entity::modify_piglin_interested_materials</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -367,6 +467,12 @@ entity::modify_piglin_barter_materials([item("stick"), item("stick")],"ADD");
 entity::modify_piglin_interested_materials([item("stick"), item("stick")],"ADD");
 ```
 
+**Arguments:**
+
+| **Name**            | **Type**                                        | **Description** |
+| ------------------- | ----------------------------------------------- | --------------- |
+| `materials`         | list[Item]                                      | None            |
+| `modification_mode` | Marker<br/>**ADD** - None<br/>**REMOVE** - None | None            |
 <h3 id=entity_move_to_location>
   <code>entity::move_to_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -383,6 +489,12 @@ entity::modify_piglin_interested_materials([item("stick"), item("stick")],"ADD")
 entity::move_to_location(location(0,0,0,0,0),1);
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description**      |
+| ---------- | -------- | -------------------- |
+| `location` | Location | Destination Location |
+| `speed`    | Number   | Movement Speed       |
 <h3 id=entity_move_to_location_stop>
   <code>entity::move_to_location_stop</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -413,6 +525,11 @@ entity::move_to_location_stop();
 entity::play_damage_animation("DAMAGE");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                                                                           | **Description** |
+| ------------- | -------------------------------------------------------------------------------------------------- | --------------- |
+| `damage_type` | Marker<br/>**DAMAGE** - Normal<br/>**CRITICAL_DAMAGE** - Critical<br/>**MAGICAL_DAMAGE** - Magical | Damage Type     |
 <h3 id=entity_play_hurt_animation>
   <code>entity::play_hurt_animation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -427,6 +544,11 @@ entity::play_damage_animation("DAMAGE");
 entity::play_hurt_animation(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `yaw`    | Number   | None            |
 <h3 id=entity_ram_target>
   <code>entity::ram_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -443,6 +565,11 @@ entity::play_hurt_animation(1);
 entity::ram_target("name_or_uuid");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description**     |
+| -------------- | -------- | ------------------- |
+| `name_or_uuid` | Text     | Entity name or UUID |
 <h3 id=entity_remove>
   <code>entity::remove</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -471,6 +598,11 @@ entity::remove();
 entity::remove_custom_tag("name");
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `name`   | Text     | Tag name        |
 <h3 id=entity_remove_disguise>
   <code>entity::remove_disguise</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -502,6 +634,11 @@ entity::remove_disguise();
 entity::remove_merchant_recipe(1);
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description** |
+| -------------- | -------- | --------------- |
+| `recipe_index` | Number   | Product Index   |
 <h3 id=entity_remove_potion_effect>
   <code>entity::remove_potion_effect</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -516,6 +653,11 @@ entity::remove_merchant_recipe(1);
 entity::remove_potion_effect([potion("slow_falling"), potion("slow_falling")]);
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**     | **Description**   |
+| --------- | ------------ | ----------------- |
+| `effects` | list[Potion] | Effects to Remove |
 <h3 id=entity_reset_display_brightness>
   <code>entity::reset_display_brightness</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -579,6 +721,11 @@ entity::reset_text_display_background();
 entity::ride_entity("name_or_uuid");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description**            |
+| -------------- | -------- | -------------------------- |
+| `name_or_uuid` | Text     | Name or UUID of the target |
 <h3 id=entity_set_absorption_health>
   <code>entity::set_absorption_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -593,6 +740,11 @@ entity::ride_entity("name_or_uuid");
 entity::set_absorption_health(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**        |
+| -------- | -------- | ---------------------- |
+| `health` | Number   | Amount of Extra Health |
 <h3 id=entity_set_ai>
   <code>entity::set_ai</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -607,6 +759,11 @@ entity::set_absorption_health(1);
 entity::set_ai("TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                             | **Description** |
+| -------- | ---------------------------------------------------- | --------------- |
+| `ai`     | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Intelligence    |
 <h3 id=entity_set_allay_dancing>
   <code>entity::set_allay_dancing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -623,6 +780,11 @@ entity::set_ai("TRUE");
 entity::set_allay_dancing("TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                             | **Description** |
+| -------- | ---------------------------------------------------- | --------------- |
+| `dance`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Dance Animation |
 <h3 id=entity_set_angry>
   <code>entity::set_angry</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -645,6 +807,12 @@ entity::set_allay_dancing("TRUE");
 entity::set_angry("TRUE","target");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                             | **Description** |
+| -------- | ---------------------------------------------------- | --------------- |
+| `angry`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Angry Mode      |
+| `target` | Text                                                 | Target Name     |
 <h3 id=entity_set_animal_age>
   <code>entity::set_animal_age</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -659,6 +827,12 @@ entity::set_angry("TRUE","target");
 entity::set_animal_age(1,"ENABLE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                                       | **Description** |
+| -------- | ---------------------------------------------------------------------------------------------- | --------------- |
+| `age`    | Number                                                                                         | Age             |
+| `lock`   | Marker<br/>**ENABLE** - Enabled<br/>**DISABLE** - Disabled<br/>**DONT_CHANGE** - Don't Replace | Stop Growing Up |
 <h3 id=entity_set_armor_items>
   <code>entity::set_armor_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -673,6 +847,14 @@ entity::set_animal_age(1,"ENABLE");
 entity::set_armor_items(item("stick"),item("stick"),item("stick"),item("stick"));
 ```
 
+**Arguments:**
+
+| **Name**     | **Type** | **Description** |
+| ------------ | -------- | --------------- |
+| `helmet`     | Item     | Headgear        |
+| `chestplate` | Item     | Chestplate      |
+| `leggings`   | Item     | Pants           |
+| `boots`      | Item     | Boots           |
 <h3 id=entity_set_armor_stand_parts>
   <code>entity::set_armor_stand_parts</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -689,6 +871,12 @@ entity::set_armor_items(item("stick"),item("stick"),item("stick"),item("stick"))
 entity::set_armor_stand_parts("ENABLE","ENABLE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                                                                    | **Description** |
+| ------------ | ------------------------------------------------------------------------------------------- | --------------- |
+| `arms`       | Marker<br/>**ENABLE** - Enable<br/>**DISABLE** - Disable<br/>**DONT_CHANGE** - Don't Change | Hand Visibility |
+| `base_plate` | Marker<br/>**ENABLE** - Enable<br/>**DISABLE** - Disable<br/>**DONT_CHANGE** - Don't Change | Slab Visibility |
 <h3 id=entity_set_armor_stand_pose>
   <code>entity::set_armor_stand_pose</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -705,6 +893,14 @@ entity::set_armor_stand_parts("ENABLE","ENABLE");
 entity::set_armor_stand_pose(1,2,3,"HEAD");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                                                                                                                                           | **Description**      |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| `x_rotation` | Number                                                                                                                                                             | X Rotation           |
+| `y_rotation` | Number                                                                                                                                                             | Y Rotation           |
+| `z_rotation` | Number                                                                                                                                                             | Rotation Z           |
+| `body_part`  | Marker<br/>**HEAD** - Head<br/>**BODY** - Body<br/>**LEFT_ARM** - Left Arm<br/>**RIGHT_ARM** - Right Arm<br/>**LEFT_LEG** - Left Leg<br/>**RIGHT_LEG** - Right Leg | Stand Part to Change |
 <h3 id=entity_set_attribute>
   <code>entity::set_attribute</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -719,6 +915,12 @@ entity::set_armor_stand_pose(1,2,3,"HEAD");
 entity::set_attribute(1,"MAX_HEALTH");
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | **Description** |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `value`          | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Attribute Value |
+| `attribute_type` | Marker<br/>**MAX_HEALTH** - Max Health<br/>**MAX_ABSORPTION** - None<br/>**FOLLOW_RANGE** - Follow Distance<br/>**KNOCKBACK_RESISTANCE** - Knockback Resistance<br/>**MOVEMENT_SPEED** - Movement Speed<br/>**FLYING_SPEED** - Flying Speed<br/>**ATTACK_DAMAGE** - Attack Damage<br/>**ATTACK_KNOCKBACK** - Attack Knockback<br/>**ATTACK_SPEED** - Attack Speed<br/>**ARMOR** - Defense Points<br/>**ARMOR_TOUGHNESS** - Defense Density Points<br/>**LUCK** - Lucky Fishing<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - None | Attribute Type  |
 <h3 id=entity_set_aware>
   <code>entity::set_aware</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -735,6 +937,11 @@ entity::set_attribute(1,"MAX_HEALTH");
 entity::set_aware("TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                             | **Description** |
+| -------- | ---------------------------------------------------- | --------------- |
+| `aware`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Awareness       |
 <h3 id=entity_set_axolotl_type>
   <code>entity::set_axolotl_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -751,6 +958,11 @@ entity::set_aware("TRUE");
 entity::set_axolotl_type("BLUE");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                                                                                       | **Description** |
+| -------------- | -------------------------------------------------------------------------------------------------------------- | --------------- |
+| `axolotl_type` | Marker<br/>**BLUE** - Blue<br/>**CYAN** - Cyan<br/>**GOLD** - Gold<br/>**LUCY** - Leukist<br/>**WILD** - Brown | Axolotl Type    |
 <h3 id=entity_set_baby>
   <code>entity::set_baby</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -765,6 +977,11 @@ entity::set_axolotl_type("BLUE");
 entity::set_baby("TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                             | **Description** |
+| -------- | ---------------------------------------------------- | --------------- |
+| `baby`   | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Child Mode      |
 <h3 id=entity_set_bee_nectar>
   <code>entity::set_bee_nectar</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -781,6 +998,11 @@ entity::set_baby("TRUE");
 entity::set_bee_nectar("TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                            | **Description**   |
+| -------- | --------------------------------------------------- | ----------------- |
+| `nectar` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Enable | Pollen Visibility |
 <h3 id=entity_set_block_display_block>
   <code>entity::set_block_display_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -797,6 +1019,11 @@ entity::set_bee_nectar("TRUE");
 entity::set_block_display_block(item("stone"));
 ```
 
+**Arguments:**
+
+| **Name**          | **Type** | **Description** |
+| ----------------- | -------- | --------------- |
+| `displayed_block` | Block    | Displayed Block |
 <h3 id=entity_set_camel_dashing>
   <code>entity::set_camel_dashing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -813,6 +1040,11 @@ entity::set_block_display_block(item("stone"));
 entity::set_camel_dashing("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                             | **Description**   |
+| --------- | ---------------------------------------------------- | ----------------- |
+| `dashing` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Dashing Animation |
 <h3 id=entity_set_carrying_chest>
   <code>entity::set_carrying_chest</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -831,6 +1063,11 @@ entity::set_camel_dashing("TRUE");
 entity::set_carrying_chest("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                             | **Description** |
+| ---------- | ---------------------------------------------------- | --------------- |
+| `carrying` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Having a Chest  |
 <h3 id=entity_set_cat_lying_down>
   <code>entity::set_cat_lying_down</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -847,6 +1084,11 @@ entity::set_carrying_chest("TRUE");
 entity::set_cat_lying_down("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                             | **Description** |
+| ------------ | ---------------------------------------------------- | --------------- |
+| `lying_down` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Lying Mode      |
 <h3 id=entity_set_cat_type>
   <code>entity::set_cat_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -863,6 +1105,11 @@ entity::set_cat_lying_down("TRUE");
 entity::set_cat_type("ALL_BLACK");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                                                                                                                                                                                                                                                                                       | **Description** |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `cat_type` | Marker<br/>**ALL_BLACK** - Black<br/>**BLACK** - Black and White<br/>**BRITISH_SHORTHAIR** - British Shorthair<br/>**CALICO** - Calico<br/>**JELLIE** - White-Grey<br/>**PERSIAN** - Persian<br/>**RAGDOLL** - Ragdoll<br/>**RED** - Red<br/>**SIAMESE** - Siamese<br/>**TABBY** - Tabby<br/>**WHITE** - White | Cat Type        |
 <h3 id=entity_set_celebrating>
   <code>entity::set_celebrating</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -880,6 +1127,11 @@ entity::set_cat_type("ALL_BLACK");
 entity::set_celebrating("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                             | **Description**  |
+| ------------- | ---------------------------------------------------- | ---------------- |
+| `celebrating` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Celebration Mode |
 <h3 id=entity_set_collidable>
   <code>entity::set_collidable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -894,6 +1146,11 @@ entity::set_celebrating("TRUE");
 entity::set_collidable("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                                                                             | **Description** |
+| ------------ | ---------------------------------------------------------------------------------------------------- | --------------- |
+| `collidable` | Marker<br/>**TRUE** - Collides other creatures<br/>**FALSE** - Does not collide with other creatures | Collision Mode  |
 <h3 id=entity_set_creeper_charge>
   <code>entity::set_creeper_charge</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -910,6 +1167,11 @@ entity::set_collidable("TRUE");
 entity::set_creeper_charge("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                                  | **Description** |
+| --------- | --------------------------------------------------------- | --------------- |
+| `charged` | Marker<br/>**TRUE** - Charged<br/>**FALSE** - Not Charged | Creeper Charged |
 <h3 id=entity_set_creeper_fuse>
   <code>entity::set_creeper_fuse</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -926,6 +1188,11 @@ entity::set_creeper_charge("TRUE");
 entity::set_creeper_fuse(1);
 ```
 
+**Arguments:**
+
+| **Name**     | **Type** | **Description**         |
+| ------------ | -------- | ----------------------- |
+| `fuse_ticks` | Number   | Time to Explode (Ticks) |
 <h3 id=entity_set_current_health>
   <code>entity::set_current_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -940,6 +1207,11 @@ entity::set_creeper_fuse(1);
 entity::set_current_health(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**  |
+| -------- | -------- | ---------------- |
+| `health` | Number   | Amount of Health |
 <h3 id=entity_set_custom_name>
   <code>entity::set_custom_name</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -954,6 +1226,11 @@ entity::set_current_health(1);
 entity::set_custom_name("custom_name");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type** | **Description** |
+| ------------- | -------- | --------------- |
+| `custom_name` | Text     | Entity Name     |
 <h3 id=entity_set_custom_name_visibility>
   <code>entity::set_custom_name_visibility</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -968,6 +1245,11 @@ entity::set_custom_name("custom_name");
 entity::set_custom_name_visibility("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                             | **Description** |
+| ------------ | ---------------------------------------------------- | --------------- |
+| `visibility` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Name Visibility |
 <h3 id=entity_set_custom_tag>
   <code>entity::set_custom_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -982,6 +1264,12 @@ entity::set_custom_name_visibility("TRUE");
 entity::set_custom_tag("name","value");
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `name`   | Text     | Tag name        |
+| `value`  | Text     | Tag Value       |
 <h3 id=entity_set_death_drops>
   <code>entity::set_death_drops</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -996,6 +1284,11 @@ entity::set_custom_tag("name","value");
 entity::set_death_drops("TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                             | **Description** |
+| -------- | ---------------------------------------------------- | --------------- |
+| `drops`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Item Drops      |
 <h3 id=entity_set_death_time>
   <code>entity::set_death_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1010,6 +1303,11 @@ entity::set_death_drops("TRUE");
 entity::set_death_time(1);
 ```
 
+**Arguments:**
+
+| **Name**     | **Type** | **Description**        |
+| ------------ | -------- | ---------------------- |
+| `death_time` | Number   | Death Duration (Ticks) |
 <h3 id=entity_set_despawning>
   <code>entity::set_despawning</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1024,6 +1322,11 @@ entity::set_death_time(1);
 entity::set_despawning("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                             | **Description**     |
+| ------------ | ---------------------------------------------------- | ------------------- |
+| `despawning` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Entity Disappearing |
 <h3 id=entity_set_display_billboard>
   <code>entity::set_display_billboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1040,6 +1343,11 @@ entity::set_despawning("TRUE");
 entity::set_display_billboard("CENTER");
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                                                                                                                   | **Description** |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| `billboard_type` | Marker<br/>**CENTER** - Always Facing Player<br/>**FIXED** - Fixed<br/>**HORIZONTAL** - Fixed Horizontal<br/>**VERTICAL** - Fixed Vertical | Display Mode    |
 <h3 id=entity_set_display_brightness>
   <code>entity::set_display_brightness</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1056,6 +1364,12 @@ entity::set_display_billboard("CENTER");
 entity::set_display_brightness(1,2);
 ```
 
+**Arguments:**
+
+| **Name**            | **Type** | **Description**   |
+| ------------------- | -------- | ----------------- |
+| `block_light_level` | Number   | Block Light Level |
+| `sky_light_level`   | Number   | Sky light level   |
 <h3 id=entity_set_display_culling_suze>
   <code>entity::set_display_culling_suze</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1072,6 +1386,12 @@ entity::set_display_brightness(1,2);
 entity::set_display_culling_suze(1,2);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `width`  | Number   | Horizontal Size |
+| `height` | Number   | Vertical Size   |
 <h3 id=entity_set_display_glow_color>
   <code>entity::set_display_glow_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1089,6 +1409,11 @@ entity::set_display_culling_suze(1,2);
 entity::set_display_glow_color("color_hexadecimal");
 ```
 
+**Arguments:**
+
+| **Name**            | **Type** | **Description** |
+| ------------------- | -------- | --------------- |
+| `color_hexadecimal` | Text     | HEX color       |
 <h3 id=entity_set_display_interpolation>
   <code>entity::set_display_interpolation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1105,6 +1430,12 @@ entity::set_display_glow_color("color_hexadecimal");
 entity::set_display_interpolation(1,2);
 ```
 
+**Arguments:**
+
+| **Name**                 | **Type** | **Description**        |
+| ------------------------ | -------- | ---------------------- |
+| `interpolation_duration` | Number   | Interpolation Duration |
+| `interpolation_delay`    | Number   | Interpolation Delay    |
 <h3 id=entity_set_display_rotation_from_axis_angle>
   <code>entity::set_display_rotation_from_axis_angle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1121,6 +1452,15 @@ entity::set_display_interpolation(1,2);
 entity::set_display_rotation_from_axis_angle(vector(0,0,0),1,"SET","DEGREES","LEFT_ROTATION");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                                                                                                 | **Description**         |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| `axis_vector` | Vector                                                                                                                   | Axis Vector             |
+| `angle`       | Number                                                                                                                   | Rotation Angle          |
+| `mode`        | Marker<br/>**SET** - Set<br/>**ADD** - Add                                                                               | Set Mode                |
+| `input`       | Marker<br/>**DEGREES** - None<br/>**RADIANS** - None                                                                     | None                    |
+| `rotation`    | Marker<br/>**LEFT_ROTATION** - Left Rotation (Rotation x Size)<br/>**RIGHT_ROTATION** - Right Rotation (Size x Rotation) | Order to Apply Rotation |
 <h3 id=entity_set_display_rotation_from_euler_angles>
   <code>entity::set_display_rotation_from_euler_angles</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1137,6 +1477,16 @@ entity::set_display_rotation_from_axis_angle(vector(0,0,0),1,"SET","DEGREES","LE
 entity::set_display_rotation_from_euler_angles(1,2,3,"SET","DEGREES","LEFT_ROTATION");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                                                                                                 | **Description**         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| `pitch`    | Number                                                                                                                   | Pitch Angle             |
+| `yaw`      | Number                                                                                                                   | Yaw Angle (yaw)         |
+| `roll`     | Number                                                                                                                   | Roll Angle (roll)       |
+| `mode`     | Marker<br/>**SET** - Set<br/>**ADD** - Add                                                                               | Set Mode                |
+| `input`    | Marker<br/>**DEGREES** - None<br/>**RADIANS** - None                                                                     | None                    |
+| `rotation` | Marker<br/>**LEFT_ROTATION** - Left Rotation (Rotation x Size)<br/>**RIGHT_ROTATION** - Right Rotation (Size x Rotation) | Order to Apply Rotation |
 <h3 id=entity_set_display_scale>
   <code>entity::set_display_scale</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1153,6 +1503,12 @@ entity::set_display_rotation_from_euler_angles(1,2,3,"SET","DEGREES","LEFT_ROTAT
 entity::set_display_scale(vector(0,0,0),"SET");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                   | **Description** |
+| -------------- | ------------------------------------------ | --------------- |
+| `scale_vector` | Vector                                     | New Size        |
+| `mode`         | Marker<br/>**SET** - Set<br/>**ADD** - Add | Set Mode        |
 <h3 id=entity_set_display_shadow>
   <code>entity::set_display_shadow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1169,6 +1525,12 @@ entity::set_display_scale(vector(0,0,0),"SET");
 entity::set_display_shadow(1,2);
 ```
 
+**Arguments:**
+
+| **Name**                    | **Type** | **Description**    |
+| --------------------------- | -------- | ------------------ |
+| `shadow_radius`             | Number   | Shadow Radius      |
+| `shadow_opacity_percentage` | Number   | Opacity Percentage |
 <h3 id=entity_set_display_teleport_duration>
   <code>entity::set_display_teleport_duration</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1185,6 +1547,11 @@ entity::set_display_shadow(1,2);
 entity::set_display_teleport_duration(1);
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `duration` | Number   | None            |
 <h3 id=entity_set_display_transformation_matrix>
   <code>entity::set_display_transformation_matrix</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1201,6 +1568,11 @@ entity::set_display_teleport_duration(1);
 entity::set_display_transformation_matrix([1, 2]);
 ```
 
+**Arguments:**
+
+| **Name**           | **Type**     | **Description**  |
+| ------------------ | ------------ | ---------------- |
+| `row_major_matrix` | list[Number] | 16 Number Matrix |
 <h3 id=entity_set_display_translation>
   <code>entity::set_display_translation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1217,6 +1589,12 @@ entity::set_display_transformation_matrix([1, 2]);
 entity::set_display_translation(vector(0,0,0),"SET");
 ```
 
+**Arguments:**
+
+| **Name**             | **Type**                                   | **Description** |
+| -------------------- | ------------------------------------------ | --------------- |
+| `translation_vector` | Vector                                     | New Offset      |
+| `mode`               | Marker<br/>**SET** - Set<br/>**ADD** - Add | Set Mode        |
 <h3 id=entity_set_display_view_range>
   <code>entity::set_display_view_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1233,6 +1611,11 @@ entity::set_display_translation(vector(0,0,0),"SET");
 entity::set_display_view_range(1);
 ```
 
+**Arguments:**
+
+| **Name**     | **Type** | **Description** |
+| ------------ | -------- | --------------- |
+| `view_range` | Number   | View Range      |
 <h3 id=entity_set_dragon_phase>
   <code>entity::set_dragon_phase</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1249,6 +1632,11 @@ entity::set_display_view_range(1);
 entity::set_dragon_phase("BREATH_ATTACK");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                | **Description**    |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `phase`  | Marker<br/>**BREATH_ATTACK** - Breath Attack<br/>**CHARGE_PLAYER** - Attack Player<br/>**CIRCLING** - Circling<br/>**DYING** - Death<br/>**FLY_TO_PORTAL** - Fly to Portal<br/>**HOVER** - Flying<br/>**LAND_ON_PORTAL** - Landing on Portal<br/>**LEAVE_PORTAL** - Leave Portal<br/>**ROAR_BEFORE_ATTACK** - Scream before attack<br/>**SEARCH_FOR_BREATH_ATTACK_TARGET** - Search for a breath attack target<br/>**STRAFING** - Dodge | Ender Dragon Phase |
 <h3 id=entity_set_dye_color>
   <code>entity::set_dye_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1268,6 +1656,11 @@ entity::set_dragon_phase("BREATH_ATTACK");
 entity::set_dye_color("BLACK");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                         | **Description** |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `color`  | Marker<br/>**BLACK** - Black<br/>**BLUE** - Blue<br/>**BROWN** - Brown<br/>**CYAN** - Cyan<br/>**GRAY** - Gray<br/>**GREEN** - Green<br/>**LIGHT_BLUE** - Blue<br/>**LIGHT_GRAY** - Light Gray<br/>**LIME** - Lime<br/>**MAGENTA** - Magenta<br/>**ORANGE** - Orange<br/>**PINK** - Pink<br/>**PURPLE** - Purple<br/>**RED** - Red<br/>**WHITE** - White<br/>**YELLOW** - Yellow | Entity Color    |
 <h3 id=entity_set_end_crystal_beam>
   <code>entity::set_end_crystal_beam</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1284,6 +1677,11 @@ entity::set_dye_color("BLACK");
 entity::set_end_crystal_beam(location(0,0,0,0,0));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**     |
+| -------- | -------- | ------------------- |
+| `beam`   | Location | Location to Specify |
 <h3 id=entity_set_enderman_block>
   <code>entity::set_enderman_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1300,6 +1698,11 @@ entity::set_end_crystal_beam(location(0,0,0,0,0));
 entity::set_enderman_block(item("stone"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `block`  | Block    | Display Block   |
 <h3 id=entity_set_equipment_item>
   <code>entity::set_equipment_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1314,6 +1717,12 @@ entity::set_enderman_block(item("stone"));
 entity::set_equipment_item(item("stick"),"CHEST");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                                                                                         | **Description** |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| `item`   | Item                                                                                                                                             | Items to Grant  |
+| `slot`   | Marker<br/>**CHEST** - Chest<br/>**FEET** - Boots<br/>**HAND** - Main Hand<br/>**HEAD** - Helmet<br/>**LEGS** - Legs<br/>**OFF_HAND** - Sub-Hand | Equipment Slot  |
 <h3 id=entity_set_explosive_power>
   <code>entity::set_explosive_power</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1332,6 +1741,11 @@ entity::set_equipment_item(item("stick"),"CHEST");
 entity::set_explosive_power(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `power`  | Number   | Explosion Power |
 <h3 id=entity_set_fall_distance>
   <code>entity::set_fall_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1346,6 +1760,11 @@ entity::set_explosive_power(1);
 entity::set_fall_distance(1);
 ```
 
+**Arguments:**
+
+| **Name**        | **Type** | **Description** |
+| --------------- | -------- | --------------- |
+| `fall_distance` | Number   | Fall Distance   |
 <h3 id=entity_set_falling_block_type>
   <code>entity::set_falling_block_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1362,6 +1781,11 @@ entity::set_fall_distance(1);
 entity::set_falling_block_type(item("stone"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `block`  | Block    | None            |
 <h3 id=entity_set_fire_ticks>
   <code>entity::set_fire_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1376,6 +1800,11 @@ entity::set_falling_block_type(item("stone"));
 entity::set_fire_ticks(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**  |
+| -------- | -------- | ---------------- |
+| `ticks`  | Number   | Duration (Ticks) |
 <h3 id=entity_set_fishing_wait>
   <code>entity::set_fishing_wait</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1392,6 +1821,11 @@ entity::set_fire_ticks(1);
 entity::set_fishing_wait(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `time`   | Number   | Delay           |
 <h3 id=entity_set_fox_leaping>
   <code>entity::set_fox_leaping</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1408,6 +1842,11 @@ entity::set_fishing_wait(1);
 entity::set_fox_leaping("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                             | **Description**   |
+| --------- | ---------------------------------------------------- | ----------------- |
+| `leaping` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Leaping Animation |
 <h3 id=entity_set_fox_type>
   <code>entity::set_fox_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1424,6 +1863,11 @@ entity::set_fox_leaping("TRUE");
 entity::set_fox_type("RED");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                            | **Description** |
+| ---------- | --------------------------------------------------- | --------------- |
+| `fox_type` | Marker<br/>**RED** - Standard<br/>**SNOW** - Winter | Fox Type        |
 <h3 id=entity_set_freeze_ticks>
   <code>entity::set_freeze_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1438,6 +1882,12 @@ entity::set_fox_type("RED");
 entity::set_freeze_ticks(1,"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                             | **Description**                     |
+| ---------------- | ---------------------------------------------------- | ----------------------------------- |
+| `ticks`          | Number                                               | Freeze Time in Ticks                |
+| `ticking_locked` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | State Locked (Time will not change) |
 <h3 id=entity_set_frog_type>
   <code>entity::set_frog_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1454,6 +1904,11 @@ entity::set_freeze_ticks(1,"TRUE");
 entity::set_frog_type("COLD");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                                                    | **Description** |
+| -------------- | --------------------------------------------------------------------------- | --------------- |
+| `frog_variant` | Marker<br/>**COLD** - Cold<br/>**TEMPERATE** - Moderate<br/>**WARM** - Warm | Toad Type       |
 <h3 id=entity_set_gliding>
   <code>entity::set_gliding</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1468,6 +1923,11 @@ entity::set_frog_type("COLD");
 entity::set_gliding("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                               | **Description** |
+| ------------ | ------------------------------------------------------ | --------------- |
+| `is_gliding` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Elytra Flying   |
 <h3 id=entity_set_glowing>
   <code>entity::set_glowing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1482,6 +1942,11 @@ entity::set_gliding("TRUE");
 entity::set_glowing("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                             | **Description** |
+| --------- | ---------------------------------------------------- | --------------- |
+| `glowing` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Glow            |
 <h3 id=entity_set_glow_squid_dark>
   <code>entity::set_glow_squid_dark</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1498,6 +1963,11 @@ entity::set_glowing("TRUE");
 entity::set_glow_squid_dark(1);
 ```
 
+**Arguments:**
+
+| **Name**     | **Type** | **Description**   |
+| ------------ | -------- | ----------------- |
+| `dark_ticks` | Number   | Dark Time (Ticks) |
 <h3 id=entity_set_goat_screaming>
   <code>entity::set_goat_screaming</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1514,6 +1984,11 @@ entity::set_glow_squid_dark(1);
 entity::set_goat_screaming("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                             | **Description** |
+| --------- | ---------------------------------------------------- | --------------- |
+| `screams` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Screaming Tag   |
 <h3 id=entity_set_gravity>
   <code>entity::set_gravity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1528,6 +2003,11 @@ entity::set_goat_screaming("TRUE");
 entity::set_gravity("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                             | **Description** |
+| --------- | ---------------------------------------------------- | --------------- |
+| `gravity` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Gravity         |
 <h3 id=entity_set_horse_jump>
   <code>entity::set_horse_jump</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1547,6 +2027,11 @@ entity::set_gravity("TRUE");
 entity::set_horse_jump(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `power`  | Number   | Jump Power      |
 <h3 id=entity_set_horse_pattern>
   <code>entity::set_horse_pattern</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1563,6 +2048,12 @@ entity::set_horse_jump(1);
 entity::set_horse_pattern("WHITE","NONE");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                                                                                                                                                                                                                  | **Description** |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `horse_color` | Marker<br/>**WHITE** - White<br/>**CREAMY** - Beige<br/>**CHESTNUT** - Red<br/>**BROWN** - Brown<br/>**DARK_BROWN** - Dark Brown<br/>**GRAY** - Grey<br/>**BLACK** - Black<br/>**DO_NOT_CHANGE** - Don't Change                           | Horse Color     |
+| `horse_style` | Marker<br/>**NONE** - No Pattern<br/>**WHITE** - White stripes on legs and head<br/>**WHITEFIELD** - Large White Fields<br/>**WHITE_DOTS** - Small White Dots<br/>**BLACK_DOTS** - Dark Dots on Back<br/>**DO_NOT_CHANGE** - Don't Change | Horse Pattern   |
 <h3 id=entity_set_immune_to_zombification>
   <code>entity::set_immune_to_zombification</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1581,6 +2072,11 @@ entity::set_horse_pattern("WHITE","NONE");
 entity::set_immune_to_zombification("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                        | **Description** |
+| ----------- | ----------------------------------------------- | --------------- |
+| `is_immune` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=entity_set_interaction_responsive>
   <code>entity::set_interaction_responsive</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1595,6 +2091,11 @@ entity::set_immune_to_zombification("TRUE");
 entity::set_interaction_responsive("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                             | **Description** |
+| ------------ | ---------------------------------------------------- | --------------- |
+| `responsive` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Responsive      |
 <h3 id=entity_set_interaction_size>
   <code>entity::set_interaction_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1609,6 +2110,12 @@ entity::set_interaction_responsive("TRUE");
 entity::set_interaction_size(1,2);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `width`  | Number   | Horizontal Size |
+| `height` | Number   | Vertical Size   |
 <h3 id=entity_set_invisible>
   <code>entity::set_invisible</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1623,6 +2130,11 @@ entity::set_interaction_size(1,2);
 entity::set_invisible("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                             | **Description** |
+| ----------- | ---------------------------------------------------- | --------------- |
+| `invisible` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Invisible Mode  |
 <h3 id=entity_set_invulnerability_ticks>
   <code>entity::set_invulnerability_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1637,6 +2149,11 @@ entity::set_invisible("TRUE");
 entity::set_invulnerability_ticks(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**                  |
+| -------- | -------- | -------------------------------- |
+| `ticks`  | Number   | Invulnerability Duration (Ticks) |
 <h3 id=entity_set_invulnerable>
   <code>entity::set_invulnerable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1651,6 +2168,11 @@ entity::set_invulnerability_ticks(1);
 entity::set_invulnerable("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                             | **Description** |
+| -------------- | ---------------------------------------------------- | --------------- |
+| `invulnerable` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Invulnerable    |
 <h3 id=entity_set_item>
   <code>entity::set_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1667,6 +2189,11 @@ entity::set_invulnerable("TRUE");
 entity::set_item(item("stick"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `item`   | Item     | Item to Set     |
 <h3 id=entity_set_item_display_item>
   <code>entity::set_item_display_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1683,6 +2210,11 @@ entity::set_item(item("stick"));
 entity::set_item_display_item(item("stick"));
 ```
 
+**Arguments:**
+
+| **Name**         | **Type** | **Description** |
+| ---------------- | -------- | --------------- |
+| `displayed_item` | Item     | Displayed Item  |
 <h3 id=entity_set_item_display_model_type>
   <code>entity::set_item_display_model_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1699,6 +2231,11 @@ entity::set_item_display_item(item("stick"));
 entity::set_item_display_model_type("FIRSTPERSON_LEFTHAND");
 ```
 
+**Arguments:**
+
+| **Name**             | **Type**                                                                                                                                                                                                                                                                                                                                                    | **Description** |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `display_model_type` | Marker<br/>**FIRSTPERSON_LEFTHAND** - First Person Left Hand<br/>**FIRSTPERSON_RIGHTHAND** - First Person Right Hand<br/>**FIXED** - Fixed<br/>**GROUND** - On the ground<br/>**GUI** - Inventory<br/>**HEAD** - Head<br/>**NONE** - Standard<br/>**THIRDPERSON_LEFTHAND** - Third Person Left Hand<br/>**THIRDPERSON_RIGHTHAND** - Third Person Right Hand | Model Type      |
 <h3 id=entity_set_item_in_frame>
   <code>entity::set_item_in_frame</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1715,6 +2252,11 @@ entity::set_item_display_model_type("FIRSTPERSON_LEFTHAND");
 entity::set_item_in_frame(item("stick"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `item`   | Item     | Item            |
 <h3 id=entity_set_llama_type>
   <code>entity::set_llama_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1731,6 +2273,11 @@ entity::set_item_in_frame(item("stick"));
 entity::set_llama_type("BROWN");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                                      | **Description** |
+| -------- | --------------------------------------------------------------------------------------------- | --------------- |
+| `type`   | Marker<br/>**BROWN** - Brown<br/>**CREAMY** - Beige<br/>**GRAY** - Gray<br/>**WHITE** - White | Color to Set    |
 <h3 id=entity_set_marker>
   <code>entity::set_marker</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1747,6 +2294,11 @@ entity::set_llama_type("BROWN");
 entity::set_marker("TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                             | **Description** |
+| -------- | ---------------------------------------------------- | --------------- |
+| `marker` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Marker Mode     |
 <h3 id=entity_set_max_health>
   <code>entity::set_max_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1761,6 +2313,12 @@ entity::set_marker("TRUE");
 entity::set_max_health(1,"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                       | **Description** |
+| ------------- | ---------------------------------------------- | --------------- |
+| `max_health`  | Number                                         | Max Health      |
+| `heal_to_max` | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None | Heal Creature   |
 <h3 id=entity_set_merchant_recipe>
   <code>entity::set_merchant_recipe</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1778,6 +2336,23 @@ entity::set_max_health(1,"TRUE");
 entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"MERGE",2,3,4,5,6,7,"TRUE","TRUE");
 ```
 
+**Arguments:**
+
+| **Name**              | **Type**                                             | **Description**     |
+| --------------------- | ---------------------------------------------------- | ------------------- |
+| `result`              | Item                                                 | Purchasable Item    |
+| `ingredient_one`      | Item                                                 | First Item          |
+| `ingredient_two`      | Item                                                 | Second Item         |
+| `index`               | Number                                               | Product Index       |
+| `mode`                | Marker<br/>**MERGE** - Replace<br/>**APPEND** - Add  | Set Mode            |
+| `uses`                | Number                                               | Number of Uses      |
+| `max_uses`            | Number                                               | Max Uses            |
+| `villager_experience` | Number                                               | Villager Experience |
+| `price_multiplifier`  | Number                                               | Price Multiplier    |
+| `demand`              | Number                                               | Product Demand      |
+| `special_price`       | Number                                               | Special Price       |
+| `ignore_discounts`    | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Ignore Discounts    |
+| `experience_reward`   | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Experience Reward   |
 <h3 id=entity_set_minecart_block>
   <code>entity::set_minecart_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1794,6 +2369,12 @@ entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"MERGE",
 entity::set_minecart_block(item("stone"),1);
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description** |
+| -------------- | -------- | --------------- |
+| `block`        | Block    | Block to set    |
+| `block_offset` | Number   | Offset Blocks   |
 <h3 id=entity_set_mob_aggressive>
   <code>entity::set_mob_aggressive</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1808,6 +2389,11 @@ entity::set_minecart_block(item("stone"),1);
 entity::set_mob_aggressive("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                        | **Description** |
+| ------------ | ----------------------------------------------- | --------------- |
+| `aggressive` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=entity_set_mushroom_cow_type>
   <code>entity::set_mushroom_cow_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1824,6 +2410,11 @@ entity::set_mob_aggressive("TRUE");
 entity::set_mushroom_cow_type("BROWN");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                       | **Description**   |
+| ---------- | ---------------------------------------------- | ----------------- |
+| `cow_type` | Marker<br/>**BROWN** - Brown<br/>**RED** - Red | Mushroom Cow Type |
 <h3 id=entity_set_panda_gene>
   <code>entity::set_panda_gene</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1840,6 +2431,12 @@ entity::set_mushroom_cow_type("BROWN");
 entity::set_panda_gene("MAIN","NORMAL");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                                                                                                                                                          | **Description** |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `gene`      | Marker<br/>**MAIN** - Main Gene<br/>**HIDDEN** - Hidden Gene<br/>**BOTH** - Both Genes                                                                                            | Gene            |
+| `gene_type` | Marker<br/>**NORMAL** - Normal<br/>**LAZY** - Lazy<br/>**WORRIED** - Worried<br/>**PLAYFUL** - Playful<br/>**BROWN** - Severe<br/>**WEAK** - Weak<br/>**AGGRESSIVE** - Aggressive | Gene Type       |
 <h3 id=entity_set_parrot_type>
   <code>entity::set_parrot_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1856,6 +2453,11 @@ entity::set_panda_gene("MAIN","NORMAL");
 entity::set_parrot_type("BLUE");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                                                                                        | **Description** |
+| ------------- | --------------------------------------------------------------------------------------------------------------- | --------------- |
+| `parrot_type` | Marker<br/>**BLUE** - Blue<br/>**CYAN** - Turquoise<br/>**GRAY** - Grey<br/>**GREEN** - Green<br/>**RED** - Red | Parrot Type     |
 <h3 id=entity_set_persistence>
   <code>entity::set_persistence</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1873,6 +2475,11 @@ entity::set_parrot_type("BLUE");
 entity::set_persistence("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                                                | **Description**   |
+| ------------- | ----------------------------------------------------------------------- | ----------------- |
+| `persistence` | Marker<br/>**TRUE** - Will not disappear<br/>**FALSE** - Will disappear | Entity Disappears |
 <h3 id=entity_set_pickup_delay>
   <code>entity::set_pickup_delay</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1889,6 +2496,11 @@ entity::set_persistence("TRUE");
 entity::set_pickup_delay(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `delay`  | Number   | Delay           |
 <h3 id=entity_set_piglin_able_to_hunt>
   <code>entity::set_piglin_able_to_hunt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1905,6 +2517,11 @@ entity::set_pickup_delay(1);
 entity::set_piglin_able_to_hunt("TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                        | **Description** |
+| -------- | ----------------------------------------------- | --------------- |
+| `able`   | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=entity_set_piglin_charging_crossbow>
   <code>entity::set_piglin_charging_crossbow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1921,6 +2538,11 @@ entity::set_piglin_able_to_hunt("TRUE");
 entity::set_piglin_charging_crossbow("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                        | **Description** |
+| ---------- | ----------------------------------------------- | --------------- |
+| `charging` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=entity_set_piglin_dancing>
   <code>entity::set_piglin_dancing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1939,6 +2561,11 @@ entity::set_piglin_charging_crossbow("TRUE");
 entity::set_piglin_dancing(1);
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description** |
+| -------------- | -------- | --------------- |
+| `dancing_time` | Number   | None            |
 <h3 id=entity_set_pose>
   <code>entity::set_pose</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1953,6 +2580,11 @@ entity::set_piglin_dancing(1);
 entity::set_pose("CROAKING");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Description** |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `pose`   | Marker<br/>**CROAKING** - Croaking (for Toads)<br/>**DIGGING** - Digging (For Guardian)<br/>**DYING** - Death<br/>**EMERGING** - Emerging from the Earth (for Guardian)<br/>**FALL_FLYING** - Elytra Flying<br/>**LONG_JUMPING** - Long Jump<br/>**ROARING** - Roar (for Guardian)<br/>**SLEEPING** - Sleeping<br/>**SNEAKING** - None<br/>**SNIFFING** - Sniffing (for Guardian)<br/>**SPIN_ATTACK** - Use Thruster<br/>**STANDING** - Normal State<br/>**SWIMMING** - Swimming<br/>**USING_TONGUE** - Using Tongue (For Toads) | Display Pose    |
 <h3 id=entity_set_potion_cloud_radius>
   <code>entity::set_potion_cloud_radius</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1969,6 +2601,12 @@ entity::set_pose("CROAKING");
 entity::set_potion_cloud_radius(1,2);
 ```
 
+**Arguments:**
+
+| **Name**          | **Type** | **Description** |
+| ----------------- | -------- | --------------- |
+| `radius`          | Number   | Radius          |
+| `shrinking_speed` | Number   | Speed           |
 <h3 id=entity_set_primed_tnt_block>
   <code>entity::set_primed_tnt_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1985,6 +2623,11 @@ entity::set_potion_cloud_radius(1,2);
 entity::set_primed_tnt_block(item("stone"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `block`  | Block    | None            |
 <h3 id=entity_set_projectile_display_item>
   <code>entity::set_projectile_display_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1999,6 +2642,11 @@ entity::set_primed_tnt_block(item("stone"));
 entity::set_projectile_display_item(item("stick"));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `item`   | Item     | Item to Set     |
 <h3 id=entity_set_projectile_shooter>
   <code>entity::set_projectile_shooter</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2013,6 +2661,11 @@ entity::set_projectile_display_item(item("stick"));
 entity::set_projectile_shooter("uuid");
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**             |
+| -------- | -------- | --------------------------- |
+| `uuid`   | Text     | Name or UUID of the shooter |
 <h3 id=entity_set_rabbit_type>
   <code>entity::set_rabbit_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2029,6 +2682,11 @@ entity::set_projectile_shooter("uuid");
 entity::set_rabbit_type("BLACK");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                                                                                                                                                                                             | **Description** |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `rabbit_type` | Marker<br/>**BLACK** - Black<br/>**BLACK_AND_WHITE** - Black and White<br/>**BROWN** - Brown<br/>**GOLD** - Gold<br/>**SALT_AND_PEPPER** - White Brown<br/>**THE_KILLER_BUNNY** - Killer Bunny<br/>**WHITE** - White | Rabbit Type     |
 <h3 id=entity_set_rearing>
   <code>entity::set_rearing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2045,6 +2703,11 @@ entity::set_rabbit_type("BLACK");
 entity::set_rearing("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                                                    | **Description** |
+| --------- | --------------------------------------------------------------------------- | --------------- |
+| `rearing` | Marker<br/>**TRUE** - Stand on your hind legs<br/>**FALSE** - Regular State | Horse Pose      |
 <h3 id=entity_set_riptiding>
   <code>entity::set_riptiding</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2059,6 +2722,11 @@ entity::set_rearing("TRUE");
 entity::set_riptiding("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                             | **Description**     |
+| ----------- | ---------------------------------------------------- | ------------------- |
+| `riptiding` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Riptiding Animation |
 <h3 id=entity_set_rotation>
   <code>entity::set_rotation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2073,6 +2741,12 @@ entity::set_riptiding("TRUE");
 entity::set_rotation(1,2);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**           |
+| -------- | -------- | ------------------------- |
+| `yaw`    | Number   | Horizontal rotation (yaw) |
+| `pitch`  | Number   | Pitch                     |
 <h3 id=entity_set_rotation_by_vector>
   <code>entity::set_rotation_by_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2087,6 +2761,11 @@ entity::set_rotation(1,2);
 entity::set_rotation_by_vector(vector(0,0,0));
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**  |
+| -------- | -------- | ---------------- |
+| `vector` | Vector   | Vector to Rotate |
 <h3 id=entity_set_sheep_sheared>
   <code>entity::set_sheep_sheared</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2103,6 +2782,11 @@ entity::set_rotation_by_vector(vector(0,0,0));
 entity::set_sheep_sheared("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                           | **Description**  |
+| --------- | -------------------------------------------------- | ---------------- |
+| `sheared` | Marker<br/>**TRUE** - Sheep<br/>**FALSE** - No Fur | Presence of Wool |
 <h3 id=entity_set_shulker_bullet_target>
   <code>entity::set_shulker_bullet_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2119,6 +2803,11 @@ entity::set_sheep_sheared("TRUE");
 entity::set_shulker_bullet_target("target");
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**            |
+| -------- | -------- | -------------------------- |
+| `target` | Text     | Name or UUID of the target |
 <h3 id=entity_set_silenced>
   <code>entity::set_silenced</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2133,6 +2822,11 @@ entity::set_shulker_bullet_target("target");
 entity::set_silenced("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                             | **Description** |
+| ---------- | ---------------------------------------------------- | --------------- |
+| `silenced` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Mute            |
 <h3 id=entity_set_sitting>
   <code>entity::set_sitting</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2153,6 +2847,11 @@ entity::set_silenced("TRUE");
 entity::set_sitting("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                             | **Description** |
+| --------- | ---------------------------------------------------- | --------------- |
+| `sitting` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Setting Mode    |
 <h3 id=entity_set_size>
   <code>entity::set_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2170,6 +2869,11 @@ entity::set_sitting("TRUE");
 entity::set_size(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `size`   | Number   | Size            |
 <h3 id=entity_set_sniffer_state>
   <code>entity::set_sniffer_state</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2186,6 +2890,11 @@ entity::set_size(1);
 entity::set_sniffer_state("DIGGING");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                                                                                                                                                         | **Description** |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `state`  | Marker<br/>**DIGGING** - Digging<br/>**FEELING_HAPPY** - Feels Happy<br/>**IDLING** - Normal State<br/>**RISING** - Rising<br/>**SCENTING** - Tracking<br/>**SEARCHING** - Searching<br/>**SNIFFING** - Sniffing | Sniffer State   |
 <h3 id=entity_set_snowman_pumpkin>
   <code>entity::set_snowman_pumpkin</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2202,6 +2911,11 @@ entity::set_sniffer_state("DIGGING");
 entity::set_snowman_pumpkin("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                             | **Description**    |
+| --------- | ---------------------------------------------------- | ------------------ |
+| `pumpkin` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Pumpkin Visibility |
 <h3 id=entity_set_tame>
   <code>entity::set_tame</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2223,6 +2937,11 @@ entity::set_snowman_pumpkin("TRUE");
 entity::set_tame("name_or_uuid");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description**     |
+| -------------- | -------- | ------------------- |
+| `name_or_uuid` | Text     | Entity name or UUID |
 <h3 id=entity_set_target>
   <code>entity::set_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2241,6 +2960,11 @@ entity::set_tame("name_or_uuid");
 entity::set_target("name_or_uuid");
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description**            |
+| -------------- | -------- | -------------------------- |
+| `name_or_uuid` | Text     | Name or UUID of the target |
 <h3 id=entity_set_text_display_alignment>
   <code>entity::set_text_display_alignment</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2257,6 +2981,11 @@ entity::set_target("name_or_uuid");
 entity::set_text_display_alignment("CENTER");
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                                                 | **Description** |
+| ---------------- | ------------------------------------------------------------------------ | --------------- |
+| `text_alignment` | Marker<br/>**CENTER** - Center<br/>**LEFT** - Left<br/>**RIGHT** - Right | Text Alignment  |
 <h3 id=entity_set_text_display_background>
   <code>entity::set_text_display_background</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2273,6 +3002,12 @@ entity::set_text_display_alignment("CENTER");
 entity::set_text_display_background("color_hexadecimal",1);
 ```
 
+**Arguments:**
+
+| **Name**            | **Type** | **Description** |
+| ------------------- | -------- | --------------- |
+| `color_hexadecimal` | Text     | HEX color       |
+| `opacity`           | Number   | Percent Opacity |
 <h3 id=entity_set_text_display_line_width>
   <code>entity::set_text_display_line_width</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2289,6 +3024,11 @@ entity::set_text_display_background("color_hexadecimal",1);
 entity::set_text_display_line_width(1);
 ```
 
+**Arguments:**
+
+| **Name**     | **Type** | **Description** |
+| ------------ | -------- | --------------- |
+| `line_width` | Number   | Line Width      |
 <h3 id=entity_set_text_display_opacity>
   <code>entity::set_text_display_opacity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2305,6 +3045,11 @@ entity::set_text_display_line_width(1);
 entity::set_text_display_opacity(1);
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description** |
+| -------------- | -------- | --------------- |
+| `text_opacity` | Number   | Text Opacity    |
 <h3 id=entity_set_text_display_see_through>
   <code>entity::set_text_display_see_through</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2321,6 +3066,11 @@ entity::set_text_display_opacity(1);
 entity::set_text_display_see_through("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**             | **Type**                                             | **Description**           |
+| -------------------- | ---------------------------------------------------- | ------------------------- |
+| `enable_see_through` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Visibility Through Blocks |
 <h3 id=entity_set_text_display_text>
   <code>entity::set_text_display_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2337,6 +3087,12 @@ entity::set_text_display_see_through("TRUE");
 entity::set_text_display_text(["displayed_text", "displayed_text"],"SPACES");
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                                                                                       | **Description** |
+| ---------------- | -------------------------------------------------------------------------------------------------------------- | --------------- |
+| `displayed_text` | list[Text]                                                                                                     | Displayed Text  |
+| `merging_mode`   | Marker<br/>**SPACES** - Space Separation<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines | Merge Text      |
 <h3 id=entity_set_text_display_text_shadow>
   <code>entity::set_text_display_text_shadow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2353,6 +3109,11 @@ entity::set_text_display_text(["displayed_text", "displayed_text"],"SPACES");
 entity::set_text_display_text_shadow("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**             | **Type**                                             | **Description** |
+| -------------------- | ---------------------------------------------------- | --------------- |
+| `enable_text_shadow` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Text Shadow     |
 <h3 id=entity_set_tropical_fish_pattern>
   <code>entity::set_tropical_fish_pattern</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2369,6 +3130,13 @@ entity::set_text_display_text_shadow("TRUE");
 entity::set_tropical_fish_pattern("WHITE","WHITE","KOB");
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Description** |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `pattern_color` | Marker<br/>**WHITE** - White<br/>**ORANGE** - Orange<br/>**MAGENTA** - Magenta<br/>**LIGHT_BLUE** - Blue<br/>**YELLOW** - Yellow<br/>**LIME** - Lime<br/>**PINK** - Pink<br/>**GRAY** - Gray<br/>**LIGHT_GRAY** - Light Gray<br/>**CYAN** - Turquoise<br/>**PURPLE** - Purple<br/>**BLUE** - Blue<br/>**BROWN** - Brown<br/>**GREEN** - Green<br/>**RED** - Red<br/>**BLACK** - Black<br/>**DO_NOT_CHANGE** - Don't Change | Pattern Color   |
+| `body_color`    | Marker<br/>**WHITE** - White<br/>**ORANGE** - Orange<br/>**MAGENTA** - Magenta<br/>**LIGHT_BLUE** - Blue<br/>**YELLOW** - Yellow<br/>**LIME** - Lime<br/>**PINK** - Pink<br/>**GRAY** - Gray<br/>**LIGHT_GRAY** - Light Gray<br/>**CYAN** - Turquoise<br/>**PURPLE** - Purple<br/>**BLUE** - Blue<br/>**BROWN** - Brown<br/>**GREEN** - Green<br/>**RED** - Red<br/>**BLACK** - Black<br/>**DO_NOT_CHANGE** - Don't Change | Body Color      |
+| `pattern`       | Marker<br/>**KOB** - Kob<br/>**SUNSTREAK** - SunStreak<br/>**SNOOPER** - Snooper<br/>**DASHER** - Dasher<br/>**BRINELY** - Brinely<br/>**SPOTTY** - Spotty<br/>**FLOPPER** - Flopper<br/>**STRIPEY** - Stripey<br/>**GLITTER** - Glitter<br/>**BLOCKFISH** - Blockfish<br/>**BETTY** - Betty<br/>**CLAYFISH** - Clayfish<br/>**DO_NOT_CHANGE** - Don't Change                                                              | Pattern         |
 <h3 id=entity_set_location>
   <code>entity::set_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2383,6 +3151,12 @@ entity::set_tropical_fish_pattern("WHITE","WHITE","KOB");
 entity::set_location(vector(0,0,0),"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                               | **Description**          |
+| ----------- | ------------------------------------------------------ | ------------------------ |
+| `velocity`  | Vector                                                 | Motion Vector            |
+| `increment` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Consider current inertia |
 <h3 id=entity_set_vex_charging>
   <code>entity::set_vex_charging</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2399,6 +3173,11 @@ entity::set_location(vector(0,0,0),"TRUE");
 entity::set_vex_charging("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**   | **Type**                                        | **Description** |
+| ---------- | ----------------------------------------------- | --------------- |
+| `charging` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=entity_set_vex_limited_lifetime_ticks>
   <code>entity::set_vex_limited_lifetime_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2415,6 +3194,11 @@ entity::set_vex_charging("TRUE");
 entity::set_vex_limited_lifetime_ticks(1);
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `lifetime` | Number   | None            |
 <h3 id=entity_set_villager_biome>
   <code>entity::set_villager_biome</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2431,6 +3215,11 @@ entity::set_vex_limited_lifetime_ticks(1);
 entity::set_villager_biome("DESERT");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                                                                                                                   | **Description** |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `biome`  | Marker<br/>**DESERT** - Desert<br/>**JUNGLE** - Jungle<br/>**PLAINS** - Plains<br/>**SAVANNA** - Savannah<br/>**SNOW** - Snowy<br/>**SWAMP** - Swamp<br/>**TAIGA** - Taiga | Biome           |
 <h3 id=entity_set_villager_experience>
   <code>entity::set_villager_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2447,6 +3236,11 @@ entity::set_villager_biome("DESERT");
 entity::set_villager_experience(1);
 ```
 
+**Arguments:**
+
+| **Name**     | **Type** | **Description**      |
+| ------------ | -------- | -------------------- |
+| `experience` | Number   | Amount of Experience |
 <h3 id=entity_set_villager_profession>
   <code>entity::set_villager_profession</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2464,6 +3258,11 @@ entity::set_villager_experience(1);
 entity::set_villager_profession("NONE");
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Description**     |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `profession` | Marker<br/>**NONE** - No Profession<br/>**ARMORER** - Armorer<br/>**BUTCHER** - Butcher<br/>**CARTOGRAPHER** - Cartographer<br/>**CLERIC** - Priest<br/>**FARMER** - Farmer<br/>**FISHERMAN** - Fisherman<br/>**FLETCHER** - Archer<br/>**LEATHERWORKER** - Leatherworker<br/>**LIBRARIAN** - Librarian<br/>**MASON** - Mason<br/>**NITWIT** - Beggar<br/>**SHEPHERD** - Shepherd<br/>**TOOLSMITH** - Toolsmith<br/>**WEAPONSMITH** - Weaponsmith | Villager Profession |
 <h3 id=entity_set_visual_fire>
   <code>entity::set_visual_fire</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2478,6 +3277,11 @@ entity::set_villager_profession("NONE");
 entity::set_visual_fire("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                             | **Description** |
+| ------------- | ---------------------------------------------------- | --------------- |
+| `visual_fire` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Fire Display    |
 <h3 id=entity_set_warden_anger_level>
   <code>entity::set_warden_anger_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2496,6 +3300,12 @@ entity::set_visual_fire("TRUE");
 entity::set_warden_anger_level("name_or_uuid",1);
 ```
 
+**Arguments:**
+
+| **Name**       | **Type** | **Description**        |
+| -------------- | -------- | ---------------------- |
+| `name_or_uuid` | Text     | Entity name or UUID    |
+| `anger`        | Number   | Anger Level (0 to 150) |
 <h3 id=entity_set_warden_digging>
   <code>entity::set_warden_digging</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2510,6 +3320,11 @@ entity::set_warden_anger_level("name_or_uuid",1);
 entity::set_warden_digging("EMERGE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                             | **Description** |
+| --------- | ---------------------------------------------------- | --------------- |
+| `digging` | Marker<br/>**EMERGE** - None<br/>**DIG_DOWN** - None | None            |
 <h3 id=entity_set_wearing_saddle>
   <code>entity::set_wearing_saddle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2528,6 +3343,11 @@ entity::set_warden_digging("EMERGE");
 entity::set_wearing_saddle("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**  | **Type**                                             | **Description** |
+| --------- | ---------------------------------------------------- | --------------- |
+| `wearing` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Having a Saddle |
 <h3 id=entity_set_wither_invulnerability_ticks>
   <code>entity::set_wither_invulnerability_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2544,6 +3364,11 @@ entity::set_wearing_saddle("TRUE");
 entity::set_wither_invulnerability_ticks(1);
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description**                  |
+| -------- | -------- | -------------------------------- |
+| `ticks`  | Number   | Invulnerability Duration (Ticks) |
 <h3 id=entity_set_zombie_arms_raised>
   <code>entity::set_zombie_arms_raised</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2558,6 +3383,11 @@ entity::set_wither_invulnerability_ticks(1);
 entity::set_zombie_arms_raised("TRUE");
 ```
 
+**Arguments:**
+
+| **Name**      | **Type**                                             | **Description** |
+| ------------- | ---------------------------------------------------- | --------------- |
+| `arms_raised` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Raise Hands     |
 <h3 id=entity_shear_sheep>
   <code>entity::shear_sheep</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2590,6 +3420,11 @@ entity::shear_sheep();
 entity::sleep("TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                             | **Description** |
+| -------- | ---------------------------------------------------- | --------------- |
+| `sleep`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Sleep Mode      |
 <h3 id=entity_swing_hand>
   <code>entity::swing_hand</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2604,6 +3439,11 @@ entity::sleep("TRUE");
 entity::swing_hand("MAIN");
 ```
 
+**Arguments:**
+
+| **Name**    | **Type**                                       | **Description** |
+| ----------- | ---------------------------------------------- | --------------- |
+| `hand_type` | Marker<br/>**MAIN** - Main<br/>**OFF** - Minor | Hand Type       |
 <h3 id=entity_teleport>
   <code>entity::teleport</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2618,6 +3458,12 @@ entity::swing_hand("MAIN");
 entity::teleport(location(0,0,0,0,0),"TRUE");
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**                                               | **Description**       |
+| --------------- | ------------------------------------------------------ | --------------------- |
+| `location`      | Location                                               | New Position          |
+| `keep_rotation` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Keep Current Rotation |
 <h3 id=entity_use_item>
   <code>entity::use_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2634,6 +3480,12 @@ entity::teleport(location(0,0,0,0,0),"TRUE");
 entity::use_item("MAIN_HAND","TRUE");
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                         | **Description** |
+| -------- | ---------------------------------------------------------------- | --------------- |
+| `hand`   | Marker<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Off Hand | Hand Type       |
+| `enable` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable             | Use             |
 <h3 id=if_entity_collides_at_location>
   <code>entity::collides_at_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2650,6 +3502,11 @@ if(entity::collides_at_location(location(0,0,0,0,0)){
 }
 ```
 
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `location` | Location | None            |
 <h3 id=if_entity_collides_using_hitbox>
   <code>entity::collides_using_hitbox</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2666,6 +3523,12 @@ if(entity::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
 }
 ```
 
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `min`    | Location | None            |
+| `max`    | Location | None            |
 <h3 id=if_entity_collides_with_entity>
   <code>entity::collides_with_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2682,6 +3545,12 @@ if(entity::collides_with_entity("name_or_uuid","OVERLAPS"){
 }
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                               | **Description** |
+| -------------- | ------------------------------------------------------ | --------------- |
+| `name_or_uuid` | Text                                                   | None            |
+| `check_type`   | Marker<br/>**OVERLAPS** - None<br/>**CONTAINS** - None | None            |
 <h3 id=if_entity_exists>
   <code>entity::exists</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2714,6 +3583,12 @@ if(entity::has_custom_tag("tag","tag_value"){
 }
 ```
 
+**Arguments:**
+
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `tag`       | Text     | Tag Name        |
+| `tag_value` | Text     | Tag Value       |
 <h3 id=if_entity_has_potion_effect>
   <code>entity::has_potion_effect</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2730,6 +3605,12 @@ if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 }
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                                  | **Description** |
+| ------------ | --------------------------------------------------------- | --------------- |
+| `potions`    | list[Potion]                                              | Potions to Test |
+| `check_mode` | Marker<br/>**ANY** - Any Effect<br/>**ALL** - All Effects | Check Mode      |
 <h3 id=if_entity_is_disguised>
   <code>entity::is_disguised</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2778,6 +3659,15 @@ if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"TRUE","POINT","OVERL
 }
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**                                                  | **Description**        |
+| ---------------- | --------------------------------------------------------- | ---------------------- |
+| `location_1`     | Location                                                  | First corner of region |
+| `location_2`     | Location                                                  | Second Region Corner   |
+| `ignore_y_axis`  | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't ignore | Ignore Y Axis          |
+| `intersect_type` | Marker<br/>**POINT** - None<br/>**HITBOX** - None         | None                   |
+| `check_type`     | Marker<br/>**OVERLAPS** - None<br/>**CONTAINS** - None    | None                   |
 <h3 id=if_entity_is_item>
   <code>entity::is_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2826,6 +3716,13 @@ if(entity::is_near_location("TRUE",location(0,0,0,0,0),1){
 }
 ```
 
+**Arguments:**
+
+| **Name**        | **Type**                                                  | **Description**   |
+| --------------- | --------------------------------------------------------- | ----------------- |
+| `ignore_y_axis` | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't ignore | Ignore Y Axis     |
+| `location`      | Location                                                  | Location to check |
+| `range`         | Number                                                    | Check Radius      |
 <h3 id=if_entity_is_projectile>
   <code>entity::is_projectile</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2858,6 +3755,12 @@ if(entity::is_riding_entity(["entity_ids", "entity_ids"],"NEAREST"){
 }
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**                                              | **Description**          |
+| -------------- | ----------------------------------------------------- | ------------------------ |
+| `entity_ids`   | list[Text]                                            | Name or UUID of entities |
+| `compare_mode` | Marker<br/>**NEAREST** - None<br/>**FARTHEST** - None | Riding Mode              |
 <h3 id=if_entity_is_standing_on_block>
   <code>entity::is_standing_on_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2874,6 +3777,13 @@ if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 }
 ```
 
+**Arguments:**
+
+| **Name**     | **Type**                                        | **Description**    |
+| ------------ | ----------------------------------------------- | ------------------ |
+| `blocks`     | list[Block]                                     | Blocks to Check    |
+| `locations`  | list[Location]                                  | Locations to Check |
+| `only_solid` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None               |
 <h3 id=if_entity_is_type>
   <code>entity::is_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2890,6 +3800,11 @@ if(entity::is_type([item("stick"), item("stick")]){
 }
 ```
 
+**Arguments:**
+
+| **Name**       | **Type**   | **Description** |
+| -------------- | ---------- | --------------- |
+| `entity_types` | list[Item] | Entity Type     |
 <h3 id=if_entity_is_vehicle>
   <code>entity::is_vehicle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2922,6 +3837,11 @@ if(entity::name_equals(["names_or_uuids", "names_or_uuids"]){
 }
 ```
 
+**Arguments:**
+
+| **Name**         | **Type**   | **Description**         |
+| ---------------- | ---------- | ----------------------- |
+| `names_or_uuids` | list[Text] | Names or UUIDs to check |
 <h3 id=if_entity_spawn_reason_equals>
   <code>entity::spawn_reason_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2938,3 +3858,8 @@ if(entity::spawn_reason_equals("BEEHIVE"){
 }
 ```
 
+**Arguments:**
+
+| **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Description** |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `reason` | Marker<br/>**BEEHIVE** - Beehive Spawn<br/>**BREEDING** - From breeding<br/>**BUILD_IRONGOLEM** - From Build Iron Golem<br/>**BUILD_SNOWMAN** - From Build Snow Golem<br/>**BUILD_WITHER** - From Build Wither<br/>**COMMAND** - Command<br/>**CURED** - Cure Citizen<br/>**CUSTOM** - Custom<br/>**DEFAULT** - Standard<br/>**DISPENSE_EGG** - Dispenser Spawn<br/>**DROWNED** - From drowning<br/>**EGG** - Egg Spawn<br/>**ENDER_PEARL** - Spawn from End Pearl<br/>**EXPLOSION** - After Explosion<br/>**FROZEN** - From Freezing<br/>**INFECTION** - From Zombie Infection<br/>**JOCKEY** - As an Entity Jockey<br/>**LIGHTNING** - From Lightning<br/>**MOUNT** - As Entity Transport<br/>**NATURAL** - Natural Spawn<br/>**NETHER_PORTAL** - From Nether Portal<br/>**OCELOT_BABY** - Ocelot's Baby<br/>**PATROL** - Rogue Patrol<br/>**PIGLIN_ZOMBIFIED** - Zombie<br/>**RAID** - From Raid<br/>**REINFORCEMENTS** - Reinforcements<br/>**SHEARED** - From Shearing<br/>**SHOULDER_ENTITY** - Shoulder Jump<br/>**SILVERFISH_BLOCK** - From Block<br/>**SLIME_SPLIT** - Slime Split<br/>**SPAWNER** - From Mob Spawner<br/>**SPAWNER_EGG** - From the Spawn Egg<br/>**TRAP** - Trap<br/>**VILLAGER_DEFENSE** - Villager Defense<br/>**VILLAGE_INVASION** - Village Attack | Spawn Reason    |

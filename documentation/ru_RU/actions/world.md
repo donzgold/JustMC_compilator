@@ -12,6 +12,13 @@
 world::block_growth(location(0,0,0,0,0),1,"STAGE_NUMBER");
 ```
 
+**Аргументы:**
+
+| **Имя**        | **Тип**                                                                             | **Описание**         |
+| -------------- | ----------------------------------------------------------------------------------- | -------------------- |
+| `location`     | Местоположение                                                                      | Местоположение блока |
+| `growth_stage` | Число                                                                               | Стадия роста         |
+| `growth_type`  | Маркер<br/>**STAGE_NUMBER** - Номер стадии роста<br/>**PERCENTAGE** - Процент роста | Тип роста            |
 <h3 id=game_bloom_skulk_catalyst>
   <code>world::bloom_skulk_catalyst</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -28,6 +35,13 @@ world::block_growth(location(0,0,0,0,0),1,"STAGE_NUMBER");
 world::bloom_skulk_catalyst(location(0,0,0,0,0),location(0,0,0,0,0),1);
 ```
 
+**Аргументы:**
+
+| **Имя**          | **Тип**        | **Описание**                           |
+| ---------------- | -------------- | -------------------------------------- |
+| `location`       | Местоположение | Местоположение скалкового катализатора |
+| `bloom_location` | Местоположение | Конечное местоположение                |
+| `charge`         | Число          | Сила заражения                         |
 <h3 id=game_bone_meal_block>
   <code>world::bone_meal_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -42,6 +56,12 @@ world::bloom_skulk_catalyst(location(0,0,0,0,0),location(0,0,0,0,0),1);
 world::bone_meal_block(location(0,0,0,0,0),1);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**                |
+| ---------- | -------------- | --------------------------- |
+| `location` | Местоположение | Местоположение блока        |
+| `count`    | Число          | Количество попыток удобрить |
 <h3 id=game_break_block>
   <code>world::break_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -56,6 +76,13 @@ world::bone_meal_block(location(0,0,0,0,0),1);
 world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stick"),"TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**     | **Тип**                                                  | **Описание**          |
+| ----------- | -------------------------------------------------------- | --------------------- |
+| `locations` | список[Местоположение]                                   | Местоположения блоков |
+| `tool`      | Предмет                                                  | Инструмент            |
+| `drop_exp`  | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Выпадение опыта       |
 <h3 id=game_cancel_event>
   <code>world::cancel_event</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -86,6 +113,11 @@ world::cancel_event();
 world::clear_container(location(0,0,0,0,0));
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**              |
+| ---------- | -------------- | ------------------------- |
+| `location` | Местоположение | Местоположение контейнера |
 <h3 id=game_clear_container_items>
   <code>world::clear_container_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -102,6 +134,12 @@ world::clear_container(location(0,0,0,0,0));
 world::clear_container_items(location(0,0,0,0,0),[item("stick"), item("stick")]);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**         | **Описание**              |
+| ---------- | --------------- | ------------------------- |
+| `location` | Местоположение  | Местоположение контейнера |
+| `items`    | список[Предмет] | Предметы                  |
 <h3 id=game_clear_exploded_blocks>
   <code>world::clear_exploded_blocks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -119,6 +157,11 @@ world::clear_container_items(location(0,0,0,0,0),[item("stick"), item("stick")])
 world::clear_exploded_blocks([location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**                | **Описание**          |
+| ---------- | ---------------------- | --------------------- |
+| `location` | список[Местоположение] | Местоположения блоков |
 <h3 id=game_clear_region>
   <code>world::clear_region</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -133,6 +176,12 @@ world::clear_exploded_blocks([location(0,0,0,0,0), location(0,0,0,0,0)]);
 world::clear_region(location(0,0,0,0,0),location(0,0,0,0,0));
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип**        | **Описание**                 |
+| ------- | -------------- | ---------------------------- |
+| `pos_1` | Местоположение | Угол региона                 |
+| `pos_2` | Местоположение | Противоположный угол региона |
 <h3 id=game_clear_scoreboard_scores>
   <code>world::clear_scoreboard_scores</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -147,6 +196,11 @@ world::clear_region(location(0,0,0,0,0),location(0,0,0,0,0));
 world::clear_scoreboard_scores("id");
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип** | **Описание** |
+| ------- | ------- | ------------ |
+| `id`    | Текст   | ID скорборда |
 <h3 id=game_clone_region>
   <code>world::clone_region</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -161,6 +215,16 @@ world::clear_scoreboard_scores("id");
 world::clone_region(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"TRUE","TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**       | **Тип**                                                            | **Описание**                 |
+| ------------- | ------------------------------------------------------------------ | ---------------------------- |
+| `pos_1`       | Местоположение                                                     | Угол региона                 |
+| `pos_2`       | Местоположение                                                     | Противоположный угол региона |
+| `target_pos`  | Местоположение                                                     | Местоположение копирования   |
+| `paste_pos`   | Местоположение                                                     | Местоположение для вставки   |
+| `ignore_air`  | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать | Игнорировать воздух          |
+| `copy_entity` | Маркер<br/>**TRUE** - Клонировать<br/>**FALSE** - Не клонировать   | Клонировать существ          |
 <h3 id=game_create_explosion>
   <code>world::create_explosion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -175,6 +239,12 @@ world::clone_region(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),
 world::create_explosion(location(0,0,0,0,0),1);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**            |
+| ---------- | -------------- | ----------------------- |
+| `location` | Местоположение | Место создания          |
+| `power`    | Число          | Сила взрыва (от 0 до 4) |
 <h3 id=game_create_scoreboard>
   <code>world::create_scoreboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -189,6 +259,12 @@ world::create_explosion(location(0,0,0,0,0),1);
 world::create_scoreboard("id","display_name");
 ```
 
+**Аргументы:**
+
+| **Имя**        | **Тип** | **Описание** |
+| -------------- | ------- | ------------ |
+| `id`           | Текст   | ID скорборда |
+| `display_name` | Текст   | Заголовок    |
 <h3 id=game_fill_container>
   <code>world::fill_container</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -205,6 +281,12 @@ world::create_scoreboard("id","display_name");
 world::fill_container(location(0,0,0,0,0),[item("stick"), item("stick")]);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**         | **Описание**              |
+| ---------- | --------------- | ------------------------- |
+| `location` | Местоположение  | Местоположение контейнера |
+| `items`    | список[Предмет] | Предметы для заполнения   |
 <h3 id=game_generate_tree>
   <code>world::generate_tree</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -219,6 +301,12 @@ world::fill_container(location(0,0,0,0,0),[item("stick"), item("stick")]);
 world::generate_tree(location(0,0,0,0,0),"TREE");
 ```
 
+**Аргументы:**
+
+| **Имя**     | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | **Описание**          |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `location`  | Местоположение                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Местоположение дерева |
+| `tree_type` | Маркер<br/>**TREE** - Обычное дерево<br/>**ACACIA** - Акация<br/>**BIG_TREE** - Большое дерево<br/>**BIRCH** - Обычная берёза<br/>**BROWN_MUSHROOM** - Коричневый гриб<br/>**CHORUS_PLANT** - Дерево хоруса<br/>**COCOA_TREE** - Дерево джунглей с какао-бобами<br/>**CRIMSON_FUNGUS** - Багровый гриб<br/>**DARK_OAK** - Тёмный дуб<br/>**JUNGLE** - Дерево джунглей<br/>**JUNGLE_BUSH** - Куст джунглей<br/>**MEGA_REDWOOD** - Огромная секвойя<br/>**REDWOOD** - Обычная ель<br/>**RED_MUSHROOM** - Красный гриб<br/>**SMALL_JUNGLE** - Маленькое дерево джунглей<br/>**SWAMP** - Болотное дерево<br/>**TALL_BIRCH** - Высокая берёза<br/>**TALL_REDWOOD** - Высокая ель<br/>**WARPED_FUNGUS** - Искажённый гриб<br/>**AZALEA** - Азалия | Тип дерева            |
 <h3 id=game_hide_event_message>
   <code>world::hide_event_message</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -237,6 +325,11 @@ world::generate_tree(location(0,0,0,0,0),"TREE");
 world::hide_event_message("TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип**                                      | **Описание**     |
+| ------- | -------------------------------------------- | ---------------- |
+| `hide`  | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Убрать сообщение |
 <h3 id=game_launch_firework>
   <code>world::launch_firework</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -251,6 +344,14 @@ world::hide_event_message("TRUE");
 world::launch_firework(item("stick"),location(0,0,0,0,0),"UPWARDS","TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**                                                           | **Описание**           |
+| ---------- | ----------------------------------------------------------------- | ---------------------- |
+| `firework` | Предмет                                                           | Фейерверк для создания |
+| `location` | Местоположение                                                    | Место создания         |
+| `movement` | Маркер<br/>**UPWARDS** - Вверх<br/>**DIRECTIONAL** - Направленное | Движение               |
+| `instant`  | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                      | Мгновенный взрыв       |
 <h3 id=game_launch_projectile>
   <code>world::launch_projectile</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -265,6 +366,16 @@ world::launch_firework(item("stick"),location(0,0,0,0,0),"UPWARDS","TRUE");
 world::launch_projectile(item("stick"),location(0,0,0,0,0),1,2,"custom_name",particle("fire"));
 ```
 
+**Аргументы:**
+
+| **Имя**       | **Тип**        | **Описание**                                    |
+| ------------- | -------------- | ----------------------------------------------- |
+| `projectile`  | Предмет        | Снаряд для запуска                              |
+| `location`    | Местоположение | Место запуска                                   |
+| `speed`       | Число          | Скорость снаряда                                |
+| `inaccuracy`  | Число          | Отклонение снаряда (0 чтобы снаряд летел ровно) |
+| `custom_name` | Текст          | Имя снаряда                                     |
+| `trail`       | Эффект частиц  | След, который будет оставаться за снарядом      |
 <h3 id=game_random_tick_block>
   <code>world::random_tick_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -279,6 +390,12 @@ world::launch_projectile(item("stick"),location(0,0,0,0,0),1,2,"custom_name",par
 world::random_tick_block(location(0,0,0,0,0),1);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**     |
+| ---------- | -------------- | ---------------- |
+| `location` | Местоположение | Местоположение   |
+| `times`    | Число          | Количество тиков |
 <h3 id=game_remove_container_items>
   <code>world::remove_container_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -295,6 +412,12 @@ world::random_tick_block(location(0,0,0,0,0),1);
 world::remove_container_items(location(0,0,0,0,0),[item("stick"), item("stick")]);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**         | **Описание**              |
+| ---------- | --------------- | ------------------------- |
+| `location` | Местоположение  | Местоположение контейнера |
+| `items`    | список[Предмет] | Предметы                  |
 <h3 id=game_remove_scoreboard>
   <code>world::remove_scoreboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -309,6 +432,11 @@ world::remove_container_items(location(0,0,0,0,0),[item("stick"), item("stick")]
 world::remove_scoreboard("id");
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип** | **Описание** |
+| ------- | ------- | ------------ |
+| `id`    | Текст   | ID скорборда |
 <h3 id=game_remove_scoreboard_score_by_name>
   <code>world::remove_scoreboard_score_by_name</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -323,6 +451,12 @@ world::remove_scoreboard("id");
 world::remove_scoreboard_score_by_name("id","text");
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип** | **Описание** |
+| ------- | ------- | ------------ |
+| `id`    | Текст   | ID скорборда |
+| `text`  | Текст   | ID линии     |
 <h3 id=game_remove_scoreboard_score_by_score>
   <code>world::remove_scoreboard_score_by_score</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -337,6 +471,12 @@ world::remove_scoreboard_score_by_name("id","text");
 world::remove_scoreboard_score_by_score("id",1);
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип** | **Описание**               |
+| ------- | ------- | -------------------------- |
+| `id`    | Текст   | ID скорборда               |
+| `score` | Число   | Счёт значения для удаления |
 <h3 id=game_replace_blocks_in_region>
   <code>world::replace_blocks_in_region</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -351,6 +491,14 @@ world::remove_scoreboard_score_by_score("id",1);
 world::replace_blocks_in_region([item("stone"), item("stone")],location(0,0,0,0,0),location(0,0,0,0,0),item("stone"));
 ```
 
+**Аргументы:**
+
+| **Имя**     | **Тип**        | **Описание**                 |
+| ----------- | -------------- | ---------------------------- |
+| `old_block` | список[Блок]   | Блоки для замены             |
+| `pos_1`     | Местоположение | Угол региона                 |
+| `pos_2`     | Местоположение | Противоположный угол региона |
+| `new_block` | Блок           | Новый блок                   |
 <h3 id=game_replace_container_items>
   <code>world::replace_container_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -367,6 +515,14 @@ world::replace_blocks_in_region([item("stone"), item("stone")],location(0,0,0,0,
 world::replace_container_items([item("stick"), item("stick")],location(0,0,0,0,0),item("stick"),1);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**         | **Описание**                    |
+| ---------- | --------------- | ------------------------------- |
+| `items`    | список[Предмет] | Заменяемые предметы             |
+| `location` | Местоположение  | Местоположение контейнера       |
+| `replace`  | Предмет         | Заменяющий предмет              |
+| `count`    | Число           | Количество предметов для замены |
 <h3 id=game_send_web_request>
   <code>world::send_web_request</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -381,6 +537,14 @@ world::replace_container_items([item("stick"), item("stick")],location(0,0,0,0,0
 world::send_web_request("url","content_body","GET","TEXT_PLAIN");
 ```
 
+**Аргументы:**
+
+| **Имя**        | **Тип**                                                                                                   | **Описание**      |
+| -------------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
+| `url`          | Текст                                                                                                     | URL               |
+| `content_body` | Текст                                                                                                     | Тело запроса      |
+| `request_type` | Маркер<br/>**GET** - GET<br/>**POST** - POST<br/>**PUT** - PUT<br/>**DELETE** - DELETE                    | Тип запроса       |
+| `content_type` | Маркер<br/>**TEXT_PLAIN** - Обычный текст (text/plain)<br/>**APPLICATION_JSON** - JSON (application/json) | Медиа тип запроса |
 <h3 id=game_set_age>
   <code>world::set_age</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -397,6 +561,12 @@ world::send_web_request("url","content_body","GET","TEXT_PLAIN");
 world::set_age(location(0,0,0,0,0),1);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**         |
+| ---------- | -------------- | -------------------- |
+| `location` | Местоположение | Местоположение блока |
+| `tick`     | Число          | Тики                 |
 <h3 id=game_set_block_analogue_power>
   <code>world::set_block_analogue_power</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -413,6 +583,12 @@ world::set_age(location(0,0,0,0,0),1);
 world::set_block_analogue_power(location(0,0,0,0,0),1);
 ```
 
+**Аргументы:**
+
+| **Имя**       | **Тип**        | **Описание**         |
+| ------------- | -------------- | -------------------- |
+| `location`    | Местоположение | Местоположение блока |
+| `power_level` | Число          | Новая сила сигнала   |
 <h3 id=game_set_block>
   <code>world::set_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -427,6 +603,13 @@ world::set_block_analogue_power(location(0,0,0,0,0),1);
 world::set_block(item("stone"),[location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**         | **Тип**                                                      | **Описание**                   |
+| --------------- | ------------------------------------------------------------ | ------------------------------ |
+| `block`         | Блок                                                         | Блок                           |
+| `locations`     | список[Местоположение]                                       | Местоположения установки блока |
+| `update_blocks` | Маркер<br/>**TRUE** - Обновлять<br/>**FALSE** - Не обновлять | Обновлять блоки вокруг         |
 <h3 id=game_set_block_custom_tag>
   <code>world::set_block_custom_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -441,6 +624,13 @@ world::set_block(item("stone"),[location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE"
 world::set_block_custom_tag(location(0,0,0,0,0),"tag_name","tag_value");
 ```
 
+**Аргументы:**
+
+| **Имя**     | **Тип**        | **Описание** |
+| ----------- | -------------- | ------------ |
+| `location`  | Местоположение | None         |
+| `tag_name`  | Текст          | None         |
+| `tag_value` | Текст          | None         |
 <h3 id=game_set_block_data>
   <code>world::set_block_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -455,6 +645,12 @@ world::set_block_custom_tag(location(0,0,0,0,0),"tag_name","tag_value");
 world::set_block_data(location(0,0,0,0,0),"block_data");
 ```
 
+**Аргументы:**
+
+| **Имя**      | **Тип**        | **Описание**          |
+| ------------ | -------------- | --------------------- |
+| `location`   | Местоположение | Местоположение блока  |
+| `block_data` | Текст          | Новые параметры блока |
 <h3 id=game_set_block_drops_enabled>
   <code>world::set_block_drops_enabled</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -469,6 +665,11 @@ world::set_block_data(location(0,0,0,0,0),"block_data");
 world::set_block_drops_enabled("TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**  | **Тип**                                                  | **Описание**     |
+| -------- | -------------------------------------------------------- | ---------------- |
+| `enable` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Выпадение блоков |
 <h3 id=game_set_block_single_data>
   <code>world::set_block_single_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -483,6 +684,13 @@ world::set_block_drops_enabled("TRUE");
 world::set_block_single_data(location(0,0,0,0,0),"data","value");
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**         |
+| ---------- | -------------- | -------------------- |
+| `location` | Местоположение | Местоположение блока |
+| `data`     | Текст          | Изменяемый параметр  |
+| `value`    | Текст          | Новое значение       |
 <h3 id=game_set_brushable_block_item>
   <code>world::set_brushable_block_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -500,6 +708,12 @@ world::set_block_single_data(location(0,0,0,0,0),"data","value");
 world::set_brushable_block_item(location(0,0,0,0,0),item("stick"));
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**         |
+| ---------- | -------------- | -------------------- |
+| `location` | Местоположение | Местоположение блока |
+| `item`     | Предмет        | Предмет              |
 <h3 id=game_set_campfire_item>
   <code>world::set_campfire_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -516,6 +730,14 @@ world::set_brushable_block_item(location(0,0,0,0,0),item("stick"));
 world::set_campfire_item(location(0,0,0,0,0),item("stick"),1,"FIRST");
 ```
 
+**Аргументы:**
+
+| **Имя**        | **Тип**                                                                                                 | **Описание**          |
+| -------------- | ------------------------------------------------------------------------------------------------------- | --------------------- |
+| `location`     | Местоположение                                                                                          | Местоположение костра |
+| `item`         | Предмет                                                                                                 | Предмет               |
+| `cooking_time` | Число                                                                                                   | Время готовки         |
+| `slot`         | Маркер<br/>**FIRST** - Первый<br/>**SECOND** - Второй<br/>**THIRD** - Третий<br/>**FOURTH** - Четвёртый | Слот                  |
 <h3 id=game_set_container>
   <code>world::set_container</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -532,6 +754,12 @@ world::set_campfire_item(location(0,0,0,0,0),item("stick"),1,"FIRST");
 world::set_container([location(0,0,0,0,0), location(0,0,0,0,0)],[item("stick"), item("stick")]);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**                | **Описание**              |
+| ---------- | ---------------------- | ------------------------- |
+| `location` | список[Местоположение] | Местоположение контейнера |
+| `items`    | список[Предмет]        | Предметы для установки    |
 <h3 id=game_set_container_lock>
   <code>world::set_container_lock</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -546,6 +774,12 @@ world::set_container([location(0,0,0,0,0), location(0,0,0,0,0)],[item("stick"), 
 world::set_container_lock(location(0,0,0,0,0),"container_key");
 ```
 
+**Аргументы:**
+
+| **Имя**         | **Тип**        | **Описание**              |
+| --------------- | -------------- | ------------------------- |
+| `location`      | Местоположение | Местоположение контейнера |
+| `container_key` | Текст          | Имя ключа контейнера      |
 <h3 id=game_set_container_name>
   <code>world::set_container_name</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -562,6 +796,12 @@ world::set_container_lock(location(0,0,0,0,0),"container_key");
 world::set_container_name(location(0,0,0,0,0),"name");
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**              |
+| ---------- | -------------- | ------------------------- |
+| `location` | Местоположение | Местоположение контейнера |
+| `name`     | Текст          | Имя контейнера            |
 <h3 id=game_set_decorate_pot_sherd>
   <code>world::set_decorate_pot_sherd</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -578,6 +818,13 @@ world::set_container_name(location(0,0,0,0,0),"name");
 world::set_decorate_pot_sherd(location(0,0,0,0,0),item("stick"),"BACK");
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**                                                                                                                           | **Описание**           |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `location` | Местоположение                                                                                                                    | Местоположение кувшина |
+| `item`     | Предмет                                                                                                                           | Черепок для установки  |
+| `side`     | Маркер<br/>**BACK** - Задняя сторона<br/>**FRONT** - Передняя сторона<br/>**LEFT** - Левая сторона<br/>**RIGHT** - Правая сторона | Сторона кувшина        |
 <h3 id=game_set_event_damage>
   <code>world::set_event_damage</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -594,6 +841,11 @@ world::set_decorate_pot_sherd(location(0,0,0,0,0),item("stick"),"BACK");
 world::set_event_damage(1);
 ```
 
+**Аргументы:**
+
+| **Имя**  | **Тип** | **Описание**     |
+| -------- | ------- | ---------------- |
+| `damage` | Число   | Количество урона |
 <h3 id=game_set_event_exhaustion>
   <code>world::set_event_exhaustion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -610,6 +862,11 @@ world::set_event_damage(1);
 world::set_event_exhaustion(1);
 ```
 
+**Аргументы:**
+
+| **Имя**      | **Тип** | **Описание**         |
+| ------------ | ------- | -------------------- |
+| `exhaustion` | Число   | Количество истощения |
 <h3 id=game_set_event_experience>
   <code>world::set_event_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -628,6 +885,11 @@ world::set_event_exhaustion(1);
 world::set_event_experience(1);
 ```
 
+**Аргументы:**
+
+| **Имя**      | **Тип** | **Описание**     |
+| ------------ | ------- | ---------------- |
+| `experience` | Число   | Количество опыта |
 <h3 id=game_set_event_heal>
   <code>world::set_event_heal</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -645,6 +907,11 @@ world::set_event_experience(1);
 world::set_event_heal(1);
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип** | **Описание**       |
+| ------- | ------- | ------------------ |
+| `heal`  | Число   | Количество лечения |
 <h3 id=game_set_event_item>
   <code>world::set_event_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -659,6 +926,11 @@ world::set_event_heal(1);
 world::set_event_item(item("stick"));
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип** | **Описание**          |
+| ------- | ------- | --------------------- |
+| `item`  | Предмет | Новый предмет события |
 <h3 id=game_set_event_items>
   <code>world::set_event_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -675,6 +947,11 @@ world::set_event_item(item("stick"));
 world::set_event_items([item("stick"), item("stick")]);
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип**         | **Описание**           |
+| ------- | --------------- | ---------------------- |
+| `items` | список[Предмет] | Предметы для установки |
 <h3 id=game_set_event_move_allowed>
   <code>world::set_event_move_allowed</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -691,6 +968,11 @@ world::set_event_items([item("stick"), item("stick")]);
 world::set_event_move_allowed("TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**   | **Тип**                                      | **Описание**           |
+| --------- | -------------------------------------------- | ---------------------- |
+| `allowed` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Разрешить передвижение |
 <h3 id=game_set_event_projectile>
   <code>world::set_event_projectile</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -705,6 +987,12 @@ world::set_event_move_allowed("TRUE");
 world::set_event_projectile(item("stick"),"name");
 ```
 
+**Аргументы:**
+
+| **Имя**      | **Тип** | **Описание**             |
+| ------------ | ------- | ------------------------ |
+| `projectile` | Предмет | Снаряд                   |
+| `name`       | Текст   | Отображаемое имя снаряда |
 <h3 id=game_set_event_uery_info>
   <code>world::set_event_uery_info</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -724,6 +1012,11 @@ world::set_event_projectile(item("stick"),"name");
 world::set_event_uery_info("information");
 ```
 
+**Аргументы:**
+
+| **Имя**       | **Тип** | **Описание**        |
+| ------------- | ------- | ------------------- |
+| `information` | Текст   | Дополнительные теги |
 <h3 id=game_set_event_sound>
   <code>world::set_event_sound</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -738,6 +1031,11 @@ world::set_event_uery_info("information");
 world::set_event_sound(sound("entity.zombie.hurt"));
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип** | **Описание**       |
+| ------- | ------- | ------------------ |
+| `sound` | Звук    | Проигрываемый звук |
 <h3 id=game_set_event_source_slot>
   <code>world::set_event_source_slot</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -754,6 +1052,11 @@ world::set_event_sound(sound("entity.zombie.hurt"));
 world::set_event_source_slot(1);
 ```
 
+**Аргументы:**
+
+| **Имя**       | **Тип** | **Описание**       |
+| ------------- | ------- | ------------------ |
+| `source_slot` | Число   | Слот для установки |
 <h3 id=game_set_event_target_slot>
   <code>world::set_event_target_slot</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -770,6 +1073,11 @@ world::set_event_source_slot(1);
 world::set_event_target_slot(1);
 ```
 
+**Аргументы:**
+
+| **Имя**  | **Тип** | **Описание**       |
+| -------- | ------- | ------------------ |
+| `target` | Число   | Слот для установки |
 <h3 id=game_set_furnace_cook_time>
   <code>world::set_furnace_cook_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -788,6 +1096,12 @@ world::set_event_target_slot(1);
 world::set_furnace_cook_time(location(0,0,0,0,0),1);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**        |
+| ---------- | -------------- | ------------------- |
+| `location` | Местоположение | Местоположение печи |
+| `time`     | Число          | Время готовки       |
 <h3 id=game_set_item_in_container_slot>
   <code>world::set_item_in_container_slot</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -804,6 +1118,13 @@ world::set_furnace_cook_time(location(0,0,0,0,0),1);
 world::set_item_in_container_slot(location(0,0,0,0,0),item("stick"),1);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**              |
+| ---------- | -------------- | ------------------------- |
+| `location` | Местоположение | Местоположение контейнера |
+| `item`     | Предмет        | Предмет                   |
+| `slot`     | Число          | Номер слота               |
 <h3 id=game_set_lectern_book>
   <code>world::set_lectern_book</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -820,6 +1141,13 @@ world::set_item_in_container_slot(location(0,0,0,0,0),item("stick"),1);
 world::set_lectern_book(location(0,0,0,0,0),item("stick"),1);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**           |
+| ---------- | -------------- | ---------------------- |
+| `location` | Местоположение | Местоположение кафедры |
+| `item`     | Предмет        | Книга для установки    |
+| `page`     | Число          | Страница               |
 <h3 id=game_set_player_head>
   <code>world::set_player_head</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -836,6 +1164,13 @@ world::set_lectern_book(location(0,0,0,0,0),item("stick"),1);
 world::set_player_head(location(0,0,0,0,0),"name_or_uuid","NAME_OR_UUID");
 ```
 
+**Аргументы:**
+
+| **Имя**        | **Тип**                                                                                  | **Описание**          |
+| -------------- | ---------------------------------------------------------------------------------------- | --------------------- |
+| `location`     | Местоположение                                                                           | Местоположение головы |
+| `name_or_uuid` | Текст                                                                                    | Значение              |
+| `receive_type` | Маркер<br/>**NAME_OR_UUID** - Имя или UUID игрока<br/>**VALUE** - Параметр "value" скина | Тип значения          |
 <h3 id=game_set_block_powered>
   <code>world::set_block_powered</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -852,6 +1187,12 @@ world::set_player_head(location(0,0,0,0,0),"name_or_uuid","NAME_OR_UUID");
 world::set_block_powered(location(0,0,0,0,0),"TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**                                                  | **Описание**         |
+| ---------- | -------------------------------------------------------- | -------------------- |
+| `location` | Местоположение                                           | Местоположение блока |
+| `powered`  | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Активация            |
 <h3 id=game_set_region>
   <code>world::set_region</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -866,6 +1207,13 @@ world::set_block_powered(location(0,0,0,0,0),"TRUE");
 world::set_region(item("stone"),location(0,0,0,0,0),location(0,0,0,0,0));
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип**        | **Описание**                 |
+| ------- | -------------- | ---------------------------- |
+| `block` | Блок           | Блок                         |
+| `pos_1` | Местоположение | Угол региона                 |
+| `pos_2` | Местоположение | Противоположный угол региона |
 <h3 id=game_set_scoreboard_line>
   <code>world::set_scoreboard_line</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -884,6 +1232,16 @@ world::set_scoreboard_line("id","line","display",1,"format_content","BLANK");
 "id".set_scoreboard_line("line","display",1,"format_content","BLANK");
 ```
 
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                                                                | **Описание**       |
+| ---------------- | ------------------------------------------------------------------------------------------------------ | ------------------ |
+| `id`             | Текст                                                                                                  | ID скорборда       |
+| `line`           | Текст                                                                                                  | ID линии           |
+| `display`        | Текст                                                                                                  | Отображаемый текст |
+| `score`          | Число                                                                                                  | Значение           |
+| `format_content` | Текст                                                                                                  | Формат текста      |
+| `format`         | Маркер<br/>**BLANK** - Пустое<br/>**FIXED** - Текстовое<br/>**STYLED** - Стиль<br/>**RESET** - Обычное | Тип формата        |
 <h3 id=game_set_scoreboard_line_display>
   <code>world::set_scoreboard_line_display</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -902,6 +1260,13 @@ world::set_scoreboard_line_display("id","line","display");
 "id".set_scoreboard_line_display("line","display");
 ```
 
+**Аргументы:**
+
+| **Имя**   | **Тип** | **Описание**       |
+| --------- | ------- | ------------------ |
+| `id`      | Текст   | ID скорборда       |
+| `line`    | Текст   | ID линии           |
+| `display` | Текст   | Отображаемый текст |
 <h3 id=game_set_scoreboard_line_format>
   <code>world::set_scoreboard_line_format</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -920,6 +1285,14 @@ world::set_scoreboard_line_format("id","line","format_content","BLANK");
 "id".set_scoreboard_line_format("line","format_content","BLANK");
 ```
 
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                                                                | **Описание**  |
+| ---------------- | ------------------------------------------------------------------------------------------------------ | ------------- |
+| `id`             | Текст                                                                                                  | ID скорборда  |
+| `line`           | Текст                                                                                                  | ID линии      |
+| `format_content` | Текст                                                                                                  | Формат текста |
+| `format`         | Маркер<br/>**BLANK** - Пустое<br/>**FIXED** - Текстовое<br/>**STYLED** - Стиль<br/>**RESET** - Обычное | Тип формата   |
 <h3 id=game_set_scoreboard_number_format>
   <code>world::set_scoreboard_number_format</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -938,6 +1311,13 @@ world::set_scoreboard_number_format("id","format_content","BLANK");
 "id".set_scoreboard_number_format("format_content","BLANK");
 ```
 
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                                                                | **Описание**  |
+| ---------------- | ------------------------------------------------------------------------------------------------------ | ------------- |
+| `id`             | Текст                                                                                                  | ID скорборда  |
+| `format_content` | Текст                                                                                                  | Формат текста |
+| `format`         | Маркер<br/>**BLANK** - Пустое<br/>**FIXED** - Текстовое<br/>**STYLED** - Стиль<br/>**RESET** - Обычное | Тип формата   |
 <h3 id=game_set_scoreboard_score>
   <code>world::set_scoreboard_score</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -952,6 +1332,13 @@ world::set_scoreboard_number_format("id","format_content","BLANK");
 world::set_scoreboard_score("id","text",1);
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип** | **Описание** |
+| ------- | ------- | ------------ |
+| `id`    | Текст   | ID скорборда |
+| `text`  | Текст   | ID линии     |
+| `score` | Число   | Счёт         |
 <h3 id=game_set_scoreboard_title>
   <code>world::set_scoreboard_title</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -966,6 +1353,12 @@ world::set_scoreboard_score("id","text",1);
 world::set_scoreboard_title("id","title");
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип** | **Описание**    |
+| ------- | ------- | --------------- |
+| `id`    | Текст   | ID скорборда    |
+| `title` | Текст   | Новый заголовок |
 <h3 id=game_set_sculk_shrieker_can_summon>
   <code>world::set_sculk_shrieker_can_summon</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -982,6 +1375,12 @@ world::set_scoreboard_title("id","title");
 world::set_sculk_shrieker_can_summon(location(0,0,0,0,0),"TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**      | **Тип**                                                                  | **Описание**                 |
+| ------------ | ------------------------------------------------------------------------ | ---------------------------- |
+| `location`   | Местоположение                                                           | Местоположение скалк-крикуна |
+| `can_summon` | Маркер<br/>**TRUE** - Может призывать<br/>**FALSE** - Не может призывать | Возможность призыва          |
 <h3 id=game_set_sculk_shrieker_shrieking>
   <code>world::set_sculk_shrieker_shrieking</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -998,6 +1397,12 @@ world::set_sculk_shrieker_can_summon(location(0,0,0,0,0),"TRUE");
 world::set_sculk_shrieker_shrieking(location(0,0,0,0,0),"TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**     | **Тип**                                                    | **Описание**                 |
+| ----------- | ---------------------------------------------------------- | ---------------------------- |
+| `location`  | Местоположение                                             | Местоположение скалк-крикуна |
+| `shrieking` | Маркер<br/>**TRUE** - Кричащий<br/>**FALSE** - Не кричащий | Состояние                    |
 <h3 id=game_set_sculk_shrieker_warning_level>
   <code>world::set_sculk_shrieker_warning_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1014,6 +1419,12 @@ world::set_sculk_shrieker_shrieking(location(0,0,0,0,0),"TRUE");
 world::set_sculk_shrieker_warning_level(location(0,0,0,0,0),1);
 ```
 
+**Аргументы:**
+
+| **Имя**         | **Тип**        | **Описание**                 |
+| --------------- | -------------- | ---------------------------- |
+| `location`      | Местоположение | Местоположение скалк-крикуна |
+| `warning_level` | Число          | Уровень опасности            |
 <h3 id=game_set_sign_text>
   <code>world::set_sign_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1030,6 +1441,14 @@ world::set_sculk_shrieker_warning_level(location(0,0,0,0,0),1);
 world::set_sign_text(location(0,0,0,0,0),"text",1,"FRONT");
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**                                                                 | **Описание**            |
+| ---------- | ----------------------------------------------------------------------- | ----------------------- |
+| `location` | Местоположение                                                          | Местоположение таблички |
+| `text`     | Текст                                                                   | Текст для установки     |
+| `line`     | Число                                                                   | Строка                  |
+| `side`     | Маркер<br/>**FRONT** - Передняя<br/>**BACK** - Задняя<br/>**ALL** - Все | Сторона таблички        |
 <h3 id=game_set_sign_text_color>
   <code>world::set_sign_text_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1046,6 +1465,14 @@ world::set_sign_text(location(0,0,0,0,0),"text",1,"FRONT");
 world::set_sign_text_color(location(0,0,0,0,0),"FRONT","BLACK","TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**           | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                  | **Описание**            |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| `location`        | Местоположение                                                                                                                                                                                                                                                                                                                                                                                                           | Местоположение таблички |
+| `side`            | Маркер<br/>**FRONT** - Передняя<br/>**BACK** - Задняя<br/>**ALL** - Все                                                                                                                                                                                                                                                                                                                                                  | Сторона таблички        |
+| `sign_text_color` | Маркер<br/>**BLACK** - Чёрный<br/>**BLUE** - Синий<br/>**BROWN** - Коричневый<br/>**CYAN** - Бирюзовый<br/>**GRAY** - Серый<br/>**GREEN** - Зелёный<br/>**LIGHT_BLUE** - Голубой<br/>**LIGHT_GRAY** - Светло-серый<br/>**LIME** - Лаймовый<br/>**MAGENTA** - Пурпурный<br/>**ORANGE** - Оранжевый<br/>**PINK** - Розовый<br/>**PURPLE** - Фиолетовый<br/>**RED** - Красный<br/>**WHITE** - Белый<br/>**YELLOW** - Жёлтый | Цвет таблички           |
+| `glowing`         | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить                                                                                                                                                                                                                                                                                                                                                                 | Свечение текста         |
 <h3 id=game_set_sign_waxed>
   <code>world::set_sign_waxed</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1062,6 +1489,12 @@ world::set_sign_text_color(location(0,0,0,0,0),"FRONT","BLACK","TRUE");
 world::set_sign_waxed(location(0,0,0,0,0),"TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**                                                  | **Описание**            |
+| ---------- | -------------------------------------------------------- | ----------------------- |
+| `location` | Местоположение                                           | Местоположение таблички |
+| `waxed`    | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Вощённость              |
 <h3 id=game_set_spawner_entity>
   <code>world::set_spawner_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1082,6 +1515,12 @@ world::set_spawner_entity(location(0,0,0,0,0),item("stick"));
 location(0,0,0,0,0).set_spawner_entity(item("stick"));
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**            |
+| ---------- | -------------- | ----------------------- |
+| `location` | Местоположение | Местоположение спавнера |
+| `entity`   | Предмет        | Яйцо призыва сущности   |
 <h3 id=game_set_world_difficulty>
   <code>world::set_world_difficulty</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1096,6 +1535,11 @@ location(0,0,0,0,0).set_spawner_entity(item("stick"));
 world::set_world_difficulty("EASY");
 ```
 
+**Аргументы:**
+
+| **Имя**      | **Тип**                                                                                                   | **Описание** |
+| ------------ | --------------------------------------------------------------------------------------------------------- | ------------ |
+| `difficulty` | Маркер<br/>**EASY** - Лёгкая<br/>**HARD** - Сложная<br/>**NORMAL** - Нормальная<br/>**PEACEFUL** - Мирная | Сложность    |
 <h3 id=game_set_world_simulation_distance>
   <code>world::set_world_simulation_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1110,6 +1554,11 @@ world::set_world_difficulty("EASY");
 world::set_world_simulation_distance(1);
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип** | **Описание**                        |
+| ---------- | ------- | ----------------------------------- |
+| `distance` | Число   | Дистанция симуляции в чанках (2-32) |
 <h3 id=game_set_world_time>
   <code>world::set_world_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1124,6 +1573,11 @@ world::set_world_simulation_distance(1);
 world::set_world_time(1);
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип** | **Описание**  |
+| ------- | ------- | ------------- |
+| `time`  | Число   | Время в тиках |
 <h3 id=game_set_world_weather>
   <code>world::set_world_weather</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1140,6 +1594,12 @@ world::set_world_time(1);
 world::set_world_weather("CLEAR",1);
 ```
 
+**Аргументы:**
+
+| **Имя**            | **Тип**                                                                          | **Описание** |
+| ------------------ | -------------------------------------------------------------------------------- | ------------ |
+| `weather_type`     | Маркер<br/>**CLEAR** - Ясная<br/>**RAINING** - Дождливая<br/>**THUNDER** - Гроза | Тип погоды   |
+| `weather_duration` | Число                                                                            | Длительность |
 <h3 id=game_spawn_armor_stand>
   <code>world::spawn_armor_stand</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1154,6 +1614,24 @@ world::set_world_weather("CLEAR",1);
 world::spawn_armor_stand(item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),"TRUE","TRUE","TRUE","TRUE","TRUE","TRUE",location(0,0,0,0,0),"custom_name");
 ```
 
+**Аргументы:**
+
+| **Имя**       | **Тип**                                                  | **Описание**          |
+| ------------- | -------------------------------------------------------- | --------------------- |
+| `helmet`      | Предмет                                                  | Головной убор         |
+| `chestplate`  | Предмет                                                  | Нагрудник             |
+| `leggings`    | Предмет                                                  | Поножи                |
+| `boots`       | Предмет                                                  | Ботинки               |
+| `right_hand`  | Предмет                                                  | Предмет в правой руке |
+| `left_hand`   | Предмет                                                  | Предмет в левой руке  |
+| `gravity`     | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Установить гравитацию |
+| `marker`      | Маркер<br/>**TRUE** - Включён<br/>**FALSE** - Выключен   | Режим маркера         |
+| `small`       | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Сделать маленьким     |
+| `show_arms`   | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Отображение рук       |
+| `base_plate`  | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Отображение плиты     |
+| `invisible`   | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Невидимость           |
+| `location`    | Местоположение                                           | Место создания        |
+| `custom_name` | Текст                                                    | Имя стойки            |
 <h3 id=game_spawn_block_display>
   <code>world::spawn_block_display</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1168,6 +1646,13 @@ world::spawn_armor_stand(item("stick"),item("stick"),item("stick"),item("stick")
 world::spawn_block_display(location(0,0,0,0,0),"custom_name",item("stone"));
 ```
 
+**Аргументы:**
+
+| **Имя**          | **Тип**        | **Описание**      |
+| ---------------- | -------------- | ----------------- |
+| `spawn_location` | Местоположение | Место создания    |
+| `custom_name`    | Текст          | Имя               |
+| `block`          | Блок           | Отображаемый блок |
 <h3 id=game_spawn_effect_cloud>
   <code>world::spawn_effect_cloud</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1182,6 +1667,16 @@ world::spawn_block_display(location(0,0,0,0,0),"custom_name",item("stone"));
 world::spawn_effect_cloud(location(0,0,0,0,0),[potion("slow_falling"), potion("slow_falling")],1,2,particle("fire"),"custom_name");
 ```
 
+**Аргументы:**
+
+| **Имя**       | **Тип**        | **Описание**   |
+| ------------- | -------------- | -------------- |
+| `location`    | Местоположение | Место создания |
+| `effects`     | список[Зелье]  | Эффекты зелья  |
+| `radius`      | Число          | Радиус облака  |
+| `duration`    | Число          | Длительность   |
+| `particle`    | Эффект частиц  | Частицы облака |
+| `custom_name` | Текст          | Имя            |
 <h3 id=game_spawn_end_crystal>
   <code>world::spawn_end_crystal</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1196,6 +1691,13 @@ world::spawn_effect_cloud(location(0,0,0,0,0),[potion("slow_falling"), potion("s
 world::spawn_end_crystal(location(0,0,0,0,0),"custom_name","TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**       | **Тип**                                      | **Описание**        |
+| ------------- | -------------------------------------------- | ------------------- |
+| `location`    | Местоположение                               | Место создания      |
+| `custom_name` | Текст                                        | Имя                 |
+| `show_bottom` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Создание фундамента |
 <h3 id=game_spawn_evoker_fangs>
   <code>world::spawn_evoker_fangs</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1210,6 +1712,12 @@ world::spawn_end_crystal(location(0,0,0,0,0),"custom_name","TRUE");
 world::spawn_evoker_fangs(location(0,0,0,0,0),"custom_name");
 ```
 
+**Аргументы:**
+
+| **Имя**       | **Тип**        | **Описание**   |
+| ------------- | -------------- | -------------- |
+| `location`    | Местоположение | Место создания |
+| `custom_name` | Текст          | Имя            |
 <h3 id=game_spawn_experience_orb>
   <code>world::spawn_experience_orb</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1224,6 +1732,13 @@ world::spawn_evoker_fangs(location(0,0,0,0,0),"custom_name");
 world::spawn_experience_orb(location(0,0,0,0,0),1,"custom_name");
 ```
 
+**Аргументы:**
+
+| **Имя**             | **Тип**        | **Описание**     |
+| ------------------- | -------------- | ---------------- |
+| `location`          | Местоположение | Место создания   |
+| `experience_amount` | Число          | Количество опыта |
+| `custom_name`       | Текст          | Имя              |
 <h3 id=game_spawn_eye_of_ender>
   <code>world::spawn_eye_of_ender</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1238,6 +1753,15 @@ world::spawn_experience_orb(location(0,0,0,0,0),1,"custom_name");
 world::spawn_eye_of_ender(location(0,0,0,0,0),location(0,0,0,0,0),1,"custom_name","DROP");
 ```
 
+**Аргументы:**
+
+| **Имя**           | **Тип**                                                                                         | **Описание**       |
+| ----------------- | ----------------------------------------------------------------------------------------------- | ------------------ |
+| `location`        | Местоположение                                                                                  | Место создания     |
+| `destination`     | Местоположение                                                                                  | Цель               |
+| `lifespan`        | Число                                                                                           | Длительность жизни |
+| `custom_name`     | Текст                                                                                           | Имя                |
+| `end_of_lifespan` | Маркер<br/>**DROP** - Выпасть предметом<br/>**SHATTER** - Расколоться<br/>**RANDOM** - Случайно | По окончанию       |
 <h3 id=game_spawn_falling_block>
   <code>world::spawn_falling_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1252,6 +1776,14 @@ world::spawn_eye_of_ender(location(0,0,0,0,0),location(0,0,0,0,0),1,"custom_name
 world::spawn_falling_block(item("stone"),location(0,0,0,0,0),"name","TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**         | **Тип**                                      | **Описание**      |
+| --------------- | -------------------------------------------- | ----------------- |
+| `block`         | Блок                                         | Блок для создания |
+| `location`      | Местоположение                               | Место создания    |
+| `name`          | Текст                                        | Имя               |
+| `should_expire` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Должен исчезать   |
 <h3 id=game_spawn_interaction_entity>
   <code>world::spawn_interaction_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1266,6 +1798,15 @@ world::spawn_falling_block(item("stone"),location(0,0,0,0,0),"name","TRUE");
 world::spawn_interaction_entity(location(0,0,0,0,0),"custom_name",1,2,"TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**       | **Тип**                                                  | **Описание**          |
+| ------------- | -------------------------------------------------------- | --------------------- |
+| `location`    | Местоположение                                           | Место создания        |
+| `custom_name` | Текст                                                    | Имя                   |
+| `width`       | Число                                                    | Горизонтальный размер |
+| `height`      | Число                                                    | Вертикальный размер   |
+| `responsive`  | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Отзывчивость          |
 <h3 id=game_spawn_item>
   <code>world::spawn_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1280,6 +1821,16 @@ world::spawn_interaction_entity(location(0,0,0,0,0),"custom_name",1,2,"TRUE");
 world::spawn_item(item("stick"),location(0,0,0,0,0),"custom_name","TRUE","TRUE","TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**             | **Тип**                                      | **Описание**                          |
+| ------------------- | -------------------------------------------- | ------------------------------------- |
+| `item`              | Предмет                                      | Предмет для создания                  |
+| `location`          | Местоположение                               | Место создания                        |
+| `custom_name`       | Текст                                        | Имя                                   |
+| `apply_motion`      | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Задать движение предмета при создании |
+| `can_mob_pickup`    | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Смогут ли подбирать предмет мобы      |
+| `can_player_pickup` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Смогут ли подбирать предмет игроки    |
 <h3 id=game_spawn_item_display>
   <code>world::spawn_item_display</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1294,6 +1845,13 @@ world::spawn_item(item("stick"),location(0,0,0,0,0),"custom_name","TRUE","TRUE",
 world::spawn_item_display(location(0,0,0,0,0),"custom_name",item("stick"));
 ```
 
+**Аргументы:**
+
+| **Имя**          | **Тип**        | **Описание**         |
+| ---------------- | -------------- | -------------------- |
+| `spawn_location` | Местоположение | Место создания       |
+| `custom_name`    | Текст          | Имя                  |
+| `displayed_item` | Предмет        | Отображаемый предмет |
 <h3 id=game_spawn_lightning_bolt>
   <code>world::spawn_lightning_bolt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1308,6 +1866,11 @@ world::spawn_item_display(location(0,0,0,0,0),"custom_name",item("stick"));
 world::spawn_lightning_bolt(location(0,0,0,0,0));
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**   |
+| ---------- | -------------- | -------------- |
+| `location` | Местоположение | Место создания |
 <h3 id=game_spawn_mob>
   <code>world::spawn_mob</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1322,6 +1885,22 @@ world::spawn_lightning_bolt(location(0,0,0,0,0));
 world::spawn_mob(item("stick"),location(0,0,0,0,0),1,"custom_name",[potion("slow_falling"), potion("slow_falling")],item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),"TRUE");
 ```
 
+**Аргументы:**
+
+| **Имя**             | **Тип**                                                  | **Описание**                   |
+| ------------------- | -------------------------------------------------------- | ------------------------------ |
+| `mob`               | Предмет                                                  | Тип моба                       |
+| `location`          | Местоположение                                           | Место создания                 |
+| `health`            | Число                                                    | Количество здоровья            |
+| `custom_name`       | Текст                                                    | Имя                            |
+| `potion_effects`    | список[Зелье]                                            | Эффекты                        |
+| `main_hand`         | Предмет                                                  | Предмет в основной руке        |
+| `helmet`            | Предмет                                                  | Головной убор                  |
+| `chestplate`        | Предмет                                                  | Нагрудник                      |
+| `leggings`          | Предмет                                                  | Поножи                         |
+| `boots`             | Предмет                                                  | Ботинки                        |
+| `off_hand`          | Предмет                                                  | Предмет во второстепенной руке |
+| `natural_equipment` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Стандартное снаряжение         |
 <h3 id=game_spawn_primed_tnt>
   <code>world::spawn_primed_tnt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1336,6 +1915,15 @@ world::spawn_mob(item("stick"),location(0,0,0,0,0),1,"custom_name",[potion("slow
 world::spawn_primed_tnt(location(0,0,0,0,0),1,2,"custom_name",item("stone"));
 ```
 
+**Аргументы:**
+
+| **Имя**         | **Тип**        | **Описание**                  |
+| --------------- | -------------- | ----------------------------- |
+| `location`      | Местоположение | Место создания                |
+| `tnt_power`     | Число          | Мощность динамита (от 0 до 4) |
+| `fuse_duration` | Число          | Время задержки взрыва         |
+| `custom_name`   | Текст          | Имя                           |
+| `block`         | Блок           | Блок для маскировки           |
 <h3 id=game_spawn_shulker_bullet>
   <code>world::spawn_shulker_bullet</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1350,6 +1938,12 @@ world::spawn_primed_tnt(location(0,0,0,0,0),1,2,"custom_name",item("stone"));
 world::spawn_shulker_bullet(location(0,0,0,0,0),"custom_name");
 ```
 
+**Аргументы:**
+
+| **Имя**       | **Тип**        | **Описание**   |
+| ------------- | -------------- | -------------- |
+| `location`    | Местоположение | Место создания |
+| `custom_name` | Текст          | Имя            |
 <h3 id=game_spawn_text_display>
   <code>world::spawn_text_display</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1364,6 +1958,14 @@ world::spawn_shulker_bullet(location(0,0,0,0,0),"custom_name");
 world::spawn_text_display(location(0,0,0,0,0),"custom_name","SPACES",["displayed_text", "displayed_text"]);
 ```
 
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                                                                                       | **Описание**       |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `spawn_location` | Местоположение                                                                                                                | Место создания     |
+| `custom_name`    | Текст                                                                                                                         | Имя                |
+| `merging_mode`   | Маркер<br/>**SPACES** - Разделение пробелом<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки | Объединение текста |
+| `displayed_text` | список[Текст]                                                                                                                 | Отображаемый текст |
 <h3 id=game_spawn_vehicle>
   <code>world::spawn_vehicle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1378,6 +1980,13 @@ world::spawn_text_display(location(0,0,0,0,0),"custom_name","SPACES",["displayed
 world::spawn_vehicle(item("stick"),location(0,0,0,0,0),"custom_name");
 ```
 
+**Аргументы:**
+
+| **Имя**       | **Тип**        | **Описание**   |
+| ------------- | -------------- | -------------- |
+| `vehicle`     | Предмет        | Тип транспорта |
+| `location`    | Местоположение | Место создания |
+| `custom_name` | Текст          | Имя            |
 <h3 id=game_uncancel_event>
   <code>world::uncancel_event</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1406,6 +2015,11 @@ world::uncancel_event();
 world::update_block(location(0,0,0,0,0));
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**   |
+| ---------- | -------------- | -------------- |
+| `location` | Местоположение | Местоположение |
 <h3 id=if_game_block_equals>
   <code>world::block_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1422,6 +2036,12 @@ if(world::block_equals(location(0,0,0,0,0),[item("stone"), item("stone")]){
 }
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**           |
+| ---------- | -------------- | ---------------------- |
+| `location` | Местоположение | Местоположение блока   |
+| `blocks`   | список[Блок]   | Тип блока для проверки |
 <h3 id=if_game_block_powered>
   <code>world::block_powered</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1438,6 +2058,12 @@ if(world::block_powered([location(0,0,0,0,0), location(0,0,0,0,0)],"DIRECT"){
 }
 ```
 
+**Аргументы:**
+
+| **Имя**      | **Тип**                                                                            | **Описание**               |
+| ------------ | ---------------------------------------------------------------------------------- | -------------------------- |
+| `locations`  | список[Местоположение]                                                             | Местоположение блока       |
+| `power_mode` | Маркер<br/>**DIRECT** - Прямое запитывание<br/>**INDIRECT** - Непрямое запитывание | Вид запитывания редстоуном |
 <h3 id=if_game_chunk_is_loaded>
   <code>world::chunk_is_loaded</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1454,6 +2080,11 @@ if(world::chunk_is_loaded(location(0,0,0,0,0)){
 }
 ```
 
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**         |
+| ---------- | -------------- | -------------------- |
+| `location` | Местоположение | Местоположение чанка |
 <h3 id=if_game_container_has>
   <code>world::container_has</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1470,6 +2101,14 @@ if(world::container_has(location(0,0,0,0,0),[item("stick"), item("stick")],"ANY"
 }
 ```
 
+**Аргументы:**
+
+| **Имя**           | **Тип**                                                                                                                                                                                                                     | **Описание**              |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `location`        | Местоположение                                                                                                                                                                                                              | Местоположение контейнера |
+| `items`           | список[Предмет]                                                                                                                                                                                                             | Предметы для проверки     |
+| `check_mode`      | Маркер<br/>**ANY** - Любые предметы<br/>**ALL** - Все предметы                                                                                                                                                              | Вид сравнения             |
+| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения           |
 <h3 id=if_game_container_has_room_for_item>
   <code>world::container_has_room_for_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1486,6 +2125,13 @@ if(world::container_has_room_for_item(location(0,0,0,0,0),[item("stick"), item("
 }
 ```
 
+**Аргументы:**
+
+| **Имя**      | **Тип**                                                        | **Описание**              |
+| ------------ | -------------------------------------------------------------- | ------------------------- |
+| `location`   | Местоположение                                                 | Местоположение контейнера |
+| `items`      | список[Предмет]                                                | Предметы для проверки     |
+| `check_mode` | Маркер<br/>**ANY** - Любые предметы<br/>**ALL** - Все предметы | Вид сравнения             |
 <h3 id=if_game_damage_cause_equals>
   <code>world::damage_cause_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1502,6 +2148,11 @@ if(world::damage_cause_equals("BLOCK_EXPLOSION"){
 }
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | **Описание**   |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| `cause` | Маркер<br/>**BLOCK_EXPLOSION** - Взрыв блока<br/>**CONTACT** - Контакт<br/>**CRAMMING** - Толпёжка<br/>**CUSTOM** - Кастомный<br/>**DRAGON_BREATH** - Дыхание дракона<br/>**DROWNING** - Утопление<br/>**DRYOUT** - Высыхание<br/>**ENTITY_ATTACK** - Атака сущности<br/>**ENTITY_EXPLOSION** - Взрыв сущности<br/>**ENTITY_SWEEP_ATTACK** - Обширная атака сущности<br/>**FALL** - Падение<br/>**FALLING_BLOCK** - Падающий блок<br/>**FIRE** - Прямой огонь<br/>**FIRE_TICK** - Горение<br/>**FLY_INTO_WALL** - Кинетическая энергия<br/>**FREEZE** - Замерзание<br/>**HOT_FLOOR** - Магма<br/>**LAVA** - Лава<br/>**LIGHTNING** - Молния<br/>**MAGIC** - Магия<br/>**MELTING** - Таяние<br/>**POISON** - Отравление<br/>**PROJECTILE** - Снаряд<br/>**STARVATION** - Голод<br/>**SUFFOCATION** - Удушение<br/>**SUICIDE** - Суицид (грех)<br/>**THORNS** - Шипы<br/>**VOID** - Бездна<br/>**WITHER** - Иссушение | Источник урона |
 <h3 id=if_game_event_attack_is_critical>
   <code>world::event_attack_is_critical</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1534,6 +2185,12 @@ if(world::event_block_equals([item("stone"), item("stone")],[location(0,0,0,0,0)
 }
 ```
 
+**Аргументы:**
+
+| **Имя**     | **Тип**                | **Описание**                       |
+| ----------- | ---------------------- | ---------------------------------- |
+| `blocks`    | список[Блок]           | Типы блоков для проверки           |
+| `locations` | список[Местоположение] | Местоположения блоков для проверки |
 <h3 id=if_game_event_is_canceled>
   <code>world::event_is_canceled</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1566,6 +2223,12 @@ if(world::event_item_equals([item("stick"), item("stick")],"EXACTLY"){
 }
 ```
 
+**Аргументы:**
+
+| **Имя**           | **Тип**                                                                                                                                                                                                                     | **Описание**          |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `items`           | список[Предмет]                                                                                                                                                                                                             | Предметы для проверки |
+| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения       |
 <h3 id=if_game_has_player>
   <code>world::has_player</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1582,6 +2245,11 @@ if(world::has_player(["names_or_uuids", "names_or_uuids"]){
 }
 ```
 
+**Аргументы:**
+
+| **Имя**          | **Тип**       | **Описание**        |
+| ---------------- | ------------- | ------------------- |
+| `names_or_uuids` | список[Текст] | Ник игрока или UUID |
 <h3 id=if_game_heal_cause_equals>
   <code>world::heal_cause_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1598,6 +2266,11 @@ if(world::heal_cause_equals("CUSTOM"){
 }
 ```
 
+**Аргументы:**
+
+| **Имя**      | **Тип**                                                                                                                                                                                                                                                                                                                                                                                               | **Описание**       |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `heal_cause` | Маркер<br/>**CUSTOM** - Кастомный<br/>**EATING** - От употребления пищи<br/>**ENDER_CRYSTAL** - От кристалла Энда<br/>**MAGIC** - От зелья или заклинания<br/>**MAGIC_REGEN** - Со временем от зелья или заклинания<br/>**REGEN** - Исцеление в Мирном режиме<br/>**SATIATED** - Исцеление при утолённом голоде<br/>**WITHER** - От эффекта Иссушение<br/>**WITHER_SPAWN** - При появлении Иссушителя | Источник исцеления |
 <h3 id=if_game_ignite_cause_equals>
   <code>world::ignite_cause_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1614,6 +2287,11 @@ if(world::ignite_cause_equals("ARROW"){
 }
 ```
 
+**Аргументы:**
+
+| **Имя** | **Тип**                                                                                                                                                                                                                                                  | **Описание**  |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| `cause` | Маркер<br/>**ARROW** - Стрела<br/>**ENDER_CRYSTAL** - Кристалл Энда<br/>**EXPLOSION** - Взрыв<br/>**FIREBALL** - Огненный заряд<br/>**FLINT_AND_STEEL** - Зажигалка<br/>**LAVA** - Лава<br/>**LIGHTNING** - Молния<br/>**SPREAD** - Распространение огня | Источник огня |
 <h3 id=if_game_instrument_equals>
   <code>world::instrument_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1630,6 +2308,11 @@ if(world::instrument_equals("BANJO"){
 }
 ```
 
+**Аргументы:**
+
+| **Имя**      | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                | **Описание** |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
+| `instrument` | Маркер<br/>**BANJO** - Банджо<br/>**BASS_DRUM** - Бас-барабан<br/>**BASS_GUITAR** - Бас-гитара<br/>**BELL** - Колокол<br/>**BIT** - Бит<br/>**CHIME** - Чаймс<br/>**COW_BELL** - Ковбелл<br/>**DIDGERIDOO** - Диджериду<br/>**FLUTE** - Флейта<br/>**GUITAR** - Гитара<br/>**IRON_XYLOPHONE** - Железный ксилофон<br/>**PIANO** - Пианино<br/>**PLING** - Плинг<br/>**SNARE_DRUM** - Малый барабан<br/>**STICKS** - Клаве<br/>**XYLOPHONE** - Ксилофон | Инструмент   |
 <h3 id=if_game_sign_contains>
   <code>world::sign_contains</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1646,3 +2329,12 @@ if(world::sign_contains(location(0,0,0,0,0),["texts", "texts"],"ANY","ANY","FIRS
 }
 ```
 
+**Аргументы:**
+
+| **Имя**      | **Тип**                                                                                                                               | **Описание**            |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `location`   | Местоположение                                                                                                                        | Местоположение таблички |
+| `texts`      | список[Текст]                                                                                                                         | Текст для проверки      |
+| `check_side` | Маркер<br/>**ANY** - Любая<br/>**FRONT** - Передняя<br/>**BACK** - Задняя                                                             | Сторона таблички        |
+| `check_mode` | Маркер<br/>**ANY** - None<br/>**ALL** - None                                                                                          | Вид сравнения           |
+| `lines`      | Маркер<br/>**FIRST** - 1 строка<br/>**SECOND** - 2 строка<br/>**THIRD** - 3 строка<br/>**FOURTH** - 4 строка<br/>**ALL** - Все строки | Строки для сравнения    |
