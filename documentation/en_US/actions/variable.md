@@ -748,15 +748,15 @@ a1 = variable::add([1, 2]);
 
 #Or dry
 
-variable::add([1, 2],a1);
+variable::add(a1,[1, 2]);
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**     | **Description**    |
 | ---------- | ------------ | ------------------ |
-| `value`    | list[Number] | Numbers to Add     |
 | `variable` | Variable     | Variable to assign |
+| `value`    | list[Number] | Numbers to Add     |
 <h3 id=set_variable_add_item_enchantment>
   <code>variable::add_item_enchantment</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -806,15 +806,15 @@ a1 = item("stick").add_item_potion_effects([potion("slow_falling"), potion("slow
 
 #Or dry
 
-variable::add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],a1,item("stick"),"TRUE","TRUE","REGULAR");
+variable::add_item_potion_effects(a1,[potion("slow_falling"), potion("slow_falling")],item("stick"),"TRUE","TRUE","REGULAR");
 ```
 
 **Arguments:**
 
 | **Name**        | **Type**                                                                       | **Description**            |
 | --------------- | ------------------------------------------------------------------------------ | -------------------------- |
-| `potions`       | list[Potion]                                                                   | Potion Effects             |
 | `variable`      | Variable                                                                       | Variable to assign         |
+| `potions`       | list[Potion]                                                                   | Potion Effects             |
 | `item`          | Item                                                                           | Item                       |
 | `overwrite`     | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None                                 | Overwrite existing effects |
 | `show_icon`     | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None                                 | Show Effect Icon           |
@@ -834,15 +834,15 @@ a1 = variable::add_vectors([vector(0,0,0), vector(0,0,0)]);
 
 #Or dry
 
-variable::add_vectors([vector(0,0,0), vector(0,0,0)],a1);
+variable::add_vectors(a1,[vector(0,0,0), vector(0,0,0)]);
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**     | **Description**    |
 | ---------- | ------------ | ------------------ |
-| `vectors`  | list[Vector] | Vectors to Add     |
 | `variable` | Variable     | Variable to assign |
+| `vectors`  | list[Vector] | Vectors to Add     |
 <h3 id=set_variable_align_location>
   <code>variable::align_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -918,15 +918,15 @@ a1 = variable::append_component(["components", "components"],"SPACES");
 
 #Or dry
 
-variable::append_component(["components", "components"],a1,"SPACES");
+variable::append_component(a1,["components", "components"],"SPACES");
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**                                                                                                                         | **Description**              |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| `components` | list[Text]                                                                                                                       | Stylized texts for combining |
 | `variable`   | Variable                                                                                                                         | Variable for appropriation   |
+| `components` | list[Text]                                                                                                                       | Stylized texts for combining |
 | `merging`    | Marker<br/>**SPACES** - Separation with a gap<br/>**CONCATENATION** - Association<br/>**SEPARATE_LINES** - Separation into lines | The combination of the text  |
 <h3 id=set_variable_append_list>
   <code>variable::append_list</code>
@@ -997,7 +997,7 @@ variable::append_map(a1,`map`,`other_map`);
 
 **Usage example:** 
 ```ts
-variable::append_value(["any value", "any value"],a1);
+variable::append_value(a1,["any value", "any value"]);
 
 #Or from the object
 
@@ -1008,8 +1008,8 @@ a1.append_value(["any value", "any value"]);
 
 | **Name**   | **Type**        | **Description** |
 | ---------- | --------------- | --------------- |
-| `values`   | list[Any Value] | Values          |
 | `variable` | Variable        | List            |
+| `values`   | list[Any Value] | Values          |
 <h3 id=set_variable_average>
   <code>variable::average</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1025,15 +1025,15 @@ a1 = variable::average([1, 2]);
 
 #Or dry
 
-variable::average([1, 2],a1);
+variable::average(a1,[1, 2]);
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**     | **Description**      |
 | ---------- | ------------ | -------------------- |
-| `value`    | list[Number] | Numbers to get value |
 | `variable` | Variable     | Variable to assign   |
+| `value`    | list[Number] | Numbers to get value |
 <h3 id=set_variable_bitwise_operation>
   <code>variable::bitwise_operation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1075,15 +1075,15 @@ a1 = variable::center_location([location(0,0,0,0,0), location(0,0,0,0,0)]);
 
 #Or dry
 
-variable::center_location([location(0,0,0,0,0), location(0,0,0,0,0)],a1);
+variable::center_location(a1,[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
 
 **Arguments:**
 
 | **Name**    | **Type**       | **Description**    |
 | ----------- | -------------- | ------------------ |
-| `locations` | list[Location] | Locations to Set   |
 | `variable`  | Variable       | Variable to assign |
+| `locations` | list[Location] | Locations to Set   |
 <h3 id=set_variable_change_component_parsing>
   <code>variable::change_component_parsing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1265,15 +1265,15 @@ a1 = variable::component_of_children(["components", "components"]);
 
 #Or dry
 
-variable::component_of_children(["components", "components"],a1);
+variable::component_of_children(a1,["components", "components"]);
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**   | **Description**            |
 | ------------ | ---------- | -------------------------- |
-| `components` | list[Text] | Stylized texts             |
 | `variable`   | Variable   | Variable for appropriation |
+| `components` | list[Text] | Stylized texts             |
 <h3 id=set_variable_convert_number_to_text>
   <code>variable::convert_number_to_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1436,15 +1436,15 @@ a1 = variable::create_list(["any value", "any value"]);
 
 #Or dry
 
-variable::create_list(["any value", "any value"],a1);
+variable::create_list(a1,["any value", "any value"]);
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**        | **Description**    |
 | ---------- | --------------- | ------------------ |
-| `values`   | list[Any Value] | Values             |
 | `variable` | Variable        | Variable to assign |
+| `values`   | list[Any Value] | Values             |
 <h3 id=set_variable_create_map>
   <code>variable::create_map</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1489,16 +1489,16 @@ a1 = variable::create_map_from_values(["any value", "any value"],["any value", "
 
 #Or dry
 
-variable::create_map_from_values(["any value", "any value"],["any value", "any value"],a1);
+variable::create_map_from_values(a1,["any value", "any value"],["any value", "any value"]);
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**        | **Description**            |
 | ---------- | --------------- | -------------------------- |
+| `variable` | Variable        | Variable for appropriation |
 | `keys`     | list[Any Value] | Keys                       |
 | `values`   | list[Any Value] | Meanings                   |
-| `variable` | Variable        | Variable for appropriation |
 <h3 id=set_variable_create_translatable_component>
   <code>variable::create_translatable_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1563,15 +1563,15 @@ a1 = variable::divide([1, 2],"DEFAULT");
 
 #Or dry
 
-variable::divide([1, 2],a1,"DEFAULT");
+variable::divide(a1,[1, 2],"DEFAULT");
 ```
 
 **Arguments:**
 
 | **Name**        | **Type**                                                                                                                               | **Description**    |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `value`         | list[Number]                                                                                                                           | Numbers to Divide  |
 | `variable`      | Variable                                                                                                                               | Variable to assign |
+| `value`         | list[Number]                                                                                                                           | Numbers to Divide  |
 | `division_mode` | Marker<br/>**DEFAULT** - Default<br/>**ROUND_TO_INT** - Round To Integer<br/>**FLOOR** - Round to less<br/>**CEIL** - Round up to more | Division Mode      |
 <h3 id=set_variable_divide_vector>
   <code>variable::divide_vector</code>
@@ -1775,19 +1775,19 @@ a1, a2, a3, a4, a5 = location(0,0,0,0,0).get_all_coordinates();
 
 #Or dry
 
-variable::get_all_coordinates(location(0,0,0,0,0),a1,a2,a3,a4,a5);
+variable::get_all_coordinates(a1,a2,a3,a4,a5,location(0,0,0,0,0));
 ```
 
 **Arguments:**
 
 | **Name**   | **Type** | **Description**     |
 | ---------- | -------- | ------------------- |
-| `location` | Location | Location to Get     |
 | `x`        | Variable | X Coordinate        |
 | `y`        | Variable | Y Coordinate        |
 | `z`        | Variable | Z Coordinate        |
 | `yaw`      | Variable | Horizontal Rotation |
 | `pitch`    | Variable | Pitch Vertical      |
+| `location` | Location | Location to Get     |
 <h3 id=set_variable_get_angle_between_vectors>
   <code>variable::get_angle_between_vectors</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4102,17 +4102,17 @@ a1, a2, a3 = vector(0,0,0).get_vector_all_components();
 
 #Or dry
 
-variable::get_vector_all_components(vector(0,0,0),a1,a2,a3);
+variable::get_vector_all_components(a1,a2,a3,vector(0,0,0));
 ```
 
 **Arguments:**
 
 | **Name** | **Type** | **Description**             |
 | -------- | -------- | --------------------------- |
-| `vector` | Vector   | Vector for obtaining values |
 | `x`      | Variable | Coordinate x                |
 | `y`      | Variable | Coordinate y                |
 | `z`      | Variable | Coordinate z                |
+| `vector` | Vector   | Vector for obtaining values |
 <h3 id=set_variable_get_vector_between_locations>
   <code>variable::get_vector_between_locations</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4502,15 +4502,15 @@ a1 = variable::max([1, 2]);
 
 #Or dry
 
-variable::max([1, 2],a1);
+variable::max(a1,[1, 2]);
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**     | **Description**    |
 | ---------- | ------------ | ------------------ |
-| `value`    | list[Number] | Numbers to select  |
 | `variable` | Variable     | Variable to assign |
+| `value`    | list[Number] | Numbers to select  |
 <h3 id=set_variable_min>
   <code>variable::min</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4526,15 +4526,15 @@ a1 = variable::min([1, 2]);
 
 #Or dry
 
-variable::min([1, 2],a1);
+variable::min(a1,[1, 2]);
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**     | **Description**    |
 | ---------- | ------------ | ------------------ |
-| `value`    | list[Number] | Numbers to select  |
 | `variable` | Variable     | Variable to assign |
+| `value`    | list[Number] | Numbers to select  |
 <h3 id=set_variable_multiply>
   <code>variable::multiply</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4550,15 +4550,15 @@ a1 = variable::multiply([1, 2]);
 
 #Or dry
 
-variable::multiply([1, 2],a1);
+variable::multiply(a1,[1, 2]);
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**     | **Description**     |
 | ---------- | ------------ | ------------------- |
-| `value`    | list[Number] | Numbers to Multiply |
 | `variable` | Variable     | Variable to assign  |
+| `value`    | list[Number] | Numbers to Multiply |
 <h3 id=set_variable_multiply_vector>
   <code>variable::multiply_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4734,15 +4734,15 @@ a1 = variable::random(["any value", "any value"]);
 
 #Or dry
 
-variable::random(["any value", "any value"],a1);
+variable::random(a1,["any value", "any value"]);
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**        | **Description**    |
 | ---------- | --------------- | ------------------ |
-| `values`   | list[Any Value] | Values to choose   |
 | `variable` | Variable        | Variable to assign |
+| `values`   | list[Any Value] | Values to choose   |
 <h3 id=set_variable_random_location>
   <code>variable::random_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4838,20 +4838,20 @@ a1, a2, a3, a4 = variable::ray_trace_result(location(0,0,0,0,0),"ONLY_BLOCKS",1,
 
 #Or dry
 
-variable::ray_trace_result(location(0,0,0,0,0),"ONLY_BLOCKS",1,a1,a2,a3,a4,`entities`,"TRUE",2,"NEVER");
+variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),"ONLY_BLOCKS",1,`entities`,"TRUE",2,"NEVER");
 ```
 
 **Arguments:**
 
 | **Name**                          | **Type**                                                                                                                                   | **Description**                                                                      |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `start`                           | Location                                                                                                                                   | Beam Start                                                                           |
-| `ray_collision_mode`              | Marker<br/>**ONLY_BLOCKS** - Only with Blocks<br/>**BLOCKS_AND_ENTITIES** - With blocks and entities<br/>**ONLY_ENTITIES** - Entities Only | Object Collision                                                                     |
-| `ray_size`                        | Number                                                                                                                                     | Beam Width                                                                           |
 | `variable_for_hit_location`       | Variable                                                                                                                                   | Ray Impact Point                                                                     |
 | `variable_for_hit_block_location` | Variable                                                                                                                                   | Block Location                                                                       |
 | `variable_for_hit_block_face`     | Variable                                                                                                                                   | Block/Hitbox Side                                                                    |
 | `variable_for_hit_entity_uuid`    | Variable                                                                                                                                   | Entity UUID                                                                          |
+| `start`                           | Location                                                                                                                                   | Beam Start                                                                           |
+| `ray_collision_mode`              | Marker<br/>**ONLY_BLOCKS** - Only with Blocks<br/>**BLOCKS_AND_ENTITIES** - With blocks and entities<br/>**ONLY_ENTITIES** - Entities Only | Object Collision                                                                     |
+| `ray_size`                        | Number                                                                                                                                     | Beam Width                                                                           |
 | `entities`                        | List                                                                                                                                       | Names or UUIDs of the entities to collide with (default is all players and entities) |
 | `ignore_passable_blocks`          | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't Ignore                                                                                  | Ignore Passable Blocks                                                               |
 | `max_distance`                    | Number                                                                                                                                     | Beam length                                                                          |
@@ -5138,15 +5138,15 @@ a1 = item("stick").remove_item_potion_effects([potion("slow_falling"), potion("s
 
 #Or dry
 
-variable::remove_item_potion_effects([potion("slow_falling"), potion("slow_falling")],a1,item("stick"));
+variable::remove_item_potion_effects(a1,[potion("slow_falling"), potion("slow_falling")],item("stick"));
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**     | **Description**    |
 | ---------- | ------------ | ------------------ |
-| `effects`  | list[Potion] | Potion Effects     |
 | `variable` | Variable     | Variable to assign |
+| `effects`  | list[Potion] | Potion Effects     |
 | `item`     | Item         | Item               |
 <h3 id=set_variable_remove_list_duplicates>
   <code>variable::remove_list_duplicates</code>
@@ -5255,7 +5255,7 @@ a2, a1 = `map`.remove_map_entry(["any value", "any value"],"any value");
 
 #Or dry
 
-variable::remove_map_entry(a1,["any value", "any value"],a2,`map`,"any value");
+variable::remove_map_entry(a1,a2,["any value", "any value"],`map`,"any value");
 ```
 
 **Arguments:**
@@ -5263,8 +5263,8 @@ variable::remove_map_entry(a1,["any value", "any value"],a2,`map`,"any value");
 | **Name**        | **Type**        | **Description**      |
 | --------------- | --------------- | -------------------- |
 | `removed_value` | Variable        | Removed Value        |
-| `values`        | list[Any Value] | Values               |
 | `variable`      | Variable        | Variable to assign   |
+| `values`        | list[Any Value] | Values               |
 | `map`           | Dictionary      | Dictionary to change |
 | `key`           | Any Value       | Key                  |
 <h3 id=set_variable_remove_text>
@@ -5286,15 +5286,15 @@ a1 = "text".remove_text(["remove", "remove"],"TRUE");
 
 #Or dry
 
-variable::remove_text(["remove", "remove"],a1,"text","TRUE");
+variable::remove_text(a1,["remove", "remove"],"text","TRUE");
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**                                             | **Description**     |
 | ---------- | ---------------------------------------------------- | ------------------- |
-| `remove`   | list[Text]                                           | Text to Remove      |
 | `variable` | Variable                                             | Variable to assign  |
+| `remove`   | list[Text]                                           | Text to Remove      |
 | `text`     | Text                                                 | Original Text       |
 | `regex`    | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Regular Expressions |
 <h3 id=set_variable_repeat_text>
@@ -5628,19 +5628,19 @@ variable::set_book_pages(a1,["text", "text"],item("stick"));
 
 **Usage example:** 
 ```ts
-variable::set_bundle_items([item("stick"), item("stick")],a1,item("stick"),"ADD");
+variable::set_bundle_items(a1,[item("stick"), item("stick")],item("stick"),"ADD");
 
 #Or from the object
 
-item("stick").set_bundle_items([item("stick"), item("stick")],a1,"ADD");
+item("stick").set_bundle_items(a1,[item("stick"), item("stick")],"ADD");
 ```
 
 **Arguments:**
 
 | **Name**       | **Type**                                                           | **Description**            |
 | -------------- | ------------------------------------------------------------------ | -------------------------- |
-| `items`        | list[Item]                                                         | Change items               |
 | `variable`     | Variable                                                           | Variable for appropriation |
+| `items`        | list[Item]                                                         | Change items               |
 | `bundle`       | Item                                                               | Bundle                     |
 | `setting_mode` | Marker<br/>**ADD** - Add<br/>**SET** - Set<br/>**REMOVE** - Delete | Type of change             |
 <h3 id=set_variable_set_compass_lodestone>
@@ -6175,15 +6175,15 @@ a1 = item("stick").set_item_destroyable_blocks([item("stick"), item("stick")]);
 
 #Or dry
 
-variable::set_item_destroyable_blocks([item("stick"), item("stick")],a1,item("stick"));
+variable::set_item_destroyable_blocks(a1,[item("stick"), item("stick")],item("stick"));
 ```
 
 **Arguments:**
 
 | **Name**      | **Type**   | **Description**                 |
 | ------------- | ---------- | ------------------------------- |
-| `destroyable` | list[Item] | Blocks Can Be Destroyed by Item |
 | `variable`    | Variable   | Variable to assign              |
+| `destroyable` | list[Item] | Blocks Can Be Destroyed by Item |
 | `item`        | Item       | Item                            |
 <h3 id=set_variable_set_item_durability>
   <code>variable::set_item_durability</code>
@@ -6378,15 +6378,15 @@ a1 = item("stick").set_item_placeable_blocks([item("stick"), item("stick")]);
 
 #Or dry
 
-variable::set_item_placeable_blocks([item("stick"), item("stick")],a1,item("stick"));
+variable::set_item_placeable_blocks(a1,[item("stick"), item("stick")],item("stick"));
 ```
 
 **Arguments:**
 
 | **Name**    | **Type**   | **Description**    |
 | ----------- | ---------- | ------------------ |
-| `placeable` | list[Item] | Placeable Blocks   |
 | `variable`  | Variable   | Variable to assign |
+| `placeable` | list[Item] | Placeable Blocks   |
 | `item`      | Item       | Item               |
 <h3 id=set_variable_set_item_type>
   <code>variable::set_item_type</code>
@@ -7483,15 +7483,15 @@ a1 = variable::subtract([1, 2]);
 
 #Or dry
 
-variable::subtract([1, 2],a1);
+variable::subtract(a1,[1, 2]);
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**     | **Description**     |
 | ---------- | ------------ | ------------------- |
-| `value`    | list[Number] | Numbers to Subtract |
 | `variable` | Variable     | Variable to assign  |
+| `value`    | list[Number] | Numbers to Subtract |
 <h3 id=set_variable_subtract_vectors>
   <code>variable::subtract_vectors</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7507,15 +7507,15 @@ a1 = variable::subtract_vectors([vector(0,0,0), vector(0,0,0)]);
 
 #Or dry
 
-variable::subtract_vectors([vector(0,0,0), vector(0,0,0)],a1);
+variable::subtract_vectors(a1,[vector(0,0,0), vector(0,0,0)]);
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**     | **Description**    |
 | ---------- | ------------ | ------------------ |
-| `vectors`  | list[Vector] | Difference Vectors |
 | `variable` | Variable     | Variable to assign |
+| `vectors`  | list[Vector] | Difference Vectors |
 <h3 id=set_variable_tangent>
   <code>variable::tangent</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7561,15 +7561,15 @@ a1 = variable::set_text(["text", "text"],"SPACES");
 
 #Or dry
 
-variable::set_text(["text", "text"],a1,"SPACES");
+variable::set_text(a1,["text", "text"],"SPACES");
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**                                                                                                       | **Description**    |
 | ---------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `text`     | list[Text]                                                                                                     | Text to set        |
 | `variable` | Variable                                                                                                       | Variable to assign |
+| `text`     | list[Text]                                                                                                     | Text to set        |
 | `merging`  | Marker<br/>**SPACES** - Space Separation<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines | Merge Text         |
 <h3 id=set_variable_text_case>
   <code>variable::set_text_case</code>

@@ -10707,16 +10707,16 @@
     "object": "select",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "consider_blocks",
         "type": "enum",
         "values": [
           "TRUE",
           "FALSE"
         ]
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       },
       {
         "id": "origin",
@@ -10877,13 +10877,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "value",
         "type": "number",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -10931,13 +10931,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "potions",
         "type": "potion",
         "array": 18
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       },
       {
         "id": "item",
@@ -10984,13 +10984,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "vectors",
         "type": "vector",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -11086,13 +11086,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "components",
         "type": "text",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       },
       {
         "id": "merging",
@@ -11172,13 +11172,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "values",
         "type": "any",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "origin": "variable",
@@ -11190,13 +11190,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "value",
         "type": "number",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -11252,13 +11252,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "locations",
         "type": "location",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -11421,13 +11421,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "components",
         "type": "text",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -11600,13 +11600,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "values",
         "type": "any",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -11649,6 +11649,10 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "keys",
         "type": "any",
         "array": 15
@@ -11657,10 +11661,6 @@
         "id": "values",
         "type": "any",
         "array": 15
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -11726,13 +11726,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "value",
         "type": "number",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       },
       {
         "id": "division_mode",
@@ -11960,10 +11960,6 @@
     "object": "variable",
     "args": [
       {
-        "id": "location",
-        "type": "location"
-      },
-      {
         "id": "x",
         "type": "variable"
       },
@@ -11982,6 +11978,10 @@
       {
         "id": "pitch",
         "type": "variable"
+      },
+      {
+        "id": "location",
+        "type": "location"
       }
     ],
     "assign": [
@@ -14233,10 +14233,6 @@
     "object": "variable",
     "args": [
       {
-        "id": "vector",
-        "type": "vector"
-      },
-      {
         "id": "x",
         "type": "variable"
       },
@@ -14247,6 +14243,10 @@
       {
         "id": "z",
         "type": "variable"
+      },
+      {
+        "id": "vector",
+        "type": "vector"
       }
     ],
     "assign": [
@@ -14697,13 +14697,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "value",
         "type": "number",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -14720,13 +14720,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "value",
         "type": "number",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -14743,13 +14743,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "value",
         "type": "number",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -14972,13 +14972,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "values",
         "type": "any",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -15086,6 +15086,22 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable_for_hit_location",
+        "type": "variable"
+      },
+      {
+        "id": "variable_for_hit_block_location",
+        "type": "variable"
+      },
+      {
+        "id": "variable_for_hit_block_face",
+        "type": "variable"
+      },
+      {
+        "id": "variable_for_hit_entity_uuid",
+        "type": "variable"
+      },
+      {
         "id": "start",
         "type": "location"
       },
@@ -15101,22 +15117,6 @@
       {
         "id": "ray_size",
         "type": "number"
-      },
-      {
-        "id": "variable_for_hit_location",
-        "type": "variable"
-      },
-      {
-        "id": "variable_for_hit_block_location",
-        "type": "variable"
-      },
-      {
-        "id": "variable_for_hit_block_face",
-        "type": "variable"
-      },
-      {
-        "id": "variable_for_hit_entity_uuid",
-        "type": "variable"
       },
       {
         "id": "entities",
@@ -15528,13 +15528,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "effects",
         "type": "potion",
         "array": 18
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       },
       {
         "id": "item",
@@ -15654,13 +15654,13 @@
         "type": "variable"
       },
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "values",
         "type": "any",
         "array": 18
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       },
       {
         "id": "map",
@@ -15690,13 +15690,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "remove",
         "type": "text",
         "array": 18
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       },
       {
         "id": "text",
@@ -16098,13 +16098,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "items",
         "type": "item",
         "array": 35
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       },
       {
         "id": "bundle",
@@ -16751,13 +16751,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "destroyable",
         "type": "item",
         "array": 18
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       },
       {
         "id": "item",
@@ -16958,13 +16958,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "placeable",
         "type": "item",
         "array": 18
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       },
       {
         "id": "item",
@@ -18186,13 +18186,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "value",
         "type": "number",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -18209,13 +18209,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "vectors",
         "type": "vector",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       }
     ],
     "assign": [
@@ -18272,13 +18272,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
         "id": "text",
         "type": "text",
         "array": 21
-      },
-      {
-        "id": "variable",
-        "type": "variable"
       },
       {
         "id": "merging",

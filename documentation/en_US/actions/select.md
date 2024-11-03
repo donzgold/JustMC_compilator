@@ -369,15 +369,15 @@ select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
 
 **Usage example:** 
 ```ts
-select::filter_by_raycast("TRUE",a1,location(0,0,0,0,0),1,2,3,"TRUE","NEVER");
+select::filter_by_raycast(a1,"TRUE",location(0,0,0,0,0),1,2,3,"TRUE","NEVER");
 ```
 
 **Arguments:**
 
 | **Name**                 | **Type**                                                                                                             | **Description**        |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `consider_blocks`        | Marker<br/>**TRUE** - Consider<br/>**FALSE** - Don't Consider                                                        | Consider Blocks        |
 | `variable`               | Variable                                                                                                             | Ray End Point          |
+| `consider_blocks`        | Marker<br/>**TRUE** - Consider<br/>**FALSE** - Don't Consider                                                        | Consider Blocks        |
 | `origin`                 | Location                                                                                                             | Ray Origin             |
 | `max_distance`           | Number                                                                                                               | Ray Length             |
 | `ray_size`               | Number                                                                                                               | Ray Width              |
