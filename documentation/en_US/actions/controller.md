@@ -1,3 +1,17 @@
+<h3 id=control_dummy>
+  <code>controller::dummy</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** ...\
+**Type:** Action without value\
+**Description:** ...
+
+**Usage example:** 
+```ts
+controller::dummy();
+```
+
 <h3 id=controller_async_run>
   <code>controller::async_run</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5,7 +19,9 @@
 
 **Name:** Run On Separate Thread\
 **Type:** Action without value\
-**Description:** Runs the code inside the pistons on a separate thread, which can reduce load. Undo and redo events will not work after pistons.
+**Description:** Runs the code inside the pistons on a separate thread, which can reduce load. Undo and redo events will not work after pistons.\
+**Additional info:**\
+&nbsp;&nbsp;Some actions inside pistons may not work.
 
 **Usage example:** 
 ```ts
@@ -21,7 +37,7 @@ controller::async_run(){
 
 **Name:** Catch Error\
 **Type:** Action without value\
-**Description:** Catches a code error inside the pistons as a "ID - Message" dictionary, assigns the result to a variable.\
+**Description:** Catches a code error inside the pistons as an \"ID - Message\" dictionary, assigns the result to a variable.\
 **Additional info:**\
 &nbsp;&nbsp;Does not catch global or fatal errors.
 
@@ -34,10 +50,10 @@ controller::catch_exception(a1,"WARNING"){
 
 **Arguments:**
 
-| **Name**         | **Type**                                               | **Description**    |
-| ---------------- | ------------------------------------------------------ | ------------------ |
-| `variable`       | Variable                                               | Variable to Assign |
-| `exception_type` | Marker<br/>**WARNING** - Warning<br/>**ERROR** - Error | Error Type         |
+| **Name**         | **Type**                                                                 | **Description**    |
+| ---------------- | ------------------------------------------------------------------------ | ------------------ |
+| `variable`       | Variable                                                                 | Variable to Assign |
+| `exception_type` | Marker<br/>**WARNING** - Warning<br/>**ERROR** - Error<br/>**ALL** - All | Error Type         |
 <h3 id=controller_measure_time>
   <code>controller::measure_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -47,7 +63,7 @@ controller::catch_exception(a1,"WARNING"){
 **Type:** Action without value\
 **Description:** Measures the execution time of the code inside the pistons and assigns the result to a variable.\
 **Additional info:**\
-&nbsp;&nbsp;Accounts for "Wait" blocks.
+&nbsp;&nbsp;Accounts for \"Wait\" blocks.
 
 **Usage example:** 
 ```ts

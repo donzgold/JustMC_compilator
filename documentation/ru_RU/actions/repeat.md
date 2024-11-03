@@ -23,6 +23,22 @@ repeat::adjacently(location(0,0,0,0,0),"TRUE","TRUE","CARDINAL"){a1->
 | `change_rotation` | Маркер<br/>**TRUE** - Поворачивать<br/>**FALSE** - Не поворачивать                                                          | Поворачивать направление взгляда текущего элемента относительно указанного местоположения |
 | `include_self`    | Маркер<br/>**TRUE** - Учитывать<br/>**FALSE** - Не учитывать                                                                | Учитывать центральный блок                                                                |
 | `pattern`         | Маркер<br/>**CARDINAL** - Кардинальный<br/>**SQUARE** - Квадратный<br/>**ADJACENT** - Примыкающий<br/>**CUBE** - Кубический | Тип выбора смежных блоков                                                                 |
+<h3 id=repeat_dummy>
+  <code>repeat::dummy</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** ...\
+**Тип:** Действие без значения\
+**Описание:** ...
+
+**Пример использования:** 
+```ts
+repeat::dummy(){
+    player::message("Всё работает");
+}
+```
+
 <h3 id=repeat_for_each_in_list>
   <code>repeat::for_each_in_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -168,7 +184,7 @@ repeat::on_grid(location(0,0,0,0,0),location(0,0,0,0,0)){a1->
 
 **Пример использования:** 
 ```ts
-repeat::on_path(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE"){a1->
+repeat::on_path([location(0,0,0,0,0), location(0,0,0,0,0)],1,"TRUE"){a1->
     player::message("Код в цикле")
 }
 ```
@@ -178,8 +194,8 @@ repeat::on_path(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE"){a1->
 | **Имя**     | **Тип**                                                      | **Описание**                                |
 | ----------- | ------------------------------------------------------------ | ------------------------------------------- |
 | `variable`  | Переменная                                                   | Для присвоения местоположения               |
-| `step`      | Число                                                        | Расстояние между точками                    |
 | `locations` | список[Местоположение]                                       | Местоположения концов прямых                |
+| `step`      | Число                                                        | Расстояние между точками                    |
 | `rotation`  | Маркер<br/>**TRUE** - Сохранять<br/>**FALSE** - Не сохранять | Сохранять поворот указанного местоположения |
 <h3 id=repeat_on_range>
   <code>repeat::on_range</code>

@@ -23,6 +23,22 @@ repeat::adjacently(location(0,0,0,0,0),"TRUE","TRUE","CARDINAL"){a1->
 | `change_rotation` | Marker<br/>**TRUE** - Rotate<br/>**FALSE** - Don't Rotate                                                  | Rotate the direction of view of the current element relative to the specified location |
 | `include_self`    | Marker<br/>**TRUE** - Include<br/>**FALSE** - Do not include                                               | Include Center Block                                                                   |
 | `pattern`         | Marker<br/>**CARDINAL** - Cardinal<br/>**SQUARE** - Square<br/>**ADJACENT** - Adjacent<br/>**CUBE** - Cube | Adjacent Block Selection Type                                                          |
+<h3 id=repeat_dummy>
+  <code>repeat::dummy</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** ...\
+**Type:** Action without value\
+**Description:** ...
+
+**Usage example:** 
+```ts
+repeat::dummy(){
+    player::message("Everything work");
+}
+```
+
 <h3 id=repeat_for_each_in_list>
   <code>repeat::for_each_in_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -168,7 +184,7 @@ repeat::on_grid(location(0,0,0,0,0),location(0,0,0,0,0)){a1->
 
 **Usage example:** 
 ```ts
-repeat::on_path(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE"){a1->
+repeat::on_path([location(0,0,0,0,0), location(0,0,0,0,0)],1,"TRUE"){a1->
     player::message("Code in cycle")
 }
 ```
@@ -178,8 +194,8 @@ repeat::on_path(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE"){a1->
 | **Name**    | **Type**                                              | **Description**                     |
 | ----------- | ----------------------------------------------------- | ----------------------------------- |
 | `variable`  | Variable                                              | To assign location                  |
-| `step`      | Number                                                | Distance between points             |
 | `locations` | list[Location]                                        | Line End Locations                  |
+| `step`      | Number                                                | Distance between points             |
 | `rotation`  | Marker<br/>**TRUE** - Keep<br/>**FALSE** - Don't Save | Keep rotation of specified location |
 <h3 id=repeat_on_range>
   <code>repeat::on_range</code>

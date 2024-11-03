@@ -80,6 +80,8 @@ code::return_function();
 **Name:** Skip Iteration\
 **Type:** Action without value\
 **Description:** Skip one iteration in the current iteration.
+**Work_with:**\
+&nbsp;&nbsp;With repetitions
 
 **Usage example:** 
 ```ts
@@ -94,6 +96,8 @@ code::skip_iteration();
 **Name:** Stop Repeat\
 **Type:** Action without value\
 **Description:** Completely stops the current repeat.
+**Work_with:**\
+&nbsp;&nbsp;Repeat
 
 **Usage example:** 
 ```ts
@@ -149,7 +153,7 @@ code::else(){
 
 **Usage example:** 
 ```ts
-code::start_process("process_name","CURRENT_TARGET","DONT_COPY");
+code::start_process("process_name","DONT_COPY","CURRENT_TARGET");
 ```
 
 **Arguments:**
@@ -157,5 +161,5 @@ code::start_process("process_name","CURRENT_TARGET","DONT_COPY");
 | **Name**               | **Type**                                                                                                                                                                       | **Description** |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
 | `process_name`         | Text                                                                                                                                                                           | Process name    |
-| `target_mode`          | Marker<br/>**CURRENT_TARGET** - Event Target<br/>**CURRENT_SELECTION** - Current Target<br/>**NO_TARGET** - No Target<br/>**FOR_EACH_IN_SELECTION** - Each Target in Selection | Process Target  |
 | `local_variables_mode` | Marker<br/>**DONT_COPY** - Don't duplicate<br/>**COPY** - Duplicate<br/>**SHARE** - General                                                                                    | Variable Mode   |
+| `target_mode`          | Marker<br/>**CURRENT_TARGET** - Event Target<br/>**CURRENT_SELECTION** - Current Target<br/>**NO_TARGET** - No Target<br/>**FOR_EACH_IN_SELECTION** - Each Target in Selection | Process Target  |

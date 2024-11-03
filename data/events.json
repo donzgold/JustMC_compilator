@@ -1,38 +1,10 @@
 [
   {
-    "id": "player_join",
-    "cancellable": false
-  },
-  {
-    "id": "player_quit",
-    "cancellable": false
-  },
-  {
-    "id": "player_rejoin",
+    "id": "bell_ring",
     "cancellable": true
   },
   {
-    "id": "player_chat",
-    "cancellable": true
-  },
-  {
-    "id": "player_interact",
-    "cancellable": true
-  },
-  {
-    "id": "player_right_click",
-    "cancellable": true
-  },
-  {
-    "id": "player_left_click",
-    "cancellable": true
-  },
-  {
-    "id": "player_place_block",
-    "cancellable": true
-  },
-  {
-    "id": "player_break_block",
+    "id": "block_burn",
     "cancellable": true
   },
   {
@@ -44,415 +16,7 @@
     "cancellable": false
   },
   {
-    "id": "player_structure_grow",
-    "cancellable": true
-  },
-  {
-    "id": "player_query_block_info",
-    "cancellable": true
-  },
-  {
-    "id": "player_arm_swing",
-    "cancellable": true
-  },
-  {
-    "id": "player_right_click_entity",
-    "cancellable": true
-  },
-  {
-    "id": "player_right_click_player",
-    "cancellable": true
-  },
-  {
-    "id": "player_imbue_potion_cloud",
-    "cancellable": true
-  },
-  {
-    "id": "player_pickup_projectile",
-    "cancellable": true
-  },
-  {
-    "id": "player_pickup_experience",
-    "cancellable": true
-  },
-  {
-    "id": "player_tame_entity",
-    "cancellable": true
-  },
-  {
-    "id": "player_leash_entity",
-    "cancellable": true
-  },
-  {
-    "id": "player_start_spectating_entity",
-    "cancellable": true
-  },
-  {
-    "id": "player_stop_spectating_entity",
-    "cancellable": true
-  },
-  {
-    "id": "player_query_entity_info",
-    "cancellable": true
-  },
-  {
-    "id": "player_open_inventory",
-    "cancellable": true
-  },
-  {
-    "id": "player_click_inventory",
-    "cancellable": true
-  },
-  {
-    "id": "player_drag_inventory",
-    "cancellable": true
-  },
-  {
-    "id": "player_click_own_inventory",
-    "cancellable": true
-  },
-  {
-    "id": "player_craft_item",
-    "cancellable": true
-  },
-  {
-    "id": "player_close_inventory",
-    "cancellable": false
-  },
-  {
-    "id": "player_swap_hands",
-    "cancellable": true
-  },
-  {
-    "id": "player_change_slot",
-    "cancellable": true
-  },
-  {
-    "id": "player_pick_item",
-    "cancellable": true
-  },
-  {
-    "id": "player_furnace_extract",
-    "cancellable": false
-  },
-  {
-    "id": "player_shot_bow",
-    "cancellable": true
-  },
-  {
-    "id": "player_launch_projectile",
-    "cancellable": true
-  },
-  {
-    "id": "player_pickup_item",
-    "cancellable": true
-  },
-  {
-    "id": "player_drop_item",
-    "cancellable": true
-  },
-  {
-    "id": "player_consume_item",
-    "cancellable": true
-  },
-  {
-    "id": "player_break_item",
-    "cancellable": false
-  },
-  {
-    "id": "player_stop_using_item",
-    "cancellable": false
-  },
-  {
-    "id": "player_edit_book",
-    "cancellable": true
-  },
-  {
-    "id": "player_fish",
-    "cancellable": true
-  },
-  {
-    "id": "player_move",
-    "cancellable": true
-  },
-  {
-    "id": "player_fail_move",
-    "cancellable": false
-  },
-  {
-    "id": "player_load_crossbow",
-    "cancellable": true
-  },
-  {
-    "id": "player_jump",
-    "cancellable": true
-  },
-  {
-    "id": "player_sneak",
-    "cancellable": true
-  },
-  {
-    "id": "player_unsneak",
-    "cancellable": true
-  },
-  {
-    "id": "player_teleport",
-    "cancellable": true
-  },
-  {
-    "id": "player_start_sprint",
-    "cancellable": true
-  },
-  {
-    "id": "player_stop_sprint",
-    "cancellable": true
-  },
-  {
-    "id": "player_start_flight",
-    "cancellable": true
-  },
-  {
-    "id": "player_stop_flight",
-    "cancellable": true
-  },
-  {
-    "id": "player_riptide",
-    "cancellable": true
-  },
-  {
-    "id": "player_dismount",
-    "cancellable": true
-  },
-  {
-    "id": "player_horse_jump",
-    "cancellable": true
-  },
-  {
-    "id": "player_vehicle_jump",
-    "cancellable": false
-  },
-  {
-    "id": "player_vehicle_move",
-    "cancellable": false
-  },
-  {
-    "id": "player_take_damage",
-    "cancellable": true
-  },
-  {
-    "id": "player_damage_player",
-    "cancellable": true
-  },
-  {
-    "id": "entity_damage_player",
-    "cancellable": true
-  },
-  {
-    "id": "player_damage_entity",
-    "cancellable": true
-  },
-  {
-    "id": "player_resurrect",
-    "cancellable": true
-  },
-  {
-    "id": "player_heal",
-    "cancellable": true
-  },
-  {
-    "id": "player_food_level_change",
-    "cancellable": true
-  },
-  {
-    "id": "player_exhaustion",
-    "cancellable": true
-  },
-  {
-    "id": "player_projectile_hit",
-    "cancellable": true
-  },
-  {
-    "id": "projectile_damage_player",
-    "cancellable": true
-  },
-  {
-    "id": "player_pre_attack_entity",
-    "cancellable": true
-  },
-  {
-    "id": "elder_guardian_appears_at_player",
-    "cancellable": true
-  },
-  {
-    "id": "player_death",
-    "cancellable": true
-  },
-  {
-    "id": "player_kill_player",
-    "cancellable": true
-  },
-  {
-    "id": "player_kill_mob",
-    "cancellable": true
-  },
-  {
-    "id": "mob_kill_player",
-    "cancellable": true
-  },
-  {
-    "id": "player_respawn",
-    "cancellable": false
-  },
-  {
-    "id": "entity_spawn",
-    "cancellable": true
-  },
-  {
-    "id": "entity_removed_from_world",
-    "cancellable": false
-  },
-  {
-    "id": "entity_damage_entity",
-    "cancellable": true
-  },
-  {
-    "id": "entity_kill_entity",
-    "cancellable": true
-  },
-  {
-    "id": "entity_take_damage",
-    "cancellable": true
-  },
-  {
-    "id": "entity_heal",
-    "cancellable": true
-  },
-  {
-    "id": "entity_resurrect",
-    "cancellable": true
-  },
-  {
-    "id": "entity_death",
-    "cancellable": true
-  },
-  {
-    "id": "entity_spell_cast",
-    "cancellable": true
-  },
-  {
-    "id": "enderman_escape",
-    "cancellable": true
-  },
-  {
-    "id": "enderman_attack_player",
-    "cancellable": true
-  },
-  {
-    "id": "firework_explode",
-    "cancellable": true
-  },
-  {
-    "id": "hanging_break",
-    "cancellable": true
-  },
-  {
-    "id": "projectile_launch",
-    "cancellable": true
-  },
-  {
-    "id": "projectile_damage_entity",
-    "cancellable": true
-  },
-  {
-    "id": "projectile_kill_entity",
-    "cancellable": true
-  },
-  {
-    "id": "projectile_hit",
-    "cancellable": true
-  },
-  {
-    "id": "projective_collide",
-    "cancellable": true
-  },
-  {
-    "id": "entity_drop_item",
-    "cancellable": true
-  },
-  {
-    "id": "entity_pickup_item",
-    "cancellable": true
-  },
-  {
-    "id": "item_despawn",
-    "cancellable": true
-  },
-  {
-    "id": "vehicle_take_damage",
-    "cancellable": true
-  },
-  {
-    "id": "block_fall",
-    "cancellable": true
-  },
-  {
-    "id": "entity_interact",
-    "cancellable": true
-  },
-  {
-    "id": "dispenser_shear_sheep",
-    "cancellable": true
-  },
-  {
-    "id": "sheep_regrow_wool",
-    "cancellable": true
-  },
-  {
-    "id": "witch_throw_potion",
-    "cancellable": true
-  },
-  {
-    "id": "entity_shot_bow",
-    "cancellable": true
-  },
-  {
-    "id": "entity_load_crossbow",
-    "cancellable": true
-  },
-  {
-    "id": "piglin_barter",
-    "cancellable": true
-  },
-  {
-    "id": "goat_ram_entity",
-    "cancellable": true
-  },
-  {
-    "id": "entity_transform",
-    "cancellable": true
-  },
-  {
-    "id": "world_start",
-    "cancellable": false
-  },
-  {
-    "id": "world_stop",
-    "cancellable": false
-  },
-  {
-    "id": "time_skip",
-    "cancellable": true
-  },
-  {
-    "id": "world_web_response",
-    "cancellable": false
-  },
-  {
-    "id": "block_ignite",
-    "cancellable": false
-  },
-  {
-    "id": "block_burn",
+    "id": "block_explode",
     "cancellable": true
   },
   {
@@ -460,20 +24,32 @@
     "cancellable": true
   },
   {
-    "id": "tnt_prime",
+    "id": "block_fall",
     "cancellable": true
   },
   {
-    "id": "block_explode",
+    "id": "block_fertilize",
     "cancellable": true
   },
   {
-    "id": "entity_explode",
+    "id": "block_flow",
     "cancellable": true
   },
   {
-    "id": "entity_explosion",
+    "id": "block_form",
     "cancellable": true
+  },
+  {
+    "id": "block_form_by_entity",
+    "cancellable": true
+  },
+  {
+    "id": "block_grow",
+    "cancellable": true
+  },
+  {
+    "id": "block_ignite",
+    "cancellable": false
   },
   {
     "id": "block_piston_extend",
@@ -484,59 +60,11 @@
     "cancellable": true
   },
   {
-    "id": "leaves_decay",
-    "cancellable": true
-  },
-  {
-    "id": "structure_grow",
-    "cancellable": true
-  },
-  {
-    "id": "block_grow",
-    "cancellable": true
-  },
-  {
-    "id": "block_flow",
-    "cancellable": true
-  },
-  {
-    "id": "block_fertilize",
-    "cancellable": true
-  },
-  {
-    "id": "redstone_level_change",
-    "cancellable": false
-  },
-  {
-    "id": "brew_complete",
-    "cancellable": true
-  },
-  {
-    "id": "block_form",
-    "cancellable": true
-  },
-  {
     "id": "block_spread",
     "cancellable": true
   },
   {
-    "id": "block_form_by_entity",
-    "cancellable": true
-  },
-  {
-    "id": "portal_create",
-    "cancellable": true
-  },
-  {
-    "id": "bell_ring",
-    "cancellable": true
-  },
-  {
-    "id": "entity_bell_ring",
-    "cancellable": true
-  },
-  {
-    "id": "note_play",
+    "id": "brew_complete",
     "cancellable": true
   },
   {
@@ -548,15 +76,103 @@
     "cancellable": true
   },
   {
-    "id": "fluid_level_change",
+    "id": "dispenser_shear_sheep",
     "cancellable": true
   },
   {
-    "id": "sponge_absorb",
+    "id": "elder_guardian_appears_at_player",
     "cancellable": true
   },
   {
-    "id": "sculk_bloom",
+    "id": "enderman_attack_player",
+    "cancellable": true
+  },
+  {
+    "id": "enderman_escape",
+    "cancellable": true
+  },
+  {
+    "id": "entity_bell_ring",
+    "cancellable": true
+  },
+  {
+    "id": "entity_damage_entity",
+    "cancellable": true
+  },
+  {
+    "id": "entity_damage_player",
+    "cancellable": true
+  },
+  {
+    "id": "entity_death",
+    "cancellable": true
+  },
+  {
+    "id": "entity_drop_item",
+    "cancellable": true
+  },
+  {
+    "id": "entity_dummy",
+    "cancellable": false
+  },
+  {
+    "id": "entity_explode",
+    "cancellable": true
+  },
+  {
+    "id": "entity_explosion",
+    "cancellable": true
+  },
+  {
+    "id": "entity_heal",
+    "cancellable": true
+  },
+  {
+    "id": "entity_interact",
+    "cancellable": true
+  },
+  {
+    "id": "entity_kill_entity",
+    "cancellable": true
+  },
+  {
+    "id": "entity_load_crossbow",
+    "cancellable": true
+  },
+  {
+    "id": "entity_pickup_item",
+    "cancellable": true
+  },
+  {
+    "id": "entity_removed_from_world",
+    "cancellable": false
+  },
+  {
+    "id": "entity_resurrect",
+    "cancellable": true
+  },
+  {
+    "id": "entity_shot_bow",
+    "cancellable": true
+  },
+  {
+    "id": "entity_spawn",
+    "cancellable": true
+  },
+  {
+    "id": "entity_spell_cast",
+    "cancellable": true
+  },
+  {
+    "id": "entity_take_damage",
+    "cancellable": true
+  },
+  {
+    "id": "entity_teleport",
+    "cancellable": true
+  },
+  {
+    "id": "entity_transform",
     "cancellable": true
   },
   {
@@ -564,11 +180,15 @@
     "cancellable": true
   },
   {
-    "id": "item_moved_into_container",
+    "id": "firework_explode",
     "cancellable": true
   },
   {
-    "id": "hopper_pickup_item",
+    "id": "fluid_level_change",
+    "cancellable": true
+  },
+  {
+    "id": "furnace_burn",
     "cancellable": true
   },
   {
@@ -580,7 +200,443 @@
     "cancellable": false
   },
   {
-    "id": "furnace_burn",
+    "id": "goat_ram_entity",
     "cancellable": true
+  },
+  {
+    "id": "hanging_break",
+    "cancellable": true
+  },
+  {
+    "id": "hopper_pickup_item",
+    "cancellable": true
+  },
+  {
+    "id": "item_despawn",
+    "cancellable": true
+  },
+  {
+    "id": "item_merge",
+    "cancellable": true
+  },
+  {
+    "id": "item_moved_into_container",
+    "cancellable": true
+  },
+  {
+    "id": "leaves_decay",
+    "cancellable": true
+  },
+  {
+    "id": "mob_kill_player",
+    "cancellable": true
+  },
+  {
+    "id": "note_play",
+    "cancellable": true
+  },
+  {
+    "id": "piglin_barter",
+    "cancellable": true
+  },
+  {
+    "id": "player_anvil_rename_input",
+    "cancellable": false
+  },
+  {
+    "id": "player_arm_swing",
+    "cancellable": true
+  },
+  {
+    "id": "player_break_block",
+    "cancellable": true
+  },
+  {
+    "id": "player_break_item",
+    "cancellable": false
+  },
+  {
+    "id": "player_change_slot",
+    "cancellable": true
+  },
+  {
+    "id": "player_chat",
+    "cancellable": true
+  },
+  {
+    "id": "player_click_inventory",
+    "cancellable": true
+  },
+  {
+    "id": "player_click_own_inventory",
+    "cancellable": true
+  },
+  {
+    "id": "player_close_advancements_menu",
+    "cancellable": false
+  },
+  {
+    "id": "player_close_inventory",
+    "cancellable": false
+  },
+  {
+    "id": "player_command",
+    "cancellable": true
+  },
+  {
+    "id": "player_consume_item",
+    "cancellable": true
+  },
+  {
+    "id": "player_craft_item",
+    "cancellable": true
+  },
+  {
+    "id": "player_damage_entity",
+    "cancellable": true
+  },
+  {
+    "id": "player_damage_player",
+    "cancellable": true
+  },
+  {
+    "id": "player_death",
+    "cancellable": true
+  },
+  {
+    "id": "player_dismount",
+    "cancellable": true
+  },
+  {
+    "id": "player_drag_inventory",
+    "cancellable": true
+  },
+  {
+    "id": "player_drop_item",
+    "cancellable": true
+  },
+  {
+    "id": "player_dummy",
+    "cancellable": false
+  },
+  {
+    "id": "player_edit_book",
+    "cancellable": true
+  },
+  {
+    "id": "player_exhaustion",
+    "cancellable": true
+  },
+  {
+    "id": "player_fail_move",
+    "cancellable": false
+  },
+  {
+    "id": "player_fish",
+    "cancellable": true
+  },
+  {
+    "id": "player_food_level_change",
+    "cancellable": true
+  },
+  {
+    "id": "player_furnace_extract",
+    "cancellable": false
+  },
+  {
+    "id": "player_heal",
+    "cancellable": true
+  },
+  {
+    "id": "player_horse_jump",
+    "cancellable": true
+  },
+  {
+    "id": "player_imbue_potion_cloud",
+    "cancellable": true
+  },
+  {
+    "id": "player_interact",
+    "cancellable": true
+  },
+  {
+    "id": "player_item_mend",
+    "cancellable": true
+  },
+  {
+    "id": "player_join",
+    "cancellable": false
+  },
+  {
+    "id": "player_jump",
+    "cancellable": true
+  },
+  {
+    "id": "player_kill_mob",
+    "cancellable": true
+  },
+  {
+    "id": "player_kill_player",
+    "cancellable": true
+  },
+  {
+    "id": "player_launch_projectile",
+    "cancellable": true
+  },
+  {
+    "id": "player_leash_entity",
+    "cancellable": true
+  },
+  {
+    "id": "player_left_click",
+    "cancellable": true
+  },
+  {
+    "id": "player_load_crossbow",
+    "cancellable": true
+  },
+  {
+    "id": "player_location_change",
+    "cancellable": true
+  },
+  {
+    "id": "player_move",
+    "cancellable": true
+  },
+  {
+    "id": "player_open_advancements_tab",
+    "cancellable": true
+  },
+  {
+    "id": "player_open_inventory",
+    "cancellable": true
+  },
+  {
+    "id": "player_pick_item",
+    "cancellable": true
+  },
+  {
+    "id": "player_pickup_experience",
+    "cancellable": true
+  },
+  {
+    "id": "player_pickup_item",
+    "cancellable": true
+  },
+  {
+    "id": "player_pickup_projectile",
+    "cancellable": true
+  },
+  {
+    "id": "player_place_block",
+    "cancellable": true
+  },
+  {
+    "id": "player_pre_attack_entity",
+    "cancellable": true
+  },
+  {
+    "id": "player_projectile_hit",
+    "cancellable": true
+  },
+  {
+    "id": "player_query_block_info",
+    "cancellable": true
+  },
+  {
+    "id": "player_query_entity_info",
+    "cancellable": true
+  },
+  {
+    "id": "player_quit",
+    "cancellable": false
+  },
+  {
+    "id": "player_rejoin",
+    "cancellable": true
+  },
+  {
+    "id": "player_respawn",
+    "cancellable": false
+  },
+  {
+    "id": "player_resurrect",
+    "cancellable": true
+  },
+  {
+    "id": "player_right_click",
+    "cancellable": true
+  },
+  {
+    "id": "player_right_click_entity",
+    "cancellable": true
+  },
+  {
+    "id": "player_right_click_player",
+    "cancellable": true
+  },
+  {
+    "id": "player_riptide",
+    "cancellable": true
+  },
+  {
+    "id": "player_rotate",
+    "cancellable": true
+  },
+  {
+    "id": "player_shot_bow",
+    "cancellable": true
+  },
+  {
+    "id": "player_sign_change",
+    "cancellable": true
+  },
+  {
+    "id": "player_sneak",
+    "cancellable": true
+  },
+  {
+    "id": "player_start_flight",
+    "cancellable": true
+  },
+  {
+    "id": "player_start_spectating_entity",
+    "cancellable": true
+  },
+  {
+    "id": "player_start_sprint",
+    "cancellable": true
+  },
+  {
+    "id": "player_stop_flight",
+    "cancellable": true
+  },
+  {
+    "id": "player_stop_spectating_entity",
+    "cancellable": true
+  },
+  {
+    "id": "player_stop_sprint",
+    "cancellable": true
+  },
+  {
+    "id": "player_stop_using_item",
+    "cancellable": false
+  },
+  {
+    "id": "player_structure_grow",
+    "cancellable": true
+  },
+  {
+    "id": "player_swap_hands",
+    "cancellable": true
+  },
+  {
+    "id": "player_take_damage",
+    "cancellable": true
+  },
+  {
+    "id": "player_tame_entity",
+    "cancellable": true
+  },
+  {
+    "id": "player_teleport",
+    "cancellable": true
+  },
+  {
+    "id": "player_unsneak",
+    "cancellable": true
+  },
+  {
+    "id": "player_vehicle_jump",
+    "cancellable": false
+  },
+  {
+    "id": "player_vehicle_move",
+    "cancellable": false
+  },
+  {
+    "id": "portal_create",
+    "cancellable": true
+  },
+  {
+    "id": "projectile_damage_entity",
+    "cancellable": true
+  },
+  {
+    "id": "projectile_damage_player",
+    "cancellable": true
+  },
+  {
+    "id": "projectile_hit",
+    "cancellable": true
+  },
+  {
+    "id": "projectile_kill_entity",
+    "cancellable": true
+  },
+  {
+    "id": "projectile_launch",
+    "cancellable": true
+  },
+  {
+    "id": "projective_collide",
+    "cancellable": true
+  },
+  {
+    "id": "redstone_level_change",
+    "cancellable": false
+  },
+  {
+    "id": "sculk_bloom",
+    "cancellable": true
+  },
+  {
+    "id": "sheep_regrow_wool",
+    "cancellable": true
+  },
+  {
+    "id": "sponge_absorb",
+    "cancellable": true
+  },
+  {
+    "id": "structure_grow",
+    "cancellable": true
+  },
+  {
+    "id": "time_skip",
+    "cancellable": true
+  },
+  {
+    "id": "tnt_prime",
+    "cancellable": true
+  },
+  {
+    "id": "vehicle_take_damage",
+    "cancellable": true
+  },
+  {
+    "id": "witch_throw_potion",
+    "cancellable": true
+  },
+  {
+    "id": "world_dummy",
+    "cancellable": false
+  },
+  {
+    "id": "world_start",
+    "cancellable": false
+  },
+  {
+    "id": "world_stop",
+    "cancellable": false
+  },
+  {
+    "id": "world_web_exception",
+    "cancellable": false
+  },
+  {
+    "id": "world_web_response",
+    "cancellable": false
   }
 ]

@@ -37,59 +37,18 @@
     "type": "basic"
   },
   {
+    "id": "control_dummy",
+    "name": "dummy",
+    "object": "controller",
+    "args": [],
+    "type": "basic"
+  },
+  {
     "id": "control_end_thread",
     "name": "break",
     "object": "code",
     "args": [],
     "type": "basic"
-  },
-  {
-    "id": "controller_async_run",
-    "name": "async_run",
-    "object": "controller",
-    "args": [],
-    "type": "container"
-  },
-  {
-    "id": "controller_exception",
-    "name": "catch_exception",
-    "object": "controller",
-    "args": [
-      {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
-        "id": "exception_type",
-        "type": "enum",
-        "values": [
-          "WARNING",
-          "ERROR"
-        ]
-      }
-    ],
-    "type": "container"
-  },
-  {
-    "id": "controller_measure_time",
-    "name": "measure_time",
-    "object": "controller",
-    "args": [
-      {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
-        "id": "duration",
-        "type": "enum",
-        "values": [
-          "NANOSECONDS",
-          "MICROSECONDS",
-          "MILLISECONDS"
-        ]
-      }
-    ],
-    "type": "container"
   },
   {
     "id": "control_return_function",
@@ -134,6 +93,55 @@
     "type": "basic"
   },
   {
+    "id": "controller_async_run",
+    "name": "async_run",
+    "object": "controller",
+    "args": [],
+    "type": "container"
+  },
+  {
+    "id": "controller_exception",
+    "name": "catch_exception",
+    "object": "controller",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "exception_type",
+        "type": "enum",
+        "values": [
+          "WARNING",
+          "ERROR",
+          "ALL"
+        ]
+      }
+    ],
+    "type": "container"
+  },
+  {
+    "id": "controller_measure_time",
+    "name": "measure_time",
+    "object": "controller",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "duration",
+        "type": "enum",
+        "values": [
+          "NANOSECONDS",
+          "MICROSECONDS",
+          "MILLISECONDS"
+        ]
+      }
+    ],
+    "type": "container"
+  },
+  {
     "id": "else",
     "name": "else",
     "object": "code",
@@ -157,15 +165,15 @@
     "type": "basic"
   },
   {
-    "id": "entity_clear_merchant_recipes",
-    "name": "clear_merchant_recipes",
+    "id": "entity_celar_potion_effects",
+    "name": "clear_potion_effects",
     "object": "entity",
     "args": [],
     "type": "basic"
   },
   {
-    "id": "entity_celar_potion_effects",
-    "name": "clear_potion_effects",
+    "id": "entity_clear_merchant_recipes",
+    "name": "clear_merchant_recipes",
     "object": "entity",
     "args": [],
     "type": "basic"
@@ -244,6 +252,13 @@
         ]
       }
     ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_dummy",
+    "name": "dummy",
+    "object": "entity",
+    "args": [],
     "type": "basic"
   },
   {
@@ -395,8 +410,8 @@
         "id": "launch_axis",
         "type": "enum",
         "values": [
-          "YAW_AND_PITCH",
-          "YAW"
+          "YAW",
+          "YAW_AND_PITCH"
         ]
       }
     ],
@@ -472,10 +487,19 @@
         "type": "enum",
         "values": [
           "TRUE",
+          "TRUE",
+          "FALSE",
           "FALSE"
         ]
       }
     ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_leave_vehicle",
+    "name": "leave_vehicle",
+    "object": "entity",
+    "args": [],
     "type": "basic"
   },
   {
@@ -836,6 +860,30 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_arrow_hit_sound",
+    "name": "set_arrow_hit_sound",
+    "object": "entity",
+    "args": [
+      {
+        "id": "sound",
+        "type": "sound"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_arrow_pierce",
+    "name": "set_arrow_pierce",
+    "object": "entity",
+    "args": [
+      {
+        "id": "pierce",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_attribute",
     "name": "set_attribute",
     "object": "entity",
@@ -849,7 +897,6 @@
         "type": "enum",
         "values": [
           "MAX_HEALTH",
-          "MAX_ABSORPTION",
           "FOLLOW_RANGE",
           "KNOCKBACK_RESISTANCE",
           "MOVEMENT_SPEED",
@@ -861,7 +908,38 @@
           "ARMOR_TOUGHNESS",
           "LUCK",
           "HORSE_JUMP_STRENGTH",
-          "ZOMBIE_SPAWN_REINFORCEMENTS"
+          "MAX_ABSORPTION",
+          "ZOMBIE_SPAWN_REINFORCEMENTS",
+          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_FALL_DAMAGE_MULTIPLIER",
+          "GENERIC_SAFE_FALL_DISTANCE",
+          "GENERIC_SCALE",
+          "GENERIC_STEP_HEIGHT",
+          "GENERIC_GRAVITY",
+          "PLAYER_BLOCK_INTERACTION_RANGE",
+          "PLAYER_ENTITY_INTERACTION_RANGE",
+          "PLAYER_BLOCK_BREAK_SPEED",
+          "GENERIC_BURNING_TIME",
+          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_EFFICIENCY",
+          "PLAYER_MINING_EFFICIENCY",
+          "PLAYER_SNEAKING_SPEED",
+          "PLAYER_SUBMERGED_MINING_SPEED",
+          "PLAYER_SWEEPING_DAMAGE_RATIO",
+          "GENERIC_OXYGEN_BONUS",
+          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
+          "GENERIC_MAX_HEALTH",
+          "GENERIC_MAX_ABSORPTION",
+          "GENERIC_FOLLOW_RANGE",
+          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_SPEED",
+          "GENERIC_FLYING_SPEED",
+          "GENERIC_ATTACK_DAMAGE",
+          "GENERIC_ATTACK_KNOCKBACK",
+          "GENERIC_ATTACK_SPEED",
+          "GENERIC_ARMOR",
+          "GENERIC_ARMOR_TOUGHNESS",
+          "GENERIC_LUCK"
         ]
       }
     ],
@@ -892,11 +970,11 @@
         "id": "axolotl_type",
         "type": "enum",
         "values": [
-          "BLUE",
-          "CYAN",
-          "GOLD",
           "LUCY",
-          "WILD"
+          "WILD",
+          "GOLD",
+          "CYAN",
+          "BLUE"
         ]
       }
     ],
@@ -909,6 +987,34 @@
     "args": [
       {
         "id": "baby",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_base_arrow_damage",
+    "name": "set_base_arrow_damage",
+    "object": "entity",
+    "args": [
+      {
+        "id": "damage",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_bee_has_stinger",
+    "name": "set_bee_has_stinger",
+    "object": "entity",
+    "args": [
+      {
+        "id": "stinger",
         "type": "enum",
         "values": [
           "TRUE",
@@ -1003,17 +1109,17 @@
         "id": "cat_type",
         "type": "enum",
         "values": [
-          "ALL_BLACK",
+          "TABBY",
           "BLACK",
-          "BRITISH_SHORTHAIR",
-          "CALICO",
-          "JELLIE",
-          "PERSIAN",
-          "RAGDOLL",
           "RED",
           "SIAMESE",
-          "TABBY",
-          "WHITE"
+          "BRITISH_SHORTHAIR",
+          "CALICO",
+          "PERSIAN",
+          "RAGDOLL",
+          "WHITE",
+          "JELLIE",
+          "ALL_BLACK"
         ]
       }
     ],
@@ -1164,6 +1270,22 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_default_visible",
+    "name": "set_default_visible",
+    "object": "entity",
+    "args": [
+      {
+        "id": "default_visible",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_despawning",
     "name": "set_despawning",
     "object": "entity",
@@ -1188,10 +1310,10 @@
         "id": "billboard_type",
         "type": "enum",
         "values": [
-          "CENTER",
           "FIXED",
+          "VERTICAL",
           "HORIZONTAL",
-          "VERTICAL"
+          "CENTER"
         ]
       }
     ],
@@ -1263,20 +1385,20 @@
     "object": "entity",
     "args": [
       {
-        "id": "axis_vector",
-        "type": "vector"
-      },
-      {
-        "id": "angle",
-        "type": "number"
-      },
-      {
         "id": "mode",
         "type": "enum",
         "values": [
           "SET",
           "ADD"
         ]
+      },
+      {
+        "id": "axis_vector",
+        "type": "vector"
+      },
+      {
+        "id": "angle",
+        "type": "number"
       },
       {
         "id": "input",
@@ -1303,6 +1425,14 @@
     "object": "entity",
     "args": [
       {
+        "id": "mode",
+        "type": "enum",
+        "values": [
+          "SET",
+          "ADD"
+        ]
+      },
+      {
         "id": "pitch",
         "type": "number"
       },
@@ -1313,14 +1443,6 @@
       {
         "id": "roll",
         "type": "number"
-      },
-      {
-        "id": "mode",
-        "type": "enum",
-        "values": [
-          "SET",
-          "ADD"
-        ]
       },
       {
         "id": "input",
@@ -1443,17 +1565,17 @@
         "id": "phase",
         "type": "enum",
         "values": [
-          "BREATH_ATTACK",
-          "CHARGE_PLAYER",
           "CIRCLING",
-          "DYING",
+          "STRAFING",
           "FLY_TO_PORTAL",
-          "HOVER",
           "LAND_ON_PORTAL",
           "LEAVE_PORTAL",
-          "ROAR_BEFORE_ATTACK",
+          "BREATH_ATTACK",
           "SEARCH_FOR_BREATH_ATTACK_TARGET",
-          "STRAFING"
+          "ROAR_BEFORE_ATTACK",
+          "CHARGE_PLAYER",
+          "DYING",
+          "HOVER"
         ]
       }
     ],
@@ -1468,22 +1590,22 @@
         "id": "color",
         "type": "enum",
         "values": [
-          "BLACK",
+          "WHITE",
+          "ORANGE",
+          "MAGENTA",
+          "LIGHT_BLUE",
+          "YELLOW",
+          "LIME",
+          "PINK",
+          "GRAY",
+          "LIGHT_GRAY",
+          "CYAN",
+          "PURPLE",
           "BLUE",
           "BROWN",
-          "CYAN",
-          "GRAY",
           "GREEN",
-          "LIGHT_BLUE",
-          "LIGHT_GRAY",
-          "LIME",
-          "MAGENTA",
-          "ORANGE",
-          "PINK",
-          "PURPLE",
           "RED",
-          "WHITE",
-          "YELLOW"
+          "BLACK"
         ]
       }
     ],
@@ -1526,12 +1648,12 @@
         "id": "slot",
         "type": "enum",
         "values": [
-          "CHEST",
-          "FEET",
           "HAND",
-          "HEAD",
+          "OFF_HAND",
+          "FEET",
           "LEGS",
-          "OFF_HAND"
+          "CHEST",
+          "HEAD"
         ]
       }
     ],
@@ -1650,6 +1772,23 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_friction",
+    "name": "set_friction",
+    "object": "entity",
+    "args": [
+      {
+        "id": "friction",
+        "type": "enum",
+        "values": [
+          "NOT_SET",
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_frog_type",
     "name": "set_frog_type",
     "object": "entity",
@@ -1658,9 +1797,9 @@
         "id": "frog_variant",
         "type": "enum",
         "values": [
-          "COLD",
           "TEMPERATE",
-          "WARM"
+          "WARM",
+          "COLD"
         ]
       }
     ],
@@ -1683,6 +1822,18 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_glow_squid_dark",
+    "name": "set_glow_squid_dark",
+    "object": "entity",
+    "args": [
+      {
+        "id": "dark_ticks",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_glowing",
     "name": "set_glowing",
     "object": "entity",
@@ -1694,18 +1845,6 @@
           "TRUE",
           "FALSE"
         ]
-      }
-    ],
-    "type": "basic"
-  },
-  {
-    "id": "entity_set_glow_squid_dark",
-    "name": "set_glow_squid_dark",
-    "object": "entity",
-    "args": [
-      {
-        "id": "dark_ticks",
-        "type": "number"
       }
     ],
     "type": "basic"
@@ -1913,15 +2052,15 @@
         "id": "display_model_type",
         "type": "enum",
         "values": [
-          "FIRSTPERSON_LEFTHAND",
-          "FIRSTPERSON_RIGHTHAND",
-          "FIXED",
-          "GROUND",
-          "GUI",
-          "HEAD",
           "NONE",
           "THIRDPERSON_LEFTHAND",
-          "THIRDPERSON_RIGHTHAND"
+          "THIRDPERSON_RIGHTHAND",
+          "FIRSTPERSON_LEFTHAND",
+          "FIRSTPERSON_RIGHTHAND",
+          "HEAD",
+          "GUI",
+          "GROUND",
+          "FIXED"
         ]
       }
     ],
@@ -1948,10 +2087,30 @@
         "id": "type",
         "type": "enum",
         "values": [
-          "BROWN",
           "CREAMY",
-          "GRAY",
-          "WHITE"
+          "WHITE",
+          "BROWN",
+          "GRAY"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_location",
+    "name": "set_location",
+    "object": "entity",
+    "args": [
+      {
+        "id": "velocity",
+        "type": "vector"
+      },
+      {
+        "id": "increment",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
         ]
       }
     ],
@@ -2047,7 +2206,7 @@
         "type": "number"
       },
       {
-        "id": "ignore_discounts",
+        "id": "experience_reward",
         "type": "enum",
         "values": [
           "TRUE",
@@ -2055,7 +2214,7 @@
         ]
       },
       {
-        "id": "experience_reward",
+        "id": "ignore_discounts",
         "type": "enum",
         "values": [
           "TRUE",
@@ -2106,8 +2265,24 @@
         "id": "cow_type",
         "type": "enum",
         "values": [
-          "BROWN",
-          "RED"
+          "RED",
+          "BROWN"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_no_physics",
+    "name": "no_physics",
+    "object": "entity",
+    "args": [
+      {
+        "id": "no_physics",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
         ]
       }
     ],
@@ -2144,6 +2319,50 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_panda_on_back",
+    "name": "set_panda_on_back",
+    "object": "entity",
+    "args": [
+      {
+        "id": "on_back",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_panda_rolling",
+    "name": "set_panda_rolling",
+    "object": "entity",
+    "args": [
+      {
+        "id": "rolling",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_panda_sad_ticks",
+    "name": "set_panda_sad_ticks",
+    "object": "entity",
+    "args": [
+      {
+        "id": "sad_ticks",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_parrot_type",
     "name": "set_parrot_type",
     "object": "entity",
@@ -2152,11 +2371,11 @@
         "id": "parrot_type",
         "type": "enum",
         "values": [
+          "RED",
           "BLUE",
-          "CYAN",
-          "GRAY",
           "GREEN",
-          "RED"
+          "CYAN",
+          "GRAY"
         ]
       }
     ],
@@ -2169,6 +2388,30 @@
     "args": [
       {
         "id": "persistence",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_pickup",
+    "name": "set_pickup",
+    "object": "entity",
+    "args": [
+      {
+        "id": "can_mob_pickup",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "can_player_pickup",
         "type": "enum",
         "values": [
           "TRUE",
@@ -2243,20 +2486,22 @@
         "id": "pose",
         "type": "enum",
         "values": [
-          "CROAKING",
-          "DIGGING",
-          "DYING",
-          "EMERGING",
-          "FALL_FLYING",
-          "LONG_JUMPING",
-          "ROARING",
-          "SLEEPING",
-          "SNEAKING",
-          "SNIFFING",
-          "SPIN_ATTACK",
           "STANDING",
+          "FALL_FLYING",
+          "SLEEPING",
           "SWIMMING",
-          "USING_TONGUE"
+          "SPIN_ATTACK",
+          "CROUCHING",
+          "LONG_JUMPING",
+          "DYING",
+          "CROAKING",
+          "USING_TONGUE",
+          "SITTING",
+          "ROARING",
+          "SNIFFING",
+          "EMERGING",
+          "DIGGING",
+          "SNEAKING"
         ]
       }
     ],
@@ -2303,6 +2548,18 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_projectile_power",
+    "name": "set_projectile_power",
+    "object": "entity",
+    "args": [
+      {
+        "id": "power",
+        "type": "vector"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_projectile_shooter",
     "name": "set_projectile_shooter",
     "object": "entity",
@@ -2323,13 +2580,13 @@
         "id": "rabbit_type",
         "type": "enum",
         "values": [
+          "BROWN",
+          "WHITE",
           "BLACK",
           "BLACK_AND_WHITE",
-          "BROWN",
           "GOLD",
           "SALT_AND_PEPPER",
-          "THE_KILLER_BUNNY",
-          "WHITE"
+          "THE_KILLER_BUNNY"
         ]
       }
     ],
@@ -2424,6 +2681,26 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_shulker_peek",
+    "name": "set_shulker_peek",
+    "object": "entity",
+    "args": [
+      {
+        "id": "rolling",
+        "type": "number"
+      },
+      {
+        "id": "silent",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_silenced",
     "name": "set_silenced",
     "object": "entity",
@@ -2476,13 +2753,13 @@
         "id": "state",
         "type": "enum",
         "values": [
-          "DIGGING",
-          "FEELING_HAPPY",
           "IDLING",
-          "RISING",
+          "FEELING_HAPPY",
           "SCENTING",
+          "SNIFFING",
           "SEARCHING",
-          "SNIFFING"
+          "DIGGING",
+          "RISING"
         ]
       }
     ],
@@ -2713,26 +2990,6 @@
     "type": "basic"
   },
   {
-    "id": "entity_set_location",
-    "name": "set_location",
-    "object": "entity",
-    "args": [
-      {
-        "id": "velocity",
-        "type": "vector"
-      },
-      {
-        "id": "increment",
-        "type": "enum",
-        "values": [
-          "TRUE",
-          "FALSE"
-        ]
-      }
-    ],
-    "type": "basic"
-  },
-  {
     "id": "entity_set_vex_charging",
     "name": "set_vex_charging",
     "object": "entity",
@@ -2899,6 +3156,28 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_wolf_type",
+    "name": "set_wolf_type",
+    "object": "entity",
+    "args": [
+      {
+        "id": "wolf_type",
+        "type": "enum",
+        "values": [
+          "ASHEN",
+          "SNOWY",
+          "RUSTY",
+          "BLACK",
+          "CHESTNUT",
+          "SPOTTED",
+          "STRIPED",
+          "PALE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_zombie_arms_raised",
     "name": "set_zombie_arms_raised",
     "object": "entity",
@@ -2912,6 +3191,13 @@
         ]
       }
     ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_shear",
+    "name": "shear",
+    "object": "entity",
+    "args": [],
     "type": "basic"
   },
   {
@@ -3068,16 +3354,16 @@
         "array": 16
       },
       {
-        "id": "tool",
-        "type": "item"
-      },
-      {
         "id": "drop_exp",
         "type": "enum",
         "values": [
           "TRUE",
           "FALSE"
         ]
+      },
+      {
+        "id": "tool",
+        "type": "item"
       }
     ],
     "type": "basic"
@@ -3107,13 +3393,13 @@
     "object": "world",
     "args": [
       {
-        "id": "location",
-        "type": "location"
-      },
-      {
         "id": "items",
         "type": "item",
         "array": 35
+      },
+      {
+        "id": "location",
+        "type": "location"
       }
     ],
     "type": "basic"
@@ -3232,18 +3518,25 @@
     "type": "basic"
   },
   {
+    "id": "game_dummy",
+    "name": "dummy",
+    "object": "world",
+    "args": [],
+    "type": "basic"
+  },
+  {
     "id": "game_fill_container",
     "name": "fill_container",
     "object": "world",
     "args": [
       {
-        "id": "location",
-        "type": "location"
-      },
-      {
         "id": "items",
         "type": "item",
         "array": 14
+      },
+      {
+        "id": "location",
+        "type": "location"
       }
     ],
     "type": "basic"
@@ -3262,25 +3555,28 @@
         "type": "enum",
         "values": [
           "TREE",
-          "ACACIA",
           "BIG_TREE",
-          "BIRCH",
-          "BROWN_MUSHROOM",
-          "CHORUS_PLANT",
-          "COCOA_TREE",
-          "CRIMSON_FUNGUS",
-          "DARK_OAK",
-          "JUNGLE",
-          "JUNGLE_BUSH",
-          "MEGA_REDWOOD",
           "REDWOOD",
-          "RED_MUSHROOM",
-          "SMALL_JUNGLE",
-          "SWAMP",
-          "TALL_BIRCH",
           "TALL_REDWOOD",
+          "BIRCH",
+          "JUNGLE",
+          "SMALL_JUNGLE",
+          "COCOA_TREE",
+          "JUNGLE_BUSH",
+          "RED_MUSHROOM",
+          "BROWN_MUSHROOM",
+          "SWAMP",
+          "ACACIA",
+          "DARK_OAK",
+          "MEGA_REDWOOD",
+          "TALL_BIRCH",
+          "CHORUS_PLANT",
+          "CRIMSON_FUNGUS",
           "WARPED_FUNGUS",
-          "AZALEA"
+          "AZALEA",
+          "MANGROVE",
+          "TALL_MANGROVE",
+          "CHERRY"
         ]
       }
     ],
@@ -3388,13 +3684,13 @@
     "object": "world",
     "args": [
       {
-        "id": "location",
-        "type": "location"
-      },
-      {
         "id": "items",
         "type": "item",
         "array": 35
+      },
+      {
+        "id": "location",
+        "type": "location"
       }
     ],
     "type": "basic"
@@ -3544,6 +3840,31 @@
     "type": "basic"
   },
   {
+    "id": "game_set_block",
+    "name": "set_block",
+    "object": "world",
+    "args": [
+      {
+        "id": "locations",
+        "type": "location",
+        "array": 14
+      },
+      {
+        "id": "update_blocks",
+        "type": "enum",
+        "values": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "id": "block",
+        "type": "block"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "game_set_block_analogue_power",
     "name": "set_block_analogue_power",
     "object": "world",
@@ -3555,31 +3876,6 @@
       {
         "id": "power_level",
         "type": "number"
-      }
-    ],
-    "type": "basic"
-  },
-  {
-    "id": "game_set_block",
-    "name": "set_block",
-    "object": "world",
-    "args": [
-      {
-        "id": "block",
-        "type": "block"
-      },
-      {
-        "id": "locations",
-        "type": "location",
-        "array": 14
-      },
-      {
-        "id": "update_blocks",
-        "type": "enum",
-        "values": [
-          "TRUE",
-          "FALSE"
-        ]
       }
     ],
     "type": "basic"
@@ -3627,6 +3923,26 @@
     "args": [
       {
         "id": "enable",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "game_set_block_powered",
+    "name": "set_block_powered",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "powered",
         "type": "enum",
         "values": [
           "TRUE",
@@ -3708,14 +4024,14 @@
     "object": "world",
     "args": [
       {
-        "id": "location",
-        "type": "location",
-        "array": 9
-      },
-      {
         "id": "items",
         "type": "item",
         "array": 27
+      },
+      {
+        "id": "location",
+        "type": "location",
+        "array": 9
       }
     ],
     "type": "basic"
@@ -3770,9 +4086,9 @@
         "type": "enum",
         "values": [
           "BACK",
-          "FRONT",
           "LEFT",
-          "RIGHT"
+          "RIGHT",
+          "FRONT"
         ]
       }
     ],
@@ -3884,18 +4200,6 @@
     "type": "basic"
   },
   {
-    "id": "game_set_event_uery_info",
-    "name": "set_event_uery_info",
-    "object": "world",
-    "args": [
-      {
-        "id": "information",
-        "type": "text"
-      }
-    ],
-    "type": "basic"
-  },
-  {
     "id": "game_set_event_sound",
     "name": "set_event_sound",
     "object": "world",
@@ -3927,6 +4231,18 @@
       {
         "id": "target",
         "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "game_set_event_uery_info",
+    "name": "set_event_uery_info",
+    "object": "world",
+    "args": [
+      {
+        "id": "information",
+        "type": "text"
       }
     ],
     "type": "basic"
@@ -4006,26 +4322,6 @@
         "values": [
           "NAME_OR_UUID",
           "VALUE"
-        ]
-      }
-    ],
-    "type": "basic"
-  },
-  {
-    "id": "game_set_block_powered",
-    "name": "set_block_powered",
-    "object": "world",
-    "args": [
-      {
-        "id": "location",
-        "type": "location"
-      },
-      {
-        "id": "powered",
-        "type": "enum",
-        "values": [
-          "TRUE",
-          "FALSE"
         ]
       }
     ],
@@ -4312,22 +4608,22 @@
         "id": "sign_text_color",
         "type": "enum",
         "values": [
-          "BLACK",
+          "WHITE",
+          "ORANGE",
+          "MAGENTA",
+          "LIGHT_BLUE",
+          "YELLOW",
+          "LIME",
+          "PINK",
+          "GRAY",
+          "LIGHT_GRAY",
+          "CYAN",
+          "PURPLE",
           "BLUE",
           "BROWN",
-          "CYAN",
-          "GRAY",
           "GREEN",
-          "LIGHT_BLUE",
-          "LIGHT_GRAY",
-          "LIME",
-          "MAGENTA",
-          "ORANGE",
-          "PINK",
-          "PURPLE",
           "RED",
-          "WHITE",
-          "YELLOW"
+          "BLACK"
         ]
       },
       {
@@ -4387,10 +4683,10 @@
         "id": "difficulty",
         "type": "enum",
         "values": [
+          "PEACEFUL",
           "EASY",
-          "HARD",
           "NORMAL",
-          "PEACEFUL"
+          "HARD"
         ]
       }
     ],
@@ -4451,23 +4747,7 @@
         "type": "item"
       },
       {
-        "id": "chestplate",
-        "type": "item"
-      },
-      {
-        "id": "leggings",
-        "type": "item"
-      },
-      {
         "id": "boots",
-        "type": "item"
-      },
-      {
-        "id": "right_hand",
-        "type": "item"
-      },
-      {
-        "id": "left_hand",
         "type": "item"
       },
       {
@@ -4487,6 +4767,22 @@
         ]
       },
       {
+        "id": "chestplate",
+        "type": "item"
+      },
+      {
+        "id": "right_hand",
+        "type": "item"
+      },
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "custom_name",
+        "type": "text"
+      },
+      {
         "id": "small",
         "type": "enum",
         "values": [
@@ -4503,6 +4799,14 @@
         ]
       },
       {
+        "id": "leggings",
+        "type": "item"
+      },
+      {
+        "id": "left_hand",
+        "type": "item"
+      },
+      {
         "id": "base_plate",
         "type": "enum",
         "values": [
@@ -4517,14 +4821,6 @@
           "TRUE",
           "FALSE"
         ]
-      },
-      {
-        "id": "location",
-        "type": "location"
-      },
-      {
-        "id": "custom_name",
-        "type": "text"
       }
     ],
     "type": "basic"
@@ -4564,20 +4860,20 @@
         "array": 6
       },
       {
-        "id": "radius",
-        "type": "number"
+        "id": "particle",
+        "type": "particle"
       },
       {
         "id": "duration",
         "type": "number"
       },
       {
-        "id": "particle",
-        "type": "particle"
-      },
-      {
         "id": "custom_name",
         "type": "text"
+      },
+      {
+        "id": "radius",
+        "type": "number"
       }
     ],
     "type": "basic"
@@ -4741,26 +5037,6 @@
     "object": "world",
     "args": [
       {
-        "id": "item",
-        "type": "item"
-      },
-      {
-        "id": "location",
-        "type": "location"
-      },
-      {
-        "id": "custom_name",
-        "type": "text"
-      },
-      {
-        "id": "apply_motion",
-        "type": "enum",
-        "values": [
-          "TRUE",
-          "FALSE"
-        ]
-      },
-      {
         "id": "can_mob_pickup",
         "type": "enum",
         "values": [
@@ -4769,7 +5045,27 @@
         ]
       },
       {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "custom_name",
+        "type": "text"
+      },
+      {
         "id": "can_player_pickup",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "apply_motion",
         "type": "enum",
         "values": [
           "TRUE",
@@ -4817,22 +5113,6 @@
     "object": "world",
     "args": [
       {
-        "id": "mob",
-        "type": "item"
-      },
-      {
-        "id": "location",
-        "type": "location"
-      },
-      {
-        "id": "health",
-        "type": "number"
-      },
-      {
-        "id": "custom_name",
-        "type": "text"
-      },
-      {
         "id": "potion_effects",
         "type": "potion",
         "array": 15
@@ -4842,23 +5122,35 @@
         "type": "item"
       },
       {
+        "id": "mob",
+        "type": "item"
+      },
+      {
         "id": "helmet",
         "type": "item"
+      },
+      {
+        "id": "location",
+        "type": "location"
       },
       {
         "id": "chestplate",
         "type": "item"
       },
       {
+        "id": "health",
+        "type": "number"
+      },
+      {
         "id": "leggings",
         "type": "item"
       },
       {
-        "id": "boots",
-        "type": "item"
+        "id": "custom_name",
+        "type": "text"
       },
       {
-        "id": "off_hand",
+        "id": "boots",
         "type": "item"
       },
       {
@@ -4868,6 +5160,10 @@
           "TRUE",
           "FALSE"
         ]
+      },
+      {
+        "id": "off_hand",
+        "type": "item"
       }
     ],
     "type": "basic"
@@ -4926,6 +5222,11 @@
         "type": "location"
       },
       {
+        "id": "displayed_text",
+        "type": "text",
+        "array": 28
+      },
+      {
         "id": "custom_name",
         "type": "text"
       },
@@ -4937,11 +5238,6 @@
           "CONCATENATION",
           "SEPARATE_LINES"
         ]
-      },
-      {
-        "id": "displayed_text",
-        "type": "text",
-        "array": 28
       }
     ],
     "type": "basic"
@@ -5037,6 +5333,14 @@
     "type": "container"
   },
   {
+    "id": "if_entity_dummy",
+    "name": "is_dummy",
+    "object": "entity",
+    "args": [],
+    "boolean": true,
+    "type": "container"
+  },
+  {
     "id": "if_entity_exists",
     "name": "exists",
     "object": "entity",
@@ -5056,6 +5360,16 @@
       {
         "id": "tag_value",
         "type": "text"
+      },
+      {
+        "id": "compare_type",
+        "type": "enum",
+        "values": [
+          "EQUALS",
+          "CONTAINS",
+          "STARTS_WITH",
+          "ENDS_WITH"
+        ]
       }
     ],
     "boolean": true,
@@ -5080,22 +5394,6 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
-  },
-  {
-    "id": "if_entity_is_disguised",
-    "name": "is_disguised",
-    "object": "entity",
-    "args": [],
-    "boolean": true,
-    "type": "container"
-  },
-  {
-    "id": "if_entity_is_grounded",
-    "name": "is_grounded",
-    "object": "entity",
-    "args": [],
     "boolean": true,
     "type": "container"
   },
@@ -5132,11 +5430,27 @@
         "id": "check_type",
         "type": "enum",
         "values": [
-          "OVERLAPS",
-          "CONTAINS"
+          "CONTAINS",
+          "OVERLAPS"
         ]
       }
     ],
+    "boolean": true,
+    "type": "container"
+  },
+  {
+    "id": "if_entity_is_disguised",
+    "name": "is_disguised",
+    "object": "entity",
+    "args": [],
+    "boolean": true,
+    "type": "container"
+  },
+  {
+    "id": "if_entity_is_grounded",
+    "name": "is_grounded",
+    "object": "entity",
+    "args": [],
     "boolean": true,
     "type": "container"
   },
@@ -5162,20 +5476,20 @@
     "object": "entity",
     "args": [
       {
-        "id": "ignore_y_axis",
-        "type": "enum",
-        "values": [
-          "TRUE",
-          "FALSE"
-        ]
+        "id": "range",
+        "type": "number"
       },
       {
         "id": "location",
         "type": "location"
       },
       {
-        "id": "range",
-        "type": "number"
+        "id": "ignore_y_axis",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
       }
     ],
     "boolean": true,
@@ -5203,6 +5517,8 @@
         "id": "compare_mode",
         "type": "enum",
         "values": [
+          "TYPE",
+          "NAME_OR_UUID",
           "NEAREST",
           "FARTHEST"
         ]
@@ -5330,13 +5646,13 @@
     "object": "world",
     "args": [
       {
-        "id": "location",
-        "type": "location"
-      },
-      {
         "id": "blocks",
         "type": "block",
         "array": 26
+      },
+      {
+        "id": "location",
+        "type": "location"
       }
     ],
     "boolean": true,
@@ -5357,6 +5673,8 @@
         "type": "enum",
         "values": [
           "DIRECT",
+          "DIRECT",
+          "INDIRECT",
           "INDIRECT"
         ]
       }
@@ -5383,13 +5701,13 @@
     "object": "world",
     "args": [
       {
-        "id": "location",
-        "type": "location"
-      },
-      {
         "id": "items",
         "type": "item",
         "array": 16
+      },
+      {
+        "id": "location",
+        "type": "location"
       },
       {
         "id": "check_mode",
@@ -5403,9 +5721,9 @@
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "EXACTLY",
           "IGNORE_STACK_SIZE",
           "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "EXACTLY",
           "TYPE_ONLY"
         ]
       }
@@ -5419,13 +5737,13 @@
     "object": "world",
     "args": [
       {
-        "id": "location",
-        "type": "location"
-      },
-      {
         "id": "items",
         "type": "item",
         "array": 16
+      },
+      {
+        "id": "location",
+        "type": "location"
       },
       {
         "id": "check_mode",
@@ -5448,38 +5766,49 @@
         "id": "cause",
         "type": "enum",
         "values": [
-          "BLOCK_EXPLOSION",
+          "KILL",
+          "WORLD_BORDER",
           "CONTACT",
-          "CRAMMING",
-          "CUSTOM",
-          "DRAGON_BREATH",
-          "DROWNING",
-          "DRYOUT",
           "ENTITY_ATTACK",
-          "ENTITY_EXPLOSION",
           "ENTITY_SWEEP_ATTACK",
+          "PROJECTILE",
+          "SUFFOCATION",
           "FALL",
-          "FALLING_BLOCK",
           "FIRE",
           "FIRE_TICK",
-          "FLY_INTO_WALL",
-          "FREEZE",
-          "HOT_FLOOR",
-          "LAVA",
-          "LIGHTNING",
-          "MAGIC",
           "MELTING",
-          "POISON",
-          "PROJECTILE",
-          "STARVATION",
-          "SUFFOCATION",
-          "SUICIDE",
-          "THORNS",
+          "LAVA",
+          "DROWNING",
+          "BLOCK_EXPLOSION",
+          "ENTITY_EXPLOSION",
           "VOID",
-          "WITHER"
+          "LIGHTNING",
+          "SUICIDE",
+          "STARVATION",
+          "POISON",
+          "MAGIC",
+          "WITHER",
+          "FALLING_BLOCK",
+          "THORNS",
+          "DRAGON_BREATH",
+          "CUSTOM",
+          "FLY_INTO_WALL",
+          "HOT_FLOOR",
+          "CRAMMING",
+          "DRYOUT",
+          "FREEZE",
+          "SONIC_BOOM"
         ]
       }
     ],
+    "boolean": true,
+    "type": "container"
+  },
+  {
+    "id": "if_game_dummy",
+    "name": "is_dummy",
+    "object": "world",
+    "args": [],
     "boolean": true,
     "type": "container"
   },
@@ -5532,9 +5861,9 @@
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "EXACTLY",
           "IGNORE_STACK_SIZE",
           "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "EXACTLY",
           "TYPE_ONLY"
         ]
       }
@@ -5565,15 +5894,15 @@
         "id": "heal_cause",
         "type": "enum",
         "values": [
-          "CUSTOM",
+          "REGEN",
+          "SATIATED",
           "EATING",
           "ENDER_CRYSTAL",
           "MAGIC",
           "MAGIC_REGEN",
-          "REGEN",
-          "SATIATED",
+          "WITHER_SPAWN",
           "WITHER",
-          "WITHER_SPAWN"
+          "CUSTOM"
         ]
       }
     ],
@@ -5589,14 +5918,16 @@
         "id": "cause",
         "type": "enum",
         "values": [
-          "ARROW",
+          "LAVA",
+          "FLINT_AND_STEEL",
+          "SPREAD",
+          "LIGHTNING",
+          "SUFFOCATION",
+          "FALL",
+          "FIREBALL",
           "ENDER_CRYSTAL",
           "EXPLOSION",
-          "FIREBALL",
-          "FLINT_AND_STEEL",
-          "LAVA",
-          "LIGHTNING",
-          "SPREAD"
+          "ARROW"
         ]
       }
     ],
@@ -5612,22 +5943,29 @@
         "id": "instrument",
         "type": "enum",
         "values": [
-          "BANJO",
-          "BASS_DRUM",
-          "BASS_GUITAR",
-          "BELL",
-          "BIT",
-          "CHIME",
-          "COW_BELL",
-          "DIDGERIDOO",
-          "FLUTE",
-          "GUITAR",
-          "IRON_XYLOPHONE",
           "PIANO",
-          "PLING",
+          "BASS_DRUM",
           "SNARE_DRUM",
           "STICKS",
-          "XYLOPHONE"
+          "BASS_GUITAR",
+          "FLUTE",
+          "BELL",
+          "GUITAR",
+          "CHIME",
+          "XYLOPHONE",
+          "IRON_XYLOPHONE",
+          "COW_BELL",
+          "DIDGERIDOO",
+          "BIT",
+          "BANJO",
+          "PLING",
+          "ZOMBIE",
+          "SKELETON",
+          "CREEPER",
+          "DRAGON",
+          "WITHER_SKELETON",
+          "PIGLIN",
+          "CUSTOM_HEAD"
         ]
       }
     ],
@@ -5661,6 +5999,8 @@
         "id": "check_mode",
         "type": "enum",
         "values": [
+          "CONTAINS",
+          "EQUALS",
           "ANY",
           "ALL"
         ]
@@ -5673,10 +6013,19 @@
           "SECOND",
           "THIRD",
           "FOURTH",
-          "ALL"
+          "ALL",
+          "ANY"
         ]
       }
     ],
+    "boolean": true,
+    "type": "container"
+  },
+  {
+    "id": "if_player_chat_colors_enabled",
+    "name": "chat_colors_enabled",
+    "object": "player",
+    "args": [],
     "boolean": true,
     "type": "container"
   },
@@ -5759,13 +6108,21 @@
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "EXACTLY",
           "IGNORE_STACK_SIZE",
           "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "EXACTLY",
           "TYPE_ONLY"
         ]
       }
     ],
+    "boolean": true,
+    "type": "container"
+  },
+  {
+    "id": "if_player_dummy",
+    "name": "is_dummy",
+    "object": "player",
+    "args": [],
     "boolean": true,
     "type": "container"
   },
@@ -5778,8 +6135,8 @@
         "id": "gamemode",
         "type": "enum",
         "values": [
-          "SURVIVAL",
           "CREATIVE",
+          "SURVIVAL",
           "ADVENTURE",
           "SPECTATOR"
         ]
@@ -5803,6 +6160,8 @@
         "type": "enum",
         "values": [
           "ANY",
+          "ANY",
+          "ALL",
           "ALL"
         ]
       },
@@ -5811,9 +6170,9 @@
         "type": "enum",
         "values": [
           "EXACTLY",
+          "TYPE_ONLY",
           "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE",
-          "TYPE_ONLY"
+          "IGNORE_DURABILITY_AND_STACK_SIZE"
         ]
       }
     ],
@@ -5838,7 +6197,9 @@
         "type": "enum",
         "values": [
           "EXACTLY",
-          "TYPE_ONLY"
+          "TYPE_ONLY",
+          "IGNORE_STACK_SIZE",
+          "IGNORE_DURABILITY_AND_STACK_SIZE"
         ]
       }
     ],
@@ -5851,22 +6212,22 @@
     "object": "player",
     "args": [
       {
-        "id": "items",
-        "type": "item",
+        "id": "slots",
+        "type": "number",
         "array": 12
       },
       {
-        "id": "slots",
-        "type": "number",
+        "id": "items",
+        "type": "item",
         "array": 12
       },
       {
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "EXACTLY",
           "IGNORE_STACK_SIZE",
           "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "EXACTLY",
           "TYPE_ONLY"
         ]
       }
@@ -5935,22 +6296,28 @@
         "array": 18
       },
       {
-        "id": "check_mode",
-        "type": "enum",
-        "values": [
-          "ANY",
-          "ALL"
-        ]
-      },
-      {
         "id": "checked_slots",
         "type": "enum",
         "values": [
           "ENTIRE_INVENTORY",
+          "ENTIRE_INVENTORY",
+          "MAIN_INVENTORY",
           "MAIN_INVENTORY",
           "UPPER_INVENTORY",
           "HOTBAR",
+          "HOTBAR",
+          "ARMOR",
           "ARMOR"
+        ]
+      },
+      {
+        "id": "check_mode",
+        "type": "enum",
+        "values": [
+          "ANY",
+          "ANY",
+          "ALL",
+          "ALL"
         ]
       }
     ],
@@ -5971,27 +6338,70 @@
     "type": "container"
   },
   {
+    "id": "if_player_in_area",
+    "name": "in_area",
+    "object": "player",
+    "args": [
+      {
+        "id": "location_1",
+        "type": "location"
+      },
+      {
+        "id": "location_2",
+        "type": "location"
+      },
+      {
+        "id": "ignore_y_axis",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "TRUE",
+          "FALSE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "intersect_type",
+        "type": "enum",
+        "values": [
+          "POINT",
+          "HITBOX"
+        ]
+      },
+      {
+        "id": "check_type",
+        "type": "enum",
+        "values": [
+          "CONTAINS",
+          "OVERLAPS"
+        ]
+      }
+    ],
+    "boolean": true,
+    "type": "container"
+  },
+  {
     "id": "if_player_inventory_menu_slot_equals",
     "name": "inventory_menu_slot_equals",
     "object": "player",
     "args": [
-      {
-        "id": "items",
-        "type": "item",
-        "array": 12
-      },
       {
         "id": "slots",
         "type": "number",
         "array": 12
       },
       {
+        "id": "items",
+        "type": "item",
+        "array": 12
+      },
+      {
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "EXACTLY",
           "IGNORE_STACK_SIZE",
           "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "EXACTLY",
           "TYPE_ONLY"
         ]
       }
@@ -6033,10 +6443,23 @@
           "CARTOGRAPHY",
           "GRINDSTONE",
           "STONECUTTER",
-          "COMPOSTER"
+          "COMPOSTER",
+          "CHISELED_BOOKSHELF",
+          "JUKEBOX",
+          "SMITHING_NEW",
+          "DECORATED_POT",
+          "CRAFTER"
         ]
       }
     ],
+    "boolean": true,
+    "type": "container"
+  },
+  {
+    "id": "if_player_is_allow_server_listing",
+    "name": "is_allow_server_listing",
+    "object": "player",
+    "args": [],
     "boolean": true,
     "type": "container"
   },
@@ -6087,7 +6510,10 @@
         "type": "enum",
         "values": [
           "EITHER_HAND",
+          "EITHER_HAND",
           "MAIN_HAND",
+          "MAIN_HAND",
+          "OFF_HAND",
           "OFF_HAND"
         ]
       },
@@ -6095,66 +6521,11 @@
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "EXACTLY",
           "IGNORE_STACK_SIZE",
           "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "EXACTLY",
           "TYPE_ONLY"
         ]
-      }
-    ],
-    "boolean": true,
-    "type": "container"
-  },
-  {
-    "id": "if_player_in_area",
-    "name": "in_area",
-    "object": "player",
-    "args": [
-      {
-        "id": "location_1",
-        "type": "location"
-      },
-      {
-        "id": "location_2",
-        "type": "location"
-      },
-      {
-        "id": "ignore_y_axis",
-        "type": "enum",
-        "values": [
-          "TRUE",
-          "FALSE"
-        ]
-      },
-      {
-        "id": "intersect_type",
-        "type": "enum",
-        "values": [
-          "POINT",
-          "HITBOX"
-        ]
-      },
-      {
-        "id": "check_type",
-        "type": "enum",
-        "values": [
-          "OVERLAPS",
-          "CONTAINS"
-        ]
-      }
-    ],
-    "boolean": true,
-    "type": "container"
-  },
-  {
-    "id": "if_player_item_is_not_on_cooldown",
-    "name": "item_is_not_on_cooldown",
-    "object": "player",
-    "args": [
-      {
-        "id": "items",
-        "type": "item",
-        "array": 18
       }
     ],
     "boolean": true,
@@ -6184,7 +6555,10 @@
         "type": "enum",
         "values": [
           "NEVER",
+          "NEVER",
           "SOURCE_ONLY",
+          "SOURCE_ONLY",
+          "ALWAYS",
           "ALWAYS"
         ]
       }
@@ -6198,20 +6572,22 @@
     "object": "player",
     "args": [
       {
-        "id": "ignore_y_axis",
-        "type": "enum",
-        "values": [
-          "TRUE",
-          "FALSE"
-        ]
+        "id": "range",
+        "type": "number"
       },
       {
         "id": "location",
         "type": "location"
       },
       {
-        "id": "range",
-        "type": "number"
+        "id": "ignore_y_axis",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "TRUE",
+          "FALSE",
+          "FALSE"
+        ]
       }
     ],
     "boolean": true,
@@ -6247,6 +6623,10 @@
         "id": "compare_mode",
         "type": "enum",
         "values": [
+          "TYPE",
+          "TYPE",
+          "NAME_OR_UUID",
+          "NAME_OR_UUID",
           "NEAREST",
           "FARTHEST"
         ]
@@ -6307,6 +6687,8 @@
         "type": "enum",
         "values": [
           "TRUE",
+          "FALSE",
+          "TRUE",
           "FALSE"
         ]
       }
@@ -6336,9 +6718,9 @@
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "EXACTLY",
           "IGNORE_STACK_SIZE",
           "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "EXACTLY",
           "TYPE_ONLY"
         ]
       }
@@ -6361,6 +6743,8 @@
         "type": "enum",
         "values": [
           "ANY",
+          "ANY",
+          "ALL",
           "ALL"
         ]
       },
@@ -6368,11 +6752,25 @@
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "EXACTLY",
           "IGNORE_STACK_SIZE",
           "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "EXACTLY",
           "TYPE_ONLY"
         ]
+      }
+    ],
+    "boolean": true,
+    "type": "container"
+  },
+  {
+    "id": "if_player_item_is_not_on_cooldown",
+    "name": "item_is_not_on_cooldown",
+    "object": "player",
+    "args": [
+      {
+        "id": "items",
+        "type": "item",
+        "array": 18
       }
     ],
     "boolean": true,
@@ -6393,18 +6791,34 @@
     "type": "container"
   },
   {
+    "id": "if_player_text_filtering_enabled",
+    "name": "text_filtering_enabled",
+    "object": "player",
+    "args": [],
+    "boolean": true,
+    "type": "container"
+  },
+  {
+    "id": "if_variable_dummy",
+    "name": "is_dummy",
+    "object": "variable",
+    "args": [],
+    "boolean": true,
+    "type": "container"
+  },
+  {
     "id": "if_variable_equals",
     "name": "equals",
     "object": "variable",
     "args": [
       {
-        "id": "value",
-        "type": "any"
-      },
-      {
         "id": "compare",
         "type": "any",
         "array": 21
+      },
+      {
+        "id": "value",
+        "type": "any"
       }
     ],
     "origin": "value",
@@ -6532,9 +6946,9 @@
         "type": "enum",
         "values": [
           "EXACTLY",
+          "TYPE_ONLY",
           "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE",
-          "TYPE_ONLY"
+          "IGNORE_DURABILITY_AND_STACK_SIZE"
         ]
       }
     ],
@@ -6580,6 +6994,16 @@
       {
         "id": "value",
         "type": "text"
+      },
+      {
+        "id": "compare_type",
+        "type": "enum",
+        "values": [
+          "EQUALS",
+          "CONTAINS",
+          "STARTS_WITH",
+          "ENDS_WITH"
+        ]
       }
     ],
     "origin": "item",
@@ -6628,13 +7052,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "list",
-        "type": "array"
-      },
-      {
         "id": "values",
         "type": "any",
         "array": 21
+      },
+      {
+        "id": "list",
+        "type": "array"
       },
       {
         "id": "check_mode",
@@ -6643,6 +7067,20 @@
           "ANY",
           "ALL"
         ]
+      }
+    ],
+    "origin": "list",
+    "boolean": true,
+    "type": "container"
+  },
+  {
+    "id": "if_variable_list_is_empty",
+    "name": "list_is_empty",
+    "object": "variable",
+    "args": [
+      {
+        "id": "list",
+        "type": "any"
       }
     ],
     "origin": "list",
@@ -6659,13 +7097,13 @@
         "type": "array"
       },
       {
-        "id": "index",
-        "type": "number"
-      },
-      {
         "id": "values",
         "type": "any",
         "array": 21
+      },
+      {
+        "id": "index",
+        "type": "number"
       }
     ],
     "origin": "list",
@@ -6709,17 +7147,17 @@
     "object": "variable",
     "args": [
       {
+        "id": "check",
+        "type": "location",
+        "array": 18
+      },
+      {
         "id": "location",
         "type": "location"
       },
       {
         "id": "radius",
         "type": "number"
-      },
-      {
-        "id": "check",
-        "type": "location",
-        "array": 18
       },
       {
         "id": "shape",
@@ -6764,13 +7202,13 @@
         "type": "map"
       },
       {
-        "id": "key",
-        "type": "any"
-      },
-      {
         "id": "values",
         "type": "any",
         "array": 21
+      },
+      {
+        "id": "key",
+        "type": "any"
       }
     ],
     "origin": "map",
@@ -6783,13 +7221,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "value",
-        "type": "any"
-      },
-      {
         "id": "compare",
         "type": "any",
         "array": 21
+      },
+      {
+        "id": "value",
+        "type": "any"
       }
     ],
     "origin": "value",
@@ -6898,7 +7336,7 @@
         "array": 21
       },
       {
-        "id": "ignore_case",
+        "id": "regular_expressions",
         "type": "enum",
         "values": [
           "TRUE",
@@ -6906,7 +7344,7 @@
         ]
       },
       {
-        "id": "regular_expressions",
+        "id": "ignore_case",
         "type": "enum",
         "values": [
           "TRUE",
@@ -6946,20 +7384,6 @@
     "type": "container"
   },
   {
-    "id": "if_variable_list_is_empty",
-    "name": "list_is_empty",
-    "object": "variable",
-    "args": [
-      {
-        "id": "list",
-        "type": "any"
-      }
-    ],
-    "origin": "list",
-    "boolean": true,
-    "type": "container"
-  },
-  {
     "id": "player_add_inventory_menu_row",
     "name": "add_inventory_menu_row",
     "object": "player",
@@ -6986,17 +7410,17 @@
     "object": "player",
     "args": [
       {
+        "id": "blocks",
+        "type": "block",
+        "array": 18
+      },
+      {
         "id": "allow",
         "type": "enum",
         "values": [
           "TRUE",
           "FALSE"
         ]
-      },
-      {
-        "id": "blocks",
-        "type": "block",
-        "array": 18
       }
     ],
     "type": "basic"
@@ -7193,26 +7617,6 @@
       {
         "id": "block",
         "type": "block"
-      }
-    ],
-    "type": "basic"
-  },
-  {
-    "id": "player_set_block_opened_state",
-    "name": "set_block_opened_state",
-    "object": "player",
-    "args": [
-      {
-        "id": "location",
-        "type": "location"
-      },
-      {
-        "id": "is_opened",
-        "type": "enum",
-        "values": [
-          "TRUE",
-          "FALSE"
-        ]
       }
     ],
     "type": "basic"
@@ -7557,6 +7961,13 @@
     "type": "basic"
   },
   {
+    "id": "player_dummy",
+    "name": "dummy",
+    "object": "player",
+    "args": [],
+    "type": "basic"
+  },
+  {
     "id": "player_expand_inventory_menu",
     "name": "expand_inventory_menu",
     "object": "player",
@@ -7650,7 +8061,7 @@
         "array": 18
       },
       {
-        "id": "overwrite",
+        "id": "show_icon",
         "type": "enum",
         "values": [
           "TRUE",
@@ -7658,7 +8069,7 @@
         ]
       },
       {
-        "id": "show_icon",
+        "id": "overwrite",
         "type": "enum",
         "values": [
           "TRUE",
@@ -7758,8 +8169,8 @@
         "id": "launch_axis",
         "type": "enum",
         "values": [
-          "YAW_AND_PITCH",
-          "YAW"
+          "YAW",
+          "YAW_AND_PITCH"
         ]
       }
     ],
@@ -7842,6 +8253,13 @@
     "type": "basic"
   },
   {
+    "id": "player_leave_vehicle",
+    "name": "leave_vehicle",
+    "object": "player",
+    "args": [],
+    "type": "basic"
+  },
+  {
     "id": "player_load_inventory",
     "name": "load_inventory",
     "object": "player",
@@ -7914,6 +8332,22 @@
       {
         "id": "location",
         "type": "location"
+      },
+      {
+        "id": "source",
+        "type": "enum",
+        "values": [
+          "MASTER",
+          "MUSIC",
+          "RECORD",
+          "WEATHER",
+          "BLOCK",
+          "HOSTILE",
+          "NEUTRAL",
+          "PLAYER",
+          "AMBIENT",
+          "VOICE"
+        ]
       }
     ],
     "type": "basic"
@@ -7946,12 +8380,28 @@
         "array": 43
       },
       {
+        "id": "location",
+        "type": "location"
+      },
+      {
         "id": "delay",
         "type": "number"
       },
       {
-        "id": "location",
-        "type": "location"
+        "id": "source",
+        "type": "enum",
+        "values": [
+          "MASTER",
+          "MUSIC",
+          "RECORD",
+          "WEATHER",
+          "BLOCK",
+          "HOSTILE",
+          "NEUTRAL",
+          "PLAYER",
+          "AMBIENT",
+          "VOICE"
+        ]
       }
     ],
     "type": "basic"
@@ -8212,6 +8662,8 @@
         "type": "enum",
         "values": [
           "SPACES",
+          "SPACES",
+          "CONCATENATION",
           "CONCATENATION"
         ]
       }
@@ -8224,21 +8676,21 @@
     "object": "player",
     "args": [
       {
-        "id": "frame",
-        "type": "enum",
-        "values": [
-          "TASK",
-          "CHALLENGE",
-          "GOAL"
-        ]
+        "id": "icon",
+        "type": "item"
       },
       {
         "id": "name",
         "type": "text"
       },
       {
-        "id": "icon",
-        "type": "item"
+        "id": "frame",
+        "type": "enum",
+        "values": [
+          "TASK",
+          "GOAL",
+          "CHALLENGE"
+        ]
       }
     ],
     "type": "basic"
@@ -8469,7 +8921,37 @@
           "ARMOR_TOUGHNESS",
           "LUCK",
           "HORSE_JUMP_STRENGTH",
-          "ZOMBIE_SPAWN_REINFORCEMENTS"
+          "ZOMBIE_SPAWN_REINFORCEMENTS",
+          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_FALL_DAMAGE_MULTIPLIER",
+          "GENERIC_SAFE_FALL_DISTANCE",
+          "GENERIC_SCALE",
+          "GENERIC_STEP_HEIGHT",
+          "GENERIC_GRAVITY",
+          "PLAYER_BLOCK_INTERACTION_RANGE",
+          "PLAYER_ENTITY_INTERACTION_RANGE",
+          "PLAYER_BLOCK_BREAK_SPEED",
+          "GENERIC_BURNING_TIME",
+          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_EFFICIENCY",
+          "PLAYER_MINING_EFFICIENCY",
+          "PLAYER_SNEAKING_SPEED",
+          "PLAYER_SUBMERGED_MINING_SPEED",
+          "PLAYER_SWEEPING_DAMAGE_RATIO",
+          "GENERIC_OXYGEN_BONUS",
+          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
+          "GENERIC_MAX_HEALTH",
+          "GENERIC_MAX_ABSORPTION",
+          "GENERIC_FOLLOW_RANGE",
+          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_SPEED",
+          "GENERIC_FLYING_SPEED",
+          "GENERIC_ATTACK_DAMAGE",
+          "GENERIC_ATTACK_KNOCKBACK",
+          "GENERIC_ATTACK_SPEED",
+          "GENERIC_ARMOR",
+          "GENERIC_ARMOR_TOUGHNESS",
+          "GENERIC_LUCK"
         ]
       }
     ],
@@ -8488,10 +8970,40 @@
     "type": "basic"
   },
   {
+    "id": "player_set_block_opened_state",
+    "name": "set_block_opened_state",
+    "object": "player",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "is_opened",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "player_set_boss_bar",
     "name": "set_boss_bar",
     "object": "player",
     "args": [
+      {
+        "id": "sky_effect",
+        "type": "enum",
+        "values": [
+          "NONE",
+          "FOG",
+          "DARK_SKY",
+          "FOG_AND_DARK_SKY"
+        ]
+      },
       {
         "id": "id",
         "type": "text"
@@ -8505,19 +9017,6 @@
         "type": "number"
       },
       {
-        "id": "color",
-        "type": "enum",
-        "values": [
-          "PINK",
-          "BLUE",
-          "RED",
-          "GREEN",
-          "YELLOW",
-          "PURPLE",
-          "WHITE"
-        ]
-      },
-      {
         "id": "style",
         "type": "enum",
         "values": [
@@ -8529,13 +9028,16 @@
         ]
       },
       {
-        "id": "sky_effect",
+        "id": "color",
         "type": "enum",
         "values": [
-          "NONE",
-          "FOG",
-          "DARK_SKY",
-          "FOG_AND_DARK_SKY"
+          "PINK",
+          "BLUE",
+          "RED",
+          "GREEN",
+          "YELLOW",
+          "PURPLE",
+          "WHITE"
         ]
       }
     ],
@@ -8620,6 +9122,22 @@
     "type": "basic"
   },
   {
+    "id": "player_set_default_visible",
+    "name": "set_default_visible",
+    "object": "player",
+    "args": [
+      {
+        "id": "default_visible",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "player_set_ender_chest_contents",
     "name": "set_ender_chest_contents",
     "object": "player",
@@ -8688,12 +9206,12 @@
         "id": "slot",
         "type": "enum",
         "values": [
-          "CHEST",
-          "FEET",
           "HAND",
-          "HEAD",
+          "OFF_HAND",
+          "FEET",
           "LEGS",
-          "OFF_HAND"
+          "CHEST",
+          "HEAD"
         ]
       }
     ],
@@ -8841,8 +9359,8 @@
         "id": "gamemode",
         "type": "enum",
         "values": [
-          "SURVIVAL",
           "CREATIVE",
+          "SURVIVAL",
           "ADVENTURE",
           "SPECTATOR"
         ]
@@ -8976,12 +9494,12 @@
     "object": "player",
     "args": [
       {
-        "id": "item",
-        "type": "item"
-      },
-      {
         "id": "cooldown",
         "type": "number"
+      },
+      {
+        "id": "item",
+        "type": "item"
       },
       {
         "id": "sound",
@@ -9070,20 +9588,20 @@
         "array": 16
       },
       {
-        "id": "position",
-        "type": "enum",
-        "values": [
-          "HEADER",
-          "FOOTER"
-        ]
-      },
-      {
         "id": "merging",
         "type": "enum",
         "values": [
           "SPACES",
           "CONCATENATION",
           "SEPARATE_LINES"
+        ]
+      },
+      {
+        "id": "position",
+        "type": "enum",
+        "values": [
+          "HEADER",
+          "FOOTER"
         ]
       }
     ],
@@ -9098,20 +9616,22 @@
         "id": "pose",
         "type": "enum",
         "values": [
-          "CROAKING",
-          "DIGGING",
-          "DYING",
-          "EMERGING",
-          "FALL_FLYING",
-          "LONG_JUMPING",
-          "ROARING",
-          "SLEEPING",
-          "SNEAKING",
-          "SNIFFING",
-          "SPIN_ATTACK",
           "STANDING",
+          "FALL_FLYING",
+          "SLEEPING",
           "SWIMMING",
-          "USING_TONGUE"
+          "SPIN_ATTACK",
+          "CROUCHING",
+          "LONG_JUMPING",
+          "DYING",
+          "CROAKING",
+          "USING_TONGUE",
+          "SITTING",
+          "ROARING",
+          "SNIFFING",
+          "EMERGING",
+          "DIGGING",
+          "SNEAKING"
         ]
       },
       {
@@ -9455,17 +9975,27 @@
           "DROPPER",
           "FURNACE",
           "WORKBENCH",
+          "CRAFTING",
           "ENCHANTING",
           "BREWING",
+          "PLAYER",
+          "CREATIVE",
+          "MERCHANT",
+          "ENDER_CHEST",
           "ANVIL",
           "SMITHING",
           "BEACON",
           "HOPPER",
+          "SHULKER_BOX",
+          "BARREL",
           "BLAST_FURNACE",
+          "LECTERN",
           "SMOKER",
+          "LOOM",
           "CARTOGRAPHY",
           "GRINDSTONE",
-          "STONECUTTER"
+          "STONECUTTER",
+          "COMPOSTER"
         ]
       }
     ],
@@ -9524,16 +10054,16 @@
         "id": "source",
         "type": "enum",
         "values": [
-          "AMBIENT",
-          "BLOCK",
-          "HOSTILE",
           "MASTER",
           "MUSIC",
+          "RECORD",
+          "WEATHER",
+          "BLOCK",
+          "HOSTILE",
           "NEUTRAL",
           "PLAYER",
-          "RECORD",
-          "VOICE",
-          "WEATHER"
+          "AMBIENT",
+          "VOICE"
         ]
       }
     ],
@@ -9597,13 +10127,13 @@
     "object": "player",
     "args": [
       {
-        "id": "delay",
-        "type": "number"
-      },
-      {
         "id": "locations",
         "type": "location",
         "array": 14
+      },
+      {
+        "id": "delay",
+        "type": "number"
       }
     ],
     "type": "basic"
@@ -9654,6 +10184,13 @@
         "type": "location"
       }
     ],
+    "type": "container"
+  },
+  {
+    "id": "repeat_dummy",
+    "name": "dummy",
+    "object": "repeat",
+    "args": [],
     "type": "container"
   },
   {
@@ -9827,13 +10364,13 @@
         "type": "variable"
       },
       {
-        "id": "step",
-        "type": "number"
-      },
-      {
         "id": "locations",
         "type": "location",
         "array": 21
+      },
+      {
+        "id": "step",
+        "type": "number"
       },
       {
         "id": "rotation",
@@ -10079,6 +10616,13 @@
     "type": "basic"
   },
   {
+    "id": "select_dummy",
+    "name": "dummy",
+    "object": "select",
+    "args": [],
+    "type": "basic"
+  },
+  {
     "id": "select_entity_by_conditional",
     "name": "entity_by_conditional",
     "object": "select",
@@ -10163,6 +10707,14 @@
     "object": "select",
     "args": [
       {
+        "id": "consider_blocks",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
         "id": "variable",
         "type": "variable"
       },
@@ -10181,14 +10733,6 @@
       {
         "id": "selection_size",
         "type": "number"
-      },
-      {
-        "id": "consider_blocks",
-        "type": "enum",
-        "values": [
-          "TRUE",
-          "FALSE"
-        ]
       },
       {
         "id": "ignore_passable_blocks",
@@ -10328,40 +10872,18 @@
     "type": "basic"
   },
   {
-    "id": "set_variable_value",
-    "name": "set_value",
-    "object": "variable",
-    "args": [
-      {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
-        "id": "value",
-        "type": "any"
-      }
-    ],
-    "assign": [
-      {
-        "id": "variable",
-        "type": "any"
-      }
-    ],
-    "type": "basic"
-  },
-  {
     "id": "set_variable_add",
     "name": "add",
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "value",
         "type": "number",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -10409,17 +10931,17 @@
     "object": "variable",
     "args": [
       {
+        "id": "potions",
+        "type": "potion",
+        "array": 18
+      },
+      {
         "id": "variable",
         "type": "variable"
       },
       {
         "id": "item",
         "type": "item"
-      },
-      {
-        "id": "potions",
-        "type": "potion",
-        "array": 18
       },
       {
         "id": "overwrite",
@@ -10462,13 +10984,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "vectors",
         "type": "vector",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -10564,13 +11086,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "components",
         "type": "text",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       },
       {
         "id": "merging",
@@ -10650,13 +11172,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "values",
         "type": "any",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "origin": "variable",
@@ -10668,13 +11190,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "value",
         "type": "number",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -10730,13 +11252,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "locations",
         "type": "location",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -10831,6 +11353,7 @@
         "type": "number"
       }
     ],
+    "origin": "number",
     "type": "basic"
   },
   {
@@ -10898,13 +11421,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "components",
         "type": "text",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -11077,13 +11600,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "values",
         "type": "any",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -11126,10 +11649,6 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "keys",
         "type": "any",
         "array": 15
@@ -11138,6 +11657,10 @@
         "id": "values",
         "type": "any",
         "array": 15
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -11158,45 +11681,19 @@
         "type": "variable"
       },
       {
-        "id": "key",
-        "type": "text"
-      },
-      {
         "id": "args",
         "type": "text",
         "array": 21
+      },
+      {
+        "id": "key",
+        "type": "text"
       }
     ],
     "assign": [
       {
         "id": "variable",
         "type": "text"
-      }
-    ],
-    "type": "basic"
-  },
-  {
-    "id": "set_variable_vector_cross_product",
-    "name": "vector_cross_product",
-    "object": "variable",
-    "args": [
-      {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
-        "id": "vector_1",
-        "type": "vector"
-      },
-      {
-        "id": "vector_2",
-        "type": "vector"
-      }
-    ],
-    "assign": [
-      {
-        "id": "variable",
-        "type": "vector"
       }
     ],
     "type": "basic"
@@ -11229,13 +11726,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "value",
         "type": "number",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       },
       {
         "id": "division_mode",
@@ -11283,29 +11780,10 @@
     "type": "basic"
   },
   {
-    "id": "set_variable_vector_dot_product",
-    "name": "vector_dot_product",
+    "id": "set_variable_dummy",
+    "name": "dummy",
     "object": "variable",
-    "args": [
-      {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
-        "id": "vector_1",
-        "type": "vector"
-      },
-      {
-        "id": "vector_2",
-        "type": "vector"
-      }
-    ],
-    "assign": [
-      {
-        "id": "variable",
-        "type": "number"
-      }
-    ],
+    "args": [],
     "type": "basic"
   },
   {
@@ -12083,8 +12561,8 @@
           "X",
           "Y",
           "Z",
-          "YAW",
-          "PITCH"
+          "PITCH",
+          "YAW"
         ]
       }
     ],
@@ -12115,9 +12593,9 @@
         "type": "enum",
         "values": [
           "BACK",
-          "FRONT",
           "LEFT",
-          "RIGHT"
+          "RIGHT",
+          "FRONT"
         ]
       }
     ],
@@ -12213,19 +12691,50 @@
         "id": "attribute",
         "type": "enum",
         "values": [
-          "GENERIC_ARMOR",
-          "GENERIC_ARMOR_TOUGHNESS",
+          "GENERIC_MAX_HEALTH",
+          "GENERIC_FOLLOW_RANGE",
+          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_SPEED",
+          "GENERIC_FLYING_SPEED",
           "GENERIC_ATTACK_DAMAGE",
           "GENERIC_ATTACK_KNOCKBACK",
           "GENERIC_ATTACK_SPEED",
-          "GENERIC_FLYING_SPEED",
-          "GENERIC_FOLLOW_RANGE",
-          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_ARMOR",
+          "GENERIC_ARMOR_TOUGHNESS",
           "GENERIC_LUCK",
-          "GENERIC_MAX_HEALTH",
-          "GENERIC_MOVEMENT_SPEED",
           "HORSE_JUMP_STRENGTH",
-          "ZOMBIE_SPAWN_REINFORCEMENTS"
+          "ZOMBIE_SPAWN_REINFORCEMENTS",
+          "MAX_HEALTH",
+          "MAX_ABSORPTION",
+          "FOLLOW_RANGE",
+          "KNOCKBACK_RESISTANCE",
+          "MOVEMENT_SPEED",
+          "FLYING_SPEED",
+          "ATTACK_DAMAGE",
+          "ATTACK_KNOCKBACK",
+          "ATTACK_SPEED",
+          "ARMOR",
+          "ARMOR_TOUGHNESS",
+          "LUCK",
+          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_FALL_DAMAGE_MULTIPLIER",
+          "GENERIC_SAFE_FALL_DISTANCE",
+          "GENERIC_SCALE",
+          "GENERIC_STEP_HEIGHT",
+          "GENERIC_GRAVITY",
+          "PLAYER_BLOCK_INTERACTION_RANGE",
+          "PLAYER_ENTITY_INTERACTION_RANGE",
+          "PLAYER_BLOCK_BREAK_SPEED",
+          "GENERIC_BURNING_TIME",
+          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_EFFICIENCY",
+          "PLAYER_MINING_EFFICIENCY",
+          "PLAYER_SNEAKING_SPEED",
+          "PLAYER_SUBMERGED_MINING_SPEED",
+          "PLAYER_SWEEPING_DAMAGE_RATIO",
+          "GENERIC_OXYGEN_BONUS",
+          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
+          "GENERIC_MAX_ABSORPTION"
         ]
       },
       {
@@ -12238,16 +12747,19 @@
           "HEAD",
           "CHEST",
           "LEGGINGS",
-          "BOOTS"
+          "BOOTS",
+          "HAND",
+          "ARMOR",
+          "BODY"
         ]
       },
       {
         "id": "operation",
         "type": "enum",
         "values": [
-          "MULTIPLY_SCALAR_1",
           "ADD_NUMBER",
-          "ADD_SCALAR"
+          "ADD_SCALAR",
+          "MULTIPLY_SCALAR_1"
         ]
       }
     ],
@@ -12485,38 +12997,6 @@
     "type": "basic"
   },
   {
-    "id": "set_variable_get_item_type",
-    "name": "get_item_type",
-    "object": "variable",
-    "args": [
-      {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
-        "id": "type",
-        "type": "item"
-      },
-      {
-        "id": "value",
-        "type": "enum",
-        "values": [
-          "ID",
-          "NAME",
-          "ITEM"
-        ]
-      }
-    ],
-    "assign": [
-      {
-        "id": "variable",
-        "type": "text"
-      }
-    ],
-    "origin": "type",
-    "type": "basic"
-  },
-  {
     "id": "set_variable_get_item_max_stack_size",
     "name": "get_item_max_stack_size",
     "object": "variable",
@@ -12646,6 +13126,38 @@
       }
     ],
     "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_get_item_type",
+    "name": "get_item_type",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "type",
+        "type": "item"
+      },
+      {
+        "id": "value",
+        "type": "enum",
+        "values": [
+          "ID",
+          "NAME",
+          "ITEM"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "text"
+      }
+    ],
+    "origin": "type",
     "type": "basic"
   },
   {
@@ -12853,7 +13365,8 @@
         "values": [
           "GAME",
           "SAVE",
-          "LOCAL"
+          "LOCAL",
+          "LINE"
         ]
       }
     ],
@@ -13692,29 +14205,6 @@
     "type": "basic"
   },
   {
-    "id": "set_variable_text_length",
-    "name": "get_text_length",
-    "object": "variable",
-    "args": [
-      {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
-        "id": "text",
-        "type": "text"
-      }
-    ],
-    "assign": [
-      {
-        "id": "variable",
-        "type": "number"
-      }
-    ],
-    "origin": "text",
-    "type": "basic"
-  },
-  {
     "id": "set_variable_get_text_width",
     "name": "get_text_width",
     "object": "variable",
@@ -13786,11 +14276,11 @@
         "type": "variable"
       },
       {
-        "id": "start_location",
+        "id": "end_location",
         "type": "location"
       },
       {
-        "id": "end_location",
+        "id": "start_location",
         "type": "location"
       }
     ],
@@ -14077,7 +14567,16 @@
           "NORTH_EAST",
           "NORTH_WEST",
           "SOUTH_EAST",
-          "SOUTH_WEST"
+          "SOUTH_WEST",
+          "WEST_NORTH_WEST",
+          "NORTH_NORTH_WEST",
+          "NORTH_NORTH_EAST",
+          "EAST_NORTH_EAST",
+          "EAST_SOUTH_EAST",
+          "SOUTH_SOUTH_EAST",
+          "SOUTH_SOUTH_WEST",
+          "WEST_SOUTH_WEST",
+          "SELF"
         ]
       }
     ],
@@ -14113,6 +14612,7 @@
         "values": [
           "THREE_D",
           "TWO_D",
+          "ALTITUDE",
           "Altitude"
         ]
       }
@@ -14197,13 +14697,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "value",
         "type": "number",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -14220,13 +14720,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "value",
         "type": "number",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -14243,13 +14743,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "value",
         "type": "number",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -14442,7 +14942,8 @@
         "values": [
           "GAME",
           "SAVE",
-          "LOCAL"
+          "LOCAL",
+          "LINE"
         ]
       },
       {
@@ -14471,13 +14972,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "values",
         "type": "any",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -14486,29 +14987,6 @@
         "type": "any"
       }
     ],
-    "type": "basic"
-  },
-  {
-    "id": "set_variable_randomize_list_order",
-    "name": "randomize_list_order",
-    "object": "variable",
-    "args": [
-      {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
-        "id": "list",
-        "type": "array"
-      }
-    ],
-    "assign": [
-      {
-        "id": "variable",
-        "type": "array"
-      }
-    ],
-    "origin": "list",
     "type": "basic"
   },
   {
@@ -14580,6 +15058,29 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_randomize_list_order",
+    "name": "randomize_list_order",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "list",
+        "type": "array"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
+    "origin": "list",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_ray_trace_result",
     "name": "ray_trace_result",
     "object": "variable",
@@ -14587,14 +15088,6 @@
       {
         "id": "start",
         "type": "location"
-      },
-      {
-        "id": "ray_size",
-        "type": "number"
-      },
-      {
-        "id": "max_distance",
-        "type": "number"
       },
       {
         "id": "ray_collision_mode",
@@ -14606,21 +15099,8 @@
         ]
       },
       {
-        "id": "ignore_passable_blocks",
-        "type": "enum",
-        "values": [
-          "TRUE",
-          "FALSE"
-        ]
-      },
-      {
-        "id": "fluid_collision_mode",
-        "type": "enum",
-        "values": [
-          "NEVER",
-          "SOURCE_ONLY",
-          "ALWAYS"
-        ]
+        "id": "ray_size",
+        "type": "number"
       },
       {
         "id": "variable_for_hit_location",
@@ -14641,6 +15121,27 @@
       {
         "id": "entities",
         "type": "array"
+      },
+      {
+        "id": "ignore_passable_blocks",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "max_distance",
+        "type": "number"
+      },
+      {
+        "id": "fluid_collision_mode",
+        "type": "enum",
+        "values": [
+          "NEVER",
+          "SOURCE_ONLY",
+          "ALWAYS"
+        ]
       }
     ],
     "assign": [
@@ -14847,6 +15348,33 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_remove_enchantment",
+    "name": "remove_enchantment",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "enchantment",
+        "type": "text"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_remove_item_attribute",
     "name": "remove_item_attribute",
     "object": "variable",
@@ -14867,19 +15395,50 @@
         "id": "attribute",
         "type": "enum",
         "values": [
-          "GENERIC_ARMOR",
-          "GENERIC_ARMOR_TOUGHNESS",
+          "GENERIC_MAX_HEALTH",
+          "GENERIC_FOLLOW_RANGE",
+          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_SPEED",
+          "GENERIC_FLYING_SPEED",
           "GENERIC_ATTACK_DAMAGE",
           "GENERIC_ATTACK_KNOCKBACK",
           "GENERIC_ATTACK_SPEED",
-          "GENERIC_FLYING_SPEED",
-          "GENERIC_FOLLOW_RANGE",
-          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_ARMOR",
+          "GENERIC_ARMOR_TOUGHNESS",
           "GENERIC_LUCK",
-          "GENERIC_MAX_HEALTH",
-          "GENERIC_MOVEMENT_SPEED",
           "HORSE_JUMP_STRENGTH",
-          "ZOMBIE_SPAWN_REINFORCEMENTS"
+          "ZOMBIE_SPAWN_REINFORCEMENTS",
+          "MAX_HEALTH",
+          "MAX_ABSORPTION",
+          "FOLLOW_RANGE",
+          "KNOCKBACK_RESISTANCE",
+          "MOVEMENT_SPEED",
+          "FLYING_SPEED",
+          "ATTACK_DAMAGE",
+          "ATTACK_KNOCKBACK",
+          "ATTACK_SPEED",
+          "ARMOR",
+          "ARMOR_TOUGHNESS",
+          "LUCK",
+          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_FALL_DAMAGE_MULTIPLIER",
+          "GENERIC_SAFE_FALL_DISTANCE",
+          "GENERIC_SCALE",
+          "GENERIC_STEP_HEIGHT",
+          "GENERIC_GRAVITY",
+          "PLAYER_BLOCK_INTERACTION_RANGE",
+          "PLAYER_ENTITY_INTERACTION_RANGE",
+          "PLAYER_BLOCK_BREAK_SPEED",
+          "GENERIC_BURNING_TIME",
+          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_EFFICIENCY",
+          "PLAYER_MINING_EFFICIENCY",
+          "PLAYER_SNEAKING_SPEED",
+          "PLAYER_SUBMERGED_MINING_SPEED",
+          "PLAYER_SWEEPING_DAMAGE_RATIO",
+          "GENERIC_OXYGEN_BONUS",
+          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
+          "GENERIC_MAX_ABSORPTION"
         ]
       }
     ],
@@ -14937,33 +15496,6 @@
     "type": "basic"
   },
   {
-    "id": "set_variable_remove_enchantment",
-    "name": "remove_enchantment",
-    "object": "variable",
-    "args": [
-      {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
-        "id": "item",
-        "type": "item"
-      },
-      {
-        "id": "enchantment",
-        "type": "text"
-      }
-    ],
-    "assign": [
-      {
-        "id": "variable",
-        "type": "item"
-      }
-    ],
-    "origin": "item",
-    "type": "basic"
-  },
-  {
     "id": "set_variable_remove_item_lore_line",
     "name": "remove_item_lore_line",
     "object": "variable",
@@ -14996,17 +15528,17 @@
     "object": "variable",
     "args": [
       {
+        "id": "effects",
+        "type": "potion",
+        "array": 18
+      },
+      {
         "id": "variable",
         "type": "variable"
       },
       {
         "id": "item",
         "type": "item"
-      },
-      {
-        "id": "effects",
-        "type": "potion",
-        "array": 18
       }
     ],
     "assign": [
@@ -15122,6 +15654,11 @@
         "type": "variable"
       },
       {
+        "id": "values",
+        "type": "any",
+        "array": 18
+      },
+      {
         "id": "variable",
         "type": "variable"
       },
@@ -15132,11 +15669,6 @@
       {
         "id": "key",
         "type": "any"
-      },
-      {
-        "id": "values",
-        "type": "any",
-        "array": 18
       }
     ],
     "assign": [
@@ -15158,6 +15690,11 @@
     "object": "variable",
     "args": [
       {
+        "id": "remove",
+        "type": "text",
+        "array": 18
+      },
+      {
         "id": "variable",
         "type": "variable"
       },
@@ -15172,11 +15709,6 @@
           "TRUE",
           "FALSE"
         ]
-      },
-      {
-        "id": "remove",
-        "type": "text",
-        "array": 18
       }
     ],
     "assign": [
@@ -15542,13 +16074,13 @@
         "type": "variable"
       },
       {
-        "id": "book",
-        "type": "item"
-      },
-      {
         "id": "text",
         "type": "text",
         "array": 21
+      },
+      {
+        "id": "book",
+        "type": "item"
       }
     ],
     "assign": [
@@ -15566,17 +16098,17 @@
     "object": "variable",
     "args": [
       {
+        "id": "items",
+        "type": "item",
+        "array": 35
+      },
+      {
         "id": "variable",
         "type": "variable"
       },
       {
         "id": "bundle",
         "type": "item"
-      },
-      {
-        "id": "items",
-        "type": "item",
-        "array": 35
       },
       {
         "id": "setting_mode",
@@ -15636,13 +16168,13 @@
         "type": "variable"
       },
       {
-        "id": "component",
-        "type": "text"
-      },
-      {
         "id": "children",
         "type": "text",
         "array": 21
+      },
+      {
+        "id": "component",
+        "type": "text"
       }
     ],
     "assign": [
@@ -15675,10 +16207,11 @@
         "id": "click_action",
         "type": "enum",
         "values": [
-          "COPY_TO_CLIPBOARD",
+          "COPY_TO_CLIPBORD",
           "SUGGEST_COMMAND",
           "OPEN_URL",
-          "CHANGE_PAGE"
+          "CHANGE_PAGE",
+          "COPY_TO_CLIPBOARD"
         ]
       }
     ],
@@ -15708,8 +16241,8 @@
         "id": "bold",
         "type": "enum",
         "values": [
-          "FALSE",
           "NOT_SET",
+          "FALSE",
           "TRUE"
         ]
       },
@@ -15717,8 +16250,8 @@
         "id": "italic",
         "type": "enum",
         "values": [
-          "FALSE",
           "NOT_SET",
+          "FALSE",
           "TRUE"
         ]
       },
@@ -15726,8 +16259,8 @@
         "id": "underlined",
         "type": "enum",
         "values": [
-          "FALSE",
           "NOT_SET",
+          "FALSE",
           "TRUE"
         ]
       },
@@ -15735,8 +16268,8 @@
         "id": "strikethrough",
         "type": "enum",
         "values": [
-          "FALSE",
           "NOT_SET",
+          "FALSE",
           "TRUE"
         ]
       },
@@ -15744,8 +16277,8 @@
         "id": "obfuscated",
         "type": "enum",
         "values": [
-          "FALSE",
           "NOT_SET",
+          "FALSE",
           "TRUE"
         ]
       }
@@ -15949,8 +16482,8 @@
           "X",
           "Y",
           "Z",
-          "PITCH",
-          "YAW"
+          "YAW",
+          "PITCH"
         ]
       }
     ],
@@ -16015,19 +16548,50 @@
         "id": "attribute",
         "type": "enum",
         "values": [
-          "GENERIC_ARMOR",
-          "GENERIC_ARMOR_TOUGHNESS",
+          "GENERIC_MAX_HEALTH",
+          "GENERIC_FOLLOW_RANGE",
+          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_SPEED",
+          "GENERIC_FLYING_SPEED",
           "GENERIC_ATTACK_DAMAGE",
           "GENERIC_ATTACK_KNOCKBACK",
           "GENERIC_ATTACK_SPEED",
-          "GENERIC_FLYING_SPEED",
-          "GENERIC_FOLLOW_RANGE",
-          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_ARMOR",
+          "GENERIC_ARMOR_TOUGHNESS",
           "GENERIC_LUCK",
-          "GENERIC_MAX_HEALTH",
-          "GENERIC_MOVEMENT_SPEED",
           "HORSE_JUMP_STRENGTH",
-          "ZOMBIE_SPAWN_REINFORCEMENTS"
+          "ZOMBIE_SPAWN_REINFORCEMENTS",
+          "MAX_HEALTH",
+          "MAX_ABSORPTION",
+          "FOLLOW_RANGE",
+          "KNOCKBACK_RESISTANCE",
+          "MOVEMENT_SPEED",
+          "FLYING_SPEED",
+          "ATTACK_DAMAGE",
+          "ATTACK_KNOCKBACK",
+          "ATTACK_SPEED",
+          "ARMOR",
+          "ARMOR_TOUGHNESS",
+          "LUCK",
+          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_FALL_DAMAGE_MULTIPLIER",
+          "GENERIC_SAFE_FALL_DISTANCE",
+          "GENERIC_SCALE",
+          "GENERIC_STEP_HEIGHT",
+          "GENERIC_GRAVITY",
+          "PLAYER_BLOCK_INTERACTION_RANGE",
+          "PLAYER_ENTITY_INTERACTION_RANGE",
+          "PLAYER_BLOCK_BREAK_SPEED",
+          "GENERIC_BURNING_TIME",
+          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_EFFICIENCY",
+          "PLAYER_MINING_EFFICIENCY",
+          "PLAYER_SNEAKING_SPEED",
+          "PLAYER_SUBMERGED_MINING_SPEED",
+          "PLAYER_SWEEPING_DAMAGE_RATIO",
+          "GENERIC_OXYGEN_BONUS",
+          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
+          "GENERIC_MAX_ABSORPTION"
         ]
       },
       {
@@ -16040,16 +16604,19 @@
           "HEAD",
           "CHEST",
           "LEGGINGS",
-          "BOOTS"
+          "BOOTS",
+          "HAND",
+          "ARMOR",
+          "BODY"
         ]
       },
       {
         "id": "operation",
         "type": "enum",
         "values": [
-          "MULTIPLY_SCALAR_1",
           "ADD_NUMBER",
-          "ADD_SCALAR"
+          "ADD_SCALAR",
+          "MULTIPLY_SCALAR_1"
         ]
       }
     ],
@@ -16078,6 +16645,37 @@
       {
         "id": "color",
         "type": "text"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_set_item_component",
+    "name": "set_item_component",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "component",
+        "type": "text"
+      },
+      {
+        "id": "value",
+        "type": "any"
       }
     ],
     "assign": [
@@ -16153,17 +16751,17 @@
     "object": "variable",
     "args": [
       {
+        "id": "destroyable",
+        "type": "item",
+        "array": 18
+      },
+      {
         "id": "variable",
         "type": "variable"
       },
       {
         "id": "item",
         "type": "item"
-      },
-      {
-        "id": "destroyable",
-        "type": "item",
-        "array": 18
       }
     ],
     "assign": [
@@ -16199,7 +16797,8 @@
           "DAMAGE",
           "DAMAGE_PERCENTAGE",
           "REMAINING",
-          "REMAINING_PERCENTAGE"
+          "REMAINING_PERCENTAGE",
+          "MAXIMUM"
         ]
       }
     ],
@@ -16307,8 +16906,8 @@
     "type": "basic"
   },
   {
-    "id": "set_variable_set_item_type",
-    "name": "set_item_type",
+    "id": "set_variable_set_item_max_stack_size",
+    "name": "set_item_max_stack_size",
     "object": "variable",
     "args": [
       {
@@ -16320,17 +16919,10 @@
         "type": "item"
       },
       {
-        "id": "type",
-        "type": "text"
+        "id": "size",
+        "type": "number"
       }
     ],
-    "assign": [
-      {
-        "id": "variable",
-        "type": "item"
-      }
-    ],
-    "origin": "item",
     "type": "basic"
   },
   {
@@ -16366,6 +16958,34 @@
     "object": "variable",
     "args": [
       {
+        "id": "placeable",
+        "type": "item",
+        "array": 18
+      },
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_set_item_type",
+    "name": "set_item_type",
+    "object": "variable",
+    "args": [
+      {
         "id": "variable",
         "type": "variable"
       },
@@ -16374,9 +16994,8 @@
         "type": "item"
       },
       {
-        "id": "placeable",
-        "type": "item",
-        "array": 18
+        "id": "type",
+        "type": "text"
       }
     ],
     "assign": [
@@ -16929,16 +17548,16 @@
         "id": "source",
         "type": "enum",
         "values": [
-          "AMBIENT",
-          "BLOCK",
-          "HOSTILE",
           "MASTER",
           "MUSIC",
+          "RECORD",
+          "WEATHER",
+          "BLOCK",
+          "HOSTILE",
           "NEUTRAL",
           "PLAYER",
-          "RECORD",
-          "VOICE",
-          "WEATHER"
+          "AMBIENT",
+          "VOICE"
         ]
       }
     ],
@@ -17567,13 +18186,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "value",
         "type": "number",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -17590,13 +18209,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "vectors",
         "type": "vector",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       }
     ],
     "assign": [
@@ -17653,13 +18272,13 @@
     "object": "variable",
     "args": [
       {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
         "id": "text",
         "type": "text",
         "array": 21
+      },
+      {
+        "id": "variable",
+        "type": "variable"
       },
       {
         "id": "merging",
@@ -17708,6 +18327,29 @@
       {
         "id": "variable",
         "type": "text"
+      }
+    ],
+    "origin": "text",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_text_length",
+    "name": "get_text_length",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "text",
+        "type": "text"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
       }
     ],
     "origin": "text",
@@ -17919,6 +18561,28 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_value",
+    "name": "set_value",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "value",
+        "type": "any"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "any"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "set_variable_vector",
     "name": "set_vector",
     "object": "variable",
@@ -17944,6 +18608,58 @@
       {
         "id": "variable",
         "type": "vector"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_vector_cross_product",
+    "name": "vector_cross_product",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "vector_1",
+        "type": "vector"
+      },
+      {
+        "id": "vector_2",
+        "type": "vector"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "vector"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_vector_dot_product",
+    "name": "vector_dot_product",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "vector_1",
+        "type": "vector"
+      },
+      {
+        "id": "vector_2",
+        "type": "vector"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
       }
     ],
     "type": "basic"
@@ -18063,6 +18779,15 @@
         "type": "text"
       },
       {
+        "id": "local_variables_mode",
+        "type": "enum",
+        "values": [
+          "DONT_COPY",
+          "COPY",
+          "SHARE"
+        ]
+      },
+      {
         "id": "target_mode",
         "type": "enum",
         "values": [
@@ -18070,15 +18795,6 @@
           "CURRENT_SELECTION",
           "NO_TARGET",
           "FOR_EACH_IN_SELECTION"
-        ]
-      },
-      {
-        "id": "local_variables_mode",
-        "type": "enum",
-        "values": [
-          "DONT_COPY",
-          "COPY",
-          "SHARE"
         ]
       }
     ],

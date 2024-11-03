@@ -256,6 +256,20 @@ select::all_mobs();
 select::all_players();
 ```
 
+<h3 id=select_dummy>
+  <code>select::dummy</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** ...\
+**Тип:** Действие без значения\
+**Описание:** ...
+
+**Пример использования:** 
+```ts
+select::dummy();
+```
+
 <h3 id=select_entity_by_conditional>
   <code>select::entity_by_conditional</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -355,19 +369,19 @@ select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
 
 **Пример использования:** 
 ```ts
-select::filter_by_raycast(a1,location(0,0,0,0,0),1,2,3,"TRUE","TRUE","NEVER");
+select::filter_by_raycast("TRUE",a1,location(0,0,0,0,0),1,2,3,"TRUE","NEVER");
 ```
 
 **Аргументы:**
 
 | **Имя**                  | **Тип**                                                                                                                                 | **Описание**                      |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| `consider_blocks`        | Маркер<br/>**TRUE** - Учитывать<br/>**FALSE** - Не учитывать                                                                            | Учитывать блоки                   |
 | `variable`               | Переменная                                                                                                                              | Точка конца луча                  |
 | `origin`                 | Местоположение                                                                                                                          | Начало луча                       |
 | `max_distance`           | Число                                                                                                                                   | Длина луча                        |
 | `ray_size`               | Число                                                                                                                                   | Ширина луча                       |
 | `selection_size`         | Число                                                                                                                                   | Максимальное количество сущностей |
-| `consider_blocks`        | Маркер<br/>**TRUE** - Учитывать<br/>**FALSE** - Не учитывать                                                                            | Учитывать блоки                   |
 | `ignore_passable_blocks` | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать                                                                      | Игнорировать проходимые блоки     |
 | `fluid_collision_mode`   | Маркер<br/>**NEVER** - Полностью игнорировать<br/>**SOURCE_ONLY** - Учитывать только источник жидкости<br/>**ALWAYS** - Не игнорировать | Игнорировать жидкость             |
 <h3 id=select_filter_randomly>

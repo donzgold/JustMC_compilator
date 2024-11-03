@@ -1,26 +1,42 @@
 [
   {
-    "id": "current_health",
-    "type": "number"
-  },
-  {
-    "id": "max_health",
-    "type": "number"
-  },
-  {
     "id": "absorption_health",
     "type": "number"
   },
   {
-    "id": "food_level",
+    "id": "action_count_per_tick",
     "type": "number"
   },
   {
-    "id": "food_saturation",
+    "id": "age",
     "type": "number"
   },
   {
-    "id": "food_exhaustion",
+    "id": "armor_items",
+    "type": "array"
+  },
+  {
+    "id": "armor_points",
+    "type": "number"
+  },
+  {
+    "id": "armor_toughness",
+    "type": "number"
+  },
+  {
+    "id": "arrows_in_body",
+    "type": "number"
+  },
+  {
+    "id": "attached_leads",
+    "type": "array"
+  },
+  {
+    "id": "attack_cooldown_strength",
+    "type": "number"
+  },
+  {
+    "id": "attack_cooldown_ticks",
     "type": "number"
   },
   {
@@ -32,182 +48,6 @@
     "type": "number"
   },
   {
-    "id": "attack_cooldown_ticks",
-    "type": "number"
-  },
-  {
-    "id": "attack_cooldown_strength",
-    "type": "number"
-  },
-  {
-    "id": "armor_points",
-    "type": "number"
-  },
-  {
-    "id": "armor_toughness",
-    "type": "number"
-  },
-  {
-    "id": "invulnerability_ticks",
-    "type": "number"
-  },
-  {
-    "id": "experience_level",
-    "type": "number"
-  },
-  {
-    "id": "experience_progress",
-    "type": "number"
-  },
-  {
-    "id": "fire_ticks",
-    "type": "number"
-  },
-  {
-    "id": "freeze_ticks",
-    "type": "number"
-  },
-  {
-    "id": "remaining_air",
-    "type": "number"
-  },
-  {
-    "id": "fall_distance",
-    "type": "number"
-  },
-  {
-    "id": "held_slot",
-    "type": "number"
-  },
-  {
-    "id": "walking_speed",
-    "type": "number"
-  },
-  {
-    "id": "flying_speed",
-    "type": "number"
-  },
-  {
-    "id": "ping",
-    "type": "number"
-  },
-  {
-    "id": "protocol_version",
-    "type": "number"
-  },
-  {
-    "id": "item_usage_progress",
-    "type": "number"
-  },
-  {
-    "id": "entity_ticks_lived",
-    "type": "number"
-  },
-  {
-    "id": "arrows_in_body",
-    "type": "number"
-  },
-  {
-    "id": "age",
-    "type": "number"
-  },
-  {
-    "id": "steer_forward",
-    "type": "number"
-  },
-  {
-    "id": "steer_sideways",
-    "type": "number"
-  },
-  {
-    "id": "merchant_recipe_count",
-    "type": "number"
-  },
-  {
-    "id": "open_inventory_size",
-    "type": "number"
-  },
-  {
-    "id": "entity_width_x",
-    "type": "number"
-  },
-  {
-    "id": "entity_height",
-    "type": "number"
-  },
-  {
-    "id": "entity_width_z",
-    "type": "number"
-  },
-  {
-    "id": "location",
-    "type": "location"
-  },
-  {
-    "id": "target_block_location",
-    "type": "location"
-  },
-  {
-    "id": "target_fluid_location",
-    "type": "location"
-  },
-  {
-    "id": "target_block_face",
-    "type": "text"
-  },
-  {
-    "id": "eye_location",
-    "type": "location"
-  },
-  {
-    "id": "x_coordinate",
-    "type": "number"
-  },
-  {
-    "id": "y_coordinate",
-    "type": "number"
-  },
-  {
-    "id": "z_coordinate",
-    "type": "number"
-  },
-  {
-    "id": "pitch",
-    "type": "number"
-  },
-  {
-    "id": "yaw",
-    "type": "number"
-  },
-  {
-    "id": "direction_of_view",
-    "type": "vector"
-  },
-  {
-    "id": "cardinal_direction",
-    "type": "text"
-  },
-  {
-    "id": "hitbox_midpoint_location",
-    "type": "location"
-  },
-  {
-    "id": "spawn_location",
-    "type": "location"
-  },
-  {
-    "id": "origin",
-    "type": "location"
-  },
-  {
-    "id": "velocity",
-    "type": "vector"
-  },
-  {
-    "id": "body_yaw",
-    "type": "number"
-  },
-  {
     "id": "block_beneath",
     "type": "location"
   },
@@ -216,55 +56,19 @@
     "type": "array"
   },
   {
-    "id": "main_hand_item",
-    "type": "item"
+    "id": "body_yaw",
+    "type": "number"
   },
   {
-    "id": "off_hand_item",
-    "type": "item"
+    "id": "cape_location",
+    "type": "location"
   },
   {
-    "id": "armor_items",
-    "type": "array"
-  },
-  {
-    "id": "hotbar_items",
-    "type": "array"
-  },
-  {
-    "id": "inventory_items",
-    "type": "array"
-  },
-  {
-    "id": "custom_inventory_items",
-    "type": "array"
-  },
-  {
-    "id": "cursor_item",
-    "type": "item"
-  },
-  {
-    "id": "saddle_item",
-    "type": "item"
-  },
-  {
-    "id": "entity_item",
-    "type": "item"
-  },
-  {
-    "id": "name",
+    "id": "cardinal_direction",
     "type": "text"
   },
   {
-    "id": "uuid",
-    "type": "text"
-  },
-  {
-    "id": "display_name",
-    "type": "text"
-  },
-  {
-    "id": "entity_type",
+    "id": "chat_visibility",
     "type": "text"
   },
   {
@@ -272,55 +76,79 @@
     "type": "text"
   },
   {
-    "id": "user_locale",
-    "type": "text"
+    "id": "client_view_distance",
+    "type": "number"
   },
   {
-    "id": "open_inventory_title",
-    "type": "text"
+    "id": "cpu_usage",
+    "type": "number"
   },
   {
-    "id": "open_inventory_type",
-    "type": "text"
+    "id": "current_health",
+    "type": "number"
   },
   {
-    "id": "gamemode",
-    "type": "text"
+    "id": "cursor_item",
+    "type": "item"
   },
   {
-    "id": "last_damage_cause",
-    "type": "text"
-  },
-  {
-    "id": "potion_effects",
+    "id": "custom_inventory_items",
     "type": "array"
   },
   {
-    "id": "vehicle",
+    "id": "direction_of_view",
+    "type": "vector"
+  },
+  {
+    "id": "display_entity_scale",
+    "type": "vector"
+  },
+  {
+    "id": "display_entity_translation",
+    "type": "vector"
+  },
+  {
+    "id": "display_name",
     "type": "text"
   },
   {
-    "id": "passengers",
-    "type": "array"
+    "id": "entity_height",
+    "type": "number"
   },
   {
-    "id": "lead_holder",
+    "id": "entity_item",
+    "type": "item"
+  },
+  {
+    "id": "entity_ticks_lived",
+    "type": "number"
+  },
+  {
+    "id": "entity_type",
     "type": "text"
   },
   {
-    "id": "attached_leads",
-    "type": "array"
+    "id": "entity_width_x",
+    "type": "number"
   },
   {
-    "id": "targeted_entity",
+    "id": "entity_width_z",
+    "type": "number"
+  },
+  {
+    "id": "event_added_items",
+    "type": "map"
+  },
+  {
+    "id": "event_advancement_tab_name",
     "type": "text"
   },
   {
-    "id": "spawn_reason",
+    "id": "event_anvil_rename_input",
     "type": "text"
   },
   {
-    "id": "main_hand",
+    "id": "event_block_face",
     "type": "text"
   },
   {
@@ -328,20 +156,16 @@
     "type": "location"
   },
   {
-    "id": "event_block_face",
-    "type": "text"
-  },
-  {
     "id": "event_blocks_involved",
     "type": "array"
   },
   {
-    "id": "event_interaction",
+    "id": "event_chat_message",
     "type": "text"
   },
   {
-    "id": "event_new_location",
-    "type": "location"
+    "id": "event_close_inventory_cause",
+    "type": "text"
   },
   {
     "id": "event_damage",
@@ -352,19 +176,11 @@
     "type": "text"
   },
   {
-    "id": "event_chat_message",
+    "id": "event_drag_type",
     "type": "text"
   },
   {
-    "id": "event_message",
-    "type": "text"
-  },
-  {
-    "id": "event_heal_amount",
-    "type": "number"
-  },
-  {
-    "id": "event_heal_cause",
+    "id": "event_equipment_slot",
     "type": "text"
   },
   {
@@ -376,12 +192,52 @@
     "type": "text"
   },
   {
-    "id": "event_new_potion_effect",
-    "type": "potion"
+    "id": "event_experience",
+    "type": "number"
   },
   {
-    "id": "event_power",
+    "id": "event_fail_move_reason",
+    "type": "text"
+  },
+  {
+    "id": "event_fish_state",
+    "type": "text"
+  },
+  {
+    "id": "event_food_level",
     "type": "number"
+  },
+  {
+    "id": "event_from_location",
+    "type": "location"
+  },
+  {
+    "id": "event_hanging_break_cause",
+    "type": "text"
+  },
+  {
+    "id": "event_heal_amount",
+    "type": "number"
+  },
+  {
+    "id": "event_heal_cause",
+    "type": "text"
+  },
+  {
+    "id": "event_hotbar_slot",
+    "type": "number"
+  },
+  {
+    "id": "event_interaction",
+    "type": "text"
+  },
+  {
+    "id": "event_inventory_action",
+    "type": "text"
+  },
+  {
+    "id": "event_inventory_click_type",
+    "type": "text"
   },
   {
     "id": "event_item",
@@ -392,7 +248,39 @@
     "type": "array"
   },
   {
-    "id": "event_equipment_slot",
+    "id": "event_message",
+    "type": "text"
+  },
+  {
+    "id": "event_new_location",
+    "type": "location"
+  },
+  {
+    "id": "event_new_potion_effect",
+    "type": "potion"
+  },
+  {
+    "id": "event_power",
+    "type": "number"
+  },
+  {
+    "id": "event_projectile_item",
+    "type": "item"
+  },
+  {
+    "id": "event_query_info",
+    "type": "text"
+  },
+  {
+    "id": "event_replaced_block",
+    "type": "text"
+  },
+  {
+    "id": "event_sign_lines",
+    "type": "array"
+  },
+  {
+    "id": "event_sign_side",
     "type": "text"
   },
   {
@@ -400,68 +288,12 @@
     "type": "number"
   },
   {
-    "id": "event_hotbar_slot",
-    "type": "number"
-  },
-  {
-    "id": "event_added_items",
-    "type": "dictionary"
-  },
-  {
     "id": "event_slot_type",
-    "type": "text"
-  },
-  {
-    "id": "event_close_inventory_cause",
-    "type": "text"
-  },
-  {
-    "id": "event_inventory_click_type",
-    "type": "text"
-  },
-  {
-    "id": "event_inventory_action",
-    "type": "text"
-  },
-  {
-    "id": "event_drag_type",
     "type": "text"
   },
   {
     "id": "event_slots_involved",
     "type": "array"
-  },
-  {
-    "id": "event_fish_state",
-    "type": "text"
-  },
-  {
-    "id": "event_tree_type",
-    "type": "text"
-  },
-  {
-    "id": "event_experience",
-    "type": "number"
-  },
-  {
-    "id": "event_hanging_break_cause",
-    "type": "text"
-  },
-  {
-    "id": "event_time_skip_reason",
-    "type": "text"
-  },
-  {
-    "id": "event_time_skip_amount",
-    "type": "number"
-  },
-  {
-    "id": "event_food_level",
-    "type": "number"
-  },
-  {
-    "id": "event_projectile_item",
-    "type": "item"
   },
   {
     "id": "event_teleport_cause",
@@ -472,11 +304,15 @@
     "type": "number"
   },
   {
-    "id": "event_query_info",
+    "id": "event_time_skip_amount",
+    "type": "number"
+  },
+  {
+    "id": "event_time_skip_reason",
     "type": "text"
   },
   {
-    "id": "event_fail_move_reason",
+    "id": "event_transform_reason",
     "type": "text"
   },
   {
@@ -484,32 +320,180 @@
     "type": "array"
   },
   {
-    "id": "event_transform_reason",
+    "id": "event_tree_type",
     "type": "text"
   },
   {
-    "id": "event_replaced_block",
+    "id": "experience_level",
+    "type": "number"
+  },
+  {
+    "id": "experience_progress",
+    "type": "number"
+  },
+  {
+    "id": "eye_location",
+    "type": "location"
+  },
+  {
+    "id": "fall_distance",
+    "type": "number"
+  },
+  {
+    "id": "fire_ticks",
+    "type": "number"
+  },
+  {
+    "id": "flying_speed",
+    "type": "number"
+  },
+  {
+    "id": "food_exhaustion",
+    "type": "number"
+  },
+  {
+    "id": "food_level",
+    "type": "number"
+  },
+  {
+    "id": "food_saturation",
+    "type": "number"
+  },
+  {
+    "id": "freeze_ticks",
+    "type": "number"
+  },
+  {
+    "id": "gamemode",
     "type": "text"
+  },
+  {
+    "id": "held_slot",
+    "type": "number"
+  },
+  {
+    "id": "hitbox_midpoint_location",
+    "type": "location"
+  },
+  {
+    "id": "hotbar_items",
+    "type": "array"
+  },
+  {
+    "id": "inventory_items",
+    "type": "array"
+  },
+  {
+    "id": "invulnerability_ticks",
+    "type": "number"
+  },
+  {
+    "id": "item_usage_progress",
+    "type": "number"
+  },
+  {
+    "id": "last_damage_cause",
+    "type": "text"
+  },
+  {
+    "id": "lead_holder",
+    "type": "text"
+  },
+  {
+    "id": "location",
+    "type": "location"
+  },
+  {
+    "id": "main_hand",
+    "type": "text"
+  },
+  {
+    "id": "main_hand_item",
+    "type": "item"
+  },
+  {
+    "id": "max_health",
+    "type": "number"
+  },
+  {
+    "id": "max_invulnerability_ticks",
+    "type": "number"
+  },
+  {
+    "id": "merchant_recipe_count",
+    "type": "number"
+  },
+  {
+    "id": "name",
+    "type": "text"
+  },
+  {
+    "id": "off_hand_item",
+    "type": "item"
+  },
+  {
+    "id": "open_inventory_size",
+    "type": "number"
+  },
+  {
+    "id": "open_inventory_title",
+    "type": "text"
+  },
+  {
+    "id": "open_inventory_type",
+    "type": "text"
+  },
+  {
+    "id": "origin",
+    "type": "location"
+  },
+  {
+    "id": "owner_uuid",
+    "type": "text"
+  },
+  {
+    "id": "particle_cpu_usage",
+    "type": "number"
+  },
+  {
+    "id": "passengers",
+    "type": "array"
+  },
+  {
+    "id": "ping",
+    "type": "number"
+  },
+  {
+    "id": "pitch",
+    "type": "number"
   },
   {
     "id": "player_count",
     "type": "number"
   },
   {
-    "id": "cpu_usage",
+    "id": "potion_effects",
+    "type": "array"
+  },
+  {
+    "id": "projectile_owner_uuid",
+    "type": "text"
+  },
+  {
+    "id": "projectile_power",
+    "type": "vector"
+  },
+  {
+    "id": "protocol_version",
     "type": "number"
   },
   {
-    "id": "server_tps",
+    "id": "remaining_air",
     "type": "number"
   },
   {
-    "id": "timestamp",
-    "type": "number"
-  },
-  {
-    "id": "server_current_tick",
-    "type": "number"
+    "id": "saddle_item",
+    "type": "item"
   },
   {
     "id": "selection_size",
@@ -517,11 +501,63 @@
   },
   {
     "id": "selection_target_names",
-    "type": "array"
+    "type": "text"
   },
   {
     "id": "selection_target_uuids",
-    "type": "array"
+    "type": "text"
+  },
+  {
+    "id": "server_current_tick",
+    "type": "number"
+  },
+  {
+    "id": "server_stopped_time",
+    "type": "number"
+  },
+  {
+    "id": "server_tps",
+    "type": "number"
+  },
+  {
+    "id": "spawn_location",
+    "type": "location"
+  },
+  {
+    "id": "spawn_reason",
+    "type": "text"
+  },
+  {
+    "id": "steer_forward",
+    "type": "number"
+  },
+  {
+    "id": "steer_sideways",
+    "type": "number"
+  },
+  {
+    "id": "target_block_face",
+    "type": "text"
+  },
+  {
+    "id": "target_block_location",
+    "type": "location"
+  },
+  {
+    "id": "target_fluid_location",
+    "type": "location"
+  },
+  {
+    "id": "targeted_entity",
+    "type": "text"
+  },
+  {
+    "id": "timestamp",
+    "type": "number"
+  },
+  {
+    "id": "url",
+    "type": "text"
   },
   {
     "id": "url_response",
@@ -532,8 +568,32 @@
     "type": "number"
   },
   {
-    "id": "url",
+    "id": "user_locale",
     "type": "text"
+  },
+  {
+    "id": "uuid",
+    "type": "text"
+  },
+  {
+    "id": "vehicle",
+    "type": "text"
+  },
+  {
+    "id": "velocity",
+    "type": "vector"
+  },
+  {
+    "id": "walking_speed",
+    "type": "number"
+  },
+  {
+    "id": "world_id",
+    "type": "text"
+  },
+  {
+    "id": "world_size",
+    "type": "number"
   },
   {
     "id": "world_time",
@@ -544,15 +604,19 @@
     "type": "text"
   },
   {
-    "id": "owner_uuid",
-    "type": "text"
-  },
-  {
-    "id": "world_size",
+    "id": "x_coordinate",
     "type": "number"
   },
   {
-    "id": "world_id",
-    "type": "text"
+    "id": "y_coordinate",
+    "type": "number"
+  },
+  {
+    "id": "yaw",
+    "type": "number"
+  },
+  {
+    "id": "z_coordinate",
+    "type": "number"
   }
 ]

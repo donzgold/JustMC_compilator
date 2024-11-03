@@ -3,9 +3,9 @@
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add All Entities\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds to the sample of all entities from the world.
 
 **Usage example:** 
 ```ts
@@ -17,9 +17,9 @@ select::add_all_entities();
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add All Mobs\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds all mobs from the world to the sample.
 
 **Usage example:** 
 ```ts
@@ -31,9 +31,9 @@ select::add_all_mobs();
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add All Players\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds all players from the world to the sample.
 
 **Usage example:** 
 ```ts
@@ -45,9 +45,9 @@ select::add_all_players();
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add Entity By Conditional\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds entities if the specified condition is met.
 
 **Usage example:** 
 ```ts
@@ -59,9 +59,9 @@ select::add_entity_by_conditional();
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add Entity By Name/UUID\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds an entity with the specified name/uuid to the sample.
 
 **Usage example:** 
 ```ts
@@ -70,17 +70,17 @@ select::add_entity_by_name(["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| **Name**       | **Type**   | **Description** |
-| -------------- | ---------- | --------------- |
-| `name_or_uuid` | list[Text] | None            |
+| **Name**       | **Type**   | **Description**     |
+| -------------- | ---------- | ------------------- |
+| `name_or_uuid` | list[Text] | Name or uuid entity |
 <h3 id=select_add_event_target>
   <code>select::add_event_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add Event Target\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds to the sample the target that launched the event.
 
 **Usage example:** 
 ```ts
@@ -89,17 +89,17 @@ select::add_event_target("DEFAULT");
 
 **Arguments:**
 
-| **Name**         | **Type**                                                                                                                                          | **Description** |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `selection_type` | Marker<br/>**DEFAULT** - None<br/>**KILLER** - None<br/>**DAMAGER** - None<br/>**VICTIM** - None<br/>**SHOOTER** - None<br/>**PROJECTILE** - None | None            |
+| **Name**         | **Type**                                                                                                                                                                                 | **Description**            |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `selection_type` | Marker<br/>**DEFAULT** - By default<br/>**KILLER** - Murderer<br/>**DAMAGER** - Attacking<br/>**VICTIM** - Sacrifice<br/>**SHOOTER** - Shooter<br/>**PROJECTILE** - The shell is arrowed | Type of the goal of sample |
 <h3 id=select_add_last_entity>
   <code>select::add_last_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add Last Entity\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds the last entity from the world to the sample.
 
 **Usage example:** 
 ```ts
@@ -111,9 +111,9 @@ select::add_last_entity();
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add Last Mob\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds to the sample of the last mob from the world.
 
 **Usage example:** 
 ```ts
@@ -125,9 +125,9 @@ select::add_last_mob();
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add Mob By Name/UUID\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds a mob with the specified name/uuid to the sample.
 
 **Usage example:** 
 ```ts
@@ -136,17 +136,17 @@ select::add_mob_by_name(["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| **Name**       | **Type**   | **Description** |
-| -------------- | ---------- | --------------- |
-| `name_or_uuid` | list[Text] | None            |
+| **Name**       | **Type**   | **Description**  |
+| -------------- | ---------- | ---------------- |
+| `name_or_uuid` | list[Text] | Name or uuid mob |
 <h3 id=select_add_player_by_conditional>
   <code>select::add_player_by_conditional</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add Player By Conditional\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds players if the specified condition is met.
 
 **Usage example:** 
 ```ts
@@ -158,9 +158,9 @@ select::add_player_by_conditional();
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add Player By Name/UUID\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds to the player’s sample with the specified name/UUID.
 
 **Usage example:** 
 ```ts
@@ -169,17 +169,17 @@ select::add_player_by_name(["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| **Name**       | **Type**   | **Description** |
-| -------------- | ---------- | --------------- |
-| `name_or_uuid` | list[Text] | None            |
+| **Name**       | **Type**   | **Description**     |
+| -------------- | ---------- | ------------------- |
+| `name_or_uuid` | list[Text] | Name or uuid player |
 <h3 id=select_add_random_entity>
   <code>select::add_random_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add Random Entity\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds an accidental entity from the world to the sample.
 
 **Usage example:** 
 ```ts
@@ -191,9 +191,9 @@ select::add_random_entity();
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add Random Mob\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds a random mob from the world to the sample.
 
 **Usage example:** 
 ```ts
@@ -205,9 +205,9 @@ select::add_random_mob();
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Add Random Player\
 **Type:** Action without value\
-**Description:** None
+**Description:** Adds a random player from the world to the sample.
 
 **Usage example:** 
 ```ts
@@ -254,6 +254,20 @@ select::all_mobs();
 **Usage example:** 
 ```ts
 select::all_players();
+```
+
+<h3 id=select_dummy>
+  <code>select::dummy</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** ...\
+**Type:** Action without value\
+**Description:** ...
+
+**Usage example:** 
+```ts
+select::dummy();
 ```
 
 <h3 id=select_entity_by_conditional>
@@ -355,19 +369,19 @@ select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
 
 **Usage example:** 
 ```ts
-select::filter_by_raycast(a1,location(0,0,0,0,0),1,2,3,"TRUE","TRUE","NEVER");
+select::filter_by_raycast("TRUE",a1,location(0,0,0,0,0),1,2,3,"TRUE","NEVER");
 ```
 
 **Arguments:**
 
 | **Name**                 | **Type**                                                                                                             | **Description**        |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `consider_blocks`        | Marker<br/>**TRUE** - Consider<br/>**FALSE** - Don't Consider                                                        | Consider Blocks        |
 | `variable`               | Variable                                                                                                             | Ray End Point          |
 | `origin`                 | Location                                                                                                             | Ray Origin             |
 | `max_distance`           | Number                                                                                                               | Ray Length             |
 | `ray_size`               | Number                                                                                                               | Ray Width              |
 | `selection_size`         | Number                                                                                                               | Selection Size         |
-| `consider_blocks`        | Marker<br/>**TRUE** - Consider<br/>**FALSE** - Don't Consider                                                        | Consider Blocks        |
 | `ignore_passable_blocks` | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't Ignore                                                            | Ignore Passable Blocks |
 | `fluid_collision_mode`   | Marker<br/>**NEVER** - Totally Ignore<br/>**SOURCE_ONLY** - Consider fluid source only<br/>**ALWAYS** - Don't Ignore | Ignore Fluid           |
 <h3 id=select_filter_randomly>
