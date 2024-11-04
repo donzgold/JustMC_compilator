@@ -84,14 +84,14 @@ select::add_entity_by_name(["name_or_uuid", "name_or_uuid"]);
 
 **Usage example:** 
 ```ts
-select::add_event_target("DEFAULT");
+select::add_event_target("DAMAGER");
 ```
 
 **Arguments:**
 
 | **Name**         | **Type**                                                                                                                                                                                 | **Description**            |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `selection_type` | Marker<br/>**DEFAULT** - By default<br/>**KILLER** - Murderer<br/>**DAMAGER** - Attacking<br/>**VICTIM** - Sacrifice<br/>**SHOOTER** - Shooter<br/>**PROJECTILE** - The shell is arrowed | Type of the goal of sample |
+| `selection_type` | Marker<br/>**DAMAGER** - Attacking<br/>**DEFAULT** - By default<br/>**KILLER** - Murderer<br/>**PROJECTILE** - The shell is arrowed<br/>**SHOOTER** - Shooter<br/>**VICTIM** - Sacrifice | Type of the goal of sample |
 <h3 id=select_add_last_entity>
   <code>select::add_last_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -314,14 +314,14 @@ select::entity_by_name(["name_or_uuid", "name_or_uuid"]);
 
 **Usage example:** 
 ```ts
-select::event_target("DEFAULT");
+select::event_target("DAMAGER");
 ```
 
 **Arguments:**
 
 | **Name**         | **Type**                                                                                                                                                                      | **Description**    |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `selection_type` | Marker<br/>**DEFAULT** - Default<br/>**KILLER** - Killer<br/>**DAMAGER** - Attacker<br/>**VICTIM** - Victim<br/>**SHOOTER** - Shooter<br/>**PROJECTILE** - Projectile Shooter | Select Target Type |
+| `selection_type` | Marker<br/>**DAMAGER** - Attacker<br/>**DEFAULT** - Default<br/>**KILLER** - Killer<br/>**PROJECTILE** - Projectile Shooter<br/>**SHOOTER** - Shooter<br/>**VICTIM** - Victim | Select Target Type |
 <h3 id=select_filter_by_conditional>
   <code>select::filter_by_conditional</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -347,7 +347,7 @@ select::filter_by_conditional(a1.exists());
 
 **Usage example:** 
 ```ts
-select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
+select::filter_by_distance(location(0,0,0,0,0),1,"FALSE","FARTHEST");
 ```
 
 **Arguments:**
@@ -356,8 +356,8 @@ select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
 | ---------------- | -------------------------------------------------------------------- | ----------------- |
 | `location`       | Location                                                             | Center Location   |
 | `selection_size` | Number                                                               | Number of Targets |
-| `ignore_y_axis`  | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't Ignore            | Ignore Y Axis     |
-| `compare_mode`   | Marker<br/>**NEAREST** - Nearest Targets<br/>**FARTHEST** - Farthest | Compare Type      |
+| `ignore_y_axis`  | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore            | Ignore Y Axis     |
+| `compare_mode`   | Marker<br/>**FARTHEST** - Farthest<br/>**NEAREST** - Nearest Targets | Compare Type      |
 <h3 id=select_filter_by_raycast>
   <code>select::filter_by_raycast</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -369,7 +369,7 @@ select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
 
 **Usage example:** 
 ```ts
-select::filter_by_raycast(a1,"TRUE",location(0,0,0,0,0),1,2,3,"TRUE","NEVER");
+select::filter_by_raycast(a1,"FALSE",location(0,0,0,0,0),1,2,3,"FALSE","ALWAYS");
 ```
 
 **Arguments:**
@@ -377,13 +377,13 @@ select::filter_by_raycast(a1,"TRUE",location(0,0,0,0,0),1,2,3,"TRUE","NEVER");
 | **Name**                 | **Type**                                                                                                             | **Description**        |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | `variable`               | Variable                                                                                                             | Ray End Point          |
-| `consider_blocks`        | Marker<br/>**TRUE** - Consider<br/>**FALSE** - Don't Consider                                                        | Consider Blocks        |
+| `consider_blocks`        | Marker<br/>**FALSE** - Don't Consider<br/>**TRUE** - Consider                                                        | Consider Blocks        |
 | `origin`                 | Location                                                                                                             | Ray Origin             |
 | `max_distance`           | Number                                                                                                               | Ray Length             |
 | `ray_size`               | Number                                                                                                               | Ray Width              |
 | `selection_size`         | Number                                                                                                               | Selection Size         |
-| `ignore_passable_blocks` | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't Ignore                                                            | Ignore Passable Blocks |
-| `fluid_collision_mode`   | Marker<br/>**NEVER** - Totally Ignore<br/>**SOURCE_ONLY** - Consider fluid source only<br/>**ALWAYS** - Don't Ignore | Ignore Fluid           |
+| `ignore_passable_blocks` | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore                                                            | Ignore Passable Blocks |
+| `fluid_collision_mode`   | Marker<br/>**ALWAYS** - Don't Ignore<br/>**NEVER** - Totally Ignore<br/>**SOURCE_ONLY** - Consider fluid source only | Ignore Fluid           |
 <h3 id=select_filter_randomly>
   <code>select::filter_randomly</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

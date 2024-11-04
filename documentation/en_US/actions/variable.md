@@ -168,13 +168,13 @@ if("any value".in_range("any value","any value"){
 
 **Usage example:** 
 ```ts
-if(variable::is_type("any value","NUMBER"){
+if(variable::is_type("any value","ARRAY"){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if("any value".is_type("NUMBER"){
+if("any value".is_type("ARRAY"){
     player::message("Condition is true");
 }
 ```
@@ -184,7 +184,7 @@ if("any value".is_type("NUMBER"){
 | **Name**        | **Type**                                                                                                                                                                                                                                           | **Description**   |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
 | `value`         | Any Value                                                                                                                                                                                                                                          | Variable to check |
-| `variable_type` | Marker<br/>**NUMBER** - Number<br/>**TEXT** - Text<br/>**LOCATION** - Location<br/>**ITEM** - Item<br/>**POTION** - Potion<br/>**SOUND** - Sound<br/>**PARTICLE** - Particle<br/>**VECTOR** - Vector<br/>**ARRAY** - List<br/>**MAP** - Dictionary | Variable Type     |
+| `variable_type` | Marker<br/>**ARRAY** - List<br/>**ITEM** - Item<br/>**LOCATION** - Location<br/>**MAP** - Dictionary<br/>**NUMBER** - Number<br/>**PARTICLE** - Particle<br/>**POTION** - Potion<br/>**SOUND** - Sound<br/>**TEXT** - Text<br/>**VECTOR** - Vector | Variable Type     |
 <h3 id=if_variable_item_equals>
   <code>variable::item_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -213,7 +213,7 @@ if(item("stick").item_equals([item("stick"), item("stick")],"EXACTLY"){
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `value`           | Item                                                                                                                                                                                              | Item Variable to Compare |
 | `compare`         | list[Item]                                                                                                                                                                                        | Compare Values           |
-| `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**TYPE_ONLY** - Item type only<br/>**IGNORE_STACK_SIZE** - Ignore quantity<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability | Comparison Mode          |
+| `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore quantity<br/>**TYPE_ONLY** - Item type only | Comparison Mode          |
 <h3 id=if_variable_item_has_enchantment>
   <code>variable::item_has_enchantment</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -254,13 +254,13 @@ if(item("stick").item_has_enchantment("enchant",1){
 
 **Usage example:** 
 ```ts
-if(variable::item_has_tag(item("stick"),"tag","value","EQUALS"){
+if(variable::item_has_tag(item("stick"),"tag","value","CONTAINS"){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(item("stick").item_has_tag("tag","value","EQUALS"){
+if(item("stick").item_has_tag("tag","value","CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -272,7 +272,7 @@ if(item("stick").item_has_tag("tag","value","EQUALS"){
 | `item`         | Item                                                                                                                                       | Item Variable      |
 | `tag`          | Text                                                                                                                                       | Tag name           |
 | `value`        | Text                                                                                                                                       | Tag Value          |
-| `compare_type` | Marker<br/>**EQUALS** - Accurate correspondence<br/>**CONTAINS** - Contains<br/>**STARTS_WITH** - It begins on<br/>**ENDS_WITH** - Ends on | Type of comparison |
+| `compare_type` | Marker<br/>**CONTAINS** - Contains<br/>**ENDS_WITH** - Ends on<br/>**EQUALS** - Accurate correspondence<br/>**STARTS_WITH** - It begins on | Type of comparison |
 <h3 id=if_variable_less>
   <code>variable::less</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -340,13 +340,13 @@ if((1).less_or_equals(2){
 
 **Usage example:** 
 ```ts
-if(variable::list_contains_value(["any value", "any value"],`list`,"ANY"){
+if(variable::list_contains_value(["any value", "any value"],`list`,"ALL"){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(`list`.list_contains_value(["any value", "any value"],"ANY"){
+if(`list`.list_contains_value(["any value", "any value"],"ALL"){
     player::message("Condition is true");
 }
 ```
@@ -357,7 +357,7 @@ if(`list`.list_contains_value(["any value", "any value"],"ANY"){
 | ------------ | ------------------------------------------------------- | --------------- |
 | `values`     | list[Any Value]                                         | Values to Check |
 | `list`       | List                                                    | List to check   |
-| `check_mode` | Marker<br/>**ANY** - Any Value<br/>**ALL** - All Values | Check Mode      |
+| `check_mode` | Marker<br/>**ALL** - All Values<br/>**ANY** - Any Value | Check Mode      |
 <h3 id=if_variable_list_is_empty>
   <code>variable::list_is_empty</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -429,13 +429,13 @@ if(`list`.list_value_equals(["any value", "any value"],1){
 
 **Usage example:** 
 ```ts
-if(variable::location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"EXACT"){
+if(variable::location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"BLOCK"){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),"EXACT"){
+if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),"BLOCK"){
     player::message("Condition is true");
 }
 ```
@@ -447,7 +447,7 @@ if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0)
 | `value`           | Location                                                                                                                                          | Location to check      |
 | `min`             | Location                                                                                                                                          | First corner of region |
 | `max`             | Location                                                                                                                                          | Second Region Angle    |
-| `border_handling` | Marker<br/>**EXACT** - Exact Coordinates<br/>**BLOCK** - Round to Block Coordinates<br/>**FULL_BLOCK_RANGE** - Round to min. and max. block angle | Check Mode             |
+| `border_handling` | Marker<br/>**BLOCK** - Round to Block Coordinates<br/>**EXACT** - Exact Coordinates<br/>**FULL_BLOCK_RANGE** - Round to min. and max. block angle | Check Mode             |
 <h3 id=if_variable_location_is_near>
   <code>variable::location_is_near</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -459,13 +459,13 @@ if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0)
 
 **Usage example:** 
 ```ts
-if(variable::location_is_near([location(0,0,0,0,0), location(0,0,0,0,0)],location(0,0,0,0,0),1,"SPHERE"){
+if(variable::location_is_near([location(0,0,0,0,0), location(0,0,0,0,0)],location(0,0,0,0,0),1,"CIRCLE"){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(location(0,0,0,0,0).location_is_near([location(0,0,0,0,0), location(0,0,0,0,0)],1,"SPHERE"){
+if(location(0,0,0,0,0).location_is_near([location(0,0,0,0,0), location(0,0,0,0,0)],1,"CIRCLE"){
     player::message("Condition is true");
 }
 ```
@@ -477,7 +477,7 @@ if(location(0,0,0,0,0).location_is_near([location(0,0,0,0,0), location(0,0,0,0,0
 | `check`    | list[Location]                                                                                     | Shape Center Location |
 | `location` | Location                                                                                           | Location to check     |
 | `radius`   | Number                                                                                             | Check Radius          |
-| `shape`    | Marker<br/>**SPHERE** - Sphere<br/>**CIRCLE** - Circle<br/>**CUBE** - Cube<br/>**SQUARE** - Square | Shape                 |
+| `shape`    | Marker<br/>**CIRCLE** - Circle<br/>**CUBE** - Cube<br/>**SPHERE** - Sphere<br/>**SQUARE** - Square | Shape                 |
 <h3 id=if_variable_map_has_key>
   <code>variable::map_has_key</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -574,7 +574,7 @@ if("any value".not_equals(["any value", "any value"]){
 
 **Usage example:** 
 ```ts
-if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"OVERLAPS"){
+if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -587,7 +587,7 @@ if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),loca
 | `max1`       | Location                                                         | The second corner of the first region  |
 | `min2`       | Location                                                         | The first corner of the second region  |
 | `max2`       | Location                                                         | The second corner of the second region |
-| `check_type` | Marker<br/>**OVERLAPS** - Intersects<br/>**CONTAINS** - Contains | Type of verification                   |
+| `check_type` | Marker<br/>**CONTAINS** - Contains<br/>**OVERLAPS** - Intersects | Type of verification                   |
 <h3 id=if_variable_text_contains>
   <code>variable::text_contains</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -599,13 +599,13 @@ if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),loca
 
 **Usage example:** 
 ```ts
-if(variable::text_contains("value",["compare", "compare"],"TRUE"){
+if(variable::text_contains("value",["compare", "compare"],"FALSE"){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if("value".text_contains(["compare", "compare"],"TRUE"){
+if("value".text_contains(["compare", "compare"],"FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -616,7 +616,7 @@ if("value".text_contains(["compare", "compare"],"TRUE"){
 | ------------- | ---------------------------------------------- | ----------------- |
 | `value`       | Text                                           | Variable to check |
 | `compare`     | list[Text]                                     | Text to check     |
-| `ignore_case` | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None | Ignore case       |
+| `ignore_case` | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Ignore case       |
 <h3 id=if_variable_text_ends_with>
   <code>variable::text_ends_with</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -628,13 +628,13 @@ if("value".text_contains(["compare", "compare"],"TRUE"){
 
 **Usage example:** 
 ```ts
-if(variable::text_ends_with("value",["compare", "compare"],"TRUE"){
+if(variable::text_ends_with("value",["compare", "compare"],"FALSE"){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if("value".text_ends_with(["compare", "compare"],"TRUE"){
+if("value".text_ends_with(["compare", "compare"],"FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -645,7 +645,7 @@ if("value".text_ends_with(["compare", "compare"],"TRUE"){
 | ------------- | -------------------------------------------- | --------------------- |
 | `value`       | Text                                         | Text variable to test |
 | `compare`     | list[Text]                                   | Compare Text          |
-| `ignore_case` | Marker<br/>**TRUE** - Yes<br/>**FALSE** - No | Ignore case           |
+| `ignore_case` | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Ignore case           |
 <h3 id=if_variable_text_matches>
   <code>variable::text_matches</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -657,13 +657,13 @@ if("value".text_ends_with(["compare", "compare"],"TRUE"){
 
 **Usage example:** 
 ```ts
-if(variable::text_matches("match",["values", "values"],"TRUE","TRUE"){
+if(variable::text_matches("match",["values", "values"],"FALSE","FALSE"){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if("match".text_matches(["values", "values"],"TRUE","TRUE"){
+if("match".text_matches(["values", "values"],"FALSE","FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -674,8 +674,8 @@ if("match".text_matches(["values", "values"],"TRUE","TRUE"){
 | --------------------- | ------------------------------------------------------------- | -------------------------- |
 | `match`               | Text                                                          | Text or Regular Expression |
 | `values`              | list[Text]                                                    | Text Variables to Validate |
-| `regular_expressions` | Marker<br/>**TRUE** - Regular Expression<br/>**FALSE** - Text | Validation Method          |
-| `ignore_case`         | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None                | Ignore case                |
+| `regular_expressions` | Marker<br/>**FALSE** - Text<br/>**TRUE** - Regular Expression | Validation Method          |
+| `ignore_case`         | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                | Ignore case                |
 <h3 id=if_variable_text_starts_with>
   <code>variable::text_starts_with</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -687,13 +687,13 @@ if("match".text_matches(["values", "values"],"TRUE","TRUE"){
 
 **Usage example:** 
 ```ts
-if(variable::text_starts_with("value",["compare", "compare"],"TRUE"){
+if(variable::text_starts_with("value",["compare", "compare"],"FALSE"){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if("value".text_starts_with(["compare", "compare"],"TRUE"){
+if("value".text_starts_with(["compare", "compare"],"FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -704,7 +704,7 @@ if("value".text_starts_with(["compare", "compare"],"TRUE"){
 | ------------- | -------------------------------------------- | --------------------- |
 | `value`       | Text                                         | Text variable to test |
 | `compare`     | list[Text]                                   | Compare Text          |
-| `ignore_case` | Marker<br/>**TRUE** - Yes<br/>**FALSE** - No | Ignore Case           |
+| `ignore_case` | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Ignore Case           |
 <h3 id=set_variable_absolute>
   <code>variable::absolute</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -798,15 +798,15 @@ variable::add_item_enchantment(a1,item("stick"),"enchantment",1);
 
 **Usage example:** 
 ```ts
-a1 = variable::add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],item("stick"),"TRUE","TRUE","REGULAR");
+a1 = variable::add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],item("stick"),"FALSE","FALSE","AMBIENT");
 
 #Or from the object
 
-a1 = item("stick").add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],"TRUE","TRUE","REGULAR");
+a1 = item("stick").add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],"FALSE","FALSE","AMBIENT");
 
 #Or dry
 
-variable::add_item_potion_effects(a1,[potion("slow_falling"), potion("slow_falling")],item("stick"),"TRUE","TRUE","REGULAR");
+variable::add_item_potion_effects(a1,[potion("slow_falling"), potion("slow_falling")],item("stick"),"FALSE","FALSE","AMBIENT");
 ```
 
 **Arguments:**
@@ -816,9 +816,9 @@ variable::add_item_potion_effects(a1,[potion("slow_falling"), potion("slow_falli
 | `variable`      | Variable                                                                       | Variable to assign         |
 | `potions`       | list[Potion]                                                                   | Potion Effects             |
 | `item`          | Item                                                                           | Item                       |
-| `overwrite`     | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None                                 | Overwrite existing effects |
-| `show_icon`     | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None                                 | Show Effect Icon           |
-| `particle_mode` | Marker<br/>**REGULAR** - Yes<br/>**AMBIENT** - Transparent<br/>**NONE** - None | Show Particles             |
+| `overwrite`     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Overwrite existing effects |
+| `show_icon`     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Show Effect Icon           |
+| `particle_mode` | Marker<br/>**AMBIENT** - Transparent<br/>**NONE** - None<br/>**REGULAR** - Yes | Show Particles             |
 <h3 id=set_variable_add_vectors>
   <code>variable::add_vectors</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -885,15 +885,15 @@ variable::align_location(a1,location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENTER");
 
 **Usage example:** 
 ```ts
-a1 = variable::align_to_axis_vector(vector(0,0,0),"TRUE");
+a1 = variable::align_to_axis_vector(vector(0,0,0),"FALSE");
 
 #Or from the object
 
-a1 = vector(0,0,0).align_to_axis_vector("TRUE");
+a1 = vector(0,0,0).align_to_axis_vector("FALSE");
 
 #Or dry
 
-variable::align_to_axis_vector(a1,vector(0,0,0),"TRUE");
+variable::align_to_axis_vector(a1,vector(0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -902,7 +902,7 @@ variable::align_to_axis_vector(a1,vector(0,0,0),"TRUE");
 | ----------- | ---------------------------------------------------------------- | --------------------- |
 | `variable`  | Variable                                                         | Variable to assign    |
 | `vector`    | Vector                                                           | Vector to align       |
-| `normalize` | Marker<br/>**TRUE** - Normalized<br/>**FALSE** - Original Length | Vector type to output |
+| `normalize` | Marker<br/>**FALSE** - Original Length<br/>**TRUE** - Normalized | Vector type to output |
 <h3 id=set_variable_append_component>
   <code>variable::append_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -914,11 +914,11 @@ variable::align_to_axis_vector(a1,vector(0,0,0),"TRUE");
 
 **Usage example:** 
 ```ts
-a1 = variable::append_component(["components", "components"],"SPACES");
+a1 = variable::append_component(["components", "components"],"CONCATENATION");
 
 #Or dry
 
-variable::append_component(a1,["components", "components"],"SPACES");
+variable::append_component(a1,["components", "components"],"CONCATENATION");
 ```
 
 **Arguments:**
@@ -927,7 +927,7 @@ variable::append_component(a1,["components", "components"],"SPACES");
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `variable`   | Variable                                                                                                                         | Variable for appropriation   |
 | `components` | list[Text]                                                                                                                       | Stylized texts for combining |
-| `merging`    | Marker<br/>**SPACES** - Separation with a gap<br/>**CONCATENATION** - Association<br/>**SEPARATE_LINES** - Separation into lines | The combination of the text  |
+| `merging`    | Marker<br/>**CONCATENATION** - Association<br/>**SEPARATE_LINES** - Separation into lines<br/>**SPACES** - Separation with a gap | The combination of the text  |
 <h3 id=set_variable_append_list>
   <code>variable::append_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1045,11 +1045,11 @@ variable::average(a1,[1, 2]);
 
 **Usage example:** 
 ```ts
-a1 = variable::bitwise_operation(1,2,"OR");
+a1 = variable::bitwise_operation(1,2,"AND");
 
 #Or dry
 
-variable::bitwise_operation(a1,1,2,"OR");
+variable::bitwise_operation(a1,1,2,"AND");
 ```
 
 **Arguments:**
@@ -1059,7 +1059,7 @@ variable::bitwise_operation(a1,1,2,"OR");
 | `variable` | Variable                                                                                                                                                                                                                                                                    | Variable to assign |
 | `operand1` | Number                                                                                                                                                                                                                                                                      | First operand      |
 | `operand2` | Number                                                                                                                                                                                                                                                                      | Second Operand     |
-| `operator` | Marker<br/>**OR** - OR (or)<br/>**AND** - And (and)<br/>**NOT** - NOT (not)<br/>**XOR** - XOR (xor)<br/>**LEFT_SHIFT** - Shift Left (left_shift)<br/>**RIGHT_SHIFT** - Shift Right (right_shift)<br/>**UNSIGNED_RIGHT_SHIFT** - Unsigned Right Shift (unsigned_right_shift) | Operation Type     |
+| `operator` | Marker<br/>**AND** - And (and)<br/>**LEFT_SHIFT** - Shift Left (left_shift)<br/>**NOT** - NOT (not)<br/>**OR** - OR (or)<br/>**RIGHT_SHIFT** - Shift Right (right_shift)<br/>**UNSIGNED_RIGHT_SHIFT** - Unsigned Right Shift (unsigned_right_shift)<br/>**XOR** - XOR (xor) | Operation Type     |
 <h3 id=set_variable_center_location>
   <code>variable::center_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1095,15 +1095,15 @@ variable::center_location(a1,[location(0,0,0,0,0), location(0,0,0,0,0)]);
 
 **Usage example:** 
 ```ts
-a1 = variable::change_component_parsing("component","PLAIN");
+a1 = variable::change_component_parsing("component","JSON");
 
 #Or from the object
 
-a1 = "component".change_component_parsing("PLAIN");
+a1 = "component".change_component_parsing("JSON");
 
 #Or dry
 
-variable::change_component_parsing(a1,"component","PLAIN");
+variable::change_component_parsing(a1,"component","JSON");
 ```
 
 **Arguments:**
@@ -1112,7 +1112,7 @@ variable::change_component_parsing(a1,"component","PLAIN");
 | ----------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------ |
 | `variable`  | Variable                                                                                                       | Variable for appropriation     |
 | `component` | Text                                                                                                           | Stylized text for installation |
-| `parsing`   | Marker<br/>**PLAIN** - Ordinary<br/>**LEGACY** - Color (&)<br/>**MINIMESSAGE** - Stylized<br/>**JSON** - Zhnon | Type of transformation         |
+| `parsing`   | Marker<br/>**JSON** - Zhnon<br/>**LEGACY** - Color (&)<br/>**MINIMESSAGE** - Stylized<br/>**PLAIN** - Ordinary | Type of transformation         |
 <h3 id=set_variable_char_to_number>
   <code>variable::char_to_number</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1346,15 +1346,15 @@ variable::convert_text_to_number(a1,"text",1);
 
 **Usage example:** 
 ```ts
-a1 = variable::cosine(1,"COSINE","DEGREES");
+a1 = variable::cosine(1,"ARCCOSINE","DEGREES");
 
 #Or from the object
 
-a1 = (1).cosine("COSINE","DEGREES");
+a1 = (1).cosine("ARCCOSINE","DEGREES");
 
 #Or dry
 
-variable::cosine(a1,1,"COSINE","DEGREES");
+variable::cosine(a1,1,"ARCCOSINE","DEGREES");
 ```
 
 **Arguments:**
@@ -1363,7 +1363,7 @@ variable::cosine(a1,1,"COSINE","DEGREES");
 | ---------- | ---------------------------------------------------------------------------------------------------------- | -------------------- |
 | `variable` | Variable                                                                                                   | Variable to assign   |
 | `number`   | Number                                                                                                     | Number to get cosine |
-| `variant`  | Marker<br/>**COSINE** - Cosine<br/>**ARCCOSINE** - Arccosine<br/>**HYPERBOLIC_COSINE** - Hyperbolic Cosine | Operation Type       |
+| `variant`  | Marker<br/>**ARCCOSINE** - Arccosine<br/>**COSINE** - Cosine<br/>**HYPERBOLIC_COSINE** - Hyperbolic Cosine | Operation Type       |
 | `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                 | Corner Type          |
 <h3 id=set_variable_cotangent>
   <code>variable::cotangent</code>
@@ -1376,15 +1376,15 @@ variable::cosine(a1,1,"COSINE","DEGREES");
 
 **Usage example:** 
 ```ts
-a1 = variable::cotangent(1,"COTANGENT","DEGREES");
+a1 = variable::cotangent(1,"ARCCOTANGENT","DEGREES");
 
 #Or from the object
 
-a1 = (1).cotangent("COTANGENT","DEGREES");
+a1 = (1).cotangent("ARCCOTANGENT","DEGREES");
 
 #Or dry
 
-variable::cotangent(a1,1,"COTANGENT","DEGREES");
+variable::cotangent(a1,1,"ARCCOTANGENT","DEGREES");
 ```
 
 **Arguments:**
@@ -1393,7 +1393,7 @@ variable::cotangent(a1,1,"COTANGENT","DEGREES");
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
 | `variable` | Variable                                                                                                                     | Variable to assign      |
 | `number`   | Number                                                                                                                       | Number to get cotangent |
-| `variant`  | Marker<br/>**COTANGENT** - Cotangent<br/>**ARCCOTANGENT** - Arccotangent<br/>**HYPERBOLIC_COTANGENT** - Hyperbolic Cotangent | Operation Type          |
+| `variant`  | Marker<br/>**ARCCOTANGENT** - Arccotangent<br/>**COTANGENT** - Cotangent<br/>**HYPERBOLIC_COTANGENT** - Hyperbolic Cotangent | Operation Type          |
 | `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                   | Angle Type              |
 <h3 id=set_variable_create_keybind_component>
   <code>variable::create_keybind_component</code>
@@ -1559,11 +1559,11 @@ variable::decrement(a1,1);
 
 **Usage example:** 
 ```ts
-a1 = variable::divide([1, 2],"DEFAULT");
+a1 = variable::divide([1, 2],"CEIL");
 
 #Or dry
 
-variable::divide(a1,[1, 2],"DEFAULT");
+variable::divide(a1,[1, 2],"CEIL");
 ```
 
 **Arguments:**
@@ -1572,7 +1572,7 @@ variable::divide(a1,[1, 2],"DEFAULT");
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `variable`      | Variable                                                                                                                               | Variable to assign |
 | `value`         | list[Number]                                                                                                                           | Numbers to Divide  |
-| `division_mode` | Marker<br/>**DEFAULT** - Default<br/>**ROUND_TO_INT** - Round To Integer<br/>**FLOOR** - Round to less<br/>**CEIL** - Round up to more | Division Mode      |
+| `division_mode` | Marker<br/>**CEIL** - Round up to more<br/>**DEFAULT** - Default<br/>**FLOOR** - Round to less<br/>**ROUND_TO_INT** - Round To Integer | Division Mode      |
 <h3 id=set_variable_divide_vector>
   <code>variable::divide_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1700,7 +1700,7 @@ variable::format_timestamp(a1,1,"pattern","zone_id","locale","CUSTOM");
 | `pattern`  | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Time Pattern (e.g. mm\:ss)          |
 | `zone_id`  | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Timezone (GMT+1\.\.13, GMT-1\.\.13) |
 | `locale`   | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Language (ru_RU, en_US...)          |
-| `format`   | Marker<br/>**CUSTOM** - Custom<br/>**DD_MM_YYYY_HH_MM_S** - 01\/01\/1970 00\:00\:00 (dd_mm_yyyy_hh_mm_s)<br/>**DD_MM_YYYY** - 01\/01\/1970 (dd_mm_yyyy)<br/>**YYYY_MM_DD_HH_MM_S** - 1970\/01\/01 00\:00\:00 (yyyy_mm_dd_hh_mm_s)<br/>**YYYY_MM_DD** - 1970\/01\/01 (yyyy_mm_dd)<br/>**EEE_D_MMMM** - Thu, 01 January (eee_d_mmmm)<br/>**EEE_MMMM_D** - Thu, January 01 (eee_mmmm_d)<br/>**EEEE** - Thursday (eeee)<br/>**HH_MM_SS** - 00\:00\:00 (hh_mm_ss)<br/>**H_MM_A** - 00\:00 AM (h_mm_a)<br/>**H_H_M_M_S_S** - 00h00m00s (h_h_m_m_s_s)<br/>**S_S** - 00.00 (s_s) | Time Format                         |
+| `format`   | Marker<br/>**CUSTOM** - Custom<br/>**DD_MM_YYYY** - 01\/01\/1970 (dd_mm_yyyy)<br/>**DD_MM_YYYY_HH_MM_S** - 01\/01\/1970 00\:00\:00 (dd_mm_yyyy_hh_mm_s)<br/>**EEEE** - Thursday (eeee)<br/>**EEE_D_MMMM** - Thu, 01 January (eee_d_mmmm)<br/>**EEE_MMMM_D** - Thu, January 01 (eee_mmmm_d)<br/>**HH_MM_SS** - 00\:00\:00 (hh_mm_ss)<br/>**H_H_M_M_S_S** - 00h00m00s (h_h_m_m_s_s)<br/>**H_MM_A** - 00\:00 AM (h_mm_a)<br/>**S_S** - 00.00 (s_s)<br/>**YYYY_MM_DD** - 1970\/01\/01 (yyyy_mm_dd)<br/>**YYYY_MM_DD_HH_MM_S** - 1970\/01\/01 00\:00\:00 (yyyy_mm_dd_hh_mm_s) | Time Format                         |
 <h3 id=set_variable_gaussian_distribution>
   <code>variable::gaussian_distribution</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1712,11 +1712,11 @@ variable::format_timestamp(a1,1,"pattern","zone_id","locale","CUSTOM");
 
 **Usage example:** 
 ```ts
-a1 = variable::gaussian_distribution(1,2,"NORMAL");
+a1 = variable::gaussian_distribution(1,2,"FOLDER_NORMAL");
 
 #Or dry
 
-variable::gaussian_distribution(a1,1,2,"NORMAL");
+variable::gaussian_distribution(a1,1,2,"FOLDER_NORMAL");
 ```
 
 **Arguments:**
@@ -1726,7 +1726,7 @@ variable::gaussian_distribution(a1,1,2,"NORMAL");
 | `variable`     | Variable                                                                            | Variable to Assign         |
 | `deviant`      | Number                                                                              | Deviation of σ from mean μ |
 | `mean`         | Number                                                                              | Mean μ                     |
-| `distribution` | Marker<br/>**NORMAL** - Total Deviation<br/>**FOLDER_NORMAL** - Side Deviation >= μ | Type of σ deviation        |
+| `distribution` | Marker<br/>**FOLDER_NORMAL** - Side Deviation >= μ<br/>**NORMAL** - Total Deviation | Type of σ deviation        |
 <h3 id=set_variable_get_all_block_data>
   <code>variable::get_all_block_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1738,15 +1738,15 @@ variable::gaussian_distribution(a1,1,2,"NORMAL");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_all_block_data(location(0,0,0,0,0),"TRUE");
+a1 = variable::get_all_block_data(location(0,0,0,0,0),"FALSE");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_all_block_data("TRUE");
+a1 = location(0,0,0,0,0).get_all_block_data("FALSE");
 
 #Or dry
 
-variable::get_all_block_data(a1,location(0,0,0,0,0),"TRUE");
+variable::get_all_block_data(a1,location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -1755,7 +1755,7 @@ variable::get_all_block_data(a1,location(0,0,0,0,0),"TRUE");
 | ------------------ | ---------------------------------------------------- | ----------------------- |
 | `variable`         | Variable                                             | Variable to assign      |
 | `location`         | Location                                             | Block Location          |
-| `hide_unspecified` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Hide Unspecified Values |
+| `hide_unspecified` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Hide Unspecified Values |
 <h3 id=set_variable_get_all_coordinates>
   <code>variable::get_all_coordinates</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1881,15 +1881,15 @@ variable::get_block_data(a1,location(0,0,0,0,0),"tag_name");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_block_growth(location(0,0,0,0,0),"GROWTH_STAGE");
+a1 = variable::get_block_growth(location(0,0,0,0,0),"GROWTH_PERCENTAGE");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_block_growth("GROWTH_STAGE");
+a1 = location(0,0,0,0,0).get_block_growth("GROWTH_PERCENTAGE");
 
 #Or dry
 
-variable::get_block_growth(a1,location(0,0,0,0,0),"GROWTH_STAGE");
+variable::get_block_growth(a1,location(0,0,0,0,0),"GROWTH_PERCENTAGE");
 ```
 
 **Arguments:**
@@ -1898,7 +1898,7 @@ variable::get_block_growth(a1,location(0,0,0,0,0),"GROWTH_STAGE");
 | ------------- | ---------------------------------------------------------------------------------------- | ------------------ |
 | `variable`    | Variable                                                                                 | Variable to assign |
 | `location`    | Location                                                                                 | Block Location     |
-| `growth_unit` | Marker<br/>**GROWTH_STAGE** - Growth Stage<br/>**GROWTH_PERCENTAGE** - Growth Percentage | Unit               |
+| `growth_unit` | Marker<br/>**GROWTH_PERCENTAGE** - Growth Percentage<br/>**GROWTH_STAGE** - Growth Stage | Unit               |
 <h3 id=set_variable_get_block_material>
   <code>variable::get_block_material</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1927,7 +1927,7 @@ variable::get_block_material(a1,location(0,0,0,0,0),"ID");
 | ------------ | ---------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `variable`   | Variable                                                                                                               | Variable to assign |
 | `location`   | Location                                                                                                               | Block Location     |
-| `value_type` | Marker<br/>**ID** - Block ID<br/>**ID_WITH_DATA** - ID and block data<br/>**NAME** - Block Name<br/>**ITEM** - As Item | Value Type         |
+| `value_type` | Marker<br/>**ID** - Block ID<br/>**ID_WITH_DATA** - ID and block data<br/>**ITEM** - As Item<br/>**NAME** - Block Name | Value Type         |
 <h3 id=set_variable_get_block_material_property>
   <code>variable::get_block_material_property</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1939,15 +1939,15 @@ variable::get_block_material(a1,location(0,0,0,0,0),"ID");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_block_material_property(item("stone"),"HARDNESS");
+a1 = variable::get_block_material_property(item("stone"),"BLAST_RESISTANCE");
 
 #Or from the object
 
-a1 = item("stone").get_block_material_property("HARDNESS");
+a1 = item("stone").get_block_material_property("BLAST_RESISTANCE");
 
 #Or dry
 
-variable::get_block_material_property(a1,item("stone"),"HARDNESS");
+variable::get_block_material_property(a1,item("stone"),"BLAST_RESISTANCE");
 ```
 
 **Arguments:**
@@ -1956,7 +1956,7 @@ variable::get_block_material_property(a1,item("stone"),"HARDNESS");
 | ---------- | ------------------------------------------------------------------------------------------------------------------ | ------------------ |
 | `variable` | Variable                                                                                                           | Variable to assign |
 | `block`    | Block                                                                                                              | Block to Get       |
-| `property` | Marker<br/>**HARDNESS** - Hardness<br/>**BLAST_RESISTANCE** - Blast Resistance<br/>**SLIPPERINESS** - Slipperiness | Property           |
+| `property` | Marker<br/>**BLAST_RESISTANCE** - Blast Resistance<br/>**HARDNESS** - Hardness<br/>**SLIPPERINESS** - Slipperiness | Property           |
 <h3 id=set_variable_get_block_power>
   <code>variable::get_block_power</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2106,15 +2106,15 @@ variable::get_char_at(a1,"text",1);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_color_channels("color","RGB");
+a1 = variable::get_color_channels("color","HSB");
 
 #Or from the object
 
-a1 = "color".get_color_channels("RGB");
+a1 = "color".get_color_channels("HSB");
 
 #Or dry
 
-variable::get_color_channels(a1,"color","RGB");
+variable::get_color_channels(a1,"color","HSB");
 ```
 
 **Arguments:**
@@ -2123,7 +2123,7 @@ variable::get_color_channels(a1,"color","RGB");
 | ---------------- | ------------------------------------------------------------ | ------------------ |
 | `variable`       | Variable                                                     | Variable to assign |
 | `color`          | Text                                                         | Color to get value |
-| `color_channels` | Marker<br/>**RGB** - RGB<br/>**HSB** - HSB<br/>**HSL** - HSL | Color Channel      |
+| `color_channels` | Marker<br/>**HSB** - HSB<br/>**HSL** - HSL<br/>**RGB** - RGB | Color Channel      |
 <h3 id=set_variable_get_compass_lodestone>
   <code>variable::get_compass_lodestone</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2275,15 +2275,15 @@ variable::get_component_parsing(a1,"component");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_container_contents(location(0,0,0,0,0),"TRUE");
+a1 = variable::get_container_contents(location(0,0,0,0,0),"FALSE");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_container_contents("TRUE");
+a1 = location(0,0,0,0,0).get_container_contents("FALSE");
 
 #Or dry
 
-variable::get_container_contents(a1,location(0,0,0,0,0),"TRUE");
+variable::get_container_contents(a1,location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -2292,7 +2292,7 @@ variable::get_container_contents(a1,location(0,0,0,0,0),"TRUE");
 | -------------------- | --------------------------------------------------------- | ------------------ |
 | `variable`           | Variable                                                  | Variable to assign |
 | `location`           | Location                                                  | Container Location |
-| `ignore_empty_slots` | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't Ignore | Ignore Empty Slots |
+| `ignore_empty_slots` | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore | Ignore Empty Slots |
 <h3 id=set_variable_get_container_lock>
   <code>variable::get_container_lock</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2360,15 +2360,15 @@ variable::get_container_name(a1,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_coordinate(location(0,0,0,0,0),"X");
+a1 = variable::get_coordinate(location(0,0,0,0,0),"PITCH");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_coordinate("X");
+a1 = location(0,0,0,0,0).get_coordinate("PITCH");
 
 #Or dry
 
-variable::get_coordinate(a1,location(0,0,0,0,0),"X");
+variable::get_coordinate(a1,location(0,0,0,0,0),"PITCH");
 ```
 
 **Arguments:**
@@ -2377,7 +2377,7 @@ variable::get_coordinate(a1,location(0,0,0,0,0),"X");
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | `variable` | Variable                                                                                                                            | Variable to assign    |
 | `location` | Location                                                                                                                            | Location to get value |
-| `type`     | Marker<br/>**X** - X Axis<br/>**Y** - Y Axis<br/>**Z** - Z Axis<br/>**PITCH** - Horizontal Rotation<br/>**YAW** - Vertical rotation | Coordinate Type       |
+| `type`     | Marker<br/>**PITCH** - Horizontal Rotation<br/>**X** - X Axis<br/>**Y** - Y Axis<br/>**YAW** - Vertical rotation<br/>**Z** - Z Axis | Coordinate Type       |
 <h3 id=set_variable_get_decorate_pot_sherd>
   <code>variable::get_decorate_pot_sherd</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2406,7 +2406,7 @@ variable::get_decorate_pot_sherd(a1,location(0,0,0,0,0),"BACK");
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------- |
 | `variable` | Variable                                                                                                                       | Variable for appropriation |
 | `location` | Location                                                                                                                       | The location of the jug    |
-| `side`     | Marker<br/>**BACK** - The back side<br/>**LEFT** - The left side<br/>**RIGHT** - The right side<br/>**FRONT** - The front side | Side of the jug            |
+| `side`     | Marker<br/>**BACK** - The back side<br/>**FRONT** - The front side<br/>**LEFT** - The left side<br/>**RIGHT** - The right side | Side of the jug            |
 <h3 id=set_variable_get_index_of_subtext>
   <code>variable::get_index_of_subtext</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2477,15 +2477,15 @@ variable::get_item_amount(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_attribute(item("stick"),"name","GENERIC_MAX_HEALTH","ALL","ADD_NUMBER");
+a1 = variable::get_item_attribute(item("stick"),"name","ARMOR","ALL","ADD_NUMBER");
 
 #Or from the object
 
-a1 = item("stick").get_item_attribute("name","GENERIC_MAX_HEALTH","ALL","ADD_NUMBER");
+a1 = item("stick").get_item_attribute("name","ARMOR","ALL","ADD_NUMBER");
 
 #Or dry
 
-variable::get_item_attribute(a1,item("stick"),"name","GENERIC_MAX_HEALTH","ALL","ADD_NUMBER");
+variable::get_item_attribute(a1,item("stick"),"name","ARMOR","ALL","ADD_NUMBER");
 ```
 
 **Arguments:**
@@ -2495,8 +2495,8 @@ variable::get_item_attribute(a1,item("stick"),"name","GENERIC_MAX_HEALTH","ALL",
 | `variable`  | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Variable to assign  |
 | `item`      | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Item                |
 | `name`      | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Attribute Name      |
-| `attribute` | Marker<br/>**GENERIC_MAX_HEALTH** - Maximum Health (generic.max_health)<br/>**GENERIC_FOLLOW_RANGE** - Follow Distance (generic.follow_range)<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback Resistance (generic.knockback_resistance)<br/>**GENERIC_MOVEMENT_SPEED** - Movement Speed (generic.movement_speed)<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_ATTACK_DAMAGE** - Attack Damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack Knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack Speed (generic.attack_speed)<br/>**GENERIC_ARMOR** - Protection Points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Defense Density Points (generic.armor_toughness)<br/>**GENERIC_LUCK** - Fishing Luck (generic.luck)<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength (horse.jump_strength)<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zombie reinforcements (zombie.spawn_reinforcements)<br/>**MAX_HEALTH** - Max health<br/>**MAX_ABSORPTION** - Max absorption<br/>**FOLLOW_RANGE** - Follow range<br/>**KNOCKBACK_RESISTANCE** - Knockback resistance<br/>**MOVEMENT_SPEED** - Movement speed<br/>**FLYING_SPEED** - Flying speed<br/>**ATTACK_DAMAGE** - Attack damage<br/>**ATTACK_KNOCKBACK** - Attack knockback<br/>**ATTACK_SPEED** - Attack speed<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor toughness<br/>**LUCK** - Luck<br/>**GENERIC_JUMP_STRENGTH** - Jump strength<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall damage multiplier<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe fall distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step height<br/>**GENERIC_GRAVITY** - Gravity<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - The distance of interaction with blocks<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - The distance of interaction with entities<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block breaking speed<br/>**GENERIC_BURNING_TIME** - Burning time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion knockback resistance<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement speed for slowing blocks<br/>**PLAYER_MINING_EFFICIENCY** - Digging speed<br/>**PLAYER_SNEAKING_SPEED** - Movement speed while sneaking<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Digging speed underwater<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - The coefficient of a break in a blow<br/>**GENERIC_OXYGEN_BONUS** - Air underwater<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Movement speed underwater<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (Generic.max_Absorption) | Attribute Type      |
-| `slot`      | Marker<br/>**ALL** - All<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Offhand<br/>**HEAD** - Helmet<br/>**CHEST** - Chest<br/>**LEGGINGS** - Leggings<br/>**BOOTS** - Boots<br/>**HAND** - Any hand<br/>**ARMOR** - Any armor<br/>**BODY** - Body (does not work with all entities)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Attribute Slot      |
+| `attribute` | Marker<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor toughness<br/>**ATTACK_DAMAGE** - Attack damage<br/>**ATTACK_KNOCKBACK** - Attack knockback<br/>**ATTACK_SPEED** - Attack speed<br/>**FLYING_SPEED** - Flying speed<br/>**FOLLOW_RANGE** - Follow range<br/>**GENERIC_ARMOR** - Protection Points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Defense Density Points (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack Damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack Knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack Speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion knockback resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall damage multiplier<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback Resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Fishing Luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (Generic.max_Absorption)<br/>**GENERIC_MAX_HEALTH** - Maximum Health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement speed for slowing blocks<br/>**GENERIC_MOVEMENT_SPEED** - Movement Speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Air underwater<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe fall distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Movement speed underwater<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Knockback resistance<br/>**LUCK** - Luck<br/>**MAX_ABSORPTION** - Max absorption<br/>**MAX_HEALTH** - Max health<br/>**MOVEMENT_SPEED** - Movement speed<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block breaking speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - The distance of interaction with blocks<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - The distance of interaction with entities<br/>**PLAYER_MINING_EFFICIENCY** - Digging speed<br/>**PLAYER_SNEAKING_SPEED** - Movement speed while sneaking<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Digging speed underwater<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - The coefficient of a break in a blow<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zombie reinforcements (zombie.spawn_reinforcements) | Attribute Type      |
+| `slot`      | Marker<br/>**ALL** - All<br/>**ARMOR** - Any armor<br/>**BODY** - Body (does not work with all entities)<br/>**BOOTS** - Boots<br/>**CHEST** - Chest<br/>**HAND** - Any hand<br/>**HEAD** - Helmet<br/>**LEGGINGS** - Leggings<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Offhand                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Attribute Slot      |
 | `operation` | Marker<br/>**ADD_NUMBER** - Amount<br/>**ADD_SCALAR** - Percentage<br/>**MULTIPLY_SCALAR_1** - Product (multiplicative)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Attribute Operation |
 <h3 id=set_variable_get_item_color>
   <code>variable::get_item_color</code>
@@ -2669,7 +2669,7 @@ variable::get_item_durability(a1,item("stick"),"DAMAGE");
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `variable`        | Variable                                                                                                                                                                                                                                      | Variable to assign |
 | `item`            | Item                                                                                                                                                                                                                                          | Item               |
-| `durability_type` | Marker<br/>**DAMAGE** - Current Durability<br/>**DAMAGE_PERCENTAGE** - Current Durability Percentage<br/>**REMAINING** - Remaining Durability<br/>**REMAINING_PERCENTAGE** - Remaining Durability Percentage<br/>**MAXIMUM** - Max Durability | Durability Type    |
+| `durability_type` | Marker<br/>**DAMAGE** - Current Durability<br/>**DAMAGE_PERCENTAGE** - Current Durability Percentage<br/>**MAXIMUM** - Max Durability<br/>**REMAINING** - Remaining Durability<br/>**REMAINING_PERCENTAGE** - Remaining Durability Percentage | Durability Type    |
 <h3 id=set_variable_get_item_enchantments>
   <code>variable::get_item_enchantments</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2947,7 +2947,7 @@ variable::get_item_type(a1,item("stick"),"ID");
 | ---------- | ------------------------------------------------------------------------ | ------------------ |
 | `variable` | Variable                                                                 | Variable to assign |
 | `type`     | Item                                                                     | Item               |
-| `value`    | Marker<br/>**ID** - Item ID<br/>**NAME** - Item Name<br/>**ITEM** - Item | Text View          |
+| `value`    | Marker<br/>**ID** - Item ID<br/>**ITEM** - Item<br/>**NAME** - Item Name | Text View          |
 <h3 id=set_variable_get_lectern_book>
   <code>variable::get_lectern_book</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3015,15 +3015,15 @@ variable::get_lectern_page(a1,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_light_level(location(0,0,0,0,0),"TOTAL");
+a1 = variable::get_light_level(location(0,0,0,0,0),"BLOCKS");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_light_level("TOTAL");
+a1 = location(0,0,0,0,0).get_light_level("BLOCKS");
 
 #Or dry
 
-variable::get_light_level(a1,location(0,0,0,0,0),"TOTAL");
+variable::get_light_level(a1,location(0,0,0,0,0),"BLOCKS");
 ```
 
 **Arguments:**
@@ -3032,7 +3032,7 @@ variable::get_light_level(a1,location(0,0,0,0,0),"TOTAL");
 | ------------ | ------------------------------------------------------------------------------------------------ | --------------------- |
 | `variable`   | Variable                                                                                         | Variable to assign    |
 | `location`   | Location                                                                                         | Location to get value |
-| `value_type` | Marker<br/>**TOTAL** - Total Light<br/>**SKY** - Light from the sky<br/>**BLOCKS** - Block Light | Light Type            |
+| `value_type` | Marker<br/>**BLOCKS** - Block Light<br/>**SKY** - Light from the sky<br/>**TOTAL** - Total Light | Light Type            |
 <h3 id=set_variable_get_list_index_of_value>
   <code>variable::get_list_index_of_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3172,7 +3172,7 @@ variable::get_list_variables(a1,"GAME");
 | **Name**   | **Type**                                                                                    | **Description**    |
 | ---------- | ------------------------------------------------------------------------------------------- | ------------------ |
 | `variable` | Variable                                                                                    | Variable to assign |
-| `scope`    | Marker<br/>**GAME** - Game<br/>**SAVE** - Saved<br/>**LOCAL** - Local<br/>**LINE** - Little | Variable Type      |
+| `scope`    | Marker<br/>**GAME** - Game<br/>**LINE** - Little<br/>**LOCAL** - Local<br/>**SAVE** - Saved | Variable Type      |
 <h3 id=set_variable_get_location_direction>
   <code>variable::get_location_direction</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3270,15 +3270,15 @@ variable::get_map_keys(a1,`map`);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_map_keys_by_value(`map`,"any value","any value","FIRST");
+a1 = variable::get_map_keys_by_value(`map`,"any value","any value","ALL");
 
 #Or from the object
 
-a1 = `map`.get_map_keys_by_value("any value","any value","FIRST");
+a1 = `map`.get_map_keys_by_value("any value","any value","ALL");
 
 #Or dry
 
-variable::get_map_keys_by_value(a1,`map`,"any value","any value","FIRST");
+variable::get_map_keys_by_value(a1,`map`,"any value","any value","ALL");
 ```
 
 **Arguments:**
@@ -3289,7 +3289,7 @@ variable::get_map_keys_by_value(a1,`map`,"any value","any value","FIRST");
 | `map`           | Dictionary                                                                                                                               | Dictionary         |
 | `value`         | Any Value                                                                                                                                | Value to get       |
 | `default_value` | Any Value                                                                                                                                | Default value      |
-| `find_mode`     | Marker<br/>**FIRST** - From Beginning (gets first key)<br/>**LAST** - From the end (gets the last key)<br/>**ALL** - All (gets all keys) | Find Mode          |
+| `find_mode`     | Marker<br/>**ALL** - All (gets all keys)<br/>**FIRST** - From Beginning (gets first key)<br/>**LAST** - From the end (gets the last key) | Find Mode          |
 <h3 id=set_variable_get_map_size>
   <code>variable::get_map_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3583,15 +3583,15 @@ variable::get_particle_size(a1,particle("fire"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_particle_spread(particle("fire"),"VERTICAL");
+a1 = variable::get_particle_spread(particle("fire"),"HORIZONTAL");
 
 #Or from the object
 
-a1 = particle("fire").get_particle_spread("VERTICAL");
+a1 = particle("fire").get_particle_spread("HORIZONTAL");
 
 #Or dry
 
-variable::get_particle_spread(a1,particle("fire"),"VERTICAL");
+variable::get_particle_spread(a1,particle("fire"),"HORIZONTAL");
 ```
 
 **Arguments:**
@@ -3600,7 +3600,7 @@ variable::get_particle_spread(a1,particle("fire"),"VERTICAL");
 | ---------- | ------------------------------------------------------------------ | --------------------- |
 | `variable` | Variable                                                           | Variable to assign    |
 | `particle` | Particle Effect                                                    | Particle to get value |
-| `type`     | Marker<br/>**VERTICAL** - Vertical<br/>**HORIZONTAL** - Horizontal | Spread Plane          |
+| `type`     | Marker<br/>**HORIZONTAL** - Horizontal<br/>**VERTICAL** - Vertical | Spread Plane          |
 <h3 id=set_variable_get_particle_type>
   <code>variable::get_particle_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3835,15 +3835,15 @@ variable::get_sculk_shrieker_warning_level(a1,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_sign_text(location(0,0,0,0,0),"FRONT","FIRST");
+a1 = variable::get_sign_text(location(0,0,0,0,0),"ALL","ALL");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_sign_text("FRONT","FIRST");
+a1 = location(0,0,0,0,0).get_sign_text("ALL","ALL");
 
 #Or dry
 
-variable::get_sign_text(a1,location(0,0,0,0,0),"FRONT","FIRST");
+variable::get_sign_text(a1,location(0,0,0,0,0),"ALL","ALL");
 ```
 
 **Arguments:**
@@ -3852,8 +3852,8 @@ variable::get_sign_text(a1,location(0,0,0,0,0),"FRONT","FIRST");
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `variable`   | Variable                                                                                                                                       | Variable to assign |
 | `location`   | Location                                                                                                                                       | Sign Location      |
-| `check_side` | Marker<br/>**FRONT** - Front<br/>**BACK** - Back<br/>**ALL** - All                                                                             | Sign Side          |
-| `sign_line`  | Marker<br/>**FIRST** - First Line<br/>**SECOND** - Second Line<br/>**THIRD** - Third line<br/>**FOURTH** - Fourth line<br/>**ALL** - All lines | Line Number        |
+| `check_side` | Marker<br/>**ALL** - All<br/>**BACK** - Back<br/>**FRONT** - Front                                                                             | Sign Side          |
+| `sign_line`  | Marker<br/>**ALL** - All lines<br/>**FIRST** - First Line<br/>**FOURTH** - Fourth line<br/>**SECOND** - Second Line<br/>**THIRD** - Third line | Line Number        |
 <h3 id=set_variable_get_sound_pitch>
   <code>variable::get_sound_pitch</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4035,15 +4035,15 @@ variable::get_sound_volume_action(a1,sound("entity.zombie.hurt"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_template_code(item("stick"),"TEXT");
+a1 = variable::get_template_code(item("stick"),"MAP");
 
 #Or from the object
 
-a1 = item("stick").get_template_code("TEXT");
+a1 = item("stick").get_template_code("MAP");
 
 #Or dry
 
-variable::get_template_code(a1,item("stick"),"TEXT");
+variable::get_template_code(a1,item("stick"),"MAP");
 ```
 
 **Arguments:**
@@ -4052,7 +4052,7 @@ variable::get_template_code(a1,item("stick"),"TEXT");
 | ------------- | ------------------------------------------------------------- | ------------------ |
 | `variable`    | Variable                                                      | Variable to assign |
 | `template`    | Item                                                          | Template           |
-| `return_type` | Marker<br/>**TEXT** - JSON Text<br/>**MAP** - JSON Dictionary | Return Value       |
+| `return_type` | Marker<br/>**MAP** - JSON Dictionary<br/>**TEXT** - JSON Text | Return Value       |
 <h3 id=set_variable_get_text_width>
   <code>variable::get_text_width</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4381,15 +4381,15 @@ variable::lerp_number(a1,1,2,3);
 
 **Usage example:** 
 ```ts
-a1 = variable::location_relative(location(0,0,0,0,0),1,"NORTH");
+a1 = variable::location_relative(location(0,0,0,0,0),1,"DOWN");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).location_relative(1,"NORTH");
+a1 = location(0,0,0,0,0).location_relative(1,"DOWN");
 
 #Or dry
 
-variable::location_relative(a1,location(0,0,0,0,0),1,"NORTH");
+variable::location_relative(a1,location(0,0,0,0,0),1,"DOWN");
 ```
 
 **Arguments:**
@@ -4399,7 +4399,7 @@ variable::location_relative(a1,location(0,0,0,0,0),1,"NORTH");
 | `variable`   | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Variable to assign |
 | `location`   | Location                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Relative Location  |
 | `distance`   | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Distance           |
-| `block_face` | Marker<br/>**NORTH** - North<br/>**EAST** - East<br/>**SOUTH** - South<br/>**WEST** - West<br/>**UP** - Up<br/>**DOWN** - Down<br/>**NORTH_EAST** - Northeast<br/>**NORTH_WEST** - Northwest<br/>**SOUTH_EAST** - Southeast<br/>**SOUTH_WEST** - Southwest<br/>**WEST_NORTH_WEST** - West-north-west (west_north_west)<br/>**NORTH_NORTH_WEST** - North-north-west (north_north_west)<br/>**NORTH_NORTH_EAST** - North-north-east (north_north_east)<br/>**EAST_NORTH_EAST** - East-North-East (east_north_east)<br/>**EAST_SOUTH_EAST** - East Southeast (east_south_east)<br/>**SOUTH_SOUTH_EAST** - South Southeast (south_south_east)<br/>**SOUTH_SOUTH_WEST** - South-South-West (south_south_west)<br/>**WEST_SOUTH_WEST** - West-south-west (west_south_west)<br/>**SELF** - Own (self) | Block Side         |
+| `block_face` | Marker<br/>**DOWN** - Down<br/>**EAST** - East<br/>**EAST_NORTH_EAST** - East-North-East (east_north_east)<br/>**EAST_SOUTH_EAST** - East Southeast (east_south_east)<br/>**NORTH** - North<br/>**NORTH_EAST** - Northeast<br/>**NORTH_NORTH_EAST** - North-north-east (north_north_east)<br/>**NORTH_NORTH_WEST** - North-north-west (north_north_west)<br/>**NORTH_WEST** - Northwest<br/>**SELF** - Own (self)<br/>**SOUTH** - South<br/>**SOUTH_EAST** - Southeast<br/>**SOUTH_SOUTH_EAST** - South Southeast (south_south_east)<br/>**SOUTH_SOUTH_WEST** - South-South-West (south_south_west)<br/>**SOUTH_WEST** - Southwest<br/>**UP** - Up<br/>**WEST** - West<br/>**WEST_NORTH_WEST** - West-north-west (west_north_west)<br/>**WEST_SOUTH_WEST** - West-south-west (west_south_west) | Block Side         |
 <h3 id=set_variable_locations_distance>
   <code>variable::locations_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4411,11 +4411,11 @@ variable::location_relative(a1,location(0,0,0,0,0),1,"NORTH");
 
 **Usage example:** 
 ```ts
-a1 = variable::locations_distance(location(0,0,0,0,0),location(0,0,0,0,0),"THREE_D");
+a1 = variable::locations_distance(location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUDE");
 
 #Or dry
 
-variable::locations_distance(a1,location(0,0,0,0,0),location(0,0,0,0,0),"THREE_D");
+variable::locations_distance(a1,location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUDE");
 ```
 
 **Arguments:**
@@ -4425,7 +4425,7 @@ variable::locations_distance(a1,location(0,0,0,0,0),location(0,0,0,0,0),"THREE_D
 | `variable`   | Variable                                                                                                         | Variable to assign |
 | `location_1` | Location                                                                                                         | First Location     |
 | `location_2` | Location                                                                                                         | Second Location    |
-| `type`       | Marker<br/>**THREE_D** - Volume<br/>**TWO_D** - In Plane<br/>**ALTITUDE** - Altitude<br/>**Altitude** - Altitude | Distance Type      |
+| `type`       | Marker<br/>**ALTITUDE** - Altitude<br/>**Altitude** - Altitude<br/>**THREE_D** - Volume<br/>**TWO_D** - In Plane | Distance Type      |
 <h3 id=set_variable_log>
   <code>variable::log</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4619,15 +4619,15 @@ variable::parse_json(a1,"json");
 
 **Usage example:** 
 ```ts
-a1 = variable::parse_to_component("text","PLAIN");
+a1 = variable::parse_to_component("text","JSON");
 
 #Or from the object
 
-a1 = "text".parse_to_component("PLAIN");
+a1 = "text".parse_to_component("JSON");
 
 #Or dry
 
-variable::parse_to_component(a1,"text","PLAIN");
+variable::parse_to_component(a1,"text","JSON");
 ```
 
 **Arguments:**
@@ -4636,7 +4636,7 @@ variable::parse_to_component(a1,"text","PLAIN");
 | ---------- | -------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | `variable` | Variable                                                                                                       | Variable for appropriation |
 | `text`     | Text                                                                                                           | Text for transformation    |
-| `parsing`  | Marker<br/>**PLAIN** - Ordinary<br/>**LEGACY** - Color (&)<br/>**MINIMESSAGE** - Stylized<br/>**JSON** - Zhnon | Type of transformation     |
+| `parsing`  | Marker<br/>**JSON** - Zhnon<br/>**LEGACY** - Color (&)<br/>**MINIMESSAGE** - Stylized<br/>**PLAIN** - Ordinary | Type of transformation     |
 <h3 id=set_variable_perlin_noise_3d>
   <code>variable::perlin_noise_3d</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4648,11 +4648,11 @@ variable::parse_to_component(a1,"text","PLAIN");
 
 **Usage example:** 
 ```ts
-a1 = variable::perlin_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE");
+a1 = variable::perlin_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
 
 #Or dry
 
-variable::perlin_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE");
+variable::perlin_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
 ```
 
 **Arguments:**
@@ -4666,8 +4666,8 @@ variable::perlin_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE")
 | `octaves`       | Number                                                                                | Number of Noise Octaves    |
 | `frequency`     | Number                                                                                | Frequency of Noise Octaves |
 | `amplitude`     | Number                                                                                | Noise Octave Amplitude     |
-| `range_mode`    | Marker<br/>**ZERO_TO_ONE** - 0 to 1<br/>**FULL_RANGE** - Full Range (-1 to 1 or more) | Value Range                |
-| `normalized`    | Marker<br/>**TRUE** - Normalize<br/>**FALSE** - Don't Normalize                       | Normalize Values           |
+| `range_mode`    | Marker<br/>**FULL_RANGE** - Full Range (-1 to 1 or more)<br/>**ZERO_TO_ONE** - 0 to 1 | Value Range                |
+| `normalized`    | Marker<br/>**FALSE** - Don't Normalize<br/>**TRUE** - Normalize                       | Normalize Values           |
 <h3 id=set_variable_pow>
   <code>variable::pow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4708,7 +4708,7 @@ variable::pow(a1,1,2);
 
 **Usage example:** 
 ```ts
-variable::purge(["names", "names"],"GAME","EQUALS","TRUE");
+variable::purge(["names", "names"],"GAME","EQUALS","FALSE");
 ```
 
 **Arguments:**
@@ -4716,9 +4716,9 @@ variable::purge(["names", "names"],"GAME","EQUALS","TRUE");
 | **Name**      | **Type**                                                                                                                 | **Description**  |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------- |
 | `names`       | list[Text]                                                                                                               | Names to Compare |
-| `scope`       | Marker<br/>**GAME** - Gaming<br/>**SAVE** - Saved<br/>**LOCAL** - Local<br/>**LINE** - Line                              | Variable Type    |
+| `scope`       | Marker<br/>**GAME** - Gaming<br/>**LINE** - Line<br/>**LOCAL** - Local<br/>**SAVE** - Saved                              | Variable Type    |
 | `match`       | Marker<br/>**EQUALS** - Full Match<br/>**NAME_CONTAINS** - Name contains text<br/>**PART_CONTAINS** - Text contains name | Comparison Mode  |
-| `ignore_case` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled                                                                   | Ignore case      |
+| `ignore_case` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                                                                   | Ignore case      |
 <h3 id=set_variable_random>
   <code>variable::random</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4754,11 +4754,11 @@ variable::random(a1,["any value", "any value"]);
 
 **Usage example:** 
 ```ts
-a1 = variable::random_location(location(0,0,0,0,0),location(0,0,0,0,0),"TRUE");
+a1 = variable::random_location(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
 
 #Or dry
 
-variable::random_location(a1,location(0,0,0,0,0),location(0,0,0,0,0),"TRUE");
+variable::random_location(a1,location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -4768,7 +4768,7 @@ variable::random_location(a1,location(0,0,0,0,0),location(0,0,0,0,0),"TRUE");
 | `variable`   | Variable                                             | Variable to assign           |
 | `location_1` | Location                                             | First corner of region       |
 | `location_2` | Location                                             | Second Region Corner         |
-| `integer`    | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Round to Integer Coordinates |
+| `integer`    | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Round to Integer Coordinates |
 <h3 id=set_variable_random_number>
   <code>variable::random_number</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4780,11 +4780,11 @@ variable::random_location(a1,location(0,0,0,0,0),location(0,0,0,0,0),"TRUE");
 
 **Usage example:** 
 ```ts
-a1 = variable::random_number(1,2,"TRUE");
+a1 = variable::random_number(1,2,"FALSE");
 
 #Or dry
 
-variable::random_number(a1,1,2,"TRUE");
+variable::random_number(a1,1,2,"FALSE");
 ```
 
 **Arguments:**
@@ -4794,7 +4794,7 @@ variable::random_number(a1,1,2,"TRUE");
 | `variable` | Variable                                                 | Variable to assign |
 | `min`      | Number                                                   | Minimum Value      |
 | `max`      | Number                                                   | Max Value          |
-| `integer`  | Marker<br/>**TRUE** - Integer<br/>**FALSE** - Fractional | Number Type        |
+| `integer`  | Marker<br/>**FALSE** - Fractional<br/>**TRUE** - Integer | Number Type        |
 <h3 id=set_variable_randomize_list_order>
   <code>variable::randomize_list_order</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4834,11 +4834,11 @@ variable::randomize_list_order(a1,`list`);
 
 **Usage example:** 
 ```ts
-a1, a2, a3, a4 = variable::ray_trace_result(location(0,0,0,0,0),"ONLY_BLOCKS",1,`entities`,"TRUE",2,"NEVER");
+a1, a2, a3, a4 = variable::ray_trace_result(location(0,0,0,0,0),"BLOCKS_AND_ENTITIES",1,`entities`,"FALSE",2,"ALWAYS");
 
 #Or dry
 
-variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),"ONLY_BLOCKS",1,`entities`,"TRUE",2,"NEVER");
+variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),"BLOCKS_AND_ENTITIES",1,`entities`,"FALSE",2,"ALWAYS");
 ```
 
 **Arguments:**
@@ -4850,12 +4850,12 @@ variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),"ONLY_BLOCKS",1,`enti
 | `variable_for_hit_block_face`     | Variable                                                                                                                                   | Block/Hitbox Side                                                                    |
 | `variable_for_hit_entity_uuid`    | Variable                                                                                                                                   | Entity UUID                                                                          |
 | `start`                           | Location                                                                                                                                   | Beam Start                                                                           |
-| `ray_collision_mode`              | Marker<br/>**ONLY_BLOCKS** - Only with Blocks<br/>**BLOCKS_AND_ENTITIES** - With blocks and entities<br/>**ONLY_ENTITIES** - Entities Only | Object Collision                                                                     |
+| `ray_collision_mode`              | Marker<br/>**BLOCKS_AND_ENTITIES** - With blocks and entities<br/>**ONLY_BLOCKS** - Only with Blocks<br/>**ONLY_ENTITIES** - Entities Only | Object Collision                                                                     |
 | `ray_size`                        | Number                                                                                                                                     | Beam Width                                                                           |
 | `entities`                        | List                                                                                                                                       | Names or UUIDs of the entities to collide with (default is all players and entities) |
-| `ignore_passable_blocks`          | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't Ignore                                                                                  | Ignore Passable Blocks                                                               |
+| `ignore_passable_blocks`          | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore                                                                                  | Ignore Passable Blocks                                                               |
 | `max_distance`                    | Number                                                                                                                                     | Beam length                                                                          |
-| `fluid_collision_mode`            | Marker<br/>**NEVER** - Ignore Completely<br/>**SOURCE_ONLY** - Consider Fluid Source Only<br/>**ALWAYS** - Don't Ignore                    | Ignore Fluid                                                                         |
+| `fluid_collision_mode`            | Marker<br/>**ALWAYS** - Don't Ignore<br/>**NEVER** - Ignore Completely<br/>**SOURCE_ONLY** - Consider Fluid Source Only                    | Ignore Fluid                                                                         |
 <h3 id=set_variable_reflect_vector_product>
   <code>variable::reflect_vector_product</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4893,15 +4893,15 @@ variable::reflect_vector_product(a1,vector(0,0,0),vector(0,0,0),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::regex_replace_text("text","regex","replacement","ANY","TRUE","TRUE","TRUE","TRUE","TRUE","TRUE","TRUE");
+a1 = variable::regex_replace_text("text","regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
 
 #Or from the object
 
-a1 = "text".regex_replace_text("regex","replacement","ANY","TRUE","TRUE","TRUE","TRUE","TRUE","TRUE","TRUE");
+a1 = "text".regex_replace_text("regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
 
 #Or dry
 
-variable::regex_replace_text(a1,"text","regex","replacement","ANY","TRUE","TRUE","TRUE","TRUE","TRUE","TRUE","TRUE");
+variable::regex_replace_text(a1,"text","regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
 ```
 
 **Arguments:**
@@ -4913,13 +4913,13 @@ variable::regex_replace_text(a1,"text","regex","replacement","ANY","TRUE","TRUE"
 | `regex`           | Text                                                                              | Regular Expression                               |
 | `replacement`     | Text                                                                              | Replacement                                      |
 | `first`           | Marker<br/>**ANY** - Replace All Matches<br/>**FIRST** - Replace First Match Only | Number of replacements                           |
-| `ignore_case`     | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled                            | Ignore case (ignore_case flag)                   |
-| `multiline`       | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled                            | Multiline Mode (multiline flag)                  |
-| `literal`         | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled                            | Treat template verbatim (literal flag)           |
-| `unix_lines`      | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled                            | UNIX line mode (unix_lines flag)                 |
-| `comments`        | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled                            | Allow comments and ignore spaces (comments flag) |
-| `dot_matches_all` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled                            | Dotall Mode (dotall flag)                        |
-| `cannon_eq`       | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled                            | Canonical Equivalence (cannon_eq Flag)           |
+| `ignore_case`     | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                            | Ignore case (ignore_case flag)                   |
+| `multiline`       | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                            | Multiline Mode (multiline flag)                  |
+| `literal`         | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                            | Treat template verbatim (literal flag)           |
+| `unix_lines`      | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                            | UNIX line mode (unix_lines flag)                 |
+| `comments`        | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                            | Allow comments and ignore spaces (comments flag) |
+| `dot_matches_all` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                            | Dotall Mode (dotall flag)                        |
+| `cannon_eq`       | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                            | Canonical Equivalence (cannon_eq Flag)           |
 <h3 id=set_variable_remainder>
   <code>variable::remainder</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4931,15 +4931,15 @@ variable::regex_replace_text(a1,"text","regex","replacement","ANY","TRUE","TRUE"
 
 **Usage example:** 
 ```ts
-a1 = variable::remainder(1,2,"REMAINDER");
+a1 = variable::remainder(1,2,"MODULO");
 
 #Or from the object
 
-a1 = (1).remainder(2,"REMAINDER");
+a1 = (1).remainder(2,"MODULO");
 
 #Or dry
 
-variable::remainder(a1,1,2,"REMAINDER");
+variable::remainder(a1,1,2,"MODULO");
 ```
 
 **Arguments:**
@@ -4949,7 +4949,7 @@ variable::remainder(a1,1,2,"REMAINDER");
 | `variable`       | Variable                                                                                                                        | Variable to Assign |
 | `dividend`       | Number                                                                                                                          | Dividend           |
 | `divisor`        | Number                                                                                                                          | Divisor            |
-| `remainder_mode` | Marker<br/>**REMAINDER** - Remainder of division (leaves dividend sign)<br/>**MODULO** - Modulo Remainder (leaves divisor sign) | Operation Mode     |
+| `remainder_mode` | Marker<br/>**MODULO** - Modulo Remainder (leaves divisor sign)<br/>**REMAINDER** - Remainder of division (leaves dividend sign) | Operation Mode     |
 <h3 id=set_variable_remove_compass_lodestone>
   <code>variable::remove_compass_lodestone</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5018,11 +5018,11 @@ variable::remove_enchantment(a1,item("stick"),"enchantment");
 
 **Usage example:** 
 ```ts
-variable::remove_item_attribute(a1,item("stick"),"name_or_uuid","GENERIC_MAX_HEALTH");
+variable::remove_item_attribute(a1,item("stick"),"name_or_uuid","ARMOR");
 
 #Or from the object
 
-item("stick").remove_item_attribute(a1,"name_or_uuid","GENERIC_MAX_HEALTH");
+item("stick").remove_item_attribute(a1,"name_or_uuid","ARMOR");
 ```
 
 **Arguments:**
@@ -5032,7 +5032,7 @@ item("stick").remove_item_attribute(a1,"name_or_uuid","GENERIC_MAX_HEALTH");
 | `variable`     | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Variable for appropriation |
 | `item`         | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Item                       |
 | `name_or_uuid` | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Name or uuid attribute     |
-| `attribute`    | Marker<br/>**GENERIC_MAX_HEALTH** - Max health (generic.max_health)<br/>**GENERIC_FOLLOW_RANGE** - Distance (generic.follow_range)<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Publishing resistance (Generic.knockback_resistance)<br/>**GENERIC_MOVEMENT_SPEED** - Generic.movement_Speed)<br/>**GENERIC_FLYING_SPEED** - Generic.flying_speed)<br/>**GENERIC_ATTACK_DAMAGE** - Generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Repulsion of the attack (Generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Generic.attack_Speed)<br/>**GENERIC_ARMOR** - Generic.armor glasses)<br/>**GENERIC_ARMOR_TOUGHNESS** - Generic.armor_touchHness density glasses)<br/>**GENERIC_LUCK** - Luck of fishing (Generic.luck)<br/>**HORSE_JUMP_STRENGTH** - Horse jump (horse.jump_strength)<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - The chance of reinforcing the zombie<br/>**MAX_HEALTH** - Max health<br/>**MAX_ABSORPTION** - Max absorption<br/>**FOLLOW_RANGE** - The distance<br/>**KNOCKBACK_RESISTANCE** - Knockback resistance<br/>**MOVEMENT_SPEED** - Movement speed<br/>**FLYING_SPEED** - Flight speed<br/>**ATTACK_DAMAGE** - Attack damage<br/>**ATTACK_KNOCKBACK** - Attack knockback<br/>**ATTACK_SPEED** - Attack speed<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor toughness<br/>**LUCK** - Luck<br/>**GENERIC_JUMP_STRENGTH** - Jump strength<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall damage multiplier<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe fall distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step height<br/>**GENERIC_GRAVITY** - Gravity<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - The distance of interaction with blocks<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - The distance of interaction with entities<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block breaking speed<br/>**GENERIC_BURNING_TIME** - Burning time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion knockback resistance<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement speed for slowing blocks<br/>**PLAYER_MINING_EFFICIENCY** - Digging speed<br/>**PLAYER_SNEAKING_SPEED** - Movement speed while sneaking<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Digging speed underwater<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - The coefficient of a break in a blow<br/>**GENERIC_OXYGEN_BONUS** - Air underwater<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Movement speed underwater<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (Generic.max_Absorption) | Type of attribute          |
+| `attribute`    | Marker<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor toughness<br/>**ATTACK_DAMAGE** - Attack damage<br/>**ATTACK_KNOCKBACK** - Attack knockback<br/>**ATTACK_SPEED** - Attack speed<br/>**FLYING_SPEED** - Flight speed<br/>**FOLLOW_RANGE** - The distance<br/>**GENERIC_ARMOR** - Generic.armor glasses)<br/>**GENERIC_ARMOR_TOUGHNESS** - Generic.armor_touchHness density glasses)<br/>**GENERIC_ATTACK_DAMAGE** - Generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Repulsion of the attack (Generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Generic.attack_Speed)<br/>**GENERIC_BURNING_TIME** - Burning time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion knockback resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall damage multiplier<br/>**GENERIC_FLYING_SPEED** - Generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Publishing resistance (Generic.knockback_resistance)<br/>**GENERIC_LUCK** - Luck of fishing (Generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (Generic.max_Absorption)<br/>**GENERIC_MAX_HEALTH** - Max health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement speed for slowing blocks<br/>**GENERIC_MOVEMENT_SPEED** - Generic.movement_Speed)<br/>**GENERIC_OXYGEN_BONUS** - Air underwater<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe fall distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Movement speed underwater<br/>**HORSE_JUMP_STRENGTH** - Horse jump (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Knockback resistance<br/>**LUCK** - Luck<br/>**MAX_ABSORPTION** - Max absorption<br/>**MAX_HEALTH** - Max health<br/>**MOVEMENT_SPEED** - Movement speed<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block breaking speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - The distance of interaction with blocks<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - The distance of interaction with entities<br/>**PLAYER_MINING_EFFICIENCY** - Digging speed<br/>**PLAYER_SNEAKING_SPEED** - Movement speed while sneaking<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Digging speed underwater<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - The coefficient of a break in a blow<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - The chance of reinforcing the zombie | Type of attribute          |
 <h3 id=set_variable_remove_item_custom_model_data>
   <code>variable::remove_item_custom_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5187,15 +5187,15 @@ variable::remove_list_duplicates(a1,`list`);
 
 **Usage example:** 
 ```ts
-a1 = variable::remove_list_value(`list`,"any value","FIRST");
+a1 = variable::remove_list_value(`list`,"any value","ALL");
 
 #Or from the object
 
-a1 = `list`.remove_list_value("any value","FIRST");
+a1 = `list`.remove_list_value("any value","ALL");
 
 #Or dry
 
-variable::remove_list_value(a1,`list`,"any value","FIRST");
+variable::remove_list_value(a1,`list`,"any value","ALL");
 ```
 
 **Arguments:**
@@ -5205,7 +5205,7 @@ variable::remove_list_value(a1,`list`,"any value","FIRST");
 | `variable`    | Variable                                                                                                        | Variable to Assign |
 | `list`        | List                                                                                                            | List               |
 | `value`       | Any Value                                                                                                       | Value              |
-| `remove_mode` | Marker<br/>**FIRST** - The first coincidence<br/>**LAST** - The last coincidence<br/>**ALL** - All coincidences | Removal mode       |
+| `remove_mode` | Marker<br/>**ALL** - All coincidences<br/>**FIRST** - The first coincidence<br/>**LAST** - The last coincidence | Removal mode       |
 <h3 id=set_variable_remove_list_value_at_index>
   <code>variable::remove_list_value_at_index</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5278,15 +5278,15 @@ variable::remove_map_entry(a1,a2,["any value", "any value"],`map`,"any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::remove_text(["remove", "remove"],"text","TRUE");
+a1 = variable::remove_text(["remove", "remove"],"text","FALSE");
 
 #Or from the object
 
-a1 = "text".remove_text(["remove", "remove"],"TRUE");
+a1 = "text".remove_text(["remove", "remove"],"FALSE");
 
 #Or dry
 
-variable::remove_text(a1,["remove", "remove"],"text","TRUE");
+variable::remove_text(a1,["remove", "remove"],"text","FALSE");
 ```
 
 **Arguments:**
@@ -5296,7 +5296,7 @@ variable::remove_text(a1,["remove", "remove"],"text","TRUE");
 | `variable` | Variable                                             | Variable to assign  |
 | `remove`   | list[Text]                                           | Text to Remove      |
 | `text`     | Text                                                 | Original Text       |
-| `regex`    | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Regular Expressions |
+| `regex`    | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Regular Expressions |
 <h3 id=set_variable_repeat_text>
   <code>variable::repeat_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5337,15 +5337,15 @@ variable::repeat_text(a1,"text",1);
 
 **Usage example:** 
 ```ts
-a1 = variable::replace_text("text","replace","replacement","ANY","TRUE");
+a1 = variable::replace_text("text","replace","replacement","ANY","FALSE");
 
 #Or from the object
 
-a1 = "text".replace_text("replace","replacement","ANY","TRUE");
+a1 = "text".replace_text("replace","replacement","ANY","FALSE");
 
 #Or dry
 
-variable::replace_text(a1,"text","replace","replacement","ANY","TRUE");
+variable::replace_text(a1,"text","replace","replacement","ANY","FALSE");
 ```
 
 **Arguments:**
@@ -5357,7 +5357,7 @@ variable::replace_text(a1,"text","replace","replacement","ANY","TRUE");
 | `replace`     | Text                                                                              | Text to Replace        |
 | `replacement` | Text                                                                              | Replacement            |
 | `first`       | Marker<br/>**ANY** - Replace All Matches<br/>**FIRST** - Replace First Match Only | Number of replacements |
-| `ignore_case` | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't ignore                         | Ignore case            |
+| `ignore_case` | Marker<br/>**FALSE** - Don't ignore<br/>**TRUE** - Ignore                         | Ignore case            |
 <h3 id=set_variable_reverse_list>
   <code>variable::reverse_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5484,15 +5484,15 @@ variable::rotate_vector_around_vector(a1,vector(0,0,0),vector(0,0,0),1,"DEGREES"
 
 **Usage example:** 
 ```ts
-a1 = variable::round(1,2,"ROUND");
+a1 = variable::round(1,2,"CEIL");
 
 #Or from the object
 
-a1 = (1).round(2,"ROUND");
+a1 = (1).round(2,"CEIL");
 
 #Or dry
 
-variable::round(a1,1,2,"ROUND");
+variable::round(a1,1,2,"CEIL");
 ```
 
 **Arguments:**
@@ -5502,7 +5502,7 @@ variable::round(a1,1,2,"ROUND");
 | `variable`   | Variable                                                                                  | Variable to assign                  |
 | `number`     | Number                                                                                    | Number to Round                     |
 | `precision`  | Number                                                                                    | Number of digits after integer part |
-| `round_type` | Marker<br/>**ROUND** - Normal Rounding<br/>**FLOOR** - Round Down<br/>**CEIL** - Round Up | Rounding Method                     |
+| `round_type` | Marker<br/>**CEIL** - Round Up<br/>**FLOOR** - Round Down<br/>**ROUND** - Normal Rounding | Rounding Method                     |
 <h3 id=set_variable_set_all_coordinates>
   <code>variable::set_all_coordinates</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5568,15 +5568,15 @@ item("stick").set_armor_trim(a1,item("stick"),item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::set_book_page(item("stick"),"text",1,"MERGE");
+a1 = variable::set_book_page(item("stick"),"text",1,"APPEND");
 
 #Or from the object
 
-a1 = item("stick").set_book_page("text",1,"MERGE");
+a1 = item("stick").set_book_page("text",1,"APPEND");
 
 #Or dry
 
-variable::set_book_page(a1,item("stick"),"text",1,"MERGE");
+variable::set_book_page(a1,item("stick"),"text",1,"APPEND");
 ```
 
 **Arguments:**
@@ -5587,7 +5587,7 @@ variable::set_book_page(a1,item("stick"),"text",1,"MERGE");
 | `book`     | Item                                                   | Book to change     |
 | `text`     | Text                                                   | New Text           |
 | `page`     | Number                                                 | Page Number        |
-| `mode`     | Marker<br/>**MERGE** - Replace<br/>**APPEND** - Append | Set Mode           |
+| `mode`     | Marker<br/>**APPEND** - Append<br/>**MERGE** - Replace | Set Mode           |
 <h3 id=set_variable_set_book_pages>
   <code>variable::set_book_pages</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5642,7 +5642,7 @@ item("stick").set_bundle_items(a1,[item("stick"), item("stick")],"ADD");
 | `variable`     | Variable                                                           | Variable for appropriation |
 | `items`        | list[Item]                                                         | Change items               |
 | `bundle`       | Item                                                               | Bundle                     |
-| `setting_mode` | Marker<br/>**ADD** - Add<br/>**SET** - Set<br/>**REMOVE** - Delete | Type of change             |
+| `setting_mode` | Marker<br/>**ADD** - Add<br/>**REMOVE** - Delete<br/>**SET** - Set | Type of change             |
 <h3 id=set_variable_set_compass_lodestone>
   <code>variable::set_compass_lodestone</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5654,15 +5654,15 @@ item("stick").set_bundle_items(a1,[item("stick"), item("stick")],"ADD");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_compass_lodestone(item("stick"),location(0,0,0,0,0),"TRUE");
+a1 = variable::set_compass_lodestone(item("stick"),location(0,0,0,0,0),"FALSE");
 
 #Or from the object
 
-a1 = item("stick").set_compass_lodestone(location(0,0,0,0,0),"TRUE");
+a1 = item("stick").set_compass_lodestone(location(0,0,0,0,0),"FALSE");
 
 #Or dry
 
-variable::set_compass_lodestone(a1,item("stick"),location(0,0,0,0,0),"TRUE");
+variable::set_compass_lodestone(a1,item("stick"),location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -5672,7 +5672,7 @@ variable::set_compass_lodestone(a1,item("stick"),location(0,0,0,0,0),"TRUE");
 | `variable` | Variable                                                | Variable to Assign          |
 | `item`     | Item                                                    | Compass                     |
 | `location` | Location                                                | Magnetite Location          |
-| `tracked`  | Marker<br/>**TRUE** - Track<br/>**FALSE** - Don't check | Location Magnetite Presence |
+| `tracked`  | Marker<br/>**FALSE** - Don't check<br/>**TRUE** - Track | Location Magnetite Presence |
 <h3 id=set_variable_set_component_children>
   <code>variable::set_component_children</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5713,15 +5713,15 @@ variable::set_component_children(a1,["children", "children"],"component");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_component_click("component","value","COPY_TO_CLIPBORD");
+a1 = variable::set_component_click("component","value","CHANGE_PAGE");
 
 #Or from the object
 
-a1 = "component".set_component_click("value","COPY_TO_CLIPBORD");
+a1 = "component".set_component_click("value","CHANGE_PAGE");
 
 #Or dry
 
-variable::set_component_click(a1,"component","value","COPY_TO_CLIPBORD");
+variable::set_component_click(a1,"component","value","CHANGE_PAGE");
 ```
 
 **Arguments:**
@@ -5731,7 +5731,7 @@ variable::set_component_click(a1,"component","value","COPY_TO_CLIPBORD");
 | `variable`     | Variable                                                                                                                                                                                                                               | Variable for appropriation |
 | `component`    | Text                                                                                                                                                                                                                                   | Stylized text              |
 | `value`        | Text                                                                                                                                                                                                                                   | The value of the action    |
-| `click_action` | Marker<br/>**COPY_TO_CLIPBORD** - Copy to the clipboard<br/>**SUGGEST_COMMAND** - Offer a message<br/>**OPEN_URL** - Open the link<br/>**CHANGE_PAGE** - Change the page of the book<br/>**COPY_TO_CLIPBOARD** - Copy to the clipboard | Action when pressing       |
+| `click_action` | Marker<br/>**CHANGE_PAGE** - Change the page of the book<br/>**COPY_TO_CLIPBOARD** - Copy to the clipboard<br/>**COPY_TO_CLIPBORD** - Copy to the clipboard<br/>**OPEN_URL** - Open the link<br/>**SUGGEST_COMMAND** - Offer a message | Action when pressing       |
 <h3 id=set_variable_set_component_decorations>
   <code>variable::set_component_decorations</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5743,15 +5743,15 @@ variable::set_component_click(a1,"component","value","COPY_TO_CLIPBORD");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_component_decorations("component","NOT_SET","NOT_SET","NOT_SET","NOT_SET","NOT_SET");
+a1 = variable::set_component_decorations("component","FALSE","FALSE","FALSE","FALSE","FALSE");
 
 #Or from the object
 
-a1 = "component".set_component_decorations("NOT_SET","NOT_SET","NOT_SET","NOT_SET","NOT_SET");
+a1 = "component".set_component_decorations("FALSE","FALSE","FALSE","FALSE","FALSE");
 
 #Or dry
 
-variable::set_component_decorations(a1,"component","NOT_SET","NOT_SET","NOT_SET","NOT_SET","NOT_SET");
+variable::set_component_decorations(a1,"component","FALSE","FALSE","FALSE","FALSE","FALSE");
 ```
 
 **Arguments:**
@@ -5760,11 +5760,11 @@ variable::set_component_decorations(a1,"component","NOT_SET","NOT_SET","NOT_SET"
 | --------------- | ---------------------------------------------------------------------------- | -------------------------- |
 | `variable`      | Variable                                                                     | Variable for appropriation |
 | `component`     | Text                                                                         | Stylized text              |
-| `bold`          | Marker<br/>**NOT_SET** - Not installed<br/>**FALSE** - No<br/>**TRUE** - Yes | Bold                       |
-| `italic`        | Marker<br/>**NOT_SET** - Not installed<br/>**FALSE** - No<br/>**TRUE** - Yes | Italic                     |
-| `underlined`    | Marker<br/>**NOT_SET** - Not installed<br/>**FALSE** - No<br/>**TRUE** - Yes | Undrelined                 |
-| `strikethrough` | Marker<br/>**NOT_SET** - Not installed<br/>**FALSE** - No<br/>**TRUE** - Yes | Strikethrough              |
-| `obfuscated`    | Marker<br/>**NOT_SET** - Not installed<br/>**FALSE** - No<br/>**TRUE** - Yes | Obfuscated                 |
+| `bold`          | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not installed<br/>**TRUE** - Yes | Bold                       |
+| `italic`        | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not installed<br/>**TRUE** - Yes | Italic                     |
+| `underlined`    | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not installed<br/>**TRUE** - Yes | Undrelined                 |
+| `strikethrough` | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not installed<br/>**TRUE** - Yes | Strikethrough              |
+| `obfuscated`    | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not installed<br/>**TRUE** - Yes | Obfuscated                 |
 <h3 id=set_variable_set_component_entity_hover>
   <code>variable::set_component_entity_hover</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5951,15 +5951,15 @@ variable::set_component_item_hover(a1,"component",item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::set_coordinate(location(0,0,0,0,0),1,"X");
+a1 = variable::set_coordinate(location(0,0,0,0,0),1,"PITCH");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).set_coordinate(1,"X");
+a1 = location(0,0,0,0,0).set_coordinate(1,"PITCH");
 
 #Or dry
 
-variable::set_coordinate(a1,location(0,0,0,0,0),1,"X");
+variable::set_coordinate(a1,location(0,0,0,0,0),1,"PITCH");
 ```
 
 **Arguments:**
@@ -5969,7 +5969,7 @@ variable::set_coordinate(a1,location(0,0,0,0,0),1,"X");
 | `variable`   | Variable                                                                                                                         | Variable to assign |
 | `location`   | Location                                                                                                                         | Location to set    |
 | `coordinate` | Number                                                                                                                           | Coordinate Value   |
-| `type`       | Marker<br/>**X** - X Axis<br/>**Y** - Y Axis<br/>**Z** - Z Axis<br/>**YAW** - Horizontal rotation<br/>**PITCH** - Pitch Vertical | Coordinate Type    |
+| `type`       | Marker<br/>**PITCH** - Pitch Vertical<br/>**X** - X Axis<br/>**Y** - Y Axis<br/>**YAW** - Horizontal rotation<br/>**Z** - Z Axis | Coordinate Type    |
 <h3 id=set_variable_set_item_amount>
   <code>variable::set_item_amount</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6010,15 +6010,15 @@ variable::set_item_amount(a1,item("stick"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_attribute(item("stick"),1,"name","GENERIC_MAX_HEALTH","ALL","ADD_NUMBER");
+a1 = variable::set_item_attribute(item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER");
 
 #Or from the object
 
-a1 = item("stick").set_item_attribute(1,"name","GENERIC_MAX_HEALTH","ALL","ADD_NUMBER");
+a1 = item("stick").set_item_attribute(1,"name","ARMOR","ALL","ADD_NUMBER");
 
 #Or dry
 
-variable::set_item_attribute(a1,item("stick"),1,"name","GENERIC_MAX_HEALTH","ALL","ADD_NUMBER");
+variable::set_item_attribute(a1,item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER");
 ```
 
 **Arguments:**
@@ -6029,8 +6029,8 @@ variable::set_item_attribute(a1,item("stick"),1,"name","GENERIC_MAX_HEALTH","ALL
 | `item`      | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Item                |
 | `amount`    | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Attribute Value     |
 | `name`      | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Attribute Name      |
-| `attribute` | Marker<br/>**GENERIC_MAX_HEALTH** - Maximum Health (generic.max_health)<br/>**GENERIC_FOLLOW_RANGE** - Follow Distance (generic.follow_range)<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback Resistance (generic.knockback_resistance)<br/>**GENERIC_MOVEMENT_SPEED** - Movement Speed (generic.movement_speed)<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_ATTACK_DAMAGE** - Attack Damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack Knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack Speed (generic.attack_speed)<br/>**GENERIC_ARMOR** - Protection Points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Defense Density Points (generic.armor_toughness)<br/>**GENERIC_LUCK** - Fishing Luck (generic.luck)<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength (horse.jump_strength)<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zombie reinforcements (zombie.spawn_reinforcements)<br/>**MAX_HEALTH** - Max health<br/>**MAX_ABSORPTION** - Max absorption<br/>**FOLLOW_RANGE** - Follow range<br/>**KNOCKBACK_RESISTANCE** - Knockback resistance<br/>**MOVEMENT_SPEED** - Movement speed<br/>**FLYING_SPEED** - Flight speed<br/>**ATTACK_DAMAGE** - Attack damage<br/>**ATTACK_KNOCKBACK** - Attack knockback<br/>**ATTACK_SPEED** - Attack speed<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor toughness<br/>**LUCK** - Luck<br/>**GENERIC_JUMP_STRENGTH** - Jump strength<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall damage multiplier<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe fall distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step height<br/>**GENERIC_GRAVITY** - Gravity<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - The distance of interaction with blocks<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - The distance of interaction with entities<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block breaking speed<br/>**GENERIC_BURNING_TIME** - Burning time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion knockback resistance<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement speed for slowing blocks<br/>**PLAYER_MINING_EFFICIENCY** - Digging speed<br/>**PLAYER_SNEAKING_SPEED** - Movement speed while sneaking<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Digging speed underwater<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - The coefficient of a break in a blow<br/>**GENERIC_OXYGEN_BONUS** - Air underwater<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Movement speed underwater<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (Generic.max_Absorption) | Attribute Type      |
-| `slot`      | Marker<br/>**ALL** - All<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Offhand<br/>**HEAD** - Helmet<br/>**CHEST** - Chest<br/>**LEGGINGS** - Leggings<br/>**BOOTS** - Boots<br/>**HAND** - Any hand<br/>**ARMOR** - Any armor<br/>**BODY** - Body (does not work with all entities)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Attribute Slot      |
+| `attribute` | Marker<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor toughness<br/>**ATTACK_DAMAGE** - Attack damage<br/>**ATTACK_KNOCKBACK** - Attack knockback<br/>**ATTACK_SPEED** - Attack speed<br/>**FLYING_SPEED** - Flight speed<br/>**FOLLOW_RANGE** - Follow range<br/>**GENERIC_ARMOR** - Protection Points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Defense Density Points (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack Damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack Knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack Speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion knockback resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall damage multiplier<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback Resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Fishing Luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (Generic.max_Absorption)<br/>**GENERIC_MAX_HEALTH** - Maximum Health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement speed for slowing blocks<br/>**GENERIC_MOVEMENT_SPEED** - Movement Speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Air underwater<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe fall distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Movement speed underwater<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Knockback resistance<br/>**LUCK** - Luck<br/>**MAX_ABSORPTION** - Max absorption<br/>**MAX_HEALTH** - Max health<br/>**MOVEMENT_SPEED** - Movement speed<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block breaking speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - The distance of interaction with blocks<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - The distance of interaction with entities<br/>**PLAYER_MINING_EFFICIENCY** - Digging speed<br/>**PLAYER_SNEAKING_SPEED** - Movement speed while sneaking<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Digging speed underwater<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - The coefficient of a break in a blow<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zombie reinforcements (zombie.spawn_reinforcements) | Attribute Type      |
+| `slot`      | Marker<br/>**ALL** - All<br/>**ARMOR** - Any armor<br/>**BODY** - Body (does not work with all entities)<br/>**BOOTS** - Boots<br/>**CHEST** - Chest<br/>**HAND** - Any hand<br/>**HEAD** - Helmet<br/>**LEGGINGS** - Leggings<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Offhand                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Attribute Slot      |
 | `operation` | Marker<br/>**ADD_NUMBER** - Amount<br/>**ADD_SCALAR** - Percentage<br/>**MULTIPLY_SCALAR_1** - Product (multiplicative)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Attribute Operation |
 <h3 id=set_variable_set_item_color>
   <code>variable::set_item_color</code>
@@ -6214,7 +6214,7 @@ variable::set_item_durability(a1,item("stick"),1,"DAMAGE");
 | `variable`        | Variable                                                                                                                                                                                                                                      | Variable to Assign |
 | `item`            | Item                                                                                                                                                                                                                                          | Item               |
 | `durability`      | Number                                                                                                                                                                                                                                        | New Durability     |
-| `durability_type` | Marker<br/>**DAMAGE** - Current Durability<br/>**DAMAGE_PERCENTAGE** - Current Durability Percentage<br/>**REMAINING** - Remaining Durability<br/>**REMAINING_PERCENTAGE** - Remaining Durability Percentage<br/>**MAXIMUM** - Max Durability | Durability Type    |
+| `durability_type` | Marker<br/>**DAMAGE** - Current Durability<br/>**DAMAGE_PERCENTAGE** - Current Durability Percentage<br/>**MAXIMUM** - Max Durability<br/>**REMAINING** - Remaining Durability<br/>**REMAINING_PERCENTAGE** - Remaining Durability Percentage | Durability Type    |
 <h3 id=set_variable_set_item_enchantments>
   <code>variable::set_item_enchantments</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6286,15 +6286,15 @@ variable::set_item_lore(a1,["lore", "lore"],item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_lore_line(item("stick"),"text",1,"MERGE");
+a1 = variable::set_item_lore_line(item("stick"),"text",1,"APPEND");
 
 #Or from the object
 
-a1 = item("stick").set_item_lore_line("text",1,"MERGE");
+a1 = item("stick").set_item_lore_line("text",1,"APPEND");
 
 #Or dry
 
-variable::set_item_lore_line(a1,item("stick"),"text",1,"MERGE");
+variable::set_item_lore_line(a1,item("stick"),"text",1,"APPEND");
 ```
 
 **Arguments:**
@@ -6305,7 +6305,7 @@ variable::set_item_lore_line(a1,item("stick"),"text",1,"MERGE");
 | `item`     | Item                                                   | Item               |
 | `text`     | Text                                                   | New Description    |
 | `line`     | Number                                                 | Line Number        |
-| `mode`     | Marker<br/>**MERGE** - Replace<br/>**APPEND** - Append | Set Mode           |
+| `mode`     | Marker<br/>**APPEND** - Append<br/>**MERGE** - Replace | Set Mode           |
 <h3 id=set_variable_set_item_max_stack_size>
   <code>variable::set_item_max_stack_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6428,15 +6428,15 @@ variable::set_item_type(a1,item("stick"),"type");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_unbreakable(item("stick"),"TRUE");
+a1 = variable::set_item_unbreakable(item("stick"),"FALSE");
 
 #Or from the object
 
-a1 = item("stick").set_item_unbreakable("TRUE");
+a1 = item("stick").set_item_unbreakable("FALSE");
 
 #Or dry
 
-variable::set_item_unbreakable(a1,item("stick"),"TRUE");
+variable::set_item_unbreakable(a1,item("stick"),"FALSE");
 ```
 
 **Arguments:**
@@ -6445,7 +6445,7 @@ variable::set_item_unbreakable(a1,item("stick"),"TRUE");
 | ------------- | ---------------------------------------------------- | ------------------ |
 | `variable`    | Variable                                             | Variable to assign |
 | `item`        | Item                                                 | Item               |
-| `unbreakable` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Unbreakable        |
+| `unbreakable` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Unbreakable        |
 <h3 id=set_variable_set_item_visibility_flags>
   <code>variable::set_item_visibility_flags</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6457,15 +6457,15 @@ variable::set_item_unbreakable(a1,item("stick"),"TRUE");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_visibility_flags(item("stick"),"ON","ON","ON","ON","ON","ON","ON","ON");
+a1 = variable::set_item_visibility_flags(item("stick"),"NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
 
 #Or from the object
 
-a1 = item("stick").set_item_visibility_flags("ON","ON","ON","ON","ON","ON","ON","ON");
+a1 = item("stick").set_item_visibility_flags("NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
 
 #Or dry
 
-variable::set_item_visibility_flags(a1,item("stick"),"ON","ON","ON","ON","ON","ON","ON","ON");
+variable::set_item_visibility_flags(a1,item("stick"),"NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
 ```
 
 **Arguments:**
@@ -6474,14 +6474,14 @@ variable::set_item_visibility_flags(a1,item("stick"),"ON","ON","ON","ON","ON","O
 | --------------------- | -------------------------------------------------------------------------------- | ------------------------- |
 | `variable`            | Variable                                                                         | Variable to assign        |
 | `item`                | Item                                                                             | Item                      |
-| `hide_dye`            | Marker<br/>**ON** - Enabled<br/>**NO_CHANGE** - No Change<br/>**OFF** - Off      | Hide color                |
-| `hide_enchantments`   | Marker<br/>**ON** - Enabled<br/>**NO_CHANGE** - No Change<br/>**OFF** - Off      | Hide Enchantments         |
-| `hide_attributes`     | Marker<br/>**ON** - Enabled<br/>**NO_CHANGE** - No Change<br/>**OFF** - Off      | Hide Attributes           |
-| `hide_unbreakable`    | Marker<br/>**ON** - Enabled<br/>**NO_CHANGE** - No Change<br/>**OFF** - Disabled | Hide Unbreakable          |
-| `hide_place_on`       | Marker<br/>**ON** - Enabled<br/>**NO_CHANGE** - No Change<br/>**OFF** - Off      | Hide \"Can be placed on\" |
-| `hide_destroys`       | Marker<br/>**ON** - Enabled<br/>**NO_CHANGE** - No Change<br/>**OFF** - Off      | Hide \"Can break\"        |
-| `hide_potion_effects` | Marker<br/>**ON** - Enabled<br/>**NO_CHANGE** - No Change<br/>**OFF** - Disabled | Hide stats                |
-| `hide_armor_trim`     | Marker<br/>**ON** - Enabled<br/>**NO_CHANGE** - No Change<br/>**OFF** - Disabled | Hide Armor Trim           |
+| `hide_dye`            | Marker<br/>**NO_CHANGE** - No Change<br/>**OFF** - Off<br/>**ON** - Enabled      | Hide color                |
+| `hide_enchantments`   | Marker<br/>**NO_CHANGE** - No Change<br/>**OFF** - Off<br/>**ON** - Enabled      | Hide Enchantments         |
+| `hide_attributes`     | Marker<br/>**NO_CHANGE** - No Change<br/>**OFF** - Off<br/>**ON** - Enabled      | Hide Attributes           |
+| `hide_unbreakable`    | Marker<br/>**NO_CHANGE** - No Change<br/>**OFF** - Disabled<br/>**ON** - Enabled | Hide Unbreakable          |
+| `hide_place_on`       | Marker<br/>**NO_CHANGE** - No Change<br/>**OFF** - Off<br/>**ON** - Enabled      | Hide \"Can be placed on\" |
+| `hide_destroys`       | Marker<br/>**NO_CHANGE** - No Change<br/>**OFF** - Off<br/>**ON** - Enabled      | Hide \"Can break\"        |
+| `hide_potion_effects` | Marker<br/>**NO_CHANGE** - No Change<br/>**OFF** - Disabled<br/>**ON** - Enabled | Hide stats                |
+| `hide_armor_trim`     | Marker<br/>**NO_CHANGE** - No Change<br/>**OFF** - Disabled<br/>**ON** - Enabled | Hide Armor Trim           |
 <h3 id=set_variable_set_list_value>
   <code>variable::set_list_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6903,15 +6903,15 @@ variable::set_sound_pitch(a1,sound("entity.zombie.hurt"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_sound_source(sound("entity.zombie.hurt"),"MASTER");
+a1 = variable::set_sound_source(sound("entity.zombie.hurt"),"AMBIENT");
 
 #Or from the object
 
-a1 = sound("entity.zombie.hurt").set_sound_source("MASTER");
+a1 = sound("entity.zombie.hurt").set_sound_source("AMBIENT");
 
 #Or dry
 
-variable::set_sound_source(a1,sound("entity.zombie.hurt"),"MASTER");
+variable::set_sound_source(a1,sound("entity.zombie.hurt"),"AMBIENT");
 ```
 
 **Arguments:**
@@ -6920,7 +6920,7 @@ variable::set_sound_source(a1,sound("entity.zombie.hurt"),"MASTER");
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
 | `variable` | Variable                                                                                                                                                                                                                                                                                                                                                                             | Variable to assign |
 | `sound`    | Sound                                                                                                                                                                                                                                                                                                                                                                                | Sound to change    |
-| `source`   | Marker<br/>**MASTER** - General (master)<br/>**MUSIC** - Music (music)<br/>**RECORD** - Music Blocks (record)<br/>**WEATHER** - Weather (weather)<br/>**BLOCK** - Blocks<br/>**HOSTILE** - Hostile Creatures (hostile)<br/>**NEUTRAL** - Friendly Creatures (neutral)<br/>**PLAYER** - Players (player)<br/>**AMBIENT** - Environment (ambient)<br/>**VOICE** - Voice/Speech (voice) | Sound Source       |
+| `source`   | Marker<br/>**AMBIENT** - Environment (ambient)<br/>**BLOCK** - Blocks<br/>**HOSTILE** - Hostile Creatures (hostile)<br/>**MASTER** - General (master)<br/>**MUSIC** - Music (music)<br/>**NEUTRAL** - Friendly Creatures (neutral)<br/>**PLAYER** - Players (player)<br/>**RECORD** - Music Blocks (record)<br/>**VOICE** - Voice/Speech (voice)<br/>**WEATHER** - Weather (weather) | Sound Source       |
 <h3 id=set_variable_set_sound_type>
   <code>variable::set_sound_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7173,15 +7173,15 @@ variable::shift_all_coordinates(a1,location(0,0,0,0,0),1,2,3,4,5);
 
 **Usage example:** 
 ```ts
-a1 = variable::shift_coordinate(location(0,0,0,0,0),1,"X");
+a1 = variable::shift_coordinate(location(0,0,0,0,0),1,"PITCH");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).shift_coordinate(1,"X");
+a1 = location(0,0,0,0,0).shift_coordinate(1,"PITCH");
 
 #Or dry
 
-variable::shift_coordinate(a1,location(0,0,0,0,0),1,"X");
+variable::shift_coordinate(a1,location(0,0,0,0,0),1,"PITCH");
 ```
 
 **Arguments:**
@@ -7191,7 +7191,7 @@ variable::shift_coordinate(a1,location(0,0,0,0,0),1,"X");
 | `variable` | Variable                                                                                                             | Variable to assign |
 | `location` | Location                                                                                                             | Locations to Shift |
 | `distance` | Number                                                                                                               | Shift Value        |
-| `type`     | Marker<br/>**X** - X<br/>**Y** - Y<br/>**Z** - Z<br/>**PITCH** - Horizontal Rotation<br/>**YAW** - Vertical Rotation | Coordinate Type    |
+| `type`     | Marker<br/>**PITCH** - Horizontal Rotation<br/>**X** - X<br/>**Y** - Y<br/>**YAW** - Vertical Rotation<br/>**Z** - Z | Coordinate Type    |
 <h3 id=set_variable_shift_location_in_direction>
   <code>variable::shift_location_in_direction</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7221,7 +7221,7 @@ variable::shift_location_in_direction(a1,location(0,0,0,0,0),1,"FORWARD");
 | `variable`  | Variable                                                                                         | Variable to assign |
 | `location`  | Location                                                                                         | Location to Shift  |
 | `shift`     | Number                                                                                           | Shift Value        |
-| `direction` | Marker<br/>**FORWARD** - Forward/Backward<br/>**UPWARD** - Up/Down<br/>**SIDEWAYS** - Left/Right | Direction          |
+| `direction` | Marker<br/>**FORWARD** - Forward/Backward<br/>**SIDEWAYS** - Left/Right<br/>**UPWARD** - Up/Down | Direction          |
 <h3 id=set_variable_shift_location_on_vector>
   <code>variable::shift_location_on_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7293,15 +7293,15 @@ variable::shift_location_towards_location(a1,location(0,0,0,0,0),location(0,0,0,
 
 **Usage example:** 
 ```ts
-a1 = variable::simplex_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE");
+a1 = variable::simplex_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).simplex_noise_3d(1,2,3,4,5,"ZERO_TO_ONE","TRUE");
+a1 = location(0,0,0,0,0).simplex_noise_3d(1,2,3,4,5,"FULL_RANGE","FALSE");
 
 #Or dry
 
-variable::simplex_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE");
+variable::simplex_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
 ```
 
 **Arguments:**
@@ -7315,8 +7315,8 @@ variable::simplex_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE"
 | `octaves`       | Number                                                                                | Noise Octaves          |
 | `frequency`     | Number                                                                                | Noise Octave Frequency |
 | `amplitude`     | Number                                                                                | Noise Octave Amplitude |
-| `range_mode`    | Marker<br/>**ZERO_TO_ONE** - 0 to 1<br/>**FULL_RANGE** - Full Range (-1 to 1 or more) | Value Range            |
-| `normalized`    | Marker<br/>**TRUE** - Normalize<br/>**FALSE** - Don't Normalize                       | Normalize Values       |
+| `range_mode`    | Marker<br/>**FULL_RANGE** - Full Range (-1 to 1 or more)<br/>**ZERO_TO_ONE** - 0 to 1 | Value Range            |
+| `normalized`    | Marker<br/>**FALSE** - Don't Normalize<br/>**TRUE** - Normalize                       | Normalize Values       |
 <h3 id=set_variable_sine>
   <code>variable::sine</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7328,15 +7328,15 @@ variable::simplex_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE"
 
 **Usage example:** 
 ```ts
-a1 = variable::sine(1,"SINE","DEGREES");
+a1 = variable::sine(1,"ARCSINE","DEGREES");
 
 #Or from the object
 
-a1 = (1).sine("SINE","DEGREES");
+a1 = (1).sine("ARCSINE","DEGREES");
 
 #Or dry
 
-variable::sine(a1,1,"SINE","DEGREES");
+variable::sine(a1,1,"ARCSINE","DEGREES");
 ```
 
 **Arguments:**
@@ -7345,7 +7345,7 @@ variable::sine(a1,1,"SINE","DEGREES");
 | ---------- | ---------------------------------------------------------------------------------------------- | ------------------ |
 | `variable` | Variable                                                                                       | Variable to assign |
 | `number`   | Number                                                                                         | Number to get sine |
-| `variant`  | Marker<br/>**SINE** - Sine<br/>**ARCSINE** - Arcsine<br/>**HYPERBOLIC_SINE** - Hyperbolic Sine | Operation Type     |
+| `variant`  | Marker<br/>**ARCSINE** - Arcsine<br/>**HYPERBOLIC_SINE** - Hyperbolic Sine<br/>**SINE** - Sine | Operation Type     |
 | `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                     | Angle Type         |
 <h3 id=set_variable_sort_any_list>
   <code>variable::sort_list</code>
@@ -7467,7 +7467,7 @@ variable::strip_text(a1,"text","ALL");
 | ------------ | ------------------------------------------------------------------------------------------------------- | ------------------ |
 | `variable`   | Variable                                                                                                | Variable to assign |
 | `text`       | Text                                                                                                    | Text to change     |
-| `strip_type` | Marker<br/>**ALL** - Start and End<br/>**START** - Start<br/>**END** - End<br/>**INDENT** - Indentation | Strip Type         |
+| `strip_type` | Marker<br/>**ALL** - Start and End<br/>**END** - End<br/>**INDENT** - Indentation<br/>**START** - Start | Strip Type         |
 <h3 id=set_variable_subtract>
   <code>variable::subtract</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7527,15 +7527,15 @@ variable::subtract_vectors(a1,[vector(0,0,0), vector(0,0,0)]);
 
 **Usage example:** 
 ```ts
-a1 = variable::tangent(1,"TANGENT","DEGREES");
+a1 = variable::tangent(1,"ARCTANGENT","DEGREES");
 
 #Or from the object
 
-a1 = (1).tangent("TANGENT","DEGREES");
+a1 = (1).tangent("ARCTANGENT","DEGREES");
 
 #Or dry
 
-variable::tangent(a1,1,"TANGENT","DEGREES");
+variable::tangent(a1,1,"ARCTANGENT","DEGREES");
 ```
 
 **Arguments:**
@@ -7544,7 +7544,7 @@ variable::tangent(a1,1,"TANGENT","DEGREES");
 | ---------- | ---------------------------------------------------------------------------------------------------------------- | --------------------- |
 | `variable` | Variable                                                                                                         | Variable to assign    |
 | `number`   | Number                                                                                                           | Number to get tangent |
-| `variant`  | Marker<br/>**TANGENT** - Tangent<br/>**ARCTANGENT** - Arctangent<br/>**HYPERBOLIC_TANGENT** - Hyperbolic Tangent | Operation Type        |
+| `variant`  | Marker<br/>**ARCTANGENT** - Arctangent<br/>**HYPERBOLIC_TANGENT** - Hyperbolic Tangent<br/>**TANGENT** - Tangent | Operation Type        |
 | `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                       | Angle Type            |
 <h3 id=set_variable_text>
   <code>variable::set_text</code>
@@ -7557,11 +7557,11 @@ variable::tangent(a1,1,"TANGENT","DEGREES");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_text(["text", "text"],"SPACES");
+a1 = variable::set_text(["text", "text"],"CONCATENATION");
 
 #Or dry
 
-variable::set_text(a1,["text", "text"],"SPACES");
+variable::set_text(a1,["text", "text"],"CONCATENATION");
 ```
 
 **Arguments:**
@@ -7570,7 +7570,7 @@ variable::set_text(a1,["text", "text"],"SPACES");
 | ---------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `variable` | Variable                                                                                                       | Variable to assign |
 | `text`     | list[Text]                                                                                                     | Text to set        |
-| `merging`  | Marker<br/>**SPACES** - Space Separation<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines | Merge Text         |
+| `merging`  | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text         |
 <h3 id=set_variable_text_case>
   <code>variable::set_text_case</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7582,15 +7582,15 @@ variable::set_text(a1,["text", "text"],"SPACES");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_text_case("text","UPPER");
+a1 = variable::set_text_case("text","INVERT");
 
 #Or from the object
 
-a1 = "text".set_text_case("UPPER");
+a1 = "text".set_text_case("INVERT");
 
 #Or dry
 
-variable::set_text_case(a1,"text","UPPER");
+variable::set_text_case(a1,"text","INVERT");
 ```
 
 **Arguments:**
@@ -7599,7 +7599,7 @@ variable::set_text_case(a1,"text","UPPER");
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `variable`  | Variable                                                                                                                            | Variable to assign |
 | `text`      | Text                                                                                                                                | Text to set        |
-| `case_type` | Marker<br/>**UPPER** - Upper<br/>**LOWER** - Lower<br/>**PROPER** - First character<br/>**INVERT** - Invert<br/>**RANDOM** - Random | Case Type          |
+| `case_type` | Marker<br/>**INVERT** - Invert<br/>**LOWER** - Lower<br/>**PROPER** - First character<br/>**RANDOM** - Random<br/>**UPPER** - Upper | Case Type          |
 <h3 id=set_variable_text_length>
   <code>variable::get_text_length</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7719,11 +7719,11 @@ variable::to_hsl(a1,1,2,3);
 
 **Usage example:** 
 ```ts
-a1 = variable::to_json("any value","TRUE");
+a1 = variable::to_json("any value","FALSE");
 
 #Or dry
 
-variable::to_json(a1,"any value","TRUE");
+variable::to_json(a1,"any value","FALSE");
 ```
 
 **Arguments:**
@@ -7732,7 +7732,7 @@ variable::to_json(a1,"any value","TRUE");
 | -------------- | ---------------------------------------------------- | --------------------------- |
 | `variable`     | Variable                                             | To write result             |
 | `value`        | Any Value                                            | List/Dictionary with values |
-| `pretty_print` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Format Pretty Print         |
+| `pretty_print` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Format Pretty Print         |
 <h3 id=set_variable_to_rgb>
   <code>variable::to_rgb</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7958,15 +7958,15 @@ variable::vector_to_direction_name(a1,vector(0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::voronoi_noise_3d(location(0,0,0,0,0),1,2,3,"ZERO_TO_ONE","TRUE");
+a1 = variable::voronoi_noise_3d(location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).voronoi_noise_3d(1,2,3,"ZERO_TO_ONE","TRUE");
+a1 = location(0,0,0,0,0).voronoi_noise_3d(1,2,3,"FULL_RANGE","FALSE");
 
 #Or dry
 
-variable::voronoi_noise_3d(a1,location(0,0,0,0,0),1,2,3,"ZERO_TO_ONE","TRUE");
+variable::voronoi_noise_3d(a1,location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
 ```
 
 **Arguments:**
@@ -7978,8 +7978,8 @@ variable::voronoi_noise_3d(a1,location(0,0,0,0,0),1,2,3,"ZERO_TO_ONE","TRUE");
 | `seed`            | Number                                                           | Noise Key             |
 | `frequency`       | Number                                                           | Noise Frequency       |
 | `displacement`    | Number                                                           | Noise Displacement    |
-| `range_mode`      | Marker<br/>**ZERO_TO_ONE** - 0 to 1<br/>**FULL_RANGE** - -1 to 1 | Value Range           |
-| `enable_distance` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable             | Distance Mode         |
+| `range_mode`      | Marker<br/>**FULL_RANGE** - -1 to 1<br/>**ZERO_TO_ONE** - 0 to 1 | Value Range           |
+| `enable_distance` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable             | Distance Mode         |
 <h3 id=set_variable_warp>
   <code>variable::warp</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

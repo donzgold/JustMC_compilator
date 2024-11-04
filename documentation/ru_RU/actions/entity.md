@@ -293,7 +293,7 @@ entity::get_custom_tag(a1,"name","any value");
 
 **Пример использования:** 
 ```ts
-entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"TRUE","TRUE","REGULAR");
+entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"FALSE","FALSE","AMBIENT");
 ```
 
 **Аргументы:**
@@ -301,9 +301,9 @@ entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"TR
 | **Имя**         | **Тип**                                                                      | **Описание**                        |
 | --------------- | ---------------------------------------------------------------------------- | ----------------------------------- |
 | `potions`       | список[Зелье]                                                                | Эффекты для выдачи                  |
-| `overwrite`     | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                 | Перезаписывать существующие эффекты |
-| `show_icon`     | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                 | Показывать иконку эффекта           |
-| `particle_mode` | Маркер<br/>**REGULAR** - Да<br/>**AMBIENT** - Прозрачными<br/>**NONE** - Нет | Показывать частицы                  |
+| `overwrite`     | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да                                 | Перезаписывать существующие эффекты |
+| `show_icon`     | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да                                 | Показывать иконку эффекта           |
+| `particle_mode` | Маркер<br/>**AMBIENT** - Прозрачными<br/>**NONE** - Нет<br/>**REGULAR** - Да | Показывать частицы                  |
 <h3 id=entity_heal>
   <code>entity::heal</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -366,7 +366,7 @@ entity::jump();
 
 **Пример использования:** 
 ```ts
-entity::launch_forward(1,"TRUE","YAW");
+entity::launch_forward(1,"FALSE","YAW");
 ```
 
 **Аргументы:**
@@ -374,7 +374,7 @@ entity::launch_forward(1,"TRUE","YAW");
 | **Имя**       | **Тип**                                                                    | **Описание**              |
 | ------------- | -------------------------------------------------------------------------- | ------------------------- |
 | `power`       | Число                                                                      | Сила подбрасывания        |
-| `increment`   | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено                   | Учитывать текущую инерцию |
+| `increment`   | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено                   | Учитывать текущую инерцию |
 | `launch_axis` | Маркер<br/>**YAW** - Только по горизонтали<br/>**YAW_AND_PITCH** - Все оси | Ось запуска               |
 <h3 id=entity_launch_projectile>
   <code>entity::launch_projectile</code>
@@ -411,7 +411,7 @@ entity::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle(
 
 **Пример использования:** 
 ```ts
-entity::launch_to_location(location(0,0,0,0,0),1,"TRUE");
+entity::launch_to_location(location(0,0,0,0,0),1,"FALSE");
 ```
 
 **Аргументы:**
@@ -420,7 +420,7 @@ entity::launch_to_location(location(0,0,0,0,0),1,"TRUE");
 | ----------- | -------------------------------------------------------- | ------------------------- |
 | `location`  | Местоположение                                           | Конечная позиция          |
 | `power`     | Число                                                    | Сила запуска              |
-| `increment` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Учитывать текущую инерцию |
+| `increment` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Учитывать текущую инерцию |
 <h3 id=entity_launch_up>
   <code>entity::launch_up</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -432,7 +432,7 @@ entity::launch_to_location(location(0,0,0,0,0),1,"TRUE");
 
 **Пример использования:** 
 ```ts
-entity::launch_up(1,"TRUE");
+entity::launch_up(1,"FALSE");
 ```
 
 **Аргументы:**
@@ -440,7 +440,7 @@ entity::launch_up(1,"TRUE");
 | **Имя**     | **Тип**                                                                                                    | **Описание**              |
 | ----------- | ---------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `power`     | Число                                                                                                      | Сила подбрасывания        |
-| `increment` | Маркер<br/>**TRUE** - Включено<br/>**TRUE** - Включено<br/>**FALSE** - Выключено<br/>**FALSE** - Выключено | Учитывать текущую инерцию |
+| `increment` | Маркер<br/>**FALSE** - Выключено<br/>**FALSE** - Выключено<br/>**TRUE** - Включено<br/>**TRUE** - Включено | Учитывать текущую инерцию |
 <h3 id=entity_leave_vehicle>
   <code>entity::leave_vehicle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -552,14 +552,14 @@ entity::move_to_location_stop();
 
 **Пример использования:** 
 ```ts
-entity::play_damage_animation("DAMAGE");
+entity::play_damage_animation("CRITICAL_DAMAGE");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                                                                   | **Описание** |
 | ------------- | --------------------------------------------------------------------------------------------------------- | ------------ |
-| `damage_type` | Маркер<br/>**DAMAGE** - Обычный<br/>**CRITICAL_DAMAGE** - Критический<br/>**MAGICAL_DAMAGE** - Магический | Тип урона    |
+| `damage_type` | Маркер<br/>**CRITICAL_DAMAGE** - Критический<br/>**DAMAGE** - Обычный<br/>**MAGICAL_DAMAGE** - Магический | Тип урона    |
 <h3 id=entity_play_hurt_animation>
   <code>entity::play_hurt_animation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -786,14 +786,14 @@ entity::set_absorption_health(1);
 
 **Пример использования:** 
 ```ts
-entity::set_ai("TRUE");
+entity::set_ai("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                  | **Описание** |
 | ------- | -------------------------------------------------------- | ------------ |
-| `ai`    | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Интеллект    |
+| `ai`    | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Интеллект    |
 <h3 id=entity_set_allay_dancing>
   <code>entity::set_allay_dancing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -807,14 +807,14 @@ entity::set_ai("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_allay_dancing("TRUE");
+entity::set_allay_dancing("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                  | **Описание**   |
 | ------- | -------------------------------------------------------- | -------------- |
-| `dance` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Анимация танца |
+| `dance` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Анимация танца |
 <h3 id=entity_set_angry>
   <code>entity::set_angry</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -834,14 +834,14 @@ entity::set_allay_dancing("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_angry("TRUE","target");
+entity::set_angry("FALSE","target");
 ```
 
 **Аргументы:**
 
 | **Имя**  | **Тип**                                                  | **Описание** |
 | -------- | -------------------------------------------------------- | ------------ |
-| `angry`  | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим гнева  |
+| `angry`  | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Режим гнева  |
 | `target` | Текст                                                    | Имя цели     |
 <h3 id=entity_set_animal_age>
   <code>entity::set_animal_age</code>
@@ -854,7 +854,7 @@ entity::set_angry("TRUE","target");
 
 **Пример использования:** 
 ```ts
-entity::set_animal_age(1,"ENABLE");
+entity::set_animal_age(1,"DISABLE");
 ```
 
 **Аргументы:**
@@ -862,7 +862,7 @@ entity::set_animal_age(1,"ENABLE");
 | **Имя** | **Тип**                                                                                        | **Описание**          |
 | ------- | ---------------------------------------------------------------------------------------------- | --------------------- |
 | `age`   | Число                                                                                          | Возраст               |
-| `lock`  | Маркер<br/>**ENABLE** - Включено<br/>**DISABLE** - Выключено<br/>**DONT_CHANGE** - Не заменять | Остановить взросление |
+| `lock`  | Маркер<br/>**DISABLE** - Выключено<br/>**DONT_CHANGE** - Не заменять<br/>**ENABLE** - Включено | Остановить взросление |
 <h3 id=entity_set_armor_items>
   <code>entity::set_armor_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -900,15 +900,15 @@ entity::set_armor_items(item("stick"),item("stick"),item("stick"),item("stick"))
 
 **Пример использования:** 
 ```ts
-entity::set_armor_stand_parts("ENABLE","ENABLE");
+entity::set_armor_stand_parts("DISABLE","DISABLE");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                                                        | **Описание**    |
 | ------------ | ---------------------------------------------------------------------------------------------- | --------------- |
-| `arms`       | Маркер<br/>**ENABLE** - Включить<br/>**DISABLE** - Выключить<br/>**DONT_CHANGE** - Не изменять | Видимость рук   |
-| `base_plate` | Маркер<br/>**ENABLE** - Включить<br/>**DISABLE** - Выключить<br/>**DONT_CHANGE** - Не изменять | Видимость плиты |
+| `arms`       | Маркер<br/>**DISABLE** - Выключить<br/>**DONT_CHANGE** - Не изменять<br/>**ENABLE** - Включить | Видимость рук   |
+| `base_plate` | Маркер<br/>**DISABLE** - Выключить<br/>**DONT_CHANGE** - Не изменять<br/>**ENABLE** - Включить | Видимость плиты |
 <h3 id=entity_set_armor_stand_pose>
   <code>entity::set_armor_stand_pose</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -922,7 +922,7 @@ entity::set_armor_stand_parts("ENABLE","ENABLE");
 
 **Пример использования:** 
 ```ts
-entity::set_armor_stand_pose(1,2,3,"HEAD");
+entity::set_armor_stand_pose(1,2,3,"BODY");
 ```
 
 **Аргументы:**
@@ -932,7 +932,7 @@ entity::set_armor_stand_pose(1,2,3,"HEAD");
 | `x_rotation` | Число                                                                                                                                                                        | Поворот по оси X           |
 | `y_rotation` | Число                                                                                                                                                                        | Поворот по оси Y           |
 | `z_rotation` | Число                                                                                                                                                                        | Поворот по оси Z           |
-| `body_part`  | Маркер<br/>**HEAD** - Голова<br/>**BODY** - Тело<br/>**LEFT_ARM** - Левая рука<br/>**RIGHT_ARM** - Правая рука<br/>**LEFT_LEG** - Левая нога<br/>**RIGHT_LEG** - Правая нога | Часть стойки для изменения |
+| `body_part`  | Маркер<br/>**BODY** - Тело<br/>**HEAD** - Голова<br/>**LEFT_ARM** - Левая рука<br/>**LEFT_LEG** - Левая нога<br/>**RIGHT_ARM** - Правая рука<br/>**RIGHT_LEG** - Правая нога | Часть стойки для изменения |
 <h3 id=entity_set_arrow_hit_sound>
   <code>entity::set_arrow_hit_sound</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -985,15 +985,15 @@ entity::set_arrow_pierce(1);
 
 **Пример использования:** 
 ```ts
-entity::set_attribute(1,"MAX_HEALTH");
+entity::set_attribute(1,"GENERIC_ARMOR");
 ```
 
 **Аргументы:**
 
-| **Имя**          | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | **Описание**      |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `value`          | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Значение атрибута |
-| `attribute_type` | Маркер<br/>**MAX_HEALTH** - Максимальное здоровье<br/>**FOLLOW_RANGE** - Расстояние следования<br/>**KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию<br/>**MOVEMENT_SPEED** - Скорость передвижения<br/>**FLYING_SPEED** - Скорость полёта<br/>**ATTACK_DAMAGE** - Урон атаки<br/>**ATTACK_KNOCKBACK** - Отталкивание атаки<br/>**ATTACK_SPEED** - Скорость атаки<br/>**ARMOR** - Очки защиты<br/>**ARMOR_TOUGHNESS** - Твердость брони<br/>**LUCK** - Удача рыбалки<br/>**HORSE_JUMP_STRENGTH** - Сила прыжка лошади<br/>**MAX_ABSORPTION** - Поглощение<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_GRAVITY** - Гравитация<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck) | Тип атрибута      |
+| **Имя**          | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Описание**      |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| `value`          | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Значение атрибута |
+| `attribute_type` | Маркер<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_GRAVITY** - Гравитация<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби | Тип атрибута      |
 <h3 id=entity_set_aware>
   <code>entity::set_aware</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1007,14 +1007,14 @@ entity::set_attribute(1,"MAX_HEALTH");
 
 **Пример использования:** 
 ```ts
-entity::set_aware("TRUE");
+entity::set_aware("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                  | **Описание**    |
 | ------- | -------------------------------------------------------- | --------------- |
-| `aware` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Осведомлённость |
+| `aware` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Осведомлённость |
 <h3 id=entity_set_axolotl_type>
   <code>entity::set_axolotl_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1028,14 +1028,14 @@ entity::set_aware("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_axolotl_type("LUCY");
+entity::set_axolotl_type("BLUE");
 ```
 
 **Аргументы:**
 
 | **Имя**        | **Тип**                                                                                                                    | **Описание**  |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `axolotl_type` | Маркер<br/>**LUCY** - Лейкист<br/>**WILD** - Коричневый<br/>**GOLD** - Золотой<br/>**CYAN** - Голубой<br/>**BLUE** - Синий | Тип аксолотля |
+| `axolotl_type` | Маркер<br/>**BLUE** - Синий<br/>**CYAN** - Голубой<br/>**GOLD** - Золотой<br/>**LUCY** - Лейкист<br/>**WILD** - Коричневый | Тип аксолотля |
 <h3 id=entity_set_baby>
   <code>entity::set_baby</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1047,14 +1047,14 @@ entity::set_axolotl_type("LUCY");
 
 **Пример использования:** 
 ```ts
-entity::set_baby("TRUE");
+entity::set_baby("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                  | **Описание**  |
 | ------- | -------------------------------------------------------- | ------------- |
-| `baby`  | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим ребёнка |
+| `baby`  | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Режим ребёнка |
 <h3 id=entity_set_base_arrow_damage>
   <code>entity::set_base_arrow_damage</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1114,14 +1114,14 @@ entity::set_bee_has_stinger("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_bee_nectar("TRUE");
+entity::set_bee_nectar("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**  | **Тип**                                                 | **Описание**     |
 | -------- | ------------------------------------------------------- | ---------------- |
-| `nectar` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Включить | Видимость пыльцы |
+| `nectar` | Маркер<br/>**FALSE** - Включить<br/>**TRUE** - Включить | Видимость пыльцы |
 <h3 id=entity_set_block_display_block>
   <code>entity::set_block_display_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1156,14 +1156,14 @@ entity::set_block_display_block(item("stone"));
 
 **Пример использования:** 
 ```ts
-entity::set_camel_dashing("TRUE");
+entity::set_camel_dashing("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                  | **Описание**   |
 | --------- | -------------------------------------------------------- | -------------- |
-| `dashing` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Анимация рывка |
+| `dashing` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Анимация рывка |
 <h3 id=entity_set_carrying_chest>
   <code>entity::set_carrying_chest</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1179,14 +1179,14 @@ entity::set_camel_dashing("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_carrying_chest("TRUE");
+entity::set_carrying_chest("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**    | **Тип**                                                  | **Описание**    |
 | ---------- | -------------------------------------------------------- | --------------- |
-| `carrying` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Наличие сундука |
+| `carrying` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Наличие сундука |
 <h3 id=entity_set_cat_lying_down>
   <code>entity::set_cat_lying_down</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1200,14 +1200,14 @@ entity::set_carrying_chest("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_cat_lying_down("TRUE");
+entity::set_cat_lying_down("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                  | **Описание**  |
 | ------------ | -------------------------------------------------------- | ------------- |
-| `lying_down` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим лежания |
+| `lying_down` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Режим лежания |
 <h3 id=entity_set_cat_type>
   <code>entity::set_cat_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1221,14 +1221,14 @@ entity::set_cat_lying_down("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_cat_type("TABBY");
+entity::set_cat_type("ALL_BLACK");
 ```
 
 **Аргументы:**
 
 | **Имя**    | **Тип**                                                                                                                                                                                                                                                                                                                            | **Описание** |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `cat_type` | Маркер<br/>**TABBY** - Полосатая<br/>**BLACK** - Черно-белая<br/>**RED** - Рыжая<br/>**SIAMESE** - Сиамская<br/>**BRITISH_SHORTHAIR** - Британская короткошёрстная<br/>**CALICO** - Ситцевая<br/>**PERSIAN** - Персидская<br/>**RAGDOLL** - Тряпичная<br/>**WHITE** - Белая<br/>**JELLIE** - Бело-серая<br/>**ALL_BLACK** - Чёрная | Тип кота     |
+| `cat_type` | Маркер<br/>**ALL_BLACK** - Чёрная<br/>**BLACK** - Черно-белая<br/>**BRITISH_SHORTHAIR** - Британская короткошёрстная<br/>**CALICO** - Ситцевая<br/>**JELLIE** - Бело-серая<br/>**PERSIAN** - Персидская<br/>**RAGDOLL** - Тряпичная<br/>**RED** - Рыжая<br/>**SIAMESE** - Сиамская<br/>**TABBY** - Полосатая<br/>**WHITE** - Белая | Тип кота     |
 <h3 id=entity_set_celebrating>
   <code>entity::set_celebrating</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1243,14 +1243,14 @@ entity::set_cat_type("TABBY");
 
 **Пример использования:** 
 ```ts
-entity::set_celebrating("TRUE");
+entity::set_celebrating("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                  | **Описание**       |
 | ------------- | -------------------------------------------------------- | ------------------ |
-| `celebrating` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим празднования |
+| `celebrating` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Режим празднования |
 <h3 id=entity_set_collidable>
   <code>entity::set_collidable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1262,14 +1262,14 @@ entity::set_celebrating("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_collidable("TRUE");
+entity::set_collidable("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                                                                      | **Описание**       |
 | ------------ | ------------------------------------------------------------------------------------------------------------ | ------------------ |
-| `collidable` | Маркер<br/>**TRUE** - Сталкивается с другими существами<br/>**FALSE** - Не сталкивается с другими существами | Режим столкновения |
+| `collidable` | Маркер<br/>**FALSE** - Не сталкивается с другими существами<br/>**TRUE** - Сталкивается с другими существами | Режим столкновения |
 <h3 id=entity_set_creeper_charge>
   <code>entity::set_creeper_charge</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1283,14 +1283,14 @@ entity::set_collidable("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_creeper_charge("TRUE");
+entity::set_creeper_charge("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                  | **Описание**         |
 | --------- | -------------------------------------------------------- | -------------------- |
-| `charged` | Маркер<br/>**TRUE** - Заряжен<br/>**FALSE** - Не заряжен | Заряженность крипера |
+| `charged` | Маркер<br/>**FALSE** - Не заряжен<br/>**TRUE** - Заряжен | Заряженность крипера |
 <h3 id=entity_set_creeper_fuse>
   <code>entity::set_creeper_fuse</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1361,14 +1361,14 @@ entity::set_custom_name("custom_name");
 
 **Пример использования:** 
 ```ts
-entity::set_custom_name_visibility("TRUE");
+entity::set_custom_name_visibility("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                  | **Описание**    |
 | ------------ | -------------------------------------------------------- | --------------- |
-| `visibility` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Видимость имени |
+| `visibility` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Видимость имени |
 <h3 id=entity_set_custom_tag>
   <code>entity::set_custom_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1400,14 +1400,14 @@ entity::set_custom_tag("name","value");
 
 **Пример использования:** 
 ```ts
-entity::set_death_drops("TRUE");
+entity::set_death_drops("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                  | **Описание**        |
 | ------- | -------------------------------------------------------- | ------------------- |
-| `drops` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Выпадение предметов |
+| `drops` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Выпадение предметов |
 <h3 id=entity_set_death_time>
   <code>entity::set_death_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1457,14 +1457,14 @@ entity::set_default_visible("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_despawning("TRUE");
+entity::set_despawning("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                  | **Описание**        |
 | ------------ | -------------------------------------------------------- | ------------------- |
-| `despawning` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Пропадание существа |
+| `despawning` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Пропадание существа |
 <h3 id=entity_set_display_billboard>
   <code>entity::set_display_billboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1478,14 +1478,14 @@ entity::set_despawning("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_display_billboard("FIXED");
+entity::set_display_billboard("CENTER");
 ```
 
 **Аргументы:**
 
 | **Имя**          | **Тип**                                                                                                                                                                        | **Описание**      |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| `billboard_type` | Маркер<br/>**FIXED** - Фиксированный<br/>**VERTICAL** - Фиксированный по вертикали<br/>**HORIZONTAL** - Фиксированный по горизонтали<br/>**CENTER** - Всегда повёрнут к игроку | Режим отображения |
+| `billboard_type` | Маркер<br/>**CENTER** - Всегда повёрнут к игроку<br/>**FIXED** - Фиксированный<br/>**HORIZONTAL** - Фиксированный по горизонтали<br/>**VERTICAL** - Фиксированный по вертикали | Режим отображения |
 <h3 id=entity_set_display_brightness>
   <code>entity::set_display_brightness</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1587,14 +1587,14 @@ entity::set_display_interpolation(1,2);
 
 **Пример использования:** 
 ```ts
-entity::set_display_rotation_from_axis_angle("SET",vector(0,0,0),1,"DEGREES","LEFT_ROTATION");
+entity::set_display_rotation_from_axis_angle("ADD",vector(0,0,0),1,"DEGREES","LEFT_ROTATION");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                                                                                    | **Описание**                |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| `mode`        | Маркер<br/>**SET** - Установка<br/>**ADD** - Добавление                                                                    | Режим установки             |
+| `mode`        | Маркер<br/>**ADD** - Добавление<br/>**SET** - Установка                                                                    | Режим установки             |
 | `axis_vector` | Вектор                                                                                                                     | Осевой вектор               |
 | `angle`       | Число                                                                                                                      | Угол поворота               |
 | `input`       | Маркер<br/>**DEGREES** - Градусы<br/>**RADIANS** - Радианы                                                                 | Тип угла                    |
@@ -1612,14 +1612,14 @@ entity::set_display_rotation_from_axis_angle("SET",vector(0,0,0),1,"DEGREES","LE
 
 **Пример использования:** 
 ```ts
-entity::set_display_rotation_from_euler_angles("SET",1,2,3,"DEGREES","LEFT_ROTATION");
+entity::set_display_rotation_from_euler_angles("ADD",1,2,3,"DEGREES","LEFT_ROTATION");
 ```
 
 **Аргументы:**
 
 | **Имя**    | **Тип**                                                                                                                    | **Описание**                |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| `mode`     | Маркер<br/>**SET** - Установка<br/>**ADD** - Добавление                                                                    | Режим установки             |
+| `mode`     | Маркер<br/>**ADD** - Добавление<br/>**SET** - Установка                                                                    | Режим установки             |
 | `pitch`    | Число                                                                                                                      | Угол тангажа (pitch)        |
 | `yaw`      | Число                                                                                                                      | Угол рыскания (yaw)         |
 | `roll`     | Число                                                                                                                      | Угол крена (roll)           |
@@ -1638,7 +1638,7 @@ entity::set_display_rotation_from_euler_angles("SET",1,2,3,"DEGREES","LEFT_ROTAT
 
 **Пример использования:** 
 ```ts
-entity::set_display_scale(vector(0,0,0),"SET");
+entity::set_display_scale(vector(0,0,0),"ADD");
 ```
 
 **Аргументы:**
@@ -1646,7 +1646,7 @@ entity::set_display_scale(vector(0,0,0),"SET");
 | **Имя**        | **Тип**                                                 | **Описание**    |
 | -------------- | ------------------------------------------------------- | --------------- |
 | `scale_vector` | Вектор                                                  | Новый размер    |
-| `mode`         | Маркер<br/>**SET** - Установка<br/>**ADD** - Добавление | Режим установки |
+| `mode`         | Маркер<br/>**ADD** - Добавление<br/>**SET** - Установка | Режим установки |
 <h3 id=entity_set_display_shadow>
   <code>entity::set_display_shadow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1724,7 +1724,7 @@ entity::set_display_transformation_matrix([1, 2]);
 
 **Пример использования:** 
 ```ts
-entity::set_display_translation(vector(0,0,0),"SET");
+entity::set_display_translation(vector(0,0,0),"ADD");
 ```
 
 **Аргументы:**
@@ -1732,7 +1732,7 @@ entity::set_display_translation(vector(0,0,0),"SET");
 | **Имя**              | **Тип**                                                 | **Описание**    |
 | -------------------- | ------------------------------------------------------- | --------------- |
 | `translation_vector` | Вектор                                                  | Новое смещение  |
-| `mode`               | Маркер<br/>**SET** - Установка<br/>**ADD** - Добавление | Режим установки |
+| `mode`               | Маркер<br/>**ADD** - Добавление<br/>**SET** - Установка | Режим установки |
 <h3 id=entity_set_display_view_range>
   <code>entity::set_display_view_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1767,14 +1767,14 @@ entity::set_display_view_range(1);
 
 **Пример использования:** 
 ```ts
-entity::set_dragon_phase("CIRCLING");
+entity::set_dragon_phase("BREATH_ATTACK");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Описание**       |
 | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `phase` | Маркер<br/>**CIRCLING** - Кружение<br/>**STRAFING** - Уворот<br/>**FLY_TO_PORTAL** - Полёт к порталу<br/>**LAND_ON_PORTAL** - Приземление на портал<br/>**LEAVE_PORTAL** - Покидание портала<br/>**BREATH_ATTACK** - Атака дыханием<br/>**SEARCH_FOR_BREATH_ATTACK_TARGET** - Поиск цели для атаки дыханием<br/>**ROAR_BEFORE_ATTACK** - Крик перед атакой<br/>**CHARGE_PLAYER** - Атака на игрока<br/>**DYING** - Смерть<br/>**HOVER** - Полёт | Фаза Эндер-дракона |
+| `phase` | Маркер<br/>**BREATH_ATTACK** - Атака дыханием<br/>**CHARGE_PLAYER** - Атака на игрока<br/>**CIRCLING** - Кружение<br/>**DYING** - Смерть<br/>**FLY_TO_PORTAL** - Полёт к порталу<br/>**HOVER** - Полёт<br/>**LAND_ON_PORTAL** - Приземление на портал<br/>**LEAVE_PORTAL** - Покидание портала<br/>**ROAR_BEFORE_ATTACK** - Крик перед атакой<br/>**SEARCH_FOR_BREATH_ATTACK_TARGET** - Поиск цели для атаки дыханием<br/>**STRAFING** - Уворот | Фаза Эндер-дракона |
 <h3 id=entity_set_dye_color>
   <code>entity::set_dye_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1791,14 +1791,14 @@ entity::set_dragon_phase("CIRCLING");
 
 **Пример использования:** 
 ```ts
-entity::set_dye_color("WHITE");
+entity::set_dye_color("BLACK");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                  | **Описание**  |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
-| `color` | Маркер<br/>**WHITE** - Белый<br/>**ORANGE** - Оранжевый<br/>**MAGENTA** - Пурпурный<br/>**LIGHT_BLUE** - Голубой<br/>**YELLOW** - Жёлтый<br/>**LIME** - Лаймовый<br/>**PINK** - Розовый<br/>**GRAY** - Серый<br/>**LIGHT_GRAY** - Светло-серый<br/>**CYAN** - Бирюзовый<br/>**PURPLE** - Фиолетовый<br/>**BLUE** - Синий<br/>**BROWN** - Коричневый<br/>**GREEN** - Зелёный<br/>**RED** - Красный<br/>**BLACK** - Чёрный | Цвет сущности |
+| `color` | Маркер<br/>**BLACK** - Чёрный<br/>**BLUE** - Синий<br/>**BROWN** - Коричневый<br/>**CYAN** - Бирюзовый<br/>**GRAY** - Серый<br/>**GREEN** - Зелёный<br/>**LIGHT_BLUE** - Голубой<br/>**LIGHT_GRAY** - Светло-серый<br/>**LIME** - Лаймовый<br/>**MAGENTA** - Пурпурный<br/>**ORANGE** - Оранжевый<br/>**PINK** - Розовый<br/>**PURPLE** - Фиолетовый<br/>**RED** - Красный<br/>**WHITE** - Белый<br/>**YELLOW** - Жёлтый | Цвет сущности |
 <h3 id=entity_set_end_crystal_beam>
   <code>entity::set_end_crystal_beam</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1852,7 +1852,7 @@ entity::set_enderman_block(item("stone"));
 
 **Пример использования:** 
 ```ts
-entity::set_equipment_item(item("stick"),"HAND");
+entity::set_equipment_item(item("stick"),"CHEST");
 ```
 
 **Аргументы:**
@@ -1860,7 +1860,7 @@ entity::set_equipment_item(item("stick"),"HAND");
 | **Имя** | **Тип**                                                                                                                                                               | **Описание**        |
 | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | `item`  | Предмет                                                                                                                                                               | Предметы для выдачи |
-| `slot`  | Маркер<br/>**HAND** - Основная рука<br/>**OFF_HAND** - Второстепенная рука<br/>**FEET** - Ботинки<br/>**LEGS** - Поножи<br/>**CHEST** - Нагрудник<br/>**HEAD** - Шлем | Слот снаряжения     |
+| `slot`  | Маркер<br/>**CHEST** - Нагрудник<br/>**FEET** - Ботинки<br/>**HAND** - Основная рука<br/>**HEAD** - Шлем<br/>**LEGS** - Поножи<br/>**OFF_HAND** - Второстепенная рука | Слот снаряжения     |
 <h3 id=entity_set_explosive_power>
   <code>entity::set_explosive_power</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1977,14 +1977,14 @@ entity::set_fishing_wait(1);
 
 **Пример использования:** 
 ```ts
-entity::set_fox_leaping("TRUE");
+entity::set_fox_leaping("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                  | **Описание**    |
 | --------- | -------------------------------------------------------- | --------------- |
-| `leaping` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Анимация прыжка |
+| `leaping` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Анимация прыжка |
 <h3 id=entity_set_fox_type>
   <code>entity::set_fox_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2017,7 +2017,7 @@ entity::set_fox_type("RED");
 
 **Пример использования:** 
 ```ts
-entity::set_freeze_ticks(1,"TRUE");
+entity::set_freeze_ticks(1,"FALSE");
 ```
 
 **Аргументы:**
@@ -2025,7 +2025,7 @@ entity::set_freeze_ticks(1,"TRUE");
 | **Имя**          | **Тип**                                                  | **Описание**                                     |
 | ---------------- | -------------------------------------------------------- | ------------------------------------------------ |
 | `ticks`          | Число                                                    | Время заморозки в тиках                          |
-| `ticking_locked` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Блокировка состояния (время не будет изменяться) |
+| `ticking_locked` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Блокировка состояния (время не будет изменяться) |
 <h3 id=entity_set_friction>
   <code>entity::set_friction</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2058,14 +2058,14 @@ entity::set_friction("NOT_SET");
 
 **Пример использования:** 
 ```ts
-entity::set_frog_type("TEMPERATE");
+entity::set_frog_type("COLD");
 ```
 
 **Аргументы:**
 
 | **Имя**        | **Тип**                                                                            | **Описание** |
 | -------------- | ---------------------------------------------------------------------------------- | ------------ |
-| `frog_variant` | Маркер<br/>**TEMPERATE** - Умеренный<br/>**WARM** - Тёплый<br/>**COLD** - Холодный | Тип жабы     |
+| `frog_variant` | Маркер<br/>**COLD** - Холодный<br/>**TEMPERATE** - Умеренный<br/>**WARM** - Тёплый | Тип жабы     |
 <h3 id=entity_set_gliding>
   <code>entity::set_gliding</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2077,14 +2077,14 @@ entity::set_frog_type("TEMPERATE");
 
 **Пример использования:** 
 ```ts
-entity::set_gliding("TRUE");
+entity::set_gliding("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                  | **Описание**     |
 | ------------ | -------------------------------------------------------- | ---------------- |
-| `is_gliding` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Полёт на элитрах |
+| `is_gliding` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Полёт на элитрах |
 <h3 id=entity_set_glow_squid_dark>
   <code>entity::set_glow_squid_dark</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2117,14 +2117,14 @@ entity::set_glow_squid_dark(1);
 
 **Пример использования:** 
 ```ts
-entity::set_glowing("TRUE");
+entity::set_glowing("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                  | **Описание** |
 | --------- | -------------------------------------------------------- | ------------ |
-| `glowing` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Свечение     |
+| `glowing` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Свечение     |
 <h3 id=entity_set_goat_screaming>
   <code>entity::set_goat_screaming</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2138,14 +2138,14 @@ entity::set_glowing("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_goat_screaming("TRUE");
+entity::set_goat_screaming("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                  | **Описание**   |
 | --------- | -------------------------------------------------------- | -------------- |
-| `screams` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Тег "Кричащий" |
+| `screams` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Тег "Кричащий" |
 <h3 id=entity_set_gravity>
   <code>entity::set_gravity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2157,14 +2157,14 @@ entity::set_goat_screaming("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_gravity("TRUE");
+entity::set_gravity("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                  | **Описание** |
 | --------- | -------------------------------------------------------- | ------------ |
-| `gravity` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Гравитация   |
+| `gravity` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Гравитация   |
 <h3 id=entity_set_horse_jump>
   <code>entity::set_horse_jump</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2202,15 +2202,15 @@ entity::set_horse_jump(1);
 
 **Пример использования:** 
 ```ts
-entity::set_horse_pattern("WHITE","NONE");
+entity::set_horse_pattern("BLACK","BLACK_DOTS");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                                                                                                                                                                                                        | **Описание** |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `horse_color` | Маркер<br/>**WHITE** - Белый<br/>**CREAMY** - Бежевый<br/>**CHESTNUT** - Рыжий<br/>**BROWN** - Коричневый<br/>**DARK_BROWN** - Тёмно-коричневый<br/>**GRAY** - Серый<br/>**BLACK** - Чёрный<br/>**DO_NOT_CHANGE** - Не изменять                | Цвет лошади  |
-| `horse_style` | Маркер<br/>**NONE** - Без узора<br/>**WHITE** - Белые полосы на ногах и голове<br/>**WHITEFIELD** - Крупные белые пятна<br/>**WHITE_DOTS** - Мелкие белые пятна<br/>**BLACK_DOTS** - Тёмные пятна на спине<br/>**DO_NOT_CHANGE** - Не изменять | Узор лошади  |
+| `horse_color` | Маркер<br/>**BLACK** - Чёрный<br/>**BROWN** - Коричневый<br/>**CHESTNUT** - Рыжий<br/>**CREAMY** - Бежевый<br/>**DARK_BROWN** - Тёмно-коричневый<br/>**DO_NOT_CHANGE** - Не изменять<br/>**GRAY** - Серый<br/>**WHITE** - Белый                | Цвет лошади  |
+| `horse_style` | Маркер<br/>**BLACK_DOTS** - Тёмные пятна на спине<br/>**DO_NOT_CHANGE** - Не изменять<br/>**NONE** - Без узора<br/>**WHITE** - Белые полосы на ногах и голове<br/>**WHITEFIELD** - Крупные белые пятна<br/>**WHITE_DOTS** - Мелкие белые пятна | Узор лошади  |
 <h3 id=entity_set_immune_to_zombification>
   <code>entity::set_immune_to_zombification</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2226,14 +2226,14 @@ entity::set_horse_pattern("WHITE","NONE");
 
 **Пример использования:** 
 ```ts
-entity::set_immune_to_zombification("TRUE");
+entity::set_immune_to_zombification("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**     | **Тип**                                                  | **Описание**                 |
 | ----------- | -------------------------------------------------------- | ---------------------------- |
-| `is_immune` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Иммунитет к зомбифицированию |
+| `is_immune` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Иммунитет к зомбифицированию |
 <h3 id=entity_set_interaction_responsive>
   <code>entity::set_interaction_responsive</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2247,14 +2247,14 @@ entity::set_immune_to_zombification("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_interaction_responsive("TRUE");
+entity::set_interaction_responsive("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                  | **Описание** |
 | ------------ | -------------------------------------------------------- | ------------ |
-| `responsive` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Отзывчивость |
+| `responsive` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Отзывчивость |
 <h3 id=entity_set_interaction_size>
   <code>entity::set_interaction_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2288,14 +2288,14 @@ entity::set_interaction_size(1,2);
 
 **Пример использования:** 
 ```ts
-entity::set_invisible("TRUE");
+entity::set_invisible("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**     | **Тип**                                                  | **Описание**      |
 | ----------- | -------------------------------------------------------- | ----------------- |
-| `invisible` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим невидимости |
+| `invisible` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Режим невидимости |
 <h3 id=entity_set_invulnerability_ticks>
   <code>entity::set_invulnerability_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2326,14 +2326,14 @@ entity::set_invulnerability_ticks(1);
 
 **Пример использования:** 
 ```ts
-entity::set_invulnerable("TRUE");
+entity::set_invulnerable("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**        | **Тип**                                                  | **Описание** |
 | -------------- | -------------------------------------------------------- | ------------ |
-| `invulnerable` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Неуязвимость |
+| `invulnerable` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Неуязвимость |
 <h3 id=entity_set_item>
   <code>entity::set_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2389,14 +2389,14 @@ entity::set_item_display_item(item("stick"));
 
 **Пример использования:** 
 ```ts
-entity::set_item_display_model_type("NONE");
+entity::set_item_display_model_type("FIRSTPERSON_LEFTHAND");
 ```
 
 **Аргументы:**
 
 | **Имя**              | **Тип**                                                                                                                                                                                                                                                                                                                                                                               | **Описание** |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `display_model_type` | Маркер<br/>**NONE** - Стандартный<br/>**THIRDPERSON_LEFTHAND** - Левая рука от третьего лица<br/>**THIRDPERSON_RIGHTHAND** - Правая рука от третьего лица<br/>**FIRSTPERSON_LEFTHAND** - Левая рука от первого лица<br/>**FIRSTPERSON_RIGHTHAND** - Правая рука от первого лица<br/>**HEAD** - Голова<br/>**GUI** - Инвентарь<br/>**GROUND** - На земле<br/>**FIXED** - Фиксированный | Тип модели   |
+| `display_model_type` | Маркер<br/>**FIRSTPERSON_LEFTHAND** - Левая рука от первого лица<br/>**FIRSTPERSON_RIGHTHAND** - Правая рука от первого лица<br/>**FIXED** - Фиксированный<br/>**GROUND** - На земле<br/>**GUI** - Инвентарь<br/>**HEAD** - Голова<br/>**NONE** - Стандартный<br/>**THIRDPERSON_LEFTHAND** - Левая рука от третьего лица<br/>**THIRDPERSON_RIGHTHAND** - Правая рука от третьего лица | Тип модели   |
 <h3 id=entity_set_item_in_frame>
   <code>entity::set_item_in_frame</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2431,14 +2431,14 @@ entity::set_item_in_frame(item("stick"));
 
 **Пример использования:** 
 ```ts
-entity::set_llama_type("CREAMY");
+entity::set_llama_type("BROWN");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                                                               | **Описание**       |
 | ------- | ----------------------------------------------------------------------------------------------------- | ------------------ |
-| `type`  | Маркер<br/>**CREAMY** - Бежевый<br/>**WHITE** - Белый<br/>**BROWN** - Коричневый<br/>**GRAY** - Серый | Цвет для установки |
+| `type`  | Маркер<br/>**BROWN** - Коричневый<br/>**CREAMY** - Бежевый<br/>**GRAY** - Серый<br/>**WHITE** - Белый | Цвет для установки |
 <h3 id=entity_set_location>
   <code>entity::set_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2450,7 +2450,7 @@ entity::set_llama_type("CREAMY");
 
 **Пример использования:** 
 ```ts
-entity::set_location(vector(0,0,0),"TRUE");
+entity::set_location(vector(0,0,0),"FALSE");
 ```
 
 **Аргументы:**
@@ -2458,7 +2458,7 @@ entity::set_location(vector(0,0,0),"TRUE");
 | **Имя**     | **Тип**                                                  | **Описание**              |
 | ----------- | -------------------------------------------------------- | ------------------------- |
 | `velocity`  | Вектор                                                   | Вектор движения           |
-| `increment` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Учитывать текущую инерцию |
+| `increment` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Учитывать текущую инерцию |
 <h3 id=entity_set_marker>
   <code>entity::set_marker</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2472,14 +2472,14 @@ entity::set_location(vector(0,0,0),"TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_marker("TRUE");
+entity::set_marker("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**  | **Тип**                                                  | **Описание**  |
 | -------- | -------------------------------------------------------- | ------------- |
-| `marker` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим маркера |
+| `marker` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Режим маркера |
 <h3 id=entity_set_max_health>
   <code>entity::set_max_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2491,7 +2491,7 @@ entity::set_marker("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_max_health(1,"TRUE");
+entity::set_max_health(1,"FALSE");
 ```
 
 **Аргументы:**
@@ -2499,7 +2499,7 @@ entity::set_max_health(1,"TRUE");
 | **Имя**       | **Тип**                                      | **Описание**                     |
 | ------------- | -------------------------------------------- | -------------------------------- |
 | `max_health`  | Число                                        | Максимальное количество здоровья |
-| `heal_to_max` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Исцелить существо                |
+| `heal_to_max` | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Исцелить существо                |
 <h3 id=entity_set_merchant_recipe>
   <code>entity::set_merchant_recipe</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2514,7 +2514,7 @@ entity::set_max_health(1,"TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"MERGE",2,3,4,5,6,7,"TRUE","TRUE");
+entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"APPEND",2,3,4,5,6,7,"FALSE","FALSE");
 ```
 
 **Аргументы:**
@@ -2525,15 +2525,15 @@ entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"MERGE",
 | `ingredient_one`      | Предмет                                                   | Первый предмет                        |
 | `ingredient_two`      | Предмет                                                   | Второй предмет                        |
 | `index`               | Число                                                     | Индекс товара                         |
-| `mode`                | Маркер<br/>**MERGE** - Замена<br/>**APPEND** - Добавление | Режим установки                       |
+| `mode`                | Маркер<br/>**APPEND** - Добавление<br/>**MERGE** - Замена | Режим установки                       |
 | `uses`                | Число                                                     | Количество использований              |
 | `max_uses`            | Число                                                     | Максимальное количество использований |
 | `villager_experience` | Число                                                     | Опыт для Жителя                       |
 | `price_multiplifier`  | Число                                                     | Множитель цены                        |
 | `demand`              | Число                                                     | Спрос товара                          |
 | `special_price`       | Число                                                     | Особая цена                           |
-| `experience_reward`   | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить  | Награда опытом                        |
-| `ignore_discounts`    | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить  | Игнорирование скидок                  |
+| `experience_reward`   | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить  | Награда опытом                        |
+| `ignore_discounts`    | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить  | Игнорирование скидок                  |
 <h3 id=entity_set_minecart_block>
   <code>entity::set_minecart_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2578,14 +2578,14 @@ entity::set_minecart_block(item("stone"),1);
 
 **Пример использования:** 
 ```ts
-entity::set_mob_aggressive("TRUE");
+entity::set_mob_aggressive("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                      | **Описание**  |
 | ------------ | -------------------------------------------- | ------------- |
-| `aggressive` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Агрессивность |
+| `aggressive` | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Агрессивность |
 <h3 id=entity_set_mushroom_cow_type>
   <code>entity::set_mushroom_cow_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2599,14 +2599,14 @@ entity::set_mob_aggressive("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_mushroom_cow_type("RED");
+entity::set_mushroom_cow_type("BROWN");
 ```
 
 **Аргументы:**
 
 | **Имя**    | **Тип**                                                 | **Описание**       |
 | ---------- | ------------------------------------------------------- | ------------------ |
-| `cow_type` | Маркер<br/>**RED** - Красная<br/>**BROWN** - Коричневая | Тип грибной коровы |
+| `cow_type` | Маркер<br/>**BROWN** - Коричневая<br/>**RED** - Красная | Тип грибной коровы |
 <h3 id=entity_set_no_physics>
   <code>entity::no_physics</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2639,15 +2639,15 @@ entity::no_physics("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_panda_gene("MAIN","NORMAL");
+entity::set_panda_gene("BOTH","AGGRESSIVE");
 ```
 
 **Аргументы:**
 
 | **Имя**     | **Тип**                                                                                                                                                                                        | **Описание** |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `gene`      | Маркер<br/>**MAIN** - Главный ген<br/>**HIDDEN** - Скрытый ген<br/>**BOTH** - Оба гена                                                                                                         | Ген          |
-| `gene_type` | Маркер<br/>**NORMAL** - Нормальный<br/>**LAZY** - Ленивый<br/>**WORRIED** - Тревожный<br/>**PLAYFUL** - Игривый<br/>**BROWN** - Суровый<br/>**WEAK** - Слабый<br/>**AGGRESSIVE** - Агрессивный | Тип гена     |
+| `gene`      | Маркер<br/>**BOTH** - Оба гена<br/>**HIDDEN** - Скрытый ген<br/>**MAIN** - Главный ген                                                                                                         | Ген          |
+| `gene_type` | Маркер<br/>**AGGRESSIVE** - Агрессивный<br/>**BROWN** - Суровый<br/>**LAZY** - Ленивый<br/>**NORMAL** - Нормальный<br/>**PLAYFUL** - Игривый<br/>**WEAK** - Слабый<br/>**WORRIED** - Тревожный | Тип гена     |
 <h3 id=entity_set_panda_on_back>
   <code>entity::set_panda_on_back</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2724,14 +2724,14 @@ entity::set_panda_sad_ticks(1);
 
 **Пример использования:** 
 ```ts
-entity::set_parrot_type("RED");
+entity::set_parrot_type("BLUE");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                                                                                 | **Описание** |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `parrot_type` | Маркер<br/>**RED** - Красный<br/>**BLUE** - Синий<br/>**GREEN** - Зелёный<br/>**CYAN** - Бирюзовый<br/>**GRAY** - Серый | Тип попугая  |
+| `parrot_type` | Маркер<br/>**BLUE** - Синий<br/>**CYAN** - Бирюзовый<br/>**GRAY** - Серый<br/>**GREEN** - Зелёный<br/>**RED** - Красный | Тип попугая  |
 <h3 id=entity_set_persistence>
   <code>entity::set_persistence</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2746,14 +2746,14 @@ entity::set_parrot_type("RED");
 
 **Пример использования:** 
 ```ts
-entity::set_persistence("TRUE");
+entity::set_persistence("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                                | **Описание**       |
 | ------------- | ---------------------------------------------------------------------- | ------------------ |
-| `persistence` | Маркер<br/>**TRUE** - Не будет исчезать<br/>**FALSE** - Будет исчезать | Исчезание существа |
+| `persistence` | Маркер<br/>**FALSE** - Будет исчезать<br/>**TRUE** - Не будет исчезать | Исчезание существа |
 <h3 id=entity_set_pickup>
   <code>entity::set_pickup</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2810,14 +2810,14 @@ entity::set_pickup_delay(1);
 
 **Пример использования:** 
 ```ts
-entity::set_piglin_able_to_hunt("TRUE");
+entity::set_piglin_able_to_hunt("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                    | **Описание**    |
 | ------- | ---------------------------------------------------------- | --------------- |
-| `able`  | Маркер<br/>**TRUE** - Охотится<br/>**FALSE** - Не охотится | Состояние охоты |
+| `able`  | Маркер<br/>**FALSE** - Не охотится<br/>**TRUE** - Охотится | Состояние охоты |
 <h3 id=entity_set_piglin_charging_crossbow>
   <code>entity::set_piglin_charging_crossbow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2831,14 +2831,14 @@ entity::set_piglin_able_to_hunt("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_piglin_charging_crossbow("TRUE");
+entity::set_piglin_charging_crossbow("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**    | **Тип**                                         | **Описание**      |
 | ---------- | ----------------------------------------------- | ----------------- |
-| `charging` | Маркер<br/>**TRUE** - None<br/>**FALSE** - None | Состояние зарядки |
+| `charging` | Маркер<br/>**FALSE** - None<br/>**TRUE** - None | Состояние зарядки |
 <h3 id=entity_set_piglin_dancing>
   <code>entity::set_piglin_dancing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2873,14 +2873,14 @@ entity::set_piglin_dancing(1);
 
 **Пример использования:** 
 ```ts
-entity::set_pose("STANDING");
+entity::set_pose("CROAKING");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | **Описание**      |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| `pose`  | Маркер<br/>**STANDING** - Обычное состояние<br/>**FALL_FLYING** - Полёт на Элитрах<br/>**SLEEPING** - Лежание<br/>**SWIMMING** - Плавание<br/>**SPIN_ATTACK** - Использование Тягуна<br/>**CROUCHING** - Приседание<br/>**LONG_JUMPING** - Длинный прыжок<br/>**DYING** - Смерть<br/>**CROAKING** - Кваканье (для Жаб)<br/>**USING_TONGUE** - Использование языка (для Жаб)<br/>**SITTING** - Сидение<br/>**ROARING** - Рёв (для Хранителя)<br/>**SNIFFING** - Нюханье (для Хранителя)<br/>**EMERGING** - Появление из земли (для Хранителя)<br/>**DIGGING** - Зарывание в землю (для Хранителя)<br/>**SNEAKING** - None | Отображаемая поза |
+| `pose`  | Маркер<br/>**CROAKING** - Кваканье (для Жаб)<br/>**CROUCHING** - Приседание<br/>**DIGGING** - Зарывание в землю (для Хранителя)<br/>**DYING** - Смерть<br/>**EMERGING** - Появление из земли (для Хранителя)<br/>**FALL_FLYING** - Полёт на Элитрах<br/>**LONG_JUMPING** - Длинный прыжок<br/>**ROARING** - Рёв (для Хранителя)<br/>**SITTING** - Сидение<br/>**SLEEPING** - Лежание<br/>**SNEAKING** - None<br/>**SNIFFING** - Нюханье (для Хранителя)<br/>**SPIN_ATTACK** - Использование Тягуна<br/>**STANDING** - Обычное состояние<br/>**SWIMMING** - Плавание<br/>**USING_TONGUE** - Использование языка (для Жаб) | Отображаемая поза |
 <h3 id=entity_set_potion_cloud_radius>
   <code>entity::set_potion_cloud_radius</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3009,14 +3009,14 @@ entity::set_projectile_shooter("uuid");
 
 **Пример использования:** 
 ```ts
-entity::set_rabbit_type("BROWN");
+entity::set_rabbit_type("BLACK");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                                                                                                                                                                                        | **Описание** |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
-| `rabbit_type` | Маркер<br/>**BROWN** - Коричневый<br/>**WHITE** - Белый<br/>**BLACK** - Чёрный<br/>**BLACK_AND_WHITE** - Черно-белый<br/>**GOLD** - Золотой<br/>**SALT_AND_PEPPER** - Бело-коричневый<br/>**THE_KILLER_BUNNY** - Кролик-убийца | Тип кролика  |
+| `rabbit_type` | Маркер<br/>**BLACK** - Чёрный<br/>**BLACK_AND_WHITE** - Черно-белый<br/>**BROWN** - Коричневый<br/>**GOLD** - Золотой<br/>**SALT_AND_PEPPER** - Бело-коричневый<br/>**THE_KILLER_BUNNY** - Кролик-убийца<br/>**WHITE** - Белый | Тип кролика  |
 <h3 id=entity_set_rearing>
   <code>entity::set_rearing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3030,14 +3030,14 @@ entity::set_rabbit_type("BROWN");
 
 **Пример использования:** 
 ```ts
-entity::set_rearing("TRUE");
+entity::set_rearing("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                                        | **Описание** |
 | --------- | ------------------------------------------------------------------------------ | ------------ |
-| `rearing` | Маркер<br/>**TRUE** - Стоять на задних ногах<br/>**FALSE** - Обычное состояние | Поза лошади  |
+| `rearing` | Маркер<br/>**FALSE** - Обычное состояние<br/>**TRUE** - Стоять на задних ногах | Поза лошади  |
 <h3 id=entity_set_riptiding>
   <code>entity::set_riptiding</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3049,14 +3049,14 @@ entity::set_rearing("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_riptiding("TRUE");
+entity::set_riptiding("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**     | **Тип**                                                  | **Описание**     |
 | ----------- | -------------------------------------------------------- | ---------------- |
-| `riptiding` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Анимация 'Тягун' |
+| `riptiding` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Анимация 'Тягун' |
 <h3 id=entity_set_rotation>
   <code>entity::set_rotation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3109,14 +3109,14 @@ entity::set_rotation_by_vector(vector(0,0,0));
 
 **Пример использования:** 
 ```ts
-entity::set_sheep_sheared("TRUE");
+entity::set_sheep_sheared("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                    | **Описание**       |
 | --------- | ---------------------------------------------------------- | ------------------ |
-| `sheared` | Маркер<br/>**TRUE** - С шерстью<br/>**FALSE** - Без шерсти | Присутствие шерсти |
+| `sheared` | Маркер<br/>**FALSE** - Без шерсти<br/>**TRUE** - С шерстью | Присутствие шерсти |
 <h3 id=entity_set_shulker_bullet_target>
   <code>entity::set_shulker_bullet_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3171,14 +3171,14 @@ entity::set_shulker_peek(1,"TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_silenced("TRUE");
+entity::set_silenced("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**    | **Тип**                                                  | **Описание** |
 | ---------- | -------------------------------------------------------- | ------------ |
-| `silenced` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Заглушение   |
+| `silenced` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Заглушение   |
 <h3 id=entity_set_sitting>
   <code>entity::set_sitting</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3196,14 +3196,14 @@ entity::set_silenced("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_sitting("TRUE");
+entity::set_sitting("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                  | **Описание**  |
 | --------- | -------------------------------------------------------- | ------------- |
-| `sitting` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим сидения |
+| `sitting` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Режим сидения |
 <h3 id=entity_set_size>
   <code>entity::set_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3239,14 +3239,14 @@ entity::set_size(1);
 
 **Пример использования:** 
 ```ts
-entity::set_sniffer_state("IDLING");
+entity::set_sniffer_state("DIGGING");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                                                                                                                                                                                              | **Описание**     |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| `state` | Маркер<br/>**IDLING** - Обычное состояние<br/>**FEELING_HAPPY** - Чувстует себя счастливым<br/>**SCENTING** - Идёт по следу<br/>**SNIFFING** - Нюхает<br/>**SEARCHING** - Ищет<br/>**DIGGING** - Копает<br/>**RISING** - Поднимается | Состояние нюхача |
+| `state` | Маркер<br/>**DIGGING** - Копает<br/>**FEELING_HAPPY** - Чувстует себя счастливым<br/>**IDLING** - Обычное состояние<br/>**RISING** - Поднимается<br/>**SCENTING** - Идёт по следу<br/>**SEARCHING** - Ищет<br/>**SNIFFING** - Нюхает | Состояние нюхача |
 <h3 id=entity_set_snowman_pumpkin>
   <code>entity::set_snowman_pumpkin</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3260,14 +3260,14 @@ entity::set_sniffer_state("IDLING");
 
 **Пример использования:** 
 ```ts
-entity::set_snowman_pumpkin("TRUE");
+entity::set_snowman_pumpkin("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                  | **Описание**    |
 | --------- | -------------------------------------------------------- | --------------- |
-| `pumpkin` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Видимость тыквы |
+| `pumpkin` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Видимость тыквы |
 <h3 id=entity_set_tame>
   <code>entity::set_tame</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3415,14 +3415,14 @@ entity::set_text_display_opacity(1);
 
 **Пример использования:** 
 ```ts
-entity::set_text_display_see_through("TRUE");
+entity::set_text_display_see_through("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**              | **Тип**                                                  | **Описание**          |
 | -------------------- | -------------------------------------------------------- | --------------------- |
-| `enable_see_through` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Видимость через блоки |
+| `enable_see_through` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Видимость через блоки |
 <h3 id=entity_set_text_display_text>
   <code>entity::set_text_display_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3436,7 +3436,7 @@ entity::set_text_display_see_through("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_text_display_text(["displayed_text", "displayed_text"],"SPACES");
+entity::set_text_display_text(["displayed_text", "displayed_text"],"CONCATENATION");
 ```
 
 **Аргументы:**
@@ -3444,7 +3444,7 @@ entity::set_text_display_text(["displayed_text", "displayed_text"],"SPACES");
 | **Имя**          | **Тип**                                                                                                                       | **Описание**       |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `displayed_text` | список[Текст]                                                                                                                 | Отображаемый текст |
-| `merging_mode`   | Маркер<br/>**SPACES** - Разделение пробелом<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки | Объединение текста |
+| `merging_mode`   | Маркер<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки<br/>**SPACES** - Разделение пробелом | Объединение текста |
 <h3 id=entity_set_text_display_text_shadow>
   <code>entity::set_text_display_text_shadow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3458,14 +3458,14 @@ entity::set_text_display_text(["displayed_text", "displayed_text"],"SPACES");
 
 **Пример использования:** 
 ```ts
-entity::set_text_display_text_shadow("TRUE");
+entity::set_text_display_text_shadow("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**              | **Тип**                                                  | **Описание** |
 | -------------------- | -------------------------------------------------------- | ------------ |
-| `enable_text_shadow` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Тень текста  |
+| `enable_text_shadow` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Тень текста  |
 <h3 id=entity_set_tropical_fish_pattern>
   <code>entity::set_tropical_fish_pattern</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3479,16 +3479,16 @@ entity::set_text_display_text_shadow("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_tropical_fish_pattern("WHITE","WHITE","KOB");
+entity::set_tropical_fish_pattern("BLACK","BLACK","BETTY");
 ```
 
 **Аргументы:**
 
 | **Имя**         | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                      | **Описание** |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
-| `pattern_color` | Маркер<br/>**WHITE** - Белый<br/>**ORANGE** - Оранжевый<br/>**MAGENTA** - Пурпурный<br/>**LIGHT_BLUE** - Голубой<br/>**YELLOW** - Жёлтый<br/>**LIME** - Лаймовый<br/>**PINK** - Розовый<br/>**GRAY** - Серый<br/>**LIGHT_GRAY** - Светло-серый<br/>**CYAN** - Бирюзовый<br/>**PURPLE** - Фиолетовый<br/>**BLUE** - Синий<br/>**BROWN** - Коричневый<br/>**GREEN** - Зелёный<br/>**RED** - Красный<br/>**BLACK** - Чёрный<br/>**DO_NOT_CHANGE** - Не изменять | Цвет узора   |
-| `body_color`    | Маркер<br/>**WHITE** - Белый<br/>**ORANGE** - Оранжевый<br/>**MAGENTA** - Пурпурный<br/>**LIGHT_BLUE** - Голубой<br/>**YELLOW** - Жёлтый<br/>**LIME** - Лаймовый<br/>**PINK** - Розовый<br/>**GRAY** - Серый<br/>**LIGHT_GRAY** - Светло-серый<br/>**CYAN** - Бирюзовый<br/>**PURPLE** - Фиолетовый<br/>**BLUE** - Синий<br/>**BROWN** - Коричневый<br/>**GREEN** - Зелёный<br/>**RED** - Красный<br/>**BLACK** - Чёрный<br/>**DO_NOT_CHANGE** - Не изменять | Цвет тела    |
-| `pattern`       | Маркер<br/>**KOB** - Kob<br/>**SUNSTREAK** - SunStreak<br/>**SNOOPER** - Snooper<br/>**DASHER** - Dasher<br/>**BRINELY** - Brinely<br/>**SPOTTY** - Spotty<br/>**FLOPPER** - Flopper<br/>**STRIPEY** - Stripey<br/>**GLITTER** - Glitter<br/>**BLOCKFISH** - Blockfish<br/>**BETTY** - Betty<br/>**CLAYFISH** - Clayfish<br/>**DO_NOT_CHANGE** - Не изменять                                                                                                 | Узор         |
+| `pattern_color` | Маркер<br/>**BLACK** - Чёрный<br/>**BLUE** - Синий<br/>**BROWN** - Коричневый<br/>**CYAN** - Бирюзовый<br/>**DO_NOT_CHANGE** - Не изменять<br/>**GRAY** - Серый<br/>**GREEN** - Зелёный<br/>**LIGHT_BLUE** - Голубой<br/>**LIGHT_GRAY** - Светло-серый<br/>**LIME** - Лаймовый<br/>**MAGENTA** - Пурпурный<br/>**ORANGE** - Оранжевый<br/>**PINK** - Розовый<br/>**PURPLE** - Фиолетовый<br/>**RED** - Красный<br/>**WHITE** - Белый<br/>**YELLOW** - Жёлтый | Цвет узора   |
+| `body_color`    | Маркер<br/>**BLACK** - Чёрный<br/>**BLUE** - Синий<br/>**BROWN** - Коричневый<br/>**CYAN** - Бирюзовый<br/>**DO_NOT_CHANGE** - Не изменять<br/>**GRAY** - Серый<br/>**GREEN** - Зелёный<br/>**LIGHT_BLUE** - Голубой<br/>**LIGHT_GRAY** - Светло-серый<br/>**LIME** - Лаймовый<br/>**MAGENTA** - Пурпурный<br/>**ORANGE** - Оранжевый<br/>**PINK** - Розовый<br/>**PURPLE** - Фиолетовый<br/>**RED** - Красный<br/>**WHITE** - Белый<br/>**YELLOW** - Жёлтый | Цвет тела    |
+| `pattern`       | Маркер<br/>**BETTY** - Betty<br/>**BLOCKFISH** - Blockfish<br/>**BRINELY** - Brinely<br/>**CLAYFISH** - Clayfish<br/>**DASHER** - Dasher<br/>**DO_NOT_CHANGE** - Не изменять<br/>**FLOPPER** - Flopper<br/>**GLITTER** - Glitter<br/>**KOB** - Kob<br/>**SNOOPER** - Snooper<br/>**SPOTTY** - Spotty<br/>**STRIPEY** - Stripey<br/>**SUNSTREAK** - SunStreak                                                                                                 | Узор         |
 <h3 id=entity_set_vex_charging>
   <code>entity::set_vex_charging</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3502,14 +3502,14 @@ entity::set_tropical_fish_pattern("WHITE","WHITE","KOB");
 
 **Пример использования:** 
 ```ts
-entity::set_vex_charging("TRUE");
+entity::set_vex_charging("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**    | **Тип**                                         | **Описание**  |
 | ---------- | ----------------------------------------------- | ------------- |
-| `charging` | Маркер<br/>**TRUE** - None<br/>**FALSE** - None | Стадия злости |
+| `charging` | Маркер<br/>**FALSE** - None<br/>**TRUE** - None | Стадия злости |
 <h3 id=entity_set_vex_limited_lifetime_ticks>
   <code>entity::set_vex_limited_lifetime_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3587,14 +3587,14 @@ entity::set_villager_experience(1);
 
 **Пример использования:** 
 ```ts
-entity::set_villager_profession("NONE");
+entity::set_villager_profession("ARMORER");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Описание**     |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `profession` | Маркер<br/>**NONE** - Без профессии<br/>**ARMORER** - Бронник<br/>**BUTCHER** - Мясник<br/>**CARTOGRAPHER** - Картограф<br/>**CLERIC** - Священник<br/>**FARMER** - Фермер<br/>**FISHERMAN** - Рыбак<br/>**FLETCHER** - Лучник<br/>**LEATHERWORKER** - Кожевник<br/>**LIBRARIAN** - Библиотекарь<br/>**MASON** - Каменщик<br/>**NITWIT** - Нищий<br/>**SHEPHERD** - Пастух<br/>**TOOLSMITH** - Инструментальщик<br/>**WEAPONSMITH** - Оружейник | Профессия жителя |
+| `profession` | Маркер<br/>**ARMORER** - Бронник<br/>**BUTCHER** - Мясник<br/>**CARTOGRAPHER** - Картограф<br/>**CLERIC** - Священник<br/>**FARMER** - Фермер<br/>**FISHERMAN** - Рыбак<br/>**FLETCHER** - Лучник<br/>**LEATHERWORKER** - Кожевник<br/>**LIBRARIAN** - Библиотекарь<br/>**MASON** - Каменщик<br/>**NITWIT** - Нищий<br/>**NONE** - Без профессии<br/>**SHEPHERD** - Пастух<br/>**TOOLSMITH** - Инструментальщик<br/>**WEAPONSMITH** - Оружейник | Профессия жителя |
 <h3 id=entity_set_visual_fire>
   <code>entity::set_visual_fire</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3606,14 +3606,14 @@ entity::set_villager_profession("NONE");
 
 **Пример использования:** 
 ```ts
-entity::set_visual_fire("TRUE");
+entity::set_visual_fire("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                  | **Описание**     |
 | ------------- | -------------------------------------------------------- | ---------------- |
-| `visual_fire` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Отображение огня |
+| `visual_fire` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Отображение огня |
 <h3 id=entity_set_warden_anger_level>
   <code>entity::set_warden_anger_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3651,14 +3651,14 @@ entity::set_warden_anger_level("name_or_uuid",1);
 
 **Пример использования:** 
 ```ts
-entity::set_warden_digging("EMERGE");
+entity::set_warden_digging("DIG_DOWN");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                          | **Описание**      |
 | --------- | ---------------------------------------------------------------- | ----------------- |
-| `digging` | Маркер<br/>**EMERGE** - Появление<br/>**DIG_DOWN** - Закапывание | Состояние копания |
+| `digging` | Маркер<br/>**DIG_DOWN** - Закапывание<br/>**EMERGE** - Появление | Состояние копания |
 <h3 id=entity_set_wearing_saddle>
   <code>entity::set_wearing_saddle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3674,14 +3674,14 @@ entity::set_warden_digging("EMERGE");
 
 **Пример использования:** 
 ```ts
-entity::set_wearing_saddle("TRUE");
+entity::set_wearing_saddle("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                  | **Описание**  |
 | --------- | -------------------------------------------------------- | ------------- |
-| `wearing` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Наличие седла |
+| `wearing` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Наличие седла |
 <h3 id=entity_set_wither_invulnerability_ticks>
   <code>entity::set_wither_invulnerability_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3737,14 +3737,14 @@ entity::set_wolf_type("ASHEN");
 
 **Пример использования:** 
 ```ts
-entity::set_zombie_arms_raised("TRUE");
+entity::set_zombie_arms_raised("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                  | **Описание** |
 | ------------- | -------------------------------------------------------- | ------------ |
-| `arms_raised` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Поднятие рук |
+| `arms_raised` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Поднятие рук |
 <h3 id=entity_shear>
   <code>entity::shear</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3793,14 +3793,14 @@ entity::shear_sheep();
 
 **Пример использования:** 
 ```ts
-entity::sleep("TRUE");
+entity::sleep("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                  | **Описание** |
 | ------- | -------------------------------------------------------- | ------------ |
-| `sleep` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Режим сна    |
+| `sleep` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Режим сна    |
 <h3 id=entity_swing_hand>
   <code>entity::swing_hand</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3831,7 +3831,7 @@ entity::swing_hand("MAIN");
 
 **Пример использования:** 
 ```ts
-entity::teleport(location(0,0,0,0,0),"TRUE");
+entity::teleport(location(0,0,0,0,0),"FALSE");
 ```
 
 **Аргументы:**
@@ -3839,7 +3839,7 @@ entity::teleport(location(0,0,0,0,0),"TRUE");
 | **Имя**         | **Тип**                                                  | **Описание**             |
 | --------------- | -------------------------------------------------------- | ------------------------ |
 | `location`      | Местоположение                                           | Новая позиция            |
-| `keep_rotation` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Оставить текущий поворот |
+| `keep_rotation` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Оставить текущий поворот |
 <h3 id=entity_use_item>
   <code>entity::use_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3853,7 +3853,7 @@ entity::teleport(location(0,0,0,0,0),"TRUE");
 
 **Пример использования:** 
 ```ts
-entity::use_item("MAIN_HAND","TRUE");
+entity::use_item("MAIN_HAND","FALSE");
 ```
 
 **Аргументы:**
@@ -3861,7 +3861,7 @@ entity::use_item("MAIN_HAND","TRUE");
 | **Имя**  | **Тип**                                                                         | **Описание**  |
 | -------- | ------------------------------------------------------------------------------- | ------------- |
 | `hand`   | Маркер<br/>**MAIN_HAND** - Основная рука<br/>**OFF_HAND** - Второстепенная рука | Тип руки      |
-| `enable` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить                        | Использование |
+| `enable` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить                        | Использование |
 <h3 id=if_entity_collides_at_location>
   <code>entity::collides_at_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3916,7 +3916,7 @@ if(entity::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
 
 **Пример использования:** 
 ```ts
-if(entity::collides_with_entity("name_or_uuid","OVERLAPS"){
+if(entity::collides_with_entity("name_or_uuid","CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -3926,7 +3926,7 @@ if(entity::collides_with_entity("name_or_uuid","OVERLAPS"){
 | **Имя**        | **Тип**                                                            | **Описание**              |
 | -------------- | ------------------------------------------------------------------ | ------------------------- |
 | `name_or_uuid` | Текст                                                              | Имя или UUID сущности     |
-| `check_type`   | Маркер<br/>**OVERLAPS** - Пересекается<br/>**CONTAINS** - Содержит | Тип проверки столкновения |
+| `check_type`   | Маркер<br/>**CONTAINS** - Содержит<br/>**OVERLAPS** - Пересекается | Тип проверки столкновения |
 <h3 id=if_entity_dummy>
   <code>entity::is_dummy</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3970,7 +3970,7 @@ if(entity::exists(){
 
 **Пример использования:** 
 ```ts
-if(entity::has_custom_tag("tag","tag_value","EQUALS"){
+if(entity::has_custom_tag("tag","tag_value","CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -3981,7 +3981,7 @@ if(entity::has_custom_tag("tag","tag_value","EQUALS"){
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
 | `tag`          | Текст                                                                                                                                            | Название тега |
 | `tag_value`    | Текст                                                                                                                                            | Значение тега |
-| `compare_type` | Маркер<br/>**EQUALS** - Точное соответствие<br/>**CONTAINS** - Содержит<br/>**STARTS_WITH** - Начинается на<br/>**ENDS_WITH** - Заканчивается на | Тип сравнения |
+| `compare_type` | Маркер<br/>**CONTAINS** - Содержит<br/>**ENDS_WITH** - Заканчивается на<br/>**EQUALS** - Точное соответствие<br/>**STARTS_WITH** - Начинается на | Тип сравнения |
 <h3 id=if_entity_has_potion_effect>
   <code>entity::has_potion_effect</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3993,7 +3993,7 @@ if(entity::has_custom_tag("tag","tag_value","EQUALS"){
 
 **Пример использования:** 
 ```ts
-if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ANY"){
+if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ALL"){
     player::message("Условие верно");
 }
 ```
@@ -4003,7 +4003,7 @@ if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 | **Имя**      | **Тип**                                                     | **Описание**       |
 | ------------ | ----------------------------------------------------------- | ------------------ |
 | `potions`    | список[Зелье]                                               | Зелья для проверки |
-| `check_mode` | Маркер<br/>**ANY** - Любой эффект<br/>**ALL** - Все эффекты | Режим проверки     |
+| `check_mode` | Маркер<br/>**ALL** - Все эффекты<br/>**ANY** - Любой эффект | Режим проверки     |
 <h3 id=if_entity_in_area>
   <code>entity::in_area</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4015,7 +4015,7 @@ if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 
 **Пример использования:** 
 ```ts
-if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"TRUE","POINT","CONTAINS"){
+if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -4026,8 +4026,8 @@ if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"TRUE","POINT","CONTA
 | ---------------- | ------------------------------------------------------------------ | --------------------- |
 | `location_1`     | Местоположение                                                     | Первый угол региона   |
 | `location_2`     | Местоположение                                                     | Второй угол региона   |
-| `ignore_y_axis`  | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать | Игнорировать ось Y    |
-| `intersect_type` | Маркер<br/>**POINT** - Местоположение<br/>**HITBOX** - Хитбокс     | Тип пересечения       |
+| `ignore_y_axis`  | Маркер<br/>**FALSE** - Не игнорировать<br/>**TRUE** - Игнорировать | Игнорировать ось Y    |
+| `intersect_type` | Маркер<br/>**HITBOX** - Хитбокс<br/>**POINT** - Местоположение     | Тип пересечения       |
 | `check_type`     | Маркер<br/>**CONTAINS** - Содержит<br/>**OVERLAPS** - Пересекается | Тип проверки хитбокса |
 <h3 id=if_entity_is_disguised>
   <code>entity::is_disguised</code>
@@ -4104,7 +4104,7 @@ if(entity::is_mob(){
 
 **Пример использования:** 
 ```ts
-if(entity::is_near_location(1,location(0,0,0,0,0),"TRUE"){
+if(entity::is_near_location(1,location(0,0,0,0,0),"FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -4115,7 +4115,7 @@ if(entity::is_near_location(1,location(0,0,0,0,0),"TRUE"){
 | --------------- | ------------------------------------------------------------------ | --------------------------- |
 | `range`         | Число                                                              | Радиус проверки             |
 | `location`      | Местоположение                                                     | Местоположение для проверки |
-| `ignore_y_axis` | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать | Игнорировать ось Y          |
+| `ignore_y_axis` | Маркер<br/>**FALSE** - Не игнорировать<br/>**TRUE** - Игнорировать | Игнорировать ось Y          |
 <h3 id=if_entity_is_projectile>
   <code>entity::is_projectile</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4143,7 +4143,7 @@ if(entity::is_projectile(){
 
 **Пример использования:** 
 ```ts
-if(entity::is_riding_entity(["entity_ids", "entity_ids"],"TYPE"){
+if(entity::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST"){
     player::message("Условие верно");
 }
 ```
@@ -4153,7 +4153,7 @@ if(entity::is_riding_entity(["entity_ids", "entity_ids"],"TYPE"){
 | **Имя**        | **Тип**                                                                                                               | **Описание**           |
 | -------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | `entity_ids`   | список[Текст]                                                                                                         | Имя или UUID сущностей |
-| `compare_mode` | Маркер<br/>**TYPE** - Тип существа<br/>**NAME_OR_UUID** - Имя или UUID<br/>**NEAREST** - None<br/>**FARTHEST** - None | Режим проверки         |
+| `compare_mode` | Маркер<br/>**FARTHEST** - None<br/>**NAME_OR_UUID** - Имя или UUID<br/>**NEAREST** - None<br/>**TYPE** - Тип существа | Режим проверки         |
 <h3 id=if_entity_is_standing_on_block>
   <code>entity::is_standing_on_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4165,7 +4165,7 @@ if(entity::is_riding_entity(["entity_ids", "entity_ids"],"TYPE"){
 
 **Пример использования:** 
 ```ts
-if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE"){
+if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -4176,7 +4176,7 @@ if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 | ------------ | ----------------------------------------------- | --------------------------- |
 | `blocks`     | список[Блок]                                    | Блоки для проверки          |
 | `locations`  | список[Местоположение]                          | Местоположения для проверки |
-| `only_solid` | Маркер<br/>**TRUE** - None<br/>**FALSE** - None | Учитывать проходимые блоки  |
+| `only_solid` | Маркер<br/>**FALSE** - None<br/>**TRUE** - None | Учитывать проходимые блоки  |
 <h3 id=if_entity_is_type>
   <code>entity::is_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

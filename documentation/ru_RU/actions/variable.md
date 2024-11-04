@@ -168,13 +168,13 @@ if("any value".in_range("any value","any value"){
 
 **Пример использования:** 
 ```ts
-if(variable::is_type("any value","NUMBER"){
+if(variable::is_type("any value","ARRAY"){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if("any value".is_type("NUMBER"){
+if("any value".is_type("ARRAY"){
     player::message("Условие верно");
 }
 ```
@@ -184,7 +184,7 @@ if("any value".is_type("NUMBER"){
 | **Имя**         | **Тип**                                                                                                                                                                                                                                                 | **Описание**            |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
 | `value`         | Любое значение                                                                                                                                                                                                                                          | Переменная для проверки |
-| `variable_type` | Маркер<br/>**NUMBER** - Число<br/>**TEXT** - Текст<br/>**LOCATION** - Местоположение<br/>**ITEM** - Предмет<br/>**POTION** - Зелье<br/>**SOUND** - Звук<br/>**PARTICLE** - Частица<br/>**VECTOR** - Вектор<br/>**ARRAY** - Список<br/>**MAP** - Словарь | Тип переменной          |
+| `variable_type` | Маркер<br/>**ARRAY** - Список<br/>**ITEM** - Предмет<br/>**LOCATION** - Местоположение<br/>**MAP** - Словарь<br/>**NUMBER** - Число<br/>**PARTICLE** - Частица<br/>**POTION** - Зелье<br/>**SOUND** - Звук<br/>**TEXT** - Текст<br/>**VECTOR** - Вектор | Тип переменной          |
 <h3 id=if_variable_item_equals>
   <code>variable::item_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -213,7 +213,7 @@ if(item("stick").item_equals([item("stick"), item("stick")],"EXACTLY"){
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
 | `value`           | Предмет                                                                                                                                                                                                              | Сравниваемая переменная предмета |
 | `compare`         | список[Предмет]                                                                                                                                                                                                      | Сравниваемые значения            |
-| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**TYPE_ONLY** - Только тип предмета<br/>**IGNORE_STACK_SIZE** - Игнорировать количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность | Режим сравнения                  |
+| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения                  |
 <h3 id=if_variable_item_has_enchantment>
   <code>variable::item_has_enchantment</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -254,13 +254,13 @@ if(item("stick").item_has_enchantment("enchant",1){
 
 **Пример использования:** 
 ```ts
-if(variable::item_has_tag(item("stick"),"tag","value","EQUALS"){
+if(variable::item_has_tag(item("stick"),"tag","value","CONTAINS"){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(item("stick").item_has_tag("tag","value","EQUALS"){
+if(item("stick").item_has_tag("tag","value","CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -272,7 +272,7 @@ if(item("stick").item_has_tag("tag","value","EQUALS"){
 | `item`         | Предмет                                                                                                                                          | Предметная переменная |
 | `tag`          | Текст                                                                                                                                            | Имя тега              |
 | `value`        | Текст                                                                                                                                            | Значение тега         |
-| `compare_type` | Маркер<br/>**EQUALS** - Точное соответствие<br/>**CONTAINS** - Содержит<br/>**STARTS_WITH** - Начинается на<br/>**ENDS_WITH** - Заканчивается на | Тип сравнения         |
+| `compare_type` | Маркер<br/>**CONTAINS** - Содержит<br/>**ENDS_WITH** - Заканчивается на<br/>**EQUALS** - Точное соответствие<br/>**STARTS_WITH** - Начинается на | Тип сравнения         |
 <h3 id=if_variable_less>
   <code>variable::less</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -340,13 +340,13 @@ if((1).less_or_equals(2){
 
 **Пример использования:** 
 ```ts
-if(variable::list_contains_value(["any value", "any value"],`list`,"ANY"){
+if(variable::list_contains_value(["any value", "any value"],`list`,"ALL"){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(`list`.list_contains_value(["any value", "any value"],"ANY"){
+if(`list`.list_contains_value(["any value", "any value"],"ALL"){
     player::message("Условие верно");
 }
 ```
@@ -357,7 +357,7 @@ if(`list`.list_contains_value(["any value", "any value"],"ANY"){
 | ------------ | -------------------------------------------------------------- | --------------------- |
 | `values`     | список[Любое значение]                                         | Значения для проверки |
 | `list`       | Список                                                         | Список для проверки   |
-| `check_mode` | Маркер<br/>**ANY** - Любое значение<br/>**ALL** - Все значения | Режим проверки        |
+| `check_mode` | Маркер<br/>**ALL** - Все значения<br/>**ANY** - Любое значение | Режим проверки        |
 <h3 id=if_variable_list_is_empty>
   <code>variable::list_is_empty</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -429,13 +429,13 @@ if(`list`.list_value_equals(["any value", "any value"],1){
 
 **Пример использования:** 
 ```ts
-if(variable::location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"EXACT"){
+if(variable::location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"BLOCK"){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),"EXACT"){
+if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),"BLOCK"){
     player::message("Условие верно");
 }
 ```
@@ -447,7 +447,7 @@ if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0)
 | `value`           | Местоположение                                                                                                                                           | Местоположение для проверки |
 | `min`             | Местоположение                                                                                                                                           | Первый угол региона         |
 | `max`             | Местоположение                                                                                                                                           | Второй угол региона         |
-| `border_handling` | Маркер<br/>**EXACT** - Точные координаты<br/>**BLOCK** - Округление до координат блока<br/>**FULL_BLOCK_RANGE** - Округление до мин. и макс. угла блоков | Режим проверки              |
+| `border_handling` | Маркер<br/>**BLOCK** - Округление до координат блока<br/>**EXACT** - Точные координаты<br/>**FULL_BLOCK_RANGE** - Округление до мин. и макс. угла блоков | Режим проверки              |
 <h3 id=if_variable_location_is_near>
   <code>variable::location_is_near</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -459,13 +459,13 @@ if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0)
 
 **Пример использования:** 
 ```ts
-if(variable::location_is_near([location(0,0,0,0,0), location(0,0,0,0,0)],location(0,0,0,0,0),1,"SPHERE"){
+if(variable::location_is_near([location(0,0,0,0,0), location(0,0,0,0,0)],location(0,0,0,0,0),1,"CIRCLE"){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(location(0,0,0,0,0).location_is_near([location(0,0,0,0,0), location(0,0,0,0,0)],1,"SPHERE"){
+if(location(0,0,0,0,0).location_is_near([location(0,0,0,0,0), location(0,0,0,0,0)],1,"CIRCLE"){
     player::message("Условие верно");
 }
 ```
@@ -477,7 +477,7 @@ if(location(0,0,0,0,0).location_is_near([location(0,0,0,0,0), location(0,0,0,0,0
 | `check`    | список[Местоположение]                                                                          | Местоположение центра фигуры |
 | `location` | Местоположение                                                                                  | Местоположение для проверки  |
 | `radius`   | Число                                                                                           | Радиус проверки              |
-| `shape`    | Маркер<br/>**SPHERE** - Сфера<br/>**CIRCLE** - Круг<br/>**CUBE** - Куб<br/>**SQUARE** - Квадрат | Фигура                       |
+| `shape`    | Маркер<br/>**CIRCLE** - Круг<br/>**CUBE** - Куб<br/>**SPHERE** - Сфера<br/>**SQUARE** - Квадрат | Фигура                       |
 <h3 id=if_variable_map_has_key>
   <code>variable::map_has_key</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -574,7 +574,7 @@ if("any value".not_equals(["any value", "any value"]){
 
 **Пример использования:** 
 ```ts
-if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"OVERLAPS"){
+if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -587,7 +587,7 @@ if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),loca
 | `max1`       | Местоположение                                                     | Второй угол первого региона |
 | `min2`       | Местоположение                                                     | Первый угол второго региона |
 | `max2`       | Местоположение                                                     | Второй угол второго региона |
-| `check_type` | Маркер<br/>**OVERLAPS** - Пересекается<br/>**CONTAINS** - Содержит | Тип проверки                |
+| `check_type` | Маркер<br/>**CONTAINS** - Содержит<br/>**OVERLAPS** - Пересекается | Тип проверки                |
 <h3 id=if_variable_text_contains>
   <code>variable::text_contains</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -599,13 +599,13 @@ if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),loca
 
 **Пример использования:** 
 ```ts
-if(variable::text_contains("value",["compare", "compare"],"TRUE"){
+if(variable::text_contains("value",["compare", "compare"],"FALSE"){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if("value".text_contains(["compare", "compare"],"TRUE"){
+if("value".text_contains(["compare", "compare"],"FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -616,7 +616,7 @@ if("value".text_contains(["compare", "compare"],"TRUE"){
 | ------------- | -------------------------------------------- | ----------------------- |
 | `value`       | Текст                                        | Переменная для проверки |
 | `compare`     | список[Текст]                                | Текст для проверки      |
-| `ignore_case` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Игнорировать регистр    |
+| `ignore_case` | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Игнорировать регистр    |
 <h3 id=if_variable_text_ends_with>
   <code>variable::text_ends_with</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -628,13 +628,13 @@ if("value".text_contains(["compare", "compare"],"TRUE"){
 
 **Пример использования:** 
 ```ts
-if(variable::text_ends_with("value",["compare", "compare"],"TRUE"){
+if(variable::text_ends_with("value",["compare", "compare"],"FALSE"){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if("value".text_ends_with(["compare", "compare"],"TRUE"){
+if("value".text_ends_with(["compare", "compare"],"FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -645,7 +645,7 @@ if("value".text_ends_with(["compare", "compare"],"TRUE"){
 | ------------- | -------------------------------------------- | --------------------------------- |
 | `value`       | Текст                                        | Текстовая переменная для проверки |
 | `compare`     | список[Текст]                                | Текст для сравнения               |
-| `ignore_case` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Игнорировать регистр              |
+| `ignore_case` | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Игнорировать регистр              |
 <h3 id=if_variable_text_matches>
   <code>variable::text_matches</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -657,13 +657,13 @@ if("value".text_ends_with(["compare", "compare"],"TRUE"){
 
 **Пример использования:** 
 ```ts
-if(variable::text_matches("match",["values", "values"],"TRUE","TRUE"){
+if(variable::text_matches("match",["values", "values"],"FALSE","FALSE"){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if("match".text_matches(["values", "values"],"TRUE","TRUE"){
+if("match".text_matches(["values", "values"],"FALSE","FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -674,8 +674,8 @@ if("match".text_matches(["values", "values"],"TRUE","TRUE"){
 | --------------------- | ---------------------------------------------------------------- | --------------------------------- |
 | `match`               | Текст                                                            | Текст или регулярное выражение    |
 | `values`              | список[Текст]                                                    | Текстовые переменные для проверки |
-| `regular_expressions` | Маркер<br/>**TRUE** - Регулярное выражение<br/>**FALSE** - Текст | Способ проверки                   |
-| `ignore_case`         | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                     | Игнорировать регистр              |
+| `regular_expressions` | Маркер<br/>**FALSE** - Текст<br/>**TRUE** - Регулярное выражение | Способ проверки                   |
+| `ignore_case`         | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да                     | Игнорировать регистр              |
 <h3 id=if_variable_text_starts_with>
   <code>variable::text_starts_with</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -687,13 +687,13 @@ if("match".text_matches(["values", "values"],"TRUE","TRUE"){
 
 **Пример использования:** 
 ```ts
-if(variable::text_starts_with("value",["compare", "compare"],"TRUE"){
+if(variable::text_starts_with("value",["compare", "compare"],"FALSE"){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if("value".text_starts_with(["compare", "compare"],"TRUE"){
+if("value".text_starts_with(["compare", "compare"],"FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -704,7 +704,7 @@ if("value".text_starts_with(["compare", "compare"],"TRUE"){
 | ------------- | -------------------------------------------- | --------------------------------- |
 | `value`       | Текст                                        | Текстовая переменная для проверки |
 | `compare`     | список[Текст]                                | Текст для сравнения               |
-| `ignore_case` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Игнорировать регистр              |
+| `ignore_case` | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Игнорировать регистр              |
 <h3 id=set_variable_absolute>
   <code>variable::absolute</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -798,15 +798,15 @@ variable::add_item_enchantment(a1,item("stick"),"enchantment",1);
 
 **Пример использования:** 
 ```ts
-a1 = variable::add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],item("stick"),"TRUE","TRUE","REGULAR");
+a1 = variable::add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],item("stick"),"FALSE","FALSE","AMBIENT");
 
 #Или от объекта
 
-a1 = item("stick").add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],"TRUE","TRUE","REGULAR");
+a1 = item("stick").add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],"FALSE","FALSE","AMBIENT");
 
 #Или в сухую
 
-variable::add_item_potion_effects(a1,[potion("slow_falling"), potion("slow_falling")],item("stick"),"TRUE","TRUE","REGULAR");
+variable::add_item_potion_effects(a1,[potion("slow_falling"), potion("slow_falling")],item("stick"),"FALSE","FALSE","AMBIENT");
 ```
 
 **Аргументы:**
@@ -816,9 +816,9 @@ variable::add_item_potion_effects(a1,[potion("slow_falling"), potion("slow_falli
 | `variable`      | Переменная                                                                   | Переменная для присвоения           |
 | `potions`       | список[Зелье]                                                                | Эффекты зелий                       |
 | `item`          | Предмет                                                                      | Предмет                             |
-| `overwrite`     | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                 | Перезаписывать существующие эффекты |
-| `show_icon`     | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                 | Показывать иконку эффекта           |
-| `particle_mode` | Маркер<br/>**REGULAR** - Да<br/>**AMBIENT** - Прозрачными<br/>**NONE** - Нет | Показывать частицы                  |
+| `overwrite`     | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да                                 | Перезаписывать существующие эффекты |
+| `show_icon`     | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да                                 | Показывать иконку эффекта           |
+| `particle_mode` | Маркер<br/>**AMBIENT** - Прозрачными<br/>**NONE** - Нет<br/>**REGULAR** - Да | Показывать частицы                  |
 <h3 id=set_variable_add_vectors>
   <code>variable::add_vectors</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -885,15 +885,15 @@ variable::align_location(a1,location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENTER");
 
 **Пример использования:** 
 ```ts
-a1 = variable::align_to_axis_vector(vector(0,0,0),"TRUE");
+a1 = variable::align_to_axis_vector(vector(0,0,0),"FALSE");
 
 #Или от объекта
 
-a1 = vector(0,0,0).align_to_axis_vector("TRUE");
+a1 = vector(0,0,0).align_to_axis_vector("FALSE");
 
 #Или в сухую
 
-variable::align_to_axis_vector(a1,vector(0,0,0),"TRUE");
+variable::align_to_axis_vector(a1,vector(0,0,0),"FALSE");
 ```
 
 **Аргументы:**
@@ -902,7 +902,7 @@ variable::align_to_axis_vector(a1,vector(0,0,0),"TRUE");
 | ----------- | -------------------------------------------------------------------- | ------------------------- |
 | `variable`  | Переменная                                                           | Переменная для присвоения |
 | `vector`    | Вектор                                                               | Вектор для выравнивания   |
-| `normalize` | Маркер<br/>**TRUE** - Нормализованный<br/>**FALSE** - Исходной длины | Тип выдаваемого вектора   |
+| `normalize` | Маркер<br/>**FALSE** - Исходной длины<br/>**TRUE** - Нормализованный | Тип выдаваемого вектора   |
 <h3 id=set_variable_append_component>
   <code>variable::append_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -914,11 +914,11 @@ variable::align_to_axis_vector(a1,vector(0,0,0),"TRUE");
 
 **Пример использования:** 
 ```ts
-a1 = variable::append_component(["components", "components"],"SPACES");
+a1 = variable::append_component(["components", "components"],"CONCATENATION");
 
 #Или в сухую
 
-variable::append_component(a1,["components", "components"],"SPACES");
+variable::append_component(a1,["components", "components"],"CONCATENATION");
 ```
 
 **Аргументы:**
@@ -927,7 +927,7 @@ variable::append_component(a1,["components", "components"],"SPACES");
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
 | `variable`   | Переменная                                                                                                                    | Переменная для присвоения          |
 | `components` | список[Текст]                                                                                                                 | Стилизуемые тексты для объединения |
-| `merging`    | Маркер<br/>**SPACES** - Разделение пробелом<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки | Объединение текста                 |
+| `merging`    | Маркер<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки<br/>**SPACES** - Разделение пробелом | Объединение текста                 |
 <h3 id=set_variable_append_list>
   <code>variable::append_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1045,11 +1045,11 @@ variable::average(a1,[1, 2]);
 
 **Пример использования:** 
 ```ts
-a1 = variable::bitwise_operation(1,2,"OR");
+a1 = variable::bitwise_operation(1,2,"AND");
 
 #Или в сухую
 
-variable::bitwise_operation(a1,1,2,"OR");
+variable::bitwise_operation(a1,1,2,"AND");
 ```
 
 **Аргументы:**
@@ -1059,7 +1059,7 @@ variable::bitwise_operation(a1,1,2,"OR");
 | `variable` | Переменная                                                                                                                                                                                                                                                                                  | Переменная для присвоения |
 | `operand1` | Число                                                                                                                                                                                                                                                                                       | Первый операнд            |
 | `operand2` | Число                                                                                                                                                                                                                                                                                       | Второй операнд            |
-| `operator` | Маркер<br/>**OR** - ИЛИ (or)<br/>**AND** - И (and)<br/>**NOT** - НЕ (not)<br/>**XOR** - Исключающее ИЛИ (xor)<br/>**LEFT_SHIFT** - Сдвиг влево (left_shift)<br/>**RIGHT_SHIFT** - Сдвиг вправо (right_shift)<br/>**UNSIGNED_RIGHT_SHIFT** - Беззнаковый сдвиг вправо (unsigned_right_shift) | Тип операции              |
+| `operator` | Маркер<br/>**AND** - И (and)<br/>**LEFT_SHIFT** - Сдвиг влево (left_shift)<br/>**NOT** - НЕ (not)<br/>**OR** - ИЛИ (or)<br/>**RIGHT_SHIFT** - Сдвиг вправо (right_shift)<br/>**UNSIGNED_RIGHT_SHIFT** - Беззнаковый сдвиг вправо (unsigned_right_shift)<br/>**XOR** - Исключающее ИЛИ (xor) | Тип операции              |
 <h3 id=set_variable_center_location>
   <code>variable::center_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1095,15 +1095,15 @@ variable::center_location(a1,[location(0,0,0,0,0), location(0,0,0,0,0)]);
 
 **Пример использования:** 
 ```ts
-a1 = variable::change_component_parsing("component","PLAIN");
+a1 = variable::change_component_parsing("component","JSON");
 
 #Или от объекта
 
-a1 = "component".change_component_parsing("PLAIN");
+a1 = "component".change_component_parsing("JSON");
 
 #Или в сухую
 
-variable::change_component_parsing(a1,"component","PLAIN");
+variable::change_component_parsing(a1,"component","JSON");
 ```
 
 **Аргументы:**
@@ -1112,7 +1112,7 @@ variable::change_component_parsing(a1,"component","PLAIN");
 | ----------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | `variable`  | Переменная                                                                                                        | Переменная для присвоения       |
 | `component` | Текст                                                                                                             | Стилизуемый текст для установки |
-| `parsing`   | Маркер<br/>**PLAIN** - Обычный<br/>**LEGACY** - Цветной (&)<br/>**MINIMESSAGE** - Стилизуемый<br/>**JSON** - JSON | Тип преобразования              |
+| `parsing`   | Маркер<br/>**JSON** - JSON<br/>**LEGACY** - Цветной (&)<br/>**MINIMESSAGE** - Стилизуемый<br/>**PLAIN** - Обычный | Тип преобразования              |
 <h3 id=set_variable_char_to_number>
   <code>variable::char_to_number</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1346,15 +1346,15 @@ variable::convert_text_to_number(a1,"text",1);
 
 **Пример использования:** 
 ```ts
-a1 = variable::cosine(1,"COSINE","DEGREES");
+a1 = variable::cosine(1,"ARCCOSINE","DEGREES");
 
 #Или от объекта
 
-a1 = (1).cosine("COSINE","DEGREES");
+a1 = (1).cosine("ARCCOSINE","DEGREES");
 
 #Или в сухую
 
-variable::cosine(a1,1,"COSINE","DEGREES");
+variable::cosine(a1,1,"ARCCOSINE","DEGREES");
 ```
 
 **Аргументы:**
@@ -1363,7 +1363,7 @@ variable::cosine(a1,1,"COSINE","DEGREES");
 | ---------- | ------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
 | `variable` | Переменная                                                                                                         | Переменная для присвоения    |
 | `number`   | Число                                                                                                              | Число для получения косинуса |
-| `variant`  | Маркер<br/>**COSINE** - Косинус<br/>**ARCCOSINE** - Арккосинус<br/>**HYPERBOLIC_COSINE** - Гиперболический косинус | Тип операции                 |
+| `variant`  | Маркер<br/>**ARCCOSINE** - Арккосинус<br/>**COSINE** - Косинус<br/>**HYPERBOLIC_COSINE** - Гиперболический косинус | Тип операции                 |
 | `input`    | Маркер<br/>**DEGREES** - Градусы<br/>**RADIANS** - Радианы                                                         | Тип угла                     |
 <h3 id=set_variable_cotangent>
   <code>variable::cotangent</code>
@@ -1376,15 +1376,15 @@ variable::cosine(a1,1,"COSINE","DEGREES");
 
 **Пример использования:** 
 ```ts
-a1 = variable::cotangent(1,"COTANGENT","DEGREES");
+a1 = variable::cotangent(1,"ARCCOTANGENT","DEGREES");
 
 #Или от объекта
 
-a1 = (1).cotangent("COTANGENT","DEGREES");
+a1 = (1).cotangent("ARCCOTANGENT","DEGREES");
 
 #Или в сухую
 
-variable::cotangent(a1,1,"COTANGENT","DEGREES");
+variable::cotangent(a1,1,"ARCCOTANGENT","DEGREES");
 ```
 
 **Аргументы:**
@@ -1393,7 +1393,7 @@ variable::cotangent(a1,1,"COTANGENT","DEGREES");
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
 | `variable` | Переменная                                                                                                                        | Переменная для присвоения      |
 | `number`   | Число                                                                                                                             | Число для получения котангенса |
-| `variant`  | Маркер<br/>**COTANGENT** - Котангенс<br/>**ARCCOTANGENT** - Арккотангенс<br/>**HYPERBOLIC_COTANGENT** - Гиперболический котангенс | Тип операции                   |
+| `variant`  | Маркер<br/>**ARCCOTANGENT** - Арккотангенс<br/>**COTANGENT** - Котангенс<br/>**HYPERBOLIC_COTANGENT** - Гиперболический котангенс | Тип операции                   |
 | `input`    | Маркер<br/>**DEGREES** - Градусы<br/>**RADIANS** - Радианы                                                                        | Тип угла                       |
 <h3 id=set_variable_create_keybind_component>
   <code>variable::create_keybind_component</code>
@@ -1559,11 +1559,11 @@ variable::decrement(a1,1);
 
 **Пример использования:** 
 ```ts
-a1 = variable::divide([1, 2],"DEFAULT");
+a1 = variable::divide([1, 2],"CEIL");
 
 #Или в сухую
 
-variable::divide(a1,[1, 2],"DEFAULT");
+variable::divide(a1,[1, 2],"CEIL");
 ```
 
 **Аргументы:**
@@ -1572,7 +1572,7 @@ variable::divide(a1,[1, 2],"DEFAULT");
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `variable`      | Переменная                                                                                                                                                 | Переменная для присвоения |
 | `value`         | список[Число]                                                                                                                                              | Числа для деления         |
-| `division_mode` | Маркер<br/>**DEFAULT** - По умолчанию<br/>**ROUND_TO_INT** - Обычное округление<br/>**FLOOR** - Округлить до меньшего<br/>**CEIL** - Округлить до большего | Режим деления             |
+| `division_mode` | Маркер<br/>**CEIL** - Округлить до большего<br/>**DEFAULT** - По умолчанию<br/>**FLOOR** - Округлить до меньшего<br/>**ROUND_TO_INT** - Обычное округление | Режим деления             |
 <h3 id=set_variable_divide_vector>
   <code>variable::divide_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1700,7 +1700,7 @@ variable::format_timestamp(a1,1,"pattern","zone_id","locale","CUSTOM");
 | `pattern`  | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Шаблон времени (например, mm\:ss)       |
 | `zone_id`  | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Часовой пояс (GMT+1\.\.13, GMT-1\.\.13) |
 | `locale`   | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Язык (ru_RU, en_US...)                  |
-| `format`   | Маркер<br/>**CUSTOM** - Настраиваемое<br/>**DD_MM_YYYY_HH_MM_S** - 01\/01\/1970 00\:00\:00 (dd_mm_yyyy_hh_mm_s)<br/>**DD_MM_YYYY** - 01\/01\/1970 (dd_mm_yyyy)<br/>**YYYY_MM_DD_HH_MM_S** - 1970\/01\/01 00\:00\:00 (yyyy_mm_dd_hh_mm_s)<br/>**YYYY_MM_DD** - 1970\/01\/01 (yyyy_mm_dd)<br/>**EEE_D_MMMM** - Thu, 01 January (eee_d_mmmm)<br/>**EEE_MMMM_D** - Thu, January 01 (eee_mmmm_d)<br/>**EEEE** - Thursday (eeee)<br/>**HH_MM_SS** - 00\:00\:00 (hh_mm_ss)<br/>**H_MM_A** - 00\:00 AM (h_mm_a)<br/>**H_H_M_M_S_S** - 00h00m00s (h_h_m_m_s_s)<br/>**S_S** - 00.00 (s_s) | Формат времени                          |
+| `format`   | Маркер<br/>**CUSTOM** - Настраиваемое<br/>**DD_MM_YYYY** - 01\/01\/1970 (dd_mm_yyyy)<br/>**DD_MM_YYYY_HH_MM_S** - 01\/01\/1970 00\:00\:00 (dd_mm_yyyy_hh_mm_s)<br/>**EEEE** - Thursday (eeee)<br/>**EEE_D_MMMM** - Thu, 01 January (eee_d_mmmm)<br/>**EEE_MMMM_D** - Thu, January 01 (eee_mmmm_d)<br/>**HH_MM_SS** - 00\:00\:00 (hh_mm_ss)<br/>**H_H_M_M_S_S** - 00h00m00s (h_h_m_m_s_s)<br/>**H_MM_A** - 00\:00 AM (h_mm_a)<br/>**S_S** - 00.00 (s_s)<br/>**YYYY_MM_DD** - 1970\/01\/01 (yyyy_mm_dd)<br/>**YYYY_MM_DD_HH_MM_S** - 1970\/01\/01 00\:00\:00 (yyyy_mm_dd_hh_mm_s) | Формат времени                          |
 <h3 id=set_variable_gaussian_distribution>
   <code>variable::gaussian_distribution</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1712,11 +1712,11 @@ variable::format_timestamp(a1,1,"pattern","zone_id","locale","CUSTOM");
 
 **Пример использования:** 
 ```ts
-a1 = variable::gaussian_distribution(1,2,"NORMAL");
+a1 = variable::gaussian_distribution(1,2,"FOLDER_NORMAL");
 
 #Или в сухую
 
-variable::gaussian_distribution(a1,1,2,"NORMAL");
+variable::gaussian_distribution(a1,1,2,"FOLDER_NORMAL");
 ```
 
 **Аргументы:**
@@ -1726,7 +1726,7 @@ variable::gaussian_distribution(a1,1,2,"NORMAL");
 | `variable`     | Переменная                                                                                  | Переменная для присвоения           |
 | `deviant`      | Число                                                                                       | Отклонение σ от среднего значения μ |
 | `mean`         | Число                                                                                       | Среднее значение μ                  |
-| `distribution` | Маркер<br/>**NORMAL** - Полное отклонение<br/>**FOLDER_NORMAL** - Отклонение в сторону >= μ | Тип σ отклонения                    |
+| `distribution` | Маркер<br/>**FOLDER_NORMAL** - Отклонение в сторону >= μ<br/>**NORMAL** - Полное отклонение | Тип σ отклонения                    |
 <h3 id=set_variable_get_all_block_data>
   <code>variable::get_all_block_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1738,15 +1738,15 @@ variable::gaussian_distribution(a1,1,2,"NORMAL");
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_all_block_data(location(0,0,0,0,0),"TRUE");
+a1 = variable::get_all_block_data(location(0,0,0,0,0),"FALSE");
 
 #Или от объекта
 
-a1 = location(0,0,0,0,0).get_all_block_data("TRUE");
+a1 = location(0,0,0,0,0).get_all_block_data("FALSE");
 
 #Или в сухую
 
-variable::get_all_block_data(a1,location(0,0,0,0,0),"TRUE");
+variable::get_all_block_data(a1,location(0,0,0,0,0),"FALSE");
 ```
 
 **Аргументы:**
@@ -1755,7 +1755,7 @@ variable::get_all_block_data(a1,location(0,0,0,0,0),"TRUE");
 | ------------------ | -------------------------------------------------------- | -------------------------------- |
 | `variable`         | Переменная                                               | Переменная для присвоения        |
 | `location`         | Местоположение                                           | Местоположение блока             |
-| `hide_unspecified` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Скрытие неустановленных значений |
+| `hide_unspecified` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Скрытие неустановленных значений |
 <h3 id=set_variable_get_all_coordinates>
   <code>variable::get_all_coordinates</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1881,15 +1881,15 @@ variable::get_block_data(a1,location(0,0,0,0,0),"tag_name");
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_block_growth(location(0,0,0,0,0),"GROWTH_STAGE");
+a1 = variable::get_block_growth(location(0,0,0,0,0),"GROWTH_PERCENTAGE");
 
 #Или от объекта
 
-a1 = location(0,0,0,0,0).get_block_growth("GROWTH_STAGE");
+a1 = location(0,0,0,0,0).get_block_growth("GROWTH_PERCENTAGE");
 
 #Или в сухую
 
-variable::get_block_growth(a1,location(0,0,0,0,0),"GROWTH_STAGE");
+variable::get_block_growth(a1,location(0,0,0,0,0),"GROWTH_PERCENTAGE");
 ```
 
 **Аргументы:**
@@ -1898,7 +1898,7 @@ variable::get_block_growth(a1,location(0,0,0,0,0),"GROWTH_STAGE");
 | ------------- | ------------------------------------------------------------------------------------ | ------------------------- |
 | `variable`    | Переменная                                                                           | Переменная для присвоения |
 | `location`    | Местоположение                                                                       | Местоположение блока      |
-| `growth_unit` | Маркер<br/>**GROWTH_STAGE** - Стадия роста<br/>**GROWTH_PERCENTAGE** - Процент роста | Единица измерения         |
+| `growth_unit` | Маркер<br/>**GROWTH_PERCENTAGE** - Процент роста<br/>**GROWTH_STAGE** - Стадия роста | Единица измерения         |
 <h3 id=set_variable_get_block_material>
   <code>variable::get_block_material</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1927,7 +1927,7 @@ variable::get_block_material(a1,location(0,0,0,0,0),"ID");
 | ------------ | ------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `variable`   | Переменная                                                                                                                | Переменная для присвоения |
 | `location`   | Местоположение                                                                                                            | Местоположение блока      |
-| `value_type` | Маркер<br/>**ID** - ID блока<br/>**ID_WITH_DATA** - ID и данные блока<br/>**NAME** - Имя блока<br/>**ITEM** - Как предмет | Тип значения              |
+| `value_type` | Маркер<br/>**ID** - ID блока<br/>**ID_WITH_DATA** - ID и данные блока<br/>**ITEM** - Как предмет<br/>**NAME** - Имя блока | Тип значения              |
 <h3 id=set_variable_get_block_material_property>
   <code>variable::get_block_material_property</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1939,15 +1939,15 @@ variable::get_block_material(a1,location(0,0,0,0,0),"ID");
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_block_material_property(item("stone"),"HARDNESS");
+a1 = variable::get_block_material_property(item("stone"),"BLAST_RESISTANCE");
 
 #Или от объекта
 
-a1 = item("stone").get_block_material_property("HARDNESS");
+a1 = item("stone").get_block_material_property("BLAST_RESISTANCE");
 
 #Или в сухую
 
-variable::get_block_material_property(a1,item("stone"),"HARDNESS");
+variable::get_block_material_property(a1,item("stone"),"BLAST_RESISTANCE");
 ```
 
 **Аргументы:**
@@ -1956,7 +1956,7 @@ variable::get_block_material_property(a1,item("stone"),"HARDNESS");
 | ---------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `variable` | Переменная                                                                                                              | Переменная для присвоения |
 | `block`    | Блок                                                                                                                    | Блок для получения        |
-| `property` | Маркер<br/>**HARDNESS** - Прочность<br/>**BLAST_RESISTANCE** - Устойчивость к взрыву<br/>**SLIPPERINESS** - Скользкость | Свойство                  |
+| `property` | Маркер<br/>**BLAST_RESISTANCE** - Устойчивость к взрыву<br/>**HARDNESS** - Прочность<br/>**SLIPPERINESS** - Скользкость | Свойство                  |
 <h3 id=set_variable_get_block_power>
   <code>variable::get_block_power</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2106,15 +2106,15 @@ variable::get_char_at(a1,"text",1);
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_color_channels("color","RGB");
+a1 = variable::get_color_channels("color","HSB");
 
 #Или от объекта
 
-a1 = "color".get_color_channels("RGB");
+a1 = "color".get_color_channels("HSB");
 
 #Или в сухую
 
-variable::get_color_channels(a1,"color","RGB");
+variable::get_color_channels(a1,"color","HSB");
 ```
 
 **Аргументы:**
@@ -2123,7 +2123,7 @@ variable::get_color_channels(a1,"color","RGB");
 | ---------------- | ------------------------------------------------------------ | --------------------------- |
 | `variable`       | Переменная                                                   | Переменная для присвоения   |
 | `color`          | Текст                                                        | Цвет для получения значения |
-| `color_channels` | Маркер<br/>**RGB** - RGB<br/>**HSB** - HSB<br/>**HSL** - HSL | Цветовой канал              |
+| `color_channels` | Маркер<br/>**HSB** - HSB<br/>**HSL** - HSL<br/>**RGB** - RGB | Цветовой канал              |
 <h3 id=set_variable_get_compass_lodestone>
   <code>variable::get_compass_lodestone</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2275,15 +2275,15 @@ variable::get_component_parsing(a1,"component");
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_container_contents(location(0,0,0,0,0),"TRUE");
+a1 = variable::get_container_contents(location(0,0,0,0,0),"FALSE");
 
 #Или от объекта
 
-a1 = location(0,0,0,0,0).get_container_contents("TRUE");
+a1 = location(0,0,0,0,0).get_container_contents("FALSE");
 
 #Или в сухую
 
-variable::get_container_contents(a1,location(0,0,0,0,0),"TRUE");
+variable::get_container_contents(a1,location(0,0,0,0,0),"FALSE");
 ```
 
 **Аргументы:**
@@ -2292,7 +2292,7 @@ variable::get_container_contents(a1,location(0,0,0,0,0),"TRUE");
 | -------------------- | ------------------------------------------------------------------ | --------------------------- |
 | `variable`           | Переменная                                                         | Переменная для присвоения   |
 | `location`           | Местоположение                                                     | Местоположение контейнера   |
-| `ignore_empty_slots` | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать | Игнорирование пустых слотов |
+| `ignore_empty_slots` | Маркер<br/>**FALSE** - Не игнорировать<br/>**TRUE** - Игнорировать | Игнорирование пустых слотов |
 <h3 id=set_variable_get_container_lock>
   <code>variable::get_container_lock</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2360,15 +2360,15 @@ variable::get_container_name(a1,location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_coordinate(location(0,0,0,0,0),"X");
+a1 = variable::get_coordinate(location(0,0,0,0,0),"PITCH");
 
 #Или от объекта
 
-a1 = location(0,0,0,0,0).get_coordinate("X");
+a1 = location(0,0,0,0,0).get_coordinate("PITCH");
 
 #Или в сухую
 
-variable::get_coordinate(a1,location(0,0,0,0,0),"X");
+variable::get_coordinate(a1,location(0,0,0,0,0),"PITCH");
 ```
 
 **Аргументы:**
@@ -2377,7 +2377,7 @@ variable::get_coordinate(a1,location(0,0,0,0,0),"X");
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
 | `variable` | Переменная                                                                                                                             | Переменная для присвоения             |
 | `location` | Местоположение                                                                                                                         | Местоположение для получения значения |
-| `type`     | Маркер<br/>**X** - Ось X<br/>**Y** - Ось Y<br/>**Z** - Ось Z<br/>**PITCH** - Вертикальный поворот<br/>**YAW** - Горизонтальный поворот | Тип координаты                        |
+| `type`     | Маркер<br/>**PITCH** - Вертикальный поворот<br/>**X** - Ось X<br/>**Y** - Ось Y<br/>**YAW** - Горизонтальный поворот<br/>**Z** - Ось Z | Тип координаты                        |
 <h3 id=set_variable_get_decorate_pot_sherd>
   <code>variable::get_decorate_pot_sherd</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2406,7 +2406,7 @@ variable::get_decorate_pot_sherd(a1,location(0,0,0,0,0),"BACK");
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `variable` | Переменная                                                                                                                        | Переменная для присвоения |
 | `location` | Местоположение                                                                                                                    | Местоположение кувшина    |
-| `side`     | Маркер<br/>**BACK** - Задняя сторона<br/>**LEFT** - Левая сторона<br/>**RIGHT** - Правая сторона<br/>**FRONT** - Передняя сторона | Сторона кувшина           |
+| `side`     | Маркер<br/>**BACK** - Задняя сторона<br/>**FRONT** - Передняя сторона<br/>**LEFT** - Левая сторона<br/>**RIGHT** - Правая сторона | Сторона кувшина           |
 <h3 id=set_variable_get_index_of_subtext>
   <code>variable::get_index_of_subtext</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2477,15 +2477,15 @@ variable::get_item_amount(a1,item("stick"));
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_item_attribute(item("stick"),"name","GENERIC_MAX_HEALTH","ALL","ADD_NUMBER");
+a1 = variable::get_item_attribute(item("stick"),"name","ARMOR","ALL","ADD_NUMBER");
 
 #Или от объекта
 
-a1 = item("stick").get_item_attribute("name","GENERIC_MAX_HEALTH","ALL","ADD_NUMBER");
+a1 = item("stick").get_item_attribute("name","ARMOR","ALL","ADD_NUMBER");
 
 #Или в сухую
 
-variable::get_item_attribute(a1,item("stick"),"name","GENERIC_MAX_HEALTH","ALL","ADD_NUMBER");
+variable::get_item_attribute(a1,item("stick"),"name","ARMOR","ALL","ADD_NUMBER");
 ```
 
 **Аргументы:**
@@ -2495,8 +2495,8 @@ variable::get_item_attribute(a1,item("stick"),"name","GENERIC_MAX_HEALTH","ALL",
 | `variable`  | Переменная                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Переменная для присвоения |
 | `item`      | Предмет                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Предмет                   |
 | `name`      | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Имя атрибута              |
-| `attribute` | Маркер<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**HORSE_JUMP_STRENGTH** - Сила прыжка лошади (horse.jump_strength)<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби (zombie.spawn_reinforcements)<br/>**MAX_HEALTH** - Максимальное здоровье<br/>**MAX_ABSORPTION** - Максимальное поглощение<br/>**FOLLOW_RANGE** - Расстояние следования<br/>**KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию<br/>**MOVEMENT_SPEED** - Скорость передвижения<br/>**FLYING_SPEED** - Скорость полета<br/>**ATTACK_DAMAGE** - Урон атаки<br/>**ATTACK_KNOCKBACK** - Отталкивание от атаки<br/>**ATTACK_SPEED** - Скорость атаки<br/>**ARMOR** - Броня<br/>**ARMOR_TOUGHNESS** - Плотность защиты<br/>**LUCK** - Удача<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_GRAVITY** - Гравитация<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption) | Тип атрибута              |
-| `slot`      | Маркер<br/>**ALL** - Все<br/>**MAIN_HAND** - Основная рука<br/>**OFF_HAND** - Второстепенная рука<br/>**HEAD** - Шлем<br/>**CHEST** - Нагрудник<br/>**LEGGINGS** - Поножи<br/>**BOOTS** - Ботинки<br/>**HAND** - Любая рука<br/>**ARMOR** - Любая броня<br/>**BODY** - Тело (работает не со всеми сущностями)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Слот атрибута             |
+| `attribute` | Маркер<br/>**ARMOR** - Броня<br/>**ARMOR_TOUGHNESS** - Плотность защиты<br/>**ATTACK_DAMAGE** - Урон атаки<br/>**ATTACK_KNOCKBACK** - Отталкивание от атаки<br/>**ATTACK_SPEED** - Скорость атаки<br/>**FLYING_SPEED** - Скорость полета<br/>**FOLLOW_RANGE** - Расстояние следования<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_GRAVITY** - Гравитация<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**HORSE_JUMP_STRENGTH** - Сила прыжка лошади (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию<br/>**LUCK** - Удача<br/>**MAX_ABSORPTION** - Максимальное поглощение<br/>**MAX_HEALTH** - Максимальное здоровье<br/>**MOVEMENT_SPEED** - Скорость передвижения<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби (zombie.spawn_reinforcements) | Тип атрибута              |
+| `slot`      | Маркер<br/>**ALL** - Все<br/>**ARMOR** - Любая броня<br/>**BODY** - Тело (работает не со всеми сущностями)<br/>**BOOTS** - Ботинки<br/>**CHEST** - Нагрудник<br/>**HAND** - Любая рука<br/>**HEAD** - Шлем<br/>**LEGGINGS** - Поножи<br/>**MAIN_HAND** - Основная рука<br/>**OFF_HAND** - Второстепенная рука                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Слот атрибута             |
 | `operation` | Маркер<br/>**ADD_NUMBER** - Количество (amount)<br/>**ADD_SCALAR** - Процент (percentage)<br/>**MULTIPLY_SCALAR_1** - Произведение (multiplicative)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Операция атрибута         |
 <h3 id=set_variable_get_item_color>
   <code>variable::get_item_color</code>
@@ -2669,7 +2669,7 @@ variable::get_item_durability(a1,item("stick"),"DAMAGE");
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `variable`        | Переменная                                                                                                                                                                                                                                    | Переменная для присвоения |
 | `item`            | Предмет                                                                                                                                                                                                                                       | Предмет                   |
-| `durability_type` | Маркер<br/>**DAMAGE** - Текущая прочность<br/>**DAMAGE_PERCENTAGE** - Текущий процент прочности<br/>**REMAINING** - Остаточная прочность<br/>**REMAINING_PERCENTAGE** - Остаточный процент прочности<br/>**MAXIMUM** - Максимальная прочность | Тип прочности             |
+| `durability_type` | Маркер<br/>**DAMAGE** - Текущая прочность<br/>**DAMAGE_PERCENTAGE** - Текущий процент прочности<br/>**MAXIMUM** - Максимальная прочность<br/>**REMAINING** - Остаточная прочность<br/>**REMAINING_PERCENTAGE** - Остаточный процент прочности | Тип прочности             |
 <h3 id=set_variable_get_item_enchantments>
   <code>variable::get_item_enchantments</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2947,7 +2947,7 @@ variable::get_item_type(a1,item("stick"),"ID");
 | ---------- | ---------------------------------------------------------------------------------- | ------------------------- |
 | `variable` | Переменная                                                                         | Переменная для присвоения |
 | `type`     | Предмет                                                                            | Предмет                   |
-| `value`    | Маркер<br/>**ID** - ID предмета<br/>**NAME** - Имя предмета<br/>**ITEM** - Предмет | Текстовое представление   |
+| `value`    | Маркер<br/>**ID** - ID предмета<br/>**ITEM** - Предмет<br/>**NAME** - Имя предмета | Текстовое представление   |
 <h3 id=set_variable_get_lectern_book>
   <code>variable::get_lectern_book</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3015,15 +3015,15 @@ variable::get_lectern_page(a1,location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_light_level(location(0,0,0,0,0),"TOTAL");
+a1 = variable::get_light_level(location(0,0,0,0,0),"BLOCKS");
 
 #Или от объекта
 
-a1 = location(0,0,0,0,0).get_light_level("TOTAL");
+a1 = location(0,0,0,0,0).get_light_level("BLOCKS");
 
 #Или в сухую
 
-variable::get_light_level(a1,location(0,0,0,0,0),"TOTAL");
+variable::get_light_level(a1,location(0,0,0,0,0),"BLOCKS");
 ```
 
 **Аргументы:**
@@ -3032,7 +3032,7 @@ variable::get_light_level(a1,location(0,0,0,0,0),"TOTAL");
 | ------------ | -------------------------------------------------------------------------------------------------- | --------------------------------- |
 | `variable`   | Переменная                                                                                         | Переменная для присвоения         |
 | `location`   | Местоположение                                                                                     | Местоположение получения значения |
-| `value_type` | Маркер<br/>**TOTAL** - Полное освещение<br/>**SKY** - Свет от неба<br/>**BLOCKS** - Свет от блоков | Тип освещения                     |
+| `value_type` | Маркер<br/>**BLOCKS** - Свет от блоков<br/>**SKY** - Свет от неба<br/>**TOTAL** - Полное освещение | Тип освещения                     |
 <h3 id=set_variable_get_list_index_of_value>
   <code>variable::get_list_index_of_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3172,7 +3172,7 @@ variable::get_list_variables(a1,"GAME");
 | **Имя**    | **Тип**                                                                                                    | **Описание**              |
 | ---------- | ---------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `variable` | Переменная                                                                                                 | Переменная для присвоения |
-| `scope`    | Маркер<br/>**GAME** - Игровые<br/>**SAVE** - Сохранённые<br/>**LOCAL** - Локальные<br/>**LINE** - Строчные | Тип переменных            |
+| `scope`    | Маркер<br/>**GAME** - Игровые<br/>**LINE** - Строчные<br/>**LOCAL** - Локальные<br/>**SAVE** - Сохранённые | Тип переменных            |
 <h3 id=set_variable_get_location_direction>
   <code>variable::get_location_direction</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3270,15 +3270,15 @@ variable::get_map_keys(a1,`map`);
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_map_keys_by_value(`map`,"any value","any value","FIRST");
+a1 = variable::get_map_keys_by_value(`map`,"any value","any value","ALL");
 
 #Или от объекта
 
-a1 = `map`.get_map_keys_by_value("any value","any value","FIRST");
+a1 = `map`.get_map_keys_by_value("any value","any value","ALL");
 
 #Или в сухую
 
-variable::get_map_keys_by_value(a1,`map`,"any value","any value","FIRST");
+variable::get_map_keys_by_value(a1,`map`,"any value","any value","ALL");
 ```
 
 **Аргументы:**
@@ -3289,7 +3289,7 @@ variable::get_map_keys_by_value(a1,`map`,"any value","any value","FIRST");
 | `map`           | Словарь                                                                                                                                        | Словарь                   |
 | `value`         | Любое значение                                                                                                                                 | Значение для получения    |
 | `default_value` | Любое значение                                                                                                                                 | Значение по умолчанию     |
-| `find_mode`     | Маркер<br/>**FIRST** - С начала (получает первый ключ)<br/>**LAST** - С конца (получает последний ключ)<br/>**ALL** - Все (получает все ключи) | Режим поиска              |
+| `find_mode`     | Маркер<br/>**ALL** - Все (получает все ключи)<br/>**FIRST** - С начала (получает первый ключ)<br/>**LAST** - С конца (получает последний ключ) | Режим поиска              |
 <h3 id=set_variable_get_map_size>
   <code>variable::get_map_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3583,15 +3583,15 @@ variable::get_particle_size(a1,particle("fire"));
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_particle_spread(particle("fire"),"VERTICAL");
+a1 = variable::get_particle_spread(particle("fire"),"HORIZONTAL");
 
 #Или от объекта
 
-a1 = particle("fire").get_particle_spread("VERTICAL");
+a1 = particle("fire").get_particle_spread("HORIZONTAL");
 
 #Или в сухую
 
-variable::get_particle_spread(a1,particle("fire"),"VERTICAL");
+variable::get_particle_spread(a1,particle("fire"),"HORIZONTAL");
 ```
 
 **Аргументы:**
@@ -3600,7 +3600,7 @@ variable::get_particle_spread(a1,particle("fire"),"VERTICAL");
 | ---------- | -------------------------------------------------------------------------- | ------------------------------ |
 | `variable` | Переменная                                                                 | Переменная для присвоения      |
 | `particle` | Эффект частиц                                                              | Частица для получения значения |
-| `type`     | Маркер<br/>**VERTICAL** - Вертикальная<br/>**HORIZONTAL** - Горизонтальная | Плоскость разброса             |
+| `type`     | Маркер<br/>**HORIZONTAL** - Горизонтальная<br/>**VERTICAL** - Вертикальная | Плоскость разброса             |
 <h3 id=set_variable_get_particle_type>
   <code>variable::get_particle_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3835,15 +3835,15 @@ variable::get_sculk_shrieker_warning_level(a1,location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_sign_text(location(0,0,0,0,0),"FRONT","FIRST");
+a1 = variable::get_sign_text(location(0,0,0,0,0),"ALL","ALL");
 
 #Или от объекта
 
-a1 = location(0,0,0,0,0).get_sign_text("FRONT","FIRST");
+a1 = location(0,0,0,0,0).get_sign_text("ALL","ALL");
 
 #Или в сухую
 
-variable::get_sign_text(a1,location(0,0,0,0,0),"FRONT","FIRST");
+variable::get_sign_text(a1,location(0,0,0,0,0),"ALL","ALL");
 ```
 
 **Аргументы:**
@@ -3852,8 +3852,8 @@ variable::get_sign_text(a1,location(0,0,0,0,0),"FRONT","FIRST");
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- |
 | `variable`   | Переменная                                                                                                                                                   | Переменная для присвоения |
 | `location`   | Местоположение                                                                                                                                               | Местоположение таблички   |
-| `check_side` | Маркер<br/>**FRONT** - Передняя<br/>**BACK** - Задняя<br/>**ALL** - Все                                                                                      | Сторона таблички          |
-| `sign_line`  | Маркер<br/>**FIRST** - Первая строка<br/>**SECOND** - Вторая строка<br/>**THIRD** - Третья строка<br/>**FOURTH** - Четвёртая строка<br/>**ALL** - Все строки | Номер строки              |
+| `check_side` | Маркер<br/>**ALL** - Все<br/>**BACK** - Задняя<br/>**FRONT** - Передняя                                                                                      | Сторона таблички          |
+| `sign_line`  | Маркер<br/>**ALL** - Все строки<br/>**FIRST** - Первая строка<br/>**FOURTH** - Четвёртая строка<br/>**SECOND** - Вторая строка<br/>**THIRD** - Третья строка | Номер строки              |
 <h3 id=set_variable_get_sound_pitch>
   <code>variable::get_sound_pitch</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4035,15 +4035,15 @@ variable::get_sound_volume_action(a1,sound("entity.zombie.hurt"));
 
 **Пример использования:** 
 ```ts
-a1 = variable::get_template_code(item("stick"),"TEXT");
+a1 = variable::get_template_code(item("stick"),"MAP");
 
 #Или от объекта
 
-a1 = item("stick").get_template_code("TEXT");
+a1 = item("stick").get_template_code("MAP");
 
 #Или в сухую
 
-variable::get_template_code(a1,item("stick"),"TEXT");
+variable::get_template_code(a1,item("stick"),"MAP");
 ```
 
 **Аргументы:**
@@ -4052,7 +4052,7 @@ variable::get_template_code(a1,item("stick"),"TEXT");
 | ------------- | ----------------------------------------------------------- | ------------------------- |
 | `variable`    | Переменная                                                  | Переменная для присвоения |
 | `template`    | Предмет                                                     | Шаблон                    |
-| `return_type` | Маркер<br/>**TEXT** - Текст JSON<br/>**MAP** - Словарь JSON | Возвращаемое значение     |
+| `return_type` | Маркер<br/>**MAP** - Словарь JSON<br/>**TEXT** - Текст JSON | Возвращаемое значение     |
 <h3 id=set_variable_get_text_width>
   <code>variable::get_text_width</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4381,15 +4381,15 @@ variable::lerp_number(a1,1,2,3);
 
 **Пример использования:** 
 ```ts
-a1 = variable::location_relative(location(0,0,0,0,0),1,"NORTH");
+a1 = variable::location_relative(location(0,0,0,0,0),1,"DOWN");
 
 #Или от объекта
 
-a1 = location(0,0,0,0,0).location_relative(1,"NORTH");
+a1 = location(0,0,0,0,0).location_relative(1,"DOWN");
 
 #Или в сухую
 
-variable::location_relative(a1,location(0,0,0,0,0),1,"NORTH");
+variable::location_relative(a1,location(0,0,0,0,0),1,"DOWN");
 ```
 
 **Аргументы:**
@@ -4399,7 +4399,7 @@ variable::location_relative(a1,location(0,0,0,0,0),1,"NORTH");
 | `variable`   | Переменная                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Переменная для присвоения    |
 | `location`   | Местоположение                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Относительное местоположение |
 | `distance`   | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Расстояние                   |
-| `block_face` | Маркер<br/>**NORTH** - Север<br/>**EAST** - Восток<br/>**SOUTH** - Юг<br/>**WEST** - Запад<br/>**UP** - Верх<br/>**DOWN** - Низ<br/>**NORTH_EAST** - Северо-восток<br/>**NORTH_WEST** - Северо-запад<br/>**SOUTH_EAST** - Юго-восток<br/>**SOUTH_WEST** - Юго-запад<br/>**WEST_NORTH_WEST** - Запад-север-запад (west_north_west)<br/>**NORTH_NORTH_WEST** - Север-север-запад (north_north_west)<br/>**NORTH_NORTH_EAST** - Север-север-восток (north_north_east)<br/>**EAST_NORTH_EAST** - Восток-север-восток (east_north_east)<br/>**EAST_SOUTH_EAST** - Восток-юг-восток (east_south_east)<br/>**SOUTH_SOUTH_EAST** - Юг-юг-восток (south_south_east)<br/>**SOUTH_SOUTH_WEST** - Юг-юг-запад (south_south_west)<br/>**WEST_SOUTH_WEST** - Запад-юг-запад (west_south_west)<br/>**SELF** - Собственная (self) | Сторона блока                |
+| `block_face` | Маркер<br/>**DOWN** - Низ<br/>**EAST** - Восток<br/>**EAST_NORTH_EAST** - Восток-север-восток (east_north_east)<br/>**EAST_SOUTH_EAST** - Восток-юг-восток (east_south_east)<br/>**NORTH** - Север<br/>**NORTH_EAST** - Северо-восток<br/>**NORTH_NORTH_EAST** - Север-север-восток (north_north_east)<br/>**NORTH_NORTH_WEST** - Север-север-запад (north_north_west)<br/>**NORTH_WEST** - Северо-запад<br/>**SELF** - Собственная (self)<br/>**SOUTH** - Юг<br/>**SOUTH_EAST** - Юго-восток<br/>**SOUTH_SOUTH_EAST** - Юг-юг-восток (south_south_east)<br/>**SOUTH_SOUTH_WEST** - Юг-юг-запад (south_south_west)<br/>**SOUTH_WEST** - Юго-запад<br/>**UP** - Верх<br/>**WEST** - Запад<br/>**WEST_NORTH_WEST** - Запад-север-запад (west_north_west)<br/>**WEST_SOUTH_WEST** - Запад-юг-запад (west_south_west) | Сторона блока                |
 <h3 id=set_variable_locations_distance>
   <code>variable::locations_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4411,11 +4411,11 @@ variable::location_relative(a1,location(0,0,0,0,0),1,"NORTH");
 
 **Пример использования:** 
 ```ts
-a1 = variable::locations_distance(location(0,0,0,0,0),location(0,0,0,0,0),"THREE_D");
+a1 = variable::locations_distance(location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUDE");
 
 #Или в сухую
 
-variable::locations_distance(a1,location(0,0,0,0,0),location(0,0,0,0,0),"THREE_D");
+variable::locations_distance(a1,location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUDE");
 ```
 
 **Аргументы:**
@@ -4425,7 +4425,7 @@ variable::locations_distance(a1,location(0,0,0,0,0),location(0,0,0,0,0),"THREE_D
 | `variable`   | Переменная                                                                                                              | Переменная для присвоения |
 | `location_1` | Местоположение                                                                                                          | Первое местоположение     |
 | `location_2` | Местоположение                                                                                                          | Второе местоположение     |
-| `type`       | Маркер<br/>**THREE_D** - В объёме<br/>**TWO_D** - В плоскости<br/>**ALTITUDE** - По высоте<br/>**Altitude** - По высоте | Тип расстояния            |
+| `type`       | Маркер<br/>**ALTITUDE** - По высоте<br/>**Altitude** - По высоте<br/>**THREE_D** - В объёме<br/>**TWO_D** - В плоскости | Тип расстояния            |
 <h3 id=set_variable_log>
   <code>variable::log</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4619,15 +4619,15 @@ variable::parse_json(a1,"json");
 
 **Пример использования:** 
 ```ts
-a1 = variable::parse_to_component("text","PLAIN");
+a1 = variable::parse_to_component("text","JSON");
 
 #Или от объекта
 
-a1 = "text".parse_to_component("PLAIN");
+a1 = "text".parse_to_component("JSON");
 
 #Или в сухую
 
-variable::parse_to_component(a1,"text","PLAIN");
+variable::parse_to_component(a1,"text","JSON");
 ```
 
 **Аргументы:**
@@ -4636,7 +4636,7 @@ variable::parse_to_component(a1,"text","PLAIN");
 | ---------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `variable` | Переменная                                                                                                        | Переменная для присвоения |
 | `text`     | Текст                                                                                                             | Текст для преобразования  |
-| `parsing`  | Маркер<br/>**PLAIN** - Обычный<br/>**LEGACY** - Цветной (&)<br/>**MINIMESSAGE** - Стилизуемый<br/>**JSON** - JSON | Тип преобразования        |
+| `parsing`  | Маркер<br/>**JSON** - JSON<br/>**LEGACY** - Цветной (&)<br/>**MINIMESSAGE** - Стилизуемый<br/>**PLAIN** - Обычный | Тип преобразования        |
 <h3 id=set_variable_perlin_noise_3d>
   <code>variable::perlin_noise_3d</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4648,11 +4648,11 @@ variable::parse_to_component(a1,"text","PLAIN");
 
 **Пример использования:** 
 ```ts
-a1 = variable::perlin_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE");
+a1 = variable::perlin_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
 
 #Или в сухую
 
-variable::perlin_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE");
+variable::perlin_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
 ```
 
 **Аргументы:**
@@ -4666,8 +4666,8 @@ variable::perlin_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE")
 | `octaves`       | Число                                                                                               | Количество октав шума             |
 | `frequency`     | Число                                                                                               | Частота октав шума                |
 | `amplitude`     | Число                                                                                               | Амплитуда октав шума              |
-| `range_mode`    | Маркер<br/>**ZERO_TO_ONE** - От 0 до 1<br/>**FULL_RANGE** - Полный диапазон (от -1 до 1 или больше) | Диапазон значений                 |
-| `normalized`    | Маркер<br/>**TRUE** - Нормализировать<br/>**FALSE** - Не нормализировать                            | Нормализация значений             |
+| `range_mode`    | Маркер<br/>**FULL_RANGE** - Полный диапазон (от -1 до 1 или больше)<br/>**ZERO_TO_ONE** - От 0 до 1 | Диапазон значений                 |
+| `normalized`    | Маркер<br/>**FALSE** - Не нормализировать<br/>**TRUE** - Нормализировать                            | Нормализация значений             |
 <h3 id=set_variable_pow>
   <code>variable::pow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4708,7 +4708,7 @@ variable::pow(a1,1,2);
 
 **Пример использования:** 
 ```ts
-variable::purge(["names", "names"],"GAME","EQUALS","TRUE");
+variable::purge(["names", "names"],"GAME","EQUALS","FALSE");
 ```
 
 **Аргументы:**
@@ -4716,9 +4716,9 @@ variable::purge(["names", "names"],"GAME","EQUALS","TRUE");
 | **Имя**       | **Тип**                                                                                                                           | **Описание**           |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | `names`       | список[Текст]                                                                                                                     | Имена для сравнения    |
-| `scope`       | Маркер<br/>**GAME** - Игровая<br/>**SAVE** - Сохранённая<br/>**LOCAL** - Локальная<br/>**LINE** - Строчная                        | Тип переменной         |
+| `scope`       | Маркер<br/>**GAME** - Игровая<br/>**LINE** - Строчная<br/>**LOCAL** - Локальная<br/>**SAVE** - Сохранённая                        | Тип переменной         |
 | `match`       | Маркер<br/>**EQUALS** - Полное соответствие<br/>**NAME_CONTAINS** - Имя содержит текст<br/>**PART_CONTAINS** - Текст содержит имя | Режим сравнения        |
-| `ignore_case` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено                                                                          | Игнорирование регистра |
+| `ignore_case` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено                                                                          | Игнорирование регистра |
 <h3 id=set_variable_random>
   <code>variable::random</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4754,11 +4754,11 @@ variable::random(a1,["any value", "any value"]);
 
 **Пример использования:** 
 ```ts
-a1 = variable::random_location(location(0,0,0,0,0),location(0,0,0,0,0),"TRUE");
+a1 = variable::random_location(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
 
 #Или в сухую
 
-variable::random_location(a1,location(0,0,0,0,0),location(0,0,0,0,0),"TRUE");
+variable::random_location(a1,location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
 ```
 
 **Аргументы:**
@@ -4768,7 +4768,7 @@ variable::random_location(a1,location(0,0,0,0,0),location(0,0,0,0,0),"TRUE");
 | `variable`   | Переменная                                               | Переменная для присвоения     |
 | `location_1` | Местоположение                                           | Первый угол региона           |
 | `location_2` | Местоположение                                           | Второй угол региона           |
-| `integer`    | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Округление до целых координат |
+| `integer`    | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Округление до целых координат |
 <h3 id=set_variable_random_number>
   <code>variable::random_number</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4780,11 +4780,11 @@ variable::random_location(a1,location(0,0,0,0,0),location(0,0,0,0,0),"TRUE");
 
 **Пример использования:** 
 ```ts
-a1 = variable::random_number(1,2,"TRUE");
+a1 = variable::random_number(1,2,"FALSE");
 
 #Или в сухую
 
-variable::random_number(a1,1,2,"TRUE");
+variable::random_number(a1,1,2,"FALSE");
 ```
 
 **Аргументы:**
@@ -4794,7 +4794,7 @@ variable::random_number(a1,1,2,"TRUE");
 | `variable` | Переменная                                          | Переменная для присвоения |
 | `min`      | Число                                               | Минимальное значение      |
 | `max`      | Число                                               | Максимальное значение     |
-| `integer`  | Маркер<br/>**TRUE** - Целое<br/>**FALSE** - Дробное | Тип числа                 |
+| `integer`  | Маркер<br/>**FALSE** - Дробное<br/>**TRUE** - Целое | Тип числа                 |
 <h3 id=set_variable_randomize_list_order>
   <code>variable::randomize_list_order</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4834,11 +4834,11 @@ variable::randomize_list_order(a1,`list`);
 
 **Пример использования:** 
 ```ts
-a1, a2, a3, a4 = variable::ray_trace_result(location(0,0,0,0,0),"ONLY_BLOCKS",1,`entities`,"TRUE",2,"NEVER");
+a1, a2, a3, a4 = variable::ray_trace_result(location(0,0,0,0,0),"BLOCKS_AND_ENTITIES",1,`entities`,"FALSE",2,"ALWAYS");
 
 #Или в сухую
 
-variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),"ONLY_BLOCKS",1,`entities`,"TRUE",2,"NEVER");
+variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),"BLOCKS_AND_ENTITIES",1,`entities`,"FALSE",2,"ALWAYS");
 ```
 
 **Аргументы:**
@@ -4850,12 +4850,12 @@ variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),"ONLY_BLOCKS",1,`enti
 | `variable_for_hit_block_face`     | Переменная                                                                                                                                     | Сторона блока/хитбокса                                                           |
 | `variable_for_hit_entity_uuid`    | Переменная                                                                                                                                     | UUID сущности                                                                    |
 | `start`                           | Местоположение                                                                                                                                 | Начало луча                                                                      |
-| `ray_collision_mode`              | Маркер<br/>**ONLY_BLOCKS** - Только с блоками<br/>**BLOCKS_AND_ENTITIES** - С блоками и сущностями<br/>**ONLY_ENTITIES** - Только с сущностями | Столкновение с объектами                                                         |
+| `ray_collision_mode`              | Маркер<br/>**BLOCKS_AND_ENTITIES** - С блоками и сущностями<br/>**ONLY_BLOCKS** - Только с блоками<br/>**ONLY_ENTITIES** - Только с сущностями | Столкновение с объектами                                                         |
 | `ray_size`                        | Число                                                                                                                                          | Ширина луча                                                                      |
 | `entities`                        | Список                                                                                                                                         | Имена или UUID сущностей для столкновения (по умолчанию - все игроки и сущности) |
-| `ignore_passable_blocks`          | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать                                                                             | Игнорировать проходимые блоки                                                    |
+| `ignore_passable_blocks`          | Маркер<br/>**FALSE** - Не игнорировать<br/>**TRUE** - Игнорировать                                                                             | Игнорировать проходимые блоки                                                    |
 | `max_distance`                    | Число                                                                                                                                          | Длина луча                                                                       |
-| `fluid_collision_mode`            | Маркер<br/>**NEVER** - Полностью игнорировать<br/>**SOURCE_ONLY** - Учитывать только источник жидкости<br/>**ALWAYS** - Не игнорировать        | Игнорировать жидкость                                                            |
+| `fluid_collision_mode`            | Маркер<br/>**ALWAYS** - Не игнорировать<br/>**NEVER** - Полностью игнорировать<br/>**SOURCE_ONLY** - Учитывать только источник жидкости        | Игнорировать жидкость                                                            |
 <h3 id=set_variable_reflect_vector_product>
   <code>variable::reflect_vector_product</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4893,15 +4893,15 @@ variable::reflect_vector_product(a1,vector(0,0,0),vector(0,0,0),1);
 
 **Пример использования:** 
 ```ts
-a1 = variable::regex_replace_text("text","regex","replacement","ANY","TRUE","TRUE","TRUE","TRUE","TRUE","TRUE","TRUE");
+a1 = variable::regex_replace_text("text","regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
 
 #Или от объекта
 
-a1 = "text".regex_replace_text("regex","replacement","ANY","TRUE","TRUE","TRUE","TRUE","TRUE","TRUE","TRUE");
+a1 = "text".regex_replace_text("regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
 
 #Или в сухую
 
-variable::regex_replace_text(a1,"text","regex","replacement","ANY","TRUE","TRUE","TRUE","TRUE","TRUE","TRUE","TRUE");
+variable::regex_replace_text(a1,"text","regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
 ```
 
 **Аргументы:**
@@ -4913,13 +4913,13 @@ variable::regex_replace_text(a1,"text","regex","replacement","ANY","TRUE","TRUE"
 | `regex`           | Текст                                                                                          | Регулярное выражение                                           |
 | `replacement`     | Текст                                                                                          | Замена                                                         |
 | `first`           | Маркер<br/>**ANY** - Заменить все совпадения<br/>**FIRST** - Заменить только первое совпадение | Количество замен                                               |
-| `ignore_case`     | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено                                       | Игнорировать регистр (флаг ignore_case)                        |
-| `multiline`       | Маркер<br/>**TRUE** - Включён<br/>**FALSE** - Выключен                                         | Многострочный режим (флаг multiline)                           |
-| `literal`         | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено                                       | Воспринимать шаблон дословно (флаг literal)                    |
-| `unix_lines`      | Маркер<br/>**TRUE** - Включён<br/>**FALSE** - Выключен                                         | Режим UNIX строк (флаг unix_lines)                             |
-| `comments`        | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено                                       | Разрешить комментарии и игнорирование пробелов (флаг comments) |
-| `dot_matches_all` | Маркер<br/>**TRUE** - Включён<br/>**FALSE** - Выключен                                         | Режим dotall (флаг dotall)                                     |
-| `cannon_eq`       | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено                                       | Каноническая эквивалентность (флаг cannon_eq)                  |
+| `ignore_case`     | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено                                       | Игнорировать регистр (флаг ignore_case)                        |
+| `multiline`       | Маркер<br/>**FALSE** - Выключен<br/>**TRUE** - Включён                                         | Многострочный режим (флаг multiline)                           |
+| `literal`         | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено                                       | Воспринимать шаблон дословно (флаг literal)                    |
+| `unix_lines`      | Маркер<br/>**FALSE** - Выключен<br/>**TRUE** - Включён                                         | Режим UNIX строк (флаг unix_lines)                             |
+| `comments`        | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено                                       | Разрешить комментарии и игнорирование пробелов (флаг comments) |
+| `dot_matches_all` | Маркер<br/>**FALSE** - Выключен<br/>**TRUE** - Включён                                         | Режим dotall (флаг dotall)                                     |
+| `cannon_eq`       | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено                                       | Каноническая эквивалентность (флаг cannon_eq)                  |
 <h3 id=set_variable_remainder>
   <code>variable::remainder</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4931,15 +4931,15 @@ variable::regex_replace_text(a1,"text","regex","replacement","ANY","TRUE","TRUE"
 
 **Пример использования:** 
 ```ts
-a1 = variable::remainder(1,2,"REMAINDER");
+a1 = variable::remainder(1,2,"MODULO");
 
 #Или от объекта
 
-a1 = (1).remainder(2,"REMAINDER");
+a1 = (1).remainder(2,"MODULO");
 
 #Или в сухую
 
-variable::remainder(a1,1,2,"REMAINDER");
+variable::remainder(a1,1,2,"MODULO");
 ```
 
 **Аргументы:**
@@ -4949,7 +4949,7 @@ variable::remainder(a1,1,2,"REMAINDER");
 | `variable`       | Переменная                                                                                                                           | Переменная для присвоения |
 | `dividend`       | Число                                                                                                                                | Делимое                   |
 | `divisor`        | Число                                                                                                                                | Делитель                  |
-| `remainder_mode` | Маркер<br/>**REMAINDER** - Остаток от деления (оставляет знак делимого)<br/>**MODULO** - Остаток по модулю (оставляет знак делителя) | Режим работы              |
+| `remainder_mode` | Маркер<br/>**MODULO** - Остаток по модулю (оставляет знак делителя)<br/>**REMAINDER** - Остаток от деления (оставляет знак делимого) | Режим работы              |
 <h3 id=set_variable_remove_compass_lodestone>
   <code>variable::remove_compass_lodestone</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5018,11 +5018,11 @@ variable::remove_enchantment(a1,item("stick"),"enchantment");
 
 **Пример использования:** 
 ```ts
-variable::remove_item_attribute(a1,item("stick"),"name_or_uuid","GENERIC_MAX_HEALTH");
+variable::remove_item_attribute(a1,item("stick"),"name_or_uuid","ARMOR");
 
 #Или от объекта
 
-item("stick").remove_item_attribute(a1,"name_or_uuid","GENERIC_MAX_HEALTH");
+item("stick").remove_item_attribute(a1,"name_or_uuid","ARMOR");
 ```
 
 **Аргументы:**
@@ -5032,7 +5032,7 @@ item("stick").remove_item_attribute(a1,"name_or_uuid","GENERIC_MAX_HEALTH");
 | `variable`     | Переменная                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Переменная для присвоения |
 | `item`         | Предмет                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Предмет                   |
 | `name_or_uuid` | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Имя или UUID атрибута     |
-| `attribute`    | Маркер<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**HORSE_JUMP_STRENGTH** - Сила прыжка лошади (horse.jump_strength)<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби (zombie.spawn_reinforcements)<br/>**MAX_HEALTH** - Максимальное здоровье<br/>**MAX_ABSORPTION** - Максимальное поглощение<br/>**FOLLOW_RANGE** - Расстояние следования<br/>**KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию<br/>**MOVEMENT_SPEED** - Скорость передвижения<br/>**FLYING_SPEED** - Скорость полета<br/>**ATTACK_DAMAGE** - Урон атаки<br/>**ATTACK_KNOCKBACK** - Отталкивание от атаки<br/>**ATTACK_SPEED** - Скорость атаки<br/>**ARMOR** - Броня<br/>**ARMOR_TOUGHNESS** - Плотность защиты<br/>**LUCK** - Удача<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_GRAVITY** - Гравитация<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption) | Тип атрибута              |
+| `attribute`    | Маркер<br/>**ARMOR** - Броня<br/>**ARMOR_TOUGHNESS** - Плотность защиты<br/>**ATTACK_DAMAGE** - Урон атаки<br/>**ATTACK_KNOCKBACK** - Отталкивание от атаки<br/>**ATTACK_SPEED** - Скорость атаки<br/>**FLYING_SPEED** - Скорость полета<br/>**FOLLOW_RANGE** - Расстояние следования<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_GRAVITY** - Гравитация<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**HORSE_JUMP_STRENGTH** - Сила прыжка лошади (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию<br/>**LUCK** - Удача<br/>**MAX_ABSORPTION** - Максимальное поглощение<br/>**MAX_HEALTH** - Максимальное здоровье<br/>**MOVEMENT_SPEED** - Скорость передвижения<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби (zombie.spawn_reinforcements) | Тип атрибута              |
 <h3 id=set_variable_remove_item_custom_model_data>
   <code>variable::remove_item_custom_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5187,15 +5187,15 @@ variable::remove_list_duplicates(a1,`list`);
 
 **Пример использования:** 
 ```ts
-a1 = variable::remove_list_value(`list`,"any value","FIRST");
+a1 = variable::remove_list_value(`list`,"any value","ALL");
 
 #Или от объекта
 
-a1 = `list`.remove_list_value("any value","FIRST");
+a1 = `list`.remove_list_value("any value","ALL");
 
 #Или в сухую
 
-variable::remove_list_value(a1,`list`,"any value","FIRST");
+variable::remove_list_value(a1,`list`,"any value","ALL");
 ```
 
 **Аргументы:**
@@ -5205,7 +5205,7 @@ variable::remove_list_value(a1,`list`,"any value","FIRST");
 | `variable`    | Переменная                                                                                                | Переменная для присвоения |
 | `list`        | Список                                                                                                    | Список                    |
 | `value`       | Любое значение                                                                                            | Значение                  |
-| `remove_mode` | Маркер<br/>**FIRST** - Первое совпадение<br/>**LAST** - Последнее совпадение<br/>**ALL** - Все совпадения | Режим удаления            |
+| `remove_mode` | Маркер<br/>**ALL** - Все совпадения<br/>**FIRST** - Первое совпадение<br/>**LAST** - Последнее совпадение | Режим удаления            |
 <h3 id=set_variable_remove_list_value_at_index>
   <code>variable::remove_list_value_at_index</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5278,15 +5278,15 @@ variable::remove_map_entry(a1,a2,["any value", "any value"],`map`,"any value");
 
 **Пример использования:** 
 ```ts
-a1 = variable::remove_text(["remove", "remove"],"text","TRUE");
+a1 = variable::remove_text(["remove", "remove"],"text","FALSE");
 
 #Или от объекта
 
-a1 = "text".remove_text(["remove", "remove"],"TRUE");
+a1 = "text".remove_text(["remove", "remove"],"FALSE");
 
 #Или в сухую
 
-variable::remove_text(a1,["remove", "remove"],"text","TRUE");
+variable::remove_text(a1,["remove", "remove"],"text","FALSE");
 ```
 
 **Аргументы:**
@@ -5296,7 +5296,7 @@ variable::remove_text(a1,["remove", "remove"],"text","TRUE");
 | `variable` | Переменная                                               | Переменная для присвоения |
 | `remove`   | список[Текст]                                            | Текст для удаления        |
 | `text`     | Текст                                                    | Исходный текст            |
-| `regex`    | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Регулярные выражения      |
+| `regex`    | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Регулярные выражения      |
 <h3 id=set_variable_repeat_text>
   <code>variable::repeat_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5337,15 +5337,15 @@ variable::repeat_text(a1,"text",1);
 
 **Пример использования:** 
 ```ts
-a1 = variable::replace_text("text","replace","replacement","ANY","TRUE");
+a1 = variable::replace_text("text","replace","replacement","ANY","FALSE");
 
 #Или от объекта
 
-a1 = "text".replace_text("replace","replacement","ANY","TRUE");
+a1 = "text".replace_text("replace","replacement","ANY","FALSE");
 
 #Или в сухую
 
-variable::replace_text(a1,"text","replace","replacement","ANY","TRUE");
+variable::replace_text(a1,"text","replace","replacement","ANY","FALSE");
 ```
 
 **Аргументы:**
@@ -5357,7 +5357,7 @@ variable::replace_text(a1,"text","replace","replacement","ANY","TRUE");
 | `replace`     | Текст                                                                                          | Текст для замены          |
 | `replacement` | Текст                                                                                          | Замена                    |
 | `first`       | Маркер<br/>**ANY** - Заменить все совпадения<br/>**FIRST** - Заменить только первое совпадение | Количество замен          |
-| `ignore_case` | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать                             | Игнорировать регистр      |
+| `ignore_case` | Маркер<br/>**FALSE** - Не игнорировать<br/>**TRUE** - Игнорировать                             | Игнорировать регистр      |
 <h3 id=set_variable_reverse_list>
   <code>variable::reverse_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5484,15 +5484,15 @@ variable::rotate_vector_around_vector(a1,vector(0,0,0),vector(0,0,0),1,"DEGREES"
 
 **Пример использования:** 
 ```ts
-a1 = variable::round(1,2,"ROUND");
+a1 = variable::round(1,2,"CEIL");
 
 #Или от объекта
 
-a1 = (1).round(2,"ROUND");
+a1 = (1).round(2,"CEIL");
 
 #Или в сухую
 
-variable::round(a1,1,2,"ROUND");
+variable::round(a1,1,2,"CEIL");
 ```
 
 **Аргументы:**
@@ -5502,7 +5502,7 @@ variable::round(a1,1,2,"ROUND");
 | `variable`   | Переменная                                                                                                             | Переменная для присвоения         |
 | `number`     | Число                                                                                                                  | Число для округления              |
 | `precision`  | Число                                                                                                                  | Количество цифр после целой части |
-| `round_type` | Маркер<br/>**ROUND** - Обычное округление<br/>**FLOOR** - Округление до меньшего<br/>**CEIL** - Округление до большего | Способ округления                 |
+| `round_type` | Маркер<br/>**CEIL** - Округление до большего<br/>**FLOOR** - Округление до меньшего<br/>**ROUND** - Обычное округление | Способ округления                 |
 <h3 id=set_variable_set_all_coordinates>
   <code>variable::set_all_coordinates</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5568,15 +5568,15 @@ item("stick").set_armor_trim(a1,item("stick"),item("stick"));
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_book_page(item("stick"),"text",1,"MERGE");
+a1 = variable::set_book_page(item("stick"),"text",1,"APPEND");
 
 #Или от объекта
 
-a1 = item("stick").set_book_page("text",1,"MERGE");
+a1 = item("stick").set_book_page("text",1,"APPEND");
 
 #Или в сухую
 
-variable::set_book_page(a1,item("stick"),"text",1,"MERGE");
+variable::set_book_page(a1,item("stick"),"text",1,"APPEND");
 ```
 
 **Аргументы:**
@@ -5587,7 +5587,7 @@ variable::set_book_page(a1,item("stick"),"text",1,"MERGE");
 | `book`     | Предмет                                                   | Книга для изменения       |
 | `text`     | Текст                                                     | Новый текст               |
 | `page`     | Число                                                     | Номер страницы            |
-| `mode`     | Маркер<br/>**MERGE** - Замена<br/>**APPEND** - Добавление | Режим установки           |
+| `mode`     | Маркер<br/>**APPEND** - Добавление<br/>**MERGE** - Замена | Режим установки           |
 <h3 id=set_variable_set_book_pages>
   <code>variable::set_book_pages</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5642,7 +5642,7 @@ item("stick").set_bundle_items(a1,[item("stick"), item("stick")],"ADD");
 | `variable`     | Переменная                                                                      | Переменная для присвоения |
 | `items`        | список[Предмет]                                                                 | Предметы для изменения    |
 | `bundle`       | Предмет                                                                         | Мешок                     |
-| `setting_mode` | Маркер<br/>**ADD** - Добавить<br/>**SET** - Установить<br/>**REMOVE** - Удалить | Тип изменения             |
+| `setting_mode` | Маркер<br/>**ADD** - Добавить<br/>**REMOVE** - Удалить<br/>**SET** - Установить | Тип изменения             |
 <h3 id=set_variable_set_compass_lodestone>
   <code>variable::set_compass_lodestone</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5654,15 +5654,15 @@ item("stick").set_bundle_items(a1,[item("stick"), item("stick")],"ADD");
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_compass_lodestone(item("stick"),location(0,0,0,0,0),"TRUE");
+a1 = variable::set_compass_lodestone(item("stick"),location(0,0,0,0,0),"FALSE");
 
 #Или от объекта
 
-a1 = item("stick").set_compass_lodestone(location(0,0,0,0,0),"TRUE");
+a1 = item("stick").set_compass_lodestone(location(0,0,0,0,0),"FALSE");
 
 #Или в сухую
 
-variable::set_compass_lodestone(a1,item("stick"),location(0,0,0,0,0),"TRUE");
+variable::set_compass_lodestone(a1,item("stick"),location(0,0,0,0,0),"FALSE");
 ```
 
 **Аргументы:**
@@ -5672,7 +5672,7 @@ variable::set_compass_lodestone(a1,item("stick"),location(0,0,0,0,0),"TRUE");
 | `variable` | Переменная                                                   | Переменная для присвоения           |
 | `item`     | Предмет                                                      | Компас                              |
 | `location` | Местоположение                                               | Местоположение магнетита            |
-| `tracked`  | Маркер<br/>**TRUE** - Проверять<br/>**FALSE** - Не проверять | Наличие магнетита на местоположении |
+| `tracked`  | Маркер<br/>**FALSE** - Не проверять<br/>**TRUE** - Проверять | Наличие магнетита на местоположении |
 <h3 id=set_variable_set_component_children>
   <code>variable::set_component_children</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5713,15 +5713,15 @@ variable::set_component_children(a1,["children", "children"],"component");
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_component_click("component","value","COPY_TO_CLIPBORD");
+a1 = variable::set_component_click("component","value","CHANGE_PAGE");
 
 #Или от объекта
 
-a1 = "component".set_component_click("value","COPY_TO_CLIPBORD");
+a1 = "component".set_component_click("value","CHANGE_PAGE");
 
 #Или в сухую
 
-variable::set_component_click(a1,"component","value","COPY_TO_CLIPBORD");
+variable::set_component_click(a1,"component","value","CHANGE_PAGE");
 ```
 
 **Аргументы:**
@@ -5731,7 +5731,7 @@ variable::set_component_click(a1,"component","value","COPY_TO_CLIPBORD");
 | `variable`     | Переменная                                                                                                                                                                                                                                         | Переменная для присвоения |
 | `component`    | Текст                                                                                                                                                                                                                                              | Стилизуемый текст         |
 | `value`        | Текст                                                                                                                                                                                                                                              | Значение действия         |
-| `click_action` | Маркер<br/>**COPY_TO_CLIPBORD** - Скопировать в буфер обмена<br/>**SUGGEST_COMMAND** - Предложить сообщение<br/>**OPEN_URL** - Открыть ссылку<br/>**CHANGE_PAGE** - Изменить страницу книги<br/>**COPY_TO_CLIPBOARD** - Скопировать в буфер обмена | Действие при нажатии      |
+| `click_action` | Маркер<br/>**CHANGE_PAGE** - Изменить страницу книги<br/>**COPY_TO_CLIPBOARD** - Скопировать в буфер обмена<br/>**COPY_TO_CLIPBORD** - Скопировать в буфер обмена<br/>**OPEN_URL** - Открыть ссылку<br/>**SUGGEST_COMMAND** - Предложить сообщение | Действие при нажатии      |
 <h3 id=set_variable_set_component_decorations>
   <code>variable::set_component_decorations</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5743,15 +5743,15 @@ variable::set_component_click(a1,"component","value","COPY_TO_CLIPBORD");
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_component_decorations("component","NOT_SET","NOT_SET","NOT_SET","NOT_SET","NOT_SET");
+a1 = variable::set_component_decorations("component","FALSE","FALSE","FALSE","FALSE","FALSE");
 
 #Или от объекта
 
-a1 = "component".set_component_decorations("NOT_SET","NOT_SET","NOT_SET","NOT_SET","NOT_SET");
+a1 = "component".set_component_decorations("FALSE","FALSE","FALSE","FALSE","FALSE");
 
 #Или в сухую
 
-variable::set_component_decorations(a1,"component","NOT_SET","NOT_SET","NOT_SET","NOT_SET","NOT_SET");
+variable::set_component_decorations(a1,"component","FALSE","FALSE","FALSE","FALSE","FALSE");
 ```
 
 **Аргументы:**
@@ -5760,11 +5760,11 @@ variable::set_component_decorations(a1,"component","NOT_SET","NOT_SET","NOT_SET"
 | --------------- | ----------------------------------------------------------------------------- | ------------------------- |
 | `variable`      | Переменная                                                                    | Переменная для присвоения |
 | `component`     | Текст                                                                         | Стилизуемый текст         |
-| `bold`          | Маркер<br/>**NOT_SET** - Не установлено<br/>**FALSE** - Нет<br/>**TRUE** - Да | Жирный текст              |
-| `italic`        | Маркер<br/>**NOT_SET** - Не установлено<br/>**FALSE** - Нет<br/>**TRUE** - Да | Наклоненный текст         |
-| `underlined`    | Маркер<br/>**NOT_SET** - Не установлено<br/>**FALSE** - Нет<br/>**TRUE** - Да | Подчеркнутый текст        |
-| `strikethrough` | Маркер<br/>**NOT_SET** - Не установлено<br/>**FALSE** - Нет<br/>**TRUE** - Да | Перечеркнутый текст       |
-| `obfuscated`    | Маркер<br/>**NOT_SET** - Не установлено<br/>**FALSE** - Нет<br/>**TRUE** - Да | Зашифрованный текст       |
+| `bold`          | Маркер<br/>**FALSE** - Нет<br/>**NOT_SET** - Не установлено<br/>**TRUE** - Да | Жирный текст              |
+| `italic`        | Маркер<br/>**FALSE** - Нет<br/>**NOT_SET** - Не установлено<br/>**TRUE** - Да | Наклоненный текст         |
+| `underlined`    | Маркер<br/>**FALSE** - Нет<br/>**NOT_SET** - Не установлено<br/>**TRUE** - Да | Подчеркнутый текст        |
+| `strikethrough` | Маркер<br/>**FALSE** - Нет<br/>**NOT_SET** - Не установлено<br/>**TRUE** - Да | Перечеркнутый текст       |
+| `obfuscated`    | Маркер<br/>**FALSE** - Нет<br/>**NOT_SET** - Не установлено<br/>**TRUE** - Да | Зашифрованный текст       |
 <h3 id=set_variable_set_component_entity_hover>
   <code>variable::set_component_entity_hover</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5951,15 +5951,15 @@ variable::set_component_item_hover(a1,"component",item("stick"));
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_coordinate(location(0,0,0,0,0),1,"X");
+a1 = variable::set_coordinate(location(0,0,0,0,0),1,"PITCH");
 
 #Или от объекта
 
-a1 = location(0,0,0,0,0).set_coordinate(1,"X");
+a1 = location(0,0,0,0,0).set_coordinate(1,"PITCH");
 
 #Или в сухую
 
-variable::set_coordinate(a1,location(0,0,0,0,0),1,"X");
+variable::set_coordinate(a1,location(0,0,0,0,0),1,"PITCH");
 ```
 
 **Аргументы:**
@@ -5969,7 +5969,7 @@ variable::set_coordinate(a1,location(0,0,0,0,0),1,"X");
 | `variable`   | Переменная                                                                                                                             | Переменная для присвоения    |
 | `location`   | Местоположение                                                                                                                         | Местоположение для установки |
 | `coordinate` | Число                                                                                                                                  | Значение координаты          |
-| `type`       | Маркер<br/>**X** - Ось X<br/>**Y** - Ось Y<br/>**Z** - Ось Z<br/>**YAW** - Горизонтальный поворот<br/>**PITCH** - Вертикальный поворот | Тип координаты               |
+| `type`       | Маркер<br/>**PITCH** - Вертикальный поворот<br/>**X** - Ось X<br/>**Y** - Ось Y<br/>**YAW** - Горизонтальный поворот<br/>**Z** - Ось Z | Тип координаты               |
 <h3 id=set_variable_set_item_amount>
   <code>variable::set_item_amount</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6010,15 +6010,15 @@ variable::set_item_amount(a1,item("stick"),1);
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_item_attribute(item("stick"),1,"name","GENERIC_MAX_HEALTH","ALL","ADD_NUMBER");
+a1 = variable::set_item_attribute(item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER");
 
 #Или от объекта
 
-a1 = item("stick").set_item_attribute(1,"name","GENERIC_MAX_HEALTH","ALL","ADD_NUMBER");
+a1 = item("stick").set_item_attribute(1,"name","ARMOR","ALL","ADD_NUMBER");
 
 #Или в сухую
 
-variable::set_item_attribute(a1,item("stick"),1,"name","GENERIC_MAX_HEALTH","ALL","ADD_NUMBER");
+variable::set_item_attribute(a1,item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER");
 ```
 
 **Аргументы:**
@@ -6029,8 +6029,8 @@ variable::set_item_attribute(a1,item("stick"),1,"name","GENERIC_MAX_HEALTH","ALL
 | `item`      | Предмет                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Предмет                   |
 | `amount`    | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Значение атрибута         |
 | `name`      | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Имя атрибута              |
-| `attribute` | Маркер<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**HORSE_JUMP_STRENGTH** - Сила прыжка лошади (horse.jump_strength)<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби (zombie.spawn_reinforcements)<br/>**MAX_HEALTH** - Максимальное здоровье<br/>**MAX_ABSORPTION** - Максимальное поглощение<br/>**FOLLOW_RANGE** - Расстояние следования<br/>**KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию<br/>**MOVEMENT_SPEED** - Скорость передвижения<br/>**FLYING_SPEED** - Скорость полета<br/>**ATTACK_DAMAGE** - Урон атаки<br/>**ATTACK_KNOCKBACK** - Отталкивание от атаки<br/>**ATTACK_SPEED** - Скорость атаки<br/>**ARMOR** - Броня<br/>**ARMOR_TOUGHNESS** - Плотность защиты<br/>**LUCK** - Удача<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_GRAVITY** - Гравитация<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption) | Тип атрибута              |
-| `slot`      | Маркер<br/>**ALL** - Все<br/>**MAIN_HAND** - Основная рука<br/>**OFF_HAND** - Второстепенная рука<br/>**HEAD** - Шлем<br/>**CHEST** - Нагрудник<br/>**LEGGINGS** - Поножи<br/>**BOOTS** - Ботинки<br/>**HAND** - Любая рука<br/>**ARMOR** - Любая броня<br/>**BODY** - Тело (работает не со всеми сущностями)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Слот атрибута             |
+| `attribute` | Маркер<br/>**ARMOR** - Броня<br/>**ARMOR_TOUGHNESS** - Плотность защиты<br/>**ATTACK_DAMAGE** - Урон атаки<br/>**ATTACK_KNOCKBACK** - Отталкивание от атаки<br/>**ATTACK_SPEED** - Скорость атаки<br/>**FLYING_SPEED** - Скорость полета<br/>**FOLLOW_RANGE** - Расстояние следования<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_GRAVITY** - Гравитация<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**HORSE_JUMP_STRENGTH** - Сила прыжка лошади (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию<br/>**LUCK** - Удача<br/>**MAX_ABSORPTION** - Максимальное поглощение<br/>**MAX_HEALTH** - Максимальное здоровье<br/>**MOVEMENT_SPEED** - Скорость передвижения<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби (zombie.spawn_reinforcements) | Тип атрибута              |
+| `slot`      | Маркер<br/>**ALL** - Все<br/>**ARMOR** - Любая броня<br/>**BODY** - Тело (работает не со всеми сущностями)<br/>**BOOTS** - Ботинки<br/>**CHEST** - Нагрудник<br/>**HAND** - Любая рука<br/>**HEAD** - Шлем<br/>**LEGGINGS** - Поножи<br/>**MAIN_HAND** - Основная рука<br/>**OFF_HAND** - Второстепенная рука                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Слот атрибута             |
 | `operation` | Маркер<br/>**ADD_NUMBER** - Количество (amount)<br/>**ADD_SCALAR** - Процент (percentage)<br/>**MULTIPLY_SCALAR_1** - Произведение (multiplicative)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Операция атрибута         |
 <h3 id=set_variable_set_item_color>
   <code>variable::set_item_color</code>
@@ -6214,7 +6214,7 @@ variable::set_item_durability(a1,item("stick"),1,"DAMAGE");
 | `variable`        | Переменная                                                                                                                                                                                                                                    | Переменная для присвоения |
 | `item`            | Предмет                                                                                                                                                                                                                                       | Предмет                   |
 | `durability`      | Число                                                                                                                                                                                                                                         | Новая прочность           |
-| `durability_type` | Маркер<br/>**DAMAGE** - Текущая прочность<br/>**DAMAGE_PERCENTAGE** - Текущий процент прочности<br/>**REMAINING** - Остаточная прочность<br/>**REMAINING_PERCENTAGE** - Остаточный процент прочности<br/>**MAXIMUM** - Максимальная прочность | Тип прочности             |
+| `durability_type` | Маркер<br/>**DAMAGE** - Текущая прочность<br/>**DAMAGE_PERCENTAGE** - Текущий процент прочности<br/>**MAXIMUM** - Максимальная прочность<br/>**REMAINING** - Остаточная прочность<br/>**REMAINING_PERCENTAGE** - Остаточный процент прочности | Тип прочности             |
 <h3 id=set_variable_set_item_enchantments>
   <code>variable::set_item_enchantments</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6286,15 +6286,15 @@ variable::set_item_lore(a1,["lore", "lore"],item("stick"));
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_item_lore_line(item("stick"),"text",1,"MERGE");
+a1 = variable::set_item_lore_line(item("stick"),"text",1,"APPEND");
 
 #Или от объекта
 
-a1 = item("stick").set_item_lore_line("text",1,"MERGE");
+a1 = item("stick").set_item_lore_line("text",1,"APPEND");
 
 #Или в сухую
 
-variable::set_item_lore_line(a1,item("stick"),"text",1,"MERGE");
+variable::set_item_lore_line(a1,item("stick"),"text",1,"APPEND");
 ```
 
 **Аргументы:**
@@ -6305,7 +6305,7 @@ variable::set_item_lore_line(a1,item("stick"),"text",1,"MERGE");
 | `item`     | Предмет                                                   | Предмет                   |
 | `text`     | Текст                                                     | Новое описание            |
 | `line`     | Число                                                     | Номер строки              |
-| `mode`     | Маркер<br/>**MERGE** - Замена<br/>**APPEND** - Добавление | Режим установки           |
+| `mode`     | Маркер<br/>**APPEND** - Добавление<br/>**MERGE** - Замена | Режим установки           |
 <h3 id=set_variable_set_item_max_stack_size>
   <code>variable::set_item_max_stack_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6428,15 +6428,15 @@ variable::set_item_type(a1,item("stick"),"type");
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_item_unbreakable(item("stick"),"TRUE");
+a1 = variable::set_item_unbreakable(item("stick"),"FALSE");
 
 #Или от объекта
 
-a1 = item("stick").set_item_unbreakable("TRUE");
+a1 = item("stick").set_item_unbreakable("FALSE");
 
 #Или в сухую
 
-variable::set_item_unbreakable(a1,item("stick"),"TRUE");
+variable::set_item_unbreakable(a1,item("stick"),"FALSE");
 ```
 
 **Аргументы:**
@@ -6445,7 +6445,7 @@ variable::set_item_unbreakable(a1,item("stick"),"TRUE");
 | ------------- | -------------------------------------------------------- | ------------------------- |
 | `variable`    | Переменная                                               | Переменная для присвоения |
 | `item`        | Предмет                                                  | Предмет                   |
-| `unbreakable` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Неломаемость              |
+| `unbreakable` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Неломаемость              |
 <h3 id=set_variable_set_item_visibility_flags>
   <code>variable::set_item_visibility_flags</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6457,15 +6457,15 @@ variable::set_item_unbreakable(a1,item("stick"),"TRUE");
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_item_visibility_flags(item("stick"),"ON","ON","ON","ON","ON","ON","ON","ON");
+a1 = variable::set_item_visibility_flags(item("stick"),"NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
 
 #Или от объекта
 
-a1 = item("stick").set_item_visibility_flags("ON","ON","ON","ON","ON","ON","ON","ON");
+a1 = item("stick").set_item_visibility_flags("NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
 
 #Или в сухую
 
-variable::set_item_visibility_flags(a1,item("stick"),"ON","ON","ON","ON","ON","ON","ON","ON");
+variable::set_item_visibility_flags(a1,item("stick"),"NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
 ```
 
 **Аргументы:**
@@ -6474,14 +6474,14 @@ variable::set_item_visibility_flags(a1,item("stick"),"ON","ON","ON","ON","ON","O
 | --------------------- | -------------------------------------------------------------------------------------- | ---------------------------- |
 | `variable`            | Переменная                                                                             | Переменная для присвоения    |
 | `item`                | Предмет                                                                                | Предмет                      |
-| `hide_dye`            | Маркер<br/>**ON** - Включено<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено | Скрытие цвета                |
-| `hide_enchantments`   | Маркер<br/>**ON** - Включено<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено | Скрытие зачарований          |
-| `hide_attributes`     | Маркер<br/>**ON** - Включено<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено | Скрытие атрибутов            |
-| `hide_unbreakable`    | Маркер<br/>**ON** - Включено<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено | Скрытие неразрушимости       |
-| `hide_place_on`       | Маркер<br/>**ON** - Включено<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено | Скрытие \"Можно ставить на\" |
-| `hide_destroys`       | Маркер<br/>**ON** - Включено<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено | Скрытие \"Может ломать\"     |
-| `hide_potion_effects` | Маркер<br/>**ON** - Включено<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено | Скрытие характеристик        |
-| `hide_armor_trim`     | Маркер<br/>**ON** - Включено<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено | Скрытие отделки брони        |
+| `hide_dye`            | Маркер<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено<br/>**ON** - Включено | Скрытие цвета                |
+| `hide_enchantments`   | Маркер<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено<br/>**ON** - Включено | Скрытие зачарований          |
+| `hide_attributes`     | Маркер<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено<br/>**ON** - Включено | Скрытие атрибутов            |
+| `hide_unbreakable`    | Маркер<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено<br/>**ON** - Включено | Скрытие неразрушимости       |
+| `hide_place_on`       | Маркер<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено<br/>**ON** - Включено | Скрытие \"Можно ставить на\" |
+| `hide_destroys`       | Маркер<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено<br/>**ON** - Включено | Скрытие \"Может ломать\"     |
+| `hide_potion_effects` | Маркер<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено<br/>**ON** - Включено | Скрытие характеристик        |
+| `hide_armor_trim`     | Маркер<br/>**NO_CHANGE** - Без изменений<br/>**OFF** - Выключено<br/>**ON** - Включено | Скрытие отделки брони        |
 <h3 id=set_variable_set_list_value>
   <code>variable::set_list_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6903,15 +6903,15 @@ variable::set_sound_pitch(a1,sound("entity.zombie.hurt"),1);
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_sound_source(sound("entity.zombie.hurt"),"MASTER");
+a1 = variable::set_sound_source(sound("entity.zombie.hurt"),"AMBIENT");
 
 #Или от объекта
 
-a1 = sound("entity.zombie.hurt").set_sound_source("MASTER");
+a1 = sound("entity.zombie.hurt").set_sound_source("AMBIENT");
 
 #Или в сухую
 
-variable::set_sound_source(a1,sound("entity.zombie.hurt"),"MASTER");
+variable::set_sound_source(a1,sound("entity.zombie.hurt"),"AMBIENT");
 ```
 
 **Аргументы:**
@@ -6920,7 +6920,7 @@ variable::set_sound_source(a1,sound("entity.zombie.hurt"),"MASTER");
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `variable` | Переменная                                                                                                                                                                                                                                                                                                                                                                                    | Переменная для присвоения |
 | `sound`    | Звук                                                                                                                                                                                                                                                                                                                                                                                          | Звук для изменения        |
-| `source`   | Маркер<br/>**MASTER** - Общий (master)<br/>**MUSIC** - Музыка (music)<br/>**RECORD** - Музыкальные блоки (record)<br/>**WEATHER** - Погода (weather)<br/>**BLOCK** - Блоки (block)<br/>**HOSTILE** - Враждебные существа (hostile)<br/>**NEUTRAL** - Дружелюбные существа (neutral)<br/>**PLAYER** - Игроки (player)<br/>**AMBIENT** - Окружение (ambient)<br/>**VOICE** - Голос/Речь (voice) | Источник звука            |
+| `source`   | Маркер<br/>**AMBIENT** - Окружение (ambient)<br/>**BLOCK** - Блоки (block)<br/>**HOSTILE** - Враждебные существа (hostile)<br/>**MASTER** - Общий (master)<br/>**MUSIC** - Музыка (music)<br/>**NEUTRAL** - Дружелюбные существа (neutral)<br/>**PLAYER** - Игроки (player)<br/>**RECORD** - Музыкальные блоки (record)<br/>**VOICE** - Голос/Речь (voice)<br/>**WEATHER** - Погода (weather) | Источник звука            |
 <h3 id=set_variable_set_sound_type>
   <code>variable::set_sound_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7173,15 +7173,15 @@ variable::shift_all_coordinates(a1,location(0,0,0,0,0),1,2,3,4,5);
 
 **Пример использования:** 
 ```ts
-a1 = variable::shift_coordinate(location(0,0,0,0,0),1,"X");
+a1 = variable::shift_coordinate(location(0,0,0,0,0),1,"PITCH");
 
 #Или от объекта
 
-a1 = location(0,0,0,0,0).shift_coordinate(1,"X");
+a1 = location(0,0,0,0,0).shift_coordinate(1,"PITCH");
 
 #Или в сухую
 
-variable::shift_coordinate(a1,location(0,0,0,0,0),1,"X");
+variable::shift_coordinate(a1,location(0,0,0,0,0),1,"PITCH");
 ```
 
 **Аргументы:**
@@ -7191,7 +7191,7 @@ variable::shift_coordinate(a1,location(0,0,0,0,0),1,"X");
 | `variable` | Переменная                                                                                                                 | Переменная для присвоения |
 | `location` | Местоположение                                                                                                             | Местоположение для сдвига |
 | `distance` | Число                                                                                                                      | Значение сдвига           |
-| `type`     | Маркер<br/>**X** - X<br/>**Y** - Y<br/>**Z** - Z<br/>**PITCH** - Вертикальный поворот<br/>**YAW** - Горизонтальный поворот | Тип координаты            |
+| `type`     | Маркер<br/>**PITCH** - Вертикальный поворот<br/>**X** - X<br/>**Y** - Y<br/>**YAW** - Горизонтальный поворот<br/>**Z** - Z | Тип координаты            |
 <h3 id=set_variable_shift_location_in_direction>
   <code>variable::shift_location_in_direction</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7221,7 +7221,7 @@ variable::shift_location_in_direction(a1,location(0,0,0,0,0),1,"FORWARD");
 | `variable`  | Переменная                                                                                        | Переменная для присвоения |
 | `location`  | Местоположение                                                                                    | Местоположение для сдвига |
 | `shift`     | Число                                                                                             | Значение сдвига           |
-| `direction` | Маркер<br/>**FORWARD** - Вперёд/Назад<br/>**UPWARD** - Вверх/Вниз<br/>**SIDEWAYS** - Влево/Вправо | Направление               |
+| `direction` | Маркер<br/>**FORWARD** - Вперёд/Назад<br/>**SIDEWAYS** - Влево/Вправо<br/>**UPWARD** - Вверх/Вниз | Направление               |
 <h3 id=set_variable_shift_location_on_vector>
   <code>variable::shift_location_on_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7293,15 +7293,15 @@ variable::shift_location_towards_location(a1,location(0,0,0,0,0),location(0,0,0,
 
 **Пример использования:** 
 ```ts
-a1 = variable::simplex_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE");
+a1 = variable::simplex_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
 
 #Или от объекта
 
-a1 = location(0,0,0,0,0).simplex_noise_3d(1,2,3,4,5,"ZERO_TO_ONE","TRUE");
+a1 = location(0,0,0,0,0).simplex_noise_3d(1,2,3,4,5,"FULL_RANGE","FALSE");
 
 #Или в сухую
 
-variable::simplex_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE");
+variable::simplex_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
 ```
 
 **Аргументы:**
@@ -7315,8 +7315,8 @@ variable::simplex_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE"
 | `octaves`       | Число                                                                                               | Количество октав шума             |
 | `frequency`     | Число                                                                                               | Частота октав шума                |
 | `amplitude`     | Число                                                                                               | Амплитуда октав шума              |
-| `range_mode`    | Маркер<br/>**ZERO_TO_ONE** - От 0 до 1<br/>**FULL_RANGE** - Полный диапазон (от -1 до 1 или больше) | Диапазон значений                 |
-| `normalized`    | Маркер<br/>**TRUE** - Нормализировать<br/>**FALSE** - Не нормализировать                            | Нормализация значений             |
+| `range_mode`    | Маркер<br/>**FULL_RANGE** - Полный диапазон (от -1 до 1 или больше)<br/>**ZERO_TO_ONE** - От 0 до 1 | Диапазон значений                 |
+| `normalized`    | Маркер<br/>**FALSE** - Не нормализировать<br/>**TRUE** - Нормализировать                            | Нормализация значений             |
 <h3 id=set_variable_sine>
   <code>variable::sine</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7328,15 +7328,15 @@ variable::simplex_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"ZERO_TO_ONE","TRUE"
 
 **Пример использования:** 
 ```ts
-a1 = variable::sine(1,"SINE","DEGREES");
+a1 = variable::sine(1,"ARCSINE","DEGREES");
 
 #Или от объекта
 
-a1 = (1).sine("SINE","DEGREES");
+a1 = (1).sine("ARCSINE","DEGREES");
 
 #Или в сухую
 
-variable::sine(a1,1,"SINE","DEGREES");
+variable::sine(a1,1,"ARCSINE","DEGREES");
 ```
 
 **Аргументы:**
@@ -7345,7 +7345,7 @@ variable::sine(a1,1,"SINE","DEGREES");
 | ---------- | ------------------------------------------------------------------------------------------------------ | -------------------------- |
 | `variable` | Переменная                                                                                             | Переменная для присвоения  |
 | `number`   | Число                                                                                                  | Число для получения синуса |
-| `variant`  | Маркер<br/>**SINE** - Синус<br/>**ARCSINE** - Арксинус<br/>**HYPERBOLIC_SINE** - Гиперболический синус | Тип операции               |
+| `variant`  | Маркер<br/>**ARCSINE** - Арксинус<br/>**HYPERBOLIC_SINE** - Гиперболический синус<br/>**SINE** - Синус | Тип операции               |
 | `input`    | Маркер<br/>**DEGREES** - Градусы<br/>**RADIANS** - Радианы                                             | Тип угла                   |
 <h3 id=set_variable_sort_any_list>
   <code>variable::sort_list</code>
@@ -7467,7 +7467,7 @@ variable::strip_text(a1,"text","ALL");
 | ------------ | ------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `variable`   | Переменная                                                                                                    | Переменная для присвоения |
 | `text`       | Текст                                                                                                         | Текст для изменения       |
-| `strip_type` | Маркер<br/>**ALL** - В начале и конце<br/>**START** - В начале<br/>**END** - В конце<br/>**INDENT** - Отступы | Тип удаления              |
+| `strip_type` | Маркер<br/>**ALL** - В начале и конце<br/>**END** - В конце<br/>**INDENT** - Отступы<br/>**START** - В начале | Тип удаления              |
 <h3 id=set_variable_subtract>
   <code>variable::subtract</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7527,15 +7527,15 @@ variable::subtract_vectors(a1,[vector(0,0,0), vector(0,0,0)]);
 
 **Пример использования:** 
 ```ts
-a1 = variable::tangent(1,"TANGENT","DEGREES");
+a1 = variable::tangent(1,"ARCTANGENT","DEGREES");
 
 #Или от объекта
 
-a1 = (1).tangent("TANGENT","DEGREES");
+a1 = (1).tangent("ARCTANGENT","DEGREES");
 
 #Или в сухую
 
-variable::tangent(a1,1,"TANGENT","DEGREES");
+variable::tangent(a1,1,"ARCTANGENT","DEGREES");
 ```
 
 **Аргументы:**
@@ -7544,7 +7544,7 @@ variable::tangent(a1,1,"TANGENT","DEGREES");
 | ---------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `variable` | Переменная                                                                                                            | Переменная для присвоения    |
 | `number`   | Число                                                                                                                 | Число для получения тангенса |
-| `variant`  | Маркер<br/>**TANGENT** - Тангенс<br/>**ARCTANGENT** - Арктангенс<br/>**HYPERBOLIC_TANGENT** - Гиперболический тангенс | Тип операции                 |
+| `variant`  | Маркер<br/>**ARCTANGENT** - Арктангенс<br/>**HYPERBOLIC_TANGENT** - Гиперболический тангенс<br/>**TANGENT** - Тангенс | Тип операции                 |
 | `input`    | Маркер<br/>**DEGREES** - Градусы<br/>**RADIANS** - Радианы                                                            | Тип угла                     |
 <h3 id=set_variable_text>
   <code>variable::set_text</code>
@@ -7557,11 +7557,11 @@ variable::tangent(a1,1,"TANGENT","DEGREES");
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_text(["text", "text"],"SPACES");
+a1 = variable::set_text(["text", "text"],"CONCATENATION");
 
 #Или в сухую
 
-variable::set_text(a1,["text", "text"],"SPACES");
+variable::set_text(a1,["text", "text"],"CONCATENATION");
 ```
 
 **Аргументы:**
@@ -7570,7 +7570,7 @@ variable::set_text(a1,["text", "text"],"SPACES");
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `variable` | Переменная                                                                                                                    | Переменная для присвоения |
 | `text`     | список[Текст]                                                                                                                 | Текст для установки       |
-| `merging`  | Маркер<br/>**SPACES** - Разделение пробелом<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки | Объединение текста        |
+| `merging`  | Маркер<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки<br/>**SPACES** - Разделение пробелом | Объединение текста        |
 <h3 id=set_variable_text_case>
   <code>variable::set_text_case</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7582,15 +7582,15 @@ variable::set_text(a1,["text", "text"],"SPACES");
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_text_case("text","UPPER");
+a1 = variable::set_text_case("text","INVERT");
 
 #Или от объекта
 
-a1 = "text".set_text_case("UPPER");
+a1 = "text".set_text_case("INVERT");
 
 #Или в сухую
 
-variable::set_text_case(a1,"text","UPPER");
+variable::set_text_case(a1,"text","INVERT");
 ```
 
 **Аргументы:**
@@ -7599,7 +7599,7 @@ variable::set_text_case(a1,"text","UPPER");
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `variable`  | Переменная                                                                                                                                     | Переменная для присвоения |
 | `text`      | Текст                                                                                                                                          | Текст для установки       |
-| `case_type` | Маркер<br/>**UPPER** - Верхний<br/>**LOWER** - Нижний<br/>**PROPER** - Первый символ<br/>**INVERT** - Инвертировать<br/>**RANDOM** - Случайный | Тип регистра              |
+| `case_type` | Маркер<br/>**INVERT** - Инвертировать<br/>**LOWER** - Нижний<br/>**PROPER** - Первый символ<br/>**RANDOM** - Случайный<br/>**UPPER** - Верхний | Тип регистра              |
 <h3 id=set_variable_text_length>
   <code>variable::get_text_length</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7719,11 +7719,11 @@ variable::to_hsl(a1,1,2,3);
 
 **Пример использования:** 
 ```ts
-a1 = variable::to_json("any value","TRUE");
+a1 = variable::to_json("any value","FALSE");
 
 #Или в сухую
 
-variable::to_json(a1,"any value","TRUE");
+variable::to_json(a1,"any value","FALSE");
 ```
 
 **Аргументы:**
@@ -7732,7 +7732,7 @@ variable::to_json(a1,"any value","TRUE");
 | -------------- | -------------------------------------------------------- | ---------------------------- |
 | `variable`     | Переменная                                               | Для записи результата        |
 | `value`        | Любое значение                                           | Список/Словарь со значениями |
-| `pretty_print` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Форматирование Pretty Print  |
+| `pretty_print` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Форматирование Pretty Print  |
 <h3 id=set_variable_to_rgb>
   <code>variable::to_rgb</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7958,15 +7958,15 @@ variable::vector_to_direction_name(a1,vector(0,0,0));
 
 **Пример использования:** 
 ```ts
-a1 = variable::voronoi_noise_3d(location(0,0,0,0,0),1,2,3,"ZERO_TO_ONE","TRUE");
+a1 = variable::voronoi_noise_3d(location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
 
 #Или от объекта
 
-a1 = location(0,0,0,0,0).voronoi_noise_3d(1,2,3,"ZERO_TO_ONE","TRUE");
+a1 = location(0,0,0,0,0).voronoi_noise_3d(1,2,3,"FULL_RANGE","FALSE");
 
 #Или в сухую
 
-variable::voronoi_noise_3d(a1,location(0,0,0,0,0),1,2,3,"ZERO_TO_ONE","TRUE");
+variable::voronoi_noise_3d(a1,location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
 ```
 
 **Аргументы:**
@@ -7978,8 +7978,8 @@ variable::voronoi_noise_3d(a1,location(0,0,0,0,0),1,2,3,"ZERO_TO_ONE","TRUE");
 | `seed`            | Число                                                                  | Ключ шума                         |
 | `frequency`       | Число                                                                  | Частота шума                      |
 | `displacement`    | Число                                                                  | Смещение шума                     |
-| `range_mode`      | Маркер<br/>**ZERO_TO_ONE** - От 0 до 1<br/>**FULL_RANGE** - От -1 до 1 | Диапазон значений                 |
-| `enable_distance` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить               | Режим расстояния                  |
+| `range_mode`      | Маркер<br/>**FULL_RANGE** - От -1 до 1<br/>**ZERO_TO_ONE** - От 0 до 1 | Диапазон значений                 |
+| `enable_distance` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить               | Режим расстояния                  |
 <h3 id=set_variable_warp>
   <code>variable::warp</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

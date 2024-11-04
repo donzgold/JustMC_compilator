@@ -84,14 +84,14 @@ select::add_entity_by_name(["name_or_uuid", "name_or_uuid"]);
 
 **Пример использования:** 
 ```ts
-select::add_event_target("DEFAULT");
+select::add_event_target("DAMAGER");
 ```
 
 **Аргументы:**
 
 | **Имя**          | **Тип**                                                                                                                                                                         | **Описание**     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `selection_type` | Маркер<br/>**DEFAULT** - По умолчанию<br/>**KILLER** - Убийца<br/>**DAMAGER** - Атакующий<br/>**VICTIM** - Жертва<br/>**SHOOTER** - Стрелок<br/>**PROJECTILE** - Снаряд стрелка | Тип цели выборки |
+| `selection_type` | Маркер<br/>**DAMAGER** - Атакующий<br/>**DEFAULT** - По умолчанию<br/>**KILLER** - Убийца<br/>**PROJECTILE** - Снаряд стрелка<br/>**SHOOTER** - Стрелок<br/>**VICTIM** - Жертва | Тип цели выборки |
 <h3 id=select_add_last_entity>
   <code>select::add_last_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -314,14 +314,14 @@ select::entity_by_name(["name_or_uuid", "name_or_uuid"]);
 
 **Пример использования:** 
 ```ts
-select::event_target("DEFAULT");
+select::event_target("DAMAGER");
 ```
 
 **Аргументы:**
 
 | **Имя**          | **Тип**                                                                                                                                                                         | **Описание**     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `selection_type` | Маркер<br/>**DEFAULT** - По умолчанию<br/>**KILLER** - Убийца<br/>**DAMAGER** - Атакующий<br/>**VICTIM** - Жертва<br/>**SHOOTER** - Стрелок<br/>**PROJECTILE** - Снаряд стрелка | Тип цели выборки |
+| `selection_type` | Маркер<br/>**DAMAGER** - Атакующий<br/>**DEFAULT** - По умолчанию<br/>**KILLER** - Убийца<br/>**PROJECTILE** - Снаряд стрелка<br/>**SHOOTER** - Стрелок<br/>**VICTIM** - Жертва | Тип цели выборки |
 <h3 id=select_filter_by_conditional>
   <code>select::filter_by_conditional</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -347,7 +347,7 @@ select::filter_by_conditional(a1.exists());
 
 **Пример использования:** 
 ```ts
-select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
+select::filter_by_distance(location(0,0,0,0,0),1,"FALSE","FARTHEST");
 ```
 
 **Аргументы:**
@@ -356,8 +356,8 @@ select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
 | ---------------- | ----------------------------------------------------------------------- | --------------------- |
 | `location`       | Местоположение                                                          | Местоположение центра |
 | `selection_size` | Число                                                                   | Количество целей      |
-| `ignore_y_axis`  | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать      | Игнорировать ось Y    |
-| `compare_mode`   | Маркер<br/>**NEAREST** - Ближайшие цели<br/>**FARTHEST** - Дальние цели | Тип сравнения         |
+| `ignore_y_axis`  | Маркер<br/>**FALSE** - Не игнорировать<br/>**TRUE** - Игнорировать      | Игнорировать ось Y    |
+| `compare_mode`   | Маркер<br/>**FARTHEST** - Дальние цели<br/>**NEAREST** - Ближайшие цели | Тип сравнения         |
 <h3 id=select_filter_by_raycast>
   <code>select::filter_by_raycast</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -369,7 +369,7 @@ select::filter_by_distance(location(0,0,0,0,0),1,"TRUE","NEAREST");
 
 **Пример использования:** 
 ```ts
-select::filter_by_raycast(a1,"TRUE",location(0,0,0,0,0),1,2,3,"TRUE","NEVER");
+select::filter_by_raycast(a1,"FALSE",location(0,0,0,0,0),1,2,3,"FALSE","ALWAYS");
 ```
 
 **Аргументы:**
@@ -377,13 +377,13 @@ select::filter_by_raycast(a1,"TRUE",location(0,0,0,0,0),1,2,3,"TRUE","NEVER");
 | **Имя**                  | **Тип**                                                                                                                                 | **Описание**                      |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
 | `variable`               | Переменная                                                                                                                              | Точка конца луча                  |
-| `consider_blocks`        | Маркер<br/>**TRUE** - Учитывать<br/>**FALSE** - Не учитывать                                                                            | Учитывать блоки                   |
+| `consider_blocks`        | Маркер<br/>**FALSE** - Не учитывать<br/>**TRUE** - Учитывать                                                                            | Учитывать блоки                   |
 | `origin`                 | Местоположение                                                                                                                          | Начало луча                       |
 | `max_distance`           | Число                                                                                                                                   | Длина луча                        |
 | `ray_size`               | Число                                                                                                                                   | Ширина луча                       |
 | `selection_size`         | Число                                                                                                                                   | Максимальное количество сущностей |
-| `ignore_passable_blocks` | Маркер<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать                                                                      | Игнорировать проходимые блоки     |
-| `fluid_collision_mode`   | Маркер<br/>**NEVER** - Полностью игнорировать<br/>**SOURCE_ONLY** - Учитывать только источник жидкости<br/>**ALWAYS** - Не игнорировать | Игнорировать жидкость             |
+| `ignore_passable_blocks` | Маркер<br/>**FALSE** - Не игнорировать<br/>**TRUE** - Игнорировать                                                                      | Игнорировать проходимые блоки     |
+| `fluid_collision_mode`   | Маркер<br/>**ALWAYS** - Не игнорировать<br/>**NEVER** - Полностью игнорировать<br/>**SOURCE_ONLY** - Учитывать только источник жидкости | Игнорировать жидкость             |
 <h3 id=select_filter_randomly>
   <code>select::filter_randomly</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

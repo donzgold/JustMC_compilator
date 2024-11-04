@@ -107,7 +107,7 @@ if(player::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
 
 **Пример использования:** 
 ```ts
-if(player::collides_with_entity("name_or_uuid","OVERLAPS"){
+if(player::collides_with_entity("name_or_uuid","CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -117,7 +117,7 @@ if(player::collides_with_entity("name_or_uuid","OVERLAPS"){
 | **Имя**        | **Тип**                                                            | **Описание**              |
 | -------------- | ------------------------------------------------------------------ | ------------------------- |
 | `name_or_uuid` | Текст                                                              | Имя или UUID сущности     |
-| `check_type`   | Маркер<br/>**OVERLAPS** - Пересекается<br/>**CONTAINS** - Содержит | Тип проверки столкновения |
+| `check_type`   | Маркер<br/>**CONTAINS** - Содержит<br/>**OVERLAPS** - Пересекается | Тип проверки столкновения |
 <h3 id=if_player_cursor_item_equals>
   <code>player::cursor_item_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -129,7 +129,7 @@ if(player::collides_with_entity("name_or_uuid","OVERLAPS"){
 
 **Пример использования:** 
 ```ts
-if(player::cursor_item_equals([item("stick"), item("stick")],"IGNORE_STACK_SIZE"){
+if(player::cursor_item_equals([item("stick"), item("stick")],"EXACTLY"){
     player::message("Условие верно");
 }
 ```
@@ -139,7 +139,7 @@ if(player::cursor_item_equals([item("stick"), item("stick")],"IGNORE_STACK_SIZE"
 | **Имя**           | **Тип**                                                                                                                                                                                                                     | **Описание**          |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | `items`           | список[Предмет]                                                                                                                                                                                                             | Предметы для проверки |
-| `comparison_mode` | Маркер<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**EXACTLY** - Полное сравнение<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения       |
+| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения       |
 <h3 id=if_player_dummy>
   <code>player::is_dummy</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -167,7 +167,7 @@ if(player::is_dummy(){
 
 **Пример использования:** 
 ```ts
-if(player::gamemode_equals("CREATIVE"){
+if(player::gamemode_equals("ADVENTURE"){
     player::message("Условие верно");
 }
 ```
@@ -176,7 +176,7 @@ if(player::gamemode_equals("CREATIVE"){
 
 | **Имя**    | **Тип**                                                                                                                           | **Описание** |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `gamemode` | Маркер<br/>**CREATIVE** - Творческий<br/>**SURVIVAL** - Выживание<br/>**ADVENTURE** - Приключение<br/>**SPECTATOR** - Наблюдатель | Режим игры   |
+| `gamemode` | Маркер<br/>**ADVENTURE** - Приключение<br/>**CREATIVE** - Творческий<br/>**SPECTATOR** - Наблюдатель<br/>**SURVIVAL** - Выживание | Режим игры   |
 <h3 id=if_player_has_item>
   <code>player::has_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -188,7 +188,7 @@ if(player::gamemode_equals("CREATIVE"){
 
 **Пример использования:** 
 ```ts
-if(player::has_item([item("stick"), item("stick")],"ANY","EXACTLY"){
+if(player::has_item([item("stick"), item("stick")],"ALL","EXACTLY"){
     player::message("Условие верно");
 }
 ```
@@ -198,8 +198,8 @@ if(player::has_item([item("stick"), item("stick")],"ANY","EXACTLY"){
 | **Имя**           | **Тип**                                                                                                                                                                                                              | **Описание**          |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | `items`           | список[Предмет]                                                                                                                                                                                                      | Предметы для проверки |
-| `check_mode`      | Маркер<br/>**ANY** - Любой предмет<br/>**ANY** - Любой предмет<br/>**ALL** - Все предметы<br/>**ALL** - Все предметы                                                                                                 | Режим проверки        |
-| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**TYPE_ONLY** - Только тип предмета<br/>**IGNORE_STACK_SIZE** - Игнорировать количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность | Режим сравнения       |
+| `check_mode`      | Маркер<br/>**ALL** - Все предметы<br/>**ALL** - Все предметы<br/>**ANY** - Любой предмет<br/>**ANY** - Любой предмет                                                                                                 | Режим проверки        |
+| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения       |
 <h3 id=if_player_has_item_at_least>
   <code>player::has_item_at_least</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -222,7 +222,7 @@ if(player::has_item_at_least(item("stick"),1,"EXACTLY"){
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | `item`            | Предмет                                                                                                                                                                                                              | Предмет для проверки   |
 | `count`           | Число                                                                                                                                                                                                                | Минимальное количество |
-| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**TYPE_ONLY** - Только тип предмета<br/>**IGNORE_STACK_SIZE** - Игнорировать количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность | Режим сравнения        |
+| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения        |
 <h3 id=if_player_has_item_in_slot>
   <code>player::has_item_in_slot</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -234,7 +234,7 @@ if(player::has_item_at_least(item("stick"),1,"EXACTLY"){
 
 **Пример использования:** 
 ```ts
-if(player::has_item_in_slot([1, 2],[item("stick"), item("stick")],"IGNORE_STACK_SIZE"){
+if(player::has_item_in_slot([1, 2],[item("stick"), item("stick")],"EXACTLY"){
     player::message("Условие верно");
 }
 ```
@@ -245,7 +245,7 @@ if(player::has_item_in_slot([1, 2],[item("stick"), item("stick")],"IGNORE_STACK_
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `slots`           | список[Число]                                                                                                                                                                                                               | Номер слота для проверки |
 | `items`           | список[Предмет]                                                                                                                                                                                                             | Предметы для проверки    |
-| `comparison_mode` | Маркер<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**EXACTLY** - Полное сравнение<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения          |
+| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения          |
 <h3 id=if_player_has_potion_effect>
   <code>player::has_potion_effect</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -257,7 +257,7 @@ if(player::has_item_in_slot([1, 2],[item("stick"), item("stick")],"IGNORE_STACK_
 
 **Пример использования:** 
 ```ts
-if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ANY"){
+if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ALL"){
     player::message("Условие верно");
 }
 ```
@@ -267,7 +267,7 @@ if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 | **Имя**      | **Тип**                                                     | **Описание**       |
 | ------------ | ----------------------------------------------------------- | ------------------ |
 | `potions`    | список[Зелье]                                               | Зелья для проверки |
-| `check_mode` | Маркер<br/>**ANY** - Любой эффект<br/>**ALL** - Все эффекты | Режим проверки     |
+| `check_mode` | Маркер<br/>**ALL** - Все эффекты<br/>**ANY** - Любой эффект | Режим проверки     |
 <h3 id=if_player_has_privilege>
   <code>player::has_privilege</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -281,7 +281,7 @@ if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 
 **Пример использования:** 
 ```ts
-if(player::has_privilege("BUILDER","TRUE"){
+if(player::has_privilege("BUILDER","FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -290,8 +290,8 @@ if(player::has_privilege("BUILDER","TRUE"){
 
 | **Имя**     | **Тип**                                                                                                                                                                                       | **Описание**      |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `privilege` | Маркер<br/>**BUILDER** - Строитель<br/>**DEVELOPER** - Разработчик<br/>**BUILDER_AND_DEVELOPER** - Строитель и разработчик<br/>**WHITELISTED** - В белом списке<br/>**OWNER** - Владелец мира | Право             |
-| `exact`     | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить                                                                                                                                      | Точность проверки |
+| `privilege` | Маркер<br/>**BUILDER** - Строитель<br/>**BUILDER_AND_DEVELOPER** - Строитель и разработчик<br/>**DEVELOPER** - Разработчик<br/>**OWNER** - Владелец мира<br/>**WHITELISTED** - В белом списке | Право             |
+| `exact`     | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить                                                                                                                                      | Точность проверки |
 <h3 id=if_player_has_room_for_item>
   <code>player::has_room_for_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -303,7 +303,7 @@ if(player::has_privilege("BUILDER","TRUE"){
 
 **Пример использования:** 
 ```ts
-if(player::has_room_for_item([item("stick"), item("stick")],"ENTIRE_INVENTORY","ANY"){
+if(player::has_room_for_item([item("stick"), item("stick")],"ARMOR","ALL"){
     player::message("Условие верно");
 }
 ```
@@ -313,8 +313,8 @@ if(player::has_room_for_item([item("stick"), item("stick")],"ENTIRE_INVENTORY","
 | **Имя**         | **Тип**                                                                                                                                                                                                                                                                                                                    | **Описание**             |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `items`         | список[Предмет]                                                                                                                                                                                                                                                                                                            | Предметы для проверки    |
-| `checked_slots` | Маркер<br/>**ENTIRE_INVENTORY** - Весь инвентарь<br/>**ENTIRE_INVENTORY** - Весь инвентарь<br/>**MAIN_INVENTORY** - Главный инвентарь<br/>**MAIN_INVENTORY** - Главный инвентарь<br/>**UPPER_INVENTORY** - Верхний инвентарь<br/>**HOTBAR** - Хот-бар<br/>**HOTBAR** - Хот-бар<br/>**ARMOR** - Броня<br/>**ARMOR** - Броня | Режим проверки слотов    |
-| `check_mode`    | Маркер<br/>**ANY** - Любые предметы<br/>**ANY** - Любые предметы<br/>**ALL** - Все предметы<br/>**ALL** - Все предметы                                                                                                                                                                                                     | Режим проверки предметов |
+| `checked_slots` | Маркер<br/>**ARMOR** - Броня<br/>**ARMOR** - Броня<br/>**ENTIRE_INVENTORY** - Весь инвентарь<br/>**ENTIRE_INVENTORY** - Весь инвентарь<br/>**HOTBAR** - Хот-бар<br/>**HOTBAR** - Хот-бар<br/>**MAIN_INVENTORY** - Главный инвентарь<br/>**MAIN_INVENTORY** - Главный инвентарь<br/>**UPPER_INVENTORY** - Верхний инвентарь | Режим проверки слотов    |
+| `check_mode`    | Маркер<br/>**ALL** - Все предметы<br/>**ALL** - Все предметы<br/>**ANY** - Любые предметы<br/>**ANY** - Любые предметы                                                                                                                                                                                                     | Режим проверки предметов |
 <h3 id=if_player_hotbar_slot_equals>
   <code>player::hotbar_slot_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -347,7 +347,7 @@ if(player::hotbar_slot_equals(1){
 
 **Пример использования:** 
 ```ts
-if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"TRUE","POINT","CONTAINS"){
+if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -358,8 +358,8 @@ if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"TRUE","POINT","CONTA
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
 | `location_1`     | Местоположение                                                                                                                 | Первый угол региона   |
 | `location_2`     | Местоположение                                                                                                                 | Второй угол региона   |
-| `ignore_y_axis`  | Маркер<br/>**TRUE** - Игнорировать<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать<br/>**FALSE** - Не игнорировать | Игнорировать ось Y    |
-| `intersect_type` | Маркер<br/>**POINT** - Местоположение<br/>**HITBOX** - Хитбокс                                                                 | Тип пересечения       |
+| `ignore_y_axis`  | Маркер<br/>**FALSE** - Не игнорировать<br/>**FALSE** - Не игнорировать<br/>**TRUE** - Игнорировать<br/>**TRUE** - Игнорировать | Игнорировать ось Y    |
+| `intersect_type` | Маркер<br/>**HITBOX** - Хитбокс<br/>**POINT** - Местоположение                                                                 | Тип пересечения       |
 | `check_type`     | Маркер<br/>**CONTAINS** - Содержит<br/>**OVERLAPS** - Пересекается                                                             | Тип проверки хитбокса |
 <h3 id=if_player_inventory_menu_slot_equals>
   <code>player::inventory_menu_slot_equals</code>
@@ -372,7 +372,7 @@ if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"TRUE","POINT","CONTA
 
 **Пример использования:** 
 ```ts
-if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"IGNORE_STACK_SIZE"){
+if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"EXACTLY"){
     player::message("Условие верно");
 }
 ```
@@ -383,7 +383,7 @@ if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"IGN
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `slots`           | список[Число]                                                                                                                                                                                                               | Номер слота для проверки |
 | `items`           | список[Предмет]                                                                                                                                                                                                             | Предметы для проверки    |
-| `comparison_mode` | Маркер<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**EXACTLY** - Полное сравнение<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения          |
+| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения          |
 <h3 id=if_player_inventory_type_open>
   <code>player::inventory_type_open</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -395,7 +395,7 @@ if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"IGN
 
 **Пример использования:** 
 ```ts
-if(player::inventory_type_open("CHEST"){
+if(player::inventory_type_open("ANVIL"){
     player::message("Условие верно");
 }
 ```
@@ -404,7 +404,7 @@ if(player::inventory_type_open("CHEST"){
 
 | **Имя**          | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | **Описание**  |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `inventory_type` | Маркер<br/>**CHEST** - Сундук<br/>**DISPENSER** - Раздатчик<br/>**DROPPER** - Выбрасыватель<br/>**FURNACE** - Печь<br/>**WORKBENCH** - Верстак<br/>**CRAFTING** - Не открыт<br/>**ENCHANTING** - Чародейский стол<br/>**BREWING** - Зельеварка<br/>**PLAYER** - Инвентарь игрока<br/>**CREATIVE** - Инвентарь креатива<br/>**MERCHANT** - Торговец<br/>**ENDER_CHEST** - Эндер-сундук<br/>**ANVIL** - Наковальня<br/>**SMITHING** - Стол кузнеца (старый)<br/>**BEACON** - Маяк<br/>**HOPPER** - Воронка<br/>**SHULKER_BOX** - Шалкеровый ящик<br/>**BARREL** - Бочка<br/>**BLAST_FURNACE** - Плавильная печь<br/>**LECTERN** - Кафедра<br/>**SMOKER** - Коптильня<br/>**LOOM** - Ткацкий станок<br/>**CARTOGRAPHY** - Стол картографа<br/>**GRINDSTONE** - Точило<br/>**STONECUTTER** - Камнерез<br/>**COMPOSTER** - Компостер<br/>**CHISELED_BOOKSHELF** - Резная книжная полка<br/>**JUKEBOX** - Нотный блок<br/>**SMITHING_NEW** - Стол кузнеца<br/>**DECORATED_POT** - Ваза<br/>**CRAFTER** - Сборщик | Тип инвентаря |
+| `inventory_type` | Маркер<br/>**ANVIL** - Наковальня<br/>**BARREL** - Бочка<br/>**BEACON** - Маяк<br/>**BLAST_FURNACE** - Плавильная печь<br/>**BREWING** - Зельеварка<br/>**CARTOGRAPHY** - Стол картографа<br/>**CHEST** - Сундук<br/>**CHISELED_BOOKSHELF** - Резная книжная полка<br/>**COMPOSTER** - Компостер<br/>**CRAFTER** - Сборщик<br/>**CRAFTING** - Не открыт<br/>**CREATIVE** - Инвентарь креатива<br/>**DECORATED_POT** - Ваза<br/>**DISPENSER** - Раздатчик<br/>**DROPPER** - Выбрасыватель<br/>**ENCHANTING** - Чародейский стол<br/>**ENDER_CHEST** - Эндер-сундук<br/>**FURNACE** - Печь<br/>**GRINDSTONE** - Точило<br/>**HOPPER** - Воронка<br/>**JUKEBOX** - Нотный блок<br/>**LECTERN** - Кафедра<br/>**LOOM** - Ткацкий станок<br/>**MERCHANT** - Торговец<br/>**PLAYER** - Инвентарь игрока<br/>**SHULKER_BOX** - Шалкеровый ящик<br/>**SMITHING** - Стол кузнеца (старый)<br/>**SMITHING_NEW** - Стол кузнеца<br/>**SMOKER** - Коптильня<br/>**STONECUTTER** - Камнерез<br/>**WORKBENCH** - Верстак | Тип инвентаря |
 <h3 id=if_player_is_allow_server_listing>
   <code>player::is_allow_server_listing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -496,7 +496,7 @@ if(player::is_gliding(){
 
 **Пример использования:** 
 ```ts
-if(player::holding([item("stick"), item("stick")],"EITHER_HAND","IGNORE_STACK_SIZE"){
+if(player::holding([item("stick"), item("stick")],"EITHER_HAND","EXACTLY"){
     player::message("Условие верно");
 }
 ```
@@ -507,7 +507,7 @@ if(player::holding([item("stick"), item("stick")],"EITHER_HAND","IGNORE_STACK_SI
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | `items`           | список[Предмет]                                                                                                                                                                                                             | Предметы для проверки |
 | `hand_slot`       | Маркер<br/>**EITHER_HAND** - Любая рука<br/>**EITHER_HAND** - Любая рука<br/>**MAIN_HAND** - Главная рука<br/>**MAIN_HAND** - Главная рука<br/>**OFF_HAND** - Второстепенная рука<br/>**OFF_HAND** - Второстепенная рука    | Рука                  |
-| `comparison_mode` | Маркер<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**EXACTLY** - Полное сравнение<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения       |
+| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения       |
 <h3 id=if_player_is_looking_at_block>
   <code>player::is_looking_at_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -519,7 +519,7 @@ if(player::holding([item("stick"), item("stick")],"EITHER_HAND","IGNORE_STACK_SI
 
 **Пример использования:** 
 ```ts
-if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],1,"NEVER"){
+if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],1,"ALWAYS"){
     player::message("Условие верно");
 }
 ```
@@ -531,7 +531,7 @@ if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,
 | `blocks`     | список[Блок]                                                                                                                                                                                                                                                 | Блок(и) для проверки                          |
 | `locations`  | список[Местоположение]                                                                                                                                                                                                                                       | Местоположение(я) для проверки                |
 | `distance`   | Число                                                                                                                                                                                                                                                        | Максимальное расстояние до проверяемого блока |
-| `fluid_mode` | Маркер<br/>**NEVER** - Игнорировать жидкости<br/>**NEVER** - Игнорировать жидкости<br/>**SOURCE_ONLY** - Только источники жидкостей<br/>**SOURCE_ONLY** - Только источники жидкостей<br/>**ALWAYS** - Все виды жидкостей<br/>**ALWAYS** - Все виды жидкостей | Режим жидкости                                |
+| `fluid_mode` | Маркер<br/>**ALWAYS** - Все виды жидкостей<br/>**ALWAYS** - Все виды жидкостей<br/>**NEVER** - Игнорировать жидкости<br/>**NEVER** - Игнорировать жидкости<br/>**SOURCE_ONLY** - Только источники жидкостей<br/>**SOURCE_ONLY** - Только источники жидкостей | Режим жидкости                                |
 <h3 id=if_player_is_near>
   <code>player::is_near</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -543,7 +543,7 @@ if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,
 
 **Пример использования:** 
 ```ts
-if(player::is_near(1,location(0,0,0,0,0),"TRUE"){
+if(player::is_near(1,location(0,0,0,0,0),"FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -554,7 +554,7 @@ if(player::is_near(1,location(0,0,0,0,0),"TRUE"){
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
 | `range`         | Число                                                                                                                          | Радиус проверки             |
 | `location`      | Местоположение                                                                                                                 | Местоположение для проверки |
-| `ignore_y_axis` | Маркер<br/>**TRUE** - Игнорировать<br/>**TRUE** - Игнорировать<br/>**FALSE** - Не игнорировать<br/>**FALSE** - Не игнорировать | Игнорировать ось Y          |
+| `ignore_y_axis` | Маркер<br/>**FALSE** - Не игнорировать<br/>**FALSE** - Не игнорировать<br/>**TRUE** - Игнорировать<br/>**TRUE** - Игнорировать | Игнорировать ось Y          |
 <h3 id=if_player_is_on_ground>
   <code>player::is_on_ground</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -598,7 +598,7 @@ if(player::is_online_mode(){
 
 **Пример использования:** 
 ```ts
-if(player::is_riding_entity(["entity_ids", "entity_ids"],"TYPE"){
+if(player::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST"){
     player::message("Условие верно");
 }
 ```
@@ -608,7 +608,7 @@ if(player::is_riding_entity(["entity_ids", "entity_ids"],"TYPE"){
 | **Имя**        | **Тип**                                                                                                                                                                               | **Описание**                            |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
 | `entity_ids`   | список[Текст]                                                                                                                                                                         | Имя, UUID или тип существа для проверки |
-| `compare_mode` | Маркер<br/>**TYPE** - Тип существа<br/>**TYPE** - Тип существа<br/>**NAME_OR_UUID** - Имя или UUID<br/>**NAME_OR_UUID** - Имя или UUID<br/>**NEAREST** - None<br/>**FARTHEST** - None | Режим сравнения                         |
+| `compare_mode` | Маркер<br/>**FARTHEST** - None<br/>**NAME_OR_UUID** - Имя или UUID<br/>**NAME_OR_UUID** - Имя или UUID<br/>**NEAREST** - None<br/>**TYPE** - Тип существа<br/>**TYPE** - Тип существа | Режим сравнения                         |
 <h3 id=if_player_is_self_disguised>
   <code>player::is_self_disguised</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -684,7 +684,7 @@ if(player::is_sprinting(){
 
 **Пример использования:** 
 ```ts
-if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE"){
+if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -695,7 +695,7 @@ if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 | ------------ | ---------------------------------------------------------------------------------------------------------- | --------------------------- |
 | `blocks`     | список[Блок]                                                                                               | Блоки для проверки          |
 | `locations`  | список[Местоположение]                                                                                     | Местоположение для проверки |
-| `only_solid` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Учитывать проходимые блоки  |
+| `only_solid` | Маркер<br/>**FALSE** - Выключено<br/>**FALSE** - Выключено<br/>**TRUE** - Включено<br/>**TRUE** - Включено | Учитывать проходимые блоки  |
 <h3 id=if_player_is_swimming>
   <code>player::is_swimming</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -723,7 +723,7 @@ if(player::is_swimming(){
 
 **Пример использования:** 
 ```ts
-if(player::is_using_item([item("stick"), item("stick")],"IGNORE_STACK_SIZE"){
+if(player::is_using_item([item("stick"), item("stick")],"EXACTLY"){
     player::message("Условие верно");
 }
 ```
@@ -733,7 +733,7 @@ if(player::is_using_item([item("stick"), item("stick")],"IGNORE_STACK_SIZE"){
 | **Имя**           | **Тип**                                                                                                                                                                                                                     | **Описание**          |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | `items`           | список[Предмет]                                                                                                                                                                                                             | Предметы для проверки |
-| `comparison_mode` | Маркер<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**EXACTLY** - Полное сравнение<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения       |
+| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения       |
 <h3 id=if_player_is_wearing_item>
   <code>player::is_wearing_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -745,7 +745,7 @@ if(player::is_using_item([item("stick"), item("stick")],"IGNORE_STACK_SIZE"){
 
 **Пример использования:** 
 ```ts
-if(player::is_wearing_item([item("stick"), item("stick")],"ANY","IGNORE_STACK_SIZE"){
+if(player::is_wearing_item([item("stick"), item("stick")],"ALL","EXACTLY"){
     player::message("Условие верно");
 }
 ```
@@ -755,8 +755,8 @@ if(player::is_wearing_item([item("stick"), item("stick")],"ANY","IGNORE_STACK_SI
 | **Имя**           | **Тип**                                                                                                                                                                                                                     | **Описание**         |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
 | `items`           | список[Предмет]                                                                                                                                                                                                             | Предмет для проверки |
-| `check_mode`      | Маркер<br/>**ANY** - Одет во что-либо<br/>**ANY** - Одет во что-либо<br/>**ALL** - Одет во все<br/>**ALL** - Одет во все                                                                                                    | Режим проверки       |
-| `comparison_mode` | Маркер<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**EXACTLY** - Полное сравнение<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения      |
+| `check_mode`      | Маркер<br/>**ALL** - Одет во все<br/>**ALL** - Одет во все<br/>**ANY** - Одет во что-либо<br/>**ANY** - Одет во что-либо                                                                                                    | Режим проверки       |
+| `comparison_mode` | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения      |
 <h3 id=if_player_item_is_not_on_cooldown>
   <code>player::item_is_not_on_cooldown</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -826,7 +826,7 @@ if(player::text_filtering_enabled(){
 
 **Пример использования:** 
 ```ts
-player::add_inventory_menu_row([item("stick"), item("stick")],"TOP");
+player::add_inventory_menu_row([item("stick"), item("stick")],"BUTTON");
 ```
 
 **Аргументы:**
@@ -834,7 +834,7 @@ player::add_inventory_menu_row([item("stick"), item("stick")],"TOP");
 | **Имя**    | **Тип**                                                                            | **Описание**   |
 | ---------- | ---------------------------------------------------------------------------------- | -------------- |
 | `items`    | список[Предмет]                                                                    | Предметы       |
-| `position` | Маркер<br/>**TOP** - Добавить строку сверху<br/>**BUTTON** - Добавить строку снизу | Позиция строки |
+| `position` | Маркер<br/>**BUTTON** - Добавить строку снизу<br/>**TOP** - Добавить строку сверху | Позиция строки |
 <h3 id=player_allow_placing_breaking_blocks>
   <code>player::allow_placing_breaking_blocks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -846,7 +846,7 @@ player::add_inventory_menu_row([item("stick"), item("stick")],"TOP");
 
 **Пример использования:** 
 ```ts
-player::allow_placing_breaking_blocks([item("stone"), item("stone")],"TRUE");
+player::allow_placing_breaking_blocks([item("stone"), item("stone")],"FALSE");
 ```
 
 **Аргументы:**
@@ -854,7 +854,7 @@ player::allow_placing_breaking_blocks([item("stone"), item("stone")],"TRUE");
 | **Имя**  | **Тип**                                         | **Описание** |
 | -------- | ----------------------------------------------- | ------------ |
 | `blocks` | список[Блок]                                    | None         |
-| `allow`  | Маркер<br/>**TRUE** - None<br/>**FALSE** - None | None         |
+| `allow`  | Маркер<br/>**FALSE** - None<br/>**TRUE** - None | None         |
 <h3 id=player_boost_elytra>
   <code>player::boost_elytra</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -927,14 +927,14 @@ player::clear_ender_chest_contents();
 
 **Пример использования:** 
 ```ts
-player::clear_inventory("ENTIRE");
+player::clear_inventory("ARMOR");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                                                                                                                  | **Описание**  |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `clear_mode` | Маркер<br/>**ENTIRE** - Весь инвентарь<br/>**MAIN** - Главный инвентарь<br/>**UPPER** - Верхний инвентарь<br/>**HOTBAR** - Хот-бар<br/>**ARMOR** - Броня | Режим очистки |
+| `clear_mode` | Маркер<br/>**ARMOR** - Броня<br/>**ENTIRE** - Весь инвентарь<br/>**HOTBAR** - Хот-бар<br/>**MAIN** - Главный инвентарь<br/>**UPPER** - Верхний инвентарь | Режим очистки |
 <h3 id=player_clear_items>
   <code>player::clear_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1013,7 +1013,7 @@ player::damage(1,"source");
 
 **Пример использования:** 
 ```ts
-player::disguise_as_block(item("stone"),"TRUE");
+player::disguise_as_block(item("stone"),"FALSE");
 ```
 
 **Аргументы:**
@@ -1021,7 +1021,7 @@ player::disguise_as_block(item("stone"),"TRUE");
 | **Имя**           | **Тип**                                              | **Описание**         |
 | ----------------- | ---------------------------------------------------- | -------------------- |
 | `block`           | Блок                                                 | Блок для маскировки  |
-| `visible_to_self` | Маркер<br/>**TRUE** - Видно<br/>**FALSE** - Не видно | Видимость для игрока |
+| `visible_to_self` | Маркер<br/>**FALSE** - Не видно<br/>**TRUE** - Видно | Видимость для игрока |
 <h3 id=player_disguise_as_entity>
   <code>player::disguise_as_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1033,7 +1033,7 @@ player::disguise_as_block(item("stone"),"TRUE");
 
 **Пример использования:** 
 ```ts
-player::disguise_as_entity(item("stick"),"TRUE");
+player::disguise_as_entity(item("stick"),"FALSE");
 ```
 
 **Аргументы:**
@@ -1041,7 +1041,7 @@ player::disguise_as_entity(item("stick"),"TRUE");
 | **Имя**           | **Тип**                                              | **Описание**            |
 | ----------------- | ---------------------------------------------------- | ----------------------- |
 | `entity_type`     | Предмет                                              | Сущность для маскировки |
-| `visible_to_self` | Маркер<br/>**TRUE** - Видно<br/>**FALSE** - Не видно | Видимость для игрока    |
+| `visible_to_self` | Маркер<br/>**FALSE** - Не видно<br/>**TRUE** - Видно | Видимость для игрока    |
 <h3 id=player_disguise_as_item>
   <code>player::disguise_as_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1053,7 +1053,7 @@ player::disguise_as_entity(item("stick"),"TRUE");
 
 **Пример использования:** 
 ```ts
-player::disguise_as_item(item("stick"),"TRUE");
+player::disguise_as_item(item("stick"),"FALSE");
 ```
 
 **Аргументы:**
@@ -1061,7 +1061,7 @@ player::disguise_as_item(item("stick"),"TRUE");
 | **Имя**           | **Тип**                                              | **Описание**           |
 | ----------------- | ---------------------------------------------------- | ---------------------- |
 | `item`            | Предмет                                              | Предмет для маскировки |
-| `visible_to_self` | Маркер<br/>**TRUE** - Видно<br/>**FALSE** - Не видно | Видимость для игрока   |
+| `visible_to_self` | Маркер<br/>**FALSE** - Не видно<br/>**TRUE** - Видно | Видимость для игрока   |
 <h3 id=player_display_bell_ring>
   <code>player::display_bell_ring</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1089,7 +1089,7 @@ location(0,0,0,0,0).display_bell_ring("DOWN");
 | **Имя**     | **Тип**                                                                                                                                             | **Описание**            |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
 | `location`  | Местоположение                                                                                                                                      | Местоположение колокола |
-| `direction` | Маркер<br/>**DOWN** - Вниз (down)<br/>**NORTH** - Север (north)<br/>**SOUTH** - Юг (south)<br/>**WEST** - Запад (west)<br/>**EAST** - Восток (east) | Направление удара       |
+| `direction` | Маркер<br/>**DOWN** - Вниз (down)<br/>**EAST** - Восток (east)<br/>**NORTH** - Север (north)<br/>**SOUTH** - Юг (south)<br/>**WEST** - Запад (west) | Направление удара       |
 <h3 id=player_display_block>
   <code>player::display_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1121,7 +1121,7 @@ player::display_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stone"));
 
 **Пример использования:** 
 ```ts
-player::display_end_gateway_beam(location(0,0,0,0,0),"LIGHT_PURPLE");
+player::display_end_gateway_beam(location(0,0,0,0,0),"DARK_PURPLE");
 ```
 
 **Аргументы:**
@@ -1129,7 +1129,7 @@ player::display_end_gateway_beam(location(0,0,0,0,0),"LIGHT_PURPLE");
 | **Имя**    | **Тип**                                                                                | **Описание**        |
 | ---------- | -------------------------------------------------------------------------------------- | ------------------- |
 | `location` | Местоположение                                                                         | Местоположение луча |
-| `color`    | Маркер<br/>**LIGHT_PURPLE** - Светло-фиолетовый<br/>**DARK_PURPLE** - Тёмно-фиолетовый | Цвет луча           |
+| `color`    | Маркер<br/>**DARK_PURPLE** - Тёмно-фиолетовый<br/>**LIGHT_PURPLE** - Светло-фиолетовый | Цвет луча           |
 <h3 id=player_display_hologram>
   <code>player::display_hologram</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1227,7 +1227,7 @@ player::display_particle_circle(particle("fire"),location(0,0,0,0,0),1,2,3,vecto
 
 **Пример использования:** 
 ```ts
-player::display_particle_cube(particle("fire"),location(0,0,0,0,0),location(0,0,0,0,0),1,"SOLID");
+player::display_particle_cube(particle("fire"),location(0,0,0,0,0),location(0,0,0,0,0),1,"HOLLOW");
 ```
 
 **Аргументы:**
@@ -1238,7 +1238,7 @@ player::display_particle_cube(particle("fire"),location(0,0,0,0,0),location(0,0,
 | `first_corner`  | Местоположение                                                                       | Первый угол куба              |
 | `second_corner` | Местоположение                                                                       | Второй угол куба              |
 | `spacing`       | Число                                                                                | Расстояние между частицами    |
-| `type`          | Маркер<br/>**SOLID** - Заполненный<br/>**HOLLOW** - Полый<br/>**WIREFRAME** - Каркас | Тип куба                      |
+| `type`          | Маркер<br/>**HOLLOW** - Полый<br/>**SOLID** - Заполненный<br/>**WIREFRAME** - Каркас | Тип куба                      |
 <h3 id=player_display_particle_line>
   <code>player::display_particle_line</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1250,7 +1250,7 @@ player::display_particle_cube(particle("fire"),location(0,0,0,0,0),location(0,0,
 
 **Пример использования:** 
 ```ts
-player::display_particle_line(particle("fire"),location(0,0,0,0,0),location(0,0,0,0,0),1,"POINTS");
+player::display_particle_line(particle("fire"),location(0,0,0,0,0),location(0,0,0,0,0),1,"DISTANCE");
 ```
 
 **Аргументы:**
@@ -1261,7 +1261,7 @@ player::display_particle_line(particle("fire"),location(0,0,0,0,0),location(0,0,
 | `start`               | Местоположение                                                         | Начальное местоположение              |
 | `end`                 | Местоположение                                                         | Конечное местоположение               |
 | `divider`             | Число                                                                  | Количество/расстояние между частицами |
-| `unit_of_measurement` | Маркер<br/>**POINTS** - По количеству<br/>**DISTANCE** - По расстоянию | Тип отображения частиц                |
+| `unit_of_measurement` | Маркер<br/>**DISTANCE** - По расстоянию<br/>**POINTS** - По количеству | Тип отображения частиц                |
 <h3 id=player_display_particle_ray>
   <code>player::display_particle_ray</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1273,7 +1273,7 @@ player::display_particle_line(particle("fire"),location(0,0,0,0,0),location(0,0,
 
 **Пример использования:** 
 ```ts
-player::display_particle_ray(particle("fire"),location(0,0,0,0,0),vector(0,0,0),1,"POINTS");
+player::display_particle_ray(particle("fire"),location(0,0,0,0,0),vector(0,0,0),1,"DISTANCE");
 ```
 
 **Аргументы:**
@@ -1284,7 +1284,7 @@ player::display_particle_ray(particle("fire"),location(0,0,0,0,0),vector(0,0,0),
 | `start`               | Местоположение                                                         | Начальное местоположение              |
 | `ray`                 | Вектор                                                                 | Направление луча                      |
 | `divider`             | Число                                                                  | Количество/расстояние между частицами |
-| `unit_of_measurement` | Маркер<br/>**POINTS** - По количеству<br/>**DISTANCE** - По расстоянию | Тип отображения частиц                |
+| `unit_of_measurement` | Маркер<br/>**DISTANCE** - По расстоянию<br/>**POINTS** - По количеству | Тип отображения частиц                |
 <h3 id=player_display_particle_sphere>
   <code>player::display_particle_sphere</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1465,14 +1465,14 @@ player::face_location(location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-player::force_flight_mode("TRUE");
+player::force_flight_mode("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**     | **Тип**                                         | **Описание** |
 | ----------- | ----------------------------------------------- | ------------ |
-| `is_flying` | Маркер<br/>**TRUE** - None<br/>**FALSE** - None | None         |
+| `is_flying` | Маркер<br/>**FALSE** - None<br/>**TRUE** - None | None         |
 <h3 id=player_give_experience>
   <code>player::give_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1484,7 +1484,7 @@ player::force_flight_mode("TRUE");
 
 **Пример использования:** 
 ```ts
-player::give_experience(1,"POINTS");
+player::give_experience(1,"LEVEL");
 ```
 
 **Аргументы:**
@@ -1492,7 +1492,7 @@ player::give_experience(1,"POINTS");
 | **Имя**      | **Тип**                                                                                                             | **Описание**            |
 | ------------ | ------------------------------------------------------------------------------------------------------------------- | ----------------------- |
 | `experience` | Число                                                                                                               | Количество для прибавки |
-| `mode`       | Маркер<br/>**POINTS** - Как очки опыта<br/>**LEVEL** - Как уровень<br/>**LEVEL_PERCENTAGE** - Как процент от уровня | Тип прибавления         |
+| `mode`       | Маркер<br/>**LEVEL** - Как уровень<br/>**LEVEL_PERCENTAGE** - Как процент от уровня<br/>**POINTS** - Как очки опыта | Тип прибавления         |
 <h3 id=player_give_items>
   <code>player::give_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1524,7 +1524,7 @@ player::give_items([item("stick"), item("stick")],1);
 
 **Пример использования:** 
 ```ts
-player::give_potion_effect([potion("slow_falling"), potion("slow_falling")],"TRUE","TRUE","REGULAR");
+player::give_potion_effect([potion("slow_falling"), potion("slow_falling")],"FALSE","FALSE","AMBIENT");
 ```
 
 **Аргументы:**
@@ -1532,9 +1532,9 @@ player::give_potion_effect([potion("slow_falling"), potion("slow_falling")],"TRU
 | **Имя**         | **Тип**                                                                      | **Описание**                        |
 | --------------- | ---------------------------------------------------------------------------- | ----------------------------------- |
 | `potions`       | список[Зелье]                                                                | Эффекты для выдачи                  |
-| `show_icon`     | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                 | Показывать иконку эффекта           |
-| `overwrite`     | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                 | Перезаписывать существующие эффекты |
-| `particle_mode` | Маркер<br/>**REGULAR** - Да<br/>**AMBIENT** - Прозрачными<br/>**NONE** - Нет | Показывать частицы                  |
+| `show_icon`     | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да                                 | Показывать иконку эффекта           |
+| `overwrite`     | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да                                 | Перезаписывать существующие эффекты |
+| `particle_mode` | Маркер<br/>**AMBIENT** - Прозрачными<br/>**NONE** - Нет<br/>**REGULAR** - Да | Показывать частицы                  |
 <h3 id=player_give_random_item>
   <code>player::give_random_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1584,7 +1584,7 @@ player::heal(1);
 
 **Пример использования:** 
 ```ts
-player::hide_entity(["name_or_uuid", "name_or_uuid"],"TRUE");
+player::hide_entity(["name_or_uuid", "name_or_uuid"],"FALSE");
 ```
 
 **Аргументы:**
@@ -1592,7 +1592,7 @@ player::hide_entity(["name_or_uuid", "name_or_uuid"],"TRUE");
 | **Имя**        | **Тип**                                                  | **Описание**          |
 | -------------- | -------------------------------------------------------- | --------------------- |
 | `name_or_uuid` | список[Текст]                                            | Имя или UUID сущности |
-| `hide`         | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Скрытие               |
+| `hide`         | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Скрытие               |
 <h3 id=player_hide_scoreboard>
   <code>player::hide_scoreboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1632,7 +1632,7 @@ player::kick();
 
 **Пример использования:** 
 ```ts
-player::launch_forward(1,"TRUE","YAW");
+player::launch_forward(1,"FALSE","YAW");
 ```
 
 **Аргументы:**
@@ -1640,7 +1640,7 @@ player::launch_forward(1,"TRUE","YAW");
 | **Имя**       | **Тип**                                                                    | **Описание**              |
 | ------------- | -------------------------------------------------------------------------- | ------------------------- |
 | `power`       | Число                                                                      | Сила подбрасывания        |
-| `increment`   | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено                   | Учитывать текущую инерцию |
+| `increment`   | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено                   | Учитывать текущую инерцию |
 | `launch_axis` | Маркер<br/>**YAW** - Только по горизонтали<br/>**YAW_AND_PITCH** - Все оси | Ось запуска               |
 <h3 id=player_launch_projectile>
   <code>player::launch_projectile</code>
@@ -1677,7 +1677,7 @@ player::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle(
 
 **Пример использования:** 
 ```ts
-player::launch_to_location(location(0,0,0,0,0),1,"TRUE");
+player::launch_to_location(location(0,0,0,0,0),1,"FALSE");
 ```
 
 **Аргументы:**
@@ -1686,7 +1686,7 @@ player::launch_to_location(location(0,0,0,0,0),1,"TRUE");
 | ----------- | -------------------------------------------------------- | ------------------------- |
 | `location`  | Местоположение                                           | Конечная позиция          |
 | `power`     | Число                                                    | Сила запуска              |
-| `increment` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Учитывать текущую инерцию |
+| `increment` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Учитывать текущую инерцию |
 <h3 id=player_launch_up>
   <code>player::launch_up</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1698,7 +1698,7 @@ player::launch_to_location(location(0,0,0,0,0),1,"TRUE");
 
 **Пример использования:** 
 ```ts
-player::launch_up(1,"TRUE");
+player::launch_up(1,"FALSE");
 ```
 
 **Аргументы:**
@@ -1706,7 +1706,7 @@ player::launch_up(1,"TRUE");
 | **Имя**     | **Тип**                                                  | **Описание**              |
 | ----------- | -------------------------------------------------------- | ------------------------- |
 | `power`     | Число                                                    | Сила подбрасывания        |
-| `increment` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Учитывать текущую инерцию |
+| `increment` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Учитывать текущую инерцию |
 <h3 id=player_leave_vehicle>
   <code>player::leave_vehicle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1793,7 +1793,7 @@ player::play_animation_action("DAMAGE");
 
 | **Имя**     | **Тип**                                                                                                                            | **Описание** |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `animation` | Маркер<br/>**DAMAGE** - Получение урона<br/>**WAKE_UP** - Подъём с кровати<br/>**TOTEM** - Тотем<br/>**JUMPSCARE** - Древний страж | Тип анимации |
+| `animation` | Маркер<br/>**DAMAGE** - Получение урона<br/>**JUMPSCARE** - Древний страж<br/>**TOTEM** - Тотем<br/>**WAKE_UP** - Подъём с кровати | Тип анимации |
 <h3 id=player_play_hurt_animation>
   <code>player::play_hurt_animation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1889,7 +1889,7 @@ player::play_sound_sequence([sound("entity.zombie.hurt"), sound("entity.zombie.h
 
 **Пример использования:** 
 ```ts
-player::randomized_teleport([location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE","TRUE","TRUE");
+player::randomized_teleport([location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE","FALSE","FALSE");
 ```
 
 **Аргументы:**
@@ -1897,9 +1897,9 @@ player::randomized_teleport([location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE","T
 | **Имя**         | **Тип**                                                  | **Описание**                 |
 | --------------- | -------------------------------------------------------- | ---------------------------- |
 | `locations`     | список[Местоположение]                                   | Позиции для телепорта        |
-| `keep_rotation` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Оставить текущий поворот     |
-| `keep_velocity` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Сохранение инерции           |
-| `dismount`      | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет             | Спешиться после телепортации |
+| `keep_rotation` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Оставить текущий поворот     |
+| `keep_velocity` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Сохранение инерции           |
+| `dismount`      | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да             | Спешиться после телепортации |
 <h3 id=player_redirect_world>
   <code>player::redirect_world</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1983,7 +1983,7 @@ player::remove_display_blocks(location(0,0,0,0,0),location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-player::remove_inventory_menu_row(1,"TOP");
+player::remove_inventory_menu_row(1,"BUTTON");
 ```
 
 **Аргументы:**
@@ -1991,7 +1991,7 @@ player::remove_inventory_menu_row(1,"TOP");
 | **Имя**    | **Тип**                                                                        | **Описание**     |
 | ---------- | ------------------------------------------------------------------------------ | ---------------- |
 | `size`     | Число                                                                          | Количество строк |
-| `position` | Маркер<br/>**TOP** - Убрать строку сверху<br/>**BUTTON** - Убрать строку снизу | Позиция строки   |
+| `position` | Маркер<br/>**BUTTON** - Убрать строку снизу<br/>**TOP** - Убрать строку сверху | Позиция строки   |
 <h3 id=player_remove_items>
   <code>player::remove_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2222,7 +2222,7 @@ player::self_disguise_as_item(item("stick"));
 
 **Пример использования:** 
 ```ts
-player::send_action_bar(["messages", "messages"],"SPACES");
+player::send_action_bar(["messages", "messages"],"CONCATENATION");
 ```
 
 **Аргументы:**
@@ -2230,7 +2230,7 @@ player::send_action_bar(["messages", "messages"],"SPACES");
 | **Имя**    | **Тип**                                                                                                                                                  | **Описание**          |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | `messages` | список[Текст]                                                                                                                                            | Сообщения в экшн-баре |
-| `merging`  | Маркер<br/>**SPACES** - Разделение пробелом<br/>**SPACES** - Разделение пробелом<br/>**CONCATENATION** - Объединение<br/>**CONCATENATION** - Объединение | Объединение текста    |
+| `merging`  | Маркер<br/>**CONCATENATION** - Объединение<br/>**CONCATENATION** - Объединение<br/>**SPACES** - Разделение пробелом<br/>**SPACES** - Разделение пробелом | Объединение текста    |
 <h3 id=player_send_advancement>
   <code>player::send_advancement</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2242,7 +2242,7 @@ player::send_action_bar(["messages", "messages"],"SPACES");
 
 **Пример использования:** 
 ```ts
-player::send_advancement(item("stick"),"name","TASK");
+player::send_advancement(item("stick"),"name","CHALLENGE");
 ```
 
 **Аргументы:**
@@ -2251,7 +2251,7 @@ player::send_advancement(item("stick"),"name","TASK");
 | ------- | ------------------------------------------------------------------------------------------ | ------------------- |
 | `icon`  | Предмет                                                                                    | Иконка достижения   |
 | `name`  | Текст                                                                                      | Название достижения |
-| `frame` | Маркер<br/>**TASK** - Обычное достижение<br/>**GOAL** - Цель<br/>**CHALLENGE** - Испытание | Тип достижения      |
+| `frame` | Маркер<br/>**CHALLENGE** - Испытание<br/>**GOAL** - Цель<br/>**TASK** - Обычное достижение | Тип достижения      |
 <h3 id=player_send_break_animation>
   <code>player::send_break_animation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2323,7 +2323,7 @@ player::send_hover("message","hover");
 
 **Пример использования:** 
 ```ts
-player::message(["messages", "messages"],"SPACES");
+player::message(["messages", "messages"],"CONCATENATION");
 ```
 
 **Аргументы:**
@@ -2331,7 +2331,7 @@ player::message(["messages", "messages"],"SPACES");
 | **Имя**    | **Тип**                                                                                                                       | **Описание**       |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `messages` | список[Текст]                                                                                                                 | Текст для отправки |
-| `merging`  | Маркер<br/>**SPACES** - Разделение пробелом<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки | Объединение текста |
+| `merging`  | Маркер<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки<br/>**SPACES** - Разделение пробелом | Объединение текста |
 <h3 id=player_send_minimessage>
   <code>player::send_minimessage</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2423,14 +2423,14 @@ player::set_air_ticks(1);
 
 **Пример использования:** 
 ```ts
-player::set_allow_flying("TRUE");
+player::set_allow_flying("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**        | **Тип**                                      | **Описание** |
 | -------------- | -------------------------------------------- | ------------ |
-| `allow_flying` | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Может летать |
+| `allow_flying` | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Может летать |
 <h3 id=player_set_armor>
   <code>player::set_armor</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2504,15 +2504,15 @@ player::set_attack_speed(1);
 
 **Пример использования:** 
 ```ts
-player::set_attribute(1,"MAX_HEALTH");
+player::set_attribute(1,"GENERIC_ARMOR");
 ```
 
 **Аргументы:**
 
-| **Имя**          | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **Описание**      |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `value`          | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Значение атрибута |
-| `attribute_type` | Маркер<br/>**MAX_HEALTH** - Максимальное здоровье<br/>**MAX_ABSORPTION** - Максимальное поглощение<br/>**FOLLOW_RANGE** - Дальность следования<br/>**KNOCKBACK_RESISTANCE** - Стойкость к отталкиванию<br/>**MOVEMENT_SPEED** - Скорость ходьбы<br/>**FLYING_SPEED** - Скорость полета<br/>**ATTACK_DAMAGE** - Урон<br/>**ATTACK_KNOCKBACK** - Отталкивание при атаке<br/>**ATTACK_SPEED** - Скорость атаки<br/>**ARMOR** - Броня<br/>**ARMOR_TOUGHNESS** - Твердость брони<br/>**LUCK** - Удача<br/>**HORSE_JUMP_STRENGTH** - Сила прыжка лошади<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_GRAVITY** - Гравитация<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck) | Тип атрибута      |
+| **Имя**          | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Описание**      |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| `value`          | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Значение атрибута |
+| `attribute_type` | Маркер<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_GRAVITY** - Гравитация<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби | Тип атрибута      |
 <h3 id=player_set_bee_stingers_in_body>
   <code>player::set_bee_stingers_in_body</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2549,7 +2549,7 @@ player::set_bee_stingers_in_body(1);
 
 **Пример использования:** 
 ```ts
-player::set_block_opened_state(location(0,0,0,0,0),"TRUE");
+player::set_block_opened_state(location(0,0,0,0,0),"FALSE");
 ```
 
 **Аргументы:**
@@ -2557,7 +2557,7 @@ player::set_block_opened_state(location(0,0,0,0,0),"TRUE");
 | **Имя**     | **Тип**                                                 | **Описание**         |
 | ----------- | ------------------------------------------------------- | -------------------- |
 | `location`  | Местоположение                                          | Местоположение блока |
-| `is_opened` | Маркер<br/>**TRUE** - Открытый<br/>**FALSE** - Закрытый | Состояние            |
+| `is_opened` | Маркер<br/>**FALSE** - Закрытый<br/>**TRUE** - Открытый | Состояние            |
 <h3 id=player_set_boss_bar>
   <code>player::set_boss_bar</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2569,19 +2569,19 @@ player::set_block_opened_state(location(0,0,0,0,0),"TRUE");
 
 **Пример использования:** 
 ```ts
-player::set_boss_bar("NONE","id","title",1,"PROGRESS","PINK");
+player::set_boss_bar("DARK_SKY","id","title",1,"NOTCHED_10","BLUE");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                                                                                                                                    | **Описание**          |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `sky_effect` | Маркер<br/>**NONE** - Отсутствует<br/>**FOG** - Туман<br/>**DARK_SKY** - Тёмное небо<br/>**FOG_AND_DARK_SKY** - Туман и тёмное небо                                        | Эффект неба           |
+| `sky_effect` | Маркер<br/>**DARK_SKY** - Тёмное небо<br/>**FOG** - Туман<br/>**FOG_AND_DARK_SKY** - Туман и тёмное небо<br/>**NONE** - Отсутствует                                        | Эффект неба           |
 | `id`         | Текст                                                                                                                                                                      | ID босс-бара          |
 | `title`      | Текст                                                                                                                                                                      | Текст                 |
 | `progress`   | Число                                                                                                                                                                      | Заполненность (0-100) |
-| `style`      | Маркер<br/>**PROGRESS** - Сплошной<br/>**NOTCHED_6** - 6 сегментов<br/>**NOTCHED_10** - 10 сегментов<br/>**NOTCHED_12** - 12 сегментов<br/>**NOTCHED_20** - 20 сегментов   | Стиль                 |
-| `color`      | Маркер<br/>**PINK** - Розовый<br/>**BLUE** - Синий<br/>**RED** - Красный<br/>**GREEN** - Зелёный<br/>**YELLOW** - Жёлтый<br/>**PURPLE** - Фиолетовый<br/>**WHITE** - Белый | Цвет                  |
+| `style`      | Маркер<br/>**NOTCHED_10** - 10 сегментов<br/>**NOTCHED_12** - 12 сегментов<br/>**NOTCHED_20** - 20 сегментов<br/>**NOTCHED_6** - 6 сегментов<br/>**PROGRESS** - Сплошной   | Стиль                 |
+| `color`      | Маркер<br/>**BLUE** - Синий<br/>**GREEN** - Зелёный<br/>**PINK** - Розовый<br/>**PURPLE** - Фиолетовый<br/>**RED** - Красный<br/>**WHITE** - Белый<br/>**YELLOW** - Жёлтый | Цвет                  |
 <h3 id=player_set_chat_completions>
   <code>player::set_chat_completions</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2601,7 +2601,7 @@ player::set_chat_completions(["completions", "completions"],"ADD");
 | **Имя**        | **Тип**                                                                         | **Описание**   |
 | -------------- | ------------------------------------------------------------------------------- | -------------- |
 | `completions`  | список[Текст]                                                                   | Подсказки      |
-| `setting_mode` | Маркер<br/>**ADD** - Добавить<br/>**SET** - Установить<br/>**REMOVE** - Удалить | Тип обновления |
+| `setting_mode` | Маркер<br/>**ADD** - Добавить<br/>**REMOVE** - Удалить<br/>**SET** - Установить | Тип обновления |
 <h3 id=player_set_collidable>
   <code>player::set_collidable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2613,14 +2613,14 @@ player::set_chat_completions(["completions", "completions"],"ADD");
 
 **Пример использования:** 
 ```ts
-player::set_collidable("TRUE");
+player::set_collidable("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                                                                  | **Описание**       |
 | ------------ | -------------------------------------------------------------------------------------------------------- | ------------------ |
-| `collidable` | Маркер<br/>**TRUE** - Сталкивается с другими игроками<br/>**FALSE** - Не сталкивается с другими игроками | Режим столкновения |
+| `collidable` | Маркер<br/>**FALSE** - Не сталкивается с другими игроками<br/>**TRUE** - Сталкивается с другими игроками | Режим столкновения |
 <h3 id=player_set_compass_target>
   <code>player::set_compass_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2670,14 +2670,14 @@ player::set_cursor_item(item("stick"));
 
 **Пример использования:** 
 ```ts
-player::set_death_drops("TRUE");
+player::set_death_drops("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                    | **Описание**        |
 | ------------- | ---------------------------------------------------------- | ------------------- |
-| `death_drops` | Маркер<br/>**TRUE** - Выпадают<br/>**FALSE** - Не выпадают | Выпадение предметов |
+| `death_drops` | Маркер<br/>**FALSE** - Не выпадают<br/>**TRUE** - Выпадают | Выпадение предметов |
 <h3 id=player_set_default_visible>
   <code>player::set_default_visible</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2727,7 +2727,7 @@ player::set_ender_chest_contents([item("stick"), item("stick")]);
 
 **Пример использования:** 
 ```ts
-player::set_entity_glowing(["name_or_uuid", "name_or_uuid"],"WHITE","TRUE");
+player::set_entity_glowing(["name_or_uuid", "name_or_uuid"],"AQUA","FALSE");
 ```
 
 **Аргументы:**
@@ -2735,8 +2735,8 @@ player::set_entity_glowing(["name_or_uuid", "name_or_uuid"],"WHITE","TRUE");
 | **Имя**        | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                      | **Описание**          |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
 | `name_or_uuid` | список[Текст]                                                                                                                                                                                                                                                                                                                                                                                                                                                | Имя или UUID сущности |
-| `color`        | Маркер<br/>**WHITE** - Белый<br/>**GRAY** - Светло-серый<br/>**DARK_GRAY** - Серый<br/>**BLACK** - Чёрный<br/>**DARK_RED** - Тёмно-красный<br/>**RED** - Красный<br/>**GOLD** - Золотой<br/>**YELLOW** - Жёлтый<br/>**GREEN** - Зелёный<br/>**DARK_GREEN** - Тёмно-зелёный<br/>**DARK_AQUA** - Бирюзовый<br/>**AQUA** - Светло-синий<br/>**BLUE** - Синий<br/>**DARK_BLUE** - Тёмно-синий<br/>**DARK_PURPLE** - Тёмно-фиолетовый<br/>**PURPLE** - Фиолетовый | Цвет свечения         |
-| `glow`         | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить                                                                                                                                                                                                                                                                                                                                                                                                     | Свечение              |
+| `color`        | Маркер<br/>**AQUA** - Светло-синий<br/>**BLACK** - Чёрный<br/>**BLUE** - Синий<br/>**DARK_AQUA** - Бирюзовый<br/>**DARK_BLUE** - Тёмно-синий<br/>**DARK_GRAY** - Серый<br/>**DARK_GREEN** - Тёмно-зелёный<br/>**DARK_PURPLE** - Тёмно-фиолетовый<br/>**DARK_RED** - Тёмно-красный<br/>**GOLD** - Золотой<br/>**GRAY** - Светло-серый<br/>**GREEN** - Зелёный<br/>**PURPLE** - Фиолетовый<br/>**RED** - Красный<br/>**WHITE** - Белый<br/>**YELLOW** - Жёлтый | Цвет свечения         |
+| `glow`         | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить                                                                                                                                                                                                                                                                                                                                                                                                     | Свечение              |
 <h3 id=player_set_equipment>
   <code>player::set_equipment</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2748,7 +2748,7 @@ player::set_entity_glowing(["name_or_uuid", "name_or_uuid"],"WHITE","TRUE");
 
 **Пример использования:** 
 ```ts
-player::set_equipment(item("stick"),"HAND");
+player::set_equipment(item("stick"),"CHEST");
 ```
 
 **Аргументы:**
@@ -2756,7 +2756,7 @@ player::set_equipment(item("stick"),"HAND");
 | **Имя** | **Тип**                                                                                                                                                               | **Описание**        |
 | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | `item`  | Предмет                                                                                                                                                               | Предметы для выдачи |
-| `slot`  | Маркер<br/>**HAND** - Основная рука<br/>**OFF_HAND** - Второстепенная рука<br/>**FEET** - Ботинки<br/>**LEGS** - Поножи<br/>**CHEST** - Нагрудник<br/>**HEAD** - Шлем | Слот снаряжения     |
+| `slot`  | Маркер<br/>**CHEST** - Нагрудник<br/>**FEET** - Ботинки<br/>**HAND** - Основная рука<br/>**HEAD** - Шлем<br/>**LEGS** - Поножи<br/>**OFF_HAND** - Второстепенная рука | Слот снаряжения     |
 <h3 id=player_set_exhaustion>
   <code>player::set_exhaustion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2768,7 +2768,7 @@ player::set_equipment(item("stick"),"HAND");
 
 **Пример использования:** 
 ```ts
-player::set_exhaustion(1,"SET");
+player::set_exhaustion(1,"ADD");
 ```
 
 **Аргументы:**
@@ -2776,7 +2776,7 @@ player::set_exhaustion(1,"SET");
 | **Имя**      | **Тип**                                                | **Описание**      |
 | ------------ | ------------------------------------------------------ | ----------------- |
 | `exhaustion` | Число                                                  | Уровень истощения |
-| `mode`       | Маркер<br/>**SET** - Установить<br/>**ADD** - Добавить | Режим установки   |
+| `mode`       | Маркер<br/>**ADD** - Добавить<br/>**SET** - Установить | Режим установки   |
 <h3 id=player_set_experience>
   <code>player::set_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2788,7 +2788,7 @@ player::set_exhaustion(1,"SET");
 
 **Пример использования:** 
 ```ts
-player::set_experience(1,"POINTS");
+player::set_experience(1,"LEVEL");
 ```
 
 **Аргументы:**
@@ -2796,7 +2796,7 @@ player::set_experience(1,"POINTS");
 | **Имя**      | **Тип**                                                                                                             | **Описание**             |
 | ------------ | ------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `experience` | Число                                                                                                               | Количество для установки |
-| `mode`       | Маркер<br/>**POINTS** - Как очки опыта<br/>**LEVEL** - Как уровень<br/>**LEVEL_PERCENTAGE** - Как процент от уровня | Тип установки            |
+| `mode`       | Маркер<br/>**LEVEL** - Как уровень<br/>**LEVEL_PERCENTAGE** - Как процент от уровня<br/>**POINTS** - Как очки опыта | Тип установки            |
 <h3 id=player_set_fall_distance>
   <code>player::set_fall_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2846,14 +2846,14 @@ player::set_fire_ticks(1);
 
 **Пример использования:** 
 ```ts
-player::set_flying("TRUE");
+player::set_flying("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**     | **Тип**                                                  | **Описание** |
 | ----------- | -------------------------------------------------------- | ------------ |
-| `is_flying` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Полёт        |
+| `is_flying` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Полёт        |
 <h3 id=player_set_fog_distance>
   <code>player::set_fog_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2884,7 +2884,7 @@ player::set_fog_distance(1);
 
 **Пример использования:** 
 ```ts
-player::set_food(1,"SET");
+player::set_food(1,"ADD");
 ```
 
 **Аргументы:**
@@ -2892,7 +2892,7 @@ player::set_food(1,"SET");
 | **Имя** | **Тип**                                                   | **Описание**    |
 | ------- | --------------------------------------------------------- | --------------- |
 | `food`  | Число                                                     | Уровень голода  |
-| `mode`  | Маркер<br/>**SET** - Установить<br/>**ADD** - Прибавление | Режим установки |
+| `mode`  | Маркер<br/>**ADD** - Прибавление<br/>**SET** - Установить | Режим установки |
 <h3 id=player_set_freeze_ticks>
   <code>player::set_freeze_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2904,7 +2904,7 @@ player::set_food(1,"SET");
 
 **Пример использования:** 
 ```ts
-player::set_freeze_ticks(1,"TRUE");
+player::set_freeze_ticks(1,"FALSE");
 ```
 
 **Аргументы:**
@@ -2912,7 +2912,7 @@ player::set_freeze_ticks(1,"TRUE");
 | **Имя**          | **Тип**                                                  | **Описание**                                     |
 | ---------------- | -------------------------------------------------------- | ------------------------------------------------ |
 | `ticks`          | Число                                                    | Время заморозки в тиках                          |
-| `ticking_locked` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Блокировка состояния (время не будет изменяться) |
+| `ticking_locked` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Блокировка состояния (время не будет изменяться) |
 <h3 id=player_set_gamemode>
   <code>player::set_gamemode</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2924,15 +2924,15 @@ player::set_freeze_ticks(1,"TRUE");
 
 **Пример использования:** 
 ```ts
-player::set_gamemode("CREATIVE","RESPECT_GAMEMODE");
+player::set_gamemode("ADVENTURE","KEEP_ORIGINAL");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                                                                                           | **Описание** |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `gamemode`    | Маркер<br/>**CREATIVE** - Творческий<br/>**SURVIVAL** - Выживание<br/>**ADVENTURE** - Приключение<br/>**SPECTATOR** - Наблюдатель | Режим игры   |
-| `flight_mode` | Маркер<br/>**RESPECT_GAMEMODE** - Учитывать режим игры<br/>**KEEP_ORIGINAL** - Оставить изначальный                               | Режим полёта |
+| `gamemode`    | Маркер<br/>**ADVENTURE** - Приключение<br/>**CREATIVE** - Творческий<br/>**SPECTATOR** - Наблюдатель<br/>**SURVIVAL** - Выживание | Режим игры   |
+| `flight_mode` | Маркер<br/>**KEEP_ORIGINAL** - Оставить изначальный<br/>**RESPECT_GAMEMODE** - Учитывать режим игры                               | Режим полёта |
 <h3 id=player_set_gliding>
   <code>player::set_gliding</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2944,14 +2944,14 @@ player::set_gamemode("CREATIVE","RESPECT_GAMEMODE");
 
 **Пример использования:** 
 ```ts
-player::set_gliding("TRUE");
+player::set_gliding("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                  | **Описание**     |
 | ------------ | -------------------------------------------------------- | ---------------- |
-| `is_gliding` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Полёт на элитрах |
+| `is_gliding` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Полёт на элитрах |
 <h3 id=player_set_health>
   <code>player::set_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3001,14 +3001,14 @@ player::set_hotbar_slot(1);
 
 **Пример использования:** 
 ```ts
-player::set_instant_respawn("TRUE");
+player::set_instant_respawn("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**           | **Тип**                                                  | **Описание**           |
 | ----------------- | -------------------------------------------------------- | ---------------------- |
-| `instant_respawn` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Мгновенное возрождение |
+| `instant_respawn` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Мгновенное возрождение |
 <h3 id=player_set_inventory_kept>
   <code>player::set_inventory_kept</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3020,14 +3020,14 @@ player::set_instant_respawn("TRUE");
 
 **Пример использования:** 
 ```ts
-player::set_inventory_kept("TRUE");
+player::set_inventory_kept("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                                  | **Описание**         |
 | ------- | -------------------------------------------------------- | -------------------- |
-| `kept`  | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Сохранение инвентаря |
+| `kept`  | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Сохранение инвентаря |
 <h3 id=player_set_inventory_menu_item>
   <code>player::set_inventory_menu_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3139,7 +3139,7 @@ player::set_items([item("stick"), item("stick")]);
 
 **Пример использования:** 
 ```ts
-player::set_max_health(1,"TRUE");
+player::set_max_health(1,"FALSE");
 ```
 
 **Аргументы:**
@@ -3147,7 +3147,7 @@ player::set_max_health(1,"TRUE");
 | **Имя**  | **Тип**                                      | **Описание**                     |
 | -------- | -------------------------------------------- | -------------------------------- |
 | `health` | Число                                        | Максимальное количество здоровья |
-| `heal`   | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Исцелить игрока                  |
+| `heal`   | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Исцелить игрока                  |
 <h3 id=player_set_movement_speed>
   <code>player::set_movement_speed</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3159,7 +3159,7 @@ player::set_max_health(1,"TRUE");
 
 **Пример использования:** 
 ```ts
-player::set_movement_speed(1,"WALK");
+player::set_movement_speed(1,"FLY");
 ```
 
 **Аргументы:**
@@ -3167,7 +3167,7 @@ player::set_movement_speed(1,"WALK");
 | **Имя**         | **Тип**                                          | **Описание**      |
 | --------------- | ------------------------------------------------ | ----------------- |
 | `distance`      | Число                                            | Скорость движения |
-| `movement_type` | Маркер<br/>**WALK** - Ходьба<br/>**FLY** - Полёт | Тип движения      |
+| `movement_type` | Маркер<br/>**FLY** - Полёт<br/>**WALK** - Ходьба | Тип движения      |
 <h3 id=player_set_nametag_visible>
   <code>player::set_nametag_visible</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3179,14 +3179,14 @@ player::set_movement_speed(1,"WALK");
 
 **Пример использования:** 
 ```ts
-player::set_nametag_visible("TRUE");
+player::set_nametag_visible("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**   | **Тип**                                                        | **Описание**     |
 | --------- | -------------------------------------------------------------- | ---------------- |
-| `visible` | Маркер<br/>**TRUE** - Отображать<br/>**FALSE** - Не отображать | Отображение ника |
+| `visible` | Маркер<br/>**FALSE** - Не отображать<br/>**TRUE** - Отображать | Отображение ника |
 <h3 id=player_set_player_list_info>
   <code>player::set_player_list_info</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3198,7 +3198,7 @@ player::set_nametag_visible("TRUE");
 
 **Пример использования:** 
 ```ts
-player::set_player_list_info(["text", "text"],"SPACES","HEADER");
+player::set_player_list_info(["text", "text"],"CONCATENATION","FOOTER");
 ```
 
 **Аргументы:**
@@ -3206,8 +3206,8 @@ player::set_player_list_info(["text", "text"],"SPACES","HEADER");
 | **Имя**    | **Тип**                                                                                                                       | **Описание**           |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | `text`     | список[Текст]                                                                                                                 | Текст в списке игроков |
-| `merging`  | Маркер<br/>**SPACES** - Разделение пробелом<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки | Объединение текста     |
-| `position` | Маркер<br/>**HEADER** - Сверху<br/>**FOOTER** - Снизу                                                                         | Позиция                |
+| `merging`  | Маркер<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки<br/>**SPACES** - Разделение пробелом | Объединение текста     |
+| `position` | Маркер<br/>**FOOTER** - Снизу<br/>**HEADER** - Сверху                                                                         | Позиция                |
 <h3 id=player_set_pose>
   <code>player::set_pose</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3219,15 +3219,15 @@ player::set_player_list_info(["text", "text"],"SPACES","HEADER");
 
 **Пример использования:** 
 ```ts
-player::set_pose("STANDING","TRUE");
+player::set_pose("CROAKING","FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**  | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | **Описание**      |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| `pose`   | Маркер<br/>**STANDING** - Обычное состояние<br/>**FALL_FLYING** - Полёт на Элитрах<br/>**SLEEPING** - Лежание<br/>**SWIMMING** - Плавание<br/>**SPIN_ATTACK** - Использование Тягуна<br/>**CROUCHING** - Приседание<br/>**LONG_JUMPING** - Длинный прыжок<br/>**DYING** - Смерть<br/>**CROAKING** - Кваканье (для Жаб)<br/>**USING_TONGUE** - Использование языка (для Жаб)<br/>**SITTING** - Сидение<br/>**ROARING** - Рёв (для Хранителя)<br/>**SNIFFING** - Нюханье (для Хранителя)<br/>**EMERGING** - Появление из земли (для Хранителя)<br/>**DIGGING** - Зарывание в землю (для Хранителя)<br/>**SNEAKING** - None | Отображаемая поза |
-| `locked` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Блокировка позы   |
+| `pose`   | Маркер<br/>**CROAKING** - Кваканье (для Жаб)<br/>**CROUCHING** - Приседание<br/>**DIGGING** - Зарывание в землю (для Хранителя)<br/>**DYING** - Смерть<br/>**EMERGING** - Появление из земли (для Хранителя)<br/>**FALL_FLYING** - Полёт на Элитрах<br/>**LONG_JUMPING** - Длинный прыжок<br/>**ROARING** - Рёв (для Хранителя)<br/>**SITTING** - Сидение<br/>**SLEEPING** - Лежание<br/>**SNEAKING** - None<br/>**SNIFFING** - Нюханье (для Хранителя)<br/>**SPIN_ATTACK** - Использование Тягуна<br/>**STANDING** - Обычное состояние<br/>**SWIMMING** - Плавание<br/>**USING_TONGUE** - Использование языка (для Жаб) | Отображаемая поза |
+| `locked` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Блокировка позы   |
 <h3 id=player_set_pvp>
   <code>player::set_pvp</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3239,14 +3239,14 @@ player::set_pose("STANDING","TRUE");
 
 **Пример использования:** 
 ```ts
-player::set_pvp("TRUE");
+player::set_pvp("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя** | **Тип**                                      | **Описание**    |
 | ------- | -------------------------------------------- | --------------- |
-| `pvp`   | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Может атаковать |
+| `pvp`   | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Может атаковать |
 <h3 id=player_set_rain_level>
   <code>player::set_rain_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3316,7 +3316,7 @@ player::set_rotation_by_vector(vector(0,0,0));
 
 **Пример использования:** 
 ```ts
-player::set_saturation(1,"SET");
+player::set_saturation(1,"ADD");
 ```
 
 **Аргументы:**
@@ -3324,7 +3324,7 @@ player::set_saturation(1,"SET");
 | **Имя**      | **Тип**                                                  | **Описание**         |
 | ------------ | -------------------------------------------------------- | -------------------- |
 | `saturation` | Число                                                    | Уровень насыщенности |
-| `mode`       | Маркер<br/>**SET** - Установка<br/>**ADD** - Прибавление | Режим установки      |
+| `mode`       | Маркер<br/>**ADD** - Прибавление<br/>**SET** - Установка | Режим установки      |
 <h3 id=player_set_simulation_distance>
   <code>player::set_simulation_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3473,7 +3473,7 @@ player::set_time(1);
 
 **Пример использования:** 
 ```ts
-player::set_velocity(vector(0,0,0),"TRUE");
+player::set_velocity(vector(0,0,0),"FALSE");
 ```
 
 **Аргументы:**
@@ -3481,7 +3481,7 @@ player::set_velocity(vector(0,0,0),"TRUE");
 | **Имя**     | **Тип**                                                  | **Описание**              |
 | ----------- | -------------------------------------------------------- | ------------------------- |
 | `velocity`  | Вектор                                                   | Вектор движения           |
-| `increment` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Учитывать текущую инерцию |
+| `increment` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Учитывать текущую инерцию |
 <h3 id=player_set_visual_fire>
   <code>player::set_visual_fire</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3493,14 +3493,14 @@ player::set_velocity(vector(0,0,0),"TRUE");
 
 **Пример использования:** 
 ```ts
-player::set_visual_fire("TRUE");
+player::set_visual_fire("FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                  | **Описание**     |
 | ------------- | -------------------------------------------------------- | ---------------- |
-| `visual_fire` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Визуальный огонь |
+| `visual_fire` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Визуальный огонь |
 <h3 id=player_set_weather>
   <code>player::set_weather</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3512,14 +3512,14 @@ player::set_visual_fire("TRUE");
 
 **Пример использования:** 
 ```ts
-player::set_weather("DOWNFALL");
+player::set_weather("CLEAR");
 ```
 
 **Аргументы:**
 
 | **Имя**        | **Тип**                                                       | **Описание** |
 | -------------- | ------------------------------------------------------------- | ------------ |
-| `weather_type` | Маркер<br/>**DOWNFALL** - Дождливая<br/>**CLEAR** - Солнечная | Тип погоды   |
+| `weather_type` | Маркер<br/>**CLEAR** - Солнечная<br/>**DOWNFALL** - Дождливая | Тип погоды   |
 <h3 id=player_set_world_border>
   <code>player::set_world_border</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3614,7 +3614,7 @@ player::show_demo_screen();
 
 **Пример использования:** 
 ```ts
-player::show_inventory_menu([item("stick"), item("stick")],"name","CHEST");
+player::show_inventory_menu([item("stick"), item("stick")],"name","ANVIL");
 ```
 
 **Аргументы:**
@@ -3623,7 +3623,7 @@ player::show_inventory_menu([item("stick"), item("stick")],"name","CHEST");
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `items`          | список[Предмет]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Предметы инвентаря |
 | `name`           | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Название инвентаря |
-| `inventory_type` | Маркер<br/>**CHEST** - Сундук<br/>**DISPENSER** - Раздатчик<br/>**DROPPER** - Выбрасыватель<br/>**FURNACE** - Печь<br/>**WORKBENCH** - Верстак<br/>**CRAFTING** - Не открыт<br/>**ENCHANTING** - Чародейский стол<br/>**BREWING** - Зельеварка<br/>**PLAYER** - Инвентарь игрока<br/>**CREATIVE** - Инвентарь креатива<br/>**MERCHANT** - Торговец<br/>**ENDER_CHEST** - Эндер-сундук<br/>**ANVIL** - Наковальня<br/>**SMITHING** - Стол кузнеца<br/>**BEACON** - Маяк<br/>**HOPPER** - Воронка<br/>**SHULKER_BOX** - Шалкеровый ящик<br/>**BARREL** - Бочка<br/>**BLAST_FURNACE** - Плавильная печь<br/>**LECTERN** - Кафедра<br/>**SMOKER** - Коптильня<br/>**LOOM** - Ткацкий станок<br/>**CARTOGRAPHY** - Стол картографа<br/>**GRINDSTONE** - Точило<br/>**STONECUTTER** - Камнерез<br/>**COMPOSTER** - Компостер | Тип инвентаря      |
+| `inventory_type` | Маркер<br/>**ANVIL** - Наковальня<br/>**BARREL** - Бочка<br/>**BEACON** - Маяк<br/>**BLAST_FURNACE** - Плавильная печь<br/>**BREWING** - Зельеварка<br/>**CARTOGRAPHY** - Стол картографа<br/>**CHEST** - Сундук<br/>**COMPOSTER** - Компостер<br/>**CRAFTING** - Не открыт<br/>**CREATIVE** - Инвентарь креатива<br/>**DISPENSER** - Раздатчик<br/>**DROPPER** - Выбрасыватель<br/>**ENCHANTING** - Чародейский стол<br/>**ENDER_CHEST** - Эндер-сундук<br/>**FURNACE** - Печь<br/>**GRINDSTONE** - Точило<br/>**HOPPER** - Воронка<br/>**LECTERN** - Кафедра<br/>**LOOM** - Ткацкий станок<br/>**MERCHANT** - Торговец<br/>**PLAYER** - Инвентарь игрока<br/>**SHULKER_BOX** - Шалкеровый ящик<br/>**SMITHING** - Стол кузнеца<br/>**SMOKER** - Коптильня<br/>**STONECUTTER** - Камнерез<br/>**WORKBENCH** - Верстак | Тип инвентаря      |
 <h3 id=player_show_scoreboard>
   <code>player::show_scoreboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3708,14 +3708,14 @@ player::stop_sound([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 
 **Пример использования:** 
 ```ts
-player::stop_sounds_by_source("MASTER");
+player::stop_sounds_by_source("AMBIENT");
 ```
 
 **Аргументы:**
 
 | **Имя**  | **Тип**                                                                                                                                                                                                                                                                                                                                                                                       | **Описание**   |
 | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| `source` | Маркер<br/>**MASTER** - Общий (master)<br/>**MUSIC** - Музыка (music)<br/>**RECORD** - Музыкальные блоки (record)<br/>**WEATHER** - Погода (weather)<br/>**BLOCK** - Блоки (block)<br/>**HOSTILE** - Враждебные существа (hostile)<br/>**NEUTRAL** - Дружелюбные существа (neutral)<br/>**PLAYER** - Игроки (player)<br/>**AMBIENT** - Окружение (ambient)<br/>**VOICE** - Голос/Речь (voice) | Источник звука |
+| `source` | Маркер<br/>**AMBIENT** - Окружение (ambient)<br/>**BLOCK** - Блоки (block)<br/>**HOSTILE** - Враждебные существа (hostile)<br/>**MASTER** - Общий (master)<br/>**MUSIC** - Музыка (music)<br/>**NEUTRAL** - Дружелюбные существа (neutral)<br/>**PLAYER** - Игроки (player)<br/>**RECORD** - Музыкальные блоки (record)<br/>**VOICE** - Голос/Речь (voice)<br/>**WEATHER** - Погода (weather) | Источник звука |
 <h3 id=player_swing_hand>
   <code>player::swing_hand</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3748,7 +3748,7 @@ player::swing_hand("MAIN");
 
 **Пример использования:** 
 ```ts
-player::teleport(location(0,0,0,0,0),"TRUE","TRUE","TRUE");
+player::teleport(location(0,0,0,0,0),"FALSE","FALSE","FALSE");
 ```
 
 **Аргументы:**
@@ -3756,9 +3756,9 @@ player::teleport(location(0,0,0,0,0),"TRUE","TRUE","TRUE");
 | **Имя**         | **Тип**                                                  | **Описание**                 |
 | --------------- | -------------------------------------------------------- | ---------------------------- |
 | `location`      | Местоположение                                           | Новая позиция                |
-| `keep_rotation` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Оставить текущий поворот     |
-| `keep_velocity` | Маркер<br/>**TRUE** - Включить<br/>**FALSE** - Выключить | Сохранение инерции           |
-| `dismount`      | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет             | Спешиться после телепортации |
+| `keep_rotation` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Оставить текущий поворот     |
+| `keep_velocity` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Сохранение инерции           |
+| `dismount`      | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да             | Спешиться после телепортации |
 <h3 id=player_teleport_sequence>
   <code>player::teleport_sequence</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

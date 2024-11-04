@@ -28,9 +28,9 @@
         "id": "type",
         "type": "enum",
         "values": [
-          "WARNING",
           "ERROR",
-          "FATAL"
+          "FATAL",
+          "WARNING"
         ]
       }
     ],
@@ -84,9 +84,9 @@
         "id": "time_unit",
         "type": "enum",
         "values": [
-          "TICKS",
+          "MINUTES",
           "SECONDS",
-          "MINUTES"
+          "TICKS"
         ]
       }
     ],
@@ -112,9 +112,9 @@
         "id": "exception_type",
         "type": "enum",
         "values": [
-          "WARNING",
+          "ALL",
           "ERROR",
-          "ALL"
+          "WARNING"
         ]
       }
     ],
@@ -133,9 +133,9 @@
         "id": "duration",
         "type": "enum",
         "values": [
-          "NANOSECONDS",
           "MICROSECONDS",
-          "MILLISECONDS"
+          "MILLISECONDS",
+          "NANOSECONDS"
         ]
       }
     ],
@@ -339,25 +339,25 @@
         "id": "overwrite",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "show_icon",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "particle_mode",
         "type": "enum",
         "values": [
-          "REGULAR",
           "AMBIENT",
-          "NONE"
+          "NONE",
+          "REGULAR"
         ]
       }
     ],
@@ -402,8 +402,8 @@
         "id": "increment",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
@@ -466,8 +466,8 @@
         "id": "increment",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -486,10 +486,10 @@
         "id": "increment",
         "type": "enum",
         "values": [
-          "TRUE",
-          "TRUE",
           "FALSE",
-          "FALSE"
+          "FALSE",
+          "TRUE",
+          "TRUE"
         ]
       }
     ],
@@ -576,8 +576,8 @@
         "id": "damage_type",
         "type": "enum",
         "values": [
-          "DAMAGE",
           "CRITICAL_DAMAGE",
+          "DAMAGE",
           "MAGICAL_DAMAGE"
         ]
       }
@@ -713,8 +713,8 @@
         "id": "ai",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -729,8 +729,8 @@
         "id": "dance",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -745,8 +745,8 @@
         "id": "angry",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
@@ -769,9 +769,9 @@
         "id": "lock",
         "type": "enum",
         "values": [
-          "ENABLE",
           "DISABLE",
-          "DONT_CHANGE"
+          "DONT_CHANGE",
+          "ENABLE"
         ]
       }
     ],
@@ -810,18 +810,18 @@
         "id": "arms",
         "type": "enum",
         "values": [
-          "ENABLE",
           "DISABLE",
-          "DONT_CHANGE"
+          "DONT_CHANGE",
+          "ENABLE"
         ]
       },
       {
         "id": "base_plate",
         "type": "enum",
         "values": [
-          "ENABLE",
           "DISABLE",
-          "DONT_CHANGE"
+          "DONT_CHANGE",
+          "ENABLE"
         ]
       }
     ],
@@ -848,11 +848,11 @@
         "id": "body_part",
         "type": "enum",
         "values": [
-          "HEAD",
           "BODY",
+          "HEAD",
           "LEFT_ARM",
-          "RIGHT_ARM",
           "LEFT_LEG",
+          "RIGHT_ARM",
           "RIGHT_LEG"
         ]
       }
@@ -896,50 +896,37 @@
         "id": "attribute_type",
         "type": "enum",
         "values": [
-          "MAX_HEALTH",
-          "FOLLOW_RANGE",
-          "KNOCKBACK_RESISTANCE",
-          "MOVEMENT_SPEED",
-          "FLYING_SPEED",
-          "ATTACK_DAMAGE",
-          "ATTACK_KNOCKBACK",
-          "ATTACK_SPEED",
-          "ARMOR",
-          "ARMOR_TOUGHNESS",
-          "LUCK",
-          "HORSE_JUMP_STRENGTH",
-          "MAX_ABSORPTION",
-          "ZOMBIE_SPAWN_REINFORCEMENTS",
-          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_ARMOR",
+          "GENERIC_ARMOR_TOUGHNESS",
+          "GENERIC_ATTACK_DAMAGE",
+          "GENERIC_ATTACK_KNOCKBACK",
+          "GENERIC_ATTACK_SPEED",
+          "GENERIC_BURNING_TIME",
+          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
           "GENERIC_FALL_DAMAGE_MULTIPLIER",
+          "GENERIC_FLYING_SPEED",
+          "GENERIC_FOLLOW_RANGE",
+          "GENERIC_GRAVITY",
+          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_LUCK",
+          "GENERIC_MAX_ABSORPTION",
+          "GENERIC_MAX_HEALTH",
+          "GENERIC_MOVEMENT_EFFICIENCY",
+          "GENERIC_MOVEMENT_SPEED",
+          "GENERIC_OXYGEN_BONUS",
           "GENERIC_SAFE_FALL_DISTANCE",
           "GENERIC_SCALE",
           "GENERIC_STEP_HEIGHT",
-          "GENERIC_GRAVITY",
+          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
+          "PLAYER_BLOCK_BREAK_SPEED",
           "PLAYER_BLOCK_INTERACTION_RANGE",
           "PLAYER_ENTITY_INTERACTION_RANGE",
-          "PLAYER_BLOCK_BREAK_SPEED",
-          "GENERIC_BURNING_TIME",
-          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
-          "GENERIC_MOVEMENT_EFFICIENCY",
           "PLAYER_MINING_EFFICIENCY",
           "PLAYER_SNEAKING_SPEED",
           "PLAYER_SUBMERGED_MINING_SPEED",
           "PLAYER_SWEEPING_DAMAGE_RATIO",
-          "GENERIC_OXYGEN_BONUS",
-          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
-          "GENERIC_MAX_HEALTH",
-          "GENERIC_MAX_ABSORPTION",
-          "GENERIC_FOLLOW_RANGE",
-          "GENERIC_KNOCKBACK_RESISTANCE",
-          "GENERIC_MOVEMENT_SPEED",
-          "GENERIC_FLYING_SPEED",
-          "GENERIC_ATTACK_DAMAGE",
-          "GENERIC_ATTACK_KNOCKBACK",
-          "GENERIC_ATTACK_SPEED",
-          "GENERIC_ARMOR",
-          "GENERIC_ARMOR_TOUGHNESS",
-          "GENERIC_LUCK"
+          "ZOMBIE_SPAWN_REINFORCEMENTS"
         ]
       }
     ],
@@ -954,8 +941,8 @@
         "id": "aware",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -970,11 +957,11 @@
         "id": "axolotl_type",
         "type": "enum",
         "values": [
-          "LUCY",
-          "WILD",
-          "GOLD",
+          "BLUE",
           "CYAN",
-          "BLUE"
+          "GOLD",
+          "LUCY",
+          "WILD"
         ]
       }
     ],
@@ -989,8 +976,8 @@
         "id": "baby",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1033,8 +1020,8 @@
         "id": "nectar",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1061,8 +1048,8 @@
         "id": "dashing",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1077,8 +1064,8 @@
         "id": "carrying",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1093,8 +1080,8 @@
         "id": "lying_down",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1109,17 +1096,17 @@
         "id": "cat_type",
         "type": "enum",
         "values": [
-          "TABBY",
+          "ALL_BLACK",
           "BLACK",
-          "RED",
-          "SIAMESE",
           "BRITISH_SHORTHAIR",
           "CALICO",
+          "JELLIE",
           "PERSIAN",
           "RAGDOLL",
-          "WHITE",
-          "JELLIE",
-          "ALL_BLACK"
+          "RED",
+          "SIAMESE",
+          "TABBY",
+          "WHITE"
         ]
       }
     ],
@@ -1134,8 +1121,8 @@
         "id": "celebrating",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1150,8 +1137,8 @@
         "id": "collidable",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1166,8 +1153,8 @@
         "id": "charged",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1218,8 +1205,8 @@
         "id": "visibility",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1250,8 +1237,8 @@
         "id": "drops",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1294,8 +1281,8 @@
         "id": "despawning",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1310,10 +1297,10 @@
         "id": "billboard_type",
         "type": "enum",
         "values": [
+          "CENTER",
           "FIXED",
-          "VERTICAL",
           "HORIZONTAL",
-          "CENTER"
+          "VERTICAL"
         ]
       }
     ],
@@ -1388,8 +1375,8 @@
         "id": "mode",
         "type": "enum",
         "values": [
-          "SET",
-          "ADD"
+          "ADD",
+          "SET"
         ]
       },
       {
@@ -1428,8 +1415,8 @@
         "id": "mode",
         "type": "enum",
         "values": [
-          "SET",
-          "ADD"
+          "ADD",
+          "SET"
         ]
       },
       {
@@ -1476,8 +1463,8 @@
         "id": "mode",
         "type": "enum",
         "values": [
-          "SET",
-          "ADD"
+          "ADD",
+          "SET"
         ]
       }
     ],
@@ -1537,8 +1524,8 @@
         "id": "mode",
         "type": "enum",
         "values": [
-          "SET",
-          "ADD"
+          "ADD",
+          "SET"
         ]
       }
     ],
@@ -1565,17 +1552,17 @@
         "id": "phase",
         "type": "enum",
         "values": [
+          "BREATH_ATTACK",
+          "CHARGE_PLAYER",
           "CIRCLING",
-          "STRAFING",
+          "DYING",
           "FLY_TO_PORTAL",
+          "HOVER",
           "LAND_ON_PORTAL",
           "LEAVE_PORTAL",
-          "BREATH_ATTACK",
-          "SEARCH_FOR_BREATH_ATTACK_TARGET",
           "ROAR_BEFORE_ATTACK",
-          "CHARGE_PLAYER",
-          "DYING",
-          "HOVER"
+          "SEARCH_FOR_BREATH_ATTACK_TARGET",
+          "STRAFING"
         ]
       }
     ],
@@ -1590,22 +1577,22 @@
         "id": "color",
         "type": "enum",
         "values": [
-          "WHITE",
-          "ORANGE",
-          "MAGENTA",
-          "LIGHT_BLUE",
-          "YELLOW",
-          "LIME",
-          "PINK",
-          "GRAY",
-          "LIGHT_GRAY",
-          "CYAN",
-          "PURPLE",
+          "BLACK",
           "BLUE",
           "BROWN",
+          "CYAN",
+          "GRAY",
           "GREEN",
+          "LIGHT_BLUE",
+          "LIGHT_GRAY",
+          "LIME",
+          "MAGENTA",
+          "ORANGE",
+          "PINK",
+          "PURPLE",
           "RED",
-          "BLACK"
+          "WHITE",
+          "YELLOW"
         ]
       }
     ],
@@ -1648,12 +1635,12 @@
         "id": "slot",
         "type": "enum",
         "values": [
-          "HAND",
-          "OFF_HAND",
-          "FEET",
-          "LEGS",
           "CHEST",
-          "HEAD"
+          "FEET",
+          "HAND",
+          "HEAD",
+          "LEGS",
+          "OFF_HAND"
         ]
       }
     ],
@@ -1728,8 +1715,8 @@
         "id": "leaping",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1764,8 +1751,8 @@
         "id": "ticking_locked",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1797,9 +1784,9 @@
         "id": "frog_variant",
         "type": "enum",
         "values": [
+          "COLD",
           "TEMPERATE",
-          "WARM",
-          "COLD"
+          "WARM"
         ]
       }
     ],
@@ -1814,8 +1801,8 @@
         "id": "is_gliding",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1842,8 +1829,8 @@
         "id": "glowing",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1858,8 +1845,8 @@
         "id": "screams",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1874,8 +1861,8 @@
         "id": "gravity",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1902,26 +1889,26 @@
         "id": "horse_color",
         "type": "enum",
         "values": [
-          "WHITE",
-          "CREAMY",
-          "CHESTNUT",
-          "BROWN",
-          "DARK_BROWN",
-          "GRAY",
           "BLACK",
-          "DO_NOT_CHANGE"
+          "BROWN",
+          "CHESTNUT",
+          "CREAMY",
+          "DARK_BROWN",
+          "DO_NOT_CHANGE",
+          "GRAY",
+          "WHITE"
         ]
       },
       {
         "id": "horse_style",
         "type": "enum",
         "values": [
+          "BLACK_DOTS",
+          "DO_NOT_CHANGE",
           "NONE",
           "WHITE",
           "WHITEFIELD",
-          "WHITE_DOTS",
-          "BLACK_DOTS",
-          "DO_NOT_CHANGE"
+          "WHITE_DOTS"
         ]
       }
     ],
@@ -1936,8 +1923,8 @@
         "id": "is_immune",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1952,8 +1939,8 @@
         "id": "responsive",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -1984,8 +1971,8 @@
         "id": "invisible",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2012,8 +1999,8 @@
         "id": "invulnerable",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2052,15 +2039,15 @@
         "id": "display_model_type",
         "type": "enum",
         "values": [
-          "NONE",
-          "THIRDPERSON_LEFTHAND",
-          "THIRDPERSON_RIGHTHAND",
           "FIRSTPERSON_LEFTHAND",
           "FIRSTPERSON_RIGHTHAND",
-          "HEAD",
-          "GUI",
+          "FIXED",
           "GROUND",
-          "FIXED"
+          "GUI",
+          "HEAD",
+          "NONE",
+          "THIRDPERSON_LEFTHAND",
+          "THIRDPERSON_RIGHTHAND"
         ]
       }
     ],
@@ -2087,10 +2074,10 @@
         "id": "type",
         "type": "enum",
         "values": [
-          "CREAMY",
-          "WHITE",
           "BROWN",
-          "GRAY"
+          "CREAMY",
+          "GRAY",
+          "WHITE"
         ]
       }
     ],
@@ -2109,8 +2096,8 @@
         "id": "increment",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2125,8 +2112,8 @@
         "id": "marker",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2145,8 +2132,8 @@
         "id": "heal_to_max",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2177,8 +2164,8 @@
         "id": "mode",
         "type": "enum",
         "values": [
-          "MERGE",
-          "APPEND"
+          "APPEND",
+          "MERGE"
         ]
       },
       {
@@ -2209,16 +2196,16 @@
         "id": "experience_reward",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "ignore_discounts",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2249,8 +2236,8 @@
         "id": "aggressive",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2265,8 +2252,8 @@
         "id": "cow_type",
         "type": "enum",
         "values": [
-          "RED",
-          "BROWN"
+          "BROWN",
+          "RED"
         ]
       }
     ],
@@ -2297,22 +2284,22 @@
         "id": "gene",
         "type": "enum",
         "values": [
-          "MAIN",
+          "BOTH",
           "HIDDEN",
-          "BOTH"
+          "MAIN"
         ]
       },
       {
         "id": "gene_type",
         "type": "enum",
         "values": [
-          "NORMAL",
-          "LAZY",
-          "WORRIED",
-          "PLAYFUL",
+          "AGGRESSIVE",
           "BROWN",
+          "LAZY",
+          "NORMAL",
+          "PLAYFUL",
           "WEAK",
-          "AGGRESSIVE"
+          "WORRIED"
         ]
       }
     ],
@@ -2371,11 +2358,11 @@
         "id": "parrot_type",
         "type": "enum",
         "values": [
-          "RED",
           "BLUE",
-          "GREEN",
           "CYAN",
-          "GRAY"
+          "GRAY",
+          "GREEN",
+          "RED"
         ]
       }
     ],
@@ -2390,8 +2377,8 @@
         "id": "persistence",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2442,8 +2429,8 @@
         "id": "able",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2458,8 +2445,8 @@
         "id": "charging",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2486,22 +2473,22 @@
         "id": "pose",
         "type": "enum",
         "values": [
-          "STANDING",
-          "FALL_FLYING",
-          "SLEEPING",
-          "SWIMMING",
-          "SPIN_ATTACK",
-          "CROUCHING",
-          "LONG_JUMPING",
-          "DYING",
           "CROAKING",
-          "USING_TONGUE",
-          "SITTING",
-          "ROARING",
-          "SNIFFING",
-          "EMERGING",
+          "CROUCHING",
           "DIGGING",
-          "SNEAKING"
+          "DYING",
+          "EMERGING",
+          "FALL_FLYING",
+          "LONG_JUMPING",
+          "ROARING",
+          "SITTING",
+          "SLEEPING",
+          "SNEAKING",
+          "SNIFFING",
+          "SPIN_ATTACK",
+          "STANDING",
+          "SWIMMING",
+          "USING_TONGUE"
         ]
       }
     ],
@@ -2580,13 +2567,13 @@
         "id": "rabbit_type",
         "type": "enum",
         "values": [
-          "BROWN",
-          "WHITE",
           "BLACK",
           "BLACK_AND_WHITE",
+          "BROWN",
           "GOLD",
           "SALT_AND_PEPPER",
-          "THE_KILLER_BUNNY"
+          "THE_KILLER_BUNNY",
+          "WHITE"
         ]
       }
     ],
@@ -2601,8 +2588,8 @@
         "id": "rearing",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2617,8 +2604,8 @@
         "id": "riptiding",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2661,8 +2648,8 @@
         "id": "sheared",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2709,8 +2696,8 @@
         "id": "silenced",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2725,8 +2712,8 @@
         "id": "sitting",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2753,13 +2740,13 @@
         "id": "state",
         "type": "enum",
         "values": [
-          "IDLING",
-          "FEELING_HAPPY",
-          "SCENTING",
-          "SNIFFING",
-          "SEARCHING",
           "DIGGING",
-          "RISING"
+          "FEELING_HAPPY",
+          "IDLING",
+          "RISING",
+          "SCENTING",
+          "SEARCHING",
+          "SNIFFING"
         ]
       }
     ],
@@ -2774,8 +2761,8 @@
         "id": "pumpkin",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2871,8 +2858,8 @@
         "id": "enable_see_through",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2892,9 +2879,9 @@
         "id": "merging_mode",
         "type": "enum",
         "values": [
-          "SPACES",
           "CONCATENATION",
-          "SEPARATE_LINES"
+          "SEPARATE_LINES",
+          "SPACES"
         ]
       }
     ],
@@ -2909,8 +2896,8 @@
         "id": "enable_text_shadow",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -2925,65 +2912,65 @@
         "id": "pattern_color",
         "type": "enum",
         "values": [
-          "WHITE",
-          "ORANGE",
-          "MAGENTA",
-          "LIGHT_BLUE",
-          "YELLOW",
-          "LIME",
-          "PINK",
-          "GRAY",
-          "LIGHT_GRAY",
-          "CYAN",
-          "PURPLE",
+          "BLACK",
           "BLUE",
           "BROWN",
+          "CYAN",
+          "DO_NOT_CHANGE",
+          "GRAY",
           "GREEN",
+          "LIGHT_BLUE",
+          "LIGHT_GRAY",
+          "LIME",
+          "MAGENTA",
+          "ORANGE",
+          "PINK",
+          "PURPLE",
           "RED",
-          "BLACK",
-          "DO_NOT_CHANGE"
+          "WHITE",
+          "YELLOW"
         ]
       },
       {
         "id": "body_color",
         "type": "enum",
         "values": [
-          "WHITE",
-          "ORANGE",
-          "MAGENTA",
-          "LIGHT_BLUE",
-          "YELLOW",
-          "LIME",
-          "PINK",
-          "GRAY",
-          "LIGHT_GRAY",
-          "CYAN",
-          "PURPLE",
+          "BLACK",
           "BLUE",
           "BROWN",
+          "CYAN",
+          "DO_NOT_CHANGE",
+          "GRAY",
           "GREEN",
+          "LIGHT_BLUE",
+          "LIGHT_GRAY",
+          "LIME",
+          "MAGENTA",
+          "ORANGE",
+          "PINK",
+          "PURPLE",
           "RED",
-          "BLACK",
-          "DO_NOT_CHANGE"
+          "WHITE",
+          "YELLOW"
         ]
       },
       {
         "id": "pattern",
         "type": "enum",
         "values": [
-          "KOB",
-          "SUNSTREAK",
-          "SNOOPER",
-          "DASHER",
-          "BRINELY",
-          "SPOTTY",
-          "FLOPPER",
-          "STRIPEY",
-          "GLITTER",
-          "BLOCKFISH",
           "BETTY",
+          "BLOCKFISH",
+          "BRINELY",
           "CLAYFISH",
-          "DO_NOT_CHANGE"
+          "DASHER",
+          "DO_NOT_CHANGE",
+          "FLOPPER",
+          "GLITTER",
+          "KOB",
+          "SNOOPER",
+          "SPOTTY",
+          "STRIPEY",
+          "SUNSTREAK"
         ]
       }
     ],
@@ -2998,8 +2985,8 @@
         "id": "charging",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -3059,7 +3046,6 @@
         "id": "profession",
         "type": "enum",
         "values": [
-          "NONE",
           "ARMORER",
           "BUTCHER",
           "CARTOGRAPHER",
@@ -3071,6 +3057,7 @@
           "LIBRARIAN",
           "MASON",
           "NITWIT",
+          "NONE",
           "SHEPHERD",
           "TOOLSMITH",
           "WEAPONSMITH"
@@ -3088,8 +3075,8 @@
         "id": "visual_fire",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -3120,8 +3107,8 @@
         "id": "digging",
         "type": "enum",
         "values": [
-          "EMERGE",
-          "DIG_DOWN"
+          "DIG_DOWN",
+          "EMERGE"
         ]
       }
     ],
@@ -3136,8 +3123,8 @@
         "id": "wearing",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -3186,8 +3173,8 @@
         "id": "arms_raised",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -3216,8 +3203,8 @@
         "id": "sleep",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -3252,8 +3239,8 @@
         "id": "keep_rotation",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -3276,8 +3263,8 @@
         "id": "enable",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -3300,8 +3287,8 @@
         "id": "growth_type",
         "type": "enum",
         "values": [
-          "STAGE_NUMBER",
-          "PERCENTAGE"
+          "PERCENTAGE",
+          "STAGE_NUMBER"
         ]
       }
     ],
@@ -3357,8 +3344,8 @@
         "id": "drop_exp",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
@@ -3470,16 +3457,16 @@
         "id": "ignore_air",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "copy_entity",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -3554,29 +3541,29 @@
         "id": "tree_type",
         "type": "enum",
         "values": [
-          "TREE",
-          "BIG_TREE",
-          "REDWOOD",
-          "TALL_REDWOOD",
-          "BIRCH",
-          "JUNGLE",
-          "SMALL_JUNGLE",
-          "COCOA_TREE",
-          "JUNGLE_BUSH",
-          "RED_MUSHROOM",
-          "BROWN_MUSHROOM",
-          "SWAMP",
           "ACACIA",
-          "DARK_OAK",
-          "MEGA_REDWOOD",
-          "TALL_BIRCH",
-          "CHORUS_PLANT",
-          "CRIMSON_FUNGUS",
-          "WARPED_FUNGUS",
           "AZALEA",
+          "BIG_TREE",
+          "BIRCH",
+          "BROWN_MUSHROOM",
+          "CHERRY",
+          "CHORUS_PLANT",
+          "COCOA_TREE",
+          "CRIMSON_FUNGUS",
+          "DARK_OAK",
+          "JUNGLE",
+          "JUNGLE_BUSH",
           "MANGROVE",
+          "MEGA_REDWOOD",
+          "REDWOOD",
+          "RED_MUSHROOM",
+          "SMALL_JUNGLE",
+          "SWAMP",
+          "TALL_BIRCH",
           "TALL_MANGROVE",
-          "CHERRY"
+          "TALL_REDWOOD",
+          "TREE",
+          "WARPED_FUNGUS"
         ]
       }
     ],
@@ -3591,8 +3578,8 @@
         "id": "hide",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -3615,16 +3602,16 @@
         "id": "movement",
         "type": "enum",
         "values": [
-          "UPWARDS",
-          "DIRECTIONAL"
+          "DIRECTIONAL",
+          "UPWARDS"
         ]
       },
       {
         "id": "instant",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -3806,18 +3793,18 @@
         "id": "request_type",
         "type": "enum",
         "values": [
+          "DELETE",
           "GET",
           "POST",
-          "PUT",
-          "DELETE"
+          "PUT"
         ]
       },
       {
         "id": "content_type",
         "type": "enum",
         "values": [
-          "TEXT_PLAIN",
-          "APPLICATION_JSON"
+          "APPLICATION_JSON",
+          "TEXT_PLAIN"
         ]
       }
     ],
@@ -3925,8 +3912,8 @@
         "id": "enable",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -3945,8 +3932,8 @@
         "id": "powered",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -4010,9 +3997,9 @@
         "type": "enum",
         "values": [
           "FIRST",
+          "FOURTH",
           "SECOND",
-          "THIRD",
-          "FOURTH"
+          "THIRD"
         ]
       }
     ],
@@ -4086,9 +4073,9 @@
         "type": "enum",
         "values": [
           "BACK",
+          "FRONT",
           "LEFT",
-          "RIGHT",
-          "FRONT"
+          "RIGHT"
         ]
       }
     ],
@@ -4176,8 +4163,8 @@
         "id": "allowed",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -4378,8 +4365,8 @@
         "values": [
           "BLANK",
           "FIXED",
-          "STYLED",
-          "RESET"
+          "RESET",
+          "STYLED"
         ]
       }
     ],
@@ -4430,8 +4417,8 @@
         "values": [
           "BLANK",
           "FIXED",
-          "STYLED",
-          "RESET"
+          "RESET",
+          "STYLED"
         ]
       }
     ],
@@ -4457,8 +4444,8 @@
         "values": [
           "BLANK",
           "FIXED",
-          "STYLED",
-          "RESET"
+          "RESET",
+          "STYLED"
         ]
       }
     ],
@@ -4514,8 +4501,8 @@
         "id": "can_summon",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -4534,8 +4521,8 @@
         "id": "shrieking",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -4578,9 +4565,9 @@
         "id": "side",
         "type": "enum",
         "values": [
-          "FRONT",
+          "ALL",
           "BACK",
-          "ALL"
+          "FRONT"
         ]
       }
     ],
@@ -4599,39 +4586,39 @@
         "id": "side",
         "type": "enum",
         "values": [
-          "FRONT",
+          "ALL",
           "BACK",
-          "ALL"
+          "FRONT"
         ]
       },
       {
         "id": "sign_text_color",
         "type": "enum",
         "values": [
-          "WHITE",
-          "ORANGE",
-          "MAGENTA",
-          "LIGHT_BLUE",
-          "YELLOW",
-          "LIME",
-          "PINK",
-          "GRAY",
-          "LIGHT_GRAY",
-          "CYAN",
-          "PURPLE",
+          "BLACK",
           "BLUE",
           "BROWN",
+          "CYAN",
+          "GRAY",
           "GREEN",
+          "LIGHT_BLUE",
+          "LIGHT_GRAY",
+          "LIME",
+          "MAGENTA",
+          "ORANGE",
+          "PINK",
+          "PURPLE",
           "RED",
-          "BLACK"
+          "WHITE",
+          "YELLOW"
         ]
       },
       {
         "id": "glowing",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -4650,8 +4637,8 @@
         "id": "waxed",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -4683,10 +4670,10 @@
         "id": "difficulty",
         "type": "enum",
         "values": [
-          "PEACEFUL",
           "EASY",
+          "HARD",
           "NORMAL",
-          "HARD"
+          "PEACEFUL"
         ]
       }
     ],
@@ -4754,16 +4741,16 @@
         "id": "gravity",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "marker",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
@@ -4786,16 +4773,16 @@
         "id": "small",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "show_arms",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
@@ -4810,16 +4797,16 @@
         "id": "base_plate",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "invisible",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -4895,8 +4882,8 @@
         "id": "show_bottom",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -4964,8 +4951,8 @@
         "type": "enum",
         "values": [
           "DROP",
-          "SHATTER",
-          "RANDOM"
+          "RANDOM",
+          "SHATTER"
         ]
       }
     ],
@@ -4992,8 +4979,8 @@
         "id": "should_expire",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -5024,8 +5011,8 @@
         "id": "responsive",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -5040,8 +5027,8 @@
         "id": "can_mob_pickup",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
@@ -5060,16 +5047,16 @@
         "id": "can_player_pickup",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "apply_motion",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -5157,8 +5144,8 @@
         "id": "natural_equipment",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
@@ -5234,9 +5221,9 @@
         "id": "merging_mode",
         "type": "enum",
         "values": [
-          "SPACES",
           "CONCATENATION",
-          "SEPARATE_LINES"
+          "SEPARATE_LINES",
+          "SPACES"
         ]
       }
     ],
@@ -5324,8 +5311,8 @@
         "id": "check_type",
         "type": "enum",
         "values": [
-          "OVERLAPS",
-          "CONTAINS"
+          "CONTAINS",
+          "OVERLAPS"
         ]
       }
     ],
@@ -5365,10 +5352,10 @@
         "id": "compare_type",
         "type": "enum",
         "values": [
-          "EQUALS",
           "CONTAINS",
-          "STARTS_WITH",
-          "ENDS_WITH"
+          "ENDS_WITH",
+          "EQUALS",
+          "STARTS_WITH"
         ]
       }
     ],
@@ -5389,8 +5376,8 @@
         "id": "check_mode",
         "type": "enum",
         "values": [
-          "ANY",
-          "ALL"
+          "ALL",
+          "ANY"
         ]
       }
     ],
@@ -5414,16 +5401,16 @@
         "id": "ignore_y_axis",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "intersect_type",
         "type": "enum",
         "values": [
-          "POINT",
-          "HITBOX"
+          "HITBOX",
+          "POINT"
         ]
       },
       {
@@ -5487,8 +5474,8 @@
         "id": "ignore_y_axis",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -5517,10 +5504,10 @@
         "id": "compare_mode",
         "type": "enum",
         "values": [
-          "TYPE",
+          "FARTHEST",
           "NAME_OR_UUID",
           "NEAREST",
-          "FARTHEST"
+          "TYPE"
         ]
       }
     ],
@@ -5546,8 +5533,8 @@
         "id": "only_solid",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -5713,17 +5700,17 @@
         "id": "check_mode",
         "type": "enum",
         "values": [
-          "ANY",
-          "ALL"
+          "ALL",
+          "ANY"
         ]
       },
       {
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE",
           "EXACTLY",
+          "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "IGNORE_STACK_SIZE",
           "TYPE_ONLY"
         ]
       }
@@ -5749,8 +5736,8 @@
         "id": "check_mode",
         "type": "enum",
         "values": [
-          "ANY",
-          "ALL"
+          "ALL",
+          "ANY"
         ]
       }
     ],
@@ -5766,38 +5753,38 @@
         "id": "cause",
         "type": "enum",
         "values": [
-          "KILL",
-          "WORLD_BORDER",
+          "BLOCK_EXPLOSION",
           "CONTACT",
+          "CRAMMING",
+          "CUSTOM",
+          "DRAGON_BREATH",
+          "DROWNING",
+          "DRYOUT",
           "ENTITY_ATTACK",
+          "ENTITY_EXPLOSION",
           "ENTITY_SWEEP_ATTACK",
-          "PROJECTILE",
-          "SUFFOCATION",
           "FALL",
+          "FALLING_BLOCK",
           "FIRE",
           "FIRE_TICK",
-          "MELTING",
-          "LAVA",
-          "DROWNING",
-          "BLOCK_EXPLOSION",
-          "ENTITY_EXPLOSION",
-          "VOID",
-          "LIGHTNING",
-          "SUICIDE",
-          "STARVATION",
-          "POISON",
-          "MAGIC",
-          "WITHER",
-          "FALLING_BLOCK",
-          "THORNS",
-          "DRAGON_BREATH",
-          "CUSTOM",
           "FLY_INTO_WALL",
-          "HOT_FLOOR",
-          "CRAMMING",
-          "DRYOUT",
           "FREEZE",
-          "SONIC_BOOM"
+          "HOT_FLOOR",
+          "KILL",
+          "LAVA",
+          "LIGHTNING",
+          "MAGIC",
+          "MELTING",
+          "POISON",
+          "PROJECTILE",
+          "SONIC_BOOM",
+          "STARVATION",
+          "SUFFOCATION",
+          "SUICIDE",
+          "THORNS",
+          "VOID",
+          "WITHER",
+          "WORLD_BORDER"
         ]
       }
     ],
@@ -5861,9 +5848,9 @@
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE",
           "EXACTLY",
+          "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "IGNORE_STACK_SIZE",
           "TYPE_ONLY"
         ]
       }
@@ -5894,15 +5881,15 @@
         "id": "heal_cause",
         "type": "enum",
         "values": [
-          "REGEN",
-          "SATIATED",
+          "CUSTOM",
           "EATING",
           "ENDER_CRYSTAL",
           "MAGIC",
           "MAGIC_REGEN",
-          "WITHER_SPAWN",
+          "REGEN",
+          "SATIATED",
           "WITHER",
-          "CUSTOM"
+          "WITHER_SPAWN"
         ]
       }
     ],
@@ -5918,16 +5905,16 @@
         "id": "cause",
         "type": "enum",
         "values": [
-          "LAVA",
-          "FLINT_AND_STEEL",
-          "SPREAD",
-          "LIGHTNING",
-          "SUFFOCATION",
-          "FALL",
-          "FIREBALL",
+          "ARROW",
           "ENDER_CRYSTAL",
           "EXPLOSION",
-          "ARROW"
+          "FALL",
+          "FIREBALL",
+          "FLINT_AND_STEEL",
+          "LAVA",
+          "LIGHTNING",
+          "SPREAD",
+          "SUFFOCATION"
         ]
       }
     ],
@@ -5943,29 +5930,29 @@
         "id": "instrument",
         "type": "enum",
         "values": [
-          "PIANO",
+          "BANJO",
           "BASS_DRUM",
+          "BASS_GUITAR",
+          "BELL",
+          "BIT",
+          "CHIME",
+          "COW_BELL",
+          "CREEPER",
+          "CUSTOM_HEAD",
+          "DIDGERIDOO",
+          "DRAGON",
+          "FLUTE",
+          "GUITAR",
+          "IRON_XYLOPHONE",
+          "PIANO",
+          "PIGLIN",
+          "PLING",
+          "SKELETON",
           "SNARE_DRUM",
           "STICKS",
-          "BASS_GUITAR",
-          "FLUTE",
-          "BELL",
-          "GUITAR",
-          "CHIME",
-          "XYLOPHONE",
-          "IRON_XYLOPHONE",
-          "COW_BELL",
-          "DIDGERIDOO",
-          "BIT",
-          "BANJO",
-          "PLING",
-          "ZOMBIE",
-          "SKELETON",
-          "CREEPER",
-          "DRAGON",
           "WITHER_SKELETON",
-          "PIGLIN",
-          "CUSTOM_HEAD"
+          "XYLOPHONE",
+          "ZOMBIE"
         ]
       }
     ],
@@ -5991,30 +5978,30 @@
         "type": "enum",
         "values": [
           "ANY",
-          "FRONT",
-          "BACK"
+          "BACK",
+          "FRONT"
         ]
       },
       {
         "id": "check_mode",
         "type": "enum",
         "values": [
-          "CONTAINS",
-          "EQUALS",
+          "ALL",
           "ANY",
-          "ALL"
+          "CONTAINS",
+          "EQUALS"
         ]
       },
       {
         "id": "lines",
         "type": "enum",
         "values": [
-          "FIRST",
-          "SECOND",
-          "THIRD",
-          "FOURTH",
           "ALL",
-          "ANY"
+          "ANY",
+          "FIRST",
+          "FOURTH",
+          "SECOND",
+          "THIRD"
         ]
       }
     ],
@@ -6086,8 +6073,8 @@
         "id": "check_type",
         "type": "enum",
         "values": [
-          "OVERLAPS",
-          "CONTAINS"
+          "CONTAINS",
+          "OVERLAPS"
         ]
       }
     ],
@@ -6108,9 +6095,9 @@
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE",
           "EXACTLY",
+          "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "IGNORE_STACK_SIZE",
           "TYPE_ONLY"
         ]
       }
@@ -6135,10 +6122,10 @@
         "id": "gamemode",
         "type": "enum",
         "values": [
-          "CREATIVE",
-          "SURVIVAL",
           "ADVENTURE",
-          "SPECTATOR"
+          "CREATIVE",
+          "SPECTATOR",
+          "SURVIVAL"
         ]
       }
     ],
@@ -6159,10 +6146,10 @@
         "id": "check_mode",
         "type": "enum",
         "values": [
-          "ANY",
-          "ANY",
           "ALL",
-          "ALL"
+          "ALL",
+          "ANY",
+          "ANY"
         ]
       },
       {
@@ -6170,9 +6157,9 @@
         "type": "enum",
         "values": [
           "EXACTLY",
-          "TYPE_ONLY",
+          "IGNORE_DURABILITY_AND_STACK_SIZE",
           "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE"
+          "TYPE_ONLY"
         ]
       }
     ],
@@ -6197,9 +6184,9 @@
         "type": "enum",
         "values": [
           "EXACTLY",
-          "TYPE_ONLY",
+          "IGNORE_DURABILITY_AND_STACK_SIZE",
           "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE"
+          "TYPE_ONLY"
         ]
       }
     ],
@@ -6225,9 +6212,9 @@
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE",
           "EXACTLY",
+          "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "IGNORE_STACK_SIZE",
           "TYPE_ONLY"
         ]
       }
@@ -6249,8 +6236,8 @@
         "id": "check_mode",
         "type": "enum",
         "values": [
-          "ANY",
-          "ALL"
+          "ALL",
+          "ANY"
         ]
       }
     ],
@@ -6267,18 +6254,18 @@
         "type": "enum",
         "values": [
           "BUILDER",
-          "DEVELOPER",
           "BUILDER_AND_DEVELOPER",
-          "WHITELISTED",
-          "OWNER"
+          "DEVELOPER",
+          "OWNER",
+          "WHITELISTED"
         ]
       },
       {
         "id": "exact",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -6299,25 +6286,25 @@
         "id": "checked_slots",
         "type": "enum",
         "values": [
-          "ENTIRE_INVENTORY",
-          "ENTIRE_INVENTORY",
-          "MAIN_INVENTORY",
-          "MAIN_INVENTORY",
-          "UPPER_INVENTORY",
-          "HOTBAR",
-          "HOTBAR",
           "ARMOR",
-          "ARMOR"
+          "ARMOR",
+          "ENTIRE_INVENTORY",
+          "ENTIRE_INVENTORY",
+          "HOTBAR",
+          "HOTBAR",
+          "MAIN_INVENTORY",
+          "MAIN_INVENTORY",
+          "UPPER_INVENTORY"
         ]
       },
       {
         "id": "check_mode",
         "type": "enum",
         "values": [
-          "ANY",
-          "ANY",
           "ALL",
-          "ALL"
+          "ALL",
+          "ANY",
+          "ANY"
         ]
       }
     ],
@@ -6354,18 +6341,18 @@
         "id": "ignore_y_axis",
         "type": "enum",
         "values": [
-          "TRUE",
-          "TRUE",
           "FALSE",
-          "FALSE"
+          "FALSE",
+          "TRUE",
+          "TRUE"
         ]
       },
       {
         "id": "intersect_type",
         "type": "enum",
         "values": [
-          "POINT",
-          "HITBOX"
+          "HITBOX",
+          "POINT"
         ]
       },
       {
@@ -6399,9 +6386,9 @@
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE",
           "EXACTLY",
+          "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "IGNORE_STACK_SIZE",
           "TYPE_ONLY"
         ]
       }
@@ -6418,37 +6405,37 @@
         "id": "inventory_type",
         "type": "enum",
         "values": [
+          "ANVIL",
+          "BARREL",
+          "BEACON",
+          "BLAST_FURNACE",
+          "BREWING",
+          "CARTOGRAPHY",
           "CHEST",
+          "CHISELED_BOOKSHELF",
+          "COMPOSTER",
+          "CRAFTER",
+          "CRAFTING",
+          "CREATIVE",
+          "DECORATED_POT",
           "DISPENSER",
           "DROPPER",
-          "FURNACE",
-          "WORKBENCH",
-          "CRAFTING",
           "ENCHANTING",
-          "BREWING",
-          "PLAYER",
-          "CREATIVE",
-          "MERCHANT",
           "ENDER_CHEST",
-          "ANVIL",
-          "SMITHING",
-          "BEACON",
-          "HOPPER",
-          "SHULKER_BOX",
-          "BARREL",
-          "BLAST_FURNACE",
-          "LECTERN",
-          "SMOKER",
-          "LOOM",
-          "CARTOGRAPHY",
+          "FURNACE",
           "GRINDSTONE",
-          "STONECUTTER",
-          "COMPOSTER",
-          "CHISELED_BOOKSHELF",
+          "HOPPER",
           "JUKEBOX",
+          "LECTERN",
+          "LOOM",
+          "MERCHANT",
+          "PLAYER",
+          "SHULKER_BOX",
+          "SMITHING",
           "SMITHING_NEW",
-          "DECORATED_POT",
-          "CRAFTER"
+          "SMOKER",
+          "STONECUTTER",
+          "WORKBENCH"
         ]
       }
     ],
@@ -6521,9 +6508,9 @@
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE",
           "EXACTLY",
+          "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "IGNORE_STACK_SIZE",
           "TYPE_ONLY"
         ]
       }
@@ -6554,12 +6541,12 @@
         "id": "fluid_mode",
         "type": "enum",
         "values": [
-          "NEVER",
-          "NEVER",
-          "SOURCE_ONLY",
-          "SOURCE_ONLY",
           "ALWAYS",
-          "ALWAYS"
+          "ALWAYS",
+          "NEVER",
+          "NEVER",
+          "SOURCE_ONLY",
+          "SOURCE_ONLY"
         ]
       }
     ],
@@ -6583,10 +6570,10 @@
         "id": "ignore_y_axis",
         "type": "enum",
         "values": [
-          "TRUE",
-          "TRUE",
           "FALSE",
-          "FALSE"
+          "FALSE",
+          "TRUE",
+          "TRUE"
         ]
       }
     ],
@@ -6623,12 +6610,12 @@
         "id": "compare_mode",
         "type": "enum",
         "values": [
-          "TYPE",
-          "TYPE",
+          "FARTHEST",
           "NAME_OR_UUID",
           "NAME_OR_UUID",
           "NEAREST",
-          "FARTHEST"
+          "TYPE",
+          "TYPE"
         ]
       }
     ],
@@ -6686,10 +6673,10 @@
         "id": "only_solid",
         "type": "enum",
         "values": [
-          "TRUE",
+          "FALSE",
           "FALSE",
           "TRUE",
-          "FALSE"
+          "TRUE"
         ]
       }
     ],
@@ -6718,9 +6705,9 @@
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE",
           "EXACTLY",
+          "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "IGNORE_STACK_SIZE",
           "TYPE_ONLY"
         ]
       }
@@ -6742,19 +6729,19 @@
         "id": "check_mode",
         "type": "enum",
         "values": [
-          "ANY",
-          "ANY",
           "ALL",
-          "ALL"
+          "ALL",
+          "ANY",
+          "ANY"
         ]
       },
       {
         "id": "comparison_mode",
         "type": "enum",
         "values": [
-          "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE",
           "EXACTLY",
+          "IGNORE_DURABILITY_AND_STACK_SIZE",
+          "IGNORE_STACK_SIZE",
           "TYPE_ONLY"
         ]
       }
@@ -6910,16 +6897,16 @@
         "id": "variable_type",
         "type": "enum",
         "values": [
-          "NUMBER",
-          "TEXT",
-          "LOCATION",
+          "ARRAY",
           "ITEM",
+          "LOCATION",
+          "MAP",
+          "NUMBER",
+          "PARTICLE",
           "POTION",
           "SOUND",
-          "PARTICLE",
-          "VECTOR",
-          "ARRAY",
-          "MAP"
+          "TEXT",
+          "VECTOR"
         ]
       }
     ],
@@ -6946,9 +6933,9 @@
         "type": "enum",
         "values": [
           "EXACTLY",
-          "TYPE_ONLY",
+          "IGNORE_DURABILITY_AND_STACK_SIZE",
           "IGNORE_STACK_SIZE",
-          "IGNORE_DURABILITY_AND_STACK_SIZE"
+          "TYPE_ONLY"
         ]
       }
     ],
@@ -6999,10 +6986,10 @@
         "id": "compare_type",
         "type": "enum",
         "values": [
-          "EQUALS",
           "CONTAINS",
-          "STARTS_WITH",
-          "ENDS_WITH"
+          "ENDS_WITH",
+          "EQUALS",
+          "STARTS_WITH"
         ]
       }
     ],
@@ -7064,8 +7051,8 @@
         "id": "check_mode",
         "type": "enum",
         "values": [
-          "ANY",
-          "ALL"
+          "ALL",
+          "ANY"
         ]
       }
     ],
@@ -7131,8 +7118,8 @@
         "id": "border_handling",
         "type": "enum",
         "values": [
-          "EXACT",
           "BLOCK",
+          "EXACT",
           "FULL_BLOCK_RANGE"
         ]
       }
@@ -7163,9 +7150,9 @@
         "id": "shape",
         "type": "enum",
         "values": [
-          "SPHERE",
           "CIRCLE",
           "CUBE",
+          "SPHERE",
           "SQUARE"
         ]
       }
@@ -7259,8 +7246,8 @@
         "id": "check_type",
         "type": "enum",
         "values": [
-          "OVERLAPS",
-          "CONTAINS"
+          "CONTAINS",
+          "OVERLAPS"
         ]
       }
     ],
@@ -7285,8 +7272,8 @@
         "id": "ignore_case",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -7312,8 +7299,8 @@
         "id": "ignore_case",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -7339,16 +7326,16 @@
         "id": "regular_expressions",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "ignore_case",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -7374,8 +7361,8 @@
         "id": "ignore_case",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -7397,8 +7384,8 @@
         "id": "position",
         "type": "enum",
         "values": [
-          "TOP",
-          "BUTTON"
+          "BUTTON",
+          "TOP"
         ]
       }
     ],
@@ -7418,8 +7405,8 @@
         "id": "allow",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -7467,11 +7454,11 @@
         "id": "clear_mode",
         "type": "enum",
         "values": [
+          "ARMOR",
           "ENTIRE",
-          "MAIN",
-          "UPPER",
           "HOTBAR",
-          "ARMOR"
+          "MAIN",
+          "UPPER"
         ]
       }
     ],
@@ -7533,8 +7520,8 @@
         "id": "visible_to_self",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -7553,8 +7540,8 @@
         "id": "visible_to_self",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -7573,8 +7560,8 @@
         "id": "visible_to_self",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -7594,10 +7581,10 @@
         "type": "enum",
         "values": [
           "DOWN",
+          "EAST",
           "NORTH",
           "SOUTH",
-          "WEST",
-          "EAST"
+          "WEST"
         ]
       }
     ],
@@ -7634,8 +7621,8 @@
         "id": "color",
         "type": "enum",
         "values": [
-          "LIGHT_PURPLE",
-          "DARK_PURPLE"
+          "DARK_PURPLE",
+          "LIGHT_PURPLE"
         ]
       }
     ],
@@ -7752,8 +7739,8 @@
         "id": "type",
         "type": "enum",
         "values": [
-          "SOLID",
           "HOLLOW",
+          "SOLID",
           "WIREFRAME"
         ]
       }
@@ -7785,8 +7772,8 @@
         "id": "unit_of_measurement",
         "type": "enum",
         "values": [
-          "POINTS",
-          "DISTANCE"
+          "DISTANCE",
+          "POINTS"
         ]
       }
     ],
@@ -7817,8 +7804,8 @@
         "id": "unit_of_measurement",
         "type": "enum",
         "values": [
-          "POINTS",
-          "DISTANCE"
+          "DISTANCE",
+          "POINTS"
         ]
       }
     ],
@@ -8005,8 +7992,8 @@
         "id": "is_flying",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -8025,9 +8012,9 @@
         "id": "mode",
         "type": "enum",
         "values": [
-          "POINTS",
           "LEVEL",
-          "LEVEL_PERCENTAGE"
+          "LEVEL_PERCENTAGE",
+          "POINTS"
         ]
       }
     ],
@@ -8064,25 +8051,25 @@
         "id": "show_icon",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "overwrite",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "particle_mode",
         "type": "enum",
         "values": [
-          "REGULAR",
           "AMBIENT",
-          "NONE"
+          "NONE",
+          "REGULAR"
         ]
       }
     ],
@@ -8127,8 +8114,8 @@
         "id": "hide",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -8161,8 +8148,8 @@
         "id": "increment",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
@@ -8225,8 +8212,8 @@
         "id": "increment",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -8245,8 +8232,8 @@
         "id": "increment",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -8300,9 +8287,9 @@
         "type": "enum",
         "values": [
           "DAMAGE",
-          "WAKE_UP",
+          "JUMPSCARE",
           "TOTEM",
-          "JUMPSCARE"
+          "WAKE_UP"
         ]
       }
     ],
@@ -8420,24 +8407,24 @@
         "id": "keep_rotation",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "keep_velocity",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "dismount",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -8503,8 +8490,8 @@
         "id": "position",
         "type": "enum",
         "values": [
-          "TOP",
-          "BUTTON"
+          "BUTTON",
+          "TOP"
         ]
       }
     ],
@@ -8661,10 +8648,10 @@
         "id": "merging",
         "type": "enum",
         "values": [
-          "SPACES",
-          "SPACES",
           "CONCATENATION",
-          "CONCATENATION"
+          "CONCATENATION",
+          "SPACES",
+          "SPACES"
         ]
       }
     ],
@@ -8687,9 +8674,9 @@
         "id": "frame",
         "type": "enum",
         "values": [
-          "TASK",
+          "CHALLENGE",
           "GOAL",
-          "CHALLENGE"
+          "TASK"
         ]
       }
     ],
@@ -8759,9 +8746,9 @@
         "id": "merging",
         "type": "enum",
         "values": [
-          "SPACES",
           "CONCATENATION",
-          "SEPARATE_LINES"
+          "SEPARATE_LINES",
+          "SPACES"
         ]
       }
     ],
@@ -8840,8 +8827,8 @@
         "id": "allow_flying",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -8908,50 +8895,37 @@
         "id": "attribute_type",
         "type": "enum",
         "values": [
-          "MAX_HEALTH",
-          "MAX_ABSORPTION",
-          "FOLLOW_RANGE",
-          "KNOCKBACK_RESISTANCE",
-          "MOVEMENT_SPEED",
-          "FLYING_SPEED",
-          "ATTACK_DAMAGE",
-          "ATTACK_KNOCKBACK",
-          "ATTACK_SPEED",
-          "ARMOR",
-          "ARMOR_TOUGHNESS",
-          "LUCK",
-          "HORSE_JUMP_STRENGTH",
-          "ZOMBIE_SPAWN_REINFORCEMENTS",
-          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_ARMOR",
+          "GENERIC_ARMOR_TOUGHNESS",
+          "GENERIC_ATTACK_DAMAGE",
+          "GENERIC_ATTACK_KNOCKBACK",
+          "GENERIC_ATTACK_SPEED",
+          "GENERIC_BURNING_TIME",
+          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
           "GENERIC_FALL_DAMAGE_MULTIPLIER",
+          "GENERIC_FLYING_SPEED",
+          "GENERIC_FOLLOW_RANGE",
+          "GENERIC_GRAVITY",
+          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_LUCK",
+          "GENERIC_MAX_ABSORPTION",
+          "GENERIC_MAX_HEALTH",
+          "GENERIC_MOVEMENT_EFFICIENCY",
+          "GENERIC_MOVEMENT_SPEED",
+          "GENERIC_OXYGEN_BONUS",
           "GENERIC_SAFE_FALL_DISTANCE",
           "GENERIC_SCALE",
           "GENERIC_STEP_HEIGHT",
-          "GENERIC_GRAVITY",
+          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
+          "PLAYER_BLOCK_BREAK_SPEED",
           "PLAYER_BLOCK_INTERACTION_RANGE",
           "PLAYER_ENTITY_INTERACTION_RANGE",
-          "PLAYER_BLOCK_BREAK_SPEED",
-          "GENERIC_BURNING_TIME",
-          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
-          "GENERIC_MOVEMENT_EFFICIENCY",
           "PLAYER_MINING_EFFICIENCY",
           "PLAYER_SNEAKING_SPEED",
           "PLAYER_SUBMERGED_MINING_SPEED",
           "PLAYER_SWEEPING_DAMAGE_RATIO",
-          "GENERIC_OXYGEN_BONUS",
-          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
-          "GENERIC_MAX_HEALTH",
-          "GENERIC_MAX_ABSORPTION",
-          "GENERIC_FOLLOW_RANGE",
-          "GENERIC_KNOCKBACK_RESISTANCE",
-          "GENERIC_MOVEMENT_SPEED",
-          "GENERIC_FLYING_SPEED",
-          "GENERIC_ATTACK_DAMAGE",
-          "GENERIC_ATTACK_KNOCKBACK",
-          "GENERIC_ATTACK_SPEED",
-          "GENERIC_ARMOR",
-          "GENERIC_ARMOR_TOUGHNESS",
-          "GENERIC_LUCK"
+          "ZOMBIE_SPAWN_REINFORCEMENTS"
         ]
       }
     ],
@@ -8982,8 +8956,8 @@
         "id": "is_opened",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -8998,10 +8972,10 @@
         "id": "sky_effect",
         "type": "enum",
         "values": [
-          "NONE",
-          "FOG",
           "DARK_SKY",
-          "FOG_AND_DARK_SKY"
+          "FOG",
+          "FOG_AND_DARK_SKY",
+          "NONE"
         ]
       },
       {
@@ -9020,24 +8994,24 @@
         "id": "style",
         "type": "enum",
         "values": [
-          "PROGRESS",
-          "NOTCHED_6",
           "NOTCHED_10",
           "NOTCHED_12",
-          "NOTCHED_20"
+          "NOTCHED_20",
+          "NOTCHED_6",
+          "PROGRESS"
         ]
       },
       {
         "id": "color",
         "type": "enum",
         "values": [
-          "PINK",
           "BLUE",
-          "RED",
           "GREEN",
-          "YELLOW",
+          "PINK",
           "PURPLE",
-          "WHITE"
+          "RED",
+          "WHITE",
+          "YELLOW"
         ]
       }
     ],
@@ -9058,8 +9032,8 @@
         "type": "enum",
         "values": [
           "ADD",
-          "SET",
-          "REMOVE"
+          "REMOVE",
+          "SET"
         ]
       }
     ],
@@ -9074,8 +9048,8 @@
         "id": "collidable",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9114,8 +9088,8 @@
         "id": "death_drops",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9164,30 +9138,30 @@
         "id": "color",
         "type": "enum",
         "values": [
-          "WHITE",
-          "GRAY",
-          "DARK_GRAY",
-          "BLACK",
-          "DARK_RED",
-          "RED",
-          "GOLD",
-          "YELLOW",
-          "GREEN",
-          "DARK_GREEN",
-          "DARK_AQUA",
           "AQUA",
+          "BLACK",
           "BLUE",
+          "DARK_AQUA",
           "DARK_BLUE",
+          "DARK_GRAY",
+          "DARK_GREEN",
           "DARK_PURPLE",
-          "PURPLE"
+          "DARK_RED",
+          "GOLD",
+          "GRAY",
+          "GREEN",
+          "PURPLE",
+          "RED",
+          "WHITE",
+          "YELLOW"
         ]
       },
       {
         "id": "glow",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9206,12 +9180,12 @@
         "id": "slot",
         "type": "enum",
         "values": [
-          "HAND",
-          "OFF_HAND",
-          "FEET",
-          "LEGS",
           "CHEST",
-          "HEAD"
+          "FEET",
+          "HAND",
+          "HEAD",
+          "LEGS",
+          "OFF_HAND"
         ]
       }
     ],
@@ -9230,8 +9204,8 @@
         "id": "mode",
         "type": "enum",
         "values": [
-          "SET",
-          "ADD"
+          "ADD",
+          "SET"
         ]
       }
     ],
@@ -9250,9 +9224,9 @@
         "id": "mode",
         "type": "enum",
         "values": [
-          "POINTS",
           "LEVEL",
-          "LEVEL_PERCENTAGE"
+          "LEVEL_PERCENTAGE",
+          "POINTS"
         ]
       }
     ],
@@ -9291,8 +9265,8 @@
         "id": "is_flying",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9323,8 +9297,8 @@
         "id": "mode",
         "type": "enum",
         "values": [
-          "SET",
-          "ADD"
+          "ADD",
+          "SET"
         ]
       }
     ],
@@ -9343,8 +9317,8 @@
         "id": "ticking_locked",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9359,18 +9333,18 @@
         "id": "gamemode",
         "type": "enum",
         "values": [
-          "CREATIVE",
-          "SURVIVAL",
           "ADVENTURE",
-          "SPECTATOR"
+          "CREATIVE",
+          "SPECTATOR",
+          "SURVIVAL"
         ]
       },
       {
         "id": "flight_mode",
         "type": "enum",
         "values": [
-          "RESPECT_GAMEMODE",
-          "KEEP_ORIGINAL"
+          "KEEP_ORIGINAL",
+          "RESPECT_GAMEMODE"
         ]
       }
     ],
@@ -9385,8 +9359,8 @@
         "id": "is_gliding",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9425,8 +9399,8 @@
         "id": "instant_respawn",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9441,8 +9415,8 @@
         "id": "kept",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9534,8 +9508,8 @@
         "id": "heal",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9554,8 +9528,8 @@
         "id": "movement_type",
         "type": "enum",
         "values": [
-          "WALK",
-          "FLY"
+          "FLY",
+          "WALK"
         ]
       }
     ],
@@ -9570,8 +9544,8 @@
         "id": "visible",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9591,17 +9565,17 @@
         "id": "merging",
         "type": "enum",
         "values": [
-          "SPACES",
           "CONCATENATION",
-          "SEPARATE_LINES"
+          "SEPARATE_LINES",
+          "SPACES"
         ]
       },
       {
         "id": "position",
         "type": "enum",
         "values": [
-          "HEADER",
-          "FOOTER"
+          "FOOTER",
+          "HEADER"
         ]
       }
     ],
@@ -9616,30 +9590,30 @@
         "id": "pose",
         "type": "enum",
         "values": [
-          "STANDING",
-          "FALL_FLYING",
-          "SLEEPING",
-          "SWIMMING",
-          "SPIN_ATTACK",
-          "CROUCHING",
-          "LONG_JUMPING",
-          "DYING",
           "CROAKING",
-          "USING_TONGUE",
-          "SITTING",
-          "ROARING",
-          "SNIFFING",
-          "EMERGING",
+          "CROUCHING",
           "DIGGING",
-          "SNEAKING"
+          "DYING",
+          "EMERGING",
+          "FALL_FLYING",
+          "LONG_JUMPING",
+          "ROARING",
+          "SITTING",
+          "SLEEPING",
+          "SNEAKING",
+          "SNIFFING",
+          "SPIN_ATTACK",
+          "STANDING",
+          "SWIMMING",
+          "USING_TONGUE"
         ]
       },
       {
         "id": "locked",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9654,8 +9628,8 @@
         "id": "pvp",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9714,8 +9688,8 @@
         "id": "mode",
         "type": "enum",
         "values": [
-          "SET",
-          "ADD"
+          "ADD",
+          "SET"
         ]
       }
     ],
@@ -9830,8 +9804,8 @@
         "id": "increment",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9846,8 +9820,8 @@
         "id": "visual_fire",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -9862,8 +9836,8 @@
         "id": "weather_type",
         "type": "enum",
         "values": [
-          "DOWNFALL",
-          "CLEAR"
+          "CLEAR",
+          "DOWNFALL"
         ]
       }
     ],
@@ -9970,32 +9944,32 @@
         "id": "inventory_type",
         "type": "enum",
         "values": [
+          "ANVIL",
+          "BARREL",
+          "BEACON",
+          "BLAST_FURNACE",
+          "BREWING",
+          "CARTOGRAPHY",
           "CHEST",
+          "COMPOSTER",
+          "CRAFTING",
+          "CREATIVE",
           "DISPENSER",
           "DROPPER",
-          "FURNACE",
-          "WORKBENCH",
-          "CRAFTING",
           "ENCHANTING",
-          "BREWING",
-          "PLAYER",
-          "CREATIVE",
-          "MERCHANT",
           "ENDER_CHEST",
-          "ANVIL",
-          "SMITHING",
-          "BEACON",
-          "HOPPER",
-          "SHULKER_BOX",
-          "BARREL",
-          "BLAST_FURNACE",
-          "LECTERN",
-          "SMOKER",
-          "LOOM",
-          "CARTOGRAPHY",
+          "FURNACE",
           "GRINDSTONE",
+          "HOPPER",
+          "LECTERN",
+          "LOOM",
+          "MERCHANT",
+          "PLAYER",
+          "SHULKER_BOX",
+          "SMITHING",
+          "SMOKER",
           "STONECUTTER",
-          "COMPOSTER"
+          "WORKBENCH"
         ]
       }
     ],
@@ -10054,16 +10028,16 @@
         "id": "source",
         "type": "enum",
         "values": [
-          "MASTER",
-          "MUSIC",
-          "RECORD",
-          "WEATHER",
+          "AMBIENT",
           "BLOCK",
           "HOSTILE",
+          "MASTER",
+          "MUSIC",
           "NEUTRAL",
           "PLAYER",
-          "AMBIENT",
-          "VOICE"
+          "RECORD",
+          "VOICE",
+          "WEATHER"
         ]
       }
     ],
@@ -10098,24 +10072,24 @@
         "id": "keep_rotation",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "keep_velocity",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "dismount",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -10155,26 +10129,26 @@
         "id": "change_rotation",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "include_self",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "pattern",
         "type": "enum",
         "values": [
-          "CARDINAL",
-          "SQUARE",
           "ADJACENT",
-          "CUBE"
+          "CARDINAL",
+          "CUBE",
+          "SQUARE"
         ]
       }
     ],
@@ -10376,8 +10350,8 @@
         "id": "rotation",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -10444,8 +10418,8 @@
         "id": "rotate_location",
         "type": "enum",
         "values": [
-          "NO_CHANGES",
           "INWARDS",
+          "NO_CHANGES",
           "OUTWARDS"
         ]
       }
@@ -10515,12 +10489,12 @@
         "id": "selection_type",
         "type": "enum",
         "values": [
+          "DAMAGER",
           "DEFAULT",
           "KILLER",
-          "DAMAGER",
-          "VICTIM",
+          "PROJECTILE",
           "SHOOTER",
-          "PROJECTILE"
+          "VICTIM"
         ]
       }
     ],
@@ -10651,12 +10625,12 @@
         "id": "selection_type",
         "type": "enum",
         "values": [
+          "DAMAGER",
           "DEFAULT",
           "KILLER",
-          "DAMAGER",
-          "VICTIM",
+          "PROJECTILE",
           "SHOOTER",
-          "PROJECTILE"
+          "VICTIM"
         ]
       }
     ],
@@ -10686,16 +10660,16 @@
         "id": "ignore_y_axis",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "compare_mode",
         "type": "enum",
         "values": [
-          "NEAREST",
-          "FARTHEST"
+          "FARTHEST",
+          "NEAREST"
         ]
       }
     ],
@@ -10714,8 +10688,8 @@
         "id": "consider_blocks",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
@@ -10738,17 +10712,17 @@
         "id": "ignore_passable_blocks",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "fluid_collision_mode",
         "type": "enum",
         "values": [
+          "ALWAYS",
           "NEVER",
-          "SOURCE_ONLY",
-          "ALWAYS"
+          "SOURCE_ONLY"
         ]
       }
     ],
@@ -10947,25 +10921,25 @@
         "id": "overwrite",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "show_icon",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "particle_mode",
         "type": "enum",
         "values": [
-          "REGULAR",
           "AMBIENT",
-          "NONE"
+          "NONE",
+          "REGULAR"
         ]
       }
     ],
@@ -11066,8 +11040,8 @@
         "id": "normalize",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -11098,9 +11072,9 @@
         "id": "merging",
         "type": "enum",
         "values": [
-          "SPACES",
           "CONCATENATION",
-          "SEPARATE_LINES"
+          "SEPARATE_LINES",
+          "SPACES"
         ]
       }
     ],
@@ -11228,13 +11202,13 @@
         "id": "operator",
         "type": "enum",
         "values": [
-          "OR",
           "AND",
-          "NOT",
-          "XOR",
           "LEFT_SHIFT",
+          "NOT",
+          "OR",
           "RIGHT_SHIFT",
-          "UNSIGNED_RIGHT_SHIFT"
+          "UNSIGNED_RIGHT_SHIFT",
+          "XOR"
         ]
       }
     ],
@@ -11286,10 +11260,10 @@
         "id": "parsing",
         "type": "enum",
         "values": [
-          "PLAIN",
+          "JSON",
           "LEGACY",
           "MINIMESSAGE",
-          "JSON"
+          "PLAIN"
         ]
       }
     ],
@@ -11509,8 +11483,8 @@
         "id": "variant",
         "type": "enum",
         "values": [
-          "COSINE",
           "ARCCOSINE",
+          "COSINE",
           "HYPERBOLIC_COSINE"
         ]
       },
@@ -11549,8 +11523,8 @@
         "id": "variant",
         "type": "enum",
         "values": [
-          "COTANGENT",
           "ARCCOTANGENT",
+          "COTANGENT",
           "HYPERBOLIC_COTANGENT"
         ]
       },
@@ -11738,10 +11712,10 @@
         "id": "division_mode",
         "type": "enum",
         "values": [
+          "CEIL",
           "DEFAULT",
-          "ROUND_TO_INT",
           "FLOOR",
-          "CEIL"
+          "ROUND_TO_INT"
         ]
       }
     ],
@@ -11866,17 +11840,17 @@
         "type": "enum",
         "values": [
           "CUSTOM",
-          "DD_MM_YYYY_HH_MM_S",
           "DD_MM_YYYY",
-          "YYYY_MM_DD_HH_MM_S",
-          "YYYY_MM_DD",
+          "DD_MM_YYYY_HH_MM_S",
+          "EEEE",
           "EEE_D_MMMM",
           "EEE_MMMM_D",
-          "EEEE",
           "HH_MM_SS",
-          "H_MM_A",
           "H_H_M_M_S_S",
-          "S_S"
+          "H_MM_A",
+          "S_S",
+          "YYYY_MM_DD",
+          "YYYY_MM_DD_HH_MM_S"
         ]
       }
     ],
@@ -11910,8 +11884,8 @@
         "id": "distribution",
         "type": "enum",
         "values": [
-          "NORMAL",
-          "FOLDER_NORMAL"
+          "FOLDER_NORMAL",
+          "NORMAL"
         ]
       }
     ],
@@ -11940,8 +11914,8 @@
         "id": "hide_unspecified",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -12121,8 +12095,8 @@
         "id": "growth_unit",
         "type": "enum",
         "values": [
-          "GROWTH_STAGE",
-          "GROWTH_PERCENTAGE"
+          "GROWTH_PERCENTAGE",
+          "GROWTH_STAGE"
         ]
       }
     ],
@@ -12154,8 +12128,8 @@
         "values": [
           "ID",
           "ID_WITH_DATA",
-          "NAME",
-          "ITEM"
+          "ITEM",
+          "NAME"
         ]
       }
     ],
@@ -12185,8 +12159,8 @@
         "id": "property",
         "type": "enum",
         "values": [
-          "HARDNESS",
           "BLAST_RESISTANCE",
+          "HARDNESS",
           "SLIPPERINESS"
         ]
       }
@@ -12334,9 +12308,9 @@
         "id": "color_channels",
         "type": "enum",
         "values": [
-          "RGB",
           "HSB",
-          "HSL"
+          "HSL",
+          "RGB"
         ]
       }
     ],
@@ -12481,8 +12455,8 @@
         "id": "ignore_empty_slots",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -12558,11 +12532,11 @@
         "id": "type",
         "type": "enum",
         "values": [
+          "PITCH",
           "X",
           "Y",
-          "Z",
-          "PITCH",
-          "YAW"
+          "YAW",
+          "Z"
         ]
       }
     ],
@@ -12593,9 +12567,9 @@
         "type": "enum",
         "values": [
           "BACK",
+          "FRONT",
           "LEFT",
-          "RIGHT",
-          "FRONT"
+          "RIGHT"
         ]
       }
     ],
@@ -12691,50 +12665,50 @@
         "id": "attribute",
         "type": "enum",
         "values": [
-          "GENERIC_MAX_HEALTH",
-          "GENERIC_FOLLOW_RANGE",
-          "GENERIC_KNOCKBACK_RESISTANCE",
-          "GENERIC_MOVEMENT_SPEED",
-          "GENERIC_FLYING_SPEED",
-          "GENERIC_ATTACK_DAMAGE",
-          "GENERIC_ATTACK_KNOCKBACK",
-          "GENERIC_ATTACK_SPEED",
-          "GENERIC_ARMOR",
-          "GENERIC_ARMOR_TOUGHNESS",
-          "GENERIC_LUCK",
-          "HORSE_JUMP_STRENGTH",
-          "ZOMBIE_SPAWN_REINFORCEMENTS",
-          "MAX_HEALTH",
-          "MAX_ABSORPTION",
-          "FOLLOW_RANGE",
-          "KNOCKBACK_RESISTANCE",
-          "MOVEMENT_SPEED",
-          "FLYING_SPEED",
+          "ARMOR",
+          "ARMOR_TOUGHNESS",
           "ATTACK_DAMAGE",
           "ATTACK_KNOCKBACK",
           "ATTACK_SPEED",
-          "ARMOR",
-          "ARMOR_TOUGHNESS",
-          "LUCK",
-          "GENERIC_JUMP_STRENGTH",
+          "FLYING_SPEED",
+          "FOLLOW_RANGE",
+          "GENERIC_ARMOR",
+          "GENERIC_ARMOR_TOUGHNESS",
+          "GENERIC_ATTACK_DAMAGE",
+          "GENERIC_ATTACK_KNOCKBACK",
+          "GENERIC_ATTACK_SPEED",
+          "GENERIC_BURNING_TIME",
+          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
           "GENERIC_FALL_DAMAGE_MULTIPLIER",
+          "GENERIC_FLYING_SPEED",
+          "GENERIC_FOLLOW_RANGE",
+          "GENERIC_GRAVITY",
+          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_LUCK",
+          "GENERIC_MAX_ABSORPTION",
+          "GENERIC_MAX_HEALTH",
+          "GENERIC_MOVEMENT_EFFICIENCY",
+          "GENERIC_MOVEMENT_SPEED",
+          "GENERIC_OXYGEN_BONUS",
           "GENERIC_SAFE_FALL_DISTANCE",
           "GENERIC_SCALE",
           "GENERIC_STEP_HEIGHT",
-          "GENERIC_GRAVITY",
+          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
+          "HORSE_JUMP_STRENGTH",
+          "KNOCKBACK_RESISTANCE",
+          "LUCK",
+          "MAX_ABSORPTION",
+          "MAX_HEALTH",
+          "MOVEMENT_SPEED",
+          "PLAYER_BLOCK_BREAK_SPEED",
           "PLAYER_BLOCK_INTERACTION_RANGE",
           "PLAYER_ENTITY_INTERACTION_RANGE",
-          "PLAYER_BLOCK_BREAK_SPEED",
-          "GENERIC_BURNING_TIME",
-          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
-          "GENERIC_MOVEMENT_EFFICIENCY",
           "PLAYER_MINING_EFFICIENCY",
           "PLAYER_SNEAKING_SPEED",
           "PLAYER_SUBMERGED_MINING_SPEED",
           "PLAYER_SWEEPING_DAMAGE_RATIO",
-          "GENERIC_OXYGEN_BONUS",
-          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
-          "GENERIC_MAX_ABSORPTION"
+          "ZOMBIE_SPAWN_REINFORCEMENTS"
         ]
       },
       {
@@ -12742,15 +12716,15 @@
         "type": "enum",
         "values": [
           "ALL",
-          "MAIN_HAND",
-          "OFF_HAND",
-          "HEAD",
-          "CHEST",
-          "LEGGINGS",
-          "BOOTS",
-          "HAND",
           "ARMOR",
-          "BODY"
+          "BODY",
+          "BOOTS",
+          "CHEST",
+          "HAND",
+          "HEAD",
+          "LEGGINGS",
+          "MAIN_HAND",
+          "OFF_HAND"
         ]
       },
       {
@@ -12908,9 +12882,9 @@
         "values": [
           "DAMAGE",
           "DAMAGE_PERCENTAGE",
+          "MAXIMUM",
           "REMAINING",
-          "REMAINING_PERCENTAGE",
-          "MAXIMUM"
+          "REMAINING_PERCENTAGE"
         ]
       }
     ],
@@ -13146,8 +13120,8 @@
         "type": "enum",
         "values": [
           "ID",
-          "NAME",
-          "ITEM"
+          "ITEM",
+          "NAME"
         ]
       }
     ],
@@ -13223,9 +13197,9 @@
         "id": "value_type",
         "type": "enum",
         "values": [
-          "TOTAL",
+          "BLOCKS",
           "SKY",
-          "BLOCKS"
+          "TOTAL"
         ]
       }
     ],
@@ -13364,9 +13338,9 @@
         "type": "enum",
         "values": [
           "GAME",
-          "SAVE",
+          "LINE",
           "LOCAL",
-          "LINE"
+          "SAVE"
         ]
       }
     ],
@@ -13480,9 +13454,9 @@
         "id": "find_mode",
         "type": "enum",
         "values": [
+          "ALL",
           "FIRST",
-          "LAST",
-          "ALL"
+          "LAST"
         ]
       }
     ],
@@ -13769,8 +13743,8 @@
         "id": "type",
         "type": "enum",
         "values": [
-          "VERTICAL",
-          "HORIZONTAL"
+          "HORIZONTAL",
+          "VERTICAL"
         ]
       }
     ],
@@ -14009,20 +13983,20 @@
         "id": "check_side",
         "type": "enum",
         "values": [
-          "FRONT",
+          "ALL",
           "BACK",
-          "ALL"
+          "FRONT"
         ]
       },
       {
         "id": "sign_line",
         "type": "enum",
         "values": [
+          "ALL",
           "FIRST",
-          "SECOND",
-          "THIRD",
           "FOURTH",
-          "ALL"
+          "SECOND",
+          "THIRD"
         ]
       }
     ],
@@ -14190,8 +14164,8 @@
         "id": "return_type",
         "type": "enum",
         "values": [
-          "TEXT",
-          "MAP"
+          "MAP",
+          "TEXT"
         ]
       }
     ],
@@ -14558,25 +14532,25 @@
         "id": "block_face",
         "type": "enum",
         "values": [
-          "NORTH",
-          "EAST",
-          "SOUTH",
-          "WEST",
-          "UP",
           "DOWN",
-          "NORTH_EAST",
-          "NORTH_WEST",
-          "SOUTH_EAST",
-          "SOUTH_WEST",
-          "WEST_NORTH_WEST",
-          "NORTH_NORTH_WEST",
-          "NORTH_NORTH_EAST",
+          "EAST",
           "EAST_NORTH_EAST",
           "EAST_SOUTH_EAST",
+          "NORTH",
+          "NORTH_EAST",
+          "NORTH_NORTH_EAST",
+          "NORTH_NORTH_WEST",
+          "NORTH_WEST",
+          "SELF",
+          "SOUTH",
+          "SOUTH_EAST",
           "SOUTH_SOUTH_EAST",
           "SOUTH_SOUTH_WEST",
-          "WEST_SOUTH_WEST",
-          "SELF"
+          "SOUTH_WEST",
+          "UP",
+          "WEST",
+          "WEST_NORTH_WEST",
+          "WEST_SOUTH_WEST"
         ]
       }
     ],
@@ -14610,10 +14584,10 @@
         "id": "type",
         "type": "enum",
         "values": [
-          "THREE_D",
-          "TWO_D",
           "ALTITUDE",
-          "Altitude"
+          "Altitude",
+          "THREE_D",
+          "TWO_D"
         ]
       }
     ],
@@ -14825,10 +14799,10 @@
         "id": "parsing",
         "type": "enum",
         "values": [
-          "PLAIN",
+          "JSON",
           "LEGACY",
           "MINIMESSAGE",
-          "JSON"
+          "PLAIN"
         ]
       }
     ],
@@ -14878,16 +14852,16 @@
         "id": "range_mode",
         "type": "enum",
         "values": [
-          "ZERO_TO_ONE",
-          "FULL_RANGE"
+          "FULL_RANGE",
+          "ZERO_TO_ONE"
         ]
       },
       {
         "id": "normalized",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -14941,9 +14915,9 @@
         "type": "enum",
         "values": [
           "GAME",
-          "SAVE",
+          "LINE",
           "LOCAL",
-          "LINE"
+          "SAVE"
         ]
       },
       {
@@ -14959,8 +14933,8 @@
         "id": "ignore_case",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -15010,8 +14984,8 @@
         "id": "integer",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -15044,8 +15018,8 @@
         "id": "integer",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -15109,8 +15083,8 @@
         "id": "ray_collision_mode",
         "type": "enum",
         "values": [
-          "ONLY_BLOCKS",
           "BLOCKS_AND_ENTITIES",
+          "ONLY_BLOCKS",
           "ONLY_ENTITIES"
         ]
       },
@@ -15126,8 +15100,8 @@
         "id": "ignore_passable_blocks",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
@@ -15138,9 +15112,9 @@
         "id": "fluid_collision_mode",
         "type": "enum",
         "values": [
+          "ALWAYS",
           "NEVER",
-          "SOURCE_ONLY",
-          "ALWAYS"
+          "SOURCE_ONLY"
         ]
       }
     ],
@@ -15227,56 +15201,56 @@
         "id": "ignore_case",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "multiline",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "literal",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "unix_lines",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "comments",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "dot_matches_all",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       },
       {
         "id": "cannon_eq",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -15310,8 +15284,8 @@
         "id": "remainder_mode",
         "type": "enum",
         "values": [
-          "REMAINDER",
-          "MODULO"
+          "MODULO",
+          "REMAINDER"
         ]
       }
     ],
@@ -15395,50 +15369,50 @@
         "id": "attribute",
         "type": "enum",
         "values": [
-          "GENERIC_MAX_HEALTH",
-          "GENERIC_FOLLOW_RANGE",
-          "GENERIC_KNOCKBACK_RESISTANCE",
-          "GENERIC_MOVEMENT_SPEED",
-          "GENERIC_FLYING_SPEED",
-          "GENERIC_ATTACK_DAMAGE",
-          "GENERIC_ATTACK_KNOCKBACK",
-          "GENERIC_ATTACK_SPEED",
-          "GENERIC_ARMOR",
-          "GENERIC_ARMOR_TOUGHNESS",
-          "GENERIC_LUCK",
-          "HORSE_JUMP_STRENGTH",
-          "ZOMBIE_SPAWN_REINFORCEMENTS",
-          "MAX_HEALTH",
-          "MAX_ABSORPTION",
-          "FOLLOW_RANGE",
-          "KNOCKBACK_RESISTANCE",
-          "MOVEMENT_SPEED",
-          "FLYING_SPEED",
+          "ARMOR",
+          "ARMOR_TOUGHNESS",
           "ATTACK_DAMAGE",
           "ATTACK_KNOCKBACK",
           "ATTACK_SPEED",
-          "ARMOR",
-          "ARMOR_TOUGHNESS",
-          "LUCK",
-          "GENERIC_JUMP_STRENGTH",
+          "FLYING_SPEED",
+          "FOLLOW_RANGE",
+          "GENERIC_ARMOR",
+          "GENERIC_ARMOR_TOUGHNESS",
+          "GENERIC_ATTACK_DAMAGE",
+          "GENERIC_ATTACK_KNOCKBACK",
+          "GENERIC_ATTACK_SPEED",
+          "GENERIC_BURNING_TIME",
+          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
           "GENERIC_FALL_DAMAGE_MULTIPLIER",
+          "GENERIC_FLYING_SPEED",
+          "GENERIC_FOLLOW_RANGE",
+          "GENERIC_GRAVITY",
+          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_LUCK",
+          "GENERIC_MAX_ABSORPTION",
+          "GENERIC_MAX_HEALTH",
+          "GENERIC_MOVEMENT_EFFICIENCY",
+          "GENERIC_MOVEMENT_SPEED",
+          "GENERIC_OXYGEN_BONUS",
           "GENERIC_SAFE_FALL_DISTANCE",
           "GENERIC_SCALE",
           "GENERIC_STEP_HEIGHT",
-          "GENERIC_GRAVITY",
+          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
+          "HORSE_JUMP_STRENGTH",
+          "KNOCKBACK_RESISTANCE",
+          "LUCK",
+          "MAX_ABSORPTION",
+          "MAX_HEALTH",
+          "MOVEMENT_SPEED",
+          "PLAYER_BLOCK_BREAK_SPEED",
           "PLAYER_BLOCK_INTERACTION_RANGE",
           "PLAYER_ENTITY_INTERACTION_RANGE",
-          "PLAYER_BLOCK_BREAK_SPEED",
-          "GENERIC_BURNING_TIME",
-          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
-          "GENERIC_MOVEMENT_EFFICIENCY",
           "PLAYER_MINING_EFFICIENCY",
           "PLAYER_SNEAKING_SPEED",
           "PLAYER_SUBMERGED_MINING_SPEED",
           "PLAYER_SWEEPING_DAMAGE_RATIO",
-          "GENERIC_OXYGEN_BONUS",
-          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
-          "GENERIC_MAX_ABSORPTION"
+          "ZOMBIE_SPAWN_REINFORCEMENTS"
         ]
       }
     ],
@@ -15594,9 +15568,9 @@
         "id": "remove_mode",
         "type": "enum",
         "values": [
+          "ALL",
           "FIRST",
-          "LAST",
-          "ALL"
+          "LAST"
         ]
       }
     ],
@@ -15706,8 +15680,8 @@
         "id": "regex",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -15780,8 +15754,8 @@
         "id": "ignore_case",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -15947,9 +15921,9 @@
         "id": "round_type",
         "type": "enum",
         "values": [
-          "ROUND",
+          "CEIL",
           "FLOOR",
-          "CEIL"
+          "ROUND"
         ]
       }
     ],
@@ -16050,8 +16024,8 @@
         "id": "mode",
         "type": "enum",
         "values": [
-          "MERGE",
-          "APPEND"
+          "APPEND",
+          "MERGE"
         ]
       }
     ],
@@ -16115,8 +16089,8 @@
         "type": "enum",
         "values": [
           "ADD",
-          "SET",
-          "REMOVE"
+          "REMOVE",
+          "SET"
         ]
       }
     ],
@@ -16144,8 +16118,8 @@
         "id": "tracked",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -16207,11 +16181,11 @@
         "id": "click_action",
         "type": "enum",
         "values": [
-          "COPY_TO_CLIPBORD",
-          "SUGGEST_COMMAND",
-          "OPEN_URL",
           "CHANGE_PAGE",
-          "COPY_TO_CLIPBOARD"
+          "COPY_TO_CLIPBOARD",
+          "COPY_TO_CLIPBORD",
+          "OPEN_URL",
+          "SUGGEST_COMMAND"
         ]
       }
     ],
@@ -16241,8 +16215,8 @@
         "id": "bold",
         "type": "enum",
         "values": [
-          "NOT_SET",
           "FALSE",
+          "NOT_SET",
           "TRUE"
         ]
       },
@@ -16250,8 +16224,8 @@
         "id": "italic",
         "type": "enum",
         "values": [
-          "NOT_SET",
           "FALSE",
+          "NOT_SET",
           "TRUE"
         ]
       },
@@ -16259,8 +16233,8 @@
         "id": "underlined",
         "type": "enum",
         "values": [
-          "NOT_SET",
           "FALSE",
+          "NOT_SET",
           "TRUE"
         ]
       },
@@ -16268,8 +16242,8 @@
         "id": "strikethrough",
         "type": "enum",
         "values": [
-          "NOT_SET",
           "FALSE",
+          "NOT_SET",
           "TRUE"
         ]
       },
@@ -16277,8 +16251,8 @@
         "id": "obfuscated",
         "type": "enum",
         "values": [
-          "NOT_SET",
           "FALSE",
+          "NOT_SET",
           "TRUE"
         ]
       }
@@ -16479,11 +16453,11 @@
         "id": "type",
         "type": "enum",
         "values": [
+          "PITCH",
           "X",
           "Y",
-          "Z",
           "YAW",
-          "PITCH"
+          "Z"
         ]
       }
     ],
@@ -16548,50 +16522,50 @@
         "id": "attribute",
         "type": "enum",
         "values": [
-          "GENERIC_MAX_HEALTH",
-          "GENERIC_FOLLOW_RANGE",
-          "GENERIC_KNOCKBACK_RESISTANCE",
-          "GENERIC_MOVEMENT_SPEED",
-          "GENERIC_FLYING_SPEED",
-          "GENERIC_ATTACK_DAMAGE",
-          "GENERIC_ATTACK_KNOCKBACK",
-          "GENERIC_ATTACK_SPEED",
-          "GENERIC_ARMOR",
-          "GENERIC_ARMOR_TOUGHNESS",
-          "GENERIC_LUCK",
-          "HORSE_JUMP_STRENGTH",
-          "ZOMBIE_SPAWN_REINFORCEMENTS",
-          "MAX_HEALTH",
-          "MAX_ABSORPTION",
-          "FOLLOW_RANGE",
-          "KNOCKBACK_RESISTANCE",
-          "MOVEMENT_SPEED",
-          "FLYING_SPEED",
+          "ARMOR",
+          "ARMOR_TOUGHNESS",
           "ATTACK_DAMAGE",
           "ATTACK_KNOCKBACK",
           "ATTACK_SPEED",
-          "ARMOR",
-          "ARMOR_TOUGHNESS",
-          "LUCK",
-          "GENERIC_JUMP_STRENGTH",
+          "FLYING_SPEED",
+          "FOLLOW_RANGE",
+          "GENERIC_ARMOR",
+          "GENERIC_ARMOR_TOUGHNESS",
+          "GENERIC_ATTACK_DAMAGE",
+          "GENERIC_ATTACK_KNOCKBACK",
+          "GENERIC_ATTACK_SPEED",
+          "GENERIC_BURNING_TIME",
+          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
           "GENERIC_FALL_DAMAGE_MULTIPLIER",
+          "GENERIC_FLYING_SPEED",
+          "GENERIC_FOLLOW_RANGE",
+          "GENERIC_GRAVITY",
+          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_LUCK",
+          "GENERIC_MAX_ABSORPTION",
+          "GENERIC_MAX_HEALTH",
+          "GENERIC_MOVEMENT_EFFICIENCY",
+          "GENERIC_MOVEMENT_SPEED",
+          "GENERIC_OXYGEN_BONUS",
           "GENERIC_SAFE_FALL_DISTANCE",
           "GENERIC_SCALE",
           "GENERIC_STEP_HEIGHT",
-          "GENERIC_GRAVITY",
+          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
+          "HORSE_JUMP_STRENGTH",
+          "KNOCKBACK_RESISTANCE",
+          "LUCK",
+          "MAX_ABSORPTION",
+          "MAX_HEALTH",
+          "MOVEMENT_SPEED",
+          "PLAYER_BLOCK_BREAK_SPEED",
           "PLAYER_BLOCK_INTERACTION_RANGE",
           "PLAYER_ENTITY_INTERACTION_RANGE",
-          "PLAYER_BLOCK_BREAK_SPEED",
-          "GENERIC_BURNING_TIME",
-          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
-          "GENERIC_MOVEMENT_EFFICIENCY",
           "PLAYER_MINING_EFFICIENCY",
           "PLAYER_SNEAKING_SPEED",
           "PLAYER_SUBMERGED_MINING_SPEED",
           "PLAYER_SWEEPING_DAMAGE_RATIO",
-          "GENERIC_OXYGEN_BONUS",
-          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
-          "GENERIC_MAX_ABSORPTION"
+          "ZOMBIE_SPAWN_REINFORCEMENTS"
         ]
       },
       {
@@ -16599,15 +16573,15 @@
         "type": "enum",
         "values": [
           "ALL",
-          "MAIN_HAND",
-          "OFF_HAND",
-          "HEAD",
-          "CHEST",
-          "LEGGINGS",
-          "BOOTS",
-          "HAND",
           "ARMOR",
-          "BODY"
+          "BODY",
+          "BOOTS",
+          "CHEST",
+          "HAND",
+          "HEAD",
+          "LEGGINGS",
+          "MAIN_HAND",
+          "OFF_HAND"
         ]
       },
       {
@@ -16796,9 +16770,9 @@
         "values": [
           "DAMAGE",
           "DAMAGE_PERCENTAGE",
+          "MAXIMUM",
           "REMAINING",
-          "REMAINING_PERCENTAGE",
-          "MAXIMUM"
+          "REMAINING_PERCENTAGE"
         ]
       }
     ],
@@ -16891,8 +16865,8 @@
         "id": "mode",
         "type": "enum",
         "values": [
-          "MERGE",
-          "APPEND"
+          "APPEND",
+          "MERGE"
         ]
       }
     ],
@@ -17024,8 +16998,8 @@
         "id": "unbreakable",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -17055,72 +17029,72 @@
         "id": "hide_dye",
         "type": "enum",
         "values": [
-          "ON",
           "NO_CHANGE",
-          "OFF"
+          "OFF",
+          "ON"
         ]
       },
       {
         "id": "hide_enchantments",
         "type": "enum",
         "values": [
-          "ON",
           "NO_CHANGE",
-          "OFF"
+          "OFF",
+          "ON"
         ]
       },
       {
         "id": "hide_attributes",
         "type": "enum",
         "values": [
-          "ON",
           "NO_CHANGE",
-          "OFF"
+          "OFF",
+          "ON"
         ]
       },
       {
         "id": "hide_unbreakable",
         "type": "enum",
         "values": [
-          "ON",
           "NO_CHANGE",
-          "OFF"
+          "OFF",
+          "ON"
         ]
       },
       {
         "id": "hide_place_on",
         "type": "enum",
         "values": [
-          "ON",
           "NO_CHANGE",
-          "OFF"
+          "OFF",
+          "ON"
         ]
       },
       {
         "id": "hide_destroys",
         "type": "enum",
         "values": [
-          "ON",
           "NO_CHANGE",
-          "OFF"
+          "OFF",
+          "ON"
         ]
       },
       {
         "id": "hide_potion_effects",
         "type": "enum",
         "values": [
-          "ON",
           "NO_CHANGE",
-          "OFF"
+          "OFF",
+          "ON"
         ]
       },
       {
         "id": "hide_armor_trim",
         "type": "enum",
         "values": [
-          "ON",
           "NO_CHANGE",
-          "OFF"
+          "OFF",
+          "ON"
         ]
       }
     ],
@@ -17548,16 +17522,16 @@
         "id": "source",
         "type": "enum",
         "values": [
-          "MASTER",
-          "MUSIC",
-          "RECORD",
-          "WEATHER",
+          "AMBIENT",
           "BLOCK",
           "HOSTILE",
+          "MASTER",
+          "MUSIC",
           "NEUTRAL",
           "PLAYER",
-          "AMBIENT",
-          "VOICE"
+          "RECORD",
+          "VOICE",
+          "WEATHER"
         ]
       }
     ],
@@ -17836,11 +17810,11 @@
         "id": "type",
         "type": "enum",
         "values": [
+          "PITCH",
           "X",
           "Y",
-          "Z",
-          "PITCH",
-          "YAW"
+          "YAW",
+          "Z"
         ]
       }
     ],
@@ -17875,8 +17849,8 @@
         "type": "enum",
         "values": [
           "FORWARD",
-          "UPWARD",
-          "SIDEWAYS"
+          "SIDEWAYS",
+          "UPWARD"
         ]
       }
     ],
@@ -17988,16 +17962,16 @@
         "id": "range_mode",
         "type": "enum",
         "values": [
-          "ZERO_TO_ONE",
-          "FULL_RANGE"
+          "FULL_RANGE",
+          "ZERO_TO_ONE"
         ]
       },
       {
         "id": "normalized",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -18027,9 +18001,9 @@
         "id": "variant",
         "type": "enum",
         "values": [
-          "SINE",
           "ARCSINE",
-          "HYPERBOLIC_SINE"
+          "HYPERBOLIC_SINE",
+          "SINE"
         ]
       },
       {
@@ -18165,9 +18139,9 @@
         "type": "enum",
         "values": [
           "ALL",
-          "START",
           "END",
-          "INDENT"
+          "INDENT",
+          "START"
         ]
       }
     ],
@@ -18243,9 +18217,9 @@
         "id": "variant",
         "type": "enum",
         "values": [
-          "TANGENT",
           "ARCTANGENT",
-          "HYPERBOLIC_TANGENT"
+          "HYPERBOLIC_TANGENT",
+          "TANGENT"
         ]
       },
       {
@@ -18284,9 +18258,9 @@
         "id": "merging",
         "type": "enum",
         "values": [
-          "SPACES",
           "CONCATENATION",
-          "SEPARATE_LINES"
+          "SEPARATE_LINES",
+          "SPACES"
         ]
       }
     ],
@@ -18315,11 +18289,11 @@
         "id": "case_type",
         "type": "enum",
         "values": [
-          "UPPER",
+          "INVERT",
           "LOWER",
           "PROPER",
-          "INVERT",
-          "RANDOM"
+          "RANDOM",
+          "UPPER"
         ]
       }
     ],
@@ -18455,8 +18429,8 @@
         "id": "pretty_print",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -18716,16 +18690,16 @@
         "id": "range_mode",
         "type": "enum",
         "values": [
-          "ZERO_TO_ONE",
-          "FULL_RANGE"
+          "FULL_RANGE",
+          "ZERO_TO_ONE"
         ]
       },
       {
         "id": "enable_distance",
         "type": "enum",
         "values": [
-          "TRUE",
-          "FALSE"
+          "FALSE",
+          "TRUE"
         ]
       }
     ],
@@ -18782,8 +18756,8 @@
         "id": "local_variables_mode",
         "type": "enum",
         "values": [
-          "DONT_COPY",
           "COPY",
+          "DONT_COPY",
           "SHARE"
         ]
       },
@@ -18791,10 +18765,10 @@
         "id": "target_mode",
         "type": "enum",
         "values": [
-          "CURRENT_TARGET",
           "CURRENT_SELECTION",
-          "NO_TARGET",
-          "FOR_EACH_IN_SELECTION"
+          "CURRENT_TARGET",
+          "FOR_EACH_IN_SELECTION",
+          "NO_TARGET"
         ]
       }
     ],

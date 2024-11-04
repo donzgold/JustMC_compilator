@@ -43,7 +43,7 @@ controller::async_run(){
 
 **Пример использования:** 
 ```ts
-controller::catch_exception(a1,"WARNING"){
+controller::catch_exception(a1,"ALL"){
     player::message("Всё работает");
 }
 ```
@@ -53,7 +53,7 @@ controller::catch_exception(a1,"WARNING"){
 | **Имя**          | **Тип**                                                                          | **Описание**              |
 | ---------------- | -------------------------------------------------------------------------------- | ------------------------- |
 | `variable`       | Переменная                                                                       | Переменная для присвоения |
-| `exception_type` | Маркер<br/>**WARNING** - Предупреждение<br/>**ERROR** - Ошибка<br/>**ALL** - Все | Тип ошибки                |
+| `exception_type` | Маркер<br/>**ALL** - Все<br/>**ERROR** - Ошибка<br/>**WARNING** - Предупреждение | Тип ошибки                |
 <h3 id=controller_measure_time>
   <code>controller::measure_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -67,7 +67,7 @@ controller::catch_exception(a1,"WARNING"){
 
 **Пример использования:** 
 ```ts
-controller::measure_time(a1,"NANOSECONDS"){
+controller::measure_time(a1,"MICROSECONDS"){
     player::message("Всё работает");
 }
 ```
@@ -77,4 +77,4 @@ controller::measure_time(a1,"NANOSECONDS"){
 | **Имя**    | **Тип**                                                                                                          | **Описание**              |
 | ---------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `variable` | Переменная                                                                                                       | Переменная для присвоения |
-| `duration` | Маркер<br/>**NANOSECONDS** - Наносекунды<br/>**MICROSECONDS** - Микросекунды<br/>**MILLISECONDS** - Миллисекунды | Формат времени            |
+| `duration` | Маркер<br/>**MICROSECONDS** - Микросекунды<br/>**MILLISECONDS** - Миллисекунды<br/>**NANOSECONDS** - Наносекунды | Формат времени            |

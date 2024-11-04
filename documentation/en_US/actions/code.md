@@ -30,7 +30,7 @@ code::call_function("function_name");
 
 **Usage example:** 
 ```ts
-code::call_exception("id","message","WARNING");
+code::call_exception("id","message","ERROR");
 ```
 
 **Arguments:**
@@ -39,7 +39,7 @@ code::call_exception("id","message","WARNING");
 | --------- | ---------------------------------------------------------------------------- | --------------- |
 | `id`      | Text                                                                         | Error ID        |
 | `message` | Text                                                                         | Error Message   |
-| `type`    | Marker<br/>**WARNING** - Warning<br/>**ERROR** - Error<br/>**FATAL** - Fatal | Error Type      |
+| `type`    | Marker<br/>**ERROR** - Error<br/>**FATAL** - Fatal<br/>**WARNING** - Warning | Error Type      |
 <h3 id=control_end_thread>
   <code>code::break</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -117,7 +117,7 @@ code::stop_repeat();
 
 **Usage example:** 
 ```ts
-code::wait(1,"TICKS");
+code::wait(1,"MINUTES");
 ```
 
 **Arguments:**
@@ -125,7 +125,7 @@ code::wait(1,"TICKS");
 | **Name**    | **Type**                                                                         | **Description** |
 | ----------- | -------------------------------------------------------------------------------- | --------------- |
 | `duration`  | Number                                                                           | Wait Duration   |
-| `time_unit` | Marker<br/>**TICKS** - Ticks<br/>**SECONDS** - Seconds<br/>**MINUTES** - Minutes | Time Unit       |
+| `time_unit` | Marker<br/>**MINUTES** - Minutes<br/>**SECONDS** - Seconds<br/>**TICKS** - Ticks | Time Unit       |
 <h3 id=else>
   <code>code::else</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -153,7 +153,7 @@ code::else(){
 
 **Usage example:** 
 ```ts
-code::start_process("process_name","DONT_COPY","CURRENT_TARGET");
+code::start_process("process_name","COPY","CURRENT_SELECTION");
 ```
 
 **Arguments:**
@@ -161,5 +161,5 @@ code::start_process("process_name","DONT_COPY","CURRENT_TARGET");
 | **Name**               | **Type**                                                                                                                                                                       | **Description** |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
 | `process_name`         | Text                                                                                                                                                                           | Process name    |
-| `local_variables_mode` | Marker<br/>**DONT_COPY** - Don't duplicate<br/>**COPY** - Duplicate<br/>**SHARE** - General                                                                                    | Variable Mode   |
-| `target_mode`          | Marker<br/>**CURRENT_TARGET** - Event Target<br/>**CURRENT_SELECTION** - Current Target<br/>**NO_TARGET** - No Target<br/>**FOR_EACH_IN_SELECTION** - Each Target in Selection | Process Target  |
+| `local_variables_mode` | Marker<br/>**COPY** - Duplicate<br/>**DONT_COPY** - Don't duplicate<br/>**SHARE** - General                                                                                    | Variable Mode   |
+| `target_mode`          | Marker<br/>**CURRENT_SELECTION** - Current Target<br/>**CURRENT_TARGET** - Event Target<br/>**FOR_EACH_IN_SELECTION** - Each Target in Selection<br/>**NO_TARGET** - No Target | Process Target  |

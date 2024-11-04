@@ -293,7 +293,7 @@ entity::get_custom_tag(a1,"name","any value");
 
 **Usage example:** 
 ```ts
-entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"TRUE","TRUE","REGULAR");
+entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"FALSE","FALSE","AMBIENT");
 ```
 
 **Arguments:**
@@ -301,9 +301,9 @@ entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"TR
 | **Name**        | **Type**                                                                       | **Description**            |
 | --------------- | ------------------------------------------------------------------------------ | -------------------------- |
 | `potions`       | list[Potion]                                                                   | Effects to Give            |
-| `overwrite`     | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None                                 | Overwrite existing effects |
-| `show_icon`     | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None                                 | Show Effect Icon           |
-| `particle_mode` | Marker<br/>**REGULAR** - Yes<br/>**AMBIENT** - Transparent<br/>**NONE** - None | Give Particles             |
+| `overwrite`     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Overwrite existing effects |
+| `show_icon`     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Show Effect Icon           |
+| `particle_mode` | Marker<br/>**AMBIENT** - Transparent<br/>**NONE** - None<br/>**REGULAR** - Yes | Give Particles             |
 <h3 id=entity_heal>
   <code>entity::heal</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -366,7 +366,7 @@ entity::jump();
 
 **Usage example:** 
 ```ts
-entity::launch_forward(1,"TRUE","YAW");
+entity::launch_forward(1,"FALSE","YAW");
 ```
 
 **Arguments:**
@@ -374,7 +374,7 @@ entity::launch_forward(1,"TRUE","YAW");
 | **Name**      | **Type**                                                              | **Description**          |
 | ------------- | --------------------------------------------------------------------- | ------------------------ |
 | `power`       | Number                                                                | Forward Force            |
-| `increment`   | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled                | Consider current inertia |
+| `increment`   | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                | Consider current inertia |
 | `launch_axis` | Marker<br/>**YAW** - Horizontal Only<br/>**YAW_AND_PITCH** - All Axis | Launch Axis              |
 <h3 id=entity_launch_projectile>
   <code>entity::launch_projectile</code>
@@ -411,7 +411,7 @@ entity::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle(
 
 **Usage example:** 
 ```ts
-entity::launch_to_location(location(0,0,0,0,0),1,"TRUE");
+entity::launch_to_location(location(0,0,0,0,0),1,"FALSE");
 ```
 
 **Arguments:**
@@ -420,7 +420,7 @@ entity::launch_to_location(location(0,0,0,0,0),1,"TRUE");
 | ----------- | ------------------------------------------------------ | ------------------------ |
 | `location`  | Location                                               | End Position             |
 | `power`     | Number                                                 | Launch Power             |
-| `increment` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Consider current inertia |
+| `increment` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled | Consider current inertia |
 <h3 id=entity_launch_up>
   <code>entity::launch_up</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -432,7 +432,7 @@ entity::launch_to_location(location(0,0,0,0,0),1,"TRUE");
 
 **Usage example:** 
 ```ts
-entity::launch_up(1,"TRUE");
+entity::launch_up(1,"FALSE");
 ```
 
 **Arguments:**
@@ -440,7 +440,7 @@ entity::launch_up(1,"TRUE");
 | **Name**    | **Type**                                                                                               | **Description**          |
 | ----------- | ------------------------------------------------------------------------------------------------------ | ------------------------ |
 | `power`     | Number                                                                                                 | Power                    |
-| `increment` | Marker<br/>**TRUE** - Enabled<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled<br/>**FALSE** - Disabled | Consider current inertia |
+| `increment` | Marker<br/>**FALSE** - Disabled<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled<br/>**TRUE** - Enabled | Consider current inertia |
 <h3 id=entity_leave_vehicle>
   <code>entity::leave_vehicle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -552,14 +552,14 @@ entity::move_to_location_stop();
 
 **Usage example:** 
 ```ts
-entity::play_damage_animation("DAMAGE");
+entity::play_damage_animation("CRITICAL_DAMAGE");
 ```
 
 **Arguments:**
 
 | **Name**      | **Type**                                                                                           | **Description** |
 | ------------- | -------------------------------------------------------------------------------------------------- | --------------- |
-| `damage_type` | Marker<br/>**DAMAGE** - Normal<br/>**CRITICAL_DAMAGE** - Critical<br/>**MAGICAL_DAMAGE** - Magical | Damage Type     |
+| `damage_type` | Marker<br/>**CRITICAL_DAMAGE** - Critical<br/>**DAMAGE** - Normal<br/>**MAGICAL_DAMAGE** - Magical | Damage Type     |
 <h3 id=entity_play_hurt_animation>
   <code>entity::play_hurt_animation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -786,14 +786,14 @@ entity::set_absorption_health(1);
 
 **Usage example:** 
 ```ts
-entity::set_ai("TRUE");
+entity::set_ai("FALSE");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                             | **Description** |
 | -------- | ---------------------------------------------------- | --------------- |
-| `ai`     | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Intelligence    |
+| `ai`     | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Intelligence    |
 <h3 id=entity_set_allay_dancing>
   <code>entity::set_allay_dancing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -807,14 +807,14 @@ entity::set_ai("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_allay_dancing("TRUE");
+entity::set_allay_dancing("FALSE");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                             | **Description** |
 | -------- | ---------------------------------------------------- | --------------- |
-| `dance`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Dance Animation |
+| `dance`  | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Dance Animation |
 <h3 id=entity_set_angry>
   <code>entity::set_angry</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -834,14 +834,14 @@ entity::set_allay_dancing("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_angry("TRUE","target");
+entity::set_angry("FALSE","target");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                             | **Description** |
 | -------- | ---------------------------------------------------- | --------------- |
-| `angry`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Angry Mode      |
+| `angry`  | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Angry Mode      |
 | `target` | Text                                                 | Target Name     |
 <h3 id=entity_set_animal_age>
   <code>entity::set_animal_age</code>
@@ -854,7 +854,7 @@ entity::set_angry("TRUE","target");
 
 **Usage example:** 
 ```ts
-entity::set_animal_age(1,"ENABLE");
+entity::set_animal_age(1,"DISABLE");
 ```
 
 **Arguments:**
@@ -862,7 +862,7 @@ entity::set_animal_age(1,"ENABLE");
 | **Name** | **Type**                                                                                       | **Description** |
 | -------- | ---------------------------------------------------------------------------------------------- | --------------- |
 | `age`    | Number                                                                                         | Age             |
-| `lock`   | Marker<br/>**ENABLE** - Enabled<br/>**DISABLE** - Disabled<br/>**DONT_CHANGE** - Don't Replace | Stop Growing Up |
+| `lock`   | Marker<br/>**DISABLE** - Disabled<br/>**DONT_CHANGE** - Don't Replace<br/>**ENABLE** - Enabled | Stop Growing Up |
 <h3 id=entity_set_armor_items>
   <code>entity::set_armor_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -900,15 +900,15 @@ entity::set_armor_items(item("stick"),item("stick"),item("stick"),item("stick"))
 
 **Usage example:** 
 ```ts
-entity::set_armor_stand_parts("ENABLE","ENABLE");
+entity::set_armor_stand_parts("DISABLE","DISABLE");
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**                                                                                    | **Description** |
 | ------------ | ------------------------------------------------------------------------------------------- | --------------- |
-| `arms`       | Marker<br/>**ENABLE** - Enable<br/>**DISABLE** - Disable<br/>**DONT_CHANGE** - Don't Change | Hand Visibility |
-| `base_plate` | Marker<br/>**ENABLE** - Enable<br/>**DISABLE** - Disable<br/>**DONT_CHANGE** - Don't Change | Slab Visibility |
+| `arms`       | Marker<br/>**DISABLE** - Disable<br/>**DONT_CHANGE** - Don't Change<br/>**ENABLE** - Enable | Hand Visibility |
+| `base_plate` | Marker<br/>**DISABLE** - Disable<br/>**DONT_CHANGE** - Don't Change<br/>**ENABLE** - Enable | Slab Visibility |
 <h3 id=entity_set_armor_stand_pose>
   <code>entity::set_armor_stand_pose</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -922,7 +922,7 @@ entity::set_armor_stand_parts("ENABLE","ENABLE");
 
 **Usage example:** 
 ```ts
-entity::set_armor_stand_pose(1,2,3,"HEAD");
+entity::set_armor_stand_pose(1,2,3,"BODY");
 ```
 
 **Arguments:**
@@ -932,7 +932,7 @@ entity::set_armor_stand_pose(1,2,3,"HEAD");
 | `x_rotation` | Number                                                                                                                                                             | X Rotation           |
 | `y_rotation` | Number                                                                                                                                                             | Y Rotation           |
 | `z_rotation` | Number                                                                                                                                                             | Rotation Z           |
-| `body_part`  | Marker<br/>**HEAD** - Head<br/>**BODY** - Body<br/>**LEFT_ARM** - Left Arm<br/>**RIGHT_ARM** - Right Arm<br/>**LEFT_LEG** - Left Leg<br/>**RIGHT_LEG** - Right Leg | Stand Part to Change |
+| `body_part`  | Marker<br/>**BODY** - Body<br/>**HEAD** - Head<br/>**LEFT_ARM** - Left Arm<br/>**LEFT_LEG** - Left Leg<br/>**RIGHT_ARM** - Right Arm<br/>**RIGHT_LEG** - Right Leg | Stand Part to Change |
 <h3 id=entity_set_arrow_hit_sound>
   <code>entity::set_arrow_hit_sound</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -985,15 +985,15 @@ entity::set_arrow_pierce(1);
 
 **Usage example:** 
 ```ts
-entity::set_attribute(1,"MAX_HEALTH");
+entity::set_attribute(1,"GENERIC_ARMOR");
 ```
 
 **Arguments:**
 
-| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Description** |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `value`          | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Attribute Value |
-| `attribute_type` | Marker<br/>**MAX_HEALTH** - Max Health<br/>**FOLLOW_RANGE** - Follow Distance<br/>**KNOCKBACK_RESISTANCE** - Knockback Resistance<br/>**MOVEMENT_SPEED** - Movement Speed<br/>**FLYING_SPEED** - Flying Speed<br/>**ATTACK_DAMAGE** - Attack Damage<br/>**ATTACK_KNOCKBACK** - Attack Knockback<br/>**ATTACK_SPEED** - Attack Speed<br/>**ARMOR** - Defense Points<br/>**ARMOR_TOUGHNESS** - Defense Density Points<br/>**LUCK** - Lucky Fishing<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength<br/>**MAX_ABSORPTION** - Absorption<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - The chance of reinforcing zombies<br/>**GENERIC_JUMP_STRENGTH** - Jump strength<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall damage multiplier<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe fall distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step height<br/>**GENERIC_GRAVITY** - Gravity<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - The distance of interaction with blocks<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - The distance of interaction with entities<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block breaking speed<br/>**GENERIC_BURNING_TIME** - Burning time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion knockback resistance<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement speed for slowing blocks<br/>**PLAYER_MINING_EFFICIENCY** - Digging speed<br/>**PLAYER_SNEAKING_SPEED** - Movement speed while sneaking<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Digging speed underwater<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - The coefficient of a break in a blow<br/>**GENERIC_OXYGEN_BONUS** - Air underwater<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Movement speed underwater<br/>**GENERIC_MAX_HEALTH** - Max health (generic.max_health)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (Generic.max_Absorption)<br/>**GENERIC_FOLLOW_RANGE** - Distance (generic.follow_range)<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Publishing resistance (Generic.knockback_resistance)<br/>**GENERIC_MOVEMENT_SPEED** - Generic.movement_Speed)<br/>**GENERIC_FLYING_SPEED** - Generic.flying_speed)<br/>**GENERIC_ATTACK_DAMAGE** - Generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Repulsion of the attack (Generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Generic.attack_Speed)<br/>**GENERIC_ARMOR** - Generic.armor glasses)<br/>**GENERIC_ARMOR_TOUGHNESS** - Generic.armor_touchHness density glasses)<br/>**GENERIC_LUCK** - Luck of fishing (Generic.luck) | Attribute Type  |
+| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Description** |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `value`          | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Attribute Value |
+| `attribute_type` | Marker<br/>**GENERIC_ARMOR** - Generic.armor glasses)<br/>**GENERIC_ARMOR_TOUGHNESS** - Generic.armor_touchHness density glasses)<br/>**GENERIC_ATTACK_DAMAGE** - Generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Repulsion of the attack (Generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Generic.attack_Speed)<br/>**GENERIC_BURNING_TIME** - Burning time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion knockback resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall damage multiplier<br/>**GENERIC_FLYING_SPEED** - Generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Publishing resistance (Generic.knockback_resistance)<br/>**GENERIC_LUCK** - Luck of fishing (Generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (Generic.max_Absorption)<br/>**GENERIC_MAX_HEALTH** - Max health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement speed for slowing blocks<br/>**GENERIC_MOVEMENT_SPEED** - Generic.movement_Speed)<br/>**GENERIC_OXYGEN_BONUS** - Air underwater<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe fall distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Movement speed underwater<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block breaking speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - The distance of interaction with blocks<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - The distance of interaction with entities<br/>**PLAYER_MINING_EFFICIENCY** - Digging speed<br/>**PLAYER_SNEAKING_SPEED** - Movement speed while sneaking<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Digging speed underwater<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - The coefficient of a break in a blow<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - The chance of reinforcing zombies | Attribute Type  |
 <h3 id=entity_set_aware>
   <code>entity::set_aware</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1007,14 +1007,14 @@ entity::set_attribute(1,"MAX_HEALTH");
 
 **Usage example:** 
 ```ts
-entity::set_aware("TRUE");
+entity::set_aware("FALSE");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                             | **Description** |
 | -------- | ---------------------------------------------------- | --------------- |
-| `aware`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Awareness       |
+| `aware`  | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Awareness       |
 <h3 id=entity_set_axolotl_type>
   <code>entity::set_axolotl_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1028,14 +1028,14 @@ entity::set_aware("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_axolotl_type("LUCY");
+entity::set_axolotl_type("BLUE");
 ```
 
 **Arguments:**
 
 | **Name**       | **Type**                                                                                                       | **Description** |
 | -------------- | -------------------------------------------------------------------------------------------------------------- | --------------- |
-| `axolotl_type` | Marker<br/>**LUCY** - Leukist<br/>**WILD** - Brown<br/>**GOLD** - Gold<br/>**CYAN** - Cyan<br/>**BLUE** - Blue | Axolotl Type    |
+| `axolotl_type` | Marker<br/>**BLUE** - Blue<br/>**CYAN** - Cyan<br/>**GOLD** - Gold<br/>**LUCY** - Leukist<br/>**WILD** - Brown | Axolotl Type    |
 <h3 id=entity_set_baby>
   <code>entity::set_baby</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1047,14 +1047,14 @@ entity::set_axolotl_type("LUCY");
 
 **Usage example:** 
 ```ts
-entity::set_baby("TRUE");
+entity::set_baby("FALSE");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                             | **Description** |
 | -------- | ---------------------------------------------------- | --------------- |
-| `baby`   | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Child Mode      |
+| `baby`   | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Child Mode      |
 <h3 id=entity_set_base_arrow_damage>
   <code>entity::set_base_arrow_damage</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1114,14 +1114,14 @@ entity::set_bee_has_stinger("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_bee_nectar("TRUE");
+entity::set_bee_nectar("FALSE");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                            | **Description**   |
 | -------- | --------------------------------------------------- | ----------------- |
-| `nectar` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Enable | Pollen Visibility |
+| `nectar` | Marker<br/>**FALSE** - Enable<br/>**TRUE** - Enable | Pollen Visibility |
 <h3 id=entity_set_block_display_block>
   <code>entity::set_block_display_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1156,14 +1156,14 @@ entity::set_block_display_block(item("stone"));
 
 **Usage example:** 
 ```ts
-entity::set_camel_dashing("TRUE");
+entity::set_camel_dashing("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                             | **Description**   |
 | --------- | ---------------------------------------------------- | ----------------- |
-| `dashing` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Dashing Animation |
+| `dashing` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Dashing Animation |
 <h3 id=entity_set_carrying_chest>
   <code>entity::set_carrying_chest</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1179,14 +1179,14 @@ entity::set_camel_dashing("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_carrying_chest("TRUE");
+entity::set_carrying_chest("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**                                             | **Description** |
 | ---------- | ---------------------------------------------------- | --------------- |
-| `carrying` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Having a Chest  |
+| `carrying` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Having a Chest  |
 <h3 id=entity_set_cat_lying_down>
   <code>entity::set_cat_lying_down</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1200,14 +1200,14 @@ entity::set_carrying_chest("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_cat_lying_down("TRUE");
+entity::set_cat_lying_down("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**                                             | **Description** |
 | ------------ | ---------------------------------------------------- | --------------- |
-| `lying_down` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Lying Mode      |
+| `lying_down` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Lying Mode      |
 <h3 id=entity_set_cat_type>
   <code>entity::set_cat_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1221,14 +1221,14 @@ entity::set_cat_lying_down("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_cat_type("TABBY");
+entity::set_cat_type("ALL_BLACK");
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**                                                                                                                                                                                                                                                                                                       | **Description** |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `cat_type` | Marker<br/>**TABBY** - Tabby<br/>**BLACK** - Black and White<br/>**RED** - Red<br/>**SIAMESE** - Siamese<br/>**BRITISH_SHORTHAIR** - British Shorthair<br/>**CALICO** - Calico<br/>**PERSIAN** - Persian<br/>**RAGDOLL** - Ragdoll<br/>**WHITE** - White<br/>**JELLIE** - White-Grey<br/>**ALL_BLACK** - Black | Cat Type        |
+| `cat_type` | Marker<br/>**ALL_BLACK** - Black<br/>**BLACK** - Black and White<br/>**BRITISH_SHORTHAIR** - British Shorthair<br/>**CALICO** - Calico<br/>**JELLIE** - White-Grey<br/>**PERSIAN** - Persian<br/>**RAGDOLL** - Ragdoll<br/>**RED** - Red<br/>**SIAMESE** - Siamese<br/>**TABBY** - Tabby<br/>**WHITE** - White | Cat Type        |
 <h3 id=entity_set_celebrating>
   <code>entity::set_celebrating</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1243,14 +1243,14 @@ entity::set_cat_type("TABBY");
 
 **Usage example:** 
 ```ts
-entity::set_celebrating("TRUE");
+entity::set_celebrating("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**      | **Type**                                             | **Description**  |
 | ------------- | ---------------------------------------------------- | ---------------- |
-| `celebrating` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Celebration Mode |
+| `celebrating` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Celebration Mode |
 <h3 id=entity_set_collidable>
   <code>entity::set_collidable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1262,14 +1262,14 @@ entity::set_celebrating("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_collidable("TRUE");
+entity::set_collidable("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**                                                                                             | **Description** |
 | ------------ | ---------------------------------------------------------------------------------------------------- | --------------- |
-| `collidable` | Marker<br/>**TRUE** - Collides other creatures<br/>**FALSE** - Does not collide with other creatures | Collision Mode  |
+| `collidable` | Marker<br/>**FALSE** - Does not collide with other creatures<br/>**TRUE** - Collides other creatures | Collision Mode  |
 <h3 id=entity_set_creeper_charge>
   <code>entity::set_creeper_charge</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1283,14 +1283,14 @@ entity::set_collidable("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_creeper_charge("TRUE");
+entity::set_creeper_charge("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                                  | **Description** |
 | --------- | --------------------------------------------------------- | --------------- |
-| `charged` | Marker<br/>**TRUE** - Charged<br/>**FALSE** - Not Charged | Creeper Charged |
+| `charged` | Marker<br/>**FALSE** - Not Charged<br/>**TRUE** - Charged | Creeper Charged |
 <h3 id=entity_set_creeper_fuse>
   <code>entity::set_creeper_fuse</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1361,14 +1361,14 @@ entity::set_custom_name("custom_name");
 
 **Usage example:** 
 ```ts
-entity::set_custom_name_visibility("TRUE");
+entity::set_custom_name_visibility("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**                                             | **Description** |
 | ------------ | ---------------------------------------------------- | --------------- |
-| `visibility` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Name Visibility |
+| `visibility` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Name Visibility |
 <h3 id=entity_set_custom_tag>
   <code>entity::set_custom_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1400,14 +1400,14 @@ entity::set_custom_tag("name","value");
 
 **Usage example:** 
 ```ts
-entity::set_death_drops("TRUE");
+entity::set_death_drops("FALSE");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                             | **Description** |
 | -------- | ---------------------------------------------------- | --------------- |
-| `drops`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Item Drops      |
+| `drops`  | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Item Drops      |
 <h3 id=entity_set_death_time>
   <code>entity::set_death_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1457,14 +1457,14 @@ entity::set_default_visible("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_despawning("TRUE");
+entity::set_despawning("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**                                             | **Description**     |
 | ------------ | ---------------------------------------------------- | ------------------- |
-| `despawning` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Entity Disappearing |
+| `despawning` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Entity Disappearing |
 <h3 id=entity_set_display_billboard>
   <code>entity::set_display_billboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1478,14 +1478,14 @@ entity::set_despawning("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_display_billboard("FIXED");
+entity::set_display_billboard("CENTER");
 ```
 
 **Arguments:**
 
 | **Name**         | **Type**                                                                                                                                   | **Description** |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `billboard_type` | Marker<br/>**FIXED** - Fixed<br/>**VERTICAL** - Fixed Vertical<br/>**HORIZONTAL** - Fixed Horizontal<br/>**CENTER** - Always Facing Player | Display Mode    |
+| `billboard_type` | Marker<br/>**CENTER** - Always Facing Player<br/>**FIXED** - Fixed<br/>**HORIZONTAL** - Fixed Horizontal<br/>**VERTICAL** - Fixed Vertical | Display Mode    |
 <h3 id=entity_set_display_brightness>
   <code>entity::set_display_brightness</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1587,14 +1587,14 @@ entity::set_display_interpolation(1,2);
 
 **Usage example:** 
 ```ts
-entity::set_display_rotation_from_axis_angle("SET",vector(0,0,0),1,"DEGREES","LEFT_ROTATION");
+entity::set_display_rotation_from_axis_angle("ADD",vector(0,0,0),1,"DEGREES","LEFT_ROTATION");
 ```
 
 **Arguments:**
 
 | **Name**      | **Type**                                                                                                                 | **Description**         |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| `mode`        | Marker<br/>**SET** - Set<br/>**ADD** - Add                                                                               | Set Mode                |
+| `mode`        | Marker<br/>**ADD** - Add<br/>**SET** - Set                                                                               | Set Mode                |
 | `axis_vector` | Vector                                                                                                                   | Axis Vector             |
 | `angle`       | Number                                                                                                                   | Rotation Angle          |
 | `input`       | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                               | Type of angle           |
@@ -1612,14 +1612,14 @@ entity::set_display_rotation_from_axis_angle("SET",vector(0,0,0),1,"DEGREES","LE
 
 **Usage example:** 
 ```ts
-entity::set_display_rotation_from_euler_angles("SET",1,2,3,"DEGREES","LEFT_ROTATION");
+entity::set_display_rotation_from_euler_angles("ADD",1,2,3,"DEGREES","LEFT_ROTATION");
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**                                                                                                                 | **Description**         |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| `mode`     | Marker<br/>**SET** - Set<br/>**ADD** - Add                                                                               | Set Mode                |
+| `mode`     | Marker<br/>**ADD** - Add<br/>**SET** - Set                                                                               | Set Mode                |
 | `pitch`    | Number                                                                                                                   | Pitch Angle             |
 | `yaw`      | Number                                                                                                                   | Yaw Angle (yaw)         |
 | `roll`     | Number                                                                                                                   | Roll Angle (roll)       |
@@ -1638,7 +1638,7 @@ entity::set_display_rotation_from_euler_angles("SET",1,2,3,"DEGREES","LEFT_ROTAT
 
 **Usage example:** 
 ```ts
-entity::set_display_scale(vector(0,0,0),"SET");
+entity::set_display_scale(vector(0,0,0),"ADD");
 ```
 
 **Arguments:**
@@ -1646,7 +1646,7 @@ entity::set_display_scale(vector(0,0,0),"SET");
 | **Name**       | **Type**                                   | **Description** |
 | -------------- | ------------------------------------------ | --------------- |
 | `scale_vector` | Vector                                     | New Size        |
-| `mode`         | Marker<br/>**SET** - Set<br/>**ADD** - Add | Set Mode        |
+| `mode`         | Marker<br/>**ADD** - Add<br/>**SET** - Set | Set Mode        |
 <h3 id=entity_set_display_shadow>
   <code>entity::set_display_shadow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1724,7 +1724,7 @@ entity::set_display_transformation_matrix([1, 2]);
 
 **Usage example:** 
 ```ts
-entity::set_display_translation(vector(0,0,0),"SET");
+entity::set_display_translation(vector(0,0,0),"ADD");
 ```
 
 **Arguments:**
@@ -1732,7 +1732,7 @@ entity::set_display_translation(vector(0,0,0),"SET");
 | **Name**             | **Type**                                   | **Description** |
 | -------------------- | ------------------------------------------ | --------------- |
 | `translation_vector` | Vector                                     | New Offset      |
-| `mode`               | Marker<br/>**SET** - Set<br/>**ADD** - Add | Set Mode        |
+| `mode`               | Marker<br/>**ADD** - Add<br/>**SET** - Set | Set Mode        |
 <h3 id=entity_set_display_view_range>
   <code>entity::set_display_view_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1767,14 +1767,14 @@ entity::set_display_view_range(1);
 
 **Usage example:** 
 ```ts
-entity::set_dragon_phase("CIRCLING");
+entity::set_dragon_phase("BREATH_ATTACK");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                | **Description**    |
 | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `phase`  | Marker<br/>**CIRCLING** - Circling<br/>**STRAFING** - Dodge<br/>**FLY_TO_PORTAL** - Fly to Portal<br/>**LAND_ON_PORTAL** - Landing on Portal<br/>**LEAVE_PORTAL** - Leave Portal<br/>**BREATH_ATTACK** - Breath Attack<br/>**SEARCH_FOR_BREATH_ATTACK_TARGET** - Search for a breath attack target<br/>**ROAR_BEFORE_ATTACK** - Scream before attack<br/>**CHARGE_PLAYER** - Attack Player<br/>**DYING** - Death<br/>**HOVER** - Flying | Ender Dragon Phase |
+| `phase`  | Marker<br/>**BREATH_ATTACK** - Breath Attack<br/>**CHARGE_PLAYER** - Attack Player<br/>**CIRCLING** - Circling<br/>**DYING** - Death<br/>**FLY_TO_PORTAL** - Fly to Portal<br/>**HOVER** - Flying<br/>**LAND_ON_PORTAL** - Landing on Portal<br/>**LEAVE_PORTAL** - Leave Portal<br/>**ROAR_BEFORE_ATTACK** - Scream before attack<br/>**SEARCH_FOR_BREATH_ATTACK_TARGET** - Search for a breath attack target<br/>**STRAFING** - Dodge | Ender Dragon Phase |
 <h3 id=entity_set_dye_color>
   <code>entity::set_dye_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1791,14 +1791,14 @@ entity::set_dragon_phase("CIRCLING");
 
 **Usage example:** 
 ```ts
-entity::set_dye_color("WHITE");
+entity::set_dye_color("BLACK");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                         | **Description** |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `color`  | Marker<br/>**WHITE** - White<br/>**ORANGE** - Orange<br/>**MAGENTA** - Magenta<br/>**LIGHT_BLUE** - Blue<br/>**YELLOW** - Yellow<br/>**LIME** - Lime<br/>**PINK** - Pink<br/>**GRAY** - Gray<br/>**LIGHT_GRAY** - Light Gray<br/>**CYAN** - Cyan<br/>**PURPLE** - Purple<br/>**BLUE** - Blue<br/>**BROWN** - Brown<br/>**GREEN** - Green<br/>**RED** - Red<br/>**BLACK** - Black | Entity Color    |
+| `color`  | Marker<br/>**BLACK** - Black<br/>**BLUE** - Blue<br/>**BROWN** - Brown<br/>**CYAN** - Cyan<br/>**GRAY** - Gray<br/>**GREEN** - Green<br/>**LIGHT_BLUE** - Blue<br/>**LIGHT_GRAY** - Light Gray<br/>**LIME** - Lime<br/>**MAGENTA** - Magenta<br/>**ORANGE** - Orange<br/>**PINK** - Pink<br/>**PURPLE** - Purple<br/>**RED** - Red<br/>**WHITE** - White<br/>**YELLOW** - Yellow | Entity Color    |
 <h3 id=entity_set_end_crystal_beam>
   <code>entity::set_end_crystal_beam</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1852,7 +1852,7 @@ entity::set_enderman_block(item("stone"));
 
 **Usage example:** 
 ```ts
-entity::set_equipment_item(item("stick"),"HAND");
+entity::set_equipment_item(item("stick"),"CHEST");
 ```
 
 **Arguments:**
@@ -1860,7 +1860,7 @@ entity::set_equipment_item(item("stick"),"HAND");
 | **Name** | **Type**                                                                                                                                         | **Description** |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
 | `item`   | Item                                                                                                                                             | Items to Grant  |
-| `slot`   | Marker<br/>**HAND** - Main Hand<br/>**OFF_HAND** - Sub-Hand<br/>**FEET** - Boots<br/>**LEGS** - Legs<br/>**CHEST** - Chest<br/>**HEAD** - Helmet | Equipment Slot  |
+| `slot`   | Marker<br/>**CHEST** - Chest<br/>**FEET** - Boots<br/>**HAND** - Main Hand<br/>**HEAD** - Helmet<br/>**LEGS** - Legs<br/>**OFF_HAND** - Sub-Hand | Equipment Slot  |
 <h3 id=entity_set_explosive_power>
   <code>entity::set_explosive_power</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1977,14 +1977,14 @@ entity::set_fishing_wait(1);
 
 **Usage example:** 
 ```ts
-entity::set_fox_leaping("TRUE");
+entity::set_fox_leaping("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                             | **Description**   |
 | --------- | ---------------------------------------------------- | ----------------- |
-| `leaping` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Leaping Animation |
+| `leaping` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Leaping Animation |
 <h3 id=entity_set_fox_type>
   <code>entity::set_fox_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2017,7 +2017,7 @@ entity::set_fox_type("RED");
 
 **Usage example:** 
 ```ts
-entity::set_freeze_ticks(1,"TRUE");
+entity::set_freeze_ticks(1,"FALSE");
 ```
 
 **Arguments:**
@@ -2025,7 +2025,7 @@ entity::set_freeze_ticks(1,"TRUE");
 | **Name**         | **Type**                                             | **Description**                     |
 | ---------------- | ---------------------------------------------------- | ----------------------------------- |
 | `ticks`          | Number                                               | Freeze Time in Ticks                |
-| `ticking_locked` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | State Locked (Time will not change) |
+| `ticking_locked` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | State Locked (Time will not change) |
 <h3 id=entity_set_friction>
   <code>entity::set_friction</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2058,14 +2058,14 @@ entity::set_friction("NOT_SET");
 
 **Usage example:** 
 ```ts
-entity::set_frog_type("TEMPERATE");
+entity::set_frog_type("COLD");
 ```
 
 **Arguments:**
 
 | **Name**       | **Type**                                                                    | **Description** |
 | -------------- | --------------------------------------------------------------------------- | --------------- |
-| `frog_variant` | Marker<br/>**TEMPERATE** - Moderate<br/>**WARM** - Warm<br/>**COLD** - Cold | Toad Type       |
+| `frog_variant` | Marker<br/>**COLD** - Cold<br/>**TEMPERATE** - Moderate<br/>**WARM** - Warm | Toad Type       |
 <h3 id=entity_set_gliding>
   <code>entity::set_gliding</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2077,14 +2077,14 @@ entity::set_frog_type("TEMPERATE");
 
 **Usage example:** 
 ```ts
-entity::set_gliding("TRUE");
+entity::set_gliding("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**                                               | **Description** |
 | ------------ | ------------------------------------------------------ | --------------- |
-| `is_gliding` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Elytra Flying   |
+| `is_gliding` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled | Elytra Flying   |
 <h3 id=entity_set_glow_squid_dark>
   <code>entity::set_glow_squid_dark</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2117,14 +2117,14 @@ entity::set_glow_squid_dark(1);
 
 **Usage example:** 
 ```ts
-entity::set_glowing("TRUE");
+entity::set_glowing("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                             | **Description** |
 | --------- | ---------------------------------------------------- | --------------- |
-| `glowing` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Glow            |
+| `glowing` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Glow            |
 <h3 id=entity_set_goat_screaming>
   <code>entity::set_goat_screaming</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2138,14 +2138,14 @@ entity::set_glowing("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_goat_screaming("TRUE");
+entity::set_goat_screaming("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                             | **Description** |
 | --------- | ---------------------------------------------------- | --------------- |
-| `screams` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Screaming Tag   |
+| `screams` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Screaming Tag   |
 <h3 id=entity_set_gravity>
   <code>entity::set_gravity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2157,14 +2157,14 @@ entity::set_goat_screaming("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_gravity("TRUE");
+entity::set_gravity("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                             | **Description** |
 | --------- | ---------------------------------------------------- | --------------- |
-| `gravity` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Gravity         |
+| `gravity` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Gravity         |
 <h3 id=entity_set_horse_jump>
   <code>entity::set_horse_jump</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2202,15 +2202,15 @@ entity::set_horse_jump(1);
 
 **Usage example:** 
 ```ts
-entity::set_horse_pattern("WHITE","NONE");
+entity::set_horse_pattern("BLACK","BLACK_DOTS");
 ```
 
 **Arguments:**
 
 | **Name**      | **Type**                                                                                                                                                                                                                                  | **Description** |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `horse_color` | Marker<br/>**WHITE** - White<br/>**CREAMY** - Beige<br/>**CHESTNUT** - Red<br/>**BROWN** - Brown<br/>**DARK_BROWN** - Dark Brown<br/>**GRAY** - Grey<br/>**BLACK** - Black<br/>**DO_NOT_CHANGE** - Don't Change                           | Horse Color     |
-| `horse_style` | Marker<br/>**NONE** - No Pattern<br/>**WHITE** - White stripes on legs and head<br/>**WHITEFIELD** - Large White Fields<br/>**WHITE_DOTS** - Small White Dots<br/>**BLACK_DOTS** - Dark Dots on Back<br/>**DO_NOT_CHANGE** - Don't Change | Horse Pattern   |
+| `horse_color` | Marker<br/>**BLACK** - Black<br/>**BROWN** - Brown<br/>**CHESTNUT** - Red<br/>**CREAMY** - Beige<br/>**DARK_BROWN** - Dark Brown<br/>**DO_NOT_CHANGE** - Don't Change<br/>**GRAY** - Grey<br/>**WHITE** - White                           | Horse Color     |
+| `horse_style` | Marker<br/>**BLACK_DOTS** - Dark Dots on Back<br/>**DO_NOT_CHANGE** - Don't Change<br/>**NONE** - No Pattern<br/>**WHITE** - White stripes on legs and head<br/>**WHITEFIELD** - Large White Fields<br/>**WHITE_DOTS** - Small White Dots | Horse Pattern   |
 <h3 id=entity_set_immune_to_zombification>
   <code>entity::set_immune_to_zombification</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2226,14 +2226,14 @@ entity::set_horse_pattern("WHITE","NONE");
 
 **Usage example:** 
 ```ts
-entity::set_immune_to_zombification("TRUE");
+entity::set_immune_to_zombification("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**    | **Type**                                               | **Description**           |
 | ----------- | ------------------------------------------------------ | ------------------------- |
-| `is_immune` | Marker<br/>**TRUE** - Turn on<br/>**FALSE** - Turn off | Immunity to zombification |
+| `is_immune` | Marker<br/>**FALSE** - Turn off<br/>**TRUE** - Turn on | Immunity to zombification |
 <h3 id=entity_set_interaction_responsive>
   <code>entity::set_interaction_responsive</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2247,14 +2247,14 @@ entity::set_immune_to_zombification("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_interaction_responsive("TRUE");
+entity::set_interaction_responsive("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**                                             | **Description** |
 | ------------ | ---------------------------------------------------- | --------------- |
-| `responsive` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Responsive      |
+| `responsive` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Responsive      |
 <h3 id=entity_set_interaction_size>
   <code>entity::set_interaction_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2288,14 +2288,14 @@ entity::set_interaction_size(1,2);
 
 **Usage example:** 
 ```ts
-entity::set_invisible("TRUE");
+entity::set_invisible("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**    | **Type**                                             | **Description** |
 | ----------- | ---------------------------------------------------- | --------------- |
-| `invisible` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Invisible Mode  |
+| `invisible` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Invisible Mode  |
 <h3 id=entity_set_invulnerability_ticks>
   <code>entity::set_invulnerability_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2326,14 +2326,14 @@ entity::set_invulnerability_ticks(1);
 
 **Usage example:** 
 ```ts
-entity::set_invulnerable("TRUE");
+entity::set_invulnerable("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**       | **Type**                                             | **Description** |
 | -------------- | ---------------------------------------------------- | --------------- |
-| `invulnerable` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Invulnerable    |
+| `invulnerable` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Invulnerable    |
 <h3 id=entity_set_item>
   <code>entity::set_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2389,14 +2389,14 @@ entity::set_item_display_item(item("stick"));
 
 **Usage example:** 
 ```ts
-entity::set_item_display_model_type("NONE");
+entity::set_item_display_model_type("FIRSTPERSON_LEFTHAND");
 ```
 
 **Arguments:**
 
 | **Name**             | **Type**                                                                                                                                                                                                                                                                                                                                                    | **Description** |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `display_model_type` | Marker<br/>**NONE** - Standard<br/>**THIRDPERSON_LEFTHAND** - Third Person Left Hand<br/>**THIRDPERSON_RIGHTHAND** - Third Person Right Hand<br/>**FIRSTPERSON_LEFTHAND** - First Person Left Hand<br/>**FIRSTPERSON_RIGHTHAND** - First Person Right Hand<br/>**HEAD** - Head<br/>**GUI** - Inventory<br/>**GROUND** - On the ground<br/>**FIXED** - Fixed | Model Type      |
+| `display_model_type` | Marker<br/>**FIRSTPERSON_LEFTHAND** - First Person Left Hand<br/>**FIRSTPERSON_RIGHTHAND** - First Person Right Hand<br/>**FIXED** - Fixed<br/>**GROUND** - On the ground<br/>**GUI** - Inventory<br/>**HEAD** - Head<br/>**NONE** - Standard<br/>**THIRDPERSON_LEFTHAND** - Third Person Left Hand<br/>**THIRDPERSON_RIGHTHAND** - Third Person Right Hand | Model Type      |
 <h3 id=entity_set_item_in_frame>
   <code>entity::set_item_in_frame</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2431,14 +2431,14 @@ entity::set_item_in_frame(item("stick"));
 
 **Usage example:** 
 ```ts
-entity::set_llama_type("CREAMY");
+entity::set_llama_type("BROWN");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                                                                      | **Description** |
 | -------- | --------------------------------------------------------------------------------------------- | --------------- |
-| `type`   | Marker<br/>**CREAMY** - Beige<br/>**WHITE** - White<br/>**BROWN** - Brown<br/>**GRAY** - Gray | Color to Set    |
+| `type`   | Marker<br/>**BROWN** - Brown<br/>**CREAMY** - Beige<br/>**GRAY** - Gray<br/>**WHITE** - White | Color to Set    |
 <h3 id=entity_set_location>
   <code>entity::set_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2450,7 +2450,7 @@ entity::set_llama_type("CREAMY");
 
 **Usage example:** 
 ```ts
-entity::set_location(vector(0,0,0),"TRUE");
+entity::set_location(vector(0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -2458,7 +2458,7 @@ entity::set_location(vector(0,0,0),"TRUE");
 | **Name**    | **Type**                                               | **Description**          |
 | ----------- | ------------------------------------------------------ | ------------------------ |
 | `velocity`  | Vector                                                 | Motion Vector            |
-| `increment` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Consider current inertia |
+| `increment` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled | Consider current inertia |
 <h3 id=entity_set_marker>
   <code>entity::set_marker</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2472,14 +2472,14 @@ entity::set_location(vector(0,0,0),"TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_marker("TRUE");
+entity::set_marker("FALSE");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                             | **Description** |
 | -------- | ---------------------------------------------------- | --------------- |
-| `marker` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Marker Mode     |
+| `marker` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Marker Mode     |
 <h3 id=entity_set_max_health>
   <code>entity::set_max_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2491,7 +2491,7 @@ entity::set_marker("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_max_health(1,"TRUE");
+entity::set_max_health(1,"FALSE");
 ```
 
 **Arguments:**
@@ -2499,7 +2499,7 @@ entity::set_max_health(1,"TRUE");
 | **Name**      | **Type**                                       | **Description** |
 | ------------- | ---------------------------------------------- | --------------- |
 | `max_health`  | Number                                         | Max Health      |
-| `heal_to_max` | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None | Heal Creature   |
+| `heal_to_max` | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Heal Creature   |
 <h3 id=entity_set_merchant_recipe>
   <code>entity::set_merchant_recipe</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2514,7 +2514,7 @@ entity::set_max_health(1,"TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"MERGE",2,3,4,5,6,7,"TRUE","TRUE");
+entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"APPEND",2,3,4,5,6,7,"FALSE","FALSE");
 ```
 
 **Arguments:**
@@ -2525,15 +2525,15 @@ entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"MERGE",
 | `ingredient_one`      | Item                                                 | First Item          |
 | `ingredient_two`      | Item                                                 | Second Item         |
 | `index`               | Number                                               | Product Index       |
-| `mode`                | Marker<br/>**MERGE** - Replace<br/>**APPEND** - Add  | Set Mode            |
+| `mode`                | Marker<br/>**APPEND** - Add<br/>**MERGE** - Replace  | Set Mode            |
 | `uses`                | Number                                               | Number of Uses      |
 | `max_uses`            | Number                                               | Max Uses            |
 | `villager_experience` | Number                                               | Villager Experience |
 | `price_multiplifier`  | Number                                               | Price Multiplier    |
 | `demand`              | Number                                               | Product Demand      |
 | `special_price`       | Number                                               | Special Price       |
-| `experience_reward`   | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Experience Reward   |
-| `ignore_discounts`    | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Ignore Discounts    |
+| `experience_reward`   | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Experience Reward   |
+| `ignore_discounts`    | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Ignore Discounts    |
 <h3 id=entity_set_minecart_block>
   <code>entity::set_minecart_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2578,14 +2578,14 @@ entity::set_minecart_block(item("stone"),1);
 
 **Usage example:** 
 ```ts
-entity::set_mob_aggressive("TRUE");
+entity::set_mob_aggressive("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**                                     | **Description** |
 | ------------ | -------------------------------------------- | --------------- |
-| `aggressive` | Marker<br/>**TRUE** - Yes<br/>**FALSE** - No | Aggressiveness  |
+| `aggressive` | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Aggressiveness  |
 <h3 id=entity_set_mushroom_cow_type>
   <code>entity::set_mushroom_cow_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2599,14 +2599,14 @@ entity::set_mob_aggressive("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_mushroom_cow_type("RED");
+entity::set_mushroom_cow_type("BROWN");
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**                                       | **Description**   |
 | ---------- | ---------------------------------------------- | ----------------- |
-| `cow_type` | Marker<br/>**RED** - Red<br/>**BROWN** - Brown | Mushroom Cow Type |
+| `cow_type` | Marker<br/>**BROWN** - Brown<br/>**RED** - Red | Mushroom Cow Type |
 <h3 id=entity_set_no_physics>
   <code>entity::no_physics</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2639,15 +2639,15 @@ entity::no_physics("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_panda_gene("MAIN","NORMAL");
+entity::set_panda_gene("BOTH","AGGRESSIVE");
 ```
 
 **Arguments:**
 
 | **Name**    | **Type**                                                                                                                                                                          | **Description** |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `gene`      | Marker<br/>**MAIN** - Main Gene<br/>**HIDDEN** - Hidden Gene<br/>**BOTH** - Both Genes                                                                                            | Gene            |
-| `gene_type` | Marker<br/>**NORMAL** - Normal<br/>**LAZY** - Lazy<br/>**WORRIED** - Worried<br/>**PLAYFUL** - Playful<br/>**BROWN** - Severe<br/>**WEAK** - Weak<br/>**AGGRESSIVE** - Aggressive | Gene Type       |
+| `gene`      | Marker<br/>**BOTH** - Both Genes<br/>**HIDDEN** - Hidden Gene<br/>**MAIN** - Main Gene                                                                                            | Gene            |
+| `gene_type` | Marker<br/>**AGGRESSIVE** - Aggressive<br/>**BROWN** - Severe<br/>**LAZY** - Lazy<br/>**NORMAL** - Normal<br/>**PLAYFUL** - Playful<br/>**WEAK** - Weak<br/>**WORRIED** - Worried | Gene Type       |
 <h3 id=entity_set_panda_on_back>
   <code>entity::set_panda_on_back</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2724,14 +2724,14 @@ entity::set_panda_sad_ticks(1);
 
 **Usage example:** 
 ```ts
-entity::set_parrot_type("RED");
+entity::set_parrot_type("BLUE");
 ```
 
 **Arguments:**
 
 | **Name**      | **Type**                                                                                                        | **Description** |
 | ------------- | --------------------------------------------------------------------------------------------------------------- | --------------- |
-| `parrot_type` | Marker<br/>**RED** - Red<br/>**BLUE** - Blue<br/>**GREEN** - Green<br/>**CYAN** - Turquoise<br/>**GRAY** - Grey | Parrot Type     |
+| `parrot_type` | Marker<br/>**BLUE** - Blue<br/>**CYAN** - Turquoise<br/>**GRAY** - Grey<br/>**GREEN** - Green<br/>**RED** - Red | Parrot Type     |
 <h3 id=entity_set_persistence>
   <code>entity::set_persistence</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2746,14 +2746,14 @@ entity::set_parrot_type("RED");
 
 **Usage example:** 
 ```ts
-entity::set_persistence("TRUE");
+entity::set_persistence("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**      | **Type**                                                                | **Description**   |
 | ------------- | ----------------------------------------------------------------------- | ----------------- |
-| `persistence` | Marker<br/>**TRUE** - Will not disappear<br/>**FALSE** - Will disappear | Entity Disappears |
+| `persistence` | Marker<br/>**FALSE** - Will disappear<br/>**TRUE** - Will not disappear | Entity Disappears |
 <h3 id=entity_set_pickup>
   <code>entity::set_pickup</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2810,14 +2810,14 @@ entity::set_pickup_delay(1);
 
 **Usage example:** 
 ```ts
-entity::set_piglin_able_to_hunt("TRUE");
+entity::set_piglin_able_to_hunt("FALSE");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                                 | **Description**       |
 | -------- | -------------------------------------------------------- | --------------------- |
-| `able`   | Marker<br/>**TRUE** - Hunts<br/>**FALSE** - Doesn't hunt | The state of the hunt |
+| `able`   | Marker<br/>**FALSE** - Doesn't hunt<br/>**TRUE** - Hunts | The state of the hunt |
 <h3 id=entity_set_piglin_charging_crossbow>
   <code>entity::set_piglin_charging_crossbow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2831,14 +2831,14 @@ entity::set_piglin_able_to_hunt("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_piglin_charging_crossbow("TRUE");
+entity::set_piglin_charging_crossbow("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**                                        | **Description**    |
 | ---------- | ----------------------------------------------- | ------------------ |
-| `charging` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | Charging condition |
+| `charging` | Marker<br/>**FALSE** - None<br/>**TRUE** - None | Charging condition |
 <h3 id=entity_set_piglin_dancing>
   <code>entity::set_piglin_dancing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2873,14 +2873,14 @@ entity::set_piglin_dancing(1);
 
 **Usage example:** 
 ```ts
-entity::set_pose("STANDING");
+entity::set_pose("CROAKING");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | **Description** |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `pose`   | Marker<br/>**STANDING** - Normal State<br/>**FALL_FLYING** - Elytra Flying<br/>**SLEEPING** - Sleeping<br/>**SWIMMING** - Swimming<br/>**SPIN_ATTACK** - Use Thruster<br/>**CROUCHING** - Crouching<br/>**LONG_JUMPING** - Long Jump<br/>**DYING** - Death<br/>**CROAKING** - Croaking (for Toads)<br/>**USING_TONGUE** - Using Tongue (For Toads)<br/>**SITTING** - Sitting<br/>**ROARING** - Roar (for Guardian)<br/>**SNIFFING** - Sniffing (for Guardian)<br/>**EMERGING** - Emerging from the Earth (for Guardian)<br/>**DIGGING** - Digging (For Guardian)<br/>**SNEAKING** - None | Display Pose    |
+| `pose`   | Marker<br/>**CROAKING** - Croaking (for Toads)<br/>**CROUCHING** - Crouching<br/>**DIGGING** - Digging (For Guardian)<br/>**DYING** - Death<br/>**EMERGING** - Emerging from the Earth (for Guardian)<br/>**FALL_FLYING** - Elytra Flying<br/>**LONG_JUMPING** - Long Jump<br/>**ROARING** - Roar (for Guardian)<br/>**SITTING** - Sitting<br/>**SLEEPING** - Sleeping<br/>**SNEAKING** - None<br/>**SNIFFING** - Sniffing (for Guardian)<br/>**SPIN_ATTACK** - Use Thruster<br/>**STANDING** - Normal State<br/>**SWIMMING** - Swimming<br/>**USING_TONGUE** - Using Tongue (For Toads) | Display Pose    |
 <h3 id=entity_set_potion_cloud_radius>
   <code>entity::set_potion_cloud_radius</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3009,14 +3009,14 @@ entity::set_projectile_shooter("uuid");
 
 **Usage example:** 
 ```ts
-entity::set_rabbit_type("BROWN");
+entity::set_rabbit_type("BLACK");
 ```
 
 **Arguments:**
 
 | **Name**      | **Type**                                                                                                                                                                                                             | **Description** |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `rabbit_type` | Marker<br/>**BROWN** - Brown<br/>**WHITE** - White<br/>**BLACK** - Black<br/>**BLACK_AND_WHITE** - Black and White<br/>**GOLD** - Gold<br/>**SALT_AND_PEPPER** - White Brown<br/>**THE_KILLER_BUNNY** - Killer Bunny | Rabbit Type     |
+| `rabbit_type` | Marker<br/>**BLACK** - Black<br/>**BLACK_AND_WHITE** - Black and White<br/>**BROWN** - Brown<br/>**GOLD** - Gold<br/>**SALT_AND_PEPPER** - White Brown<br/>**THE_KILLER_BUNNY** - Killer Bunny<br/>**WHITE** - White | Rabbit Type     |
 <h3 id=entity_set_rearing>
   <code>entity::set_rearing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3030,14 +3030,14 @@ entity::set_rabbit_type("BROWN");
 
 **Usage example:** 
 ```ts
-entity::set_rearing("TRUE");
+entity::set_rearing("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                                                    | **Description** |
 | --------- | --------------------------------------------------------------------------- | --------------- |
-| `rearing` | Marker<br/>**TRUE** - Stand on your hind legs<br/>**FALSE** - Regular State | Horse Pose      |
+| `rearing` | Marker<br/>**FALSE** - Regular State<br/>**TRUE** - Stand on your hind legs | Horse Pose      |
 <h3 id=entity_set_riptiding>
   <code>entity::set_riptiding</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3049,14 +3049,14 @@ entity::set_rearing("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_riptiding("TRUE");
+entity::set_riptiding("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**    | **Type**                                             | **Description**     |
 | ----------- | ---------------------------------------------------- | ------------------- |
-| `riptiding` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Riptiding Animation |
+| `riptiding` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Riptiding Animation |
 <h3 id=entity_set_rotation>
   <code>entity::set_rotation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3109,14 +3109,14 @@ entity::set_rotation_by_vector(vector(0,0,0));
 
 **Usage example:** 
 ```ts
-entity::set_sheep_sheared("TRUE");
+entity::set_sheep_sheared("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                           | **Description**  |
 | --------- | -------------------------------------------------- | ---------------- |
-| `sheared` | Marker<br/>**TRUE** - Sheep<br/>**FALSE** - No Fur | Presence of Wool |
+| `sheared` | Marker<br/>**FALSE** - No Fur<br/>**TRUE** - Sheep | Presence of Wool |
 <h3 id=entity_set_shulker_bullet_target>
   <code>entity::set_shulker_bullet_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3171,14 +3171,14 @@ entity::set_shulker_peek(1,"TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_silenced("TRUE");
+entity::set_silenced("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**                                             | **Description** |
 | ---------- | ---------------------------------------------------- | --------------- |
-| `silenced` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Mute            |
+| `silenced` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Mute            |
 <h3 id=entity_set_sitting>
   <code>entity::set_sitting</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3196,14 +3196,14 @@ entity::set_silenced("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_sitting("TRUE");
+entity::set_sitting("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                             | **Description** |
 | --------- | ---------------------------------------------------- | --------------- |
-| `sitting` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Setting Mode    |
+| `sitting` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Setting Mode    |
 <h3 id=entity_set_size>
   <code>entity::set_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3239,14 +3239,14 @@ entity::set_size(1);
 
 **Usage example:** 
 ```ts
-entity::set_sniffer_state("IDLING");
+entity::set_sniffer_state("DIGGING");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                                                                                                                                                                                         | **Description** |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `state`  | Marker<br/>**IDLING** - Normal State<br/>**FEELING_HAPPY** - Feels Happy<br/>**SCENTING** - Tracking<br/>**SNIFFING** - Sniffing<br/>**SEARCHING** - Searching<br/>**DIGGING** - Digging<br/>**RISING** - Rising | Sniffer State   |
+| `state`  | Marker<br/>**DIGGING** - Digging<br/>**FEELING_HAPPY** - Feels Happy<br/>**IDLING** - Normal State<br/>**RISING** - Rising<br/>**SCENTING** - Tracking<br/>**SEARCHING** - Searching<br/>**SNIFFING** - Sniffing | Sniffer State   |
 <h3 id=entity_set_snowman_pumpkin>
   <code>entity::set_snowman_pumpkin</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3260,14 +3260,14 @@ entity::set_sniffer_state("IDLING");
 
 **Usage example:** 
 ```ts
-entity::set_snowman_pumpkin("TRUE");
+entity::set_snowman_pumpkin("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                             | **Description**    |
 | --------- | ---------------------------------------------------- | ------------------ |
-| `pumpkin` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Pumpkin Visibility |
+| `pumpkin` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Pumpkin Visibility |
 <h3 id=entity_set_tame>
   <code>entity::set_tame</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3415,14 +3415,14 @@ entity::set_text_display_opacity(1);
 
 **Usage example:** 
 ```ts
-entity::set_text_display_see_through("TRUE");
+entity::set_text_display_see_through("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**             | **Type**                                             | **Description**           |
 | -------------------- | ---------------------------------------------------- | ------------------------- |
-| `enable_see_through` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Visibility Through Blocks |
+| `enable_see_through` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Visibility Through Blocks |
 <h3 id=entity_set_text_display_text>
   <code>entity::set_text_display_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3436,7 +3436,7 @@ entity::set_text_display_see_through("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_text_display_text(["displayed_text", "displayed_text"],"SPACES");
+entity::set_text_display_text(["displayed_text", "displayed_text"],"CONCATENATION");
 ```
 
 **Arguments:**
@@ -3444,7 +3444,7 @@ entity::set_text_display_text(["displayed_text", "displayed_text"],"SPACES");
 | **Name**         | **Type**                                                                                                       | **Description** |
 | ---------------- | -------------------------------------------------------------------------------------------------------------- | --------------- |
 | `displayed_text` | list[Text]                                                                                                     | Displayed Text  |
-| `merging_mode`   | Marker<br/>**SPACES** - Space Separation<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines | Merge Text      |
+| `merging_mode`   | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text      |
 <h3 id=entity_set_text_display_text_shadow>
   <code>entity::set_text_display_text_shadow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3458,14 +3458,14 @@ entity::set_text_display_text(["displayed_text", "displayed_text"],"SPACES");
 
 **Usage example:** 
 ```ts
-entity::set_text_display_text_shadow("TRUE");
+entity::set_text_display_text_shadow("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**             | **Type**                                             | **Description** |
 | -------------------- | ---------------------------------------------------- | --------------- |
-| `enable_text_shadow` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Text Shadow     |
+| `enable_text_shadow` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Text Shadow     |
 <h3 id=entity_set_tropical_fish_pattern>
   <code>entity::set_tropical_fish_pattern</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3479,16 +3479,16 @@ entity::set_text_display_text_shadow("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_tropical_fish_pattern("WHITE","WHITE","KOB");
+entity::set_tropical_fish_pattern("BLACK","BLACK","BETTY");
 ```
 
 **Arguments:**
 
 | **Name**        | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Description** |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `pattern_color` | Marker<br/>**WHITE** - White<br/>**ORANGE** - Orange<br/>**MAGENTA** - Magenta<br/>**LIGHT_BLUE** - Blue<br/>**YELLOW** - Yellow<br/>**LIME** - Lime<br/>**PINK** - Pink<br/>**GRAY** - Gray<br/>**LIGHT_GRAY** - Light Gray<br/>**CYAN** - Turquoise<br/>**PURPLE** - Purple<br/>**BLUE** - Blue<br/>**BROWN** - Brown<br/>**GREEN** - Green<br/>**RED** - Red<br/>**BLACK** - Black<br/>**DO_NOT_CHANGE** - Don't Change | Pattern Color   |
-| `body_color`    | Marker<br/>**WHITE** - White<br/>**ORANGE** - Orange<br/>**MAGENTA** - Magenta<br/>**LIGHT_BLUE** - Blue<br/>**YELLOW** - Yellow<br/>**LIME** - Lime<br/>**PINK** - Pink<br/>**GRAY** - Gray<br/>**LIGHT_GRAY** - Light Gray<br/>**CYAN** - Turquoise<br/>**PURPLE** - Purple<br/>**BLUE** - Blue<br/>**BROWN** - Brown<br/>**GREEN** - Green<br/>**RED** - Red<br/>**BLACK** - Black<br/>**DO_NOT_CHANGE** - Don't Change | Body Color      |
-| `pattern`       | Marker<br/>**KOB** - Kob<br/>**SUNSTREAK** - SunStreak<br/>**SNOOPER** - Snooper<br/>**DASHER** - Dasher<br/>**BRINELY** - Brinely<br/>**SPOTTY** - Spotty<br/>**FLOPPER** - Flopper<br/>**STRIPEY** - Stripey<br/>**GLITTER** - Glitter<br/>**BLOCKFISH** - Blockfish<br/>**BETTY** - Betty<br/>**CLAYFISH** - Clayfish<br/>**DO_NOT_CHANGE** - Don't Change                                                              | Pattern         |
+| `pattern_color` | Marker<br/>**BLACK** - Black<br/>**BLUE** - Blue<br/>**BROWN** - Brown<br/>**CYAN** - Turquoise<br/>**DO_NOT_CHANGE** - Don't Change<br/>**GRAY** - Gray<br/>**GREEN** - Green<br/>**LIGHT_BLUE** - Blue<br/>**LIGHT_GRAY** - Light Gray<br/>**LIME** - Lime<br/>**MAGENTA** - Magenta<br/>**ORANGE** - Orange<br/>**PINK** - Pink<br/>**PURPLE** - Purple<br/>**RED** - Red<br/>**WHITE** - White<br/>**YELLOW** - Yellow | Pattern Color   |
+| `body_color`    | Marker<br/>**BLACK** - Black<br/>**BLUE** - Blue<br/>**BROWN** - Brown<br/>**CYAN** - Turquoise<br/>**DO_NOT_CHANGE** - Don't Change<br/>**GRAY** - Gray<br/>**GREEN** - Green<br/>**LIGHT_BLUE** - Blue<br/>**LIGHT_GRAY** - Light Gray<br/>**LIME** - Lime<br/>**MAGENTA** - Magenta<br/>**ORANGE** - Orange<br/>**PINK** - Pink<br/>**PURPLE** - Purple<br/>**RED** - Red<br/>**WHITE** - White<br/>**YELLOW** - Yellow | Body Color      |
+| `pattern`       | Marker<br/>**BETTY** - Betty<br/>**BLOCKFISH** - Blockfish<br/>**BRINELY** - Brinely<br/>**CLAYFISH** - Clayfish<br/>**DASHER** - Dasher<br/>**DO_NOT_CHANGE** - Don't Change<br/>**FLOPPER** - Flopper<br/>**GLITTER** - Glitter<br/>**KOB** - Kob<br/>**SNOOPER** - Snooper<br/>**SPOTTY** - Spotty<br/>**STRIPEY** - Stripey<br/>**SUNSTREAK** - SunStreak                                                              | Pattern         |
 <h3 id=entity_set_vex_charging>
   <code>entity::set_vex_charging</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3502,14 +3502,14 @@ entity::set_tropical_fish_pattern("WHITE","WHITE","KOB");
 
 **Usage example:** 
 ```ts
-entity::set_vex_charging("TRUE");
+entity::set_vex_charging("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**                                        | **Description** |
 | ---------- | ----------------------------------------------- | --------------- |
-| `charging` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | Stage of anger  |
+| `charging` | Marker<br/>**FALSE** - None<br/>**TRUE** - None | Stage of anger  |
 <h3 id=entity_set_vex_limited_lifetime_ticks>
   <code>entity::set_vex_limited_lifetime_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3587,14 +3587,14 @@ entity::set_villager_experience(1);
 
 **Usage example:** 
 ```ts
-entity::set_villager_profession("NONE");
+entity::set_villager_profession("ARMORER");
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Description**     |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `profession` | Marker<br/>**NONE** - No Profession<br/>**ARMORER** - Armorer<br/>**BUTCHER** - Butcher<br/>**CARTOGRAPHER** - Cartographer<br/>**CLERIC** - Priest<br/>**FARMER** - Farmer<br/>**FISHERMAN** - Fisherman<br/>**FLETCHER** - Archer<br/>**LEATHERWORKER** - Leatherworker<br/>**LIBRARIAN** - Librarian<br/>**MASON** - Mason<br/>**NITWIT** - Beggar<br/>**SHEPHERD** - Shepherd<br/>**TOOLSMITH** - Toolsmith<br/>**WEAPONSMITH** - Weaponsmith | Villager Profession |
+| `profession` | Marker<br/>**ARMORER** - Armorer<br/>**BUTCHER** - Butcher<br/>**CARTOGRAPHER** - Cartographer<br/>**CLERIC** - Priest<br/>**FARMER** - Farmer<br/>**FISHERMAN** - Fisherman<br/>**FLETCHER** - Archer<br/>**LEATHERWORKER** - Leatherworker<br/>**LIBRARIAN** - Librarian<br/>**MASON** - Mason<br/>**NITWIT** - Beggar<br/>**NONE** - No Profession<br/>**SHEPHERD** - Shepherd<br/>**TOOLSMITH** - Toolsmith<br/>**WEAPONSMITH** - Weaponsmith | Villager Profession |
 <h3 id=entity_set_visual_fire>
   <code>entity::set_visual_fire</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3606,14 +3606,14 @@ entity::set_villager_profession("NONE");
 
 **Usage example:** 
 ```ts
-entity::set_visual_fire("TRUE");
+entity::set_visual_fire("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**      | **Type**                                             | **Description** |
 | ------------- | ---------------------------------------------------- | --------------- |
-| `visual_fire` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Fire Display    |
+| `visual_fire` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Fire Display    |
 <h3 id=entity_set_warden_anger_level>
   <code>entity::set_warden_anger_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3651,14 +3651,14 @@ entity::set_warden_anger_level("name_or_uuid",1);
 
 **Usage example:** 
 ```ts
-entity::set_warden_digging("EMERGE");
+entity::set_warden_digging("DIG_DOWN");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                                               | **Description**      |
 | --------- | ---------------------------------------------------------------------- | -------------------- |
-| `digging` | Marker<br/>**EMERGE** - The appearance<br/>**DIG_DOWN** - Instillation | The state of digging |
+| `digging` | Marker<br/>**DIG_DOWN** - Instillation<br/>**EMERGE** - The appearance | The state of digging |
 <h3 id=entity_set_wearing_saddle>
   <code>entity::set_wearing_saddle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3674,14 +3674,14 @@ entity::set_warden_digging("EMERGE");
 
 **Usage example:** 
 ```ts
-entity::set_wearing_saddle("TRUE");
+entity::set_wearing_saddle("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                             | **Description** |
 | --------- | ---------------------------------------------------- | --------------- |
-| `wearing` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Having a Saddle |
+| `wearing` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Having a Saddle |
 <h3 id=entity_set_wither_invulnerability_ticks>
   <code>entity::set_wither_invulnerability_ticks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3737,14 +3737,14 @@ entity::set_wolf_type("ASHEN");
 
 **Usage example:** 
 ```ts
-entity::set_zombie_arms_raised("TRUE");
+entity::set_zombie_arms_raised("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**      | **Type**                                             | **Description** |
 | ------------- | ---------------------------------------------------- | --------------- |
-| `arms_raised` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Raise Hands     |
+| `arms_raised` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Raise Hands     |
 <h3 id=entity_shear>
   <code>entity::shear</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3793,14 +3793,14 @@ entity::shear_sheep();
 
 **Usage example:** 
 ```ts
-entity::sleep("TRUE");
+entity::sleep("FALSE");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                             | **Description** |
 | -------- | ---------------------------------------------------- | --------------- |
-| `sleep`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Sleep Mode      |
+| `sleep`  | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Sleep Mode      |
 <h3 id=entity_swing_hand>
   <code>entity::swing_hand</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3831,7 +3831,7 @@ entity::swing_hand("MAIN");
 
 **Usage example:** 
 ```ts
-entity::teleport(location(0,0,0,0,0),"TRUE");
+entity::teleport(location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -3839,7 +3839,7 @@ entity::teleport(location(0,0,0,0,0),"TRUE");
 | **Name**        | **Type**                                               | **Description**       |
 | --------------- | ------------------------------------------------------ | --------------------- |
 | `location`      | Location                                               | New Position          |
-| `keep_rotation` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Keep Current Rotation |
+| `keep_rotation` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled | Keep Current Rotation |
 <h3 id=entity_use_item>
   <code>entity::use_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3853,7 +3853,7 @@ entity::teleport(location(0,0,0,0,0),"TRUE");
 
 **Usage example:** 
 ```ts
-entity::use_item("MAIN_HAND","TRUE");
+entity::use_item("MAIN_HAND","FALSE");
 ```
 
 **Arguments:**
@@ -3861,7 +3861,7 @@ entity::use_item("MAIN_HAND","TRUE");
 | **Name** | **Type**                                                        | **Description** |
 | -------- | --------------------------------------------------------------- | --------------- |
 | `hand`   | Marker<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Offhand | Hand Type       |
-| `enable` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable            | Use             |
+| `enable` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable            | Use             |
 <h3 id=if_entity_collides_at_location>
   <code>entity::collides_at_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3916,7 +3916,7 @@ if(entity::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
 
 **Usage example:** 
 ```ts
-if(entity::collides_with_entity("name_or_uuid","OVERLAPS"){
+if(entity::collides_with_entity("name_or_uuid","CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -3926,7 +3926,7 @@ if(entity::collides_with_entity("name_or_uuid","OVERLAPS"){
 | **Name**       | **Type**                                                         | **Description**             |
 | -------------- | ---------------------------------------------------------------- | --------------------------- |
 | `name_or_uuid` | Text                                                             | Name or uuid entity         |
-| `check_type`   | Marker<br/>**OVERLAPS** - Intersects<br/>**CONTAINS** - Contains | The type of collision check |
+| `check_type`   | Marker<br/>**CONTAINS** - Contains<br/>**OVERLAPS** - Intersects | The type of collision check |
 <h3 id=if_entity_dummy>
   <code>entity::is_dummy</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3970,7 +3970,7 @@ if(entity::exists(){
 
 **Usage example:** 
 ```ts
-if(entity::has_custom_tag("tag","tag_value","EQUALS"){
+if(entity::has_custom_tag("tag","tag_value","CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -3981,7 +3981,7 @@ if(entity::has_custom_tag("tag","tag_value","EQUALS"){
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
 | `tag`          | Text                                                                                                                                       | Tag Name           |
 | `tag_value`    | Text                                                                                                                                       | Tag Value          |
-| `compare_type` | Marker<br/>**EQUALS** - Accurate correspondence<br/>**CONTAINS** - Contains<br/>**STARTS_WITH** - It begins on<br/>**ENDS_WITH** - Ends on | Type of comparison |
+| `compare_type` | Marker<br/>**CONTAINS** - Contains<br/>**ENDS_WITH** - Ends on<br/>**EQUALS** - Accurate correspondence<br/>**STARTS_WITH** - It begins on | Type of comparison |
 <h3 id=if_entity_has_potion_effect>
   <code>entity::has_potion_effect</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3993,7 +3993,7 @@ if(entity::has_custom_tag("tag","tag_value","EQUALS"){
 
 **Usage example:** 
 ```ts
-if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ANY"){
+if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ALL"){
     player::message("Condition is true");
 }
 ```
@@ -4003,7 +4003,7 @@ if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 | **Name**     | **Type**                                                  | **Description** |
 | ------------ | --------------------------------------------------------- | --------------- |
 | `potions`    | list[Potion]                                              | Potions to Test |
-| `check_mode` | Marker<br/>**ANY** - Any Effect<br/>**ALL** - All Effects | Check Mode      |
+| `check_mode` | Marker<br/>**ALL** - All Effects<br/>**ANY** - Any Effect | Check Mode      |
 <h3 id=if_entity_in_area>
   <code>entity::in_area</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4015,7 +4015,7 @@ if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 
 **Usage example:** 
 ```ts
-if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"TRUE","POINT","CONTAINS"){
+if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -4026,8 +4026,8 @@ if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"TRUE","POINT","CONTA
 | ---------------- | ---------------------------------------------------------------- | --------------------------- |
 | `location_1`     | Location                                                         | First corner of region      |
 | `location_2`     | Location                                                         | Second Region Corner        |
-| `ignore_y_axis`  | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't ignore        | Ignore Y Axis               |
-| `intersect_type` | Marker<br/>**POINT** - Location<br/>**HITBOX** - Hitbox          | Type of intersection        |
+| `ignore_y_axis`  | Marker<br/>**FALSE** - Don't ignore<br/>**TRUE** - Ignore        | Ignore Y Axis               |
+| `intersect_type` | Marker<br/>**HITBOX** - Hitbox<br/>**POINT** - Location          | Type of intersection        |
 | `check_type`     | Marker<br/>**CONTAINS** - Contains<br/>**OVERLAPS** - Intersects | Type of check of the hitbox |
 <h3 id=if_entity_is_disguised>
   <code>entity::is_disguised</code>
@@ -4104,7 +4104,7 @@ if(entity::is_mob(){
 
 **Usage example:** 
 ```ts
-if(entity::is_near_location(1,location(0,0,0,0,0),"TRUE"){
+if(entity::is_near_location(1,location(0,0,0,0,0),"FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -4115,7 +4115,7 @@ if(entity::is_near_location(1,location(0,0,0,0,0),"TRUE"){
 | --------------- | --------------------------------------------------------- | ----------------- |
 | `range`         | Number                                                    | Check Radius      |
 | `location`      | Location                                                  | Location to check |
-| `ignore_y_axis` | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't ignore | Ignore Y Axis     |
+| `ignore_y_axis` | Marker<br/>**FALSE** - Don't ignore<br/>**TRUE** - Ignore | Ignore Y Axis     |
 <h3 id=if_entity_is_projectile>
   <code>entity::is_projectile</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4143,7 +4143,7 @@ if(entity::is_projectile(){
 
 **Usage example:** 
 ```ts
-if(entity::is_riding_entity(["entity_ids", "entity_ids"],"TYPE"){
+if(entity::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST"){
     player::message("Condition is true");
 }
 ```
@@ -4153,7 +4153,7 @@ if(entity::is_riding_entity(["entity_ids", "entity_ids"],"TYPE"){
 | **Name**       | **Type**                                                                                                               | **Description**          |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `entity_ids`   | list[Text]                                                                                                             | Name or UUID of entities |
-| `compare_mode` | Marker<br/>**TYPE** - Creature Type<br/>**NAME_OR_UUID** - Name or UUID<br/>**NEAREST** - None<br/>**FARTHEST** - None | Riding Mode              |
+| `compare_mode` | Marker<br/>**FARTHEST** - None<br/>**NAME_OR_UUID** - Name or UUID<br/>**NEAREST** - None<br/>**TYPE** - Creature Type | Riding Mode              |
 <h3 id=if_entity_is_standing_on_block>
   <code>entity::is_standing_on_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4165,7 +4165,7 @@ if(entity::is_riding_entity(["entity_ids", "entity_ids"],"TYPE"){
 
 **Usage example:** 
 ```ts
-if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE"){
+if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -4176,7 +4176,7 @@ if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 | ------------ | ----------------------------------------------- | --------------------------------- |
 | `blocks`     | list[Block]                                     | Blocks to Check                   |
 | `locations`  | list[Location]                                  | Locations to Check                |
-| `only_solid` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | Take into account passable blocks |
+| `only_solid` | Marker<br/>**FALSE** - None<br/>**TRUE** - None | Take into account passable blocks |
 <h3 id=if_entity_is_type>
   <code>entity::is_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

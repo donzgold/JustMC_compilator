@@ -9,7 +9,7 @@
 
 **Пример использования:** 
 ```ts
-repeat::adjacently(location(0,0,0,0,0),"TRUE","TRUE","CARDINAL"){a1->
+repeat::adjacently(location(0,0,0,0,0),"FALSE","FALSE","ADJACENT"){a1->
     player::message("Код в цикле")
 }
 ```
@@ -20,9 +20,9 @@ repeat::adjacently(location(0,0,0,0,0),"TRUE","TRUE","CARDINAL"){a1->
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `variable`        | Переменная                                                                                                                  | Для присвоения местоположения                                                             |
 | `origin`          | Местоположение                                                                                                              | Центральный блок                                                                          |
-| `change_rotation` | Маркер<br/>**TRUE** - Поворачивать<br/>**FALSE** - Не поворачивать                                                          | Поворачивать направление взгляда текущего элемента относительно указанного местоположения |
-| `include_self`    | Маркер<br/>**TRUE** - Учитывать<br/>**FALSE** - Не учитывать                                                                | Учитывать центральный блок                                                                |
-| `pattern`         | Маркер<br/>**CARDINAL** - Кардинальный<br/>**SQUARE** - Квадратный<br/>**ADJACENT** - Примыкающий<br/>**CUBE** - Кубический | Тип выбора смежных блоков                                                                 |
+| `change_rotation` | Маркер<br/>**FALSE** - Не поворачивать<br/>**TRUE** - Поворачивать                                                          | Поворачивать направление взгляда текущего элемента относительно указанного местоположения |
+| `include_self`    | Маркер<br/>**FALSE** - Не учитывать<br/>**TRUE** - Учитывать                                                                | Учитывать центральный блок                                                                |
+| `pattern`         | Маркер<br/>**ADJACENT** - Примыкающий<br/>**CARDINAL** - Кардинальный<br/>**CUBE** - Кубический<br/>**SQUARE** - Квадратный | Тип выбора смежных блоков                                                                 |
 <h3 id=repeat_dummy>
   <code>repeat::dummy</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -184,7 +184,7 @@ repeat::on_grid(location(0,0,0,0,0),location(0,0,0,0,0)){a1->
 
 **Пример использования:** 
 ```ts
-repeat::on_path([location(0,0,0,0,0), location(0,0,0,0,0)],1,"TRUE"){a1->
+repeat::on_path([location(0,0,0,0,0), location(0,0,0,0,0)],1,"FALSE"){a1->
     player::message("Код в цикле")
 }
 ```
@@ -196,7 +196,7 @@ repeat::on_path([location(0,0,0,0,0), location(0,0,0,0,0)],1,"TRUE"){a1->
 | `variable`  | Переменная                                                   | Для присвоения местоположения               |
 | `locations` | список[Местоположение]                                       | Местоположения концов прямых                |
 | `step`      | Число                                                        | Расстояние между точками                    |
-| `rotation`  | Маркер<br/>**TRUE** - Сохранять<br/>**FALSE** - Не сохранять | Сохранять поворот указанного местоположения |
+| `rotation`  | Маркер<br/>**FALSE** - Не сохранять<br/>**TRUE** - Сохранять | Сохранять поворот указанного местоположения |
 <h3 id=repeat_on_range>
   <code>repeat::on_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -232,7 +232,7 @@ repeat::on_range(1,2,3){a1->
 
 **Пример использования:** 
 ```ts
-repeat::on_sphere(location(0,0,0,0,0),1,2,"NO_CHANGES"){a1->
+repeat::on_sphere(location(0,0,0,0,0),1,2,"INWARDS"){a1->
     player::message("Код в цикле")
 }
 ```
@@ -245,7 +245,7 @@ repeat::on_sphere(location(0,0,0,0,0),1,2,"NO_CHANGES"){a1->
 | `center`          | Местоположение                                                                                         | Центр сферы                           |
 | `radius`          | Число                                                                                                  | Радиус сферы                          |
 | `points`          | Число                                                                                                  | Количество точек                      |
-| `rotate_location` | Маркер<br/>**NO_CHANGES** - Как в месположении<br/>**INWARDS** - К центру<br/>**OUTWARDS** - От центра | Направление местоположения у точек    |
+| `rotate_location` | Маркер<br/>**INWARDS** - К центру<br/>**NO_CHANGES** - Как в месположении<br/>**OUTWARDS** - От центра | Направление местоположения у точек    |
 <h3 id=repeat_while>
   <code>repeat::while</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

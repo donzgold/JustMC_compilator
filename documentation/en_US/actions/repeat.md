@@ -9,7 +9,7 @@
 
 **Usage example:** 
 ```ts
-repeat::adjacently(location(0,0,0,0,0),"TRUE","TRUE","CARDINAL"){a1->
+repeat::adjacently(location(0,0,0,0,0),"FALSE","FALSE","ADJACENT"){a1->
     player::message("Code in cycle")
 }
 ```
@@ -20,9 +20,9 @@ repeat::adjacently(location(0,0,0,0,0),"TRUE","TRUE","CARDINAL"){a1->
 | ----------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `variable`        | Variable                                                                                                   | To assign location                                                                     |
 | `origin`          | Location                                                                                                   | Central block                                                                          |
-| `change_rotation` | Marker<br/>**TRUE** - Rotate<br/>**FALSE** - Don't Rotate                                                  | Rotate the direction of view of the current element relative to the specified location |
-| `include_self`    | Marker<br/>**TRUE** - Include<br/>**FALSE** - Do not include                                               | Include Center Block                                                                   |
-| `pattern`         | Marker<br/>**CARDINAL** - Cardinal<br/>**SQUARE** - Square<br/>**ADJACENT** - Adjacent<br/>**CUBE** - Cube | Adjacent Block Selection Type                                                          |
+| `change_rotation` | Marker<br/>**FALSE** - Don't Rotate<br/>**TRUE** - Rotate                                                  | Rotate the direction of view of the current element relative to the specified location |
+| `include_self`    | Marker<br/>**FALSE** - Do not include<br/>**TRUE** - Include                                               | Include Center Block                                                                   |
+| `pattern`         | Marker<br/>**ADJACENT** - Adjacent<br/>**CARDINAL** - Cardinal<br/>**CUBE** - Cube<br/>**SQUARE** - Square | Adjacent Block Selection Type                                                          |
 <h3 id=repeat_dummy>
   <code>repeat::dummy</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -184,7 +184,7 @@ repeat::on_grid(location(0,0,0,0,0),location(0,0,0,0,0)){a1->
 
 **Usage example:** 
 ```ts
-repeat::on_path([location(0,0,0,0,0), location(0,0,0,0,0)],1,"TRUE"){a1->
+repeat::on_path([location(0,0,0,0,0), location(0,0,0,0,0)],1,"FALSE"){a1->
     player::message("Code in cycle")
 }
 ```
@@ -196,7 +196,7 @@ repeat::on_path([location(0,0,0,0,0), location(0,0,0,0,0)],1,"TRUE"){a1->
 | `variable`  | Variable                                              | To assign location                  |
 | `locations` | list[Location]                                        | Line End Locations                  |
 | `step`      | Number                                                | Distance between points             |
-| `rotation`  | Marker<br/>**TRUE** - Keep<br/>**FALSE** - Don't Save | Keep rotation of specified location |
+| `rotation`  | Marker<br/>**FALSE** - Don't Save<br/>**TRUE** - Keep | Keep rotation of specified location |
 <h3 id=repeat_on_range>
   <code>repeat::on_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -232,7 +232,7 @@ repeat::on_range(1,2,3){a1->
 
 **Usage example:** 
 ```ts
-repeat::on_sphere(location(0,0,0,0,0),1,2,"NO_CHANGES"){a1->
+repeat::on_sphere(location(0,0,0,0,0),1,2,"INWARDS"){a1->
     player::message("Code in cycle")
 }
 ```
@@ -245,7 +245,7 @@ repeat::on_sphere(location(0,0,0,0,0),1,2,"NO_CHANGES"){a1->
 | `center`          | Location                                                                                             | Sphere Center                       |
 | `radius`          | Number                                                                                               | Sphere Radius                       |
 | `points`          | Number                                                                                               | Number of Points                    |
-| `rotate_location` | Marker<br/>**NO_CHANGES** - Same as Location<br/>**INWARDS** - Center<br/>**OUTWARDS** - From Center | Point Location Direction            |
+| `rotate_location` | Marker<br/>**INWARDS** - Center<br/>**NO_CHANGES** - Same as Location<br/>**OUTWARDS** - From Center | Point Location Direction            |
 <h3 id=repeat_while>
   <code>repeat::while</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

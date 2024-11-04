@@ -30,7 +30,7 @@ code::call_function("function_name");
 
 **Пример использования:** 
 ```ts
-code::call_exception("id","message","WARNING");
+code::call_exception("id","message","ERROR");
 ```
 
 **Аргументы:**
@@ -39,7 +39,7 @@ code::call_exception("id","message","WARNING");
 | --------- | ------------------------------------------------------------------------------------------ | ---------------- |
 | `id`      | Текст                                                                                      | ID ошибки        |
 | `message` | Текст                                                                                      | Сообщение ошибки |
-| `type`    | Маркер<br/>**WARNING** - Предупреждение<br/>**ERROR** - Ошибка<br/>**FATAL** - Критическая | Тип ошибки       |
+| `type`    | Маркер<br/>**ERROR** - Ошибка<br/>**FATAL** - Критическая<br/>**WARNING** - Предупреждение | Тип ошибки       |
 <h3 id=control_end_thread>
   <code>code::break</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -117,7 +117,7 @@ code::stop_repeat();
 
 **Пример использования:** 
 ```ts
-code::wait(1,"TICKS");
+code::wait(1,"MINUTES");
 ```
 
 **Аргументы:**
@@ -125,7 +125,7 @@ code::wait(1,"TICKS");
 | **Имя**     | **Тип**                                                                        | **Описание**          |
 | ----------- | ------------------------------------------------------------------------------ | --------------------- |
 | `duration`  | Число                                                                          | Длительность ожидания |
-| `time_unit` | Маркер<br/>**TICKS** - Тики<br/>**SECONDS** - Секунды<br/>**MINUTES** - Минуты | Единица времени       |
+| `time_unit` | Маркер<br/>**MINUTES** - Минуты<br/>**SECONDS** - Секунды<br/>**TICKS** - Тики | Единица времени       |
 <h3 id=else>
   <code>code::else</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -153,7 +153,7 @@ code::else(){
 
 **Пример использования:** 
 ```ts
-code::start_process("process_name","DONT_COPY","CURRENT_TARGET");
+code::start_process("process_name","COPY","CURRENT_SELECTION");
 ```
 
 **Аргументы:**
@@ -161,5 +161,5 @@ code::start_process("process_name","DONT_COPY","CURRENT_TARGET");
 | **Имя**                | **Тип**                                                                                                                                                                  | **Описание**      |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
 | `process_name`         | Текст                                                                                                                                                                    | Название процесса |
-| `local_variables_mode` | Маркер<br/>**DONT_COPY** - Не дублировать<br/>**COPY** - Дублировать<br/>**SHARE** - Общие                                                                               | Режим переменных  |
-| `target_mode`          | Маркер<br/>**CURRENT_TARGET** - Цель события<br/>**CURRENT_SELECTION** - Текущая цель<br/>**NO_TARGET** - Без цели<br/>**FOR_EACH_IN_SELECTION** - Каждая цель в выборке | Цель процесса     |
+| `local_variables_mode` | Маркер<br/>**COPY** - Дублировать<br/>**DONT_COPY** - Не дублировать<br/>**SHARE** - Общие                                                                               | Режим переменных  |
+| `target_mode`          | Маркер<br/>**CURRENT_SELECTION** - Текущая цель<br/>**CURRENT_TARGET** - Цель события<br/>**FOR_EACH_IN_SELECTION** - Каждая цель в выборке<br/>**NO_TARGET** - Без цели | Цель процесса     |

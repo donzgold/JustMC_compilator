@@ -9,7 +9,7 @@
 
 **Usage example:** 
 ```ts
-world::block_growth(location(0,0,0,0,0),1,"STAGE_NUMBER");
+world::block_growth(location(0,0,0,0,0),1,"PERCENTAGE");
 ```
 
 **Arguments:**
@@ -18,7 +18,7 @@ world::block_growth(location(0,0,0,0,0),1,"STAGE_NUMBER");
 | -------------- | ---------------------------------------------------------------------------------------- | --------------- |
 | `location`     | Location                                                                                 | Block Location  |
 | `growth_stage` | Number                                                                                   | Growth Stage    |
-| `growth_type`  | Marker<br/>**STAGE_NUMBER** - Growth Stage Number<br/>**PERCENTAGE** - Growth Percentage | Growth Type     |
+| `growth_type`  | Marker<br/>**PERCENTAGE** - Growth Percentage<br/>**STAGE_NUMBER** - Growth Stage Number | Growth Type     |
 <h3 id=game_bloom_skulk_catalyst>
   <code>world::bloom_skulk_catalyst</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -73,7 +73,7 @@ world::bone_meal_block(location(0,0,0,0,0),1);
 
 **Usage example:** 
 ```ts
-world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE",item("stick"));
+world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE",item("stick"));
 ```
 
 **Arguments:**
@@ -81,7 +81,7 @@ world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)],"TRUE",item("stick
 | **Name**    | **Type**                                               | **Description** |
 | ----------- | ------------------------------------------------------ | --------------- |
 | `locations` | list[Location]                                         | Block Locations |
-| `drop_exp`  | Marker<br/>**TRUE** - Turn on<br/>**FALSE** - Turn off | Experience loss |
+| `drop_exp`  | Marker<br/>**FALSE** - Turn off<br/>**TRUE** - Turn on | Experience loss |
 | `tool`      | Item                                                   | Tool            |
 <h3 id=game_cancel_event>
   <code>world::cancel_event</code>
@@ -212,7 +212,7 @@ world::clear_scoreboard_scores("id");
 
 **Usage example:** 
 ```ts
-world::clone_region(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"TRUE","TRUE");
+world::clone_region(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","FALSE");
 ```
 
 **Arguments:**
@@ -223,8 +223,8 @@ world::clone_region(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),
 | `pos_2`       | Location                                                  | Opposite Region Corner |
 | `target_pos`  | Location                                                  | Copy Location          |
 | `paste_pos`   | Location                                                  | Paste Location         |
-| `ignore_air`  | Marker<br/>**TRUE** - Ignore<br/>**FALSE** - Don't Ignore | Ignore Air             |
-| `copy_entity` | Marker<br/>**TRUE** - Clone<br/>**FALSE** - Don't clone   | Clone Creatures        |
+| `ignore_air`  | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore | Ignore Air             |
+| `copy_entity` | Marker<br/>**FALSE** - Don't clone<br/>**TRUE** - Clone   | Clone Creatures        |
 <h3 id=game_create_explosion>
   <code>world::create_explosion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -312,7 +312,7 @@ world::fill_container([item("stick"), item("stick")],location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-world::generate_tree(location(0,0,0,0,0),"TREE");
+world::generate_tree(location(0,0,0,0,0),"ACACIA");
 ```
 
 **Arguments:**
@@ -320,7 +320,7 @@ world::generate_tree(location(0,0,0,0,0),"TREE");
 | **Name**    | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | **Description** |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | `location`  | Location                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Tree Location   |
-| `tree_type` | Marker<br/>**TREE** - Regular Tree<br/>**BIG_TREE** - Big Tree<br/>**REDWOOD** - Regular Spruce<br/>**TALL_REDWOOD** - Tall Spruce<br/>**BIRCH** - Common Birch<br/>**JUNGLE** - Jungle Tree<br/>**SMALL_JUNGLE** - Small Jungle Tree<br/>**COCOA_TREE** - Cocoa Bean Jungle Tree<br/>**JUNGLE_BUSH** - Jungle Bush<br/>**RED_MUSHROOM** - Red Mushroom<br/>**BROWN_MUSHROOM** - Brown Mushroom<br/>**SWAMP** - Swamp Tree<br/>**ACACIA** - Acacia<br/>**DARK_OAK** - Dark Oak<br/>**MEGA_REDWOOD** - Great Sequoia<br/>**TALL_BIRCH** - Tall Birch<br/>**CHORUS_PLANT** - Chorus Tree<br/>**CRIMSON_FUNGUS** - Crimson Mushroom<br/>**WARPED_FUNGUS** - Warped Mushroom<br/>**AZALEA** - Azalea<br/>**MANGROVE** - Mangrove Tree<br/>**TALL_MANGROVE** - Tall Mangrove Tree<br/>**CHERRY** - Cherry | Tree Type       |
+| `tree_type` | Marker<br/>**ACACIA** - Acacia<br/>**AZALEA** - Azalea<br/>**BIG_TREE** - Big Tree<br/>**BIRCH** - Common Birch<br/>**BROWN_MUSHROOM** - Brown Mushroom<br/>**CHERRY** - Cherry<br/>**CHORUS_PLANT** - Chorus Tree<br/>**COCOA_TREE** - Cocoa Bean Jungle Tree<br/>**CRIMSON_FUNGUS** - Crimson Mushroom<br/>**DARK_OAK** - Dark Oak<br/>**JUNGLE** - Jungle Tree<br/>**JUNGLE_BUSH** - Jungle Bush<br/>**MANGROVE** - Mangrove Tree<br/>**MEGA_REDWOOD** - Great Sequoia<br/>**REDWOOD** - Regular Spruce<br/>**RED_MUSHROOM** - Red Mushroom<br/>**SMALL_JUNGLE** - Small Jungle Tree<br/>**SWAMP** - Swamp Tree<br/>**TALL_BIRCH** - Tall Birch<br/>**TALL_MANGROVE** - Tall Mangrove Tree<br/>**TALL_REDWOOD** - Tall Spruce<br/>**TREE** - Regular Tree<br/>**WARPED_FUNGUS** - Warped Mushroom | Tree Type       |
 <h3 id=game_hide_event_message>
   <code>world::hide_event_message</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -336,14 +336,14 @@ world::generate_tree(location(0,0,0,0,0),"TREE");
 
 **Usage example:** 
 ```ts
-world::hide_event_message("TRUE");
+world::hide_event_message("FALSE");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                       | **Description** |
 | -------- | ---------------------------------------------- | --------------- |
-| `hide`   | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None | Hide Message    |
+| `hide`   | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Hide Message    |
 <h3 id=game_launch_firework>
   <code>world::launch_firework</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -355,7 +355,7 @@ world::hide_event_message("TRUE");
 
 **Usage example:** 
 ```ts
-world::launch_firework(item("stick"),location(0,0,0,0,0),"UPWARDS","TRUE");
+world::launch_firework(item("stick"),location(0,0,0,0,0),"DIRECTIONAL","FALSE");
 ```
 
 **Arguments:**
@@ -364,8 +364,8 @@ world::launch_firework(item("stick"),location(0,0,0,0,0),"UPWARDS","TRUE");
 | ---------- | ------------------------------------------------------------------ | ------------------ |
 | `firework` | Item                                                               | Firework to Create |
 | `location` | Location                                                           | Creation Location  |
-| `movement` | Marker<br/>**UPWARDS** - Upwards<br/>**DIRECTIONAL** - Directional | Move               |
-| `instant`  | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None                     | Instant Explosion  |
+| `movement` | Marker<br/>**DIRECTIONAL** - Directional<br/>**UPWARDS** - Upwards | Move               |
+| `instant`  | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                     | Instant Explosion  |
 <h3 id=game_launch_projectile>
   <code>world::launch_projectile</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -548,7 +548,7 @@ world::replace_container_items([item("stick"), item("stick")],location(0,0,0,0,0
 
 **Usage example:** 
 ```ts
-world::send_web_request("url","content_body","GET","TEXT_PLAIN");
+world::send_web_request("url","content_body","DELETE","APPLICATION_JSON");
 ```
 
 **Arguments:**
@@ -557,8 +557,8 @@ world::send_web_request("url","content_body","GET","TEXT_PLAIN");
 | -------------- | ------------------------------------------------------------------------------------------------------ | ------------------ |
 | `url`          | Text                                                                                                   | URL                |
 | `content_body` | Text                                                                                                   | Request Body       |
-| `request_type` | Marker<br/>**GET** - GET<br/>**POST** - POST<br/>**PUT** - PUT<br/>**DELETE** - DELETE                 | Request Type       |
-| `content_type` | Marker<br/>**TEXT_PLAIN** - Plain Text (text/plain)<br/>**APPLICATION_JSON** - JSON (application/json) | Media Request Type |
+| `request_type` | Marker<br/>**DELETE** - DELETE<br/>**GET** - GET<br/>**POST** - POST<br/>**PUT** - PUT                 | Request Type       |
+| `content_type` | Marker<br/>**APPLICATION_JSON** - JSON (application/json)<br/>**TEXT_PLAIN** - Plain Text (text/plain) | Media Request Type |
 <h3 id=game_set_age>
   <code>world::set_age</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -676,14 +676,14 @@ world::set_block_data(location(0,0,0,0,0),"block_data");
 
 **Usage example:** 
 ```ts
-world::set_block_drops_enabled("TRUE");
+world::set_block_drops_enabled("FALSE");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                               | **Description** |
 | -------- | ------------------------------------------------------ | --------------- |
-| `enable` | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Drop Blocks     |
+| `enable` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled | Drop Blocks     |
 <h3 id=game_set_block_powered>
   <code>world::set_block_powered</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -697,7 +697,7 @@ world::set_block_drops_enabled("TRUE");
 
 **Usage example:** 
 ```ts
-world::set_block_powered(location(0,0,0,0,0),"TRUE");
+world::set_block_powered(location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -705,7 +705,7 @@ world::set_block_powered(location(0,0,0,0,0),"TRUE");
 | **Name**   | **Type**                                             | **Description** |
 | ---------- | ---------------------------------------------------- | --------------- |
 | `location` | Location                                             | Block Location  |
-| `powered`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Activation      |
+| `powered`  | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Activation      |
 <h3 id=game_set_block_single_data>
   <code>world::set_block_single_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -773,7 +773,7 @@ world::set_campfire_item(location(0,0,0,0,0),item("stick"),1,"FIRST");
 | `location`     | Location                                                                                           | Campfire Location |
 | `item`         | Item                                                                                               | Item              |
 | `cooking_time` | Number                                                                                             | Cooking Time      |
-| `slot`         | Marker<br/>**FIRST** - First<br/>**SECOND** - Second<br/>**THIRD** - Third<br/>**FOURTH** - Fourth | Slot              |
+| `slot`         | Marker<br/>**FIRST** - First<br/>**FOURTH** - Fourth<br/>**SECOND** - Second<br/>**THIRD** - Third | Slot              |
 <h3 id=game_set_container>
   <code>world::set_container</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -862,7 +862,7 @@ world::set_decorate_pot_sherd(location(0,0,0,0,0),item("stick"),"BACK");
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
 | `location` | Location                                                                                                                       | The location of the jug  |
 | `item`     | Item                                                                                                                           | Clousse for installation |
-| `side`     | Marker<br/>**BACK** - The back side<br/>**LEFT** - The left side<br/>**RIGHT** - The right side<br/>**FRONT** - The front side | Side of the jug          |
+| `side`     | Marker<br/>**BACK** - The back side<br/>**FRONT** - The front side<br/>**LEFT** - The left side<br/>**RIGHT** - The right side | Side of the jug          |
 <h3 id=game_set_event_damage>
   <code>world::set_event_damage</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1016,14 +1016,14 @@ world::set_event_items([item("stick"), item("stick")]);
 
 **Usage example:** 
 ```ts
-world::set_event_move_allowed("TRUE");
+world::set_event_move_allowed("FALSE");
 ```
 
 **Arguments:**
 
 | **Name**  | **Type**                                     | **Description** |
 | --------- | -------------------------------------------- | --------------- |
-| `allowed` | Marker<br/>**TRUE** - Yes<br/>**FALSE** - No | Allow Movement  |
+| `allowed` | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Allow Movement  |
 <h3 id=game_set_event_projectile>
   <code>world::set_event_projectile</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1270,7 +1270,7 @@ world::set_scoreboard_line("id","line","display",1,"format_content","BLANK");
 | `display`        | Text                                                                                              | Displayed text         |
 | `score`          | Number                                                                                            | Meaning                |
 | `format_content` | Text                                                                                              | The format of the text |
-| `format`         | Marker<br/>**BLANK** - Empty<br/>**FIXED** - Text<br/>**STYLED** - Style<br/>**RESET** - Ordinary | Type of format         |
+| `format`         | Marker<br/>**BLANK** - Empty<br/>**FIXED** - Text<br/>**RESET** - Ordinary<br/>**STYLED** - Style | Type of format         |
 <h3 id=game_set_scoreboard_line_display>
   <code>world::set_scoreboard_line_display</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1321,7 +1321,7 @@ world::set_scoreboard_line_format("id","line","format_content","BLANK");
 | `id`             | Text                                                                                              | ID Skorboard           |
 | `line`           | Text                                                                                              | ID lines               |
 | `format_content` | Text                                                                                              | The format of the text |
-| `format`         | Marker<br/>**BLANK** - Empty<br/>**FIXED** - Text<br/>**STYLED** - Style<br/>**RESET** - Ordinary | Type of format         |
+| `format`         | Marker<br/>**BLANK** - Empty<br/>**FIXED** - Text<br/>**RESET** - Ordinary<br/>**STYLED** - Style | Type of format         |
 <h3 id=game_set_scoreboard_number_format>
   <code>world::set_scoreboard_number_format</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1346,7 +1346,7 @@ world::set_scoreboard_number_format("id","format_content","BLANK");
 | ---------------- | ------------------------------------------------------------------------------------------------- | ---------------------- |
 | `id`             | Text                                                                                              | ID Skorboard           |
 | `format_content` | Text                                                                                              | The format of the text |
-| `format`         | Marker<br/>**BLANK** - Empty<br/>**FIXED** - Text<br/>**STYLED** - Style<br/>**RESET** - Ordinary | Type of format         |
+| `format`         | Marker<br/>**BLANK** - Empty<br/>**FIXED** - Text<br/>**RESET** - Ordinary<br/>**STYLED** - Style | Type of format         |
 <h3 id=game_set_scoreboard_score>
   <code>world::set_scoreboard_score</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1401,7 +1401,7 @@ world::set_scoreboard_title("id","title");
 
 **Usage example:** 
 ```ts
-world::set_sculk_shrieker_can_summon(location(0,0,0,0,0),"TRUE");
+world::set_sculk_shrieker_can_summon(location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -1409,7 +1409,7 @@ world::set_sculk_shrieker_can_summon(location(0,0,0,0,0),"TRUE");
 | **Name**     | **Type**                                                                | **Description**                 |
 | ------------ | ----------------------------------------------------------------------- | ------------------------------- |
 | `location`   | Location                                                                | The location of the rock-crkuna |
-| `can_summon` | Marker<br/>**TRUE** - It can be called<br/>**FALSE** - Cannot be called | The possibility of calling      |
+| `can_summon` | Marker<br/>**FALSE** - Cannot be called<br/>**TRUE** - It can be called | The possibility of calling      |
 <h3 id=game_set_sculk_shrieker_shrieking>
   <code>world::set_sculk_shrieker_shrieking</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1423,7 +1423,7 @@ world::set_sculk_shrieker_can_summon(location(0,0,0,0,0),"TRUE");
 
 **Usage example:** 
 ```ts
-world::set_sculk_shrieker_shrieking(location(0,0,0,0,0),"TRUE");
+world::set_sculk_shrieker_shrieking(location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -1431,7 +1431,7 @@ world::set_sculk_shrieker_shrieking(location(0,0,0,0,0),"TRUE");
 | **Name**    | **Type**                                                      | **Description**                 |
 | ----------- | ------------------------------------------------------------- | ------------------------------- |
 | `location`  | Location                                                      | The location of the rock-crkuna |
-| `shrieking` | Marker<br/>**TRUE** - Screaming<br/>**FALSE** - Not screaming | State                           |
+| `shrieking` | Marker<br/>**FALSE** - Not screaming<br/>**TRUE** - Screaming | State                           |
 <h3 id=game_set_sculk_shrieker_warning_level>
   <code>world::set_sculk_shrieker_warning_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1465,7 +1465,7 @@ world::set_sculk_shrieker_warning_level(location(0,0,0,0,0),1);
 
 **Usage example:** 
 ```ts
-world::set_sign_text(location(0,0,0,0,0),"text",1,"FRONT");
+world::set_sign_text(location(0,0,0,0,0),"text",1,"ALL");
 ```
 
 **Arguments:**
@@ -1475,7 +1475,7 @@ world::set_sign_text(location(0,0,0,0,0),"text",1,"FRONT");
 | `location` | Location                                                           | Sign location   |
 | `text`     | Text                                                               | Text to set     |
 | `line`     | Number                                                             | Line            |
-| `side`     | Marker<br/>**FRONT** - Front<br/>**BACK** - Back<br/>**ALL** - All | Sign Side       |
+| `side`     | Marker<br/>**ALL** - All<br/>**BACK** - Back<br/>**FRONT** - Front | Sign Side       |
 <h3 id=game_set_sign_text_color>
   <code>world::set_sign_text_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1489,7 +1489,7 @@ world::set_sign_text(location(0,0,0,0,0),"text",1,"FRONT");
 
 **Usage example:** 
 ```ts
-world::set_sign_text_color(location(0,0,0,0,0),"FRONT","WHITE","TRUE");
+world::set_sign_text_color(location(0,0,0,0,0),"ALL","BLACK","FALSE");
 ```
 
 **Arguments:**
@@ -1497,9 +1497,9 @@ world::set_sign_text_color(location(0,0,0,0,0),"FRONT","WHITE","TRUE");
 | **Name**          | **Type**                                                                                                                                                                                                                                                                                                                                                                         | **Description** |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | `location`        | Location                                                                                                                                                                                                                                                                                                                                                                         | Sign location   |
-| `side`            | Marker<br/>**FRONT** - Front<br/>**BACK** - Back<br/>**ALL** - All                                                                                                                                                                                                                                                                                                               | Sign Side       |
-| `sign_text_color` | Marker<br/>**WHITE** - White<br/>**ORANGE** - Orange<br/>**MAGENTA** - Magenta<br/>**LIGHT_BLUE** - Blue<br/>**YELLOW** - Yellow<br/>**LIME** - Lime<br/>**PINK** - Pink<br/>**GRAY** - Grey<br/>**LIGHT_GRAY** - Light Gray<br/>**CYAN** - Cyan<br/>**PURPLE** - Purple<br/>**BLUE** - Blue<br/>**BROWN** - Brown<br/>**GREEN** - Green<br/>**RED** - Red<br/>**BLACK** - Black | Sign Color      |
-| `glowing`         | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable                                                                                                                                                                                                                                                                                                                             | Text Glow       |
+| `side`            | Marker<br/>**ALL** - All<br/>**BACK** - Back<br/>**FRONT** - Front                                                                                                                                                                                                                                                                                                               | Sign Side       |
+| `sign_text_color` | Marker<br/>**BLACK** - Black<br/>**BLUE** - Blue<br/>**BROWN** - Brown<br/>**CYAN** - Cyan<br/>**GRAY** - Grey<br/>**GREEN** - Green<br/>**LIGHT_BLUE** - Blue<br/>**LIGHT_GRAY** - Light Gray<br/>**LIME** - Lime<br/>**MAGENTA** - Magenta<br/>**ORANGE** - Orange<br/>**PINK** - Pink<br/>**PURPLE** - Purple<br/>**RED** - Red<br/>**WHITE** - White<br/>**YELLOW** - Yellow | Sign Color      |
+| `glowing`         | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable                                                                                                                                                                                                                                                                                                                             | Text Glow       |
 <h3 id=game_set_sign_waxed>
   <code>world::set_sign_waxed</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1513,7 +1513,7 @@ world::set_sign_text_color(location(0,0,0,0,0),"FRONT","WHITE","TRUE");
 
 **Usage example:** 
 ```ts
-world::set_sign_waxed(location(0,0,0,0,0),"TRUE");
+world::set_sign_waxed(location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -1521,7 +1521,7 @@ world::set_sign_waxed(location(0,0,0,0,0),"TRUE");
 | **Name**   | **Type**                                             | **Description**     |
 | ---------- | ---------------------------------------------------- | ------------------- |
 | `location` | Location                                             | Sign Waxed Location |
-| `waxed`    | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Waxed               |
+| `waxed`    | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Waxed               |
 <h3 id=game_set_spawner_entity>
   <code>world::set_spawner_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1559,14 +1559,14 @@ location(0,0,0,0,0).set_spawner_entity(item("stick"));
 
 **Usage example:** 
 ```ts
-world::set_world_difficulty("PEACEFUL");
+world::set_world_difficulty("EASY");
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**                                                                                           | **Description** |
 | ------------ | -------------------------------------------------------------------------------------------------- | --------------- |
-| `difficulty` | Marker<br/>**PEACEFUL** - Peaceful<br/>**EASY** - Easy<br/>**NORMAL** - Normal<br/>**HARD** - Hard | Difficulty      |
+| `difficulty` | Marker<br/>**EASY** - Easy<br/>**HARD** - Hard<br/>**NORMAL** - Normal<br/>**PEACEFUL** - Peaceful | Difficulty      |
 <h3 id=game_set_world_simulation_distance>
   <code>world::set_world_simulation_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1638,7 +1638,7 @@ world::set_world_weather("CLEAR",1);
 
 **Usage example:** 
 ```ts
-world::spawn_armor_stand(item("stick"),item("stick"),"TRUE","TRUE",item("stick"),item("stick"),location(0,0,0,0,0),"custom_name","TRUE","TRUE",item("stick"),item("stick"),"TRUE","TRUE");
+world::spawn_armor_stand(item("stick"),item("stick"),"FALSE","FALSE",item("stick"),item("stick"),location(0,0,0,0,0),"custom_name","FALSE","FALSE",item("stick"),item("stick"),"FALSE","FALSE");
 ```
 
 **Arguments:**
@@ -1647,18 +1647,18 @@ world::spawn_armor_stand(item("stick"),item("stick"),"TRUE","TRUE",item("stick")
 | ------------- | ------------------------------------------------------ | --------------- |
 | `helmet`      | Item                                                   | Headgear        |
 | `boots`       | Item                                                   | Boots           |
-| `gravity`     | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable   | Set Gravity     |
-| `marker`      | Marker<br/>**TRUE** - Enabled<br/>**FALSE** - Disabled | Marker Mode     |
+| `gravity`     | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable   | Set Gravity     |
+| `marker`      | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled | Marker Mode     |
 | `chestplate`  | Item                                                   | Chestplate      |
 | `right_hand`  | Item                                                   | Right Hand Item |
 | `location`    | Location                                               | Spawn Location  |
 | `custom_name` | Text                                                   | Stand name      |
-| `small`       | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable   | Make Small      |
-| `show_arms`   | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable   | Show Arms       |
+| `small`       | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable   | Make Small      |
+| `show_arms`   | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable   | Show Arms       |
 | `leggings`    | Item                                                   | Leggings        |
 | `left_hand`   | Item                                                   | Left Hand Item  |
-| `base_plate`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable   | Slab Display    |
-| `invisible`   | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable   | Invisible       |
+| `base_plate`  | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable   | Slab Display    |
+| `invisible`   | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable   | Invisible       |
 <h3 id=game_spawn_block_display>
   <code>world::spawn_block_display</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1715,7 +1715,7 @@ world::spawn_effect_cloud(location(0,0,0,0,0),[potion("slow_falling"), potion("s
 
 **Usage example:** 
 ```ts
-world::spawn_end_crystal(location(0,0,0,0,0),"custom_name","TRUE");
+world::spawn_end_crystal(location(0,0,0,0,0),"custom_name","FALSE");
 ```
 
 **Arguments:**
@@ -1724,7 +1724,7 @@ world::spawn_end_crystal(location(0,0,0,0,0),"custom_name","TRUE");
 | ------------- | -------------------------------------------- | ---------------- |
 | `location`    | Location                                     | Spawn Location   |
 | `custom_name` | Text                                         | Name             |
-| `show_bottom` | Marker<br/>**TRUE** - Yes<br/>**FALSE** - No | Spawn Foundation |
+| `show_bottom` | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Spawn Foundation |
 <h3 id=game_spawn_evoker_fangs>
   <code>world::spawn_evoker_fangs</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1788,7 +1788,7 @@ world::spawn_eye_of_ender(location(0,0,0,0,0),location(0,0,0,0,0),1,"custom_name
 | `destination`     | Location                                                                             | Destination     |
 | `lifespan`        | Number                                                                               | Lifespan        |
 | `custom_name`     | Text                                                                                 | Name            |
-| `end_of_lifespan` | Marker<br/>**DROP** - Drop an item<br/>**SHATTER** - Shatter<br/>**RANDOM** - Random | At End          |
+| `end_of_lifespan` | Marker<br/>**DROP** - Drop an item<br/>**RANDOM** - Random<br/>**SHATTER** - Shatter | At End          |
 <h3 id=game_spawn_falling_block>
   <code>world::spawn_falling_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1800,7 +1800,7 @@ world::spawn_eye_of_ender(location(0,0,0,0,0),location(0,0,0,0,0),1,"custom_name
 
 **Usage example:** 
 ```ts
-world::spawn_falling_block(item("stone"),location(0,0,0,0,0),"name","TRUE");
+world::spawn_falling_block(item("stone"),location(0,0,0,0,0),"name","FALSE");
 ```
 
 **Arguments:**
@@ -1810,7 +1810,7 @@ world::spawn_falling_block(item("stone"),location(0,0,0,0,0),"name","TRUE");
 | `block`         | Block                                          | Block to Spawn  |
 | `location`      | Location                                       | Spawn Location  |
 | `name`          | Text                                           | Name            |
-| `should_expire` | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None | Must Vanish     |
+| `should_expire` | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Must Vanish     |
 <h3 id=game_spawn_interaction_entity>
   <code>world::spawn_interaction_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1824,7 +1824,7 @@ world::spawn_falling_block(item("stone"),location(0,0,0,0,0),"name","TRUE");
 
 **Usage example:** 
 ```ts
-world::spawn_interaction_entity(location(0,0,0,0,0),"custom_name",1,2,"TRUE");
+world::spawn_interaction_entity(location(0,0,0,0,0),"custom_name",1,2,"FALSE");
 ```
 
 **Arguments:**
@@ -1835,7 +1835,7 @@ world::spawn_interaction_entity(location(0,0,0,0,0),"custom_name",1,2,"TRUE");
 | `custom_name` | Text                                                 | Name            |
 | `width`       | Number                                               | Horizontal Size |
 | `height`      | Number                                               | Vertical size   |
-| `responsive`  | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Responsive      |
+| `responsive`  | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Responsive      |
 <h3 id=game_spawn_item>
   <code>world::spawn_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1847,19 +1847,19 @@ world::spawn_interaction_entity(location(0,0,0,0,0),"custom_name",1,2,"TRUE");
 
 **Usage example:** 
 ```ts
-world::spawn_item("TRUE",location(0,0,0,0,0),item("stick"),"custom_name","TRUE","TRUE");
+world::spawn_item("FALSE",location(0,0,0,0,0),item("stick"),"custom_name","FALSE","FALSE");
 ```
 
 **Arguments:**
 
 | **Name**            | **Type**                                       | **Description**                     |
 | ------------------- | ---------------------------------------------- | ----------------------------------- |
-| `can_mob_pickup`    | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None | Can mobs pick up an item            |
+| `can_mob_pickup`    | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Can mobs pick up an item            |
 | `location`          | Location                                       | Spawn Location                      |
 | `item`              | Item                                           | Item to Spawn                       |
 | `custom_name`       | Text                                           | Name                                |
-| `can_player_pickup` | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None | Whether players can pick up an item |
-| `apply_motion`      | Marker<br/>**TRUE** - Yes<br/>**FALSE** - None | Set Item Motion on Spawn            |
+| `can_player_pickup` | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Whether players can pick up an item |
+| `apply_motion`      | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Set Item Motion on Spawn            |
 <h3 id=game_spawn_item_display>
   <code>world::spawn_item_display</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1911,7 +1911,7 @@ world::spawn_lightning_bolt(location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-world::spawn_mob([potion("slow_falling"), potion("slow_falling")],item("stick"),item("stick"),item("stick"),location(0,0,0,0,0),item("stick"),1,item("stick"),"custom_name",item("stick"),"TRUE",item("stick"));
+world::spawn_mob([potion("slow_falling"), potion("slow_falling")],item("stick"),item("stick"),item("stick"),location(0,0,0,0,0),item("stick"),1,item("stick"),"custom_name",item("stick"),"FALSE",item("stick"));
 ```
 
 **Arguments:**
@@ -1928,7 +1928,7 @@ world::spawn_mob([potion("slow_falling"), potion("slow_falling")],item("stick"),
 | `leggings`          | Item                                                 | Leggings           |
 | `custom_name`       | Text                                                 | Name               |
 | `boots`             | Item                                                 | Boots              |
-| `natural_equipment` | Marker<br/>**TRUE** - Enable<br/>**FALSE** - Disable | Standard Equipment |
+| `natural_equipment` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Standard Equipment |
 | `off_hand`          | Item                                                 | Offhand Item       |
 <h3 id=game_spawn_primed_tnt>
   <code>world::spawn_primed_tnt</code>
@@ -1984,7 +1984,7 @@ world::spawn_shulker_bullet(location(0,0,0,0,0),"custom_name");
 
 **Usage example:** 
 ```ts
-world::spawn_text_display(location(0,0,0,0,0),["displayed_text", "displayed_text"],"custom_name","SPACES");
+world::spawn_text_display(location(0,0,0,0,0),["displayed_text", "displayed_text"],"custom_name","CONCATENATION");
 ```
 
 **Arguments:**
@@ -1994,7 +1994,7 @@ world::spawn_text_display(location(0,0,0,0,0),["displayed_text", "displayed_text
 | `spawn_location` | Location                                                                                                       | Spawn Location  |
 | `displayed_text` | list[Text]                                                                                                     | Displayed Text  |
 | `custom_name`    | Text                                                                                                           | Name            |
-| `merging_mode`   | Marker<br/>**SPACES** - Space Separation<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines | Merge Text      |
+| `merging_mode`   | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text      |
 <h3 id=game_spawn_vehicle>
   <code>world::spawn_vehicle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2125,7 +2125,7 @@ if(world::chunk_is_loaded(location(0,0,0,0,0)){
 
 **Usage example:** 
 ```ts
-if(world::container_has([item("stick"), item("stick")],location(0,0,0,0,0),"ANY","IGNORE_STACK_SIZE"){
+if(world::container_has([item("stick"), item("stick")],location(0,0,0,0,0),"ALL","EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -2136,8 +2136,8 @@ if(world::container_has([item("stick"), item("stick")],location(0,0,0,0,0),"ANY"
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
 | `items`           | list[Item]                                                                                                                                                                                             | Items to Check        |
 | `location`        | Location                                                                                                                                                                                               | Location of container |
-| `check_mode`      | Marker<br/>**ANY** - Any Items<br/>**ALL** - All Items                                                                                                                                                 | Comparison Type       |
-| `comparison_mode` | Marker<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**EXACTLY** - Full Comparison<br/>**TYPE_ONLY** - Item type only | Comparison Mode       |
+| `check_mode`      | Marker<br/>**ALL** - All Items<br/>**ANY** - Any Items                                                                                                                                                 | Comparison Type       |
+| `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item type only | Comparison Mode       |
 <h3 id=if_game_container_has_room_for_item>
   <code>world::container_has_room_for_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2149,7 +2149,7 @@ if(world::container_has([item("stick"), item("stick")],location(0,0,0,0,0),"ANY"
 
 **Usage example:** 
 ```ts
-if(world::container_has_room_for_item([item("stick"), item("stick")],location(0,0,0,0,0),"ANY"){
+if(world::container_has_room_for_item([item("stick"), item("stick")],location(0,0,0,0,0),"ALL"){
     player::message("Condition is true");
 }
 ```
@@ -2160,7 +2160,7 @@ if(world::container_has_room_for_item([item("stick"), item("stick")],location(0,
 | ------------ | ------------------------------------------------------ | --------------------- |
 | `items`      | list[Item]                                             | Items to Check        |
 | `location`   | Location                                               | Location of container |
-| `check_mode` | Marker<br/>**ANY** - Any Items<br/>**ALL** - All Items | Comparison Type       |
+| `check_mode` | Marker<br/>**ALL** - All Items<br/>**ANY** - Any Items | Comparison Type       |
 <h3 id=if_game_damage_cause_equals>
   <code>world::damage_cause_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2172,7 +2172,7 @@ if(world::container_has_room_for_item([item("stick"), item("stick")],location(0,
 
 **Usage example:** 
 ```ts
-if(world::damage_cause_equals("KILL"){
+if(world::damage_cause_equals("BLOCK_EXPLOSION"){
     player::message("Condition is true");
 }
 ```
@@ -2181,7 +2181,7 @@ if(world::damage_cause_equals("KILL"){
 
 | **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | **Description** |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `cause`  | Marker<br/>**KILL** - Command<br/>**WORLD_BORDER** - World Border<br/>**CONTACT** - Contact<br/>**ENTITY_ATTACK** - Entity Attack<br/>**ENTITY_SWEEP_ATTACK** - Entity Sweep Attack.name=Entity Sweep Attack<br/>**PROJECTILE** - Projectile<br/>**SUFFOCATION** - Suffocation<br/>**FALL** - Fall<br/>**FIRE** - Direct Fire<br/>**FIRE_TICK** - Burning<br/>**MELTING** - Melting<br/>**LAVA** - Lava<br/>**DROWNING** - Drowning<br/>**BLOCK_EXPLOSION** - Block Explosion<br/>**ENTITY_EXPLOSION** - Entity Explosion<br/>**VOID** - Void<br/>**LIGHTNING** - Lightning<br/>**SUICIDE** - Suicide (Sin)<br/>**STARVATION** - Hunger<br/>**POISON** - Poison<br/>**MAGIC** - Magic<br/>**WITHER** - Wither<br/>**FALLING_BLOCK** - Falling Block<br/>**THORNS** - Thorns<br/>**DRAGON_BREATH** - Dragon Breath<br/>**CUSTOM** - Custom<br/>**FLY_INTO_WALL** - Kinetic Energy<br/>**HOT_FLOOR** - Magma<br/>**CRAMMING** - Crowd<br/>**DRYOUT** - Dryout<br/>**FREEZE** - Freeze<br/>**SONIC_BOOM** - Explosive Wave | Damage Source   |
+| `cause`  | Marker<br/>**BLOCK_EXPLOSION** - Block Explosion<br/>**CONTACT** - Contact<br/>**CRAMMING** - Crowd<br/>**CUSTOM** - Custom<br/>**DRAGON_BREATH** - Dragon Breath<br/>**DROWNING** - Drowning<br/>**DRYOUT** - Dryout<br/>**ENTITY_ATTACK** - Entity Attack<br/>**ENTITY_EXPLOSION** - Entity Explosion<br/>**ENTITY_SWEEP_ATTACK** - Entity Sweep Attack.name=Entity Sweep Attack<br/>**FALL** - Fall<br/>**FALLING_BLOCK** - Falling Block<br/>**FIRE** - Direct Fire<br/>**FIRE_TICK** - Burning<br/>**FLY_INTO_WALL** - Kinetic Energy<br/>**FREEZE** - Freeze<br/>**HOT_FLOOR** - Magma<br/>**KILL** - Command<br/>**LAVA** - Lava<br/>**LIGHTNING** - Lightning<br/>**MAGIC** - Magic<br/>**MELTING** - Melting<br/>**POISON** - Poison<br/>**PROJECTILE** - Projectile<br/>**SONIC_BOOM** - Explosive Wave<br/>**STARVATION** - Hunger<br/>**SUFFOCATION** - Suffocation<br/>**SUICIDE** - Suicide (Sin)<br/>**THORNS** - Thorns<br/>**VOID** - Void<br/>**WITHER** - Wither<br/>**WORLD_BORDER** - World Border | Damage Source   |
 <h3 id=if_game_dummy>
   <code>world::is_dummy</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2263,7 +2263,7 @@ if(world::event_is_canceled(){
 
 **Usage example:** 
 ```ts
-if(world::event_item_equals([item("stick"), item("stick")],"IGNORE_STACK_SIZE"){
+if(world::event_item_equals([item("stick"), item("stick")],"EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -2273,7 +2273,7 @@ if(world::event_item_equals([item("stick"), item("stick")],"IGNORE_STACK_SIZE"){
 | **Name**          | **Type**                                                                                                                                                                                               | **Description** |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
 | `items`           | list[Item]                                                                                                                                                                                             | Items to Check  |
-| `comparison_mode` | Marker<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**EXACTLY** - Full Comparison<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
+| `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_game_has_player>
   <code>world::has_player</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2306,7 +2306,7 @@ if(world::has_player(["names_or_uuids", "names_or_uuids"]){
 
 **Usage example:** 
 ```ts
-if(world::heal_cause_equals("REGEN"){
+if(world::heal_cause_equals("CUSTOM"){
     player::message("Condition is true");
 }
 ```
@@ -2315,7 +2315,7 @@ if(world::heal_cause_equals("REGEN"){
 
 | **Name**     | **Type**                                                                                                                                                                                                                                                                                                                                            | **Description**   |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `heal_cause` | Marker<br/>**REGEN** - Peaceful Healing<br/>**SATIATED** - Hunger Satisfied Heal<br/>**EATING** - From Eating<br/>**ENDER_CRYSTAL** - From End Crystal<br/>**MAGIC** - From a potion or spell<br/>**MAGIC_REGEN** - Over time from potion or spell<br/>**WITHER_SPAWN** - When Wither spawns<br/>**WITHER** - Wither effect<br/>**CUSTOM** - Custom | Source of Healing |
+| `heal_cause` | Marker<br/>**CUSTOM** - Custom<br/>**EATING** - From Eating<br/>**ENDER_CRYSTAL** - From End Crystal<br/>**MAGIC** - From a potion or spell<br/>**MAGIC_REGEN** - Over time from potion or spell<br/>**REGEN** - Peaceful Healing<br/>**SATIATED** - Hunger Satisfied Heal<br/>**WITHER** - Wither effect<br/>**WITHER_SPAWN** - When Wither spawns | Source of Healing |
 <h3 id=if_game_ignite_cause_equals>
   <code>world::ignite_cause_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2327,7 +2327,7 @@ if(world::heal_cause_equals("REGEN"){
 
 **Usage example:** 
 ```ts
-if(world::ignite_cause_equals("LAVA"){
+if(world::ignite_cause_equals("ARROW"){
     player::message("Condition is true");
 }
 ```
@@ -2336,7 +2336,7 @@ if(world::ignite_cause_equals("LAVA"){
 
 | **Name** | **Type**                                                                                                                                                                                                                                                                                         | **Description** |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `cause`  | Marker<br/>**LAVA** - Lava<br/>**FLINT_AND_STEEL** - Lighter<br/>**SPREAD** - Spread Fire<br/>**LIGHTNING** - Lightning<br/>**SUFFOCATION** - Suffocate<br/>**FALL** - Fall<br/>**FIREBALL** - Fire Bolt<br/>**ENDER_CRYSTAL** - End Crystal<br/>**EXPLOSION** - Explosion<br/>**ARROW** - Arrow | Fire Source     |
+| `cause`  | Marker<br/>**ARROW** - Arrow<br/>**ENDER_CRYSTAL** - End Crystal<br/>**EXPLOSION** - Explosion<br/>**FALL** - Fall<br/>**FIREBALL** - Fire Bolt<br/>**FLINT_AND_STEEL** - Lighter<br/>**LAVA** - Lava<br/>**LIGHTNING** - Lightning<br/>**SPREAD** - Spread Fire<br/>**SUFFOCATION** - Suffocate | Fire Source     |
 <h3 id=if_game_instrument_equals>
   <code>world::instrument_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2348,7 +2348,7 @@ if(world::ignite_cause_equals("LAVA"){
 
 **Usage example:** 
 ```ts
-if(world::instrument_equals("PIANO"){
+if(world::instrument_equals("BANJO"){
     player::message("Condition is true");
 }
 ```
@@ -2357,7 +2357,7 @@ if(world::instrument_equals("PIANO"){
 
 | **Name**     | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | **Description** |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `instrument` | Marker<br/>**PIANO** - Piano<br/>**BASS_DRUM** - Bass Drum<br/>**SNARE_DRUM** - Snare Drum<br/>**STICKS** - Klaves<br/>**BASS_GUITAR** - Bass Guitar<br/>**FLUTE** - Flute<br/>**BELL** - Bell<br/>**GUITAR** - Guitar<br/>**CHIME** - Chimes<br/>**XYLOPHONE** - Xylophone<br/>**IRON_XYLOPHONE** - Iron Xylophone<br/>**COW_BELL** - Cowbell<br/>**DIDGERIDOO** - Didgeridoo<br/>**BIT** - Bit<br/>**BANJO** - Banjo<br/>**PLING** - Pling<br/>**ZOMBIE** - Zombie<br/>**SKELETON** - Skeleton<br/>**CREEPER** - Creeper<br/>**DRAGON** - Ender Dragon<br/>**WITHER_SKELETON** - Wither skeleton<br/>**PIGLIN** - Piglin<br/>**CUSTOM_HEAD** - Custom head | Instrument      |
+| `instrument` | Marker<br/>**BANJO** - Banjo<br/>**BASS_DRUM** - Bass Drum<br/>**BASS_GUITAR** - Bass Guitar<br/>**BELL** - Bell<br/>**BIT** - Bit<br/>**CHIME** - Chimes<br/>**COW_BELL** - Cowbell<br/>**CREEPER** - Creeper<br/>**CUSTOM_HEAD** - Custom head<br/>**DIDGERIDOO** - Didgeridoo<br/>**DRAGON** - Ender Dragon<br/>**FLUTE** - Flute<br/>**GUITAR** - Guitar<br/>**IRON_XYLOPHONE** - Iron Xylophone<br/>**PIANO** - Piano<br/>**PIGLIN** - Piglin<br/>**PLING** - Pling<br/>**SKELETON** - Skeleton<br/>**SNARE_DRUM** - Snare Drum<br/>**STICKS** - Klaves<br/>**WITHER_SKELETON** - Wither skeleton<br/>**XYLOPHONE** - Xylophone<br/>**ZOMBIE** - Zombie | Instrument      |
 <h3 id=if_game_sign_contains>
   <code>world::sign_contains</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2369,7 +2369,7 @@ if(world::instrument_equals("PIANO"){
 
 **Usage example:** 
 ```ts
-if(world::sign_contains(location(0,0,0,0,0),["texts", "texts"],"ANY","CONTAINS","FIRST"){
+if(world::sign_contains(location(0,0,0,0,0),["texts", "texts"],"ANY","ALL","ALL"){
     player::message("Condition is true");
 }
 ```
@@ -2380,6 +2380,6 @@ if(world::sign_contains(location(0,0,0,0,0),["texts", "texts"],"ANY","CONTAINS",
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | `location`   | Location                                                                                                                                              | Sign location    |
 | `texts`      | list[Text]                                                                                                                                            | Text to check    |
-| `check_side` | Marker<br/>**ANY** - Any<br/>**FRONT** - Front<br/>**BACK** - Back                                                                                    | Sign Side        |
-| `check_mode` | Marker<br/>**CONTAINS** - Content Compare<br/>**EQUALS** - Full Compare<br/>**ANY** - None<br/>**ALL** - None                                         | Comparison Type  |
-| `lines`      | Marker<br/>**FIRST** - 1 line<br/>**SECOND** - 2 line<br/>**THIRD** - 3 line<br/>**FOURTH** - line 4<br/>**ALL** - All Lines<br/>**ANY** - Any String | Lines to Compare |
+| `check_side` | Marker<br/>**ANY** - Any<br/>**BACK** - Back<br/>**FRONT** - Front                                                                                    | Sign Side        |
+| `check_mode` | Marker<br/>**ALL** - None<br/>**ANY** - None<br/>**CONTAINS** - Content Compare<br/>**EQUALS** - Full Compare                                         | Comparison Type  |
+| `lines`      | Marker<br/>**ALL** - All Lines<br/>**ANY** - Any String<br/>**FIRST** - 1 line<br/>**FOURTH** - line 4<br/>**SECOND** - 2 line<br/>**THIRD** - 3 line | Lines to Compare |

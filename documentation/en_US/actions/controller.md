@@ -43,7 +43,7 @@ controller::async_run(){
 
 **Usage example:** 
 ```ts
-controller::catch_exception(a1,"WARNING"){
+controller::catch_exception(a1,"ALL"){
     player::message("Everything work");
 }
 ```
@@ -53,7 +53,7 @@ controller::catch_exception(a1,"WARNING"){
 | **Name**         | **Type**                                                                 | **Description**    |
 | ---------------- | ------------------------------------------------------------------------ | ------------------ |
 | `variable`       | Variable                                                                 | Variable to Assign |
-| `exception_type` | Marker<br/>**WARNING** - Warning<br/>**ERROR** - Error<br/>**ALL** - All | Error Type         |
+| `exception_type` | Marker<br/>**ALL** - All<br/>**ERROR** - Error<br/>**WARNING** - Warning | Error Type         |
 <h3 id=controller_measure_time>
   <code>controller::measure_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -67,7 +67,7 @@ controller::catch_exception(a1,"WARNING"){
 
 **Usage example:** 
 ```ts
-controller::measure_time(a1,"NANOSECONDS"){
+controller::measure_time(a1,"MICROSECONDS"){
     player::message("Everything work");
 }
 ```
@@ -77,4 +77,4 @@ controller::measure_time(a1,"NANOSECONDS"){
 | **Name**   | **Type**                                                                                                         | **Description**    |
 | ---------- | ---------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `variable` | Variable                                                                                                         | Variable to Assign |
-| `duration` | Marker<br/>**NANOSECONDS** - Nanoseconds<br/>**MICROSECONDS** - Microseconds<br/>**MILLISECONDS** - Milliseconds | Time Format        |
+| `duration` | Marker<br/>**MICROSECONDS** - Microseconds<br/>**MILLISECONDS** - Milliseconds<br/>**NANOSECONDS** - Nanoseconds | Time Format        |
