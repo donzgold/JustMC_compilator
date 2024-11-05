@@ -24,7 +24,7 @@ class Properties:
         return self.properties[item]
 
     def __setitem__(self, key, value):
-        if not key in self.properties:
+        if key not in self.properties:
             self.positions[max(self.positions.keys()) + 1] = key
         self.properties[key] = value
 
@@ -67,17 +67,17 @@ class Properties:
                 if a1[i][1].startswith("#"):
                     file.write(str(a1[i][1]).replace("\n", "\\n") + "\n")
                     continue
-            file.write(a1[i][1].replace("\n", "\\n") + " = " + self.properties[a1[i][1]].replace("\n", "\\n") + "\n")
+            file.write(a1[i][1].replace("\n", "\\n") + " = " + str(self.properties[a1[i][1]]).replace("\n", "\\n") + "\n")
         if isinstance(a1[-1][1], str):
             if a1[-1][1].startswith("#"):
                 file.write(str(a1[-1][1]).replace("\n", "\\n"))
                 return
-        file.write(a1[-1][1].replace("\n", "\\n") + " = " + self.properties[a1[-1][1]].replace("\n", "\\n"))
+        file.write(a1[-1][1].replace("\n", "\\n") + " = " + str(self.properties[a1[-1][1]]).replace("\n", "\\n"))
 
 
 def translate(message: str, insert: dict = None):
     global lang
-    if not message in lang:
+    if message not in lang:
         return message
     message = lang[message]
     if insert is not None:
@@ -90,7 +90,7 @@ def is_connected():
     try:
         socket.create_connection(("1.1.1.1", 53))
         return True
-    except:
+    except Exception:
         pass
     return False
 
@@ -102,7 +102,7 @@ codes = {"r": "\x1b[0m", "l": "\x1b[1m", "o": "\x1b[3m", "n": "\x1b[4m", "k": "\
 for k, v in color_codes.items():
     r, g, b = [int(v[i:i + 2], 16) for i in range(1, len(v), 2)]
     codes[k] = f"\x1b[38;2;{r};{g};{b}m"
-allowed_symbols = "0123456789abcdefABCDEF"
+allowed_symbols = set("0123456789abcdefABCDEF")
 
 
 def minecraft_based_text(text1, ignore_last_symbol=False):
@@ -128,37 +128,37 @@ def minecraft_based_text(text1, ignore_last_symbol=False):
                 if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
-                    if not symbol in allowed_symbols:
+                    if symbol not in allowed_symbols:
                         msg += "&" + thing
                         continue
                 if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
-                    if not symbol in allowed_symbols:
+                    if symbol not in allowed_symbols:
                         msg += "&" + thing
                         continue
                 if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
-                    if not symbol in allowed_symbols:
+                    if symbol not in allowed_symbols:
                         msg += "&" + thing
                         continue
                 if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
-                    if not symbol in allowed_symbols:
+                    if symbol not in allowed_symbols:
                         msg += "&" + thing
                         continue
                 if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
-                    if not symbol in allowed_symbols:
+                    if symbol not in allowed_symbols:
                         msg += "&" + thing
                         continue
                 if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
-                    if not symbol in allowed_symbols:
+                    if symbol not in allowed_symbols:
                         msg += "&" + thing
                         continue
                 a_as, gds, bdsa = [int(thing[i:i + 2], 16) for i in range(1, len(thing), 2)]
@@ -175,10 +175,10 @@ def minecraft_based_text(text1, ignore_last_symbol=False):
 def fix_type(thing):
     try:
         thing = int(thing)
-    except:
+    except Exception:
         try:
             thing = float(thing)
-        except:
+        except Exception:
             if thing == "False":
                 thing = False
             elif thing == "True":
@@ -308,13 +308,15 @@ if __name__ == "__main__":
         if additional[0] == "compile" and len(additional) > 1:
             from compilator import compile_file
 
-            compile_file(additional[1], upload=(additional[-1] == "-u"))
+            compile_file(additional[1], upload=(additional[-1] == "-u"), properties=data.properties)
         elif additional[0] == "decompile" and len(additional) > 1:
             from decompilator import decompile_file
 
-            decompile_file(additional[1])
+            decompile_file(additional[1], properties=data.properties)
         elif additional[0] == "update" and len(additional) > 1:
             if additional[1] == "data":
+                an_data = Properties(text=requests.get(
+                    'https://raw.githubusercontent.com/donzgold/JustMC_compilator/master/jmcc.properties').text)
                 download_latest_data()
             elif additional[1] == "to_release":
                 download_latest_release(reload=False)

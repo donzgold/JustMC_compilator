@@ -1,5 +1,4 @@
 
-
 class SnbtReader:
 
     def __init__(self, t: str):
@@ -18,6 +17,8 @@ class SnbtReader:
 
     @property
     def next_token(self):
+        while (self.current_char == " "):
+            self.advance()
         if self.current_char is None:
             return None
         elif self.current_char == "[":
@@ -119,6 +120,9 @@ class SnbtReader:
                 token_value += self.current_char
                 self.advance()
             return Token("Compound_entry", token_value)
+        else:
+            print("error", self.index, self.text)
+            exit(-1)
 
     def eat(self, token):
         if self.current_token.type == token:
@@ -160,7 +164,7 @@ class SnbtReader:
             elif a.type == "LongArray_begin":
                 return LongArray(*values)
         elif self.current_token.type == "Compound_begin":
-            self.eat(self.current_token.type)
+            self.eat("Compound_begin")
             values = {}
             while self.current_token.type != "Compound_end":
                 a = self.current_token

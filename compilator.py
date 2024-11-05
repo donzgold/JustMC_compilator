@@ -1,874 +1,2908 @@
-import gzip
 import json
 import os
+
 import requests
-import sys
-from math import ceil, floor
 
-NUMBER = "NUMBER"
-MINUS_NUMBER = "MINUS_NUMBER"
-PLUS_NUMBER = "PLUS_NUMBER"
-STRING = "STRING"
-MINUS = "MINUS"
-ASSIGN = "ASSIGN"
-PLUS = "PLUS"
-ELSE = "ELSE"
-MULTIPLY = "MULTIPLY"
-SELECT = "SELECT"
-DIVIDE = "DIVIDE"
-COLON = "COLON"
-CODE = "CODE"
-VARIABLE = "VARIABLE"
-INT_DIVIDE = "INT_DIVIDE"
-MINUS_WITH_ASSIGN = "MINUS_WITH_ASSIGN"
-PLUS_WITH_ASSIGN = "PLUS_WITH_ASSIGN"
-MULTIPLY_WITH_ASSIGN = "MULTIPLY_WITH_ASSIGN"
-DIVIDE_WITH_ASSIGN = "DIVIDE_WITH_ASSIGN"
-INT_DIVIDE_WITH_ASSIGN = "INT_DIVIDE_WITH_ASSIGN"
-PR_WITH_ASSIGN = "PR_WITH_ASSIGN"
-DEG_WITH_ASSIGN = "DEG_WITH_ASSIGN"
-CYCLE_THING = "CYCLE_THING"
-VALUE = "VALUE"
-REPEAT = "REPEAT"
-CONTROLLER = "CONTROLLER"
-SELECTOR = "SELECTOR"
-LOCATION = "LOCATION"
-PARTICLE = "PARTICLE"
-ITEM = "ITEM"
-SOUND = "SOUND"
-VECTOR = "VECTOR"
-POTION = "POTION"
-IMPORT = "IMPORT"
-WORLD = "WORLD"
-NOT = "NOT"
-FUNCTION = "FUNCTION"
-PROCESS = "PROCESS"
-DOT = "DOT"
-PR = "PR"
-LPAREN = "LPAREN"
-RPAREN = "RPAREN"
-LSPAREN = "LSPAREN"
-RSPAREN = "RSPAREN"
-LCPAREN = "LCPAREN"
-RCPAREN = "RCPAREN"
-PLAYER = "PLAYER"
-EVENT = "EVENT"
-DEG = "DEG"
-COMMA = "COMMA"
-IF = "IF"
-NONE = "NONE"
-VAR = "VAR"
-LOCAL_VAR = "LOCAL_VAR"
-GAME_VAR = "GAME_VAR"
-SAVE_VAR = "SAVE_VAR"
-INLINE_VAR = "INLINE_VAR"
-PLAIN_STRING = "PLAIN_STRING"
-LEGACY_STRING = "LEGACY_STRING"
-MINIMESSAGE_STRING = "MINIMESSAGE_STRING"
-JSON_STRING = "JSON_STRING"
-SAVE_DEFINE = "SAVE_DEFINE"
-GAME_DEFINE = "GAME_DEFINE"
-LOCAL_DEFINE = "LOCAL_DEFINE"
-INLINE_DEFINE = "INLINE_DEFINE"
-VAR_DEFINE = "VAR_DEFINE"
-COMMENT = "COMMENT"
-ENTITY = "ENTITY"
-EL = "EL"
-OEL = "OEL"
-EOF = "EOF"
-open_files = dict()
-color_codes = {"0": "#000000", "1": "#0000AA", "2": "#00AA00", "3": "#00AAAA", "4": "#AA0000", "5": "#AA00AA",
-               "6": "#FFAA00", "7": "#AAAAAA", "8": "#555555", "9": "#5555FF", "a": "#55FF55", "b": "#55FFFF",
-               "c": "#FF5555", "d": "#FF55FF", "e": "#FFFF55", "f": "#FFFFFF"}
-codes = {"r": "\x1b[0m", "l": "\x1b[1m", "o": "\x1b[3m", "n": "\x1b[4m", "k": "\x1b[40m"}
-for k, v in color_codes.items():
-    r, g, b = [int(v[i:i + 2], 16) for i in range(1, len(v), 2)]
-    codes[k] = f"\x1b[38;2;{r};{g};{b}m"
-allowed_symbols = "0123456789abcdefABCDEF"
+import nbtworker
+from jmcc import translate, minecraft_based_text, color_codes, allowed_symbols, Properties
+
+actions = {}
+origin_actions = {}
+spec_actions = {}
+events = {}
+values = {}
+objects = set()
+
+for i in json.load(open("data/actions.json")):
+    actions[i["object"] + "::" + i["name"]] = i
+    objects.add(i["object"])
+    if "origin" in i:
+        origin_actions[i["name"]] = i["object"] + "::" + i["name"]
+    spec_actions[i["id"]] = i["object"] + "::" + i["name"]
+for i in json.load(open("data/events.json")):
+    events[i["id"]] = i
+for i in json.load(open("data/values.json")):
+    values[i["id"]] = i
+
+global_text = {}
+global_new = {}
 
 
-def minecraft_based_text(text1, ignore_last_symbol=False):
-    if ignore_last_symbol is False:
-        text1 += "&r"
-
-    def next_symbol(afsd, fdsa):
-        if fdsa >= len(afsd):
-            return fdsa + 1, None
-        return fdsa + 1, afsd[fdsa]
-
-    pos = 0
-    msg = ""
-    while (s := next_symbol(text1, pos))[1] is not None:
-        pos, symbol = s[0], s[1]
-        if symbol == "&" and (s := next_symbol(text1, pos))[1] is not None:
-            pos, symbol = s[0], s[1]
-            if symbol in codes:
-                msg += codes[symbol]
-                continue
-            elif symbol == "#":
-                thing = "#"
-                if (s := next_symbol(text1, pos))[1] is not None:
-                    pos, symbol = s[0], s[1]
-                    thing += symbol
-                    if not symbol in allowed_symbols:
-                        msg += "&" + thing
-                        continue
-                if (s := next_symbol(text1, pos))[1] is not None:
-                    pos, symbol = s[0], s[1]
-                    thing += symbol
-                    if not symbol in allowed_symbols:
-                        msg += "&" + thing
-                        continue
-                if (s := next_symbol(text1, pos))[1] is not None:
-                    pos, symbol = s[0], s[1]
-                    thing += symbol
-                    if not symbol in allowed_symbols:
-                        msg += "&" + thing
-                        continue
-                if (s := next_symbol(text1, pos))[1] is not None:
-                    pos, symbol = s[0], s[1]
-                    thing += symbol
-                    if not symbol in allowed_symbols:
-                        msg += "&" + thing
-                        continue
-                if (s := next_symbol(text1, pos))[1] is not None:
-                    pos, symbol = s[0], s[1]
-                    thing += symbol
-                    if not symbol in allowed_symbols:
-                        msg += "&" + thing
-                        continue
-                if (s := next_symbol(text1, pos))[1] is not None:
-                    pos, symbol = s[0], s[1]
-                    thing += symbol
-                    if not symbol in allowed_symbols:
-                        msg += "&" + thing
-                        continue
-                a_as, gds, bdsa = [int(thing[i:i + 2], 16) for i in range(1, len(thing), 2)]
-                msg += f"\x1b[38;2;{a_as};{gds};{bdsa}m"
-                continue
-            msg += "&" + symbol
-            continue
-
-        msg += symbol
-        continue
-    return msg
+def new(source):
+    global global_new
+    global_new[source] = global_new.setdefault(source, -1) + 1
+    return global_new[source]
 
 
-def create_path(now_path, need_path):
-    if os.path.isfile(need_path):
-        full_path = os.path.abspath(need_path).replace("\\", "/").split("/")
-        dir_path = full_path[:len(full_path) - 1]
-        dir_path, full_path = "/".join(dir_path), "/".join(full_path)
-        return dir_path, full_path
+def fix_operations_len(operations, limit=43):
+    def get_operations(ops):
+        cont = 0
+        for op in ops:
+            cont += 1
+            op["weight"] = 1
+            if "operations" in op:
+                op_opers, cont_op = get_operations(op["operations"])
+                op["operations"] = op_opers
+                cont += cont_op + 1
+                op["weight"] += cont_op + 1
+        return ops, cont
+
+    def remove_weight(ops):
+        for op in ops:
+            if "weight" in op:
+                del op["weight"]
+            if "operations" in op:
+                op["operations"] = remove_weight(op["operations"])
+        return ops
+
+    operations, op_count = get_operations(operations)
+    additional_events = []
+    if op_count > limit:
+
+        def spl(ops, curr_limit=43, lim=43):
+            additional2 = []
+            i1 = 0
+            cur_weight = 0
+            new_ops = []
+            while i1 < len(ops):
+                op = ops[i1]
+                weight = op["weight"]
+                next_weight = cur_weight + weight
+                if next_weight >= curr_limit - 1:
+                    if weight <= lim:
+                        if i1 != 0:
+                            save_ops = ops[:i1]
+                            ops = ops[i1:]
+                            i1 = 0
+                            cur_weight = 1
+                            new_ops.append(save_ops)
+                        else:
+                            cur_weight = 1
+                            new_ops.append(ops)
+                            ops = []
+                    else:
+                        next_l = curr_limit - (cur_weight + 3 + len(ops))
+                        if next_l <= 0:
+                            save_ops, additional3, thing2 = spl(op["operations"], curr_limit=lim - 3, lim=lim)
+                            func_count = new('function')
+                            additional2.extend(additional3)
+                            ops[i] = {"action": "call_function", "values": [{"name": "function_name",
+                                                                             "value": {"type": "text",
+                                                                                       "text": f"jmcc.{func_count}",
+                                                                                       "parsing": "legacy"}}]}
+                            additional2.append(
+                                {"type": "function", "position": new("event"), "operations": remove_weight([op]),
+                                 "is_hidden": False, "name": f"jmcc.{func_count}"})
+                            cur_weight += 1
+                        else:
+                            save_ops, additional3, thing2 = spl(op["operations"], curr_limit=next_l, lim=lim)
+                            additional2.extend(additional3)
+                            if cur_weight + thing2 + 2 > curr_limit:
+                                cur_weight += 1
+                                func_count = new('function')
+                                ops[i] = {"action": "call_function", "values": [{"name": "function_name",
+                                                                                 "value": {"type": "text",
+                                                                                           "text": f"jmcc.{func_count}",
+                                                                                           "parsing": "legacy"}}]}
+                                additional2.append(
+                                    {"type": "function", "position": new("event"), "operations": remove_weight([op]),
+                                     "is_hidden": False, "name": f"jmcc.{func_count}"})
+                            else:
+                                op["operations"] = save_ops
+                                cur_weight += thing2 + 2
+                        i1 += 1
+                else:
+                    cur_weight = next_weight
+                    i1 += 1
+            if len(ops) > 0:
+                new_ops.append(ops)
+            else:
+                new_ops.insert(0, [])
+            for i1 in range(1, len(new_ops)):
+                func_count = new('function')
+                new_ops[i1 - 1].append({"action": "call_function", "values": [{"name": "function_name",
+                                                                               "value": {"type": "text",
+                                                                                         "text": f"jmcc.{func_count}",
+                                                                                         "parsing": "legacy"}}]})
+                additional2.append(
+                    {"type": "function", "position": new("event"), "operations": remove_weight(new_ops[i]),
+                     "is_hidden": False, "name": f"jmcc.{func_count}"})
+            return remove_weight(new_ops[0]), additional2, cur_weight
+
+        operations, additional_events, thing = spl(operations, lim=limit, curr_limit=limit)
     else:
-        a = now_path.replace("\\", "/").split("/")
-        a2 = need_path.replace("\\", "/").split("/")
-        if a2[0].count(".") == len(a2[0]):
-            back = len(a2[0]) - 1
-            del a2[0]
-        else:
-            back = 0
-
-        full_path = a[:len(a) - back]
-        full_path.extend(a2)
-        dir_path = full_path.copy()
-        del dir_path[-1]
-        dir_path, full_path = "/".join(dir_path), "/".join(full_path)
-        if os.path.isfile(full_path):
-            return dir_path, full_path
-    return None
+        operations = remove_weight(operations)
+    return operations, additional_events
 
 
-def error(error_type, arg="None", start_line=0, end_line=0, offset_pos=0, limit_offset_pos=0, file="None"):
-    txt = open_files[file]
-    if end_line == 0:
-        end_line = start_line
-    if limit_offset_pos == 0:
-        limit_offset_pos = offset_pos + 1
-    if start_line == end_line:
-        msg = (f"&cФайл \"{file}\":\n{start_line}:{offset_pos} - " + txt.splitlines()[start_line][
-                                                                     :offset_pos] + "&4&n" +
-               txt.splitlines()[start_line][offset_pos:limit_offset_pos] + "&r&c" +
-               txt.splitlines()[start_line][limit_offset_pos:] + f"\n{error_type} : {arg}")
-    else:
-        msg = (f"&cText:\n{start_line}:{offset_pos} - " + '\n'.join(txt.splitlines()[start_line:])[:offset_pos] +
-               "&4&n" + '\n'.join(txt.splitlines()[start_line:end_line])[:] + "\n" +
-               '\n'.join(txt.splitlines()[end_line])[offset_pos:limit_offset_pos] + "&r&c" +
-               txt.splitlines()[end_line][limit_offset_pos:] +
-               f"\n{error_type} : {arg}")
-    print(minecraft_based_text(msg))
-    sys.exit()
+class Tokens:
+    NONE: int = -1
+    NUMBER: int = 0
+    PLUS_NUMBER: int = 1
+    MINUS_NUMBER: int = 2
+    STRING: int = 3
+    SUBSTRING: int = 4
+    LPAREN: int = 5
+    RPAREN: int = 6
+    LSPAREN: int = 7
+    RSPAREN: int = 8
+    LCPAREN: int = 9
+    RCPAREN: int = 10
+    VARIABLE: int = 11
+    COMMA: int = 12
+    DOT: int = 13
+    COLON: int = 14
+    SEMICOLON: int = 15
+    ASSIGN: int = 16
+    PLUS: int = 17
+    MINUS: int = 18
+    MULTIPLY: int = 19
+    DIVIDE: int = 20
+    DEG: int = 21
+    PR: int = 22
+    INLINE_VARIABLE: int = 23
+    LOCAL_VARIABLE: int = 24
+    GAME_VARIABLE: int = 25
+    SAVE_VARIABLE: int = 26
+    LINE_VARIABLE: int = 27
+    PLAIN_STRING: int = 28
+    LEGACY_STRING: int = 29
+    MINIMESSAGE_STRING: int = 30
+    JSON_STRING: int = 31
+    SNBT: int = 32
+    IF: int = 33
+    ELSE: int = 34
+    FUNCTION_DEFINE: int = 35
+    PROCESS_DEFINE: int = 36
+    VAR_DEFINE: int = 37
+    INLINE_DEFINE: int = 38
+    LOCAL_DEFINE: int = 39
+    GAME_DEFINE: int = 40
+    SAVE_DEFINE: int = 41
+    CLASS_DEFINE: int = 42
+    EVENT_DEFINE: int = 43
+    IMPORT: int = 44
+    AND: int = 45
+    OR: int = 46
+    NOT: int = 47
+    RETURN: int = 48
+    GREATER: int = 49
+    LESS: int = 50
+    DOUBLE_COLON: int = 51
+    CYCLE_THING: int = 52
+    EOF: int = 53
+    ELIF: int = 54
+    LINE_DEFINE: int = 55
+    AS: int = 56
+    DECORATOR: int = 57
+    LESS_OR_EQUALS: int = 58
+    MINUS_ASSIGN: int = 59
+    PLUS_ASSIGN: int = 60
+    EQUALS: int = 61
+    DIVIDE_ASSIGN: int = 62
+    PR_ASSIGN: int = 63
+    DEG_ASSIGN: int = 64
+    GREATER_OR_EQUALS: int = 65
+    NOT_EQUALS: int = 66
+    MULTIPLY_ASSIGN: int = 67
 
 
 class Token:
-    global open_files
 
-    def __init__(self, token_type, val, start_line=0, end_line=0, offset_pos=0, limit_offset_pos=0, file=""):
+    def __init__(self, token_type: int, token_value: str, starting_pos: int, ending_pos: int, source: str):
         self.type = token_type
-        self.value = val
-        self.start_line = start_line
-        if end_line == 0:
-            end_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        if limit_offset_pos == 0:
-            limit_offset_pos = offset_pos + 1
-        else:
-            limit_offset_pos += 1
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-
-    def equals(self, *arg, need=False):
-        for i in arg:
-            if self.type == i:
-                return True
-        if need:
-            error("SyntaxError", "Ожидался один из токенов (" + ', '.join(arg) + f"), но был получен {self.type}",
-                  start_line=self.start_line, end_line=self.end_line,
-                  offset_pos=self.offset_pos, limit_offset_pos=self.limit_offset_pos,
-                  file=self.file)
-        return False
+        self.value = token_value
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
 
     def __str__(self):
-        return f'Token({self.type}, {self.value})'
+        return f"Token({self.type},\"{self.value}\")"
 
     def __repr__(self):
         return self.__str__()
 
 
+def error(error_type="", error_message="", starting_pos=-1, ending_pos=-1, source=None, txt=None):
+    if source is None:
+        print(minecraft_based_text(f"&c{error_type} : {error_message}"))
+    else:
+        if txt is None:
+            txt = global_text.setdefault(source, "")
+        start_line_index = txt.rfind("\n", 0, starting_pos)
+        start_line = txt.count("\n", 0, starting_pos)
+        ending_line_index = txt.find("\n", ending_pos)
+        if ending_line_index == -1:
+            ending_line_index = len(txt)
+        if start_line_index == -1:
+            start_line_index = 0
+        elif start_line_index > 0:
+            start_line_index += 1
+        msg = (
+                f"&c{translate('compilator.file')} \"{source}\":\n{start_line}:{starting_pos - start_line_index} - " +
+                txt[start_line_index:starting_pos] + "&4&n" +
+                txt[starting_pos:ending_pos + 1] + "&r&c" +
+                txt[ending_pos + 1:ending_line_index] + f"\n{error_type} : {error_message}")
+        print(minecraft_based_text(msg))
+    exit(0)
+
+
+def error_from_object(obj, error_type="", error_message=""):
+    return error(error_type, error_message, obj.starting_pos, obj.ending_pos, obj.source)
+
+
 class Lexer:
-    global open_files
 
-    def __init__(self, file, work_dir=os.getcwd()):
-        self.file = file
-        self.work_dir = work_dir
-        open_files[self.file] = open(self.file, "r", encoding="UTF-8").read()
-        self.pos = 0
-        if self.pos < len(self.text()):
-            self.current_char = self.text()[self.pos]
-        else:
-            self.current_char = None
-        self.last_token = Token(OEL, "OEL", start_line=0, offset_pos=0, file=self.file)
-        self.line = 0
-        self.offset_pos = 0
-
-    def text(self):
-        return open_files[self.file]
+    def __init__(self, txt, source):
+        self.current_pos = -1
+        self.current_char = ""
+        self.source = source
+        self.text = txt
+        self.advance()
 
     def advance(self):
-        self.pos += 1
-        if self.pos < len(self.text()):
-            self.current_char = self.text()[self.pos]
-            self.line = self.text()[:self.pos + 1].count("\n")
-            if self.line != 0:
-                self.offset_pos = len(self.text()[self.text().rfind("\n", 0, self.pos):self.pos - 1])
-            else:
-                self.offset_pos = self.pos
+        self.current_pos += 1
+        if self.current_pos < len(self.text):
+            self.current_char = self.text[self.current_pos]
         else:
-            self.current_char = None
-
-    def return_pos(self, pos):
-        self.offset_pos -= self.pos - pos
-        self.pos = pos
-        if self.pos < len(self.text()):
-            self.current_char = self.text()[self.pos]
-        else:
-            self.current_char = None
-
-    def skip_whitespace(self):
-        while self.current_char is not None and (self.current_char.isspace() or self.current_char == ";"):
-            if self.current_char == "\n" or self.current_char == "\t":
-                self.last_token = Token(OEL, "OEL", start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-                self.advance()
-                return self.last_token
-            elif self.current_char == ";":
-                self.last_token = Token(EL, "EL", start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-                self.advance()
-                return self.last_token
-            self.advance()
-        return None
+            self.current_char = ""
 
     @property
-    def get_next_token(self):
-        while self.current_char is not None:
-            if self.current_char.isspace() or self.current_char == ";":
-                a = self.skip_whitespace()
-                if a is not None:
-                    return a
-                continue
+    def next_token(self) -> Token:
+        while self.current_char == " " or self.current_char == "\n" or self.current_char == "\t":
+            self.advance()
+        starting_pos = self.current_pos
+        sign_mode = False
+        token_value = ""
+        if self.current_char.isalpha() or self.current_char == "_":
+            while self.current_char != "" and (
+                    self.current_char.isalpha() or self.current_char.isdigit() or self.current_char == "_"):
+                token_value += self.current_char
+                self.advance()
+            if token_value == "if":
+                return Token(Tokens.IF, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "else":
+                return Token(Tokens.ELSE, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "function":
+                return Token(Tokens.FUNCTION_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "process":
+                return Token(Tokens.PROCESS_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "var":
+                return Token(Tokens.VAR_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "inline":
+                return Token(Tokens.INLINE_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "local":
+                return Token(Tokens.LOCAL_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "game":
+                return Token(Tokens.GAME_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "save":
+                return Token(Tokens.SAVE_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "class":
+                return Token(Tokens.CLASS_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "event":
+                return Token(Tokens.EVENT_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "import":
+                return Token(Tokens.IMPORT, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "and":
+                return Token(Tokens.AND, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "or":
+                return Token(Tokens.OR, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "not":
+                return Token(Tokens.NOT, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "return":
+                return Token(Tokens.RETURN, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "elif":
+                return Token(Tokens.ELIF, token_value, starting_pos, self.current_pos - 1, self.source)
+            if token_value == "as":
+                return Token(Tokens.AS, token_value, starting_pos, self.current_pos - 1, self.source)
+            sign_mode = True
 
-            if self.current_char.isdigit() or self.current_char == "-" or self.current_char == "+":
-                token_value = ""
-                start_pos = self.offset_pos
-                start_line = self.line
-                end_line = self.line
-                end_pos = self.offset_pos
-                minus = False
-                plus = False
-                es = False
-                dot = False
-                if self.current_char == "-":
-                    minus = True
-                if self.current_char == "+":
-                    plus = True
-                if self.current_char == ".":
-                    token_value = "0"
+        if self.current_char == "\"" or self.current_char == "\'" or self.current_char == "`":
+            mode = self.current_char
+            if sign_mode:
+                if mode == "`" and token_value in {"l", "local", "g", "game", "s", "save", "i", "inline", "line"}:
+                    token_type = Tokens.LOCAL_VARIABLE if token_value in {"l", "local"} else (
+                        Tokens.INLINE_VARIABLE if token_value in {"i", "inline"} else (
+                            Tokens.LINE_VARIABLE if token_value == "line" else (
+                                Tokens.GAME_VARIABLE if token_value in {"g", "game"} else Tokens.SAVE_VARIABLE)))
+                elif token_value in {"p", "plain", "l", "legacy", "m", "minimessage", "j", "json"}:
+                    token_type = Tokens.PLAIN_STRING if token_value in {"p", "plain"} else (
+                        Tokens.MINIMESSAGE_STRING if token_value in {"m", "minimessage"} else (
+                            Tokens.LEGACY_STRING if token_value in {"l", "legacy"} else Tokens.JSON_STRING))
+                else:
+                    return Token(Tokens.VARIABLE, token_value, starting_pos, self.current_pos - 1, self.source)
+            else:
+                if mode == "`":
+                    token_type = Tokens.VARIABLE
+                else:
+                    token_type = Tokens.STRING
+            self.advance()
+            token_value = ""
+            block_next_symbol = False
+            while self.current_char != "" and (self.current_char != mode or block_next_symbol is True):
+                if block_next_symbol:
+                    block_next_symbol = False
+                    token_value += self.current_char
+                elif self.current_char == "\\":
+                    block_next_symbol = True
+                else:
+                    token_value += self.current_char
+                self.advance()
+            if self.current_char == mode:
+                self.advance()
+                return Token(token_type, token_value, starting_pos,
+                             self.current_pos - 1, self.source)
+            else:
+                error("SyntaxError", translate("error.syntaxerror.string_wasnt_closed"), starting_pos, self.current_pos,
+                      self.source)
+
+        if self.current_char == "{":
+            if sign_mode:
+                if token_value in {"minecraft_nbt", "nbt", "m", "n"}:
+                    self.advance()
+                    count = 1
+                    token_value = "{"
+                    while self.current_char != "" and (count != 0):
+                        token_value += self.current_char
+                        if self.current_char == "{":
+                            count += 1
+                        elif self.current_char == "}":
+                            count -= 1
+                        self.advance()
+                    return Token(Tokens.SNBT, token_value, starting_pos, self.current_pos - 1, self.source)
+                else:
+                    return Token(Tokens.VARIABLE, token_value, starting_pos, self.current_pos - 1, self.source)
+
+            self.advance()
+            return Token(Tokens.LCPAREN, "{", starting_pos, starting_pos, self.source)
+
+        if sign_mode:
+            return Token(Tokens.VARIABLE, token_value, starting_pos, self.current_pos - 1, self.source)
+
+        if self.current_char == "<":
+            self.advance()
+            token_value = ""
+            while self.current_char != "" and self.current_char != " " and self.current_char != ">":
+                token_value += self.current_char
+                self.advance()
+            if self.current_char == ">":
+                self.advance()
+                return Token(Tokens.SUBSTRING, token_value, starting_pos, self.current_pos - 1, self.source)
+            elif self.current_char == " " and token_value == "":
+                self.advance()
+                return Token(Tokens.LESS, "<", starting_pos, self.current_pos - 1, self.source)
+            elif self.current_char == " " and token_value == "=":
+                self.advance()
+                return Token(Tokens.LESS_OR_EQUALS, "<=", starting_pos, self.current_pos - 1, self.source)
+            else:
+                error("SyntaxError", translate("error.syntaxerror.substring_wasnt_closed"), starting_pos,
+                      self.current_pos, self.source)
+        if self.current_char.isdigit() or self.current_char == "-" or self.current_char == "+":
+            minus = False
+            plus = False
+            es = False
+            dot = False
+            if self.current_char == "-":
+                minus = True
+            if self.current_char == "+":
+                plus = True
+            starting_pos = self.current_pos
+            token_value = self.current_char
+            self.advance()
+            while self.current_char != "" and self.current_char.isdigit() or (
+                    es is False and self.current_char == "e") or (
+                    dot is False and self.current_char == "." and es is False) or (self.current_char == "_"):
+                if es is False and self.current_char == "e":
+                    es = True
+                if dot is False and self.current_char == "." and es is False:
                     dot = True
-                token_type = None
-                while self.current_char is not None and self.current_char.isdigit() or (
-                        es is False and self.current_char == "e") or (plus is True and self.current_char == "+") or (
-                        minus is True and self.current_char == "-") or (
-                        dot is False and self.current_char == "." and es is False):
-                    if es is False and self.current_char == "e":
-                        es = True
-                    if dot is False and self.current_char == "." and es is False:
-                        dot = True
-                    token_value += self.current_char
-                    end_line = self.line
-                    end_pos = self.offset_pos
+                if self.current_char == "_":
                     self.advance()
-                    if minus:
-                        token_type = MINUS_NUMBER
-                    elif plus:
-                        token_type = PLUS_NUMBER
-                    else:
-                        token_type = NUMBER
-                try:
-                    self.last_token = Token(token_type, int(token_value), start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                except:
-                    try:
-                        self.last_token = Token(token_type, float(token_value), start_line=start_line,
-                                                end_line=end_line,
-                                                offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
-                    except:
-                        if len(token_value) == 1:
-                            self.return_pos(self.pos - 1)
-                        if self.current_char is not None and (self.current_char.isspace() or self.current_char == ";"):
-                            a = self.skip_whitespace()
-                            if a is not None:
-                                return a
-
-            if self.current_char == "'":
-                start_pos = self.offset_pos
-                start_line = self.line
+                    continue
+                token_value += self.current_char
                 self.advance()
-                string_value = ""
-                block_next_symbol = False
-                while self.current_char is not None and (self.current_char != '\'' or block_next_symbol is True):
-                    if block_next_symbol:
-                        block_next_symbol = False
-                        string_value += self.current_char
-                    elif self.current_char == "\\":
-                        block_next_symbol = True
-                    else:
-                        string_value += self.current_char
+            if token_value == "-":
+                if self.current_char == ">":
                     self.advance()
-                if self.current_char == "'":
-                    end_line = self.line
-                    end_pos = self.offset_pos
-                    self.advance()
-                    self.last_token = Token(STRING, string_value, start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                else:
-                    error("IncorrectSymbol", "Строка не была закрыта", start_line=start_line, end_line=self.line,
-                          offset_pos=start_pos, limit_offset_pos=self.offset_pos + 1, file=self.file)
-            if self.current_char == '"':
-                start_pos = self.offset_pos
-                start_line = self.line
-                self.advance()
-                string_value = ""
-                block_next_symbol = False
-                while self.current_char is not None and (self.current_char != '"' or block_next_symbol is True):
-                    if block_next_symbol:
-                        block_next_symbol = False
-                        string_value += self.current_char
-                    elif self.current_char == "\\":
-                        block_next_symbol = True
-                    else:
-                        string_value += self.current_char
-                    self.advance()
-                if self.current_char == '"':
-                    end_line = self.line
-                    end_pos = self.offset_pos
-                    self.advance()
-                    self.last_token = Token(STRING, string_value, start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                else:
-                    error("IncorrectSymbol", "Строка не была закрыта", start_line=start_line, end_line=self.line,
-                          offset_pos=start_pos, limit_offset_pos=self.offset_pos + 1, file=self.file)
-            if self.current_char == '`':
-                start_pos = self.offset_pos
-                start_line = self.line
-                self.advance()
-                var_name = ""
-                block_next_symbol = False
-                while self.current_char is not None and (self.current_char != '`' or block_next_symbol is True):
-                    if block_next_symbol:
-                        block_next_symbol = False
-                        var_name += self.current_char
-                    elif self.current_char == "\\":
-                        block_next_symbol = True
-                    else:
-                        var_name += self.current_char
-                    self.advance()
-                if self.current_char == '`':
-                    end_line = self.line
-                    end_pos = self.offset_pos
-                    self.advance()
-                    self.last_token = Token(VAR, var_name, start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                else:
-                    error("IncorrectSymbol", "Переменная не была закрыта", start_line=start_line, end_line=self.line,
-                          offset_pos=start_pos, limit_offset_pos=self.offset_pos + 1, file=self.file)
-            if self.current_char == "<":
-                start_pos = self.offset_pos
-                start_line = self.line
-                self.advance()
-                selector = ""
-                while self.current_char is not None and self.current_char != '>':
-                    selector += self.current_char
-                    self.advance()
-                if self.current_char == '>':
-                    end_line = self.line
-                    end_pos = self.offset_pos
-                    self.advance()
-                    self.last_token = Token(SELECTOR, selector, start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                else:
-                    error("IncorrectSymbol", "Селектор не был закрыт", start_line=start_line, end_line=self.line,
-                          offset_pos=start_pos, limit_offset_pos=self.offset_pos + 1, file=self.file)
-            if self.current_char == '=':
-                end_line = self.line
-                end_pos = self.offset_pos
-                self.last_token = Token(ASSIGN, '=', start_line=end_line, offset_pos=end_pos, file=self.file)
-                self.advance()
-                return self.last_token
-            if self.current_char in ('+', '-', '*', '/', '%', '^'):
-                action_type = self.current_char
-                end_line = self.line
-                end_pos = self.offset_pos
-                self.advance()
-                if action_type == "/" and self.current_char == "/":
-                    action_type = "//"
-                    end_line = self.line
-                    end_pos = self.offset_pos
-                    self.advance()
-                if action_type == "-" and self.current_char == ">":
-                    end_line = self.line
-                    end_pos = self.offset_pos
-                    self.advance()
-                    self.last_token = Token(CYCLE_THING, '->', start_line=end_line, offset_pos=end_pos - 1,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+                    return Token(Tokens.CYCLE_THING, "->", starting_pos, self.current_pos - 1, self.source)
                 if self.current_char == "=":
-                    if action_type == '+':
-                        end_line = self.line
-                        end_pos = self.offset_pos
-                        self.advance()
-                        self.last_token = Token(PLUS_WITH_ASSIGN, '+=', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
+                    self.advance()
+                    return Token(Tokens.MINUS_ASSIGN, "-=", starting_pos, self.current_pos - 1, self.source)
+                return Token(Tokens.MINUS, "-", starting_pos, starting_pos, self.source)
+            elif token_value == "+":
+                if self.current_char == "=":
+                    self.advance()
+                    return Token(Tokens.PLUS_ASSIGN, "+=", starting_pos, self.current_pos - 1, self.source)
+                return Token(Tokens.PLUS, "+", starting_pos, starting_pos, self.source)
+            try:
+                return Token(Tokens.PLUS_NUMBER if plus else (Tokens.MINUS_NUMBER if minus else Tokens.NUMBER),
+                             int(token_value),
+                             starting_pos, self.current_pos - 1, self.source)
+            except Exception:
+                return Token(Tokens.PLUS_NUMBER if plus else (Tokens.MINUS_NUMBER if minus else Tokens.NUMBER),
+                             float(token_value),
+                             starting_pos, self.current_pos - 1, self.source)
 
-                    if action_type == '-':
-                        end_line = self.line
-                        end_pos = self.offset_pos
-                        self.advance()
-                        self.last_token = Token(MINUS_WITH_ASSIGN, '-=', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
-
-                    if action_type == '*':
-                        end_line = self.line
-                        end_pos = self.offset_pos
-                        self.advance()
-                        self.last_token = Token(MULTIPLY_WITH_ASSIGN, '*=', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
-
-                    if action_type == '/':
-                        end_line = self.line
-                        end_pos = self.offset_pos
-                        self.advance()
-                        self.last_token = Token(DIVIDE_WITH_ASSIGN, '/=', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
-                    if action_type == '//':
-                        end_line = self.line
-                        end_pos = self.offset_pos
-                        self.advance()
-                        self.last_token = Token(INT_DIVIDE_WITH_ASSIGN, '//=', start_line=end_line,
-                                                offset_pos=end_pos - 2,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
-
-                    if action_type == '%':
-                        end_line = self.line
-                        end_pos = self.offset_pos
-                        self.advance()
-                        self.last_token = Token(PR_WITH_ASSIGN, '%=', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
-
-                    if action_type == '^':
-                        end_line = self.line
-                        end_pos = self.offset_pos
-                        self.advance()
-                        self.last_token = Token(DEG_WITH_ASSIGN, '^=', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
-                else:
-                    if action_type == '+':
-                        self.last_token = Token(PLUS, '+', start_line=end_line, offset_pos=end_pos, file=self.file)
-                        return self.last_token
-
-                    if action_type == '-':
-                        self.last_token = Token(MINUS, '-', start_line=end_line, offset_pos=end_pos, file=self.file)
-                        return self.last_token
-
-                    if action_type == '*':
-                        self.last_token = Token(MULTIPLY, '*', start_line=end_line, offset_pos=end_pos, file=self.file)
-                        return self.last_token
-
-                    if action_type == '/':
-                        self.last_token = Token(DIVIDE, '/', start_line=end_line, offset_pos=end_pos, file=self.file)
-                        return self.last_token
-                    if action_type == '//':
-                        self.last_token = Token(INT_DIVIDE, '//', start_line=end_line, offset_pos=end_pos - 1,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
-
-                    if action_type == '%':
-                        self.last_token = Token(PR, '%', start_line=end_line, offset_pos=end_pos, file=self.file)
-                        return self.last_token
-
-                    if action_type == '^':
-                        self.last_token = Token(DEG, '^', start_line=end_line, offset_pos=end_pos, file=self.file)
-                        return self.last_token
-            if self.current_char == '#':
-                while self.current_char is not None:
+        if self.current_char == "(":
+            self.advance()
+            return Token(Tokens.LPAREN, ")", starting_pos, starting_pos, self.source)
+        if self.current_char == ")":
+            self.advance()
+            return Token(Tokens.RPAREN, ")", starting_pos, starting_pos, self.source)
+        if self.current_char == ",":
+            self.advance()
+            return Token(Tokens.COMMA, ",", starting_pos, starting_pos, self.source)
+        if self.current_char == ":":
+            self.advance()
+            if self.current_char == ":":
+                self.advance()
+                return Token(Tokens.DOUBLE_COLON, "::", starting_pos, self.current_pos - 1, self.source)
+            return Token(Tokens.COLON, ":", starting_pos, starting_pos, self.source)
+        if self.current_char == ".":
+            self.advance()
+            return Token(Tokens.DOT, ".", starting_pos, starting_pos, self.source)
+        if self.current_char == ";":
+            self.advance()
+            return Token(Tokens.SEMICOLON, ";", starting_pos, starting_pos, self.source)
+        if self.current_char == "[":
+            self.advance()
+            return Token(Tokens.LSPAREN, "[", starting_pos, starting_pos, self.source)
+        if self.current_char == "]":
+            self.advance()
+            return Token(Tokens.RSPAREN, "]", starting_pos, starting_pos, self.source)
+        if self.current_char == "}":
+            self.advance()
+            return Token(Tokens.RCPAREN, "}", starting_pos, starting_pos, self.source)
+        if self.current_char == "=":
+            self.advance()
+            if self.current_char == "=":
+                self.advance()
+                return Token(Tokens.EQUALS, "==", starting_pos, self.current_pos - 1, self.source)
+            return Token(Tokens.ASSIGN, "=", starting_pos, starting_pos, self.source)
+        if self.current_char == "*":
+            self.advance()
+            return Token(Tokens.MULTIPLY, "*", starting_pos, starting_pos, self.source)
+        if self.current_char == "/":
+            self.advance()
+            if self.current_char == "/":
+                while self.current_char != "":
                     if self.current_char == "\n" or self.current_char == "\t":
-                        self.last_token = Token(OEL, "OEL", start_line=self.line,
-                                                offset_pos=self.offset_pos, file=self.file)
                         self.advance()
-                        return self.last_token
+                        return self.next_token
                     self.advance()
-                self.last_token = Token(EOF, None, start_line=self.line, offset_pos=self.offset_pos,
-                                        file=self.file)
-                return Token(EOF, None)
-            if self.current_char == '(':
-                self.last_token = Token(LPAREN, '(', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-                self.advance()
-                return self.last_token
-            if self.current_char == ':':
-                self.last_token = Token(COLON, ':', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-                self.advance()
-                return self.last_token
-            if self.current_char == ')':
-                self.last_token = Token(RPAREN, ')', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-                self.advance()
-                return self.last_token
-            if self.current_char == '[':
-                self.last_token = Token(LSPAREN, '[', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-                self.advance()
-                return self.last_token
-            if self.current_char == ']':
-                self.last_token = Token(RSPAREN, ']', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-                self.advance()
-                return self.last_token
-            if self.current_char == '{':
-                self.last_token = Token(LCPAREN, '{', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-                self.advance()
-                return self.last_token
-            if self.current_char == '}':
-                self.last_token = Token(RCPAREN, '}', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-                self.advance()
-                return self.last_token
-            if self.current_char == ',':
-                self.last_token = Token(COMMA, ',', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-                self.advance()
-                return self.last_token
-            if self.current_char == ".":
-                self.last_token = Token(DOT, '.', start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-                self.advance()
-                return self.last_token
-            if self.current_char.isalpha() or self.current_char == "_":
-                token_value = ""
-                start_pos = self.offset_pos
-                start_line = self.line
-                end_line = start_line
-                end_pos = start_pos
-                while self.current_char is not None and (
-                        self.current_char.isalpha() or self.current_char.isdigit() or self.current_char == "_"):
-                    token_value += self.current_char
-                    end_line = self.line
-                    end_pos = self.offset_pos
+                return Token(Tokens.EOF, "None", starting_pos, starting_pos, self.source)
+            elif self.current_char == "*":
+                while self.current_char is not None:
+                    if self.current_char == "*":
+                        self.advance()
+                        if self.current_char == "/":
+                            self.advance()
+                            return self.next_token
                     self.advance()
+                return Token(Tokens.EOF, "None", starting_pos, starting_pos, self.source)
+            elif self.current_char == "=":
+                self.advance()
+                return Token(Tokens.DIVIDE_ASSIGN, "/=", starting_pos, self.current_pos - 1, self.source)
+            return Token(Tokens.DIVIDE, "/", starting_pos, starting_pos, self.source)
+        if self.current_char == "%":
+            self.advance()
+            if self.current_char == "=":
+                self.advance()
+                return Token(Tokens.PR_ASSIGN, "%=", starting_pos, self.current_pos - 1, self.source)
+            return Token(Tokens.PR, "%", starting_pos, starting_pos, self.source)
+        if self.current_char == "^":
+            self.advance()
+            if self.current_char == "=":
+                self.advance()
+                return Token(Tokens.DEG_ASSIGN, "^=", starting_pos, self.current_pos - 1, self.source)
+            return Token(Tokens.DEG, "^", starting_pos, starting_pos, self.source)
+        if self.current_char == ">":
+            self.advance()
+            if self.current_char == "=":
+                self.advance()
+                return Token(Tokens.GREATER_OR_EQUALS, ">=", starting_pos, self.current_pos - 1, self.source)
+            return Token(Tokens.GREATER, ">", starting_pos, starting_pos, self.source)
+        if self.current_char == "!":
+            self.advance()
+            if self.current_char == "=":
+                self.advance()
+                return Token(Tokens.NOT_EQUALS, "!=", starting_pos, self.current_pos - 1, self.source)
+            return Token(Tokens.NOT, ">", starting_pos, starting_pos, self.source)
+        if self.current_char == "@":
+            self.advance()
+            return Token(Tokens.DECORATOR, "@", starting_pos, starting_pos, self.source)
+        return Token(Tokens.EOF, "None", starting_pos, starting_pos, self.source)
 
-                if self.current_char == '`' and token_value in ("l", "local", "g", "game", "s", "save", "i", "inline"):
-                    self.advance()
-                    var_name = ""
-                    block_next_symbol = False
-                    while self.current_char is not None and (self.current_char != '`' or block_next_symbol is True):
-                        if block_next_symbol:
-                            block_next_symbol = False
-                            var_name += self.current_char
-                        elif self.current_char == "\\":
-                            block_next_symbol = True
-                        else:
-                            var_name += self.current_char
-                        self.advance()
-                    if self.current_char == '`':
-                        end_line = self.line
-                        end_pos = self.offset_pos
-                        self.advance()
-                        if token_value in ("l", "local"):
-                            self.last_token = Token(LOCAL_VAR, var_name, start_line=start_line, end_line=end_line,
-                                                    offset_pos=start_pos,
-                                                    limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                        if token_value in ("g", "game"):
-                            self.last_token = Token(GAME_VAR, var_name, start_line=start_line, end_line=end_line,
-                                                    offset_pos=start_pos,
-                                                    limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                        if token_value in ("s", "save"):
-                            self.last_token = Token(SAVE_VAR, var_name, start_line=start_line, end_line=end_line,
-                                                    offset_pos=start_pos,
-                                                    limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                        if token_value in ("i", "inline"):
-                            self.last_token = Token(INLINE_VAR, var_name, start_line=start_line, end_line=end_line,
-                                                    offset_pos=start_pos,
-                                                    limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                    else:
-                        error("IncorrectSymbol", "Переменная не была закрыта", start_line=start_line,
-                              end_line=self.line, offset_pos=start_pos, limit_offset_pos=self.offset_pos,
-                              file=self.file)
-                if self.current_char == "\"" and token_value in (
-                        "p", "plain", "l", "legacy", "m", "minimessage", "j", "json"):
-                    self.advance()
-                    string_value = ""
-                    block_next_symbol = False
-                    while self.current_char is not None and (self.current_char != '"' or block_next_symbol is True):
-                        if block_next_symbol:
-                            block_next_symbol = False
-                            string_value += self.current_char
-                        elif self.current_char == "\\":
-                            block_next_symbol = True
-                        else:
-                            string_value += self.current_char
-                        self.advance()
-                    if self.current_char == '"':
-                        end_line = self.line
-                        end_pos = self.offset_pos
-                        self.advance()
-                        if token_value in ("p", "plain"):
-                            self.last_token = Token(PLAIN_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                        if token_value in ("l", "legacy"):
-                            self.last_token = Token(LEGACY_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                        if token_value in ("m", "minimessage"):
-                            self.last_token = Token(MINIMESSAGE_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                        if token_value in ("j", "json"):
-                            self.last_token = Token(JSON_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                    else:
-                        error("IncorrectSymbol", "Строка не была закрыта", start_line=start_line, end_line=self.line,
-                              offset_pos=start_pos, limit_offset_pos=self.offset_pos, file=self.file)
-                if self.current_char == "\'" and token_value in (
-                        "p", "plain", "l", "legacy", "m", "minimessage", "j", "json"):
-                    self.advance()
-                    string_value = ""
-                    block_next_symbol = False
-                    while self.current_char is not None and (self.current_char != '\'' or block_next_symbol is True):
-                        if block_next_symbol:
-                            block_next_symbol = False
-                            string_value += self.current_char
-                        elif self.current_char == "\\":
-                            block_next_symbol = True
-                        else:
-                            string_value += self.current_char
-                        self.advance()
-                    if self.current_char == '\'':
-                        end_line = self.line
-                        end_pos = self.offset_pos
-                        self.advance()
-                        if token_value in ("p", "plain"):
-                            self.last_token = Token(PLAIN_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                        if token_value in ("l", "legacy"):
-                            self.last_token = Token(LEGACY_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                        if token_value in ("m", "minimessage"):
-                            self.last_token = Token(MINIMESSAGE_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                        if token_value in ("j", "json"):
-                            self.last_token = Token(JSON_STRING, string_value, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                    else:
-                        error("IncorrectSymbol", "Строка не была закрыта", start_line=start_line, end_line=self.line,
-                              offset_pos=start_pos, limit_offset_pos=self.offset_pos, file=self.file)
-                if self.current_char == "<" and token_value == "event":
-                    self.advance()
-                    event_name = ""
-                    while self.current_char is not None and self.current_char != '>':
-                        event_name += self.current_char
-                        self.advance()
-                    if self.current_char == '>':
-                        end_line = self.line
-                        end_pos = self.offset_pos
-                        self.advance()
-                        self.last_token = Token(EVENT, event_name, start_line=start_line, end_line=end_line,
-                                                offset_pos=start_pos,
-                                                limit_offset_pos=end_pos, file=self.file)
-                        return self.last_token
-                    else:
-                        error("IncorrectSymbol", "Значение ивента не было закрыто", start_line=start_line,
-                              end_line=self.line,
-                              offset_pos=start_pos, limit_offset_pos=self.offset_pos, file=self.file)
-                if self.current_char == ":" and token_value in (
-                        "value", "player", "variable", "code", "repeat", "entity", "world", "select", "controller"):
-                    act = token_value
-                    self.advance()
-                    if self.current_char == ":":
-                        self.advance()
-                        if self.current_char.isalpha():
-                            sub_action = ""
-                            while (self.current_char is not None
-                                   and (self.current_char.isalpha()
-                                        or self.current_char.isdigit() or self.current_char == "_")):
-                                sub_action += self.current_char
-                                end_line = self.line
-                                end_pos = self.offset_pos
-                                self.advance()
-                            self.last_token = Token(act.upper(), sub_action, start_line=start_line,
-                                                    end_line=end_line,
-                                                    offset_pos=start_pos, limit_offset_pos=end_pos, file=self.file)
-                            return self.last_token
-                if token_value == "if":
-                    self.last_token = Token(IF, "if", start_line=start_line, end_line=end_line, offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "else":
-                    self.last_token = Token(ELSE, "ELSE", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "not":
-                    self.last_token = Token(NOT, "NOT", start_line=start_line, end_line=end_line, offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "function":
-                    self.last_token = Token(FUNCTION, "function", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "None":
-                    self.last_token = Token(NONE, "", start_line=start_line, end_line=end_line, offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "process":
-                    self.last_token = Token(PROCESS, "process", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "location":
-                    self.last_token = Token(LOCATION, "location", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "sound":
-                    self.last_token = Token(SOUND, "sound", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "vector":
-                    self.last_token = Token(VECTOR, "vector", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "particle":
-                    self.last_token = Token(PARTICLE, "particle", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "item":
-                    self.last_token = Token(ITEM, "item", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "potion":
-                    self.last_token = Token(POTION, "potion", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "import":
-                    self.last_token = Token(IMPORT, "import", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "save":
-                    self.last_token = Token(SAVE_DEFINE, "save", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "game":
-                    self.last_token = Token(GAME_DEFINE, "game", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "local":
-                    self.last_token = Token(LOCAL_DEFINE, "local", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "inline":
-                    self.last_token = Token(INLINE_DEFINE, "inline", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-                elif token_value == "var":
-                    self.last_token = Token(VAR_DEFINE, "var", start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
+    def get_remaining_tokens(self) -> list:
+        lest = []
+        while (token := self.next_token).type != Tokens.EOF:
+            lest.append(token)
+        return lest
+
+
+def tokenize(txt, source=None):
+    if source is None:
+        source = new("source")
+    global_text[source] = txt
+    return Lexer(txt, source).get_remaining_tokens()
+
+
+def tokenize_from_file(file1):
+    global global_text
+    source = os.path.abspath(file1.name)
+    global_text[source] = file1.read()
+    return tokenize(global_text[source], source)
+
+
+class Parser:
+    Expr_priorities = [Tokens.AND, Tokens.OR, Tokens.LESS, Tokens.GREATER, Tokens.EQUALS, Tokens.LESS_OR_EQUALS,
+                       Tokens.GREATER_OR_EQUALS, Tokens.PLUS, Tokens.MINUS, Tokens.MINUS_NUMBER, Tokens.PLUS_NUMBER,
+                       Tokens.MULTIPLY, Tokens.DIVIDE, Tokens.PR, Tokens.DEG]
+    Expr_operations = {Tokens.AND: "__and__", Tokens.OR: "__or__", Tokens.LESS: "__less__",
+                       Tokens.GREATER: "__greater__", Tokens.EQUALS: "__equals__",
+                       Tokens.LESS_OR_EQUALS: "__less_or_equals__",
+                       Tokens.GREATER_OR_EQUALS: "__greater_or_equals__", Tokens.PLUS: "__add__",
+                       Tokens.MINUS: "__subtract__",
+                       Tokens.MULTIPLY: "__multiply__", Tokens.DIVIDE: "__divide__", Tokens.PR: "__remainder__",
+                       Tokens.DEG: "__pow__"}
+
+    def __init__(self, tokens: list, source: str):
+        self.tokens = tokens
+        self.source = source
+        self.index = 0
+        self.current_token = self.token(self.index)
+        self.context = Context(self.source)
+
+    def token(self, index: int) -> Token:
+        if index >= len(self.tokens):
+            return Token(Tokens.EOF, "None", -1, -1, self.source)
+        return self.tokens[index]
+
+    def eat(self, token_type: int) -> None:
+        if self.current_token.type == token_type:
+            self.index += 1
+            self.current_token = self.token(self.index)
+        else:
+            error_from_object(self.current_token, "SyntaxError", translate("error.syntaxerror.wrong_token", {
+                0: translate('token.' + str(token_type) + '.name'),
+                1: translate('token.' + str(self.current_token.type) + '.name')}))
+
+    def factor(self):
+        token = self.current_token
+        if token.type == Tokens.NUMBER:
+            self.eat(Tokens.NUMBER)
+            return number(token.value, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.PLUS_NUMBER:
+            self.eat(Tokens.PLUS_NUMBER)
+            return number(token.value, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.MINUS_NUMBER:
+            self.eat(Tokens.MINUS_NUMBER)
+            return number(token.value, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.STRING:
+            self.eat(Tokens.STRING)
+            return text(token.value, Texts.LEGACY, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.LEGACY_STRING:
+            self.eat(Tokens.LEGACY_STRING)
+            return text(token.value, Texts.LEGACY, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.PLAIN_STRING:
+            self.eat(Tokens.PLAIN_STRING)
+            return text(token.value, Texts.PLAIN, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.MINIMESSAGE_STRING:
+            self.eat(Tokens.MINIMESSAGE_STRING)
+            return text(token.value, Texts.MINIMESSAGE, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.JSON_STRING:
+            self.eat(Tokens.JSON_STRING)
+            return text(token.value, Texts.JSON, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.LPAREN:
+            self.eat(Tokens.LPAREN)
+            result = self.expr()
+            result.starting_pos = token.starting_pos
+            result.ending_pos = self.current_token.ending_pos
+            self.eat(Tokens.RPAREN)
+            return result
+        elif token.type == Tokens.LSPAREN:
+            self.eat(Tokens.LSPAREN)
+            vals = []
+            while (self.current_token.type is not None) and self.current_token.type != Tokens.RSPAREN:
+                vals.append(self.expr())
+                if self.current_token.type != Tokens.RSPAREN:
+                    self.eat(Tokens.COMMA)
+            ending_pos = self.current_token.ending_pos
+            self.eat(Tokens.RSPAREN)
+            return lst(vals, token.starting_pos, ending_pos, token.source)
+        elif token.type == Tokens.LCPAREN:
+            self.eat(Tokens.LCPAREN)
+            keys = []
+            vals = []
+            while (self.current_token.type is not None) and (self.current_token.type != Tokens.RCPAREN):
+                keys.append(self.expr())
+                self.eat(Tokens.COLON)
+                vals.append(self.expr())
+                if self.current_token.type != Tokens.RCPAREN:
+                    self.eat(Tokens.COMMA)
+            ending_pos = self.current_token.ending_pos
+            self.eat(Tokens.RCPAREN)
+            return dct(keys, vals, token.starting_pos, ending_pos, token.source)
+        elif token.type == Tokens.SNBT:
+            self.eat(Tokens.SNBT)
+            return NBT(nbtworker.load(token.value), token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.VARIABLE:
+            self.eat(Tokens.VARIABLE)
+            if self.current_token.type == Tokens.LPAREN:
+                self.eat(Tokens.LPAREN)
+                args = self.get_args()
+                ending_pos = self.current_token.ending_pos
+                self.eat(Tokens.RPAREN)
+                return calling_object(token.value, args, token.starting_pos, ending_pos, token.source).change()
+            elif self.current_token.type == Tokens.DOUBLE_COLON:
+                self.eat(Tokens.DOUBLE_COLON)
+                act = self.current_token
+                self.eat(Tokens.VARIABLE)
+                if self.current_token.type == Tokens.SUBSTRING:
+                    selector = self.current_token.value
+                    self.eat(Tokens.SUBSTRING)
                 else:
-                    self.last_token = Token(VAR, token_value, start_line=start_line, end_line=end_line,
-                                            offset_pos=start_pos,
-                                            limit_offset_pos=end_pos, file=self.file)
-                    return self.last_token
-            error("SyntaxError", f"Неизвестный символ &4&n{self.current_char}", start_line=self.line,
-                  offset_pos=self.offset_pos, file=self.file)
-        self.last_token = Token(EOF, None, start_line=self.line, offset_pos=self.offset_pos, file=self.file)
-        return self.last_token
+                    selector = None
+                if token.value == "value" and (act.value in values):
+                    value_type = values[act.value]["type"]
+                    return value(act.value, act.starting_pos, act.ending_pos, token.source, selector=selector,
+                                 value_type=value_type)
+                if (token.value not in objects) or (not token.value + "::" + act.value in actions):
+                    error("SyntaxErrror",
+                          translate("error.syntaxerror.action_cant_be_called_from_this_object",
+                                    {0: act.value, 1: token.value}), token.starting_pos, act.ending_pos, token.source)
+                self.eat(Tokens.LPAREN)
+                args = self.get_args()
+                ending_pos = self.current_token.ending_pos
+                self.eat(Tokens.RPAREN)
+                if actions[token.value + "::" + act.value]["type"].startswith(
+                        "container"):
+                    if self.current_token.type == Tokens.LCPAREN and (
+                            not actions[token.value + "::" + act.value].setdefault("boolean", False)):
+                        self.eat(Tokens.LCPAREN)
+                        if "lambda" in actions[token.value + "::" + act.value]:
+                            lambd = []
+                            while (self.current_token.type != Tokens.EOF) and (
+                                    self.current_token.type != Tokens.CYCLE_THING):
+                                if (a := self.expr()) is not None:
+                                    lambd.append(a)
+                                if self.current_token.type != Tokens.CYCLE_THING:
+                                    self.eat(Tokens.COMMA)
+                            self.eat(Tokens.CYCLE_THING)
+                        else:
+                            lambd = None
+                        self.context.next_lvl()
+                        while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
+                            if (a := self.statement()) is not None:
+                                self.context.add_operation(a)
+                            self.context.update()
+                        ops = self.context.get_operations()
+                        self.context.previous_lvl()
+                        self.eat(Tokens.RCPAREN)
+                    else:
+                        ops = None
+                        lambd = None
+                else:
+                    ops = None
+                    lambd = None
+                return action(token.value, act.value, args, token.starting_pos, ending_pos, self.source,
+                              operations=ops, lambd=lambd, selector=selector)
+            else:
+                if not self.context.has_variable(token.value):
+                    self.context.set_variable(token.value, Vars.LOCAL)
+                    var_type = Vars.LOCAL
+                else:
+                    var_type = self.context.get_variable(token.value)
+                return var(token.value, var_type, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.LOCAL_VARIABLE:
+            self.eat(Tokens.LOCAL_VARIABLE)
+            if not self.context.has_variable(token.value):
+                self.context.set_variable(token.value, Vars.LOCAL)
+            return var(token.value, Vars.LOCAL, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.LINE_VARIABLE:
+            self.eat(Tokens.LINE_VARIABLE)
+            if not self.context.has_variable(token.value):
+                self.context.set_variable(token.value, Vars.LINE)
+            return var(token.value, Vars.LINE, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.INLINE_VARIABLE:
+            self.eat(Tokens.INLINE_VARIABLE)
+            if not self.context.has_variable(token.value):
+                self.context.set_variable(token.value, Vars.INLINE)
+            return var(token.value, Vars.INLINE, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.GAME_VARIABLE:
+            self.eat(Tokens.GAME_VARIABLE)
+            if not self.context.has_variable(token.value):
+                self.context.set_variable(token.value, Vars.GAME)
+            return var(token.value, Vars.GAME, token.starting_pos, token.ending_pos, token.source)
+        elif token.type == Tokens.SAVE_VARIABLE:
+            self.eat(Tokens.SAVE_VARIABLE)
+            if not self.context.has_variable(token.value):
+                self.context.set_variable(token.value, Vars.SAVE)
+            return var(token.value, Vars.SAVE, token.starting_pos, token.ending_pos, token.source)
+        else:
+            error_from_object(token, "SyntaxError", translate("error.syntaxerror.unexpected_token",
+                                                              {0: translate("token." + str(token.type) + ".name")}))
+
+    def up_factor(self, result=None):
+        if result is None:
+            result = self.factor()
+        if self.current_token.type == Tokens.DOT:
+            self.eat(Tokens.DOT)
+            act = self.current_token
+            self.eat(Tokens.VARIABLE)
+            if self.current_token.type == Tokens.LPAREN:
+                if act.value in origin_actions:
+                    self.eat(Tokens.LPAREN)
+                    args = self.get_args()
+                    args.unpositional[actions[origin_actions[act.value]]["origin"]] = result
+                    ending_pos = self.current_token.ending_pos
+                    self.eat(Tokens.RPAREN)
+                    obj, act = origin_actions[act.value].split("::")
+                    return self.up_factor(action(obj, act, args, result.starting_pos, ending_pos, self.source))
+                else:
+                    self.eat(Tokens.LPAREN)
+                    args = self.get_args()
+                    ending_pos = self.current_token.ending_pos
+                    self.eat(Tokens.RPAREN)
+                    return calling_function(result, act.value, args, result.starting_pos, ending_pos, self.source)
+            else:
+                return self.up_factor(
+                    calling_argument(result, act.value, result.starting_pos, act.ending_pos, self.source))
+        elif self.current_token.type == Tokens.LSPAREN:
+            self.eat(Tokens.LSPAREN)
+            arg1 = self.up_factor()
+            if self.current_token.type != Tokens.RSPAREN:
+                self.eat(Tokens.COLON)
+                arg2 = self.up_factor()
+            else:
+                arg2 = None
+            ending_pos = self.current_token.ending_pos
+            self.eat(Tokens.RSPAREN)
+            return self.up_factor(subscript(result, arg1, arg2, result.starting_pos, ending_pos, self.source))
+        else:
+            return result
+
+    def get_args(self, reason_to_stop=Tokens.RPAREN, save_types=False):
+        starting_pos = self.current_token.starting_pos
+        ending_pos = self.current_token.ending_pos
+        pos = []
+        unpos = {}
+        while (self.current_token.type != Tokens.EOF) and (self.current_token.type != reason_to_stop):
+            if self.current_token.type == Tokens.VARIABLE and self.token(self.index + 1).type == Tokens.ASSIGN:
+                token = self.current_token
+                self.eat(Tokens.VARIABLE)
+                self.eat(Tokens.ASSIGN)
+                if (arg := self.expr()) is not None:
+                    ending_pos = arg.ending_pos
+                    unpos[token.value] = arg
+            else:
+                if (arg := self.expr()) is not None:
+                    if arg.type == "variable" and self.current_token.type == Tokens.COLON and save_types:
+                        self.eat(Tokens.COLON)
+                        arg.value_type = self.current_token.value
+                        self.eat(Tokens.VARIABLE)
+                    ending_pos = arg.ending_pos
+                    pos.append(arg)
+            if self.current_token.type != reason_to_stop:
+                self.eat(Tokens.COMMA)
+        return calling_args(pos, unpos, starting_pos, ending_pos, self.source)
+
+    def expr(self, lvl=0, result=None):
+        if self.current_token.type == Tokens.NOT:
+            token = self.current_token
+            self.eat(Tokens.NOT)
+            result = self.expr()
+            return calling_function(result, "__invert__",
+                                    calling_args([], {}, token.starting_pos, result.ending_pos, token.source),
+                                    token.starting_pos, result.ending_pos, token.source)
+        if lvl < len(self.Expr_priorities):
+            if result is None:
+                result = self.expr(lvl + 1)
+            check_token = self.Expr_priorities[lvl]
+            while (self.current_token.type != Tokens.EOF) and (
+                    self.current_token.type == check_token):
+                if self.current_token.type == Tokens.MINUS_NUMBER:
+                    operation = "__subtract__"
+                elif self.current_token.type == Tokens.PLUS_NUMBER:
+                    operation = "__add__"
+                else:
+                    operation = self.Expr_operations[self.current_token.type]
+                    self.eat(self.current_token.type)
+                second = self.expr(lvl + 1)
+                result = calling_function(result, operation,
+                                          calling_args([result, second], {}, result.starting_pos, second.ending_pos,
+                                                       result.source), result.starting_pos, second.ending_pos,
+                                          result.source)
+            return result
+        else:
+            return self.up_factor(result)
+
+    def get_vars(self):
+        variables = []
+        if self.current_token.type == Tokens.SAVE_DEFINE:
+            self.eat(Tokens.SAVE_DEFINE)
+            self.eat(Tokens.VAR_DEFINE)
+            variable = self.current_token
+            self.eat(Tokens.VARIABLE)
+            variable = var(variable.value, Vars.SAVE, variable.starting_pos, variable.ending_pos, self.source)
+            self.context.set_variable(variable.value, Vars.SAVE)
+        elif self.current_token.type == Tokens.GAME_DEFINE:
+            self.eat(Tokens.GAME_DEFINE)
+            self.eat(Tokens.VAR_DEFINE)
+            variable = self.current_token
+            self.eat(Tokens.VARIABLE)
+            variable = var(variable.value, Vars.GAME, variable.starting_pos, variable.ending_pos, self.source)
+            self.context.set_variable(variable.value, Vars.GAME)
+        elif self.current_token.type == Tokens.LOCAL_DEFINE:
+            self.eat(Tokens.LOCAL_DEFINE)
+            self.eat(Tokens.VAR_DEFINE)
+            variable = self.current_token
+            variable = var(variable.value, Vars.LOCAL, variable.starting_pos, variable.ending_pos, self.source)
+            self.context.set_variable(variable.value, Vars.LOCAL)
+        elif self.current_token.type == Tokens.VAR_DEFINE:
+            self.eat(Tokens.VAR_DEFINE)
+            variable = self.current_token
+            self.eat(Tokens.VARIABLE)
+            variable = var(variable.value, Vars.LOCAL, variable.starting_pos, variable.ending_pos, self.source)
+            self.context.set_variable(variable.value, Vars.LOCAL)
+        elif self.current_token.type == Tokens.LINE_DEFINE:
+            self.eat(Tokens.LINE_DEFINE)
+            self.eat(Tokens.VAR_DEFINE)
+            variable = self.current_token
+            self.eat(Tokens.VARIABLE)
+            variable = var(variable.value, Vars.LINE, variable.starting_pos, variable.ending_pos, self.source)
+            self.context.set_variable(variable.value, Vars.LINE)
+        elif self.current_token.type == Tokens.INLINE_DEFINE:
+            self.eat(Tokens.INLINE_DEFINE)
+            self.eat(Tokens.VAR_DEFINE)
+            variable = self.current_token
+            self.eat(Tokens.VARIABLE)
+            variable = var(variable.value, Vars.INLINE, variable.starting_pos, variable.ending_pos, self.source)
+            self.context.set_variable(variable.value, Vars.INLINE)
+        elif self.current_token.type in {Tokens.VARIABLE, Tokens.LOCAL_VARIABLE, Tokens.SAVE_VARIABLE,
+                                         Tokens.GAME_VARIABLE, Tokens.LINE_VARIABLE, Tokens.INLINE_VARIABLE}:
+            variable = self.factor()
+        else:
+            return variables
+        if self.current_token.type == Tokens.COLON:
+            self.eat(Tokens.COLON)
+            variable.value_type = self.current_token.value
+            self.eat(Tokens.VARIABLE)
+        if self.current_token.type == Tokens.COMMA:
+            variables.append(self.up_factor(variable))
+            self.eat(Tokens.COMMA)
+            variables.extend(self.get_vars())
+        else:
+            variables.append(self.up_factor(variable))
+        return variables
+
+    def statement(self):
+        if self.current_token.type == Tokens.SEMICOLON:
+            self.eat(Tokens.SEMICOLON)
+            return
+        if self.current_token.type == Tokens.IMPORT and self.context.context_lvl == 0:
+            self.eat(Tokens.IMPORT)
+            thing = self.current_token
+            self.eat(Tokens.STRING)
+            if os.path.exists(thing.value):
+                self.context.extend(parse_from_file(open(thing.value, "r", encoding="UTF-8")))
+            else:
+                error_from_object(thing, "UnexistsFile", translate("error.unexistsfile", {0: thing.value}))
+            return
+        elif ((self.current_token.type == Tokens.FUNCTION_DEFINE and self.context.context_lvl == 0)
+              or (self.current_token.type == Tokens.INLINE_DEFINE
+                  and self.token(self.index + 1).type == Tokens.FUNCTION_DEFINE)):
+            if self.current_token.type == Tokens.INLINE_DEFINE:
+                self.eat(Tokens.INLINE_DEFINE)
+                inline = True
+            else:
+                inline = False
+            self.eat(Tokens.FUNCTION_DEFINE)
+            token = self.current_token
+            self.eat(Tokens.VARIABLE)
+            self.eat(Tokens.LPAREN)
+            args = self.get_args(save_types=True)
+            self.eat(Tokens.RPAREN)
+            self.eat(Tokens.LCPAREN)
+            self.context.next_lvl()
+            return_var = var(f"jmcc.{new('var')}", Vars.LOCAL, token.starting_pos, token.ending_pos, token.source)
+            self.context.settings["allow_returns"] = return_var
+            if not inline:
+                self.context.set_special(token.value, {"type": "function", "name": token.value, "args": args.set_args(),
+                                                       "return_var": return_var, "inline": inline})
+            while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
+                if (a := self.statement()) is not None:
+                    self.context.add_operation(a)
+                self.context.update()
+            self.context.settings["allow_returns"] = None
+            ops = self.context.get_operations()
+            self.context.previous_lvl()
+            self.eat(Tokens.RCPAREN)
+            result = function(token.value, ops, args, self.source, inline=inline, return_var=return_var)
+            if inline:
+                self.context.set_special(token.value, result.special())
+            return result if result.inline is False else None
+        elif self.current_token.type == Tokens.PROCESS_DEFINE and self.context.context_lvl == 0:
+            self.eat(Tokens.PROCESS_DEFINE)
+            token = self.current_token
+            self.eat(Tokens.VARIABLE)
+            self.eat(Tokens.LPAREN)
+            args = self.get_args(save_types=True)
+            self.eat(Tokens.RPAREN)
+            self.eat(Tokens.LCPAREN)
+            self.context.next_lvl()
+            self.context.set_special(token.value, {"type": "process", "name": token.value, "args": args.set_args()})
+            while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
+                if (a := self.statement()) is not None:
+                    self.context.add_operation(a)
+                self.context.update()
+            ops = self.context.get_operations()
+            self.context.previous_lvl()
+            self.eat(Tokens.RCPAREN)
+            result = process(token.value, ops, args, self.source)
+            return result
+        elif self.current_token.type == Tokens.EVENT_DEFINE and self.context.context_lvl == 0:
+            self.eat(Tokens.EVENT_DEFINE)
+            token = self.current_token
+            self.eat(Tokens.SUBSTRING)
+            self.eat(Tokens.LCPAREN)
+            self.context.next_lvl()
+            while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
+                if (a := self.statement()) is not None:
+                    self.context.add_operation(a)
+                self.context.update()
+            ops = self.context.get_operations()
+            self.context.previous_lvl()
+            self.eat(Tokens.RCPAREN)
+            return event(token.value, ops, self.source)
+        elif self.current_token.type == Tokens.IF:
+            token = self.current_token
+            self.eat(Tokens.IF)
+            main_condition = self.expr()
+            self.eat(Tokens.LCPAREN)
+            self.context.next_lvl()
+            while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
+                if (a := self.statement()) is not None:
+                    self.context.add_operation(a)
+                self.context.update()
+            main_ops = self.context.get_operations()
+            self.context.previous_lvl()
+            ending_pos = self.current_token.ending_pos
+            self.eat(Tokens.RCPAREN)
+            eli = []
+            if self.current_token.type == Tokens.ELIF:
+                while (self.current_token.type != Tokens.EOF) and (self.current_token.type == Tokens.ELIF):
+                    self.eat(Tokens.ELIF)
+                    condition = self.expr()
+                    self.eat(Tokens.LCPAREN)
+                    self.context.next_lvl()
+                    while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
+                        if (a := self.statement()) is not None:
+                            self.context.add_operation(a)
+                        self.context.update()
+                    ops = self.context.get_operations()
+                    self.context.previous_lvl()
+                    ending_pos = self.current_token.ending_pos
+                    self.eat(Tokens.RCPAREN)
+                    eli.append([condition, ops])
+            els = []
+            if self.current_token.type == Tokens.ELSE:
+                self.eat(Tokens.ELSE)
+                self.eat(Tokens.LCPAREN)
+                self.context.next_lvl()
+                while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
+                    if (a := self.statement()) is not None:
+                        self.context.add_operation(a)
+                    self.context.update()
+                els.extend(self.context.get_operations())
+                self.context.previous_lvl()
+                ending_pos = self.current_token.ending_pos
+                self.eat(Tokens.RCPAREN)
+            return if_(main_condition, main_ops, eli, els, token.starting_pos, ending_pos, self.source)
+        elif self.current_token.type == Tokens.RETURN and self.context.settings["allow_returns"] is not None:
+            starting_pos = self.current_token.starting_pos
+            self.eat(Tokens.RETURN)
+            obj = self.expr()
+            return return_(obj, starting_pos, obj.ending_pos, self.source,
+                           in_var=self.context.settings["allow_returns"])
+        else:
+            variables = self.get_vars()
+            if len(variables) == 1:
+                if variables[0].is_independent():
+                    return variables[0]
+            if len(variables) > 0:
+                if self.current_token.type == Tokens.ASSIGN:
+                    self.eat(Tokens.ASSIGN)
+                    assign_type = None
+                elif self.current_token.type == Tokens.PLUS_ASSIGN:
+                    self.eat(Tokens.PLUS_ASSIGN)
+                    assign_type = "__add__"
+                elif self.current_token.type == Tokens.MINUS_ASSIGN:
+                    self.eat(Tokens.MINUS_ASSIGN)
+                    assign_type = "__minus__"
+                elif self.current_token.type == Tokens.MULTIPLY_ASSIGN:
+                    self.eat(Tokens.MULTIPLY_ASSIGN)
+                    assign_type = "__subtract__"
+                elif self.current_token.type == Tokens.DIVIDE_ASSIGN:
+                    self.eat(Tokens.DIVIDE_ASSIGN)
+                    assign_type = "__divide__"
+                elif self.current_token.type == Tokens.PR_ASSIGN:
+                    self.eat(Tokens.PR_ASSIGN)
+                    assign_type = "__remainder__"
+                elif self.current_token.type == Tokens.DEG_ASSIGN:
+                    self.eat(Tokens.DEG_ASSIGN)
+                    assign_type = "__pow__"
+                else:
+                    for i3 in variables:
+                        if i3.type == "variable":
+                            if i3.value_type is not None:
+                                self.context.set_variable_type(i3.var_type, i3.value, i3.value_type)
+                    return
+                obj = self.expr()
+                return assign(variables, assign_type, obj, variables[0].starting_pos, obj.ending_pos, self.source)
+
+        return self.expr()
+
+    def parse(self):
+        while self.current_token.type != Tokens.EOF:
+            if (jmcc_obj := self.statement()) is not None:
+                self.context.add_operation(jmcc_obj)
+            self.context.update()
+        self.context.compiled = True
+        if self.context.get_property("create_world_restart_function", False):
+            cringe = {"start": [], "stop": [], "join": [], "quit": []}
+            for i1 in self.context.get_operations():
+                if i1.type == "event":
+                    if i1.name == "world_start":
+                        cringe["start"].append(i1.operations)
+                    elif i1.name == "world_stop":
+                        cringe["stop"].append(i1.operations)
+                    elif i1.name == "player_join":
+                        new_ops = []
+                        for op in i1.operations:
+                            if not (op.type == "action" and op.object == "world" and op.name == "hide_event_message"):
+                                new_ops.append(op)
+                        cringe["join"].append(new_ops)
+                    elif i1.name == "player_quit":
+                        new_ops = []
+                        for op in i1.operations:
+                            if not (op.type == "action" and op.object == "world" and op.name == "hide_event_message"):
+                                new_ops.append(op)
+                        cringe["quit"].append(new_ops)
+            self.context.next_lvl()
+            self.context.add_operations(
+                [action("code", "wait", calling_args([number(20, -1, -1, None)], {}, -1, -1, None), -1, -1, None)])
+            waiter_ops = self.context.get_operations()
+            self.context.previous_lvl()
+            waiter = action("repeat", "while",
+                            calling_args([], {"conditional": action("variable", "greater_or_equals", calling_args(
+                                [value("cpu_usage", -1, -1, None), number(40, -1, -1, None)], {}, -1, -1, None), -1, -1,
+                                                                    None)}, -1, -1, None), -1, -1, None,
+                            operations=waiter_ops)
+            self.context.next_lvl()
+            self.context.next_lvl()
+            quit_ops = []
+            for i1 in cringe["quit"]:
+                quit_ops.append(action("variable", "purge", calling_args(
+                    [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
+                     enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
+                                       -1, -1, None))
+                quit_ops.extend(i1)
+                quit_ops.append(waiter)
+            quit_ops.append(
+                action("player", "clear_inventory", calling_args([enum_("ENTIRE", -1, -1, None)], {}, -1, -1, None), -1,
+                       -1, None, selector="default_player"))
+            quit_ops.append(
+                action("player", "teleport", calling_args(
+                    [value("spawn_location", -1, -1, None), enum_("FALSE", -1, -1, None), enum_("FALSE", -1, -1, None),
+                     enum_("TRUE", -1, -1, None)], {}, -1, -1, None), -1,
+                       -1, None, selector="default_player"))
+            self.context.add_operations(quit_ops)
+            quit_ops = self.context.get_operations()
+            self.context.previous_lvl()
+            self.context.next_lvl()
+            join_ops = []
+            for i1 in cringe["join"]:
+                join_ops.append(action("variable", "purge", calling_args(
+                    [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
+                     enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
+                                       -1, -1, None))
+                join_ops.extend(i1)
+                join_ops.append(waiter)
+            self.context.add_operations(join_ops)
+            join_ops = self.context.get_operations()
+            self.context.previous_lvl()
+            player_quit_process = f"jmcc.{new('process')}"
+            player_join_process = f"jmcc.{new('process')}"
+            ops = [action("select", "all_players", calling_args([], {}, -1, -1, None), -1, -1, None),
+                   action("code", "start_process", calling_args([], {
+                       "process_name": text(player_quit_process, Texts.LEGACY, -1, -1, None),
+                       "target_mode": enum_("FOR_EACH_IN_SELECTION", -1, -1, None),
+                       "local_variables_mode": enum_("DONT_COPY", -1, -1, None)}, -1, -1, None), -1, -1, None)]
+            player_quit = process(player_quit_process, quit_ops, calling_args([], {}, -1, -1, None), self.source)
+            player_join = process(player_join_process, join_ops, calling_args([], {}, -1, -1, None), self.source)
+            for i1 in cringe["stop"]:
+                ops.append(action("variable", "purge", calling_args(
+                    [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
+                     enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
+                                  -1, -1, None))
+                ops.extend(i1)
+                ops.append(waiter)
+            ops.append(
+                action("code", "wait", calling_args([number(5, -1, -1, None)], {}, -1, -1, None), -1, -1, None))
+            ops.append(action("variable", "purge", calling_args(
+                [text("", Texts.PLAIN, -1, -1, None), enum_("GAME", -1, -1, None),
+                 enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
+                              -1, -1, None))
+            ops.append(
+                action("player", "message", calling_args(
+                    [text("&9Creative &8» &fМир запущен в режиме строительства", Texts.LEGACY, -1, -1, None)], {}, -1,
+                    -1, None), -1, -1, None, selector="all_players"))
+            ops.append(
+                action("code", "wait", calling_args([number(95, -1, -1, None)], {}, -1, -1, None), -1, -1, None))
+            ops.append(waiter)
+            ops.append(
+                action("player", "message", calling_args(
+                    [text("&9Creative &8» &fМир запущен в режиме игры", Texts.LEGACY, -1, -1, None)], {}, -1,
+                    -1, None), -1, -1, None, selector="all_players"))
+            for i1 in cringe["start"]:
+                ops.append(action("variable", "purge", calling_args(
+                    [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
+                     enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
+                                  -1, -1, None))
+                ops.extend(i1)
+                ops.append(waiter)
+            ops.append(action("variable", "purge", calling_args(
+                [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
+                 enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
+                              -1, -1, None))
+            ops.extend([action("select", "all_players", calling_args([], {}, -1, -1, None), -1, -1, None),
+                        action("code", "start_process", calling_args([], {
+                            "process_name": text(player_join_process, Texts.LEGACY, -1, -1, None),
+                            "target_mode": enum_("FOR_EACH_IN_SELECTION", -1, -1, None),
+                            "local_variables_mode": enum_("DONT_COPY", -1, -1, None)}, -1, -1, None), -1, -1, None)])
+            self.context.add_operations(ops)
+            ops = self.context.get_operations()
+            self.context.previous_lvl()
+            a = function("world_restart", ops, calling_args([], {}, -1, -1, None), self.source)
+            self.context.add_operation(player_join)
+            self.context.add_operation(player_quit)
+            self.context.add_operation(a)
+            self.context.update()
+        return self.context
+
+
+class Context:
+    context = {}
+
+    def __init__(self, source):
+        self.source = source
+        if self.source not in self.context:
+            self.context[self.source] = {"context_lvl": 0, 0: {"operations": [], "variables": {},
+                                                               "vars": {0: {}, 1: {}, 2: {}, 3: {}, 4: {}},
+                                                               "inline_vars": {}, "callable": {}},
+                                         "settings": {"allow_returns": None},
+                                         "cur_context": {"operations": [], "variables": {},
+                                                         "vars": {0: {}, 1: {}, 2: {}, 3: {}, 4: {}}, "inline_vars": {},
+                                                         "callable": {}},
+                                         "compiled": False,
+                                         "properties": {}}
+
+    @property
+    def cur_context(self):
+        return self.context[self.source]["cur_context"]
+
+    @cur_context.setter
+    def cur_context(self, val):
+        self.context[self.source]["cur_context"] = val
+
+    @property
+    def context_lvl(self):
+        return self.context[self.source]["context_lvl"]
+
+    @property
+    def compiled(self):
+        return self.context[self.source]["compiled"]
+
+    @compiled.setter
+    def compiled(self, val):
+        self.context[self.source]["compiled"] = val
+
+    @context_lvl.setter
+    def context_lvl(self, val):
+        self.context[self.source]["context_lvl"] = val
+
+    @property
+    def settings(self):
+        return self.context[self.source]["settings"]
+
+    @settings.setter
+    def settings(self, val):
+        self.context[self.source]["settings"] = val
+
+    def add_operation(self, jmcc_obj):
+        if jmcc_obj.is_independent():
+            if jmcc_obj.is_simple():
+                if self.context_lvl == 0 and not (jmcc_obj.type in ("function", "process", "event")):
+                    if len(self.cur_context["operations"]) == 0:
+                        self.cur_context["operations"].append(event("world_start", [], self.source))
+                    elif self.cur_context["operations"][0].type != "event":
+                        self.cur_context["operations"].insert(0, event("world_start", [], self.source))
+                    elif self.cur_context["operations"][0].name != "world_start":
+                        self.cur_context["operations"].insert(0, event("world_start", [], self.source))
+                    self.cur_context["operations"][0].operations.append(jmcc_obj)
+                else:
+                    self.cur_context["operations"].append(jmcc_obj)
+            else:
+                prev_ops, cur_op, next_ops = jmcc_obj.simplify()
+                self.add_operations(prev_ops)
+                self.add_operation(cur_op)
+                self.add_operations(next_ops)
+
+    def add_operations(self, lst1):
+        for jmc_obj in lst1:
+            self.add_operation(jmc_obj)
+
+    def get_operations(self):
+        return self.context[self.source][self.context_lvl]["operations"]
+
+    def clear_operations(self):
+        self.context[self.source][self.context_lvl]["operations"] = []
+
+    def set_variable(self, var_name, var_type):
+        self.cur_context["variables"][var_name] = var_type
+
+    def set_properties(self, properties):
+        self.context[self.source]["properties"] = properties
+
+    def get_property(self, prop, default=None):
+        if prop in self.context[self.source]["properties"]:
+            return self.context[self.source]["properties"][prop]
+        return default
+
+    def get_properties(self):
+        return self.context[self.source]["properties"]
+
+    def has_variable(self, var_name):
+        return var_name in self.context[self.source][self.context_lvl]["variables"]
+
+    def get_variable(self, var_name):
+        if var_name not in self.context[self.source][self.context_lvl]["variables"]:
+            return
+        return self.context[self.source][self.context_lvl]["variables"][var_name]
+
+    def get_variables(self):
+        return self.context[self.source][self.context_lvl]["variables"]
+
+    def set_variable_type(self, var_type, var_name, value_type):
+        self.cur_context["vars"][var_type][var_name] = value_type
+
+    def get_variable_type(self, var_type, var_name):
+        if var_name not in self.context[self.source][self.context_lvl]["vars"][var_type]:
+            return
+        return self.context[self.source][self.context_lvl]["vars"][var_type][var_name]
+
+    def set_inline(self, var_name, var_object):
+        self.cur_context["inline_vars"][var_name] = var_object
+
+    def get_inline(self, var_name):
+        if var_name not in self.context[self.source][self.context_lvl]["inline_vars"]:
+            return
+        return self.context[self.source][self.context_lvl]["inline_vars"][var_name]
+
+    def has_inline(self, var_name):
+        return var_name in self.context[self.source][self.context_lvl]["inline_vars"]
+
+    def get_inlines(self):
+        return self.context[self.source][self.context_lvl]["inline_vars"]
+
+    def set_special(self, var_name, var_object):
+        self.cur_context["callable"][var_name] = var_object
+
+    def get_special(self, var_name):
+        if var_name not in self.context[self.source][self.context_lvl]["callable"]:
+            return
+        return self.context[self.source][self.context_lvl]["callable"][var_name]
+
+    def has_special(self, var_name):
+        return var_name in self.context[self.source][self.context_lvl]["callable"]
+
+    def get_specials(self):
+        return self.context[self.source][self.context_lvl]["callable"]
+
+    def next_lvl(self):
+        self.context_lvl += 1
+        self.context[self.source][self.context_lvl] = self.context[self.source][
+            self.context_lvl - 1].copy()
+        self.context[self.source][self.context_lvl]["operations"] = []
+        self.cur_context = self.context[self.source][self.context_lvl].copy()
+
+    def previous_lvl(self):
+        del self.context[self.source][self.context_lvl]
+        self.context_lvl -= 1
+        if self.context_lvl not in self.context[self.source]:
+            self.context[self.source][self.context_lvl] = {"operations": [], "variables": {},
+                                                           "vars": {0: {}, 1: {}, 2: {}, 3: {}, 4: {}},
+                                                           "inline_vars": {},
+                                                           "callable": {}}
+        self.cur_context = self.context[self.source][self.context_lvl].copy()
+
+    def update(self):
+        self.context[self.source][self.context_lvl] = self.cur_context
+
+    def get_json(self):
+        json_obj = {"handlers": []}
+        for i1 in self.context[self.source][self.context_lvl]["operations"]:
+            if i1.is_simple():
+                json_obj["handlers"].append(i1.json())
+            else:
+                prev_ops, cur_op, next_ops = i1.simplify()
+                for i2 in prev_ops:
+                    json_obj["handlers"].append(i2.json())
+                if cur_op.is_independant():
+                    json_obj["handlers"].append(cur_op.json())
+                for i2 in next_ops:
+                    json_obj["handlers"].append(i2.json())
+        return json_obj
+
+    def extend(self, another_context):
+        self.context[self.source]["cur_context"]["variables"].update(
+            another_context.context[another_context.source][another_context.context_lvl]["variables"])
+        self.context[self.source]["cur_context"]["vars"][0].update(
+            another_context.context[another_context.source][another_context.context_lvl]["vars"][0])
+        self.context[self.source]["cur_context"]["vars"][1].update(
+            another_context.context[another_context.source][another_context.context_lvl]["vars"][1])
+        self.context[self.source]["cur_context"]["vars"][2].update(
+            another_context.context[another_context.source][another_context.context_lvl]["vars"][2])
+        self.context[self.source]["cur_context"]["vars"][3].update(
+            another_context.context[another_context.source][another_context.context_lvl]["vars"][3])
+        self.context[self.source]["cur_context"]["vars"][4].update(
+            another_context.context[another_context.source][another_context.context_lvl]["vars"][4])
+        self.context[self.source]["cur_context"]["inline_vars"].update(
+            another_context.context[another_context.source][another_context.context_lvl]["inline_vars"])
+        self.context[self.source]["cur_context"]["callable"].update(
+            another_context.context[another_context.source][another_context.context_lvl]["callable"])
+        if len(self.context[self.source]["cur_context"]["operations"]) == 0:
+            self.context[self.source]["cur_context"]["operations"].append(event("world_start", [], self.source))
+        elif self.context[self.source]["cur_context"]["operations"][0].type != "event":
+            self.context[self.source]["cur_context"]["operations"].insert(0, event("world_start", [], self.source))
+        elif self.context[self.source]["cur_context"]["operations"][0].name != "world_start":
+            self.context[self.source]["cur_context"]["operations"].insert(0, event("world_start", [], self.source))
+        if len(another_context.context[another_context.source][another_context.context_lvl]["operations"]) == 0:
+            another_context.context[another_context.source][another_context.context_lvl]["operations"].append(
+                event("world_start", [], self.source))
+        elif another_context.context[another_context.source][another_context.context_lvl]["operations"][
+            0].type != "event":
+            another_context.context[another_context.source][another_context.context_lvl]["operations"].insert(0, event(
+                "world_start", [], self.source))
+        elif another_context.context[another_context.source][another_context.context_lvl]["operations"][
+            0].name != "world_start":
+            another_context.context[another_context.source][another_context.context_lvl]["operations"].insert(0, event(
+                "world_start", [], self.source))
+        self.context[self.source]["cur_context"]["operations"][0].operations.extend(
+            another_context.context[another_context.source][another_context.context_lvl]["operations"].pop(
+                0).operations)
+        self.context[self.source]["cur_context"]["operations"].extend(
+            another_context.context[another_context.source][another_context.context_lvl]["operations"])
+
+    def __str__(self):
+        return f"Context: {self.context}"
+
+    def __repr__(self):
+        return self.__str__()
+
+
+class default_jmcc_object:
+    starting_pos = 0
+    ending_pos = 0
+    source = None
+    type = None
+    simplify = None
+
+    @staticmethod
+    def is_simple():
+        return True
+
+    @staticmethod
+    def is_independent():
+        return False
+
+    json = None
+
+
+class number:
+    type = "number"
+
+    def __init__(self, val: float, starting_pos: int, ending_pos: int, source: str):
+        self.value = val
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+
+    def __str__(self):
+        return f'number({self.value})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return False
+
+    @staticmethod
+    def is_simple():
+        return True
+
+    def json(self):
+        return {"type": "number", "number": self.value}
+
+
+class Texts:
+    NONE: int = -1
+    LEGACY: int = 0
+    PLAIN: int = 1
+    MINIMESSAGE: int = 2
+    JSON: int = 3
+    changer = {-1: "NONE", 0: "LEGACY", 1: "PLAIN", 2: "MINIMESSAGE", 3: "JSON"}
+
+
+class text:
+    type = "text"
+
+    def __init__(self, val: str, val_type: int, starting_pos: int, ending_pos: int, source: str):
+        self.value = val
+        self.value_type = val_type
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+
+    def __str__(self):
+        return f'text(\"{self.value}\",{self.value_type})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return False
+
+    @staticmethod
+    def is_simple():
+        return True
+
+    def json(self):
+        return {"type": "text", "text": self.value, "parsing": Texts.changer[self.value_type].lower()}
+
+
+class lst:
+    type = "array"
+
+    def __init__(self, vals, starting_pos: int, ending_pos: int, source: str):
+        self.values = list(vals)
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        self.simple = False
+
+    def __str__(self):
+        return f'lst({self.values})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return False
+
+    def is_simple(self):
+        return self.simple
+
+    def simplify(self, mode=None, work_with=None, len_limit=None):
+        new_lst = []
+        previous_operations = []
+        next_operations = []
+        for val in self.values:
+            if val.is_simple():
+                new_lst.append(val)
+            else:
+                prev_ops, cur_op, next_ops = val.simplify(mode=0)
+                prev_ops.extend(previous_operations)
+                previous_operations = prev_ops
+                next_operations.extend(next_ops)
+                new_lst.append(cur_op)
+        self.values = new_lst
+        self.simple = True
+        if mode == 0 or (len_limit is not None and (len(new_lst) > len_limit)):
+            if isinstance(work_with, var):
+                current_operation = work_with
+            else:
+                current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos,
+                                        self.source)
+            current_operation.value_type = "array"
+            Context(self.source).set_variable_type(current_operation.var_type, current_operation.value,
+                                                   current_operation.value_type)
+            if len_limit is not None:
+                len_limit = actions["variable::create_list"]["args"][1]["array"]
+                self.values = new_lst[:len_limit]
+                del new_lst[:len_limit]
+                previous_operations.append(action("variable", "create_list",
+                                                  calling_args([], {"variable": current_operation,
+                                                                    "values": lst(self.values, self.starting_pos,
+                                                                                  self.ending_pos, self.source)},
+                                                               self.starting_pos,
+                                                               self.ending_pos, self.source), self.starting_pos,
+                                                  self.ending_pos, self.source))
+                len_limit = actions["variable::append_value"]["args"][1]["array"]
+                while len(new_lst) > len_limit:
+                    self.values = new_lst[:len_limit]
+                    del new_lst[:len_limit]
+                    previous_operations.append(action("variable", "append_value",
+                                                      calling_args([], {"variable": current_operation,
+                                                                        "values": lst(self.values, self.starting_pos,
+                                                                                      self.ending_pos, self.source)},
+                                                                   self.starting_pos,
+                                                                   self.ending_pos, self.source), self.starting_pos,
+                                                      self.ending_pos, self.source))
+                self.values = new_lst
+                if len(self.values) > 0:
+                    previous_operations.append(action("variable", "append_value",
+                                                      calling_args([], {"variable": current_operation,
+                                                                        "values": lst(self.values, self.starting_pos,
+                                                                                      self.ending_pos, self.source)},
+                                                                   self.starting_pos,
+                                                                   self.ending_pos, self.source), self.starting_pos,
+                                                      self.ending_pos, self.source))
+
+            else:
+                previous_operations.append(action("variable", "create_list",
+                                                  calling_args([], {"variable": current_operation,
+                                                                    "values": lst(self.values, self.starting_pos,
+                                                                                  self.ending_pos, self.source)},
+                                                               self.starting_pos,
+                                                               self.ending_pos, self.source), self.starting_pos,
+                                                  self.ending_pos, self.source))
+        else:
+            self.values = new_lst
+            current_operation = self
+        return previous_operations, current_operation, next_operations
+
+    def json(self):
+        return {"type": "array", "values": [i3.json() for i3 in self.values]}
+
+
+class dct:
+    type = "map"
+
+    def __init__(self, keys, val, starting_pos: int, ending_pos: int, source: str):
+        self.keys = list(keys)
+        self.values = list(val)
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+
+    def __str__(self):
+        return f'dct(keys={self.keys},values={self.values})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return False
+
+    @staticmethod
+    def is_simple():
+        return False
+
+    def json(self):
+        return {"type": "map", "keys": [i3.json() for i3 in self.keys],
+                "values": [i3.json() for i3 in self.values]}
+
+    def simplify(self, mode=None, work_with=None):
+        new_keys = []
+        new_values = []
+        previous_operations = []
+        next_operations = []
+        for key in self.keys:
+            if key.is_simple():
+                new_keys.append(key)
+            else:
+                prev_ops, cur_op, next_ops = key.simplify(mode=0)
+                prev_ops.extend(previous_operations)
+                previous_operations = prev_ops
+                next_operations.extend(next_ops)
+                new_keys.append(cur_op)
+        self.keys = new_keys
+        for val in self.values:
+            if val.is_simple():
+                new_values.append(val)
+            else:
+                prev_ops, cur_op, next_ops = val.simplify(mode=0)
+                prev_ops.extend(previous_operations)
+                previous_operations = prev_ops
+                next_operations.extend(next_ops)
+                new_values.append(cur_op)
+        self.values = new_values
+        if mode == 0:
+            if isinstance(work_with, var):
+                current_operation = work_with
+            else:
+                current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos,
+                                        self.source)
+            current_operation.value_type = "map"
+            Context(self.source).set_variable_type(current_operation.var_type, current_operation.value,
+                                                   current_operation.value_type)
+            len_limit = actions["variable::create_map_from_values"]["args"][1]["array"]
+            if len(self.keys) > len_limit:
+                len_limit = actions["variable::create_list"]["args"][1]["array"]
+                self.keys = new_keys[:len_limit]
+                del new_keys[:len_limit]
+                self.values = new_values[:len_limit]
+                del new_values[:len_limit]
+                var1 = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
+                var2 = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
+                previous_operations.append(action("variable", "create_list",
+                                                  calling_args([], {"variable": var1, "values":
+                                                      lst(self.keys, self.starting_pos, self.ending_pos,
+                                                          self.source)},
+                                                               self.starting_pos, self.ending_pos, self.source),
+                                                  self.starting_pos, self.ending_pos, self.source))
+                previous_operations.append(action("variable", "create_list",
+                                                  calling_args([], {"variable": var2, "values":
+                                                      lst(self.values, self.starting_pos, self.ending_pos,
+                                                          self.source)},
+                                                               self.starting_pos, self.ending_pos, self.source),
+                                                  self.starting_pos, self.ending_pos, self.source))
+                len_limit = actions["variable::append_value"]["args"][1]["array"]
+                while len(new_keys) > len_limit:
+                    self.keys = new_keys[:len_limit]
+                    del new_keys[:len_limit]
+                    self.values = new_values[:len_limit]
+                    del new_values[:len_limit]
+                    previous_operations.append(action("variable", "append_value",
+                                                      calling_args([], {"variable": var1, "values":
+                                                          lst(self.keys, self.starting_pos, self.ending_pos,
+                                                              self.source)},
+                                                                   self.starting_pos, self.ending_pos, self.source),
+                                                      self.starting_pos, self.ending_pos, self.source))
+                    previous_operations.append(action("variable", "append_value",
+                                                      calling_args([], {"variable": var2, "values":
+                                                          lst(self.values, self.starting_pos, self.ending_pos,
+                                                              self.source)},
+                                                                   self.starting_pos, self.ending_pos, self.source),
+                                                      self.starting_pos, self.ending_pos, self.source))
+                self.keys = new_keys
+                self.values = new_values
+                if len(self.keys) > 0:
+                    previous_operations.append(action("variable", "append_value",
+                                                      calling_args([], {"variable": var1, "values":
+                                                          lst(self.keys, self.starting_pos, self.ending_pos,
+                                                              self.source)},
+                                                                   self.starting_pos, self.ending_pos, self.source),
+                                                      self.starting_pos, self.ending_pos, self.source))
+                    previous_operations.append(action("variable", "append_value",
+                                                      calling_args([], {"variable": var2,
+                                                                        "values": lst(self.values, self.starting_pos,
+                                                                                      self.ending_pos, self.source)},
+                                                                   self.starting_pos,
+                                                                   self.ending_pos, self.source), self.starting_pos,
+                                                      self.ending_pos, self.source))
+                previous_operations.append(action("variable", "create_map",
+                                                  calling_args([], {"variable": current_operation, "keys": var1,
+                                                                    "values": var2},
+                                                               self.starting_pos,
+                                                               self.ending_pos, self.source), self.starting_pos,
+                                                  self.ending_pos, self.source))
+            else:
+                previous_operations.append(action("variable", "create_map_from_values",
+                                                  calling_args([], {"variable": current_operation,
+                                                                    "keys": lst(self.keys, self.starting_pos,
+                                                                                self.ending_pos, self.source),
+                                                                    "values": lst(self.values, self.starting_pos,
+                                                                                  self.ending_pos, self.source)},
+                                                               self.starting_pos,
+                                                               self.ending_pos, self.source), self.starting_pos,
+                                                  self.ending_pos, self.source))
+        else:
+            current_operation = self
+        return previous_operations, current_operation, next_operations
+
+
+class NBT:
+    type = "snbt"
+
+    def __init__(self, val, starting_pos: int, ending_pos: int, source: str):
+        self.value = val
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+
+    def __str__(self):
+        return f'NBT({self.value})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return False
+
+    @staticmethod
+    def is_simple():
+        return False
+
+    def simplify(self, mode=None, work_with=None):
+        if "id" in self.value and "Count" in self.value:
+            return item(calling_args([], {
+                "id": text(self.value["id"].value, Texts.PLAIN, self.starting_pos, self.ending_pos, self.source),
+                "count": number(self.value["Count"].value, self.starting_pos, self.ending_pos, self.source),
+                "nbt": NBT(self.value["tag"], self.starting_pos, self.ending_pos,
+                           self.source) if "tag" in self.value else None},
+                                     self.starting_pos, self.ending_pos, self.source), self.starting_pos,
+                        self.ending_pos, self.source).simplify(mode=mode, work_with=work_with)
+        else:
+            error_from_object(self, "SimplifyError", translate("error.simplifyerror", {0: self}))
+
+
+class Vars:
+    NONE: int = -1
+    LINE: int = 0
+    INLINE: int = 1
+    LOCAL: int = 2
+    GAME: int = 3
+    SAVE: int = 4
+    changer = {-1: "NONE", 0: "LINE", 1: "INLINE", 2: "LOCAL", 3: "GAME", 4: "SAVE"}
+
+
+class var:
+    type = "variable"
+
+    def __init__(self, val: str, val_type: Vars, starting_pos: int, ending_pos: int, source: str, value_type=None):
+        self.value = val
+        self.var_type = val_type
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        self.value_type = value_type
+        self.simple = self.var_type not in {0, 1}
+
+    def __str__(self):
+        return f'var(`{self.value}`,{self.var_type})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return False
+
+    def is_simple(self):
+        return self.simple
+
+    def simplify(self, mode=None, work_with=None):
+        if self.var_type == Vars.INLINE:
+            val = Context(self.source).get_inline(self.value)
+            val.starting_pos = self.starting_pos
+            val.ending_pos = self.ending_pos
+            val.source = self.source
+            if val.is_simple():
+                return [], val, []
+            return val.simplify(mode=0)
+        elif self.var_type == Vars.LINE:
+            self.var_type = Vars.LOCAL
+            self.value = f"{self.value}_%var_local(var_depth)"
+            self.simple = True
+            return [], self, []
+        else:
+            error_from_object(self, "SimplifyError", translate("error.simplifyerror", {0: self}))
+
+    def json(self):
+        return {"type": "variable", "variable": self.value, "scope": Vars.changer[self.var_type].lower()}
+
+
+class calling_args:
+    type = None
+
+    def __init__(self, positional: list, unpositional: dict, starting_pos: int, ending_pos: int,
+                 source: str):
+        self.positional = positional
+        self.unpositional = unpositional
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+
+    def __str__(self):
+        return f'args(`{self.positional}`,{self.unpositional})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    def get_args(self, template: list) -> (dict | default_jmcc_object):
+        args = {i1: None for i1 in template}
+        for k1, v1 in self.unpositional.items():
+            if k1 in args:
+                args[k1] = v1
+            else:
+                error_from_object(self, "ArgumentError", translate("error.argumenterror.argument_with_wrong_name",
+                                                                   {0: k1, 1: ", ".join(
+                                                                       map(lambda x: "'" + str(x) + "'", template))}))
+        positional = self.positional.copy()
+        if len(positional) > 0:
+            for k1, v1 in args.items():
+                if v1 is None:
+                    args[k1] = positional[0]
+                    del positional[0]
+                    if len(positional) == 0:
+                        break
+            if len(positional) > 0:
+                error_from_object(self, "ArgumentError", translate("error.argumenterror.too_many_arguments", {
+                    0: ", ".join(map(lambda x: "'" + str(x) + "'", template))}))
+        return args
+
+    def set_args(self):
+        args = []
+        for i1 in self.positional:
+            if i1.type == "variable":
+                arg = {"id": i1.value, "type": i1.value_type, "optional": None}
+            else:
+                error_from_object(self, "ArgumentError",
+                                  translate("error.argumenterror.wrong_argument", {0: i1, 1: "variable"}))
+                exit()
+            args.append(arg)
+        for k1, v1 in self.unpositional.items():
+            if not v1.is_simple():
+                error_from_object(self, "ArgumentError",
+                                  translate("error.jsonerror.object_isnt_simple", {0: v1}))
+            arg = {"id": k1, "type": v1.type, "optional": v1}
+            args.append(arg)
+        return args
+
+
+class value:
+    type = "value"
+
+    def __init__(self, val: str, starting_pos: int, ending_pos: int, source: str, selector=None, value_type=None):
+        self.value = val
+        self.value_type = value_type
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        self.selector = selector
+
+    def __str__(self):
+        return f'value::{self.value}'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return False
+
+    @staticmethod
+    def is_simple():
+        return True
+
+    def json(self):
+        return {"type": "game_value", "game_value": values[self.value]["id"],
+                "selection": json.dumps({"type": self.selector}) if self.selector is not None else "null"}
+
+
+class action:
+    type = "action"
+
+    def __init__(self, act_obj: str, act_name: str, args: calling_args, starting_pos: int, ending_pos: int,
+                 source: object,
+                 operations=None, lambd=None, selector=None, inver=None, simple=False, conditional=None):
+        self.object = act_obj
+        self.name = act_name
+        self.args = args
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        self.operations = operations
+        self.lambd = lambd
+        self.selector = selector
+        self.invert = inver
+        self.simple = simple
+        self.conditional = conditional
+        self.return_type = set()
+
+    def __str__(self):
+        return f'action({self.object}::{self.name}, {self.args})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return True
+
+    def is_simple(self):
+        return self.simple
+
+    def simplify(self, mode=None, work_with=None):
+        self.args: calling_args
+        if mode == 1:
+            error_from_object(self, "ActionError", translate("error.actionerror.action_cant_be_setter", {0: self}))
+        context = Context(self.source)
+        if actions[self.object + "::" + self.name]["type"].endswith("conditional"):
+            thing = self.args.get_args(["conditional"])["conditional"]
+            a1, thing, a2 = thing.simplify()
+            if not thing.type == "action":
+                error_from_object(thing, "", "ебанутый?")
+            if not actions[thing.object + "::" + thing.name].setdefault("boolean", False):
+                error_from_object(thing, "", "ебанутый?")
+            if len(a1) + len(a2) > 0:
+                error_from_object(thing, "", "ебанутый?")
+            self.conditional = thing
+            self.simple = True
+            self.args = thing.args
+            return [], self, []
+        else:
+            arges = {i1["id"]: i1 for i1 in actions[self.object + "::" + self.name]["args"]}
+            previous_operations = []
+            next_operations = []
+            inline = False
+            if mode == 0:
+                if "assign" in actions[self.object + "::" + self.name]:
+                    if isinstance(work_with, list):
+                        for i2 in range(len(actions[self.object + "::" + self.name]["assign"])):
+                            if i2 < len(work_with):
+                                if work_with[i2].type == "variable" and work_with[i2].var_type == Vars.INLINE:
+                                    inline = True
+                                    break
+                                else:
+                                    self.args.unpositional[
+                                        actions[self.object + "::" + self.name]["assign"][i2]["id"]] = \
+                                        work_with[i2]
+                            else:
+                                break
+                    else:
+                        if not isinstance(work_with, var):
+                            work_with = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos,
+                                            self.source)
+                        self.args.unpositional[actions[self.object + "::" + self.name]["assign"][0]["id"]] = work_with
+
+                elif actions[self.object + "::" + self.name].setdefault("boolean", False):
+                    if not isinstance(work_with, var):
+                        work_with = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos,
+                                        self.source)
+                    previous_operations.append(action("variable", "set_value", calling_args([], {
+                        "variable": work_with, "value": number(0, self.starting_pos, self.ending_pos, self.source)},
+                                                                                            self.starting_pos,
+                                                                                            self.ending_pos,
+                                                                                            self.source),
+                                                      self.starting_pos, self.ending_pos, self.source))
+                    nani, cur_thing, nani2 = action("variable", "set_value", calling_args([], {
+                        "variable": work_with, "value": number(1, self.starting_pos, self.ending_pos, self.source)},
+                                                                                          self.starting_pos,
+                                                                                          self.ending_pos,
+                                                                                          self.source),
+                                                    self.starting_pos, self.ending_pos, self.source).simplify()
+                    if len(nani) + len(nani2) > 0:
+                        error_from_object(self, "", "ебанутый?")
+                    self.operations = [cur_thing]
+                else:
+                    error_from_object(self, "ActionError", translate("error.actionerror.action_has_no_value",
+                                                                     {0: f"{self.object}::{self.name}"}))
+            if "lambda" in actions[self.object + "::" + self.name]:
+                if isinstance(self.lambd, list):
+                    for i2 in range(len(actions[self.object + "::" + self.name]["lambda"])):
+                        if i2 < len(self.lambd):
+                            self.args.unpositional[actions[self.object + "::" + self.name]["lambda"][i2]["id"]] = \
+                                self.lambd[i2]
+                        else:
+                            break
+            load_args = self.args.get_args(list(arges))
+            if (self.object + "::" + self.name) == "variable::set_value":
+                if inline:
+                    if load_args["value"].type == "action":
+                        argis = {i1["id"]: i1 for i1 in
+                                 actions[load_args["value"].object + "::" + load_args["value"].name]["args"]}
+                        new_args = load_args["value"].args.get_args(list(argis))
+                        print(new_args)
+                    context.set_inline(work_with[0].value, load_args["value"])
+                    return [], default_jmcc_object, []
+                if load_args["value"].type in {"array", "map", "subscript", "calling_argument", "calling_function",
+                                               "calling_object", "action"}:
+                    return load_args["value"].simplify(mode=0, work_with=load_args["variable"])
+                if load_args["variable"].type in {"subscript", "calling_argument"}:
+                    return load_args["variable"].simplify(mode=1, work_with=load_args["value"])
+                load_args["variable"].value_type = load_args["value"].type
+            if inline:
+                context.set_inline(work_with[0].value, self)
+                return [], default_jmcc_object, []
+            if (self.object + "::" + self.name) == "variable::create_list":
+                if load_args["values"].type == "array" and len(load_args["values"].values) > arges["values"]["array"]:
+                    return (load_args["values"] if load_args["values"] is not None else
+                            lst([], self.starting_pos, self.ending_pos, self.source)).simplify(
+                        mode=0, work_with=load_args["variable"], len_limit=arges["values"]["array"])
+            if (self.object + "::" + self.name) == "variable::create_map_from_values":
+                if (len(load_args["values"].values) > arges["values"]["array"] and len(load_args["keys"].values) >
+                        arges["keys"]["array"]):
+                    return dct(load_args["keys"].values, load_args["values"].values, self.starting_pos, self.ending_pos,
+                               self.source).simplify(mode=0, work_with=load_args["variable"])
+            args = {}
+            if "assign" in actions[self.object + "::" + self.name]:
+                assigning = {i2["id"]: i2["type"] for i2 in actions[self.object + "::" + self.name]["assign"]}
+            else:
+                assigning = {}
+            v1: default_jmcc_object
+            for k1, v1 in load_args.items():
+                if v1 is None:
+                    if "array" in arges[k1]:
+                        args[k1] = lst([], self.starting_pos, self.ending_pos, self.source)
+                    continue
+                if v1.is_simple():
+                    args[k1] = v1
+                else:
+                    if "array" in arges[k1] and v1.type == "array":
+                        prev_ops, args[k1], next_ops = v1.simplify(len_limit=arges[k1]["array"])
+                    elif arges[k1]["type"] == "variable" and k1 in assigning:
+                        prev_ops, args[k1], next_ops = v1.simplify(mode=1)
+                    else:
+                        prev_ops, args[k1], next_ops = v1.simplify(mode=0)
+                    prev_ops.extend(previous_operations)
+                    previous_operations = prev_ops
+                    next_operations.extend(next_ops)
+                    v1 = args[k1]
+                need_typ = arges[k1]["type"]
+                if args[k1].type == "variable":
+                    if k1 in assigning:
+                        if assigning[k1] != "any":
+                            args[k1].value_type = assigning[k1]
+                            context.set_variable_type(args[k1].var_type, args[k1].value, args[k1].value_type)
+                            self.return_type.add(args[k1].value_type)
+                    if need_typ == "variable":
+                        context.set_variable_type(args[k1].var_type, args[k1].value, args[k1].value_type)
+                        continue
+                if args[k1].type in {"variable", "value"}:
+                    if args[k1].value_type is None:
+                        continue
+                    if args[k1].value_type == "any":
+                        continue
+                    if args[k1].value_type == "text":
+                        continue
+                    if args[k1].value_type == need_typ:
+                        continue
+                if need_typ == "any":
+                    continue
+                if need_typ == "text":
+                    continue
+                if need_typ in ("enum", "boolean"):
+                    if args[k1].type == "text":
+                        possible_enumeration = [i1 for i1 in arges[k1]["values"]] if need_typ == "enum" else ["TRUE",
+                                                                                                              "FALSE"]
+                        if not args[k1].value in possible_enumeration:
+                            error_from_object(args[k1], "ArgumentError", translate("error.argumenterror.unknown_enum",
+                                                                                   {0: args[k1].value, 1: ", ".join(
+                                                                                       map(lambda x: "'" + str(x) + "'",
+                                                                                           possible_enumeration))}))
+                        args[k1] = enum_(args[k1].value, args[k1].starting_pos, args[k1].ending_pos, args[k1].source)
+                        continue
+                    if args[k1].type == "variable":
+                        if need_typ == "enum":
+                            enu = arges[k1]["values"][0]
+                        else:
+                            enu = "FALSE"
+                        args[k1] = enum_(enu, args[k1].starting_pos, args[k1].ending_pos, args[k1].file, args[k1])
+                        continue
+                if need_typ == "block":
+                    if args[k1].type == "block":
+                        continue
+                    if args[k1].type == "item":
+                        args[k1] = block(
+                            calling_args([], {"block": args[k1]["id"]}, args[k1].starting_pos, args[k1].ending_pos,
+                                         args[k1].file), args[k1].starting_pos,
+                            args[k1].ending_pos, args[k1].file)
+                        continue
+                    if args[k1].type == "text":
+                        args[k1] = block(
+                            calling_args([], {"block": args[k1].value}, args[k1].starting_pos, args[k1].ending_pos,
+                                         args[k1].file), args[k1].starting_pos,
+                            args[k1].ending_pos, args[k1].file)
+                        continue
+                if args[k1].type == "text":
+                    continue
+                if need_typ == args[k1].type:
+                    continue
+                if "array" in arges[k1]:
+                    if v1.type == "array":
+                        continue
+                    args[k1] = lst([args[k1]], args[k1].starting_pos, args[k1].ending_pos, args[k1].source)
+                    continue
+                error_from_object(args[k1], "ArgumentError",
+                                  translate("error.argumenterror.wrong_argument", {0: args[k1].type, 1: need_typ}))
+            self.args = args
+            self.simple = True
+            if mode == 0:
+                if isinstance(work_with, list):
+                    work_with = work_with[0]
+                previous_operations.append(self)
+                return previous_operations, work_with, next_operations
+        return previous_operations, self, next_operations
+
+    def json(self):
+        self.args: dict
+        a = {"action": actions[self.object + "::" + self.name]["id"],
+             "values": [{"name": key1, "value": val1.json()} for key1, val1 in self.args.items()]}
+        if self.invert is not None:
+            a["is_inverted"] = self.invert
+        if self.operations is not None:
+            a["operations"] = [i3.json() for i3 in self.operations]
+        if self.selector is not None:
+            a["selection"] = {"type": self.selector}
+        if self.conditional is not None:
+            b = self.conditional.json()
+            del b["values"]
+            if "is_inverted" not in b:
+                b["is_inverted"] = False
+            a["conditional"] = b
+        return a
+
+
+class calling_object:
+    type = "calling_object"
+
+    def __init__(self, val: str, args: calling_args, starting_pos: int, ending_pos: int, source: str):
+        self.value = val
+        self.args = args
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+
+    def __str__(self):
+        return f'calling_object({self.value}, {self.args})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return True
+
+    @staticmethod
+    def is_simple():
+        return False
+
+    def change(self):
+        if self.value == "item":
+            return item(self.args, self.starting_pos, self.ending_pos, self.source)
+        elif self.value == "sound":
+            return sound(self.args, self.starting_pos, self.ending_pos, self.source)
+        elif self.value == "vector":
+            return vector(self.args, self.starting_pos, self.ending_pos, self.source)
+        elif self.value == "location":
+            return location(self.args, self.starting_pos, self.ending_pos, self.source)
+        elif self.value == "particle":
+            return particle(self.args, self.starting_pos, self.ending_pos, self.source)
+        elif self.value == "potion":
+            return potion(self.args, self.starting_pos, self.ending_pos, self.source)
+        return self
+
+    def simplify(self, mode=None, work_with=None):
+        if mode == 1:
+            error_from_object(self, "ActionError", translate("error.actionerror.action_cant_be_setter", {0: self}))
+        context = Context(self.source)
+        if context.has_special(self.value):
+            pass
+        elif self.value == "item":
+            return item(self.args, self.starting_pos, self.ending_pos, self.source).simplify(mode=mode,
+                                                                                             work_with=work_with)
+        elif self.value == "sound":
+            return sound(self.args, self.starting_pos, self.ending_pos, self.source).simplify(mode=mode,
+                                                                                              work_with=work_with)
+        elif self.value == "vector":
+            return vector(self.args, self.starting_pos, self.ending_pos, self.source).simplify(mode=mode,
+                                                                                               work_with=work_with)
+        elif self.value == "location":
+            return location(self.args, self.starting_pos, self.ending_pos, self.source).simplify(mode=mode,
+                                                                                                 work_with=work_with)
+        elif self.value == "particle":
+            return particle(self.args, self.starting_pos, self.ending_pos, self.source).simplify(mode=mode,
+                                                                                                 work_with=work_with)
+        elif self.value == "potion":
+            return potion(self.args, self.starting_pos, self.ending_pos, self.source).simplify(mode=mode,
+                                                                                               work_with=work_with)
+        else:
+            error_from_object(self, "ActionError",
+                              translate("error.actionerror.unexists_calling_object", {0: self.value}))
+        special = context.get_special(self.value)
+        previous_operations = []
+        next_operations = []
+        arges = {i1["id"]: i1 for i1 in special["args"]}
+        args = {}
+        for k1, v1 in self.args.get_args(list(arges)).items():
+            if v1 is None:
+                v1 = arges[k1]["optional"]
+                if v1 is None:
+                    error_from_object(self, "ArgumentError",
+                                      translate("error.argumenterror.argument_is_not_specified", {0: k1}))
+            if v1.is_simple():
+                args[k1] = v1
+            else:
+                prev_ops, args[k1], next_ops = v1.simplify(mode=0)
+                prev_ops.extend(previous_operations)
+                previous_operations = prev_ops
+                next_operations.extend(next_ops)
+            if not (args[k1].type == "variable" and args[k1].value == k1):
+                previous_operations.append(action("variable", "set_value", calling_args([], {
+                    "variable": var(k1, Vars.LOCAL, self.starting_pos, self.ending_pos, self.source), "value": args[k1]},
+                                                                                        self.starting_pos,
+                                                                                        self.ending_pos,
+                                                                                        self.source), self.starting_pos,
+                                                  self.ending_pos, self.source))
+            need_typ = arges[k1]["type"]
+            if need_typ is None:
+                continue
+            if "array" in arges[k1]:
+                if args[k1].type == "array":
+                    continue
+                args[k1] = lst([args[k1]], args[k1].starting_pos, args[k1].ending_pos, args[k1].file)
+            if args[k1].type == "variable":
+                if args[k1].value_type is None:
+                    continue
+                if args[k1].value_type == "any":
+                    continue
+                if args[k1].value_type == "text":
+                    continue
+                if args[k1].value_type == need_typ:
+                    continue
+            if need_typ == "any":
+                continue
+            if need_typ == "text":
+                continue
+            if need_typ == "variable" and args[k1].type == "variable":
+                context.set_variable_type(args[k1].var_type, args[k1].value, args[k1].value_type)
+                continue
+            if need_typ == args[k1].type:
+                continue
+            error_from_object(args[k1], "ArgumentError",
+                              translate("error.argumenterror.wrong_argument", {0: args[k1].type, 1: need_typ}))
+
+        if special["type"] == "function":
+            if special["inline"]:
+                previous_operations.extend(special["operations"])
+            else:
+                previous_operations.append(action("code", "call_function", calling_args([], {
+                    "function_name": text(self.value, Texts.LEGACY, self.starting_pos, self.ending_pos, self.source)},
+                                                                                        self.starting_pos,
+                                                                                        self.ending_pos,
+                                                                                        self.source), self.starting_pos,
+                                                  self.ending_pos, self.source))
+            if mode == 0:
+                if not isinstance(work_with, var):
+                    work_with = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
+                previous_operations.append(action("variable", "set_value", calling_args([], {
+                    "variable": work_with, "value": special["return_var"]}, self.starting_pos, self.ending_pos,
+                                                                                        self.source),
+                                                  self.starting_pos, self.ending_pos, self.source))
+                return previous_operations, work_with, next_operations
+        elif special["type"] == "process":
+            previous_operations.append(action("code", "start_process", calling_args([], {
+                "process_name": text(self.value, Texts.LEGACY, self.starting_pos, self.ending_pos, self.source),
+                "target_mode": enum_("CURRENT_TARGET", self.starting_pos, self.ending_pos, self.source),
+                "local_variables_mode": enum_("COPY", self.starting_pos, self.ending_pos, self.source)},
+                                                                                    self.starting_pos,
+                                                                                    self.ending_pos,
+                                                                                    self.source), self.starting_pos,
+                                              self.ending_pos, self.source))
+            if mode == 0:
+                error_from_object(self, "ActionError", translate("error.actionerror.action_has_no_value", {0: self}))
+        else:
+            error_from_object(self, "","Не поддерживается")
+        return previous_operations, default_jmcc_object, next_operations
+
+
+class calling_argument:
+    type = "calling_argument"
+
+    def __init__(self, obj: object, arg: str, starting_pos: int, ending_pos: int, source: str):
+        self.object = obj
+        self.arg = arg
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        error_from_object(self, "","Не поддерживается")
+
+    def __str__(self):
+        return f'call_argument({self.object}, {self.arg})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return False
+
+    @staticmethod
+    def is_simple():
+        return False
+
+
+class calling_function:
+    type = "calling_function"
+
+    def __init__(self, obj: default_jmcc_object, val: str, args: calling_args, starting_pos: int, ending_pos: int,
+                 source: str):
+        self.object = obj
+        self.value = val
+        self.args = args
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+
+    def __str__(self):
+        return f'call_function({self.object}, {self.value}, {self.args})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return True
+
+    @staticmethod
+    def is_simple():
+        return False
+
+    def simplify(self, mode=None, work_with=None):
+        previous_operations = []
+        next_operations = []
+        if mode == 0 or mode is None:
+            if not isinstance(work_with, var):
+                work_with = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
+            if self.value in {"__or__", "__and__"}:
+                if not self.args.positional[0].is_simple():
+                    prev_ops, self.args.positional[0], next_ops = self.args.positional[0].simplify(mode=0)
+                    prev_ops.extend(previous_operations)
+                    previous_operations = prev_ops
+                    next_operations = next_ops
+                if not ((self.args.positional[0].type == "action") or (
+                        self.args.positional[0].type == "variable" and self.args.positional[0].value_type == "number") or (self.args.positional[0].type == "number")):
+                    error_from_object(self.args.positional[0], "ArgumentError",
+                                      translate("error.argumenterror.wrong_argument",
+                                                {0: self.args.positional[0].type, 1: "boolean"}))
+                if not self.args.positional[1].is_simple():
+                    prev_ops, self.args.positional[1], next_ops = self.args.positional[1].simplify(mode=0)
+                    prev_ops.extend(previous_operations)
+                    previous_operations = prev_ops
+                    next_operations = next_ops
+                if not ((self.args.positional[1].type == "action") or (
+                        (self.args.positional[1].type == "variable") and (
+                        self.args.positional[1].value_type == "number")) or (self.args.positional[1].type == "number")):
+                    error_from_object(self.args.positional[1], "ArgumentError",
+                                      translate("error.argumenterror.wrong_argument",
+                                                {0: self.args.positional[1].type, 1: "boolean"}))
+            if self.value == "__or__":
+                new_var = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
+                previous_operations.append(action("variable", "add", calling_args([], {"variable": new_var,
+                                                                                       "value": lst(
+                                                                                           [self.args.positional[0],
+                                                                                            self.args.positional[1]],
+                                                                                           self.starting_pos,
+                                                                                           self.ending_pos,
+                                                                                           self.source)},
+                                                                                  self.starting_pos, self.ending_pos,
+                                                                                  self.source), self.starting_pos,
+                                                  self.ending_pos, self.source))
+                previous_operations.append(action("variable", "set_value", calling_args([], {"variable": work_with,
+                                                                                             "value": number(0,
+                                                                                                             self.starting_pos,
+                                                                                                             self.ending_pos,
+                                                                                                             self.source)},
+                                                                                        self.starting_pos,
+                                                                                        self.ending_pos, self.source),
+                                                  self.starting_pos, self.ending_pos, self.source))
+                nani, cur_thing, nani2 = action("variable", "set_value", calling_args([], {"variable": work_with,
+                                                                                           "value": number(1,
+                                                                                                           self.starting_pos,
+                                                                                                           self.ending_pos,
+                                                                                                           self.source)},
+                                                                                      self.starting_pos,
+                                                                                      self.ending_pos, self.source),
+                                                self.starting_pos, self.ending_pos, self.source).simplify()
+                nani, cur_thing, nani2 = action("variable", "greater", calling_args([], {"value": new_var,
+                                                                                         "compare": number(0,
+                                                                                                           self.starting_pos,
+                                                                                                           self.ending_pos,
+                                                                                                           self.source)},
+                                                                                    self.starting_pos, self.ending_pos,
+                                                                                    self.source), self.starting_pos,
+                                                self.ending_pos, self.source, operations=[cur_thing]).simplify()
+                previous_operations.append(cur_thing)
+
+                return previous_operations, work_with, next_operations
+            elif self.value == "__and__":
+                new_var = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
+                previous_operations.append(action("variable", "add", calling_args([], {"variable": new_var,
+                                                                                       "value": lst(
+                                                                                           [self.args.positional[0],
+                                                                                            self.args.positional[1]],
+                                                                                           self.starting_pos,
+                                                                                           self.ending_pos,
+                                                                                           self.source)},
+                                                                                  self.starting_pos, self.ending_pos,
+                                                                                  self.source), self.starting_pos,
+                                                  self.ending_pos, self.source))
+                previous_operations.append(action("variable", "set_value", calling_args([], {"variable": work_with,
+                                                                                             "value": number(0,
+                                                                                                             self.starting_pos,
+                                                                                                             self.ending_pos,
+                                                                                                             self.source)},
+                                                                                        self.starting_pos,
+                                                                                        self.ending_pos, self.source),
+                                                  self.starting_pos, self.ending_pos, self.source))
+                nani, cur_thing, nani2 = action("variable", "set_value", calling_args([], {"variable": work_with,
+                                                                                           "value": number(1,
+                                                                                                           self.starting_pos,
+                                                                                                           self.ending_pos,
+                                                                                                           self.source)},
+                                                                                      self.starting_pos,
+                                                                                      self.ending_pos, self.source),
+                                                self.starting_pos, self.ending_pos, self.source).simplify()
+                nani, cur_thing, nani2 = action("variable", "equals", calling_args([], {"value": new_var,
+                                                                                        "compare": lst([number(2,
+                                                                                                               self.starting_pos,
+                                                                                                               self.ending_pos,
+                                                                                                               self.source)],
+                                                                                                       self.starting_pos,
+                                                                                                       self.ending_pos,
+                                                                                                       self.source)},
+                                                                                   self.starting_pos, self.ending_pos,
+                                                                                   self.source), self.starting_pos,
+                                                self.ending_pos, self.source, operations=[cur_thing]).simplify()
+                previous_operations.append(cur_thing)
+
+                return previous_operations, work_with, next_operations
+            elif self.value == "__invert__":
+                self.object.invert = not self.object.invert
+                if self.object.is_simple():
+                    return [], self.object, []
+                else:
+                    return self.object.simplify(mode=mode, work_with=work_with)
+            else:
+                error_from_object(self, "","Не поддерживается")
+        if mode == 1:
+            error_from_object(self, "ActionError", translate("error.actionerror.action_cant_be_setter", {0: self}))
+
+
+class subscript:
+    type = "subscript"
+
+    def __init__(self, obj: object, arg1: number, arg2: number, starting_pos: int, ending_pos: int, source: str):
+        self.object = obj
+        self.arg1 = arg1
+        self.arg2 = arg2
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        error_from_object(self, "", "Не поддерживается")
+
+    def __str__(self):
+        return f'subscript({self.object}, {self.arg1}:{self.arg2})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return False
+
+    @staticmethod
+    def is_simple():
+        return False
+
+
+class if_:
+    type = "if"
+
+    def __init__(self, condition: default_jmcc_object, operations: list, eli: list, els: list, starting_pos: int,
+                 ending_pos: int,
+                 source: str):
+        self.condition = condition
+        self.operations = operations
+        self.eli = eli
+        self.els = els
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+
+    def __str__(self):
+        return f'if({self.condition} {self.operations})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return True
+
+    @staticmethod
+    def is_simple():
+        return False
+
+    def simplify(self):
+        previous_operations = []
+        next_operations = []
+        if not self.condition.is_simple():
+            prev_ops, self.condition, next_ops = self.condition.simplify()
+            prev_ops.extend(previous_operations)
+            previous_operations = prev_ops
+            next_operations.extend(next_ops)
+        if self.condition.type == "action":
+            if not actions[self.condition.object + "::" + self.condition.name].setdefault("boolean", False):
+                error_from_object(self.condition, "ArgumentError", translate("error.argumenterror.expected_boolean"))
+            else:
+                self.condition.operations = self.operations
+            previous_operations.append(self.condition)
+        elif (self.condition.type == "variable" and self.condition.value_type == "number") or (
+                self.condition.type == "number"):
+            nani, self.condition, nani2 = action("variable", "equals", calling_args([], {"value": self.condition,
+                                                                                         "compare": lst([number(1,
+                                                                                                                self.starting_pos,
+                                                                                                                self.ending_pos,
+                                                                                                                self.source)],
+                                                                                                        self.starting_pos,
+                                                                                                        self.ending_pos,
+                                                                                                        self.source)},
+                                                                                    self.starting_pos, self.ending_pos,
+                                                                                    self.source), self.starting_pos,
+                                                 self.ending_pos, self.source).simplify()
+            self.condition.operations = self.operations
+            previous_operations.append(self.condition)
+        else:
+            error_from_object(self.condition, "ArgumentError",
+                              translate("error.argumenterror.wrong_argument", {0: self.condition.type, 1: "boolean"}))
+        if len(self.els) > 0:
+            nani, cur_thing, nani2 = action("code", "else",
+                                            calling_args([], {}, self.starting_pos, self.ending_pos, self.source),
+                                            self.starting_pos, self.ending_pos, self.source,
+                                            operations=self.els).simplify()
+            if len(nani) + len(nani2) > 0:
+                error_from_object(self, "", "ебанутый?")
+        else:
+            cur_thing = None
+        for k, v in self.eli[::-1]:
+            if not k.is_simple():
+                prev_ops, k, next_ops = k.simplify()
+                prev_ops.extend(previous_operations)
+                previous_operations = prev_ops
+                next_operations.extend(next_ops)
+            if k.type == "action":
+                if not actions[k.object + "::" + k.name].setdefault("boolean", False):
+                    error_from_object(k, "ArgumentError",
+                                      translate("error.argumenterror.expected_boolean"))
+                else:
+                    k.operations = v
+            elif (k.type == "variable" and k.value_type == "number") or (
+                    k.type == "number"):
+                nani, k, nani2 = action("variable", "equals", calling_args([], {"value": k,
+                                                                                "compare": lst([number(1,
+                                                                                                       self.starting_pos,
+                                                                                                       self.ending_pos,
+                                                                                                       self.source)],
+                                                                                               self.starting_pos,
+                                                                                               self.ending_pos,
+                                                                                               self.source)},
+                                                                           self.starting_pos,
+                                                                           self.ending_pos,
+                                                                           self.source), self.starting_pos,
+                                        self.ending_pos, self.source).simplify()
+                k.operations = v
+            else:
+                error_from_object(k, "ArgumentError", translate("error.argumenterror.wrong_argument",
+                                                                {0: k.type, 1: "boolean"}))
+            if cur_thing is None:
+                cur_thing = k
+            else:
+                nani, cur_thing, nani2 = action("code", "else",
+                                                calling_args([], {}, self.starting_pos, self.ending_pos,
+                                                             self.source),
+                                                self.starting_pos, self.ending_pos, self.source,
+                                                operations=[k, cur_thing]).simplify()
+                if len(nani) + len(nani2) > 0:
+                    error_from_object(self, "", "ебанутый?")
+        if cur_thing is not None:
+            previous_operations.append(cur_thing)
+        if len(next_operations) > 0:
+            error_from_object(self, "", "ебанутый?")
+        return previous_operations, default_jmcc_object, next_operations
+
+
+class function:
+    type = "function"
+
+    def __init__(self, name: str, operations: list, args: calling_args, source, inline=False, return_var=None):
+        self.name = name
+        while (operations[-1].type == "action") and (
+                operations[-1].object + "::" + operations[-1].name == "code::return_function"):
+            del operations[-1]
+        self.operations = operations
+        self.args = args
+        self.source = source
+        self.inline = inline
+        self.return_var = return_var
+
+    def __str__(self):
+        return f'function({self.name} {self.args} {self.operations})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return True
+
+    @staticmethod
+    def is_simple():
+        return True
+
+    def special(self):
+        a = {"type": "function", "name": self.name, "args": self.args.set_args(), "return_var": self.return_var,
+             "inline": self.inline}
+        if self.inline:
+            a["operations"] = self.operations
+        return a
+
+    def json(self):
+        a = {"type": "function", "position": new("event"), "operations": [],
+             "is_hidden": False, "name": self.name}
+        additional_events = []
+        operations, additional2 = fix_operations_len([i3.json() for i3 in self.operations])
+        additional_events.extend(additional2)
+        a["operations"] = operations
+        Context(self.source).add_operations(additional_events)
+        return a
+
+
+class process:
+    type = "process"
+
+    def __init__(self, name: str, operations: list, args: calling_args, source):
+        self.name = name
+        self.operations = operations
+        self.args = args
+        self.source = source
+
+    def __str__(self):
+        return f'process({self.name} {self.args} {self.operations})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return True
+
+    @staticmethod
+    def is_simple():
+        return True
+
+    def special(self):
+        return {"type": "process", "name": self.name, "args": self.args.set_args()}
+
+    def json(self):
+        a = {"type": "process", "position": new('event'), "operations": [],
+             "name": self.name, "is_hidden": False}
+        additional_events = []
+        operations, additional2 = fix_operations_len([i3.json() for i3 in self.operations])
+        additional_events.extend(additional2)
+        a["operations"] = operations
+        Context(self.source).add_operations(additional_events)
+        return a
+
+
+class return_:
+    type = None
+
+    def __init__(self, obj: default_jmcc_object, starting_pos: int, ending_pos: int,
+                 source: str, in_var=None):
+        self.object = obj
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        self.in_var = in_var
+
+    def __str__(self):
+        return f'return({self.object})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return True
+
+    @staticmethod
+    def is_simple():
+        return False
+
+    def simplify(self, mode=None, work_with=None):
+        previous_operations = []
+        next_operations = []
+        if mode == 0:
+            if not isinstance(work_with, var):
+                work_with = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
+            else:
+                work_with = self.in_var
+        else:
+            work_with = self.in_var
+        if not work_with.is_simple():
+            prev_ops, work_with, next_ops = work_with.simplify()
+            prev_ops.extend(previous_operations)
+            previous_operations = prev_ops
+            next_operations.extend(next_ops)
+        if not self.object.is_simple():
+            prev_ops, cur_op, next_ops = self.object.simplify(mode=0, work_with=work_with)
+            prev_ops.extend(previous_operations)
+            previous_operations = prev_ops
+            next_operations.extend(next_ops)
+        else:
+            cur_op = action("variable", "set_value",
+                            calling_args([], {"variable": work_with, "value": self.object}, self.starting_pos,
+                                         self.ending_pos,
+                                         self.source), self.starting_pos, self.ending_pos, self.source)
+        next_operations.append(
+            action("code", "return_function", calling_args([], {}, self.starting_pos, self.ending_pos, self.source),
+                   self.starting_pos, self.ending_pos, self.source))
+        return previous_operations, cur_op, next_operations
+
+
+class event:
+    type = "event"
+
+    def __init__(self, name: str, operations: list, source):
+        self.name = name
+        self.operations = operations
+        self.source = source
+
+    def __str__(self):
+        return f'event({self.name} {self.operations})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return True
+
+    @staticmethod
+    def is_simple():
+        return True
+
+    def json(self):
+        a = {"type": "event", "event": self.name, "position": new("event"), "operations": []}
+        additional_events = []
+        operations, additional2 = fix_operations_len([i3.json() for i3 in self.operations])
+        additional_events.extend(additional2)
+        a["operations"] = operations
+        Context(self.source).add_operations(additional_events)
+        return a
+
+
+class assign:
+    type = "assign"
+
+    def __init__(self, variables: list, assign_type: str, obj: default_jmcc_object, starting_pos: int, ending_pos: int,
+                 source: str):
+        self.variables = variables
+        self.object = obj
+        self.assign_type = assign_type
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+
+    def __str__(self):
+        return f'{self.variables} {self.assign_type} {self.object})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_independent():
+        return True
+
+    @staticmethod
+    def is_simple():
+        return False
+
+    def simplify(self, mode=None, work_with=None):
+        if self.assign_type is None:
+            return action("variable", "set_value",
+                          calling_args([], {"value": self.object}, self.starting_pos, self.ending_pos, self.source),
+                          self.starting_pos, self.ending_pos, self.source).simplify(mode=0, work_with=self.variables)
+        else:
+            return action("variable", "set_value",
+                          calling_args([], {"value": calling_function(self.variables[0], self.assign_type,
+                                                                      calling_args([self.variables[0], self.object], {},
+                                                                                   self.starting_pos, self.ending_pos,
+                                                                                   self.source), self.starting_pos,
+                                                                      self.ending_pos, self.source)}, self.starting_pos,
+                                       self.ending_pos, self.source),
+                          self.starting_pos, self.ending_pos, self.source).simplify(mode=0, work_with=self.variables)
+
+
+class enum_:
+    type = "enum"
+
+    def __init__(self, val: str, starting_pos: int, ending_pos: int, source: str, variable=None):
+        self.value = val
+        self.var = variable
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        self.simple = (variable is None) or (variable.is_simple())
+
+    def __str__(self):
+        return f'enum({self.value})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    def is_simple(self):
+        return self.simple
+
+    def simplify(self):
+        prev_ops, self.var, next_ops = self.var.simplify()
+        return prev_ops, self, next_ops
+
+    def json(self):
+        a = {"type": "enum", "enum": self.value}
+        if self.var is not None:
+            a["variable"] = self.var.value
+            a["scope"] = Vars.changer[self.var.var_type].lower()
+        return a
+
+
+class block:
+    type = "block"
+
+    def __init__(self, id_: str, starting_pos: int, ending_pos: int, source: str):
+        self.id = id_
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+
+    def __str__(self):
+        return f'block({self.id})'
+
+    def __repr__(self):
+        return self.__str__()
+
+    @staticmethod
+    def is_simple():
+        return True
+
+    def json(self):
+        return {"type": "block", "block": self.id}
+
+
+def get_value(jmcc_object, base_value=None):
+    if jmcc_object is not None:
+        return jmcc_object.value
+    return base_value
 
 
 def minecraft_text(text1):
@@ -961,7 +2995,19 @@ def minecraft_text(text1):
                 if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
-                    if not symbol in allowed_symbols:
+                    if symbol not in allowed_symbols:
+                        msg += "&" + thing
+                        continue
+                if (s := next_symbol(text1, pos))[1] is not None:
+                    pos, symbol = s[0], s[1]
+                    thing += symbol
+                    if symbol not in allowed_symbols:
+                        msg += "&" + thing
+                        continue
+                if (s := next_symbol(text1, pos))[1] is not None:
+                    pos, symbol = s[0], s[1]
+                    thing += symbol
+                    if symbol not in allowed_symbols:
                         msg += "&" + thing
                         continue
                 if (s := next_symbol(text1, pos))[1] is not None:
@@ -979,19 +3025,7 @@ def minecraft_text(text1):
                 if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
-                    if not symbol in allowed_symbols:
-                        msg += "&" + thing
-                        continue
-                if (s := next_symbol(text1, pos))[1] is not None:
-                    pos, symbol = s[0], s[1]
-                    thing += symbol
-                    if not symbol in allowed_symbols:
-                        msg += "&" + thing
-                        continue
-                if (s := next_symbol(text1, pos))[1] is not None:
-                    pos, symbol = s[0], s[1]
-                    thing += symbol
-                    if not symbol in allowed_symbols:
+                    if symbol not in allowed_symbols:
                         msg += "&" + thing
                         continue
                 if msg != "":
@@ -1013,2864 +3047,442 @@ def minecraft_text(text1):
     return full_msg
 
 
-def fix_operations_len(operations, limit=43):
-    global global_func_count, global_count
-
-    def get_operations(ops):
-        cont = 0
-        for op in ops:
-            cont += 1
-            op["weight"] = 1
-            if "operations" in op:
-                op_opers, cont_op = get_operations(op["operations"])
-                op["operations"] = op_opers
-                cont += cont_op + 1
-                op["weight"] += cont_op + 1
-        return ops, cont
-
-    def remove_weight(ops):
-        for op in ops:
-            if "weight" in op:
-                del op["weight"]
-            if "operations" in op:
-                op["operations"] = remove_weight(op["operations"])
-        return ops
-
-    operations, op_count = get_operations(operations)
-    additional_events = []
-    if op_count > limit:
-
-        def spl(ops, curr_limit=43, lim=43):
-            global global_func_count, global_count
-            additional2 = []
-            i = 0
-            cur_weight = 0
-            new_ops = []
-            while i < len(ops):
-                op = ops[i]
-                weight = op["weight"]
-                next_weight = cur_weight + weight
-                if next_weight >= curr_limit - 1:
-                    if weight <= lim:
-                        if i != 0:
-                            save_ops = ops[:i]
-                            ops = ops[i:]
-                            i = 0
-                            cur_weight = 1
-                            new_ops.append(save_ops)
-                        else:
-                            cur_weight = 1
-                            new_ops.append(ops)
-                            ops = []
-                    else:
-                        next_l = curr_limit - (cur_weight + 3 + len(ops))
-                        if next_l <= 0:
-                            save_ops, additional3, thing2 = spl(op["operations"], curr_limit=lim - 3, lim=lim)
-                            global_func_count += 1
-                            global_count += 1
-                            additional2.extend(additional3)
-                            ops[i] = {"action": "call_function", "values": [{"name": "function_name",
-                                                                             "value": {"type": "text",
-                                                                                       "text": f"jmcc.{global_func_count}",
-                                                                                       "parsing": "legacy"}}]}
-                            additional2.append(
-                                {"type": "function", "position": global_count, "operations": remove_weight([op]),
-                                 "is_hidden": False, "name": f"jmcc.{global_func_count}"})
-                            cur_weight += 1
-                        else:
-                            save_ops, additional3, thing2 = spl(op["operations"], curr_limit=next_l, lim=lim)
-                            additional2.extend(additional3)
-                            if cur_weight + thing2 + 2 > curr_limit:
-                                cur_weight += 1
-                                global_func_count += 1
-                                global_count += 1
-                                ops[i] = {"action": "call_function", "values": [{"name": "function_name",
-                                                                                 "value": {"type": "text",
-                                                                                           "text": f"jmcc.{global_func_count}",
-                                                                                           "parsing": "legacy"}}]}
-                                additional2.append(
-                                    {"type": "function", "position": global_count, "operations": remove_weight([op]),
-                                     "is_hidden": False, "name": f"jmcc.{global_func_count}"})
-                            else:
-                                op["operations"] = save_ops
-                                cur_weight += thing2 + 2
-                        i += 1
-                else:
-                    cur_weight = next_weight
-                    i += 1
-            if len(ops) > 0:
-                new_ops.append(ops)
-            else:
-                new_ops.insert(0, [])
-            for i in range(1, len(new_ops)):
-                global_func_count += 1
-                global_count += 1
-                new_ops[i - 1].append({"action": "call_function", "values": [{"name": "function_name",
-                                                                              "value": {"type": "text",
-                                                                                        "text": f"jmcc.{global_func_count}",
-                                                                                        "parsing": "legacy"}}]})
-                additional2.append(
-                    {"type": "function", "position": global_count, "operations": remove_weight(new_ops[i]),
-                     "is_hidden": False, "name": f"jmcc.{global_func_count}"})
-            return remove_weight(new_ops[0]), additional2, cur_weight
-
-        operations, additional_events, thing = spl(operations, lim=limit, curr_limit=limit)
-    else:
-        operations = remove_weight(operations)
-    return operations, additional_events
-
-
-class assign:
-    def __init__(self, key, val, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
-        self.key = key
-        self.value = val
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-
-    def __str__(self):
-        return f'assign({self.key}={self.value})'
-
-    def __repr__(self):
-        return self.__str__()
-
-
-class args:
-    def __init__(self, arg_list=None, positional=None, unpositional=None, start_line=None, end_line=None,
-                 offset_pos=None,
-                 limit_offset_pos=None, file=None, assigning=None, origin=None, lamba=None):
-        self.args = dict()
-        if unpositional is None:
-            unpositional = []
-        if positional is None:
-            positional = []
-        self.positional = positional
-        self.unpositional = unpositional
-        self.arg_list = arg_list
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.assigning = assigning
-        self.origin = origin
-        self.lamba = lamba
-
-    def get_args(self):
-        self.args = dict()
-        if self.arg_list is not None:
-            dect = [None] * len(self.arg_list)
-            for i in self.unpositional:
-                if i.key == "assigning" and self.assigning is not None:
-                    for i1 in range(len(i.value)):
-                        key = list(self.assigning[i1].keys())[0]
-                        val = i.value[i1]
-                        if not isinstance(key, var):
-                            if key in self.arg_list:
-                                dect[self.arg_list.index(key)] = val
-                            else:
-                                error("UnexistsArgument", f"Указан несуществующий аргумент : {i.value[i1]}",
-                                      i.value[i1].start_line, i.value[i1].end_line, i.value[i1].offset_pos,
-                                      i.value[i1].limit_offset_pos, i.value[i1].file)
-                        else:
-                            dect[self.arg_list.index(key.name)] = val
-                    continue
-                elif i.key == "origin" and self.origin is not None:
-                    i.key = self.origin
-                elif i.key == "lambda" and self.lamba is not None:
-                    i.key = self.lamba
-                    for i1 in range(len(i.value)):
-                        key = list(self.lamba[i1].keys())[0]
-                        val = i.value[i1]
-                        if not isinstance(key, var):
-                            if key in self.arg_list:
-                                dect[self.arg_list.index(key)] = val
-                            else:
-                                error("UnexistsArgument", f"Указан несуществующий аргумент : {i.value[i1]}",
-                                      i.value[i1].start_line, i.value[i1].end_line, i.value[i1].offset_pos,
-                                      i.value[i1].limit_offset_pos, i.value[i1].file)
-                        else:
-                            dect[self.arg_list.index(key.name)] = val
-                    continue
-                if not isinstance(i.key, var):
-                    if i.key in self.arg_list:
-                        dect[self.arg_list.index(i.key)] = i.value
-                    else:
-                        error("UnexistsArgument", f"Указан несуществующий аргумент : {i.key}", i.start_line, i.end_line,
-                              i.offset_pos, i.limit_offset_pos, i.file)
-                else:
-                    dect[self.arg_list.index(i.key.name)] = i.value
-            i1 = 0
-            if len(dect) != 0:
-                for i in self.positional:
-                    while dect[i1] is not None:
-                        i1 += 1
-                    dect[i1] = i
-                for i in range(len(dect)):
-                    self.args[self.arg_list[i]] = dect[i]
-        return self.args
-
-    def __str__(self):
-        return f'args(unpos={self.unpositional},pos={self.positional})'
-
-    def __repr__(self):
-        return self.__str__()
-
-
-class text:
-    def __init__(self, txt, text_type="legacy", start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
-                 file=None):
-        self.text_type = text_type
-        self.text = txt
-        self.type = "text"
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-
-    def __str__(self):
-        return f'text({self.text}, {self.text_type})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, normal=False,in_text=False):
-        if in_text:
-            return self.text
-        if normal:
-            return self.text
-        return {"type": "text", "text": self.text, "parsing": self.text_type}
-
-
-class number:
-    def __init__(self, val, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
-        self.type = "number"
-        self.value = val
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-
-    def __str__(self):
-        return f'number({self.value})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, normal=False, in_text=False):
-        if in_text:
-            return str(self.value)
-        if not normal:
-            return {"type": "number", "number": self.value}
-        return self.value
-
-
-class lst:
-    def __init__(self, vals, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
-        self.type = "array"
-        self.values = vals
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-
-    def __str__(self):
-        return "lst(" + ",".join(list(map(str, self.values))) + ")"
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, normal=False, full_normal=False, with_ret=False):
-        if with_ret:
-            additional_events = []
-            vals = []
-            for i in self.values:
-                if isinstance(i, lst):
-                    val, additional2 = i.json(normal=full_normal, full_normal=full_normal)
-                elif isinstance(i, dct):
-                    val, additional2 = i.json(normal=full_normal, full_normal=full_normal)
-                else:
-                    val, additional2 = i.json(normal=full_normal)
-                additional_events.extend(additional2)
-                vals.append(val)
-            if not normal and not full_normal:
-                return {"type": "array", "values": vals}, additional_events
-            return vals, additional_events
-        if not normal and not full_normal:
-            return {"type": "array", "values": [i.json() for i in self.values]}
-        vals = []
-        for i in self.values:
-            if isinstance(i, lst):
-                vals.append(i.json(normal=full_normal, full_normal=full_normal))
-            elif isinstance(i, dct):
-                vals.append(i.json(normal=full_normal, full_normal=full_normal))
-            else:
-                vals.append(i.json(normal=full_normal))
-        return vals
-
-
-class dct:
-    def __init__(self, keys, vals, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
-        self.type = "map"
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.keys = keys
-        self.values = vals
-
-    def __str__(self):
-        return "dct(" + ",".join([str(self.keys[i]) + ":" + str(self.values[i]) for i in range(len(self.keys))]) + ")"
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, normal=True, full_normal=False):
-        if not normal:
-            return None
-        dect = dict()
-        for i in range(len(self.keys)):
-            dect[self.keys[i].json(normal=True, full_normal=full_normal) if type(self.keys[i]) in (lst, dct) else
-            self.keys[i].json(normal=True)] = self.values[i].json(normal=True, full_normal=full_normal) \
-                if type(self.values[i]) in (lst, dct) else self.values[i].json(normal=True)
-        return dect
-
-
-def check(checking=None, *arg):
-    if checking is None:
-        return checking
-    for i2 in arg:
-        if checking.type == i2:
-            return checking
-    error("TypeError", "Ожидался объект типа (" + ",".join(arg) + f"), но был получен {checking.type}",
-          start_line=checking.start_line, end_line=checking.end_line, offset_pos=checking.offset_pos,
-          limit_offset_pos=checking.limit_offset_pos, file=checking.file)
-
-
+# noinspection PyUnresolvedReferences
 class item:
-    def __init__(self, item_id=None, name=None, count=None, lore=None, nbt=None, arg=None, start_line=None,
-                 end_line=None,
-                 offset_pos=None, limit_offset_pos=None, file=None):
-        self.type = "item"
-        if arg is not None:
-            arg.arg_list = ["id", "name", "count", "lore", "nbt"]
-            arg = arg.get_args()
-            for k1, v1 in arg.items():
-                if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
-                    arg[k1] = symbol_table["inlines"][v1.name]
-            item_id = arg["id"]
-            name = arg["name"]
-            count = arg["count"]
-            if count is None:
-                count = number(1)
-            lore = arg["lore"]
-            nbt = arg["nbt"]
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.id = check(item_id, "variable", "text")
-        self.name = check(name, "text")
-        self.count = check(count, "number")
-        self.lore = check(lore, "text", "array")
-        self.nbt = check(nbt, "map")
+    type = "item"
+    type_args = {"id": ("number", "text"), "name": "text", "count": "number", "lore": ("array", "text"), "nbt": "snbt",
+                 "custom_tags": "map"}
+
+    def __init__(self, args: calling_args, starting_pos: int, ending_pos: int, source: str):
+        self.args = args
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        self.item = nbtworker.Compound()
+        self.simple = False
 
     def __str__(self):
-        return f'item({self.id},{self.name},{self.lore},{self.nbt})'
+        return f'item({self.args})'
 
     def __repr__(self):
         return self.__str__()
 
-    def json(self, normal=None):
-        a = {"id": self.id.json(normal=True), "Count": self.count.json(normal=True)}
-        if self.nbt is not None:
-            a["tag"] = self.nbt.json(full_normal=True)
-        if self.name is not None or self.lore is not None:
-            if not "tag" in a:
-                a["tag"] = {}
-            if not "display" in a:
-                a["tag"]["display"] = {}
-            if self.name is not None:
-                a["tag"]["display"]["Name"] = json.dumps(minecraft_text(self.name.json(normal=True)))
-            if self.lore is not None:
-                if self.lore.type != "array":
-                    lore = self.lore.json(full_normal=True, normal=True).split("\\n")
+    def is_simple(self):
+        return self.simple
+
+    def simplify(self, mode=None, work_with=None):
+        previous_operations = []
+        next_operations = []
+        self.args = self.args.get_args(list(self.type_args.keys()))
+        for k1 in self.args:
+            if self.args[k1] is None:
+                continue
+            if not self.args[k1].is_simple():
+                if self.args[k1].type == "snbt":
+                    continue
+                prev_ops, self.args[k1], next_ops = self.args[k1].simplify()
+                previous_operations.extend(prev_ops)
+                next_operations.extend(next_ops)
+            if isinstance(self.type_args[k1], str):
+                if self.args[k1].type == self.type_args[k1]:
+                    continue
+            elif isinstance(self.type_args[k1], (list, tuple)):
+                if self.args[k1].type in self.type_args[k1]:
+                    continue
+            error_from_object(self.args[k1], "ArgumentError", translate("error.argumenterror.wrong_argument",
+                                                                        {0: self.args[k1].type, 1: self.type_args[k1]}))
+        self.item = nbtworker.Compound(
+            id=nbtworker.String(self.args["id"].value if self.args["id"] is not None else ""),
+            count=nbtworker.Short(self.args["count"].value if self.args["count"] is not None else 1))
+        if self.args["nbt"] is not None:
+            self.item["components"] = self.args["nbt"].value
+        if self.args["name"] is not None or self.args["lore"] is not None:
+            if "components" not in self.item:
+                self.item["components"] = nbtworker.Compound()
+            if self.args["name"] is not None:
+                self.item["components"]["minecraft:custom_name"] = nbtworker.String(
+                    json.dumps(minecraft_text(self.args["name"].value), ensure_ascii=False))
+            if self.args["lore"] is not None:
+                if self.args["lore"].type != "array":
+                    lore = self.args["lore"].value.split("\\n")
                 else:
-                    lore = self.lore.json(full_normal=True, normal=True)
-                a["tag"]["display"]["Lore"] = list(map(json.dumps, map(minecraft_text, lore)))
-        return {"type": "item", "item": json.dumps(a)}
+                    lore = [i1.value for i1 in self.args["lore"].values]
+                self.item["minecraft:lore"] = nbtworker.List(
+                    *map(nbtworker.String, [json.dumps(i2, ensure_ascii=False) for i2 in map(minecraft_text, lore)]))
+        if self.args["custom_tags"] is not None:
+            if "components" not in self.item:
+                self.item["components"] = nbtworker.Compound()
+            if "custom_data" not in self.item:
+                self.item["components"]["minecraft:custom_data"] = nbtworker.Compound()
+            if "PublicBukkitValues" not in self.item["components"]:
+                self.item["components"]["minecraft:custom_data"]["PublicBukkitValues"] = nbtworker.Compound()
+            for ind in range(len(self.args["custom_tags"].keys)):
+                k1, v1 = self.args["custom_tags"].keys[ind].value, self.args["custom_tags"].values[ind].value
+                self.item["components"]["minecraft:custom_data"]["PublicBukkitValues"][
+                    f"justcreativeplus:{k1}"] = nbtworker.String(str(v1))
+        self.simple = True
+        return previous_operations, self, next_operations
+
+    def json(self):
+        return {"type": "item", "item": str(self.item)}
 
 
+# noinspection PyUnresolvedReferences
 class location:
-    def __init__(self, x=None, y=None, z=None, yaw=number(0), pitch=number(0), arg=None, start_line=None,
-                 end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
-        self.type = "location"
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        if arg is not None:
-            arg.arg_list = ["x", "y", "z", "yaw", "pitch"]
-            arg = arg.get_args()
-            for k1, v1 in arg.items():
-                if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
-                    arg[k1] = symbol_table["variables"][v1.name][1]
-            x = arg["x"]
-            y = arg["y"]
-            z = arg["z"]
-            yaw = arg["yaw"]
-            if yaw is None:
-                yaw = number(0)
-            pitch = arg["pitch"]
-            if pitch is None:
-                pitch = number(0)
-        self.x = check(x, "variable", "number")
-        self.y = check(y, "number")
-        self.z = check(z, "number")
-        self.yaw = check(yaw, "number")
-        self.pitch = check(pitch, "number")
+    type = "location"
+    type_args = {"x": "number", "y": "number", "z": "number", "yaw": "number", "pitch": "number"}
+
+    def __init__(self, args: calling_args, starting_pos: int, ending_pos: int, source: str):
+        self.args = args
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        self.simple = False
 
     def __str__(self):
-        return f'location({self.x},{self.y},{self.z},{self.yaw},{self.pitch})'
+        return f'location({self.args})'
 
     def __repr__(self):
         return self.__str__()
 
-    def json(self, normal=None):
-        return {"type": "location", "x": self.x.json(normal=True), "y": self.y.json(normal=True),
-                "z": self.z.json(normal=True), "yaw": self.yaw.json(normal=True), "pitch": self.pitch.json(normal=True)}
+    def is_simple(self):
+        return self.simple
+
+    def simplify(self, mode=None, work_with=None):
+        previous_operations = []
+        next_operations = []
+        self.args = self.args.get_args(list(self.type_args.keys()))
+        is_simple = True
+        for k1 in self.args:
+            if self.args[k1] is None:
+                continue
+            if not self.args[k1].is_simple():
+                prev_ops, self.args[k1], next_ops = self.args[k1].simplify(mode=0)
+                previous_operations.extend(prev_ops)
+                next_operations.extend(next_ops)
+            if isinstance(self.type_args[k1], str):
+                if self.args[k1].type == self.type_args[k1]:
+                    continue
+            elif isinstance(self.type_args[k1], (list, tuple)):
+                if self.args[k1].type in self.type_args[k1]:
+                    continue
+            is_simple = False
+        self.simple = True
+        if len(previous_operations) == 0 and len(next_operations) == 0 and is_simple:
+            return previous_operations, self, next_operations
+        if isinstance(work_with, var):
+            current_operation = work_with
+        else:
+            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.file)
+        previous_operations.append(action("variable", "set_all_coordinates", calling_args([], {
+            "variable": current_operation, "x": self.args["x"], "y": self.args["y"], "z": self.args["z"],
+            "yaw": self.args["yaw"], "pitch": self.args["pitch"]}, self.starting_pos, self.ending_pos, self.file),
+                                          self.starting_pos, self.ending_pos, self.file))
+        return previous_operations, current_operation, next_operations
+
+    def json(self):
+        return {"type": "location", "x": get_value(self.args["x"], 0), "y": get_value(self.args["y"], 0),
+                "z": get_value(self.args["z"], 0), "yaw": get_value(self.args["yaw"], 0),
+                "pitch": get_value(self.args["pitch"], 0)}
 
 
+# noinspection PyUnresolvedReferences
 class vector:
-    def __init__(self, x=None, y=None, z=None, arg=None, start_line=None, end_line=None, offset_pos=None,
-                 limit_offset_pos=None, file=None):
-        self.type = "vector"
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        if arg is not None:
-            arg.arg_list = ["x", "y", "z"]
-            arg = arg.get_args()
-            for k1, v1 in arg.items():
-                if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
-                    arg[k1] = symbol_table["inlines"][v1.name]
-            x = arg["x"]
-            y = arg["y"]
-            z = arg["z"]
-        self.x = check(x, "number")
-        self.y = check(y, "number")
-        self.z = check(z, "number")
+    type = "vector"
+    type_args = {"x": "number", "y": "number", "z": "number"}
+
+    def __init__(self, args: calling_args, starting_pos: int, ending_pos: int, source: str):
+        self.args = args
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        self.simple = False
 
     def __str__(self):
-        return f'vector({self.x},{self.y},{self.z})'
+        return f'vector({self.args})'
 
     def __repr__(self):
         return self.__str__()
 
-    def json(self, normal=None):
-        return {"type": "vector", "x": self.x.json(normal=True), "y": self.y.json(normal=True),
-                "z": self.z.json(normal=True)}
+    def is_simple(self):
+        return self.simple
+
+    def simplify(self, mode=None, work_with=None):
+        previous_operations = []
+        next_operations = []
+        self.args = self.args.get_args(list(self.type_args.keys()))
+        is_simple = True
+        for k1 in self.args:
+            if self.args[k1] is None:
+                continue
+            if not self.args[k1].is_simple():
+                prev_ops, self.args[k1], next_ops = self.args[k1].simplify(mode=0)
+                previous_operations.extend(prev_ops)
+                next_operations.extend(next_ops)
+            if isinstance(self.type_args[k1], str):
+                if self.args[k1].type == self.type_args[k1]:
+                    continue
+            elif isinstance(self.type_args[k1], (list, tuple)):
+                if self.args[k1].type in self.type_args[k1]:
+                    continue
+            is_simple = False
+        self.simple = True
+        if len(previous_operations) == 0 and len(next_operations) == 0 and is_simple:
+            return previous_operations, self, next_operations
+        if isinstance(work_with, var):
+            current_operation = work_with
+        else:
+            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.file)
+        previous_operations.append(action("variable", "set_vector", calling_args([], {
+            "variable": current_operation, "x": self.args["x"], "y": self.args["y"], "z": self.args["z"]},
+                                                                                 self.starting_pos, self.ending_pos,
+                                                                                 self.file),
+                                          self.starting_pos, self.ending_pos, self.file))
+        return previous_operations, current_operation, next_operations
+
+    def json(self):
+        return {"type": "vector", "x": get_value(self.args["x"], 0), "y": get_value(self.args["y"], 0),
+                "z": get_value(self.args["z"], 0)}
 
 
+# noinspection PyUnresolvedReferences
 class potion:
-    def __init__(self, potion_type=None, amplifier=number(0), duration=number(0), arg=None, start_line=None,
-                 end_line=None,
-                 offset_pos=None, limit_offset_pos=None, file=None):
-        self.type = "potion"
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        if arg is not None:
-            arg.arg_list = ["potion", "amplifier", "duration"]
-            arg = arg.get_args()
-            potion_type = arg["potion"]
-            amplifier = arg["amplifier"]
-            if amplifier is None:
-                amplifier = number(0)
-            duration = arg["duration"]
-            if duration is None:
-                duration = number(0)
-        self.potion = check(potion_type, "text")
-        self.amplifier = check(amplifier, "number")
-        self.duration = check(duration, "number")
+    type = "potion"
+    type_args = {"potion": "text", "amplifier": "number", "duration": "number"}
+
+    def __init__(self, args: calling_args, starting_pos: int, ending_pos: int, source: str):
+        self.args = args
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        self.simple = False
 
     def __str__(self):
-        return f'potion({self.potion},{self.amplifier},{self.duration})'
+        return f'potion({self.args})'
 
     def __repr__(self):
         return self.__str__()
 
-    def json(self, normal=None):
-        return {"type": "potion", "potion": self.potion.json(normal=True),
-                "amplifier": self.amplifier.json(normal=True), "duration": self.duration.json(normal=True)}
+    def is_simple(self):
+        return self.simple
+
+    def simplify(self, mode=None, work_with=None):
+        previous_operations = []
+        next_operations = []
+        self.args = self.args.get_args(list(self.type_args.keys()))
+        is_simple = True
+        for k1 in self.args:
+            if self.args[k1] is None:
+                continue
+            if not self.args[k1].is_simple():
+                prev_ops, self.args[k1], next_ops = self.args[k1].simplify(mode=0)
+                previous_operations.extend(prev_ops)
+                next_operations.extend(next_ops)
+            if isinstance(self.type_args[k1], str):
+                if self.args[k1].type == self.type_args[k1]:
+                    continue
+            elif isinstance(self.type_args[k1], (list, tuple)):
+                if self.args[k1].type in self.type_args[k1]:
+                    continue
+            is_simple = False
+        self.simple = True
+        if len(previous_operations) == 0 and len(next_operations) == 0 and is_simple:
+            return previous_operations, self, next_operations
+        error_from_object(self, "SimplifyError", translate("error.simplifyerror", {0: self}))
+        if isinstance(work_with, var):
+            current_operation = work_with
+        else:
+            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.file)
+        return previous_operations, current_operation, next_operations
+
+    def json(self):
+        return {"type": "potion", "potion": get_value(self.args["potion"], ""),
+                "amplifier": get_value(self.args["amplifier"], 0), "duration": get_value(self.args["duration"], 0)}
 
 
+# noinspection PyUnresolvedReferences
 class sound:
-    def __init__(self, sound_id=None, volume=number(0), pitch=number(0), variation=text(""), source=text("MASTER"),
-                 arg=None, start_line=None, end_line=None,
-                 offset_pos=None, limit_offset_pos=None, file=None):
-        self.type = "sound"
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        if arg is not None:
-            arg.arg_list = ["sound", "volume", "pitch", "variation", "source"]
-            arg = arg.get_args()
-            for k1, v1 in arg.items():
-                if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
-                    arg[k1] = symbol_table["inlines"][v1.name]
-            sound_id = arg["sound"]
-            volume = arg["volume"]
-            if volume is None:
-                volume = number(0)
-            pitch = arg["pitch"]
-            if pitch is None:
-                pitch = number(0)
-            variation = arg["variation"]
-            if variation is None:
-                variation = text("")
-        self.sound = check(sound_id, "text")
-        self.volume = check(volume, "number")
-        self.pitch = check(pitch, "number")
-        self.variation = check(variation, "text")
-        self.source = check(source, "text")
+    type = "sound"
+    type_args = {"sound": "text", "volume": "number", "pitch": "number", "variation": "text", "source": "text"}
+
+    def __init__(self, args: calling_args, starting_pos: int, ending_pos: int, source: str):
+        self.args = args
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        self.simple = False
 
     def __str__(self):
-        return f'sound({self.sound},{self.volume},{self.pitch})'
+        return f'sound({self.args})'
 
     def __repr__(self):
         return self.__str__()
 
-    def json(self, normal=None):
-        return {"type": "sound", "sound": self.sound.json(normal=True), "volume": self.volume.json(normal=True),
-                "pitch": self.pitch.json(normal=True), "variation": self.variation.json(normal=True),
-                "source": self.source.json(normal=True)}
+    def is_simple(self):
+        return self.simple
+
+    def simplify(self, mode=None, work_with=None):
+        previous_operations = []
+        next_operations = []
+        self.args = self.args.get_args(list(self.type_args.keys()))
+        is_simple = True
+        for k1 in self.args:
+            if self.args[k1] is None:
+                continue
+            if not self.args[k1].is_simple():
+                prev_ops, self.args[k1], next_ops = self.args[k1].simplify(mode=0)
+                previous_operations.extend(prev_ops)
+                next_operations.extend(next_ops)
+            if isinstance(self.type_args[k1], str):
+                if self.args[k1].type == self.type_args[k1]:
+                    continue
+            elif isinstance(self.type_args[k1], (list, tuple)):
+                if self.args[k1].type in self.type_args[k1]:
+                    continue
+            is_simple = False
+        self.simple = True
+        if len(previous_operations) == 0 and len(next_operations) == 0 and is_simple:
+            return previous_operations, self, next_operations
+        error_from_object(self, "SimplifyError", translate("error.simplifyerror", {0: self}))
+        if isinstance(work_with, var):
+            current_operation = work_with
+        else:
+            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.file)
+        return previous_operations, current_operation, next_operations
+
+    def json(self):
+        return {"type": "sound", "sound": get_value(self.args["sound"], ""),
+                "volume": get_value(self.args["volume"], 0),
+                "pitch": get_value(self.args["pitch"], 0), "variation": get_value(self.args["variation"], ""),
+                "source": get_value(self.args["source"], "")}
 
 
+# noinspection PyUnresolvedReferences
 class particle:
-    def __init__(self, particle_type=None, count=number(0), spread_x=number(0), spread_y=number(0), motion_x=number(0),
-                 motion_y=number(0), motion_z=number(0), material=None, color=None, to_color=None, arg=None, size=None,
-                 start_line=None,
-                 end_line=None,
-                 offset_pos=None, limit_offset_pos=None, file=None):
-        self.type = "particle"
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        if arg is not None:
-            arg.arg_list = ["particle", "count", "spread_x", "spread_y", "motion_x", "motion_y", "motion_z",
-                            "material", "color", "size", "to_color"]
-            arg = arg.get_args()
-            for k1, v1 in arg.items():
-                if v1 is not None and v1.type == "variable" and v1.var_type == "INLINE":
-                    arg[k1] = symbol_table["inlines"][v1.name]
-            particle_type = arg["particle"]
-            count = arg["count"]
-            if count is None:
-                count = number(1)
-            spread_x = arg["spread_x"]
-            if spread_x is None:
-                spread_x = number(0)
-            spread_y = arg["spread_y"]
-            if spread_y is None:
-                spread_y = number(0)
-            motion_x = arg["motion_x"]
-            if motion_x is None:
-                motion_x = number(0)
-            motion_y = arg["motion_y"]
-            if motion_y is None:
-                motion_y = number(0)
-            motion_z = arg["motion_z"]
-            if motion_z is None:
-                motion_z = number(0)
-            material = arg["material"]
-            color = arg["color"]
-            size = arg["size"]
-            if size is None:
-                size = number(0)
-            to_color=arg["to_color"]
-        self.particle = check(particle_type, "text")
-        self.count = check(count, "number")
-        self.spread_x = check(spread_x, "number")
-        self.spread_y = check(spread_y, "number")
-        self.motion_x = check(motion_x, "number")
-        self.motion_y = check(motion_y, "number")
-        self.motion_z = check(motion_z, "number")
-        self.material = check(material, "text")
-        self.color = check(color, "number")
-        self.size = check(size, "number")
-        self.to_color = check(to_color,"number")
+    type = "particle"
+    type_args = {"particle": "text", "count": "number", "spread_x": "number", "spread_y": "number",
+                 "motion_x": "number", "motion_y": "number", "motion_z": "number", "material": "text",
+                 "color": "number",
+                 "size": "number", "to_color": "number"}
+
+    def __init__(self, args: calling_args, starting_pos: int, ending_pos: int, source: str):
+        self.args = args
+        self.starting_pos = starting_pos
+        self.ending_pos = ending_pos
+        self.source = source
+        self.simple = False
 
     def __str__(self):
-        return (f'particle({self.particle},{self.count},{self.spread_x},'
-                f'{self.spread_y},{self.motion_x},{self.motion_y},{self.material},{self.color},{self.size})')
+        return f'particle({self.args})'
 
     def __repr__(self):
         return self.__str__()
 
-    def json(self, normal=None):
-        a = {"type": "particle", "particle_type": self.particle.json(normal=True),
-             "count": self.count.json(normal=True), "first_spread": self.spread_x.json(normal=True),
-             "second_spread": self.spread_y.json(normal=True), "x_motion": self.motion_x.json(normal=True),
-             "y_motion": self.motion_y.json(normal=True), "z_motion": self.motion_z.json(normal=True)}
-        if self.color is not None:
-            a["color"] = self.color.json(normal=True)
-        if self.material is not None:
-            a["material"] = self.material.json(normal=True)
-        if self.size is not None:
-            a["size"] = self.size.json(normal=True)
-        if self.to_color is not None:
-            a["to_color"] = self.to_color.json(normal=True)
-        return a
+    def is_simple(self):
+        return self.simple
 
-
-class value:
-    def __init__(self, name, selector=None, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
-                 file=None):
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        if not name in values:
-            error("UnexistsValue", f"Указано несуществующее игровое значение {name}", start_line, end_line, offset_pos,
-                  limit_offset_pos, file)
-        self.name = name
-        if selector is None:
-            selector = "default"
-        if not selector in (
-                "current", "default", "default_entity", "killer_entity", "damager_entity", "victim_entity",
-                "shooter_entity",
-                "projectile", "last_entity"):
-            error("UnexistsSelector", f"Указан несуществующий селектор {selector}", start_line, end_line, offset_pos,
-                  limit_offset_pos, file)
-        self.selector = selector
-        self.type = values[name]["type"]
-
-    def __str__(self):
-        return f'value({self.name},{self.selector})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, normal=None):
-        return {"type": "game_value", "game_value": values[self.name]["id"],
-                "selection": json.dumps({"type": self.selector})}
-
-
-def try_action(act, in_var=False, set_var=False, ignore_lst=False):
-    global var_count
-    additional_acts = []
-    after_acts = []
-    if set_var:
-        if isinstance(act, slice):
-            act.obj, additional2 = try_action(act.obj, set_var=True)
-            additional_acts.extend(additional2)
-            act.arg["start"], additional2 = try_action(act.arg["start"], in_var=True)
-            additional_acts.extend(additional2)
-            if act.obj.type_hint in ("array", "any"):
-                if act.arg["end"] is None:
-                    spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                   act.offset_pos, act.limit_offset_pos, act.file)
-                    additional_acts.append(action("variable", "set_list_value", args(
-                        unpositional=[assign("variable", act.obj), assign("list", act.obj),
-                                      assign("number", act.arg["start"]), assign("value", spec_var)]), None, None,
-                                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                                  act.file))
-                    return spec_var, additional_acts
-                else:
-                    act.arg["end"], additional2 = try_action(act.arg["end"], in_var=True)
-                    additional_acts.extend(additional2)
-                    spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                   act.offset_pos, act.limit_offset_pos, act.file)
-                    spec_var1 = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                    act.offset_pos, act.limit_offset_pos, act.file)
-                    additional_acts.append(action("variable", "trim_list", args(
-                        unpositional=[assign("variable", spec_var1), assign("list", act.obj),
-                                      assign("start", number(0)),
-                                      assign("end", act.arg["start"])]), None, None,
-                                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                                  act.file))
-                    spec_var3 = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                    act.offset_pos, act.limit_offset_pos, act.file)
-                    additional_acts.append(action("variable", "get_list_length", args(
-                        unpositional=[assign("variable", spec_var3), assign("list", act.obj)]), None, None,
-                                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                                  act.file))
-                    spec_var2 = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                    act.offset_pos, act.limit_offset_pos, act.file)
-                    additional_acts.append(action("variable", "trim_list", args(
-                        unpositional=[assign("variable", spec_var2), assign("list", act.obj),
-                                      assign("start", act.arg["end"]),
-                                      assign("end", spec_var3)]), None, None,
-                                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                                  act.file))
-                    additional_acts.append(action("variable", "append_list", args(
-                        unpositional=[assign("variable", act.obj), assign("list_1", spec_var1),
-                                      assign("list_2", spec_var)]), None, None,
-                                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                                  act.file))
-                    additional_acts.append(action("variable", "append_list", args(
-                        unpositional=[assign("variable", act.obj), assign("list_1", act.obj),
-                                      assign("list_2", spec_var2)]), None, None,
-                                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                                  act.file))
-                return spec_var, additional_acts
-            elif act.obj.type_hint == "map":
-                if act.arg["end"] is None:
-                    spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                   act.offset_pos, act.limit_offset_pos, act.file)
-                    additional_acts.append(action("variable", "set_map_value", args(
-                        unpositional=[assign("variable", act.obj), assign("map", act.obj),
-                                      assign("key", act.arg["start"]), assign("value", spec_var)]), None, None,
-                                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                                  act.file))
-                    return spec_var, additional_acts
-                else:
-                    error("UnsupportedOperation", "", act.start_line, act.end_line, act.offset_pos,
-                          act.limit_offset_pos, act.file)
-            elif act.obj.type_hint == "text":
-                if act.arg["end"] is not None:
-                    act.arg["end"], additional2 = try_action(act.arg["end"], in_var=True)
-                    additional_acts.extend(additional2)
-                spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                               act.offset_pos, act.limit_offset_pos, act.file)
-                spec_var1 = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                act.offset_pos, act.limit_offset_pos, act.file)
-                additional_acts.append(action("variable", "trim_text", args(
-                    unpositional=[assign("variable", spec_var1), assign("text", act.obj),
-                                  assign("start", number(0)),
-                                  assign("end", act.arg["start"])]), None, None,
-                                              act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                              act.file))
-                spec_var3 = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                act.offset_pos, act.limit_offset_pos, act.file)
-                additional_acts.append(action("variable", "get_text_length", args(
-                    unpositional=[assign("variable", spec_var3), assign("text", act.obj)]), None, None,
-                                              act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                              act.file))
-                spec_var2 = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                act.offset_pos, act.limit_offset_pos, act.file)
-                additional_acts.append(action("variable", "trim_text", args(
-                    unpositional=[assign("variable", spec_var2), assign("text", act.obj),
-                                  assign("start", act.arg["end"]),
-                                  assign("end", spec_var3)]), None, None,
-                                              act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                              act.file))
-                additional_acts.append(action("variable", "set_text", args(
-                    unpositional=[assign("variable", act.obj), assign("text", lst([spec_var1, spec_var, spec_var2])),
-                                  assign("merging", text("CONCATENATION"))]), None, None,
-                                              act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                              act.file))
-                return spec_var, additional_acts
-        return act, additional_acts
-    if in_var:
-        if isinstance(act, slice):
-            act.obj, additional2 = try_action(act.obj, set_var=True)
-            additional_acts.extend(additional2)
-            act.arg["start"], additional2 = try_action(act.arg["start"], in_var=True)
-            additional_acts.extend(additional2)
-            if act.obj.type_hint in ("array", "any"):
-                if act.arg["end"] is None:
-                    spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                   act.offset_pos, act.limit_offset_pos, act.file)
-                    additional_acts.append(action("variable", "get_list_value", args(
-                        unpositional=[assign("variable", spec_var), assign("list", act.obj),
-                                      assign("number", act.arg["start"])]), None, None,
-                                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                                  act.file))
-                    return spec_var, additional_acts
-                else:
-                    act.arg["end"], additional2 = try_action(act.arg["end"], in_var=True)
-                    additional_acts.extend(additional2)
-                    spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                   act.offset_pos, act.limit_offset_pos, act.file)
-                    additional_acts.append(action("variable", "trim_list", args(
-                        unpositional=[assign("variable", spec_var), assign("list", act.obj),
-                                      assign("start", act.arg["start"]),
-                                      assign("end", act.arg["end"])]), None, None,
-                                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                                  act.file))
-                    return spec_var, additional_acts
-            elif act.obj.type_hint == "map":
-                if act.arg["end"] is None:
-                    spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                   act.offset_pos, act.limit_offset_pos, act.file)
-                    additional_acts.append(action("variable", "get_map_value", args(
-                        unpositional=[assign("variable", spec_var), assign("map", act.obj),
-                                      assign("key", act.arg["start"])]), None, None,
-                                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                                  act.file))
-                    return spec_var, additional_acts
-                else:
-                    error("UnsupportedOperation", "", act.start_line, act.end_line, act.offset_pos,
-                          act.limit_offset_pos, act.file)
-            elif act.obj.type_hint == "text":
-                if act.arg["end"] is None:
-                    spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                   act.offset_pos, act.limit_offset_pos, act.file)
-                    action("variable", "get_char_at",
-                           args(unpositional=[assign("text", act.obj), assign("index", act.arg["start"]),
-                                              assign("variable", spec_var)], start_line=act.start_line,
-                                end_line=act.end_line,
-                                offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos,
-                                file=act.file),
-                           None, None, act.start_line, act.end_line, act.offset_pos,
-                           act.limit_offset_pos,
-                           act.file)
-                    return spec_var, additional_acts
-                else:
-                    act.arg["end"], additional2 = try_action(act.arg["end"], in_var=True)
-                    additional_acts.extend(additional2)
-                    spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                                   act.offset_pos, act.limit_offset_pos, act.file)
-                    additional_acts.append(action("variable", "trim_text", args(
-                        unpositional=[assign("variable", spec_var),
-                                      assign("text", act.obj),
-                                      assign("start", act.arg["start"]),
-                                      assign("end", act.arg["end"])]), None, None,
-                                                  act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                                  act.file))
-                    return spec_var, additional_acts
-        elif isinstance(act, lst):
-            if not ignore_lst:
-                spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                               act.offset_pos, act.limit_offset_pos, act.file)
-                for i in range(len(act.values)):
-                    act.values[i], additional2 = try_action(act.values[i], in_var=True)
-                    additional_acts.extend(additional2)
-                additional_acts.append(action("variable", "create_list",
-                                              args(
-                                                  unpositional=[assign("assigning", [spec_var]), assign("values", act)],
-                                                  start_line=act.start_line, end_line=act.end_line,
-                                                  offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos,
-                                                  file=act.file),
-                                              None, None, act.start_line, act.end_line, act.offset_pos,
-                                              act.limit_offset_pos,
-                                              act.file))
-                return spec_var, additional_acts
-            else:
-                for i in range(len(act.values)):
-                    act.values[i], additional2 = try_action(act.values[i], in_var=True)
-                    additional_acts.extend(additional2)
-        elif isinstance(act, dct):
-            spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                           act.offset_pos, act.limit_offset_pos, act.file)
-            for i in range(len(act.values)):
-                act.values[i], additional2 = try_action(act.values[i], in_var=True)
-                additional_acts.extend(additional2)
-            for i in range(len(act.keys)):
-                act.keys[i], additional2 = try_action(act.keys[i], in_var=True)
-                additional_acts.extend(additional2)
-            additional_acts.append(action("variable", "create_map_from_values",
-                                          args(
-                                              unpositional=[assign("variable", spec_var), assign("keys", lst(act.keys)),
-                                                            assign("values", lst(act.values))],
-                                              start_line=act.start_line, end_line=act.end_line,
-                                              offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos,
-                                              file=act.file),
-                                          None, None, act.start_line, act.end_line, act.offset_pos,
-                                          act.limit_offset_pos,
-                                          act.file))
-            return spec_var, additional_acts
-        elif isinstance(act, action):
-            spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line, act.end_line,
-                           act.offset_pos, act.limit_offset_pos, act.file)
-            act.args.unpositional.append(assign("assigning", [spec_var]))
-            unpositional = []
-            for k1, v1 in act.args.get_args().items():
-                if v1 is not None:
-                    v1, additional2 = try_action(v1, ignore_lst=not "array" in act.arg_list, in_var=True)
-                    additional_acts.extend(additional2)
-                    unpositional.append(assign(k1, v1))
-            act.args.unpositional = unpositional
-            act.args.positional = []
-            additional_acts.append(act)
-            return spec_var, additional_acts
-        elif isinstance(act, math):
-            act, additional2 = try_math(act)
-            additional_acts.extend(additional2)
-
-        return act, additional_acts
-
-    if isinstance(act, true_assign):
-        if len(act.args["first"]) == 1:
-            if act.args["first"][0].type == "INLINE":
-                if act.assign_type == "=":
-                    symbol_table["inlines"][act.args["first"]] = try_action(act.args["second"])
-                    return
-                elif act.assign_type == "+=":
-                    symbol_table["inlines"][act.args["first"]] += try_action(act.args["second"])
-                    return
-                elif act.assign_type == "*=":
-                    symbol_table["inlines"][act.args["first"]] *= try_action(act.args["second"])
-                    return
-                elif act.assign_type == "/=":
-                    symbol_table["inlines"][act.args["first"]] /= try_action(act.args["second"])
-                    return
-                elif act.assign_type == "//=":
-                    symbol_table["inlines"][act.args["first"]] //= try_action(act.args["second"])
-                    return
-                elif act.assign_type == "^=":
-                    symbol_table["inlines"][act.args["first"]] **= try_action(act.args["second"])
-                    return
-            if not isinstance(act.args["first"][0], var) or isinstance(act.args["second"], math):
-                act.args["second"], additional2 = try_action(act.args["second"], in_var=True)
-                additional_acts.extend(additional2)
-            if act.assign_type == "=":
-                if isinstance(act.args["first"][0], slice):
-                    if (type(act.args["second"]) in
-                            (number, text, item, sound, particle, vector, location, potion, value, var, math)):
-                        act.args["first"][0].obj, additional2 = try_action(act.args["first"][0].obj, set_var=True)
-                        additional_acts.extend(additional2)
-                        act.args["first"][0].arg["start"], additional2 = try_action(act.args["first"][0].arg["start"],
-                                                                                    in_var=True)
-                        additional_acts.extend(additional2)
-                        if act.args["first"][0].obj.type_hint in ("array", "any"):
-                            if act.args["first"][0].arg["end"] is None:
-                                return action("variable", "set_list_value", args(
-                                    unpositional=[assign("variable", act.args["first"][0].obj),
-                                                  assign("list", act.args["first"][0].obj),
-                                                  assign("number", act.args["first"][0].arg["start"]),
-                                                  assign("value", act.args["second"])]), None, None, act.start_line,
-                                              act.end_line, act.offset_pos, act.limit_offset_pos,
-                                              act.file), additional_acts, after_acts
-                            else:
-                                act.args["first"][0].arg["end"], additional2 = try_action(
-                                    act.args["first"][0].arg["end"], in_var=True)
-                                additional_acts.extend(additional2)
-                                spec_var1 = var("jmcc." + str(var_count := var_count + 1), "LOCAL",
-                                                act.args["first"][0].start_line, act.args["first"][0].end_line,
-                                                act.args["first"][0].offset_pos, act.args["first"][0].limit_offset_pos,
-                                                act.args["first"][0].file)
-                                additional_acts.append(action("variable", "trim_list", args(
-                                    unpositional=[assign("variable", spec_var1),
-                                                  assign("list", act.args["first"][0].obj),
-                                                  assign("start", number(0)),
-                                                  assign("end", act.args["first"][0].arg["start"])]), None, None,
-                                                              act.start_line, act.end_line, act.offset_pos,
-                                                              act.limit_offset_pos,
-                                                              act.file))
-                                spec_var3 = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line,
-                                                act.end_line,
-                                                act.offset_pos, act.limit_offset_pos, act.file)
-                                additional_acts.append(action("variable", "get_list_length", args(
-                                    unpositional=[assign("variable", spec_var3),
-                                                  assign("list", act.args["first"][0].obj)]),
-                                                              None, None,
-                                                              act.start_line, act.end_line, act.offset_pos,
-                                                              act.limit_offset_pos,
-                                                              act.file))
-                                spec_var2 = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line,
-                                                act.end_line,
-                                                act.offset_pos, act.limit_offset_pos, act.file)
-                                additional_acts.append(action("variable", "trim_list", args(
-                                    unpositional=[assign("variable", spec_var2),
-                                                  assign("list", act.args["first"][0].obj),
-                                                  assign("start", act.args["first"][0].arg["end"]),
-                                                  assign("end", spec_var3)]), None, None,
-                                                              act.start_line, act.end_line, act.offset_pos,
-                                                              act.limit_offset_pos,
-                                                              act.file))
-                                after_acts.append(action("variable", "append_list", args(
-                                    unpositional=[assign("variable", act.args["first"][0].obj),
-                                                  assign("list_1", act.args["first"][0].obj),
-                                                  assign("list_2", spec_var2)]), None, None,
-                                                         act.start_line, act.end_line, act.offset_pos,
-                                                         act.limit_offset_pos,
-                                                         act.file))
-                            return action("variable", "append_list", args(
-                                unpositional=[assign("variable", act.args["first"][0].obj), assign("list_1", spec_var1),
-                                              assign("list_2", act.args["second"])]), None, None,
-                                          act.start_line, act.end_line, act.offset_pos,
-                                          act.limit_offset_pos,
-                                          act.file), additional_acts, after_acts
-                        elif act.obj.type_hint == "map":
-                            if act.args["first"][0].arg["end"] is None:
-                                spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line,
-                                               act.end_line,
-                                               act.offset_pos, act.limit_offset_pos, act.file)
-                                additional_acts.append(action("variable", "set_map_value", args(
-                                    unpositional=[assign("variable", act.obj), assign("map", act.obj),
-                                                  assign("key", act.args["first"][0].arg["start"]),
-                                                  assign("value", spec_var)]), None, None,
-                                                              act.start_line, act.end_line, act.offset_pos,
-                                                              act.limit_offset_pos,
-                                                              act.file))
-                                return spec_var, additional_acts
-                            else:
-                                error("UnsupportedOperation", "", act.start_line, act.end_line, act.offset_pos,
-                                      act.limit_offset_pos, act.file)
-                        elif act.obj.type_hint == "text":
-                            if act.args["first"][0].arg["end"] is not None:
-                                act.args["first"][0].arg["end"], additional2 = try_action(
-                                    act.args["first"][0].arg["end"], in_var=True)
-                                additional_acts.extend(additional2)
-                            spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line,
-                                           act.end_line,
-                                           act.offset_pos, act.limit_offset_pos, act.file)
-                            spec_var1 = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line,
-                                            act.end_line,
-                                            act.offset_pos, act.limit_offset_pos, act.file)
-                            additional_acts.append(action("variable", "trim_text", args(
-                                unpositional=[assign("variable", spec_var1), assign("text", act.obj),
-                                              assign("start", number(0)),
-                                              assign("end", act.args["first"][0].arg["start"])]), None, None,
-                                                          act.start_line, act.end_line, act.offset_pos,
-                                                          act.limit_offset_pos,
-                                                          act.file))
-                            spec_var3 = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line,
-                                            act.end_line,
-                                            act.offset_pos, act.limit_offset_pos, act.file)
-                            additional_acts.append(action("variable", "get_text_length", args(
-                                unpositional=[assign("variable", spec_var3), assign("text", act.obj)]), None, None,
-                                                          act.start_line, act.end_line, act.offset_pos,
-                                                          act.limit_offset_pos,
-                                                          act.file))
-                            spec_var2 = var("jmcc." + str(var_count := var_count + 1), "LOCAL", act.start_line,
-                                            act.end_line,
-                                            act.offset_pos, act.limit_offset_pos, act.file)
-                            additional_acts.append(action("variable", "trim_text", args(
-                                unpositional=[assign("variable", spec_var2), assign("text", act.obj),
-                                              assign("start", act.args["first"][0].arg["end"]),
-                                              assign("end", spec_var3)]), None, None,
-                                                          act.start_line, act.end_line, act.offset_pos,
-                                                          act.limit_offset_pos,
-                                                          act.file))
-                            additional_acts.append(action("variable", "set_text", args(
-                                unpositional=[assign("variable", act.obj),
-                                              assign("text", lst([spec_var1, spec_var, spec_var2])),
-                                              assign("merging", text("CONCATENATION"))]), None, None,
-                                                          act.start_line, act.end_line, act.offset_pos,
-                                                          act.limit_offset_pos,
-                                                          act.file))
-        variables = []
-        for v2 in act.args["first"]:
-            v2, additional2 = try_action(v2, set_var=True)
-            variables.append(v2)
-            after_acts.extend(additional2)
-        act.args["first"] = variables
-        if act.assign_type == "=":
-            if type(act.args["second"]) in (number, text, item, sound, particle, vector, location, potion, value, var, math):
-                return action("variable", "set_value", args(
-                    unpositional=[assign("assigning", act.args["first"]), assign("value", act.args["second"])]),
-                              None, None, act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                              act.file), additional_acts, after_acts
-            if isinstance(act.args["second"], action):
-                act.args["second"].args.unpositional.append(assign("assigning", act.args["first"]))
-                unpositional = []
-                for k1, v1 in act.args["second"].args.get_args().items():
-                    if v1 is not None:
-                        v1, additional2 = try_action(v1, ignore_lst=not "array" in act.args["second"].arg_list,
-                                                     in_var=True)
-                        additional_acts.extend(additional2)
-                        unpositional.append(assign(k1, v1))
-                act.args["second"].args.unpositional = unpositional
-                act.args["second"].args.positional = []
-                return act.args["second"], additional_acts, after_acts
-            elif isinstance(act.args["second"], lst):
-                for i in range(len(act.args["second"].values)):
-                    act.args["second"].values[i], additional2 = try_action(act.args["second"].values[i], in_var=True)
-                    additional_acts.extend(additional2)
-                unpositional = [assign("assigning", act.args["first"]), assign("values", act.args["second"])]
-                return action("variable", "create_list",
-                              args(unpositional=unpositional, start_line=act.start_line, end_line=act.end_line,
-                                   offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos, file=act.file),
-                              None, None, act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                              act.file), additional_acts, after_acts
-            elif isinstance(act.args["second"], dct):
-                for i in range(len(act.args["second"].values)):
-                    act.args["second"].values[i], additional2 = try_action(act.args["second"].values[i], in_var=True)
-                    additional_acts.extend(additional2)
-                for i in range(len(act.args["second"].keys)):
-                    act.args["second"].values[i], additional2 = try_action(act.args["second"].values[i], in_var=True)
-                    additional_acts.extend(additional2)
-                unpositional = [assign("assigning", act.args["first"]), assign("keys", lst(act.args["second"].keys)),
-                                assign("values", lst(act.args["second"].values))]
-                return action("variable", "create_map_from_values",
-                              args(unpositional=unpositional, start_line=act.start_line, end_line=act.end_line,
-                                   offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos, file=act.file),
-                              None, None, act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                              act.file), additional_acts, after_acts
-            elif isinstance(act.args["second"], slice):
-                act.args["second"].arg["start"], additional2 = try_action(act.args["second"].arg["start"], in_var=True)
-                additional_acts.extend(additional2)
-                if act.args["second"].arg["end"] is None:
-                    if act.args["second"].obj.type_hint in ("array", "any"):
-                        unpositional = [assign("assigning", act.args["first"]),
-                                        assign("list", act.args["second"].obj),
-                                        assign("number", act.args["second"].arg["start"])]
-                        return action("variable", "get_list_value",
-                                      args(unpositional=unpositional, start_line=act.start_line,
-                                           end_line=act.end_line,
-                                           offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos,
-                                           file=act.file),
-                                      None, None, act.start_line, act.end_line, act.offset_pos,
-                                      act.limit_offset_pos,
-                                      act.file), additional_acts, after_acts
-                    elif act.args["second"].obj.type_hint == "map":
-                        unpositional = [assign("assigning", act.args["first"]),
-                                        assign("map", act.args["second"].obj),
-                                        assign("key", act.args["second"].arg["start"])]
-                        return action("variable", "get_map_value",
-                                      args(unpositional=unpositional, start_line=act.start_line,
-                                           end_line=act.end_line,
-                                           offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos,
-                                           file=act.file),
-                                      None, None, act.start_line, act.end_line, act.offset_pos,
-                                      act.limit_offset_pos,
-                                      act.file), additional_acts, after_acts
-                    elif act.args["second"].obj.type_hint == "text":
-                        unpositional = [assign("assigning", act.args["first"]),
-                                        assign("text", act.args["second"].obj),
-                                        assign("index", act.args["second"].arg["start"])]
-                        return action("variable", "get_char_at",
-                                      args(unpositional=unpositional, start_line=act.start_line,
-                                           end_line=act.end_line,
-                                           offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos,
-                                           file=act.file),
-                                      None, None, act.start_line, act.end_line, act.offset_pos,
-                                      act.limit_offset_pos,
-                                      act.file), additional_acts, after_acts
-                    else:
-                        error("UnsupportedOperation", "", act.start_line, act.end_line, act.offset_pos,
-                              act.limit_offset_pos, act.file)
-                else:
-                    if act.args["second"].obj.type_hint in ("array", "any"):
-                        return action("variable", "trim_list", args(
-                            unpositional=[assign("assigning", act.args["first"]),
-                                          assign("list", act.args["second"].obj),
-                                          assign("start", act.args["second"].arg["start"]),
-                                          assign("end", act.args["second"].arg["end"])]), None, None,
-                                      act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                      act.file), additional_acts, after_acts
-                    elif act.args["second"].obj.type_hint == "text":
-                        return action("variable", "trim_text", args(
-                            unpositional=[assign("assigning", act.args["first"]),
-                                          assign("text", act.args["second"].obj),
-                                          assign("start", act.args["second"].arg["start"]),
-                                          assign("end", act.args["second"].arg["end"])]), None, None,
-                                      act.start_line, act.end_line, act.offset_pos, act.limit_offset_pos,
-                                      act.file), additional_acts, after_acts
-                    else:
-                        error("UnsupportedOperation", "", act.start_line, act.end_line, act.offset_pos,
-                              act.limit_offset_pos, act.file)
+    def simplify(self, mode=None, work_with=None):
+        previous_operations = []
+        next_operations = []
+        self.args = self.args.get_args(list(self.type_args.keys()))
+        is_simple = True
+        for k1 in self.args:
+            if self.args[k1] is None:
+                continue
+            if not self.args[k1].is_simple():
+                prev_ops, self.args[k1], next_ops = self.args[k1].simplify(mode=0)
+                previous_operations.extend(prev_ops)
+                next_operations.extend(next_ops)
+            if isinstance(self.type_args[k1], str):
+                if self.args[k1].type == self.type_args[k1]:
+                    continue
+            elif isinstance(self.type_args[k1], (list, tuple)):
+                if self.args[k1].type in self.type_args[k1]:
+                    continue
+            is_simple = False
+        self.simple = True
+        if len(previous_operations) == 0 and len(next_operations) == 0 and is_simple:
+            return previous_operations, self, next_operations
+        error_from_object(self, "SimplifyError", translate("error.simplifyerror", {0: self}))
+        if isinstance(work_with, var):
+            current_operation = work_with
         else:
-            act.args["second"], additional2 = try_action(act.args["second"], in_var=True)
-            additional_acts.extend(additional2)
-            if act.assign_type == "+=":
-                return action("variable", "increment", args(
-                    unpositional=[assign("assigning", act.args["first"]), assign("number", act.args["second"])],
-                    start_line=act.start_line, end_line=act.end_line, offset_pos=act.offset_pos,
-                    limit_offset_pos=act.limit_offset_pos, file=act.file),
-                              None, None, act.start_line, act.end_line, act.offset_pos,
-                              act.limit_offset_pos,
-                              act.file), additional_acts, after_acts
-            elif act.assign_type == "-=":
-                return action("variable", "decrement", args(
-                    unpositional=[assign("assigning", act.args["first"]), assign("number", act.args["second"])],
-                    start_line=act.start_line, end_line=act.end_line, offset_pos=act.offset_pos,
-                    limit_offset_pos=act.limit_offset_pos, file=act.file),
-                              None, None, act.start_line, act.end_line, act.offset_pos,
-                              act.limit_offset_pos,
-                              act.file), additional_acts, after_acts
-            elif act.assign_type == "*=":
-                return action("variable", "multiply", args(unpositional=[assign("assigning", act.args["first"]),
-                                                                         assign("value", lst([act.args["first"][0],
-                                                                                              act.args["second"]]))],
-                                                           start_line=act.start_line, end_line=act.end_line,
-                                                           offset_pos=act.offset_pos,
-                                                           limit_offset_pos=act.limit_offset_pos, file=act.file),
-                              None, None, act.start_line, act.end_line, act.offset_pos,
-                              act.limit_offset_pos,
-                              act.file), additional_acts, after_acts
-            elif act.assign_type == "/=":
-                return action("variable", "divide", args(unpositional=[assign("assigning", act.args["first"]),
-                                                                       assign("value", lst([act.args["first"][0],
-                                                                                            act.args["second"]]))],
-                                                         start_line=act.start_line, end_line=act.end_line,
-                                                         offset_pos=act.offset_pos,
-                                                         limit_offset_pos=act.limit_offset_pos, file=act.file),
-                              None, None, act.start_line, act.end_line, act.offset_pos,
-                              act.limit_offset_pos,
-                              act.file), additional_acts, after_acts
-            elif act.assign_type == "//=":
-                return action("variable", "divide", args(
-                    unpositional=[assign("division_mode", text("FLOOR")), assign("assigning", act.args["first"]),
-                                  assign("value", lst([act.args["first"][0], act.args["second"]]))],
-                    start_line=act.start_line, end_line=act.end_line, offset_pos=act.offset_pos,
-                    limit_offset_pos=act.limit_offset_pos, file=act.file),
-                              None, None, act.start_line, act.end_line, act.offset_pos,
-                              act.limit_offset_pos,
-                              act.file), additional_acts, after_acts
-            elif act.assign_type == "%=":
-                return action("variable", "remainder", args(
-                    unpositional=[assign("assigning", act.args["first"]), assign("divisor", act.args["first"][0]),
-                                  assign("dividend", act.args["second"])], start_line=act.start_line,
-                    end_line=act.end_line, offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos,
-                    file=act.file),
-                              None, None, act.start_line, act.end_line, act.offset_pos,
-                              act.limit_offset_pos,
-                              act.file), additional_acts, after_acts
-            elif act.assign_type == "^=":
-                return action("variable", "pow", args(
-                    unpositional=[assign("assigning", act.args["first"]), assign("base", act.args["first"][0]),
-                                  assign("power", act.args["second"])], start_line=act.start_line,
-                    end_line=act.end_line, offset_pos=act.offset_pos, limit_offset_pos=act.limit_offset_pos,
-                    file=act.file),
-                              None, None, act.start_line, act.end_line, act.offset_pos,
-                              act.limit_offset_pos,
-                              act.file), additional_acts, after_acts
+            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.file)
+        return previous_operations, current_operation, next_operations
 
-    if isinstance(act, action):
-        unpositional = []
-        for k1, v1 in act.args.get_args().items():
-            if v1 is not None:
-                v1, additional2 = try_action(v1, ignore_lst=not "array" in act.arg_list, in_var=True)
-                additional_acts.extend(additional2)
-                unpositional.append(assign(k1, v1))
-        act.args.unpositional = unpositional
-        act.args.positional = []
-    return act, additional_acts, after_acts
+    def json(self):
+        return {"type": "particle", "particle_type": get_value(self.args["particle"], ""),
+                "count": get_value(self.args["count"], 0), "first_spread": get_value(self.args["spread_x"], 0),
+                "second_spread": get_value(self.args["spread_y"], 0), "x_motion": get_value(self.args["motion_x"], ""),
+                "y_motion": get_value(self.args["motion_y"], 0), "z_motion": get_value(self.args["motion_z"], 0),
+                "color": get_value(self.args["color"], 0), "material": get_value(self.args["material"], ""),
+                "size": get_value(self.args["size"], 0), "to_color": get_value(self.args["to_color"], 0)}
 
 
-class slice:
-    def __init__(self, obj, arg, start_line=None, end_line=None,
-                 offset_pos=None, limit_offset_pos=None, file=None):
-        self.type = "slice"
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.obj = obj
-        arg.arg_list = ["start", "end"]
-        self.arg = arg.get_args()
-
-    def __str__(self):
-        return f'slice({self.obj},{self.arg["start"]}:{self.arg["end"]})'
-
-    def __repr__(self):
-        return self.__str__()
+def parse(tokens, source):
+    return Parser(tokens, source).parse()
 
 
-class atribute:
-    def __init__(self, obj, atr, start_line=None, end_line=None,
-                 offset_pos=None, limit_offset_pos=None, file=None):
-        self.type = "argument"
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.obj = obj
-        self.atr = atr
-
-    def __str__(self):
-        return f'atribute({self.obj},{self.atr})'
-
-    def __repr__(self):
-        return self.__str__()
-
-
-class true_assign:
-    def __init__(self, assign_type, arg=None, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
-                 file=None):
-        self.type = "true_assign"
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.assign_type = assign_type
-        arg.arg_list = ["first", "second"]
-        self.args = arg.get_args()
-
-    def __str__(self):
-        return f'true_assign({self.args["first"]}{self.assign_type}{self.args["second"]})'
-
-    def __repr__(self):
-        return self.__str__()
-
-
-class enum:
-    def __init__(self, enu, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
-                 file=None, vare=None):
-        self.type = "enum"
-        self.enum = enu
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.var = vare
-
-    def __str__(self):
-        return f'enum({self.enum})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, normal=False):
-        a = {"type": "enum", "enum": self.enum}
-        if self.var is not None:
-            a["variable"] = self.var.name
-            a["scope"] = self.var.var_type.lower()
-        return a
-
-
-class action:
-    def __init__(self, act_type, sub_action, arg=None, selector=None, no=None, start_line=None, end_line=None,
-                 offset_pos=None, limit_offset_pos=None, file=None, operations=None, conditional=None):
-        self.type = "action"
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        if not (act_type == "special" and sub_action in origin_actions) and not (
-                act_type + "::" + sub_action in actions):
-            if sub_action in non_origin_actions:
-                error("Cringe",
-                      "Действие " + actions[non_origin_actions[sub_action]]["object"] + "::" + sub_action + "(" +
-                      actions[non_origin_actions[sub_action]][
-                          "localized_name"] + ") не может быть вызвано от переменной", start_line, end_line,
-                      offset_pos,
-                      limit_offset_pos, file)
-            else:
-                error("UnexistsAction", f"Указано несуществующее действие {sub_action}", start_line, end_line,
-                      offset_pos,
-                      limit_offset_pos, file)
-        elif act_type == "special":
-            act_type = actions[origin_actions[sub_action]]["object"]
-        self.act_type = act_type
-        self.sub_action = sub_action
-        arg.origin = actions[act_type + "::" + sub_action].setdefault("origin", None)
-        arg.assigning = actions[act_type + "::" + sub_action].setdefault("assign", None)
-        arg.lamba = actions[act_type + "::" + sub_action].setdefault("lambda", None)
-        arg.arg_list = [i["id"] for i in actions[act_type + "::" + sub_action]["args"]]
-        self.args = arg
-        self.arg_list = {i["id"]: i for i in actions[self.act_type + "::" + self.sub_action]["args"]}
-        if selector is not None:
-            if act_type == "player":
-                if not selector in (
-                        "current", "default_player", "killer_player", "damager_player", "shooter_player",
-                        "victim_player",
-                        "random_player", "all_players"):
-                    error("UnexistsSelector", f"Указан несуществующий селектор {selector}", start_line, end_line,
-                          offset_pos,
-                          limit_offset_pos, file)
-            elif act_type == "entity":
-                if not selector in (
-                        "current", "default_entity", "killer_entity", "damager_entity", "shooter_entity", "projectile",
-                        "victim_entity", "random_entity", "all_mobs", "all_entities", "last_entity"):
-                    error("UnexistsSelector", f"Указан несуществующий селектор {selector}", start_line, end_line,
-                          offset_pos,
-                          limit_offset_pos, file)
-            else:
-                selector = None
-        self.selector = selector
-        self.operations = operations
-        if conditional is not None:
-            if not isinstance(conditional, action):
-                error("TypeError", f"Ожидалось условие, но было получено {conditional.type}", conditional.start_line, conditional.end_line,
-                      conditional.offset_pos, conditional.limit_offset_pos, conditional.file)
-            if not actions[conditional.act_type + "::" + conditional.sub_action].setdefault("boolean", False):
-                error("TypeError", "Ожидалось условие, но было получено обычное действие", conditional.start_line, conditional.end_line,
-                      conditional.offset_pos, conditional.limit_offset_pos, conditional.file)
-        self.conditional = conditional
-        self.no = no
-
-    def __str__(self):
-        return f'action({self.act_type},{self.sub_action},{self.args},{self.selector},{self.no})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, normal=None):
-        act_id = actions[self.act_type + "::" + self.sub_action]["id"]
-        arg = []
-        self.args = self.args.get_args()
-        for k1, v1 in self.args.items():
-            if v1 is None:
-                continue
-            if self.arg_list[k1]["type"] == "variable":
-                if isinstance(v1, var):
-                    continue
-                else:
-                    error("TypeError",
-                          "Ожидался объект типа " + self.arg_list[k1]["type"] + f", но был получен {v1.type}",
-                          v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file)
-            if isinstance(v1, var):
-                typ = v1.type_hint
-            elif v1 is not None:
-                typ = v1.type
-            else:
-                continue
-            if "array" in self.arg_list[k1] and v1.type == "array":
-                if len(v1.values) > self.arg_list[k1]["array"]:
-                    error("SizeError",
-                          f"Был указан слишком большой список({len(v1.values)}), когда максимальный - " + str(
-                              self.arg_list[k1]["array"]),
-                          v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file)
-                continue
-            if self.arg_list[k1]["type"] in ("enum", "boolean"):
-                if isinstance(v1, text):
-                    if (self.arg_list[k1]["type"] == "enum" and not v1.text in [i["value"] for i in
-                                                                                self.arg_list[k1]["values"]]) or (
-                            self.arg_list[k1]["type"] == "boolean" and not v1.text in ("TRUE", "FALSE")):
-                        error("UnknownArgument",
-                              f"Неизвестный тип перечисления {v1.text}",
-                              v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file)
-                    self.args[k1] = enum(v1.text, v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos,
-                                         v1.file)
-                    continue
-                elif isinstance(v1, var):
-                    if self.arg_list[k1]["type"] == "enum":
-                        enu = list(self.arg_list[k1]["values"][0].keys())[0]
-                    else:
-                        enu = "FALSE"
-                    self.args[k1] = enum(enu, v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file,
-                                         vare=v1)
-                    continue
-            if not (typ == "any" or self.arg_list[k1]["type"] == typ or
-                    self.arg_list[k1]["type"] == "any" or typ == "text" or self.arg_list[k1]["type"] == "text"):
-                error("TypeError", "Ожидался объект типа " + self.arg_list[k1]["type"] + f", но был получен {v1.type}",
-                      v1.start_line, v1.end_line, v1.offset_pos, v1.limit_offset_pos, v1.file)
-        for key, val in self.args.items():
-            if val is not None:
-                arg.append({"name": key, "value": val.json()})
-        a = {"action": act_id, "values": arg}
-        if self.no is not None:
-            a["is_inverted"] = self.no
-        if self.conditional is not None:
-            self.conditional.operations = lst([])
-            if self.conditional.no is not None:
-                if self.no is None:
-                    self.no = self.conditional.no
-            else:
-                if self.no is not None:
-                    self.conditional.no = self.no
-                else:
-                    self.conditional.no = False
-            a["conditional"] = self.conditional.json()
-            a["values"].extend(a["conditional"]["values"])
-        if self.operations is not None:
-            a["operations"] = self.operations.json(normal=True)
-        if self.selector is not None:
-            a["selection"] = {"type": self.selector}
-
-        return a
-
-
-class var:
-    def __init__(self, name, var_type=None, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
-                 file=None, type_hint=None):
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.type = "variable"
-        self.name = name
-        if var_type is None:
-            if name in symbol_table["variables"].keys():
-                var_type = symbol_table["variables"][name][0]
-            else:
-                var_type = "LOCAL"
-        if type_hint is None:
-            if name in symbol_table["variables"].keys():
-                type_hint = symbol_table["variables"][name][1]
-            else:
-                type_hint = "any"
-        self.var_type = var_type
-        self.type_hint = type_hint
-
-    def __str__(self):
-        return f'var({self.name},{self.var_type})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, in_text=False, normal=None):
-        if normal:
-            return self.name
-        if in_text:
-            if self.var_type == "LOCAL":
-                return f"%var_local({self.name})"
-            elif self.var_type == "GAME":
-                return f"%var({self.name})"
-            elif self.var_type == "SAVE":
-                return f"%var_save({self.name})"
-        if self.var_type == "INLINE":
-            error("UnknownError", "Обнаружена переменная типа INLINE", self.start_line, self.end_line, self.offset_pos,
-                  self.limit_offset_pos, self.file)
-        return {"type": "variable", "variable": self.name, "scope": self.var_type.lower()}
-
-
-class if_:
-    def __init__(self, act, operations, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
-                 file=None):
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        if not isinstance(act,action):
-            error("TypeError", f"Ожидалось условие, но было получено {act.type}", act.start_line, act.end_line,
-                  act.offset_pos, act.limit_offset_pos, act.file)
-        if not actions[act.act_type + "::" + act.sub_action].setdefault("boolean", False):
-            error("TypeError", "Ожидалось условие, но было получено обычное действие",act.start_line,act.end_line,act.offset_pos,act.limit_offset_pos,act.file)
-        self.act = act
-        self.type = "if"
-        self.operations = operations
-
-    def __str__(self):
-        return f'if({self.act},{self.operations})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, normal=None):
-        act = self.act.json()
-        act["operations"] = self.operations.json(normal=True)
-        return act
-
-
-class else_:
-    def __init__(self, operations, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None, file=None):
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.type = "else"
-        self.operations = operations
-
-    def __str__(self):
-        return f'else({self.operations})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, normal=None):
-        return {"action": "else", "values": [], "operations": self.operations.json(normal=True)}
-
-
-class event:
-    def __init__(self, name, operations, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
-                 file=None):
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.name = name
-        if not self.name in events:
-            error("UnexistsEvent", f"Указан несуществующий ивент {self.name}", start_line=self.start_line,
-                  end_line=self.end_line, offset_pos=self.offset_pos, limit_offset_pos=self.limit_offset_pos,
-                  file=self.file)
-        self.operations = operations
-
-    def __str__(self):
-        return f'event({self.name},{self.operations})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, normal=None):
-        global global_count
-        global_count += 1
-        a = {"type": "event", "event": self.name, "position": global_count, "operations": []}
-        additional_events = []
-        operations, additional2 = fix_operations_len(self.operations.json(normal=True))
-        additional_events.extend(additional2)
-        a["operations"] = operations
-        return a, additional_events
-
-
-def try_math(mat):
-    global var_count
-    additional_actions = []
-    if isinstance(mat.first, math):
-        mat.first, additional2 = try_math(mat.first)
-        additional_actions.extend(additional2)
-    elif type(mat.first) in (slice, atribute, action, lst, dct):
-        mat.first, additional2 = try_action(mat.first, in_var=True)
-        additional_actions.extend(additional2)
-    elif type(mat.first) in (item, location, vector, sound, particle, potion, value):
-        spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", mat.start_line, mat.end_line,
-                       mat.offset_pos, mat.limit_offset_pos, mat.file)
-        additional_actions.append(action("variable", "set_value", args(
-            unpositional=[assign("assigning", [spec_var]), assign("value", mat.first)]),
-                                         None, None, mat.start_line, mat.end_line, mat.offset_pos, mat.limit_offset_pos,
-                                         mat.file))
-        mat.first = spec_var
-    if isinstance(mat.second, math):
-        mat.second, additional2 = try_math(mat.second)
-        additional_actions.extend(additional2)
-    elif type(mat.second) in (slice, atribute, action, lst, dct):
-        mat.second, additional2 = try_action(mat.second, in_var=True)
-        additional_actions.extend(additional2)
-    elif type(mat.second) in (item, location, vector, sound, particle, potion, value):
-        spec_var = var("jmcc." + str(var_count := var_count + 1), "LOCAL", mat.start_line, mat.end_line,
-                       mat.offset_pos, mat.limit_offset_pos, mat.file)
-        additional_actions.append(action("variable", "set_value", args(
-            unpositional=[assign("assigning", [spec_var]), assign("value", mat.second)]),
-                                         None, None, mat.start_line, mat.end_line, mat.offset_pos, mat.limit_offset_pos,
-                                         mat.file))
-        mat.second = spec_var
-    if isinstance(mat.first, number) and isinstance(mat.second, number):
-        if mat.operation == "*":
-            return number(mat.first.value * mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file), additional_actions
-        elif mat.operation == "+":
-            return number(mat.first.value + mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file), additional_actions
-        elif mat.operation == "/":
-            return number(mat.first.value / mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file), additional_actions
-        elif mat.operation == "//":
-            return number(mat.first.value // mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file), additional_actions
-        elif mat.operation == "-":
-            return number(mat.first.value - mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file), additional_actions
-        elif mat.operation == "%":
-            return number(mat.first.value % mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file), additional_actions
-        elif mat.operation == "^":
-            return number(mat.first.value ** mat.second.value, mat.start_line, mat.end_line, mat.offset_pos,
-                          mat.limit_offset_pos, mat.file), additional_actions
+def parse_from_text(txt, source=None, properties=None):
+    if properties is None:
+        properties = {}
+    global global_text
+    if source is None:
+        source = new("source")
+    if len(properties) > 0:
+        Context(source).set_properties(properties)
+    if (source not in Context.context) or (Context(source).compiled is False):
+        global_text[source] = txt
+        return parse(tokenize(txt, source), source)
     else:
-        return mat, additional_actions
-    error("UnsopportedOperand",
-          f"Действие {mat.operation} невозможно между {mat.first.type} и {mat.second.type}", mat.start_line,
-          mat.end_line, mat.offset_pos, mat.limit_offset_pos, mat.file)
+        Context(source).clear_operations()
+        return Context(source)
 
 
-class math:
-    def __init__(self, operation, first=None, second=None, start_line=None, end_line=None, offset_pos=None,
-                 limit_offset_pos=None, file=None):
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.operation = operation
-        if isinstance(first, var) and first.var_type == "INLINE":
-            first = symbol_table["inlines"][first.name]
-        self.first = first
-        if isinstance(second, var) and second.var_type == "INLINE":
-            second = symbol_table["inlines"][second.name]
-        self.second = second
-        self.type = "number"
-
-    def __str__(self):
-        return f'math({self.first}{self.operation}{self.second})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, in_text=False):
-        if in_text:
-            if self.operation == "//":
-                return f"floor({self.first.json(in_text=True)}/{self.second.json(in_text=True)})"
-            if self.operation == "^":
-                return f"pow({self.first.json(in_text=True)},{self.second.json(in_text=True)})"
-            return f"({self.first.json(in_text=True)}{self.operation}{self.second.json(in_text=True)})"
-
-        return {"type": "number",
-                "number": f"%math({self.first.json(in_text=True)}{self.operation}{self.second.json(in_text=True)})"}
+def parse_from_file(file1, properties=None):
+    if properties is None:
+        properties = {}
+    global global_text
+    source = os.path.abspath(file1.name)
+    if len(properties) > 0:
+        Context(source).set_properties(properties)
+    if (source not in Context.context) or (Context(source).compiled is False):
+        path = os.path.dirname(source)
+        global_text[source] = file1.read()
+        earlier = os.getcwd()
+        os.chdir(path)
+        ret = parse(tokenize(global_text[source], source), source)
+        os.chdir(earlier)
+        return ret
+    else:
+        Context(source).clear_operations()
+        return Context(source)
 
 
-class function:
-    def __init__(self, name, operations=None, arg=None, start_line=None, end_line=None, offset_pos=None,
-                 limit_offset_pos=None, file=None):
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.name = name
-        self.actions = operations
-        symbol_table["functions"][name] = arg
-
-    def __str__(self):
-        return f'function({self.name},{self.actions})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, normal=None):
-        global global_count
-        global_count += 1
-        a = {"type": "function", "position": global_count, "operations": [], "is_hidden": False, "name": self.name}
-        additional_events = []
-        operations, additional2 = fix_operations_len(self.actions.json(normal=True))
-        additional_events.extend(additional2)
-        a["operations"] = operations
-        return a, additional_events
-
-
-def try_function(call_func):
-    if call_func.name in allowed_actions:
-        if call_func.name == "round":
-            if isinstance(call_func.args.args["first"], number):
-                if call_func.args.args["second"] is None:
-                    call_func.args.args["second"] = number(0)
-                if isinstance(call_func.args.args["second"], number):
-                    return number(round(call_func.args.args["first"].value, call_func.args.args["second"].value),
-                                  call_func.start_line, call_func.end_line, call_func.offset_pos,
-                                  call_func.limit_offset_pos, call_func.file)
-    return call_func
-
-
-class call_function:
-    def __init__(self, name, arg, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
-                 file=None):
-        self.type = "number"
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.name = name
-        if name in math_functions.keys():
-            arg.arg_list = math_functions[name]
-            arg.get_args()
-        self.args = arg
-
-    def __str__(self):
-        return f'call_function({self.name},{self.args})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, in_text=False, normal=None):
-        if in_text:
-            arg = []
-            for k1, v1 in self.args.args.items():
-                if v1 is not None:
-                    arg.append(v1.json(in_text=True))
-            return f"{self.name}(" + ", ".join(arg) + ")"
-        return action("code", "call_function", args(positional=[text(self.name)]), None, None, self.start_line,
-                      self.end_line, self.offset_pos, self.limit_offset_pos, self.file).json()
-
-
-class process:
-    def __init__(self, name, operations, start_line=None, end_line=None, offset_pos=None, limit_offset_pos=None,
-                 file=None):
-        self.start_line = start_line
-        self.end_line = end_line
-        self.offset_pos = offset_pos
-        self.limit_offset_pos = limit_offset_pos
-        self.file = file
-        self.name = name
-        self.actions = operations
-
-    def __str__(self):
-        return f'process({self.name},{self.actions})'
-
-    def __repr__(self):
-        return self.__str__()
-
-    def json(self, normal=None):
-        global global_count
-        global_count += 1
-        a = {"type": "process", "position": global_count, "operations": [], "name": self.name, "is_hidden": False}
-        additional_events = []
-        operations, additional2 = fix_operations_len(self.actions.json(normal=True))
-        additional_events.extend(additional2)
-        a["operations"] = operations
-        return a, additional_events
-
-
-class Parser:
-    global open_files
-
-    def __init__(self, lexer, tree):
-        self.lexer = lexer
-        self.current_token = self.lexer.get_next_token
-        self.tree = tree
-
-    def eat(self, token_type):
-        if token_type != "OEL":
-            while self.current_token.type == "OEL":
-                self.current_token = self.lexer.get_next_token
-        if self.current_token.type == token_type:
-            self.current_token = self.lexer.get_next_token
-        else:
-            error("SyntaxError", f"Ожидался объект типа {token_type}, но был встречен {self.current_token.type}",
-                  start_line=self.current_token.start_line, end_line=self.current_token.end_line,
-                  offset_pos=self.current_token.offset_pos, limit_offset_pos=self.current_token.limit_offset_pos,
-                  file=self.lexer.file)
-
-    def factor(self, var_types=False):
-        token = self.current_token
-        if token.equals(PLUS_NUMBER, MINUS_NUMBER, NUMBER):
-            self.eat(token.type)
-            return number(token.value, start_line=token.start_line, end_line=token.end_line,
-                          offset_pos=token.offset_pos, limit_offset_pos=token.limit_offset_pos, file=self.lexer.file)
-        elif token.equals(STRING, MINIMESSAGE_STRING, PLAIN_STRING, LEGACY_STRING, JSON_STRING):
-            if token.equals(PLAIN_STRING):
-                text_type = "plain"
-            elif token.equals(MINIMESSAGE_STRING):
-                text_type = "minimessage"
-            elif token.equals(STRING, LEGACY_STRING):
-                text_type = "legacy"
-            elif token.equals(JSON_STRING):
-                text_type = "json"
-            else:
-                text_type = "None"
-            self.eat(token.type)
-            return text(token.value, text_type=text_type, start_line=token.start_line, end_line=token.end_line,
-                        offset_pos=token.offset_pos, limit_offset_pos=token.limit_offset_pos, file=self.lexer.file)
-        elif token.type == NONE:
-            self.eat(NONE)
-            return text(token.value, start_line=token.start_line, end_line=token.end_line, offset_pos=token.offset_pos,
-                        limit_offset_pos=token.limit_offset_pos, file=self.lexer.file)
-        elif token.equals(VAR, LOCAL_VAR, GAME_VAR, SAVE_VAR, INLINE_VAR):
-            if token.type == VAR:
-                self.eat(VAR)
-                if self.current_token.equals(LPAREN):
-                    start_line = token.start_line
-                    offset_pos = token.offset_pos
-                    self.eat(LPAREN)
-                    positional = []
-                    unpositional = []
-                    while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                        a = self.expr(assigning=True)
-                        if isinstance(a, assign):
-                            unpositional.append(a)
-                        else:
-                            positional.append(a)
-                        if self.current_token.type == COMMA:
-                            self.eat(COMMA)
-                    end_line = self.current_token.end_line
-                    limit_offset_pos = self.current_token.limit_offset_pos
-                    self.eat(RPAREN)
-                    return try_function(
-                        call_function(token.value,
-                                      arg=args(positional=positional, unpositional=unpositional, start_line=start_line,
-                                               end_line=end_line, offset_pos=offset_pos,
-                                               limit_offset_pos=limit_offset_pos, file=self.lexer.file),
-                                      start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                      limit_offset_pos=limit_offset_pos, file=self.lexer.file))
-                if self.current_token.equals(COLON) and var_types:
-                    self.eat(COLON)
-                    type_hint = self.current_token.value
-                    self.eat(VAR)
-                else:
-                    type_hint = None
-                return var(token.value, start_line=token.start_line, end_line=token.end_line,
-                           offset_pos=token.offset_pos, limit_offset_pos=token.limit_offset_pos, file=self.lexer.file,
-                           type_hint=type_hint)
-            elif token.type == LOCAL_VAR:
-                self.eat(LOCAL_VAR)
-                if self.current_token.equals(COLON) and var_types:
-                    self.eat(COLON)
-                    type_hint = self.current_token.value
-                    self.eat(VAR)
-                else:
-                    type_hint = None
-                return var(token.value, var_type="LOCAL", start_line=token.start_line, end_line=token.end_line,
-                           offset_pos=token.offset_pos, limit_offset_pos=token.limit_offset_pos, file=self.lexer.file,
-                           type_hint=type_hint)
-            elif token.type == GAME_VAR:
-                self.eat(GAME_VAR)
-                if self.current_token.equals(COLON) and var_types:
-                    self.eat(COLON)
-                    type_hint = self.current_token.value
-                    self.eat(VAR)
-                else:
-                    type_hint = None
-                return var(token.value, var_type="GAME", start_line=token.start_line, end_line=token.end_line,
-                           offset_pos=token.offset_pos, limit_offset_pos=token.limit_offset_pos, file=self.lexer.file,
-                           type_hint=type_hint)
-            elif token.type == SAVE_VAR:
-                self.eat(SAVE_VAR)
-                if self.current_token.equals(COLON) and var_types:
-                    self.eat(COLON)
-                    type_hint = self.current_token.value
-                    self.eat(VAR)
-                else:
-                    type_hint = None
-                return var(token.value, var_type="SAVE", start_line=token.start_line, end_line=token.end_line,
-                           offset_pos=token.offset_pos, limit_offset_pos=token.limit_offset_pos, file=self.lexer.file,
-                           type_hint=type_hint)
-            else:
-                self.eat(INLINE_VAR)
-                if self.current_token.equals(COLON) and var_types:
-                    self.eat(COLON)
-                    type_hint = self.current_token.value
-                    self.eat(VAR)
-                else:
-                    type_hint = None
-                return var(token.value, var_type="INLINE", start_line=token.start_line, end_line=token.end_line,
-                           offset_pos=token.offset_pos, limit_offset_pos=token.limit_offset_pos, file=self.lexer.file,
-                           type_hint=type_hint)
-        elif token.type == ITEM:
-            self.eat(ITEM)
-            if self.current_token.equals(LPAREN):
-                start_line = token.start_line
-                offset_pos = token.offset_pos
-                self.eat(LPAREN)
-                unpositional = []
-                positional = []
-                while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                    a = self.expr(assigning=True)
-                    if isinstance(a, assign):
-                        unpositional.append(a)
-                    else:
-                        positional.append(a)
-                    if self.current_token.type == COMMA:
-                        self.eat(COMMA)
-                end_line = self.current_token.end_line
-                limit_offset_pos = self.current_token.limit_offset_pos
-                self.eat(RPAREN)
-                return item(
-                    arg=args(positional=positional, unpositional=unpositional, start_line=start_line, end_line=end_line,
-                             offset_pos=offset_pos,
-                             limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
-                    end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                    file=self.lexer.file)
-            if self.current_token.equals(COLON) and var_types:
-                self.eat(COLON)
-                type_hint = self.current_token.value
-                self.eat(VAR)
-            else:
-                type_hint = None
-            return var("item", start_line=token.start_line, end_line=token.end_line, offset_pos=token.offset_pos,
-                       limit_offset_pos=token.limit_offset_pos, file=self.lexer.file, type_hint=type_hint)
-        elif token.type == LOCATION:
-            self.eat(LOCATION)
-            if self.current_token.equals(LPAREN):
-                start_line = token.start_line
-                offset_pos = token.offset_pos
-                self.eat(LPAREN)
-                unpositional = []
-                positional = []
-                while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                    a = self.expr(assigning=True)
-                    if isinstance(a, assign):
-                        unpositional.append(a)
-                    else:
-                        positional.append(a)
-                    if self.current_token.type == COMMA:
-                        self.eat(COMMA)
-                end_line = self.current_token.end_line
-                limit_offset_pos = self.current_token.limit_offset_pos
-                self.eat(RPAREN)
-                return location(
-                    arg=args(positional=positional, unpositional=unpositional, start_line=start_line, end_line=end_line,
-                             offset_pos=offset_pos,
-                             limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
-                    end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                    file=self.lexer.file)
-            if self.current_token.equals(COLON) and var_types:
-                self.eat(COLON)
-                type_hint = self.current_token.value
-                self.eat(VAR)
-            else:
-                type_hint = None
-            return var("location", end_line=token.end_line, offset_pos=token.offset_pos,
-                       limit_offset_pos=token.limit_offset_pos, file=self.lexer.file, type_hint=type_hint)
-        elif token.type == VECTOR:
-            self.eat(VECTOR)
-            if self.current_token.equals(LPAREN):
-                start_line = token.start_line
-                offset_pos = token.offset_pos
-                self.eat(LPAREN)
-                unpositional = []
-                positional = []
-                while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                    a = self.expr(assigning=True)
-                    if isinstance(a, assign):
-                        unpositional.append(a)
-                    else:
-                        positional.append(a)
-                    if self.current_token.type == COMMA:
-                        self.eat(COMMA)
-                end_line = self.current_token.end_line
-                limit_offset_pos = self.current_token.limit_offset_pos
-                self.eat(RPAREN)
-                return vector(
-                    arg=args(positional=positional, unpositional=unpositional, start_line=start_line, end_line=end_line,
-                             offset_pos=offset_pos,
-                             limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
-                    end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                    file=self.lexer.file)
-            if self.current_token.equals(COLON) and var_types:
-                self.eat(COLON)
-                type_hint = self.current_token.value
-                self.eat(VAR)
-            else:
-                type_hint = None
-            return var("vector", end_line=token.end_line, offset_pos=token.offset_pos,
-                       limit_offset_pos=token.limit_offset_pos, file=self.lexer.file, type_hint=type_hint)
-        elif token.type == POTION:
-            start_line = token.start_line
-            offset_pos = token.offset_pos
-            self.eat(POTION)
-            if self.current_token.equals(LPAREN):
-                self.eat(LPAREN)
-                unpositional = []
-                positional = []
-                while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                    a = self.expr(assigning=True)
-                    if isinstance(a, assign):
-                        unpositional.append(a)
-                    else:
-                        positional.append(a)
-                    if self.current_token.type == COMMA:
-                        self.eat(COMMA)
-                end_line = self.current_token.end_line
-                limit_offset_pos = self.current_token.limit_offset_pos
-                self.eat(RPAREN)
-                return potion(
-                    arg=args(positional=positional, unpositional=unpositional, start_line=start_line, end_line=end_line,
-                             offset_pos=offset_pos,
-                             limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
-                    end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                    file=self.lexer.file)
-            if self.current_token.equals(COLON) and var_types:
-                self.eat(COLON)
-                type_hint = self.current_token.value
-                self.eat(VAR)
-            else:
-                type_hint = None
-            return var("potion", end_line=token.end_line, offset_pos=token.offset_pos,
-                       limit_offset_pos=token.limit_offset_pos, file=self.lexer.file, type_hint=type_hint)
-        elif token.type == SOUND:
-            start_line = token.start_line
-            offset_pos = token.offset_pos
-            self.eat(SOUND)
-            if self.current_token.equals(LPAREN):
-                self.eat(LPAREN)
-                unpositional = []
-                positional = []
-                while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                    a = self.expr(assigning=True)
-                    if isinstance(a, assign):
-                        unpositional.append(a)
-                    else:
-                        positional.append(a)
-                    if self.current_token.type == COMMA:
-                        self.eat(COMMA)
-                end_line = self.current_token.end_line
-                limit_offset_pos = self.current_token.limit_offset_pos
-                self.eat(RPAREN)
-                return sound(
-                    arg=args(positional=positional, unpositional=unpositional, start_line=start_line, end_line=end_line,
-                             offset_pos=offset_pos,
-                             limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
-                    end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                    file=self.lexer.file)
-            if self.current_token.equals(COLON) and var_types:
-                self.eat(COLON)
-                type_hint = self.current_token.value
-                self.eat(VAR)
-            else:
-                type_hint = None
-            return var("sound", end_line=token.end_line, offset_pos=token.offset_pos,
-                       limit_offset_pos=token.limit_offset_pos, file=self.lexer.file, type_hint=type_hint)
-        elif token.type == PARTICLE:
-            start_line = token.start_line
-            offset_pos = token.offset_pos
-            self.eat(PARTICLE)
-            if self.current_token.equals(LPAREN):
-                self.eat(LPAREN)
-                unpositional = []
-                positional = []
-                while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                    a = self.expr(assigning=True)
-                    if isinstance(a, assign):
-                        unpositional.append(a)
-                    else:
-                        positional.append(a)
-                    if self.current_token.type == COMMA:
-                        self.eat(COMMA)
-                end_line = self.current_token.end_line
-                limit_offset_pos = self.current_token.limit_offset_pos
-                self.eat(RPAREN)
-                return particle(
-                    arg=args(positional=positional, unpositional=unpositional, start_line=start_line, end_line=end_line,
-                             offset_pos=offset_pos,
-                             limit_offset_pos=limit_offset_pos, file=self.lexer.file), start_line=start_line,
-                    end_line=end_line, offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                    file=self.lexer.file)
-            if self.current_token.equals(COLON) and var_types:
-                self.eat(COLON)
-                type_hint = self.current_token.value
-                self.eat(VAR)
-            else:
-                type_hint = None
-            return var("particle", end_line=token.end_line, offset_pos=token.offset_pos,
-                       limit_offset_pos=token.limit_offset_pos, file=self.lexer.file, type_hint=type_hint)
-        elif token.type == LPAREN:
-            self.eat(LPAREN)
-            result = self.expr()
-            self.eat(RPAREN)
-            return result
-        elif token.type == LSPAREN:
-            start_line = token.start_line
-            offset_pos = token.offset_pos
-            self.eat(LSPAREN)
-            vals = []
-            while self.current_token.type != EOF and self.current_token.type != RSPAREN:
-                vals.append(self.expr())
-                if self.current_token.type == COMMA:
-                    self.eat(COMMA)
-            end_line = self.current_token.end_line
-            limit_offset_pos = self.current_token.limit_offset_pos
-            self.eat(RSPAREN)
-            return lst(vals, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                       limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-        elif token.type == LCPAREN:
-            start_line = token.start_line
-            offset_pos = token.offset_pos
-            self.eat(LCPAREN)
-            keys = []
-            vals = []
-            while self.current_token.type != EOF and self.current_token.type != RCPAREN:
-                keys.append(self.expr())
-                self.eat(COLON)
-                vals.append(self.expr())
-                if self.current_token.type == COMMA:
-                    self.eat(COMMA)
-            end_line = self.current_token.end_line
-            limit_offset_pos = self.current_token.limit_offset_pos
-            self.eat(RCPAREN)
-            return dct(keys, vals, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                       limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-        elif token.type == VALUE:
-            start_line = token.start_line
-            offset_pos = token.offset_pos
-            self.eat(VALUE)
-            if self.current_token.equals(SELECTOR):
-                end_line = self.current_token.end_line
-                limit_offset_pos = self.current_token.limit_offset_pos
-                selector = self.current_token.value
-                self.eat(SELECTOR)
-                return value(token.value, selector, start_line=start_line, end_line=end_line,
-                             offset_pos=offset_pos, limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-            return value(token.value, start_line=start_line, end_line=token.end_line, offset_pos=offset_pos,
-                         limit_offset_pos=token.limit_offset_pos, file=self.lexer.file)
-        elif token.equals(WORLD, VARIABLE, ENTITY, CODE, PLAYER, SELECT, CONTROLLER):
-            sub_action = self.current_token
-            start_line = token.start_line
-            offset_pos = token.offset_pos
-            self.eat(self.current_token.type)
-            if self.current_token.equals(SELECTOR):
-                selector = self.current_token.value
-                self.eat(SELECTOR)
-            else:
-                selector = None
-            self.eat(LPAREN)
-            unpositional = []
-            positional = []
-            while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                a = self.expr(assigning=True)
-                if isinstance(a, assign):
-                    unpositional.append(a)
-                else:
-                    positional.append(a)
-                if self.current_token.type == COMMA:
-                    self.eat(COMMA)
-            end_line = self.current_token.end_line
-            limit_offset_pos = self.current_token.limit_offset_pos
-            self.eat(RPAREN)
-            return action(sub_action.type.lower(), sub_action.value,
-                          arg=args(positional=positional, unpositional=unpositional, start_line=start_line,
-                                   end_line=end_line, offset_pos=offset_pos,
-                                   limit_offset_pos=limit_offset_pos, file=self.lexer.file),
-                          selector=selector,
-                          start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                          limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-        else:
-            error("SyntaxError", f"Неожиданный токен {self.current_token.type}",
-                  start_line=self.current_token.start_line, end_line=self.current_token.end_line,
-                  offset_pos=self.current_token.offset_pos, limit_offset_pos=self.current_token.limit_offset_pos,
-                  file=self.lexer.file)
-
-    def expr(self, assigning=False, work_with=None, pr=1, var_types=False):
-        if self.current_token.equals(OEL):
-            self.eat(OEL)
-        if work_with is None:
-            result = self.up_factor(assigning=assigning, work_with=work_with, var_types=var_types)
-        else:
-            result = work_with
-        if pr == 1:
-            result = self.expr(assigning=False, work_with=result, pr=2)
-        if self.current_token.equals(PLUS, MINUS, MINUS_NUMBER, PLUS_NUMBER) and (pr == 0 or pr == 1):
-            first = result
-            while self.current_token.equals(PLUS, MINUS, MINUS_NUMBER, PLUS_NUMBER):
-                start_line = result.start_line
-                offset_pos = result.offset_pos
-                if self.current_token.equals(MINUS_NUMBER):
-                    operation = "-"
-                    second = number(abs(self.current_token.value), start_line=self.current_token.start_line,
-                                    end_line=self.current_token.end_line, offset_pos=self.current_token.offset_pos + 1,
-                                    limit_offset_pos=self.current_token.limit_offset_pos, file=self.lexer.file)
-                    self.eat(self.current_token.type)
-                    if self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG, INT_DIVIDE):
-                        second = self.expr(work_with=second, pr=2)
-                elif self.current_token.equals(PLUS_NUMBER):
-                    operation = "+"
-                    second = number(self.current_token.value, start_line=self.current_token.start_line,
-                                    end_line=self.current_token.end_line, offset_pos=self.current_token.offset_pos + 1,
-                                    limit_offset_pos=self.current_token.limit_offset_pos, file=self.lexer.file)
-                    self.eat(self.current_token.type)
-                    if self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG, INT_DIVIDE):
-                        second = self.expr(work_with=second, pr=2)
-                else:
-                    operation = self.current_token.value
-                    self.eat(self.current_token.type)
-                    second = self.expr(pr=1)
-                end_line = second.end_line
-                limit_offset_pos = second.limit_offset_pos
-                first = math(operation=operation, first=first, second=second, start_line=start_line, end_line=end_line,
-                             offset_pos=offset_pos, limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-            return first
-        elif self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG, INT_DIVIDE) and (pr == 0 or pr == 2):
-            first = result
-            while self.current_token.equals(MULTIPLY, DIVIDE, PR, DEG, INT_DIVIDE):
-                start_line = result.start_line
-                offset_pos = result.offset_pos
-                operation = self.current_token.value
-                self.eat(self.current_token.type)
-                second = self.up_factor()
-                end_line = second.end_line
-                limit_offset_pos = second.limit_offset_pos
-                first = math(operation=operation, first=first, second=second, start_line=start_line, end_line=end_line,
-                             offset_pos=offset_pos, limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-            return first
-        return result
-
-    def up_factor(self, assigning=False, work_with=None, var_types=False):
-        if work_with is None:
-            result = self.factor(var_types=var_types)
-        else:
-            result = work_with
-        if self.current_token.equals(LSPAREN):
-            start_line = result.start_line
-            offset_pos = result.offset_pos
-            self.eat(LSPAREN)
-            vals = []
-            while self.current_token.type != EOF and self.current_token.type != RSPAREN:
-                vals.append(self.expr())
-                if self.current_token.type == COLON:
-                    self.eat(COLON)
-            end_line = self.current_token.end_line
-            limit_offset_pos = self.current_token.limit_offset_pos
-            self.eat(RSPAREN)
-            return self.up_factor(work_with=slice(result,
-                                                  arg=args(positional=vals, start_line=start_line, end_line=end_line,
-                                                           offset_pos=offset_pos,
-                                                           limit_offset_pos=limit_offset_pos, file=self.lexer.file),
-                                                  start_line=start_line,
-                                                  end_line=end_line,
-                                                  offset_pos=offset_pos, limit_offset_pos=limit_offset_pos,
-                                                  file=self.lexer.file))
-        elif self.current_token.equals(DOT):
-            start_line = result.start_line
-            offset_pos = result.offset_pos
-            self.eat(DOT)
-            act = self.current_token.value
-            end_line = self.current_token.end_line
-            limit_offset_pos = self.current_token.limit_offset_pos
-            self.eat(VAR)
-            if self.current_token.type == LPAREN:
-                self.eat(LPAREN)
-                unpositional = [assign("origin", result)]
-                positional = []
-                while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                    a = self.expr(assigning=True)
-                    if isinstance(a, assign):
-                        unpositional.append(a)
-                    else:
-                        positional.append(a)
-                    if self.current_token.type == COMMA:
-                        self.eat(COMMA)
-                end_line = self.current_token.end_line
-                limit_offset_pos = self.current_token.limit_offset_pos
-                self.eat(RPAREN)
-                return self.up_factor(work_with=action("special", act,
-                                                       arg=args(positional=positional, unpositional=unpositional,
-                                                                start_line=start_line,
-                                                                end_line=end_line, offset_pos=offset_pos,
-                                                                limit_offset_pos=limit_offset_pos,
-                                                                file=self.lexer.file),
-                                                       start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                                       limit_offset_pos=limit_offset_pos, file=self.lexer.file))
-            else:
-                return self.up_factor(
-                    work_with=atribute(result, act, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                       limit_offset_pos=limit_offset_pos, file=self.lexer.file))
-        if self.current_token.equals(ASSIGN) and assigning is True:
-            start_line = result.start_line
-            offset_pos = result.offset_pos
-            self.eat(ASSIGN)
-            second = self.expr()
-            end_line = second.end_line
-            limit_offset_pos = second.limit_offset_pos
-            if isinstance(result, var):
-                result = result.name
-            elif isinstance(result, text):
-                result = result.text
-            elif isinstance(result, number):
-                result = str(result.value)
-            else:
-                error("Impossible", f"значение типа {result.type} не может быть установлено как ключ",
-                      result.start_line, result.end_line, result.offset_pos, result.limit_offset_pos, result.file)
-            return assign(result, second, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                          limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-        return result
-
-    def statement(self, start=False):
-        global symbol_table
-        if self.current_token.equals(VAR, LOCAL_VAR, GAME_VAR, SAVE_VAR, INLINE_VAR, VAR_DEFINE, SAVE_DEFINE,
-                                     GAME_DEFINE, LOCAL_DEFINE, INLINE_DEFINE, LOCATION, SOUND, ITEM, PARTICLE, VECTOR,
-                                     POTION):
-            variables = []
-            start_line = self.current_token.start_line
-            offset_pos = self.current_token.offset_pos
-            while not self.current_token.equals(ASSIGN, PR_WITH_ASSIGN, DEG_WITH_ASSIGN, PLUS_WITH_ASSIGN,
-                                                DIVIDE_WITH_ASSIGN,
-                                                MINUS_WITH_ASSIGN, MULTIPLY_WITH_ASSIGN, INT_DIVIDE_WITH_ASSIGN, RPAREN,
-                                                EOF, OEL, DOT):
-                eat = True
-                start_line = self.current_token.start_line
-                offset_pos = self.current_token.offset_pos
-                if self.current_token.equals(VAR_DEFINE):
-                    self.eat(VAR_DEFINE)
-                    var_name = self.current_token.value
-                    symbol_table["variables"][var_name] = ["LOCAL", "any"]
-                    var_type = "LOCAL"
-                elif self.current_token.equals(SAVE_DEFINE):
-                    self.eat(SAVE_DEFINE)
-                    self.eat(VAR_DEFINE)
-                    var_name = self.current_token.value
-                    symbol_table["variables"][var_name] = ["SAVE", "any"]
-                    var_type = "SAVE"
-                elif self.current_token.equals(GAME_DEFINE):
-                    self.eat(GAME_DEFINE)
-                    self.eat(VAR_DEFINE)
-                    var_name = self.current_token.value
-                    symbol_table["variables"][var_name] = ["GAME", "any"]
-                    var_type = "GAME"
-                elif self.current_token.equals(LOCAL_DEFINE):
-                    self.eat(LOCAL_DEFINE)
-                    self.eat(VAR_DEFINE)
-                    var_name = self.current_token.value
-                    symbol_table["variables"][var_name] = ["LOCAL", "any"]
-                    var_type = "LOCAL"
-                elif self.current_token.equals(INLINE_DEFINE):
-                    self.eat(INLINE_DEFINE)
-                    self.eat(VAR_DEFINE)
-                    var_name = self.current_token.value
-                    symbol_table["variables"][var_name] = ["INLINE", "any"]
-                    var_type = "INLINE"
-                elif self.current_token.equals(VAR):
-                    var_name = self.current_token.value
-                    self.eat(VAR)
-                    if self.current_token.equals(LPAREN):
-                        self.eat(LPAREN)
-                        unpositional = []
-                        positional = []
-                        while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                            a = self.expr(assigning=True)
-                            if isinstance(a, assign):
-                                unpositional.append(a)
-                            else:
-                                positional.append(a)
-                            if self.current_token.type == COMMA:
-                                self.eat(COMMA)
-                        end_line = self.current_token.end_line
-                        limit_offset_pos = self.current_token.limit_offset_pos
-                        self.eat(RPAREN)
-                        thing1, thing2, thing3 = try_action(
-                            call_function(var_name, arg=args(positional=positional, unpositional=unpositional,
-                                                             start_line=start_line, end_line=end_line,
-                                                             offset_pos=offset_pos,
-                                                             limit_offset_pos=limit_offset_pos,
-                                                             file=self.lexer.file),
-                                          start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                          limit_offset_pos=limit_offset_pos, file=self.lexer.file))
-                        thing2.append(thing1)
-                        thing2.extend(thing3)
-                        return thing2
-                    if not var_name in symbol_table["variables"].keys():
-                        symbol_table["variables"][var_name] = ["LOCAL", "any"]
-                    var_type = symbol_table["variables"][var_name][0]
-                    eat = False
-                elif self.current_token.equals(LOCAL_VAR):
-                    var_name = self.current_token.value
-                    if not var_name in symbol_table.keys():
-                        symbol_table["variables"][var_name] = ["LOCAL", "any"]
-                    var_type = "LOCAL"
-                elif self.current_token.equals(GAME_VAR):
-                    var_name = self.current_token.value
-                    if not var_name in symbol_table.keys():
-                        symbol_table["variables"][var_name] = ["GAME", "any"]
-                    var_type = "GAME"
-                elif self.current_token.equals(SAVE_VAR):
-                    var_name = self.current_token.value
-                    if not var_name in symbol_table.keys():
-                        symbol_table["variables"][var_name] = ["SAVE", "any"]
-                    var_type = "SAVE"
-                elif self.current_token.equals(INLINE_VAR):
-                    var_name = self.current_token.value
-                    symbol_table["variables"][var_name] = ["INLINE", None]
-                    var_type = "INLINE"
-                else:
-                    var_name = self.current_token.value
-                    if not var_name in symbol_table.keys():
-                        symbol_table["variables"][var_name] = ["LOCAL", "any"]
-                    var_type = symbol_table["variables"][var_name][0]
-                end_line = self.current_token.end_line
-                limit_offset_pos = self.current_token.limit_offset_pos
-                if self.current_token.equals(LOCATION, SOUND, ITEM, PARTICLE, VECTOR, POTION, LOCAL_VAR, GAME_VAR,
-                                             INLINE_VAR, SAVE_VAR):
-                    self.eat(self.current_token.type)
-                elif eat:
-                    self.eat(VAR)
-                if self.current_token.equals(COLON):
-                    self.eat(COLON)
-                    type_hint = self.current_token.value
-                    symbol_table["variables"][var_name][1] = type_hint
-                    self.eat(VAR)
-                else:
-                    type_hint = None
-                result = var(var_name, var_type, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                             limit_offset_pos=limit_offset_pos, file=self.lexer.file, type_hint=type_hint)
-                if self.current_token.equals(LSPAREN):
-                    self.eat(LSPAREN)
-                    unpositional = []
-                    positional = []
-                    while self.current_token.type != EOF and self.current_token.type != RSPAREN:
-                        a = self.expr(assigning=True)
-                        if isinstance(a, assign):
-                            unpositional.append(a)
-                        else:
-                            positional.append(a)
-                        if self.current_token.type == COLON:
-                            self.eat(COLON)
-                    end_line = self.current_token.end_line
-                    limit_offset_pos = self.current_token.limit_offset_pos
-                    self.eat(RSPAREN)
-                    result = slice(result,
-                                   arg=args(positional=positional, unpositional=unpositional, start_line=start_line,
-                                            end_line=end_line, offset_pos=offset_pos,
-                                            limit_offset_pos=limit_offset_pos, file=self.lexer.file),
-                                   start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                   limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-                elif self.current_token.equals(DOT):
-                    self.eat(DOT)
-                    act = self.current_token.value
-                    self.eat(VAR)
-                    if self.current_token.equals(LPAREN):
-                        self.eat(LPAREN)
-                        unpositional = [
-                            assign("origin", result, start_line=start_line, end_line=end_line,
-                                   offset_pos=offset_pos,
-                                   limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
-                        positional = []
-                        while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                            a = self.expr(assigning=True)
-                            if isinstance(a, assign):
-                                unpositional.append(a)
-                            else:
-                                positional.append(a)
-                            if self.current_token.type == COMMA:
-                                self.eat(COMMA)
-                        end_line = self.current_token.end_line
-                        limit_offset_pos = self.current_token.limit_offset_pos
-                        self.eat(RPAREN)
-                        thing1, thing2, thing3 = try_action(
-                            action("special", act, arg=args(positional=positional, unpositional=unpositional,
-                                                            start_line=start_line, end_line=end_line,
-                                                            offset_pos=offset_pos,
-                                                            limit_offset_pos=limit_offset_pos,
-                                                            file=self.lexer.file),
-                                   start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                   limit_offset_pos=limit_offset_pos, file=self.lexer.file))
-                        thing2.append(thing1)
-                        thing2.extend(thing3)
-                        return thing2
-                    else:
-                        result = atribute(result, act, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                          limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-                variables.append(result)
-                if self.current_token.equals(COMMA):
-                    self.eat(COMMA)
-            if self.current_token.equals(ASSIGN, PR_WITH_ASSIGN, DEG_WITH_ASSIGN, PLUS_WITH_ASSIGN, DIVIDE_WITH_ASSIGN,
-                                         MINUS_WITH_ASSIGN, MULTIPLY_WITH_ASSIGN, INT_DIVIDE_WITH_ASSIGN):
-                thing = self.current_token.value
-                self.eat(self.current_token.type)
-                second = self.expr()
-                if second is not None:
-                    end_line = second.end_line
-                    limit_offset_pos = second.limit_offset_pos
-                    thing1, thing2, thing3 = try_action(true_assign(thing, arg=args(positional=[second], unpositional=[
-                        assign("first", variables, start_line=start_line,
-                               end_line=end_line,
-                               offset_pos=offset_pos,
-                               limit_offset_pos=limit_offset_pos, file=self.lexer.file)],
-                                                                                    start_line=start_line,
-                                                                                    end_line=end_line,
-                                                                                    offset_pos=offset_pos,
-                                                                                    limit_offset_pos=limit_offset_pos,
-                                                                                    file=self.lexer.file),
-                                                                    start_line=start_line, end_line=end_line,
-                                                                    offset_pos=offset_pos,
-                                                                    limit_offset_pos=limit_offset_pos,
-                                                                    file=self.lexer.file))
-                    thing2.append(thing1)
-                    thing2.extend(thing3)
-                    return thing2
-            if not isinstance(variables[0], var):
-                if self.current_token.equals(DOT):
-                    self.eat(DOT)
-                    act = self.current_token
-                    self.eat(VAR)
-                    self.eat(LPAREN)
-                    unpositional = [assign("origin", variables[0], start_line=variables[0].start_line,
-                                           end_line=variables[0].end_line,
-                                           offset_pos=variables[0].offset_pos,
-                                           limit_offset_pos=variables[0].limit_offset_pos, file=self.lexer.file)]
-                    positional = []
-                    while self.current_token.type != EOF and self.current_token.type != RPAREN:
-                        a = self.expr(assigning=True)
-                        if isinstance(a, assign):
-                            unpositional.append(a)
-                        else:
-                            positional.append(a)
-                        if self.current_token.type == COMMA:
-                            self.eat(COMMA)
-                    end_line = self.current_token.end_line
-                    limit_offset_pos = self.current_token.limit_offset_pos
-                    self.eat(RPAREN)
-                    thing1, thing2, thing3 = try_action(
-                        action("special", act.value, arg=args(positional=positional, unpositional=unpositional,
-                                                              start_line=act.start_line, end_line=end_line,
-                                                              offset_pos=act.offset_pos,
-                                                              limit_offset_pos=limit_offset_pos,
-                                                              file=self.lexer.file),
-                               start_line=act.start_line, end_line=end_line, offset_pos=act.offset_pos,
-                               limit_offset_pos=limit_offset_pos, file=self.lexer.file))
-                    thing2.append(thing1)
-                    thing2.extend(thing3)
-                    return thing2
-                return [variables[0]]
-
-        elif self.current_token.equals(IMPORT) and start == True:
-            self.eat(IMPORT)
-            thing = self.current_token.value
-            self.eat(STRING)
-            an_thing = create_path(self.lexer.work_dir, thing)
-            if an_thing is None:
-                error("UnexistsFile", f"Файл {thing} не найден.", thing.start_line, thing.end_line, thing.offset_pos,
-                      thing.limit_offset_pos, thing.file)
-            path, full_path = an_thing
-            if not full_path in open_files:
-                another_thing = Parser(Lexer(full_path, work_dir=path), self.tree)
-                another_thing.parse()
-            else:
-                print(minecraft_based_text("&6", ignore_last_symbol=True) +
-                      f"файл {full_path} уже был однажды импортирован, пропускаем" + minecraft_based_text(""))
-        elif self.current_token.equals(WORLD, VARIABLE, ENTITY, REPEAT, CODE, PLAYER, SELECT, CONTROLLER):
-            start_line = self.current_token.start_line
-            offset_pos = self.current_token.offset_pos
-            sub_action = self.current_token
-            self.eat(self.current_token.type)
-            if self.current_token.equals(SELECTOR):
-                selector = self.current_token.value
-                self.eat(SELECTOR)
-            else:
-                selector = None
-            self.eat(LPAREN)
-            unpositional = []
-            positional = []
-            no = None
-            if self.current_token.equals(NOT):
-                self.eat(NOT)
-                no = True
-            conditional = "conditional" in actions.setdefault(sub_action.type.lower() + "::" + sub_action.value,
-                                                              {}).setdefault("type", "basic")
-            while self.current_token.type != RPAREN:
-                a = self.expr(assigning=True)
-                if isinstance(a, assign):
-                    unpositional.append(a)
-                elif isinstance(a, action) and conditional == True:
-                    conditional = a
-                else:
-                    positional.append(a)
-                if self.current_token.type != RPAREN:
-                    self.eat(COMMA)
-            end_line = self.current_token.end_line
-            limit_offset_pos = self.current_token.limit_offset_pos
-            self.eat(RPAREN)
-            if sub_action.equals(REPEAT):
-                self.eat(LCPAREN)
-                variables = []
-                while (self.current_token.type != EOF and self.current_token.type != CYCLE_THING and
-                       self.current_token.type != OEL):
-                    variables.append(self.expr())
-                    if self.current_token.type != CYCLE_THING and self.current_token.type != OEL:
-                        self.eat(COMMA)
-                if len(variables) > 0:
-                    unpositional.append(
-                        assign(f"lambda", variables, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                               limit_offset_pos=limit_offset_pos, file=self.lexer.file))
-                if self.current_token.equals(CYCLE_THING):
-                    self.eat(CYCLE_THING)
-                acts = []
-                while self.current_token.type != EOF and self.current_token.type != RCPAREN:
-                    a = self.statement()
-                    if a is not None:
-                        acts.extend(a)
-                operations = lst(acts, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                 limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-                end_line = self.current_token.end_line
-                limit_offset_pos = self.current_token.limit_offset_pos
-                self.eat(RCPAREN)
-            elif sub_action.equals(CONTROLLER):
-                self.eat(LCPAREN)
-                unpositional = []
-                acts = []
-                while self.current_token.type != EOF and self.current_token.type != RCPAREN:
-                    a = self.statement()
-                    if a is not None:
-                        acts.extend(a)
-                operations = lst(acts, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                 limit_offset_pos=limit_offset_pos, file=self.lexer.file)
-                end_line = self.current_token.end_line
-                limit_offset_pos = self.current_token.limit_offset_pos
-                self.eat(RCPAREN)
-            else:
-                operations = None
-            thing1, thing2, thing3 = try_action(action(sub_action.type.lower(), sub_action.value,
-                                                       arg=args(positional=positional, unpositional=unpositional,
-                                                                start_line=start_line,
-                                                                end_line=end_line, offset_pos=offset_pos,
-                                                                limit_offset_pos=limit_offset_pos,
-                                                                file=self.lexer.file),
-                                                       selector=selector,
-                                                       no=no,
-                                                       start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                                       limit_offset_pos=limit_offset_pos, file=self.lexer.file,
-                                                       operations=operations,
-                                                       conditional=conditional if isinstance(conditional,
-                                                                                             action) else None))
-            thing2.append(thing1)
-            thing2.extend(thing3)
-            return thing2
-        elif self.current_token.equals(FUNCTION) and start == True:
-            start_line = self.current_token.start_line
-            offset_pos = self.current_token.offset_pos
-            self.eat(FUNCTION)
-            function_name = self.current_token.value
-            self.eat(VAR)
-            self.eat(LPAREN)
-            positional = []
-            while self.current_token.type != RPAREN:
-                positional.append(self.expr(var_types=True))
-                if self.current_token.type != RPAREN:
-                    self.eat(COMMA)
-            self.eat(RPAREN)
-            self.eat(LCPAREN)
-            vals = []
-            while self.current_token.type != EOF and self.current_token.type != RCPAREN:
-                a = self.statement()
-                if a is not None:
-                    vals.extend(a)
-            end_line = self.current_token.end_line
-            limit_offset_pos = self.current_token.limit_offset_pos
-            self.eat(RCPAREN)
-            return [function(function_name, lst(vals, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                                limit_offset_pos=limit_offset_pos, file=self.lexer.file),
-                             arg=positional,
-                             start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                             limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
-        elif self.current_token.equals(PROCESS) and start == True:
-            start_line = self.current_token.start_line
-            offset_pos = self.current_token.offset_pos
-            self.eat(PROCESS)
-            process_name = self.current_token.value
-            self.eat(VAR)
-            self.eat(LPAREN)
-            self.eat(RPAREN)
-            self.eat(LCPAREN)
-            vals = []
-            while self.current_token.type != EOF and self.current_token.type != RCPAREN:
-                a = self.statement()
-                if a is not None:
-                    vals.extend(a)
-            end_line = self.current_token.end_line
-            limit_offset_pos = self.current_token.limit_offset_pos
-            self.eat(RCPAREN)
-            return [process(process_name, lst(vals, start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                                              limit_offset_pos=limit_offset_pos, file=self.lexer.file),
-                            start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                            limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
-        elif self.current_token.equals(EVENT) and start == True:
-            start_line = self.current_token.start_line
-            offset_pos = self.current_token.offset_pos
-            event_name = self.current_token.value
-            self.eat(EVENT)
-            self.eat(LCPAREN)
-            vals = []
-            while self.current_token.type != EOF and self.current_token.type != RCPAREN:
-                a = self.statement()
-                if a is not None:
-                    vals.extend(a)
-            end_line = self.current_token.end_line
-            limit_offset_pos = self.current_token.limit_offset_pos
-            self.eat(RCPAREN)
-            return [event(event_name, lst(vals), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                          limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
-        elif self.current_token.equals(IF, ELSE):
-            start_line = self.current_token.start_line
-            offset_pos = self.current_token.offset_pos
-            act1 = self.current_token
-            self.eat(self.current_token.type)
-            act = None
-            if act1.equals(IF):
-                no = False
-                if self.current_token.equals(NOT):
-                    self.eat(NOT)
-                    no = not no
-                self.eat(LPAREN)
-                if self.current_token.equals(NOT):
-                    self.eat(NOT)
-                    no = not no
-                act = self.expr()
-                act.no = no
-                self.eat(RPAREN)
-            self.eat(LCPAREN)
-            vals = []
-            while self.current_token.type != EOF and self.current_token.type != RCPAREN:
-                a = self.statement()
-                if a is not None:
-                    vals.extend(a)
-            end_line = self.current_token.end_line
-            limit_offset_pos = self.current_token.limit_offset_pos
-            self.eat(RCPAREN)
-            if act1.equals(IF):
-                thing1, thing2, thing3 = try_action(act)
-                thing2.append(if_(thing1, lst(vals), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                            limit_offset_pos=limit_offset_pos, file=self.lexer.file))
-                thing2.extend(thing3)
-                return thing2
-            else:
-                return [else_(lst(vals), start_line=start_line, end_line=end_line, offset_pos=offset_pos,
-                              limit_offset_pos=limit_offset_pos, file=self.lexer.file)]
-        elif self.current_token.equals(OEL):
-            self.eat(OEL)
-        elif self.current_token.equals(EL):
-            self.eat(EL)
-        else:
-            error("SyntaxError", f"Неожиданный токен {self.current_token.type}",
-                  start_line=self.current_token.start_line, end_line=self.current_token.end_line,
-                  offset_pos=self.current_token.offset_pos, limit_offset_pos=self.current_token.limit_offset_pos,
-                  file=self.lexer.file)
-
-    def parse(self):
-        while self.current_token.type != EOF:
-            a = self.statement(start=True)
-            if a is not None:
-                self.tree.extend(a)
-
-    def compile(self):
-        self.parse()
-        acts = []
-        default = []
-        for i in self.tree:
-            if not type(i) in (function, process, event):
-                acts.append(i)
-            else:
-                default.append(i)
-        self.tree = default
-        if len(acts) != 0:
-            self.tree.insert(0, event("world_start", lst(acts)))
-        eventes, additional_events = lst(self.tree).json(normal=True, with_ret=True)
-        eventes.extend(additional_events)
-        return json.dumps({"handlers": eventes}, indent=2)
-
-
-def compile_file(file, upload=False, compress=False):
-    global open_files, symbol_table, global_count, global_func_count, actions, origin_actions, events, values
-    open_files = {}
-    symbol_table = {"variables": {}, "functions": {}}
-    tree = []
-    global_count = -1
-    global_func_count = 0
-    thing = create_path(os.getcwd(), file)
-    if thing is None:
-        print(minecraft_based_text(f"&cUnexistsFile : Файл {file} не найден."))
-        sys.exit()
-    dir_path, full_path = thing
-    for i in json.load(open("data/actions.json")):
-        actions[i["object"] + "::" + i["name"]] = i
-        if "origin" in i:
-            origin_actions[i["name"]] = i["object"] + "::" + i["name"]
-        else:
-            non_origin_actions[i["name"]] = i["object"] + "::" + i["name"]
-    for i in json.load(open("data/events.json")):
-        events[i["id"]] = i
-    for i in json.load(open("data/values.json")):
-        values[i["id"]] = i
-    lexer = Lexer(full_path, work_dir=dir_path)
-    thing = Parser(lexer, tree)
-    code = thing.compile()
+def compile_file(file_path, upload=False, properties=None):
+    if properties is None:
+        properties = {}
+    if not os.path.exists(file_path):
+        error_from_object(default_jmcc_object, "UnexistsFile", translate("error.unexistsfile", {0: file_path}))
+    file = open(file_path, encoding="UTF-8")
+    source = os.path.abspath(file.name)
+    pr_source = source.replace(".jc", ".properties", 1)
+    if os.path.exists(pr_source):
+        properties = Properties(text=open(pr_source, "r", encoding="UTF-8").read()).properties
+    code = parse_from_file(file, properties)
+    code = code.get_json()
     if not upload:
-        file_name = full_path.replace(dir_path, "", 1)
-        i2 = file_name.rfind(".")
-        new_file_name = file_name[:i2] + ".json"
-        if compress:
-            open(dir_path + "/" + new_file_name, "wb").write(gzip.compress(code.encode('utf-8')))
+        if properties.setdefault("compact", False):
+            open(source + ".json", "w").write(json.dumps(code))
         else:
-            open(dir_path + "/" + new_file_name, "w").write(code)
+            open(source + ".json", "w").write(json.dumps(code, indent=2))
     else:
-        response = requests.post('https://m.justmc.ru/api/upload', data=code).json()["id"]
+        response = requests.post('https://m.justmc.ru/api/upload', data=json.dumps(code)).json()
+        print(response)
         print(minecraft_based_text(f"&aФайл успешно загружен\n\n&7Используйте данную команду на сервере для загрузки "
-                                   f"модуля:\n&9/module loadUrl force https://m.justmc.ru/api/{response}\n"
+                                   f"модуля:\n&9/module loadUrl force https://m.justmc.ru/api/{response['id']}\n"
                                    f"\n&eВажно &fМодуль по ссылке удалится через &c3 минуты!"
                                    f"\n      &fУспейте использовать команду на сервере за данное время"))
-    exit()
 
 
-global_func_count = 0
-global_count = 0
-var_count = -1
-symbol_table = dict()
-actions = dict()
-origin_actions = dict()
-non_origin_actions = dict()
-allowed_actions = ["=", "+=", "-=", "%=", "^=", "//=", "/=", "*=", "subscript"]
-math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["first"], "abs": ["first"],
-                  "sqrt": ["first"], "cbrt:": ["first"], "pow": ["first"], "min": ["first", "second"],
-                  "max": ["first", "second"],
-                  "sign": ["first"]}
-events = dict()
-values = dict()
-
-#compile_file("b.jc", upload=True)
+compile_file("a.jc", upload=False, properties={"compact": True, "create_world_restart_function": False})
