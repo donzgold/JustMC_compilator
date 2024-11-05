@@ -531,14 +531,31 @@ event<player_join> {
 
 ```ts
 function abc() {
-  player::message("Функция!")
+  player::message("Функция!");
 }
 ```
 
 ```ts
 process abc() {
-  player::message("Процесс!")
+  player::message("Процесс!");
 }
+```
+
+Так же можно указать параметры функций и процессов
+```ts
+function add(first: number, second=1) {
+  return variable::add([first, second]);
+}
+a = add(1, 2);
+
+//Они так же бывают и инлайн функциями(вставляется в код на месте требования)
+
+inline function add(first: number, second=1) {
+  return variable::add([first, second]);
+}
+
+//ВАЖНО: Возвраты в инлайн функциях возможны только в конце.
+
 ```
 
 #### Импортирование
