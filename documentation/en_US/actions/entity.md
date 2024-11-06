@@ -437,10 +437,10 @@ entity::launch_up(1,"FALSE");
 
 **Arguments:**
 
-| **Name**    | **Type**                                                                                               | **Description**          |
-| ----------- | ------------------------------------------------------------------------------------------------------ | ------------------------ |
-| `power`     | Number                                                                                                 | Power                    |
-| `increment` | Marker<br/>**FALSE** - Disabled<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled<br/>**TRUE** - Enabled | Consider current inertia |
+| **Name**    | **Type**                                               | **Description**          |
+| ----------- | ------------------------------------------------------ | ------------------------ |
+| `power`     | Number                                                 | Power                    |
+| `increment` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled | Consider current inertia |
 <h3 id=entity_leave_vehicle>
   <code>entity::leave_vehicle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

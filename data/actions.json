@@ -487,8 +487,6 @@
         "type": "enum",
         "values": [
           "FALSE",
-          "FALSE",
-          "TRUE",
           "TRUE"
         ]
       }
@@ -5660,8 +5658,6 @@
         "type": "enum",
         "values": [
           "DIRECT",
-          "DIRECT",
-          "INDIRECT",
           "INDIRECT"
         ]
       }
@@ -6147,8 +6143,6 @@
         "type": "enum",
         "values": [
           "ALL",
-          "ALL",
-          "ANY",
           "ANY"
         ]
       },
@@ -6287,12 +6281,8 @@
         "type": "enum",
         "values": [
           "ARMOR",
-          "ARMOR",
-          "ENTIRE_INVENTORY",
           "ENTIRE_INVENTORY",
           "HOTBAR",
-          "HOTBAR",
-          "MAIN_INVENTORY",
           "MAIN_INVENTORY",
           "UPPER_INVENTORY"
         ]
@@ -6302,8 +6292,6 @@
         "type": "enum",
         "values": [
           "ALL",
-          "ALL",
-          "ANY",
           "ANY"
         ]
       }
@@ -6342,8 +6330,6 @@
         "type": "enum",
         "values": [
           "FALSE",
-          "FALSE",
-          "TRUE",
           "TRUE"
         ]
       },
@@ -6497,10 +6483,7 @@
         "type": "enum",
         "values": [
           "EITHER_HAND",
-          "EITHER_HAND",
           "MAIN_HAND",
-          "MAIN_HAND",
-          "OFF_HAND",
           "OFF_HAND"
         ]
       },
@@ -6542,10 +6525,7 @@
         "type": "enum",
         "values": [
           "ALWAYS",
-          "ALWAYS",
           "NEVER",
-          "NEVER",
-          "SOURCE_ONLY",
           "SOURCE_ONLY"
         ]
       }
@@ -6571,8 +6551,6 @@
         "type": "enum",
         "values": [
           "FALSE",
-          "FALSE",
-          "TRUE",
           "TRUE"
         ]
       }
@@ -6612,9 +6590,7 @@
         "values": [
           "FARTHEST",
           "NAME_OR_UUID",
-          "NAME_OR_UUID",
           "NEAREST",
-          "TYPE",
           "TYPE"
         ]
       }
@@ -6674,8 +6650,6 @@
         "type": "enum",
         "values": [
           "FALSE",
-          "FALSE",
-          "TRUE",
           "TRUE"
         ]
       }
@@ -6730,8 +6704,6 @@
         "type": "enum",
         "values": [
           "ALL",
-          "ALL",
-          "ANY",
           "ANY"
         ]
       },
@@ -8649,8 +8621,6 @@
         "type": "enum",
         "values": [
           "CONCATENATION",
-          "CONCATENATION",
-          "SPACES",
           "SPACES"
         ]
       }
@@ -14585,7 +14555,6 @@
         "type": "enum",
         "values": [
           "ALTITUDE",
-          "Altitude",
           "THREE_D",
           "TWO_D"
         ]

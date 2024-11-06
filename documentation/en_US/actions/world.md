@@ -2089,10 +2089,10 @@ if(world::block_powered([location(0,0,0,0,0), location(0,0,0,0,0)],"DIRECT"){
 
 **Arguments:**
 
-| **Name**     | **Type**                                                                                                                                       | **Description**       |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `locations`  | list[Location]                                                                                                                                 | Block Location        |
-| `power_mode` | Marker<br/>**DIRECT** - Direct Powered<br/>**DIRECT** - Direct Powered<br/>**INDIRECT** - Indirect Powered<br/>**INDIRECT** - Indirect Powered | Redstone Powered Type |
+| **Name**     | **Type**                                                                   | **Description**       |
+| ------------ | -------------------------------------------------------------------------- | --------------------- |
+| `locations`  | list[Location]                                                             | Block Location        |
+| `power_mode` | Marker<br/>**DIRECT** - Direct Powered<br/>**INDIRECT** - Indirect Powered | Redstone Powered Type |
 <h3 id=if_game_chunk_is_loaded>
   <code>world::chunk_is_loaded</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

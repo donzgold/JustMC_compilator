@@ -198,7 +198,7 @@ if(player::has_item([item("stick"), item("stick")],"ALL","EXACTLY"){
 | **Name**          | **Type**                                                                                                                                                                                          | **Description** |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | `items`           | list[Item]                                                                                                                                                                                        | Items to Check  |
-| `check_mode`      | Marker<br/>**ALL** - All Items<br/>**ALL** - All Items<br/>**ANY** - Any Item<br/>**ANY** - Any Item                                                                                              | Check Mode      |
+| `check_mode`      | Marker<br/>**ALL** - All Items<br/>**ANY** - Any Item                                                                                                                                             | Check Mode      |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore quantity<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_has_item_at_least>
   <code>player::has_item_at_least</code>
@@ -310,11 +310,11 @@ if(player::has_room_for_item([item("stick"), item("stick")],"ARMOR","ALL"){
 
 **Arguments:**
 
-| **Name**        | **Type**                                                                                                                                                                                                                                                                                                         | **Description**    |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `items`         | list[Item]                                                                                                                                                                                                                                                                                                       | Items to Check     |
-| `checked_slots` | Marker<br/>**ARMOR** - Armor<br/>**ARMOR** - Armor<br/>**ENTIRE_INVENTORY** - All Inventory<br/>**ENTIRE_INVENTORY** - All Inventory<br/>**HOTBAR** - Hot Bar<br/>**HOTBAR** - Hot Bar<br/>**MAIN_INVENTORY** - Main Inventory<br/>**MAIN_INVENTORY** - Main Inventory<br/>**UPPER_INVENTORY** - Upper Inventory | Checked Slots Mode |
-| `check_mode`    | Marker<br/>**ALL** - All Items<br/>**ALL** - All Items<br/>**ANY** - Any Items<br/>**ANY** - Any Items                                                                                                                                                                                                           | Check Item Mode    |
+| **Name**        | **Type**                                                                                                                                                                         | **Description**    |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `items`         | list[Item]                                                                                                                                                                       | Items to Check     |
+| `checked_slots` | Marker<br/>**ARMOR** - Armor<br/>**ENTIRE_INVENTORY** - All Inventory<br/>**HOTBAR** - Hot Bar<br/>**MAIN_INVENTORY** - Main Inventory<br/>**UPPER_INVENTORY** - Upper Inventory | Checked Slots Mode |
+| `check_mode`    | Marker<br/>**ALL** - All Items<br/>**ANY** - Any Items                                                                                                                           | Check Item Mode    |
 <h3 id=if_player_hotbar_slot_equals>
   <code>player::hotbar_slot_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -354,13 +354,13 @@ if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CON
 
 **Arguments:**
 
-| **Name**         | **Type**                                                                                                     | **Description**             |
-| ---------------- | ------------------------------------------------------------------------------------------------------------ | --------------------------- |
-| `location_1`     | Location                                                                                                     | First corner of region      |
-| `location_2`     | Location                                                                                                     | Second Region Corner        |
-| `ignore_y_axis`  | Marker<br/>**FALSE** - Don't ignore<br/>**FALSE** - Don't ignore<br/>**TRUE** - Ignore<br/>**TRUE** - Ignore | Ignore Y Axis               |
-| `intersect_type` | Marker<br/>**HITBOX** - Hitbox<br/>**POINT** - Location                                                      | Type of intersection        |
-| `check_type`     | Marker<br/>**CONTAINS** - Contains<br/>**OVERLAPS** - Intersects                                             | Type of check of the hitbox |
+| **Name**         | **Type**                                                         | **Description**             |
+| ---------------- | ---------------------------------------------------------------- | --------------------------- |
+| `location_1`     | Location                                                         | First corner of region      |
+| `location_2`     | Location                                                         | Second Region Corner        |
+| `ignore_y_axis`  | Marker<br/>**FALSE** - Don't ignore<br/>**TRUE** - Ignore        | Ignore Y Axis               |
+| `intersect_type` | Marker<br/>**HITBOX** - Hitbox<br/>**POINT** - Location          | Type of intersection        |
+| `check_type`     | Marker<br/>**CONTAINS** - Contains<br/>**OVERLAPS** - Intersects | Type of check of the hitbox |
 <h3 id=if_player_inventory_menu_slot_equals>
   <code>player::inventory_menu_slot_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -506,7 +506,7 @@ if(player::holding([item("stick"), item("stick")],"EITHER_HAND","EXACTLY"){
 | **Name**          | **Type**                                                                                                                                                                                               | **Description** |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
 | `items`           | list[Item]                                                                                                                                                                                             | Items to Check  |
-| `hand_slot`       | Marker<br/>**EITHER_HAND** - Any hand<br/>**EITHER_HAND** - Any hand<br/>**MAIN_HAND** - Main Hand<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Sub Hand<br/>**OFF_HAND** - Sub Hand               | Hand            |
+| `hand_slot`       | Marker<br/>**EITHER_HAND** - Any hand<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Sub Hand                                                                                                        | Hand            |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_is_looking_at_block>
   <code>player::is_looking_at_block</code>
@@ -526,12 +526,12 @@ if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,
 
 **Arguments:**
 
-| **Name**     | **Type**                                                                                                                                                                                                                       | **Description**             |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
-| `blocks`     | list[Block]                                                                                                                                                                                                                    | Block(s) to check           |
-| `locations`  | list[Location]                                                                                                                                                                                                                 | Location(s) to check        |
-| `distance`   | Number                                                                                                                                                                                                                         | Max Block Distance to Check |
-| `fluid_mode` | Marker<br/>**ALWAYS** - All kinds of fluids<br/>**ALWAYS** - All kinds of fluids<br/>**NEVER** - Ignore Fluids<br/>**NEVER** - Ignore Fluids<br/>**SOURCE_ONLY** - Fluid Sources Only<br/>**SOURCE_ONLY** - Fluid Sources Only | Fluid Mode                  |
+| **Name**     | **Type**                                                                                                           | **Description**             |
+| ------------ | ------------------------------------------------------------------------------------------------------------------ | --------------------------- |
+| `blocks`     | list[Block]                                                                                                        | Block(s) to check           |
+| `locations`  | list[Location]                                                                                                     | Location(s) to check        |
+| `distance`   | Number                                                                                                             | Max Block Distance to Check |
+| `fluid_mode` | Marker<br/>**ALWAYS** - All kinds of fluids<br/>**NEVER** - Ignore Fluids<br/>**SOURCE_ONLY** - Fluid Sources Only | Fluid Mode                  |
 <h3 id=if_player_is_near>
   <code>player::is_near</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -550,11 +550,11 @@ if(player::is_near(1,location(0,0,0,0,0),"FALSE"){
 
 **Arguments:**
 
-| **Name**        | **Type**                                                                                                     | **Description**   |
-| --------------- | ------------------------------------------------------------------------------------------------------------ | ----------------- |
-| `range`         | Number                                                                                                       | Check Range       |
-| `location`      | Location                                                                                                     | Location to check |
-| `ignore_y_axis` | Marker<br/>**FALSE** - Don't Ignore<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore<br/>**TRUE** - Ignore | Ignore Y Axis     |
+| **Name**        | **Type**                                                  | **Description**   |
+| --------------- | --------------------------------------------------------- | ----------------- |
+| `range`         | Number                                                    | Check Range       |
+| `location`      | Location                                                  | Location to check |
+| `ignore_y_axis` | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore | Ignore Y Axis     |
 <h3 id=if_player_is_on_ground>
   <code>player::is_on_ground</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -605,10 +605,10 @@ if(player::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST"){
 
 **Arguments:**
 
-| **Name**       | **Type**                                                                                                                                                                                | **Description**                        |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| `entity_ids`   | list[Text]                                                                                                                                                                              | Name, UUID, or type of entity to check |
-| `compare_mode` | Marker<br/>**FARTHEST** - None<br/>**NAME_OR_UUID** - Name or UUID<br/>**NAME_OR_UUID** - Name or UUID<br/>**NEAREST** - None<br/>**TYPE** - Creature Type<br/>**TYPE** - Creature Type | Compare Mode                           |
+| **Name**       | **Type**                                                                                                               | **Description**                        |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `entity_ids`   | list[Text]                                                                                                             | Name, UUID, or type of entity to check |
+| `compare_mode` | Marker<br/>**FARTHEST** - None<br/>**NAME_OR_UUID** - Name or UUID<br/>**NEAREST** - None<br/>**TYPE** - Creature Type | Compare Mode                           |
 <h3 id=if_player_is_self_disguised>
   <code>player::is_self_disguised</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -691,11 +691,11 @@ if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 
 **Arguments:**
 
-| **Name**     | **Type**                                                                                       | **Description**                   |
-| ------------ | ---------------------------------------------------------------------------------------------- | --------------------------------- |
-| `blocks`     | list[Block]                                                                                    | Blocks to Check                   |
-| `locations`  | list[Location]                                                                                 | Location to check                 |
-| `only_solid` | Marker<br/>**FALSE** - Off<br/>**FALSE** - Off<br/>**TRUE** - Included<br/>**TRUE** - Included | Take into account passable blocks |
+| **Name**     | **Type**                                           | **Description**                   |
+| ------------ | -------------------------------------------------- | --------------------------------- |
+| `blocks`     | list[Block]                                        | Blocks to Check                   |
+| `locations`  | list[Location]                                     | Location to check                 |
+| `only_solid` | Marker<br/>**FALSE** - Off<br/>**TRUE** - Included | Take into account passable blocks |
 <h3 id=if_player_is_swimming>
   <code>player::is_swimming</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -755,7 +755,7 @@ if(player::is_wearing_item([item("stick"), item("stick")],"ALL","EXACTLY"){
 | **Name**          | **Type**                                                                                                                                                                                               | **Description** |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
 | `items`           | list[Item]                                                                                                                                                                                             | Item to check   |
-| `check_mode`      | Marker<br/>**ALL** - Wearing All<br/>**ALL** - Wearing All<br/>**ANY** - Wearing something<br/>**ANY** - Wearing something                                                                             | Check Mode      |
+| `check_mode`      | Marker<br/>**ALL** - Wearing All<br/>**ANY** - Wearing something                                                                                                                                       | Check Mode      |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_item_is_not_on_cooldown>
   <code>player::item_is_not_on_cooldown</code>
@@ -2227,10 +2227,10 @@ player::send_action_bar(["messages", "messages"],"CONCATENATION");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                                               | **Description**     |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `messages` | list[Text]                                                                                                                             | Action Bar Messages |
-| `merging`  | Marker<br/>**CONCATENATION** - Merge<br/>**CONCATENATION** - Merge<br/>**SPACES** - Space Separation<br/>**SPACES** - Space Separation | Merge Text          |
+| **Name**   | **Type**                                                               | **Description**     |
+| ---------- | ---------------------------------------------------------------------- | ------------------- |
+| `messages` | list[Text]                                                             | Action Bar Messages |
+| `merging`  | Marker<br/>**CONCATENATION** - Merge<br/>**SPACES** - Space Separation | Merge Text          |
 <h3 id=player_send_advancement>
   <code>player::send_advancement</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

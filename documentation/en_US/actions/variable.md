@@ -4420,12 +4420,12 @@ variable::locations_distance(a1,location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUD
 
 **Arguments:**
 
-| **Name**     | **Type**                                                                                                         | **Description**    |
-| ------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`   | Variable                                                                                                         | Variable to assign |
-| `location_1` | Location                                                                                                         | First Location     |
-| `location_2` | Location                                                                                                         | Second Location    |
-| `type`       | Marker<br/>**ALTITUDE** - Altitude<br/>**Altitude** - Altitude<br/>**THREE_D** - Volume<br/>**TWO_D** - In Plane | Distance Type      |
+| **Name**     | **Type**                                                                             | **Description**    |
+| ------------ | ------------------------------------------------------------------------------------ | ------------------ |
+| `variable`   | Variable                                                                             | Variable to assign |
+| `location_1` | Location                                                                             | First Location     |
+| `location_2` | Location                                                                             | Second Location    |
+| `type`       | Marker<br/>**ALTITUDE** - Altitude<br/>**THREE_D** - Volume<br/>**TWO_D** - In Plane | Distance Type      |
 <h3 id=set_variable_log>
   <code>variable::log</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
