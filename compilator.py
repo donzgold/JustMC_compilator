@@ -125,7 +125,7 @@ def fix_operations_len(operations, limit=43):
                                                                                          "text": f"jmcc.{func_count}",
                                                                                          "parsing": "legacy"}}]})
                 additional2.append(
-                    {"type": "function", "position": new("event"), "operations": remove_weight(new_ops[i]),
+                    {"type": "function", "position": new("event"), "operations": remove_weight(new_ops[i1]),
                      "is_hidden": False, "name": f"jmcc.{func_count}"})
             return remove_weight(new_ops[0]), additional2, cur_weight
 
@@ -1241,6 +1241,9 @@ class Context:
         self.context[self.source]["settings"] = val
 
     def add_operation(self, jmcc_obj):
+        if isinstance(jmcc_obj, dict):
+            self.cur_context["operations"].append(jmcc_obj)
+            return
         if jmcc_obj.is_independent():
             if jmcc_obj.is_simple():
                 if self.context_lvl == 0 and not (jmcc_obj.type in ("function", "process", "event")):
@@ -1353,6 +1356,9 @@ class Context:
     def get_json(self):
         json_obj = {"handlers": []}
         for i1 in self.context[self.source][self.context_lvl]["operations"]:
+            if isinstance(i1, dict):
+                json_obj["handlers"].append(i1)
+                continue
             if i1.is_simple():
                 json_obj["handlers"].append(i1.json())
             else:

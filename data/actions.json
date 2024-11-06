@@ -8291,22 +8291,6 @@
       {
         "id": "location",
         "type": "location"
-      },
-      {
-        "id": "source",
-        "type": "enum",
-        "values": [
-          "MASTER",
-          "MUSIC",
-          "RECORD",
-          "WEATHER",
-          "BLOCK",
-          "HOSTILE",
-          "NEUTRAL",
-          "PLAYER",
-          "AMBIENT",
-          "VOICE"
-        ]
       }
     ],
     "type": "basic"
@@ -8345,22 +8329,6 @@
       {
         "id": "delay",
         "type": "number"
-      },
-      {
-        "id": "source",
-        "type": "enum",
-        "values": [
-          "MASTER",
-          "MUSIC",
-          "RECORD",
-          "WEATHER",
-          "BLOCK",
-          "HOSTILE",
-          "NEUTRAL",
-          "PLAYER",
-          "AMBIENT",
-          "VOICE"
-        ]
       }
     ],
     "type": "basic"

@@ -1824,16 +1824,15 @@ player::play_hurt_animation(1);
 
 **Usage example:** 
 ```ts
-player::play_sound(sound("entity.zombie.hurt"),location(0,0,0,0,0),"MASTER");
+player::play_sound(sound("entity.zombie.hurt"),location(0,0,0,0,0));
 ```
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                                                                                                                                                                                                                                                                                             | **Description** |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `sound`    | Sound                                                                                                                                                                                                                                                                                                                                                                                | Sound to Play   |
-| `location` | Location                                                                                                                                                                                                                                                                                                                                                                             | Sound Location  |
-| `source`   | Marker<br/>**MASTER** - General (master)<br/>**MUSIC** - Music (music)<br/>**RECORD** - Music Blocks (record)<br/>**WEATHER** - Weather (weather)<br/>**BLOCK** - Blocks<br/>**HOSTILE** - Hostile Creatures (hostile)<br/>**NEUTRAL** - Friendly Creatures (neutral)<br/>**PLAYER** - Players (player)<br/>**AMBIENT** - Environment (ambient)<br/>**VOICE** - Voice/Speech (voice) | Sound Source    |
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `sound`    | Sound    | Sound to Play   |
+| `location` | Location | Sound Location  |
 <h3 id=player_play_sound_from_entity>
   <code>player::play_sound_from_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1867,17 +1866,16 @@ player::play_sound_from_entity([sound("entity.zombie.hurt"), sound("entity.zombi
 
 **Usage example:** 
 ```ts
-player::play_sound_sequence([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")],location(0,0,0,0,0),1,"MASTER");
+player::play_sound_sequence([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")],location(0,0,0,0,0),1);
 ```
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                                                                                                                                                                                                                                                                                             | **Description** |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `sounds`   | list[Sound]                                                                                                                                                                                                                                                                                                                                                                          | Playable Sounds |
-| `location` | Location                                                                                                                                                                                                                                                                                                                                                                             | Sound Location  |
-| `delay`    | Number                                                                                                                                                                                                                                                                                                                                                                               | Delay in ticks  |
-| `source`   | Marker<br/>**MASTER** - General (master)<br/>**MUSIC** - Music (music)<br/>**RECORD** - Music Blocks (record)<br/>**WEATHER** - Weather (weather)<br/>**BLOCK** - Blocks<br/>**HOSTILE** - Hostile Creatures (hostile)<br/>**NEUTRAL** - Friendly Creatures (neutral)<br/>**PLAYER** - Players (player)<br/>**AMBIENT** - Environment (ambient)<br/>**VOICE** - Voice/Speech (voice) | Sound Source    |
+| **Name**   | **Type**    | **Description** |
+| ---------- | ----------- | --------------- |
+| `sounds`   | list[Sound] | Playable Sounds |
+| `location` | Location    | Sound Location  |
+| `delay`    | Number      | Delay in ticks  |
 <h3 id=player_randomized_teleport>
   <code>player::randomized_teleport</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
