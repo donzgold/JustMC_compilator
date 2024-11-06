@@ -3354,7 +3354,7 @@ class sound:
         return {"type": "sound", "sound": get_value(self.args["sound"], ""),
                 "volume": get_value(self.args["volume"], 0),
                 "pitch": get_value(self.args["pitch"], 0), "variation": get_value(self.args["variation"], ""),
-                "source": get_value(self.args["source"], "")}
+                "source": get_value(self.args["source"], "MASTER")}
 
 
 # noinspection PyUnresolvedReferences
