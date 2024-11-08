@@ -200,7 +200,7 @@ def download_latest_release(reload=False):
                 else:
                     z.getinfo(zip_info.filename).filename = "jmcc2.properties"
                     z.extract("jmcc.properties")
-        an_data = Properties(open("jmcc2.properties", "r+", encoding="UTF-8"))
+        an_data = Properties(text=open("jmcc2.properties", "r+", encoding="UTF-8").read())
         data["release_version"] = an_data["release_version"]
         data["data_version"] = an_data["data_version"]
         data["current_version"] = an_data["current_version"]
@@ -228,7 +228,7 @@ def download_latest_version(reload=False):
                 else:
                     z.getinfo(zip_info.filename).filename = "jmcc2.properties"
                     z.extract("jmcc.properties")
-        an_data = Properties(open("jmcc2.properties", "r+", encoding="UTF-8"))
+        an_data = Properties(text=open("jmcc2.properties", "r+", encoding="UTF-8").read())
         data["release_version"] = an_data["release_version"]
         data["data_version"] = an_data["data_version"]
         data["current_version"] = an_data["current_version"]
