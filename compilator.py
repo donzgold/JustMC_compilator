@@ -905,6 +905,9 @@ class Parser:
             thing = self.current_token
             self.eat(Tokens.STRING)
             if os.path.exists(thing.value):
+                fil_source = os.path.abspath(thing.value)
+                if (fil_source in Context.context) and (not Context(fil_source).compiled):
+                    error_from_object(thing,"ImportError", translate("error.importerror.recursion"))
                 self.context.extend(parse_from_file(open(thing.value, "r", encoding="UTF-8")))
             else:
                 error_from_object(thing, "UnexistsFile", translate("error.unexistsfile", {0: thing.value}))
@@ -1435,6 +1438,9 @@ class default_jmcc_object:
 
     json = None
 
+    def remove_inlines(self):
+        return self
+
 
 class number:
     type = "number"
@@ -1461,6 +1467,9 @@ class number:
 
     def json(self):
         return {"type": "number", "number": self.value}
+
+    def remove_inlines(self):
+        return self
 
 
 class Texts:
@@ -1498,6 +1507,9 @@ class text:
 
     def json(self):
         return {"type": "text", "text": self.value, "parsing": Texts.changer[self.value_type].lower()}
+
+    def remove_inlines(self):
+        return self
 
 
 class lst:
@@ -1594,6 +1606,11 @@ class lst:
 
     def json(self):
         return {"type": "array", "values": [i3.json() for i3 in self.values]}
+
+    def remove_inlines(self):
+        for i1 in range(len(self.values)):
+            self.values[i1] = self.values[i1].remove_inlines()
+        return self
 
 
 class dct:
@@ -1733,6 +1750,13 @@ class dct:
             current_operation = self
         return previous_operations, current_operation, next_operations
 
+    def remove_inlines(self):
+        for i1 in range(len(self.values)):
+            self.values[i1] = self.values[i1].remove_inlines()
+        for i1 in range(len(self.keys)):
+            self.keys[i1] = self.keys[i1].remove_inlines()
+        return self
+
 
 class NBT:
     type = "snbt"
@@ -1768,6 +1792,9 @@ class NBT:
                         self.ending_pos, self.source).simplify(mode=mode, work_with=work_with)
         else:
             error_from_object(self, "SimplifyError", translate("error.simplifyerror", {0: self}))
+
+    def remove_inlines(self):
+        return self
 
 
 class Vars:
@@ -1824,6 +1851,15 @@ class var:
 
     def json(self):
         return {"type": "variable", "variable": self.value, "scope": Vars.changer[self.var_type].lower()}
+
+    def remove_inlines(self):
+        if self.var_type == Vars.INLINE:
+            val = Context(self.source).get_inline(self.value)
+            val.starting_pos = self.starting_pos
+            val.ending_pos = self.ending_pos
+            val.source = self.source
+            return val
+        return self
 
 
 class calling_args:
@@ -1883,6 +1919,13 @@ class calling_args:
             args.append(arg)
         return args
 
+    def remove_inlines(self):
+        for i1 in range(len(self.positional)):
+            self.positional[i1]=self.positional[i1].remove_inlines()
+        for i1 in self.unpositional:
+            self.unpositional[i1]=self.unpositional[i1].remove_inlines()
+        return self
+
 
 class value:
     type = "value"
@@ -1912,6 +1955,9 @@ class value:
     def json(self):
         return {"type": "game_value", "game_value": values[self.value]["id"],
                 "selection": json.dumps({"type": self.selector}) if self.selector is not None else "null"}
+
+    def remove_inlines(self):
+        return self
 
 
 class action:
@@ -2023,12 +2069,7 @@ class action:
             load_args = self.args.get_args(list(arges))
             if (self.object + "::" + self.name) == "variable::set_value":
                 if inline:
-                    if load_args["value"].type == "action":
-                        argis = {i1["id"]: i1 for i1 in
-                                 actions[load_args["value"].object + "::" + load_args["value"].name]["args"]}
-                        new_args = load_args["value"].args.get_args(list(argis))
-                        print(new_args)
-                    context.set_inline(work_with[0].value, load_args["value"])
+                    context.set_inline(work_with[0].value, load_args["value"].remove_inlines())
                     return [], default_jmcc_object, []
                 if load_args["value"].type in {"array", "map", "subscript", "calling_argument", "calling_function",
                                                "calling_object", "action"}:
@@ -2037,7 +2078,7 @@ class action:
                     return load_args["variable"].simplify(mode=1, work_with=load_args["value"])
                 load_args["variable"].value_type = load_args["value"].type
             if inline:
-                context.set_inline(work_with[0].value, self)
+                context.set_inline(work_with[0].value, self.remove_inlines())
                 return [], default_jmcc_object, []
             if (self.object + "::" + self.name) == "variable::create_list":
                 if load_args["values"].type == "array" and len(load_args["values"].values) > arges["values"]["array"]:
@@ -2167,6 +2208,10 @@ class action:
             a["conditional"] = b
         return a
 
+    def remove_inlines(self):
+        self.args = self.args.remove_inlines()
+        return self
+
 
 class calling_object:
     type = "calling_object"
@@ -2254,7 +2299,8 @@ class calling_object:
                 next_operations.extend(next_ops)
             if not (args[k1].type == "variable" and args[k1].value == k1):
                 previous_operations.append(action("variable", "set_value", calling_args([], {
-                    "variable": var(k1, Vars.LOCAL, self.starting_pos, self.ending_pos, self.source), "value": args[k1]},
+                    "variable": var(k1, Vars.LOCAL, self.starting_pos, self.ending_pos, self.source),
+                    "value": args[k1]},
                                                                                         self.starting_pos,
                                                                                         self.ending_pos,
                                                                                         self.source), self.starting_pos,
@@ -2317,8 +2363,12 @@ class calling_object:
             if mode == 0:
                 error_from_object(self, "ActionError", translate("error.actionerror.action_has_no_value", {0: self}))
         else:
-            error_from_object(self, "","Не поддерживается")
+            error_from_object(self, "", "Не поддерживается")
         return previous_operations, default_jmcc_object, next_operations
+
+    def remove_inlines(self):
+        self.args = self.args.remove_inlines()
+        return self
 
 
 class calling_argument:
@@ -2330,7 +2380,7 @@ class calling_argument:
         self.starting_pos = starting_pos
         self.ending_pos = ending_pos
         self.source = source
-        error_from_object(self, "","Не поддерживается")
+        error_from_object(self, "", "Не поддерживается")
 
     def __str__(self):
         return f'call_argument({self.object}, {self.arg})'
@@ -2345,6 +2395,9 @@ class calling_argument:
     @staticmethod
     def is_simple():
         return False
+
+    def remove_inlines(self):
+        return self
 
 
 class calling_function:
@@ -2386,7 +2439,8 @@ class calling_function:
                     previous_operations = prev_ops
                     next_operations = next_ops
                 if not ((self.args.positional[0].type == "action") or (
-                        self.args.positional[0].type == "variable" and self.args.positional[0].value_type == "number") or (self.args.positional[0].type == "number")):
+                        self.args.positional[0].type == "variable" and self.args.positional[
+                    0].value_type == "number") or (self.args.positional[0].type == "number")):
                     error_from_object(self.args.positional[0], "ArgumentError",
                                       translate("error.argumenterror.wrong_argument",
                                                 {0: self.args.positional[0].type, 1: "boolean"}))
@@ -2489,9 +2543,14 @@ class calling_function:
                 else:
                     return self.object.simplify(mode=mode, work_with=work_with)
             else:
-                error_from_object(self, "","Не поддерживается")
+                error_from_object(self, "", "Не поддерживается")
         if mode == 1:
             error_from_object(self, "ActionError", translate("error.actionerror.action_cant_be_setter", {0: self}))
+
+    def remove_inlines(self):
+        self.args = self.args.remove_inlines()
+        self.value = self.value.remove_inlines()
+        return self
 
 
 class subscript:
@@ -2519,6 +2578,7 @@ class subscript:
     @staticmethod
     def is_simple():
         return False
+
 
 
 class if_:
@@ -2635,6 +2695,7 @@ class if_:
         if len(next_operations) > 0:
             error_from_object(self, "", "ебанутый?")
         return previous_operations, default_jmcc_object, next_operations
+
 
 
 class function:
@@ -2775,6 +2836,10 @@ class return_:
                    self.starting_pos, self.ending_pos, self.source))
         return previous_operations, cur_op, next_operations
 
+    def remove_inlines(self):
+        self.object = self.object.remove_inlines()
+        return self
+
 
 class event:
     type = "event"
@@ -2881,6 +2946,10 @@ class enum_:
             a["scope"] = Vars.changer[self.var.var_type].lower()
         return a
 
+    def remove_inlines(self):
+        self.var=self.var.remove_inlines()
+        return self
+
 
 class block:
     type = "block"
@@ -2903,6 +2972,9 @@ class block:
 
     def json(self):
         return {"type": "block", "block": self.id}
+
+    def remove_inlines(self):
+        return self
 
 
 def get_value(jmcc_object, base_value=None):
@@ -3113,7 +3185,7 @@ class item:
                     lore = self.args["lore"].value.split("\\n")
                 else:
                     lore = [i1.value for i1 in self.args["lore"].values]
-                self.item["minecraft:lore"] = nbtworker.List(
+                self.item["components"]["minecraft:lore"] = nbtworker.List(
                     *map(nbtworker.String, [json.dumps(i2, ensure_ascii=False) for i2 in map(minecraft_text, lore)]))
         if self.args["custom_tags"] is not None:
             if "components" not in self.item:
