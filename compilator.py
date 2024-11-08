@@ -2153,7 +2153,7 @@ class action:
                             enu = arges[k1]["values"][0]
                         else:
                             enu = "FALSE"
-                        args[k1] = enum_(enu, args[k1].starting_pos, args[k1].ending_pos, args[k1].file, args[k1])
+                        args[k1] = enum_(enu, args[k1].starting_pos, args[k1].ending_pos, args[k1].source, args[k1])
                         continue
                 if need_typ == "block":
                     if args[k1].type == "block":
