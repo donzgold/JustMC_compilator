@@ -834,15 +834,15 @@ entity::set_allay_dancing("FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_angry("FALSE","target");
+entity::set_angry("target","FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**  | **Тип**                                                  | **Описание** |
 | -------- | -------------------------------------------------------- | ------------ |
-| `angry`  | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Режим гнева  |
 | `target` | Текст                                                    | Имя цели     |
+| `angry`  | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Режим гнева  |
 <h3 id=entity_set_animal_age>
   <code>entity::set_animal_age</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1587,16 +1587,16 @@ entity::set_display_interpolation(1,2);
 
 **Пример использования:** 
 ```ts
-entity::set_display_rotation_from_axis_angle("ADD",vector(0,0,0),1,"DEGREES","LEFT_ROTATION");
+entity::set_display_rotation_from_axis_angle(vector(0,0,0),1,"ADD","DEGREES","LEFT_ROTATION");
 ```
 
 **Аргументы:**
 
 | **Имя**       | **Тип**                                                                                                                    | **Описание**                |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| `mode`        | Маркер<br/>**ADD** - Добавление<br/>**SET** - Установка                                                                    | Режим установки             |
 | `axis_vector` | Вектор                                                                                                                     | Осевой вектор               |
 | `angle`       | Число                                                                                                                      | Угол поворота               |
+| `mode`        | Маркер<br/>**ADD** - Добавление<br/>**SET** - Установка                                                                    | Режим установки             |
 | `input`       | Маркер<br/>**DEGREES** - Градусы<br/>**RADIANS** - Радианы                                                                 | Тип угла                    |
 | `rotation`    | Маркер<br/>**LEFT_ROTATION** - Левый поворот (Поворот х Размер)<br/>**RIGHT_ROTATION** - Правый поворот (Размер х Поворот) | Порядок применения поворота |
 <h3 id=entity_set_display_rotation_from_euler_angles>
@@ -1612,17 +1612,17 @@ entity::set_display_rotation_from_axis_angle("ADD",vector(0,0,0),1,"DEGREES","LE
 
 **Пример использования:** 
 ```ts
-entity::set_display_rotation_from_euler_angles("ADD",1,2,3,"DEGREES","LEFT_ROTATION");
+entity::set_display_rotation_from_euler_angles(1,2,3,"ADD","DEGREES","LEFT_ROTATION");
 ```
 
 **Аргументы:**
 
 | **Имя**    | **Тип**                                                                                                                    | **Описание**                |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| `mode`     | Маркер<br/>**ADD** - Добавление<br/>**SET** - Установка                                                                    | Режим установки             |
 | `pitch`    | Число                                                                                                                      | Угол тангажа (pitch)        |
 | `yaw`      | Число                                                                                                                      | Угол рыскания (yaw)         |
 | `roll`     | Число                                                                                                                      | Угол крена (roll)           |
+| `mode`     | Маркер<br/>**ADD** - Добавление<br/>**SET** - Установка                                                                    | Режим установки             |
 | `input`    | Маркер<br/>**DEGREES** - Градусы<br/>**RADIANS** - Радианы                                                                 | Тип угла                    |
 | `rotation` | Маркер<br/>**LEFT_ROTATION** - Левый поворот (Поворот х Размер)<br/>**RIGHT_ROTATION** - Правый поворот (Размер х Поворот) | Порядок применения поворота |
 <h3 id=entity_set_display_scale>
@@ -2514,7 +2514,7 @@ entity::set_max_health(1,"FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"APPEND",2,3,4,5,6,7,"FALSE","FALSE");
+entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,2,3,4,5,6,7,"APPEND","FALSE","FALSE");
 ```
 
 **Аргументы:**
@@ -2524,14 +2524,14 @@ entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"APPEND"
 | `result`              | Предмет                                                   | Покупаемый товар                      |
 | `ingredient_one`      | Предмет                                                   | Первый предмет                        |
 | `ingredient_two`      | Предмет                                                   | Второй предмет                        |
-| `index`               | Число                                                     | Индекс товара                         |
-| `mode`                | Маркер<br/>**APPEND** - Добавление<br/>**MERGE** - Замена | Режим установки                       |
 | `uses`                | Число                                                     | Количество использований              |
 | `max_uses`            | Число                                                     | Максимальное количество использований |
+| `index`               | Число                                                     | Индекс товара                         |
 | `villager_experience` | Число                                                     | Опыт для Жителя                       |
 | `price_multiplifier`  | Число                                                     | Множитель цены                        |
 | `demand`              | Число                                                     | Спрос товара                          |
 | `special_price`       | Число                                                     | Особая цена                           |
+| `mode`                | Маркер<br/>**APPEND** - Добавление<br/>**MERGE** - Замена | Режим установки                       |
 | `experience_reward`   | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить  | Награда опытом                        |
 | `ignore_discounts`    | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить  | Игнорирование скидок                  |
 <h3 id=entity_set_minecart_block>

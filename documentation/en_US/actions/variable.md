@@ -25,7 +25,7 @@ if(variable::is_dummy(){
 
 **Usage example:** 
 ```ts
-if(variable::equals(["any value", "any value"],"any value"){
+if(variable::equals("any value",["any value", "any value"]){
     player::message("Condition is true");
 }
 
@@ -40,8 +40,8 @@ if("any value".equals(["any value", "any value"]){
 
 | **Name**  | **Type**        | **Description**     |
 | --------- | --------------- | ------------------- |
-| `compare` | list[Any Value] | Compare Values      |
 | `value`   | Any Value       | Comparison Variable |
+| `compare` | list[Any Value] | Compare Values      |
 <h3 id=if_variable_exists>
   <code>variable::exists</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -340,7 +340,7 @@ if((1).less_or_equals(2){
 
 **Usage example:** 
 ```ts
-if(variable::list_contains_value(["any value", "any value"],`list`,"ALL"){
+if(variable::list_contains_value(`list`,["any value", "any value"],"ALL"){
     player::message("Condition is true");
 }
 
@@ -355,8 +355,8 @@ if(`list`.list_contains_value(["any value", "any value"],"ALL"){
 
 | **Name**     | **Type**                                                | **Description** |
 | ------------ | ------------------------------------------------------- | --------------- |
-| `values`     | list[Any Value]                                         | Values to Check |
 | `list`       | List                                                    | List to check   |
+| `values`     | list[Any Value]                                         | Values to Check |
 | `check_mode` | Marker<br/>**ALL** - All Values<br/>**ANY** - Any Value | Check Mode      |
 <h3 id=if_variable_list_is_empty>
   <code>variable::list_is_empty</code>
@@ -400,13 +400,13 @@ if("any value".list_is_empty(){
 
 **Usage example:** 
 ```ts
-if(variable::list_value_equals(`list`,["any value", "any value"],1){
+if(variable::list_value_equals(`list`,1,["any value", "any value"]){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(`list`.list_value_equals(["any value", "any value"],1){
+if(`list`.list_value_equals(1,["any value", "any value"]){
     player::message("Condition is true");
 }
 ```
@@ -416,8 +416,8 @@ if(`list`.list_value_equals(["any value", "any value"],1){
 | **Name** | **Type**        | **Description**   |
 | -------- | --------------- | ----------------- |
 | `list`   | List            | List to check     |
-| `values` | list[Any Value] | Comparable Values |
 | `index`  | Number          | Value index       |
+| `values` | list[Any Value] | Comparable Values |
 <h3 id=if_variable_location_in_range>
   <code>variable::location_in_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -459,13 +459,13 @@ if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0)
 
 **Usage example:** 
 ```ts
-if(variable::location_is_near([location(0,0,0,0,0), location(0,0,0,0,0)],location(0,0,0,0,0),1,"CIRCLE"){
+if(variable::location_is_near(location(0,0,0,0,0),1,[location(0,0,0,0,0), location(0,0,0,0,0)],"CIRCLE"){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(location(0,0,0,0,0).location_is_near([location(0,0,0,0,0), location(0,0,0,0,0)],1,"CIRCLE"){
+if(location(0,0,0,0,0).location_is_near(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"CIRCLE"){
     player::message("Condition is true");
 }
 ```
@@ -474,9 +474,9 @@ if(location(0,0,0,0,0).location_is_near([location(0,0,0,0,0), location(0,0,0,0,0
 
 | **Name**   | **Type**                                                                                           | **Description**       |
 | ---------- | -------------------------------------------------------------------------------------------------- | --------------------- |
-| `check`    | list[Location]                                                                                     | Shape Center Location |
 | `location` | Location                                                                                           | Location to check     |
 | `radius`   | Number                                                                                             | Check Radius          |
+| `check`    | list[Location]                                                                                     | Shape Center Location |
 | `shape`    | Marker<br/>**CIRCLE** - Circle<br/>**CUBE** - Cube<br/>**SPHERE** - Sphere<br/>**SQUARE** - Square | Shape                 |
 <h3 id=if_variable_map_has_key>
   <code>variable::map_has_key</code>
@@ -517,13 +517,13 @@ if(`map`.map_has_key("any value"){
 
 **Usage example:** 
 ```ts
-if(variable::map_value_equals(`map`,["any value", "any value"],"any value"){
+if(variable::map_value_equals(`map`,"any value",["any value", "any value"]){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(`map`.map_value_equals(["any value", "any value"],"any value"){
+if(`map`.map_value_equals("any value",["any value", "any value"]){
     player::message("Condition is true");
 }
 ```
@@ -533,8 +533,8 @@ if(`map`.map_value_equals(["any value", "any value"],"any value"){
 | **Name** | **Type**        | **Description**     |
 | -------- | --------------- | ------------------- |
 | `map`    | Dictionary      | Dictionary to check |
-| `values` | list[Any Value] | Comparable Values   |
 | `key`    | Any Value       | Key                 |
+| `values` | list[Any Value] | Comparable Values   |
 <h3 id=if_variable_not_equals>
   <code>variable::not_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -546,7 +546,7 @@ if(`map`.map_value_equals(["any value", "any value"],"any value"){
 
 **Usage example:** 
 ```ts
-if(variable::not_equals(["any value", "any value"],"any value"){
+if(variable::not_equals("any value",["any value", "any value"]){
     player::message("Condition is true");
 }
 
@@ -561,8 +561,8 @@ if("any value".not_equals(["any value", "any value"]){
 
 | **Name**  | **Type**        | **Description**     |
 | --------- | --------------- | ------------------- |
-| `compare` | list[Any Value] | Compare Values      |
 | `value`   | Any Value       | Comparable Variable |
+| `compare` | list[Any Value] | Compare Values      |
 <h3 id=if_variable_range_intersects_range>
   <code>variable::range_intersects_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1510,11 +1510,11 @@ variable::create_map_from_values(a1,["any value", "any value"],["any value", "an
 
 **Usage example:** 
 ```ts
-a1 = variable::create_translatable_component(["args", "args"],"key");
+a1 = variable::create_translatable_component("key",["args", "args"]);
 
 #Or dry
 
-variable::create_translatable_component(a1,["args", "args"],"key");
+variable::create_translatable_component(a1,"key",["args", "args"]);
 ```
 
 **Arguments:**
@@ -1522,8 +1522,8 @@ variable::create_translatable_component(a1,["args", "args"],"key");
 | **Name**   | **Type**   | **Description**            |
 | ---------- | ---------- | -------------------------- |
 | `variable` | Variable   | Variable for appropriation |
-| `args`     | list[Text] | Arguments for inserting    |
 | `key`      | Text       | Key                        |
+| `args`     | list[Text] | Arguments for inserting    |
 <h3 id=set_variable_decrement>
   <code>variable::decrement</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4834,11 +4834,11 @@ variable::randomize_list_order(a1,`list`);
 
 **Usage example:** 
 ```ts
-a1, a2, a3, a4 = variable::ray_trace_result(location(0,0,0,0,0),"BLOCKS_AND_ENTITIES",1,`entities`,"FALSE",2,"ALWAYS");
+a1, a2, a3, a4 = variable::ray_trace_result(location(0,0,0,0,0),1,2,`entities`,"BLOCKS_AND_ENTITIES","FALSE","ALWAYS");
 
 #Or dry
 
-variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),"BLOCKS_AND_ENTITIES",1,`entities`,"FALSE",2,"ALWAYS");
+variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),1,2,`entities`,"BLOCKS_AND_ENTITIES","FALSE","ALWAYS");
 ```
 
 **Arguments:**
@@ -4850,11 +4850,11 @@ variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),"BLOCKS_AND_ENTITIES"
 | `variable_for_hit_block_face`     | Variable                                                                                                                                   | Block/Hitbox Side                                                                    |
 | `variable_for_hit_entity_uuid`    | Variable                                                                                                                                   | Entity UUID                                                                          |
 | `start`                           | Location                                                                                                                                   | Beam Start                                                                           |
-| `ray_collision_mode`              | Marker<br/>**BLOCKS_AND_ENTITIES** - With blocks and entities<br/>**ONLY_BLOCKS** - Only with Blocks<br/>**ONLY_ENTITIES** - Entities Only | Object Collision                                                                     |
 | `ray_size`                        | Number                                                                                                                                     | Beam Width                                                                           |
-| `entities`                        | List                                                                                                                                       | Names or UUIDs of the entities to collide with (default is all players and entities) |
-| `ignore_passable_blocks`          | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore                                                                                  | Ignore Passable Blocks                                                               |
 | `max_distance`                    | Number                                                                                                                                     | Beam length                                                                          |
+| `entities`                        | List                                                                                                                                       | Names or UUIDs of the entities to collide with (default is all players and entities) |
+| `ray_collision_mode`              | Marker<br/>**BLOCKS_AND_ENTITIES** - With blocks and entities<br/>**ONLY_BLOCKS** - Only with Blocks<br/>**ONLY_ENTITIES** - Entities Only | Object Collision                                                                     |
+| `ignore_passable_blocks`          | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore                                                                                  | Ignore Passable Blocks                                                               |
 | `fluid_collision_mode`            | Marker<br/>**ALWAYS** - Don't Ignore<br/>**NEVER** - Ignore Completely<br/>**SOURCE_ONLY** - Consider Fluid Source Only                    | Ignore Fluid                                                                         |
 <h3 id=set_variable_reflect_vector_product>
   <code>variable::reflect_vector_product</code>
@@ -5247,7 +5247,7 @@ variable::remove_list_value_at_index(a1,a2,`list`,1);
 
 **Usage example:** 
 ```ts
-a2, a1 = variable::remove_map_entry(["any value", "any value"],`map`,"any value");
+a2, a1 = variable::remove_map_entry(`map`,["any value", "any value"],"any value");
 
 #Or from the object
 
@@ -5255,7 +5255,7 @@ a2, a1 = `map`.remove_map_entry(["any value", "any value"],"any value");
 
 #Or dry
 
-variable::remove_map_entry(a1,a2,["any value", "any value"],`map`,"any value");
+variable::remove_map_entry(a1,a2,`map`,["any value", "any value"],"any value");
 ```
 
 **Arguments:**
@@ -5264,8 +5264,8 @@ variable::remove_map_entry(a1,a2,["any value", "any value"],`map`,"any value");
 | --------------- | --------------- | -------------------- |
 | `removed_value` | Variable        | Removed Value        |
 | `variable`      | Variable        | Variable to assign   |
-| `values`        | list[Any Value] | Values               |
 | `map`           | Dictionary      | Dictionary to change |
+| `values`        | list[Any Value] | Values               |
 | `key`           | Any Value       | Key                  |
 <h3 id=set_variable_remove_text>
   <code>variable::remove_text</code>
@@ -5599,7 +5599,7 @@ variable::set_book_page(a1,item("stick"),"text",1,"APPEND");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_book_pages(["text", "text"],item("stick"));
+a1 = variable::set_book_pages(item("stick"),["text", "text"]);
 
 #Or from the object
 
@@ -5607,7 +5607,7 @@ a1 = item("stick").set_book_pages(["text", "text"]);
 
 #Or dry
 
-variable::set_book_pages(a1,["text", "text"],item("stick"));
+variable::set_book_pages(a1,item("stick"),["text", "text"]);
 ```
 
 **Arguments:**
@@ -5615,8 +5615,8 @@ variable::set_book_pages(a1,["text", "text"],item("stick"));
 | **Name**   | **Type**   | **Description**    |
 | ---------- | ---------- | ------------------ |
 | `variable` | Variable   | Variable to assign |
-| `text`     | list[Text] | New Text           |
 | `book`     | Item       | Book to change     |
+| `text`     | list[Text] | New Text           |
 <h3 id=set_variable_set_bundle_items>
   <code>variable::set_bundle_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5684,7 +5684,7 @@ variable::set_compass_lodestone(a1,item("stick"),location(0,0,0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_component_children(["children", "children"],"component");
+a1 = variable::set_component_children("component",["children", "children"]);
 
 #Or from the object
 
@@ -5692,7 +5692,7 @@ a1 = "component".set_component_children(["children", "children"]);
 
 #Or dry
 
-variable::set_component_children(a1,["children", "children"],"component");
+variable::set_component_children(a1,"component",["children", "children"]);
 ```
 
 **Arguments:**
@@ -5700,8 +5700,8 @@ variable::set_component_children(a1,["children", "children"],"component");
 | **Name**    | **Type**   | **Description**            |
 | ----------- | ---------- | -------------------------- |
 | `variable`  | Variable   | Variable for appropriation |
-| `children`  | list[Text] | Dummies stylized texts     |
 | `component` | Text       | The main stylized text     |
+| `children`  | list[Text] | Dummies stylized texts     |
 <h3 id=set_variable_set_component_click>
   <code>variable::set_component_click</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

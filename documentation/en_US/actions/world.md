@@ -73,7 +73,7 @@ world::bone_meal_block(location(0,0,0,0,0),1);
 
 **Usage example:** 
 ```ts
-world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE",item("stick"));
+world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stick"),"FALSE");
 ```
 
 **Arguments:**
@@ -81,8 +81,8 @@ world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE",item("stic
 | **Name**    | **Type**                                               | **Description** |
 | ----------- | ------------------------------------------------------ | --------------- |
 | `locations` | list[Location]                                         | Block Locations |
-| `drop_exp`  | Marker<br/>**FALSE** - Turn off<br/>**TRUE** - Turn on | Experience loss |
 | `tool`      | Item                                                   | Tool            |
+| `drop_exp`  | Marker<br/>**FALSE** - Turn off<br/>**TRUE** - Turn on | Experience loss |
 <h3 id=game_cancel_event>
   <code>world::cancel_event</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -592,7 +592,7 @@ world::set_age(location(0,0,0,0,0),1);
 
 **Usage example:** 
 ```ts
-world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE",item("stone"));
+world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stone"),"FALSE");
 ```
 
 **Arguments:**
@@ -600,8 +600,8 @@ world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE",item("stone"
 | **Name**        | **Type**                                                   | **Description**      |
 | --------------- | ---------------------------------------------------------- | -------------------- |
 | `locations`     | list[Location]                                             | Block Set Locations  |
-| `update_blocks` | Marker<br/>**FALSE** - Do not update<br/>**TRUE** - Update | Update blocks around |
 | `block`         | Block                                                      | Block                |
+| `update_blocks` | Marker<br/>**FALSE** - Do not update<br/>**TRUE** - Update | Update blocks around |
 <h3 id=game_set_block_analogue_power>
   <code>world::set_block_analogue_power</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1618,15 +1618,15 @@ world::set_world_time(1);
 
 **Usage example:** 
 ```ts
-world::set_world_weather("CLEAR",1);
+world::set_world_weather(1,"CLEAR");
 ```
 
 **Arguments:**
 
 | **Name**           | **Type**                                                                              | **Description** |
 | ------------------ | ------------------------------------------------------------------------------------- | --------------- |
-| `weather_type`     | Marker<br/>**CLEAR** - Clear<br/>**RAINING** - Raining<br/>**THUNDER** - Thunderstorm | Weather Type    |
 | `weather_duration` | Number                                                                                | Duration        |
+| `weather_type`     | Marker<br/>**CLEAR** - Clear<br/>**RAINING** - Raining<br/>**THUNDER** - Thunderstorm | Weather Type    |
 <h3 id=game_spawn_armor_stand>
   <code>world::spawn_armor_stand</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1638,7 +1638,7 @@ world::set_world_weather("CLEAR",1);
 
 **Usage example:** 
 ```ts
-world::spawn_armor_stand(item("stick"),item("stick"),"FALSE","FALSE",item("stick"),item("stick"),location(0,0,0,0,0),"custom_name","FALSE","FALSE",item("stick"),item("stick"),"FALSE","FALSE");
+world::spawn_armor_stand(item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),location(0,0,0,0,0),"custom_name","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
 ```
 
 **Arguments:**
@@ -1646,17 +1646,17 @@ world::spawn_armor_stand(item("stick"),item("stick"),"FALSE","FALSE",item("stick
 | **Name**      | **Type**                                               | **Description** |
 | ------------- | ------------------------------------------------------ | --------------- |
 | `helmet`      | Item                                                   | Headgear        |
-| `boots`       | Item                                                   | Boots           |
-| `gravity`     | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable   | Set Gravity     |
-| `marker`      | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled | Marker Mode     |
 | `chestplate`  | Item                                                   | Chestplate      |
+| `boots`       | Item                                                   | Boots           |
+| `leggings`    | Item                                                   | Leggings        |
 | `right_hand`  | Item                                                   | Right Hand Item |
+| `left_hand`   | Item                                                   | Left Hand Item  |
 | `location`    | Location                                               | Spawn Location  |
 | `custom_name` | Text                                                   | Stand name      |
+| `gravity`     | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable   | Set Gravity     |
+| `marker`      | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled | Marker Mode     |
 | `small`       | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable   | Make Small      |
 | `show_arms`   | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable   | Show Arms       |
-| `leggings`    | Item                                                   | Leggings        |
-| `left_hand`   | Item                                                   | Left Hand Item  |
 | `base_plate`  | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable   | Slab Display    |
 | `invisible`   | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable   | Invisible       |
 <h3 id=game_spawn_block_display>
@@ -1691,7 +1691,7 @@ world::spawn_block_display(location(0,0,0,0,0),"custom_name",item("stone"));
 
 **Usage example:** 
 ```ts
-world::spawn_effect_cloud(location(0,0,0,0,0),[potion("slow_falling"), potion("slow_falling")],particle("fire"),1,"custom_name",2);
+world::spawn_effect_cloud(location(0,0,0,0,0),1,2,[potion("slow_falling"), potion("slow_falling")],particle("fire"),"custom_name");
 ```
 
 **Arguments:**
@@ -1699,11 +1699,11 @@ world::spawn_effect_cloud(location(0,0,0,0,0),[potion("slow_falling"), potion("s
 | **Name**      | **Type**        | **Description** |
 | ------------- | --------------- | --------------- |
 | `location`    | Location        | Spawn Location  |
+| `duration`    | Number          | Duration        |
+| `radius`      | Number          | Cloud Radius    |
 | `effects`     | list[Potion]    | Potion Effects  |
 | `particle`    | Particle Effect | Cloud Particles |
-| `duration`    | Number          | Duration        |
 | `custom_name` | Text            | Name            |
-| `radius`      | Number          | Cloud Radius    |
 <h3 id=game_spawn_end_crystal>
   <code>world::spawn_end_crystal</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1847,17 +1847,17 @@ world::spawn_interaction_entity(location(0,0,0,0,0),"custom_name",1,2,"FALSE");
 
 **Usage example:** 
 ```ts
-world::spawn_item("FALSE",location(0,0,0,0,0),item("stick"),"custom_name","FALSE","FALSE");
+world::spawn_item(location(0,0,0,0,0),item("stick"),"custom_name","FALSE","FALSE","FALSE");
 ```
 
 **Arguments:**
 
 | **Name**            | **Type**                                       | **Description**                     |
 | ------------------- | ---------------------------------------------- | ----------------------------------- |
-| `can_mob_pickup`    | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Can mobs pick up an item            |
 | `location`          | Location                                       | Spawn Location                      |
 | `item`              | Item                                           | Item to Spawn                       |
 | `custom_name`       | Text                                           | Name                                |
+| `can_mob_pickup`    | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Can mobs pick up an item            |
 | `can_player_pickup` | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Whether players can pick up an item |
 | `apply_motion`      | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Set Item Motion on Spawn            |
 <h3 id=game_spawn_item_display>
@@ -1911,25 +1911,25 @@ world::spawn_lightning_bolt(location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-world::spawn_mob([potion("slow_falling"), potion("slow_falling")],item("stick"),item("stick"),item("stick"),location(0,0,0,0,0),item("stick"),1,item("stick"),"custom_name",item("stick"),"FALSE",item("stick"));
+world::spawn_mob(item("stick"),location(0,0,0,0,0),1,[potion("slow_falling"), potion("slow_falling")],"custom_name",item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),"FALSE");
 ```
 
 **Arguments:**
 
 | **Name**            | **Type**                                             | **Description**    |
 | ------------------- | ---------------------------------------------------- | ------------------ |
-| `potion_effects`    | list[Potion]                                         | Effects            |
-| `main_hand`         | Item                                                 | Main Hand Item     |
 | `mob`               | Item                                                 | Mob Type           |
-| `helmet`            | Item                                                 | Headgear           |
 | `location`          | Location                                             | Spawn Location     |
-| `chestplate`        | Item                                                 | Chestplate         |
 | `health`            | Number                                               | Amount of Health   |
-| `leggings`          | Item                                                 | Leggings           |
+| `potion_effects`    | list[Potion]                                         | Effects            |
 | `custom_name`       | Text                                                 | Name               |
+| `main_hand`         | Item                                                 | Main Hand Item     |
+| `helmet`            | Item                                                 | Headgear           |
+| `chestplate`        | Item                                                 | Chestplate         |
+| `leggings`          | Item                                                 | Leggings           |
 | `boots`             | Item                                                 | Boots              |
-| `natural_equipment` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Standard Equipment |
 | `off_hand`          | Item                                                 | Offhand Item       |
+| `natural_equipment` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Standard Equipment |
 <h3 id=game_spawn_primed_tnt>
   <code>world::spawn_primed_tnt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

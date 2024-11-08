@@ -740,16 +740,16 @@
     "object": "entity",
     "args": [
       {
+        "id": "target",
+        "type": "text"
+      },
+      {
         "id": "angry",
         "type": "enum",
         "values": [
           "FALSE",
           "TRUE"
         ]
-      },
-      {
-        "id": "target",
-        "type": "text"
       }
     ],
     "type": "basic"
@@ -1370,20 +1370,20 @@
     "object": "entity",
     "args": [
       {
-        "id": "mode",
-        "type": "enum",
-        "values": [
-          "ADD",
-          "SET"
-        ]
-      },
-      {
         "id": "axis_vector",
         "type": "vector"
       },
       {
         "id": "angle",
         "type": "number"
+      },
+      {
+        "id": "mode",
+        "type": "enum",
+        "values": [
+          "ADD",
+          "SET"
+        ]
       },
       {
         "id": "input",
@@ -1410,14 +1410,6 @@
     "object": "entity",
     "args": [
       {
-        "id": "mode",
-        "type": "enum",
-        "values": [
-          "ADD",
-          "SET"
-        ]
-      },
-      {
         "id": "pitch",
         "type": "number"
       },
@@ -1428,6 +1420,14 @@
       {
         "id": "roll",
         "type": "number"
+      },
+      {
+        "id": "mode",
+        "type": "enum",
+        "values": [
+          "ADD",
+          "SET"
+        ]
       },
       {
         "id": "input",
@@ -2155,23 +2155,15 @@
         "type": "item"
       },
       {
-        "id": "index",
-        "type": "number"
-      },
-      {
-        "id": "mode",
-        "type": "enum",
-        "values": [
-          "APPEND",
-          "MERGE"
-        ]
-      },
-      {
         "id": "uses",
         "type": "number"
       },
       {
         "id": "max_uses",
+        "type": "number"
+      },
+      {
+        "id": "index",
         "type": "number"
       },
       {
@@ -2189,6 +2181,14 @@
       {
         "id": "special_price",
         "type": "number"
+      },
+      {
+        "id": "mode",
+        "type": "enum",
+        "values": [
+          "APPEND",
+          "MERGE"
+        ]
       },
       {
         "id": "experience_reward",
@@ -3339,16 +3339,16 @@
         "array": 16
       },
       {
+        "id": "tool",
+        "type": "item"
+      },
+      {
         "id": "drop_exp",
         "type": "enum",
         "values": [
           "FALSE",
           "TRUE"
         ]
-      },
-      {
-        "id": "tool",
-        "type": "item"
       }
     ],
     "type": "basic"
@@ -3835,16 +3835,16 @@
         "array": 14
       },
       {
+        "id": "block",
+        "type": "block"
+      },
+      {
         "id": "update_blocks",
         "type": "enum",
         "values": [
           "FALSE",
           "TRUE"
         ]
-      },
-      {
-        "id": "block",
-        "type": "block"
       }
     ],
     "type": "basic"
@@ -4707,6 +4707,10 @@
     "object": "world",
     "args": [
       {
+        "id": "weather_duration",
+        "type": "number"
+      },
+      {
         "id": "weather_type",
         "type": "enum",
         "values": [
@@ -4714,10 +4718,6 @@
           "RAINING",
           "THUNDER"
         ]
-      },
-      {
-        "id": "weather_duration",
-        "type": "number"
       }
     ],
     "type": "basic"
@@ -4732,8 +4732,32 @@
         "type": "item"
       },
       {
+        "id": "chestplate",
+        "type": "item"
+      },
+      {
         "id": "boots",
         "type": "item"
+      },
+      {
+        "id": "leggings",
+        "type": "item"
+      },
+      {
+        "id": "right_hand",
+        "type": "item"
+      },
+      {
+        "id": "left_hand",
+        "type": "item"
+      },
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "custom_name",
+        "type": "text"
       },
       {
         "id": "gravity",
@@ -4752,22 +4776,6 @@
         ]
       },
       {
-        "id": "chestplate",
-        "type": "item"
-      },
-      {
-        "id": "right_hand",
-        "type": "item"
-      },
-      {
-        "id": "location",
-        "type": "location"
-      },
-      {
-        "id": "custom_name",
-        "type": "text"
-      },
-      {
         "id": "small",
         "type": "enum",
         "values": [
@@ -4782,14 +4790,6 @@
           "FALSE",
           "TRUE"
         ]
-      },
-      {
-        "id": "leggings",
-        "type": "item"
-      },
-      {
-        "id": "left_hand",
-        "type": "item"
       },
       {
         "id": "base_plate",
@@ -4840,6 +4840,14 @@
         "type": "location"
       },
       {
+        "id": "duration",
+        "type": "number"
+      },
+      {
+        "id": "radius",
+        "type": "number"
+      },
+      {
         "id": "effects",
         "type": "potion",
         "array": 6
@@ -4849,16 +4857,8 @@
         "type": "particle"
       },
       {
-        "id": "duration",
-        "type": "number"
-      },
-      {
         "id": "custom_name",
         "type": "text"
-      },
-      {
-        "id": "radius",
-        "type": "number"
       }
     ],
     "type": "basic"
@@ -5022,14 +5022,6 @@
     "object": "world",
     "args": [
       {
-        "id": "can_mob_pickup",
-        "type": "enum",
-        "values": [
-          "FALSE",
-          "TRUE"
-        ]
-      },
-      {
         "id": "location",
         "type": "location"
       },
@@ -5040,6 +5032,14 @@
       {
         "id": "custom_name",
         "type": "text"
+      },
+      {
+        "id": "can_mob_pickup",
+        "type": "enum",
+        "values": [
+          "FALSE",
+          "TRUE"
+        ]
       },
       {
         "id": "can_player_pickup",
@@ -5098,20 +5098,7 @@
     "object": "world",
     "args": [
       {
-        "id": "potion_effects",
-        "type": "potion",
-        "array": 15
-      },
-      {
-        "id": "main_hand",
-        "type": "item"
-      },
-      {
         "id": "mob",
-        "type": "item"
-      },
-      {
-        "id": "helmet",
         "type": "item"
       },
       {
@@ -5119,23 +5106,40 @@
         "type": "location"
       },
       {
-        "id": "chestplate",
-        "type": "item"
-      },
-      {
         "id": "health",
         "type": "number"
       },
       {
-        "id": "leggings",
-        "type": "item"
+        "id": "potion_effects",
+        "type": "potion",
+        "array": 15
       },
       {
         "id": "custom_name",
         "type": "text"
       },
       {
+        "id": "main_hand",
+        "type": "item"
+      },
+      {
+        "id": "helmet",
+        "type": "item"
+      },
+      {
+        "id": "chestplate",
+        "type": "item"
+      },
+      {
+        "id": "leggings",
+        "type": "item"
+      },
+      {
         "id": "boots",
+        "type": "item"
+      },
+      {
+        "id": "off_hand",
         "type": "item"
       },
       {
@@ -5145,10 +5149,6 @@
           "FALSE",
           "TRUE"
         ]
-      },
-      {
-        "id": "off_hand",
-        "type": "item"
       }
     ],
     "type": "basic"
@@ -6771,13 +6771,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "value",
+        "type": "any"
+      },
+      {
         "id": "compare",
         "type": "any",
         "array": 21
-      },
-      {
-        "id": "value",
-        "type": "any"
       }
     ],
     "origin": "value",
@@ -7011,13 +7011,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "list",
+        "type": "array"
+      },
+      {
         "id": "values",
         "type": "any",
         "array": 21
-      },
-      {
-        "id": "list",
-        "type": "array"
       },
       {
         "id": "check_mode",
@@ -7056,13 +7056,13 @@
         "type": "array"
       },
       {
+        "id": "index",
+        "type": "number"
+      },
+      {
         "id": "values",
         "type": "any",
         "array": 21
-      },
-      {
-        "id": "index",
-        "type": "number"
       }
     ],
     "origin": "list",
@@ -7106,17 +7106,17 @@
     "object": "variable",
     "args": [
       {
-        "id": "check",
-        "type": "location",
-        "array": 18
-      },
-      {
         "id": "location",
         "type": "location"
       },
       {
         "id": "radius",
         "type": "number"
+      },
+      {
+        "id": "check",
+        "type": "location",
+        "array": 18
       },
       {
         "id": "shape",
@@ -7161,13 +7161,13 @@
         "type": "map"
       },
       {
+        "id": "key",
+        "type": "any"
+      },
+      {
         "id": "values",
         "type": "any",
         "array": 21
-      },
-      {
-        "id": "key",
-        "type": "any"
       }
     ],
     "origin": "map",
@@ -7180,13 +7180,13 @@
     "object": "variable",
     "args": [
       {
+        "id": "value",
+        "type": "any"
+      },
+      {
         "id": "compare",
         "type": "any",
         "array": 21
-      },
-      {
-        "id": "value",
-        "type": "any"
       }
     ],
     "origin": "value",
@@ -8301,13 +8301,13 @@
     "object": "player",
     "args": [
       {
+        "id": "name_or_uuid",
+        "type": "text"
+      },
+      {
         "id": "sounds",
         "type": "sound",
         "array": 21
-      },
-      {
-        "id": "name_or_uuid",
-        "type": "text"
       }
     ],
     "type": "basic"
@@ -8907,16 +8907,6 @@
     "object": "player",
     "args": [
       {
-        "id": "sky_effect",
-        "type": "enum",
-        "values": [
-          "DARK_SKY",
-          "FOG",
-          "FOG_AND_DARK_SKY",
-          "NONE"
-        ]
-      },
-      {
         "id": "id",
         "type": "text"
       },
@@ -8927,6 +8917,16 @@
       {
         "id": "progress",
         "type": "number"
+      },
+      {
+        "id": "sky_effect",
+        "type": "enum",
+        "values": [
+          "DARK_SKY",
+          "FOG",
+          "FOG_AND_DARK_SKY",
+          "NONE"
+        ]
       },
       {
         "id": "style",
@@ -10276,13 +10276,13 @@
         "type": "variable"
       },
       {
+        "id": "step",
+        "type": "number"
+      },
+      {
         "id": "locations",
         "type": "location",
         "array": 21
-      },
-      {
-        "id": "step",
-        "type": "number"
       },
       {
         "id": "rotation",
@@ -10623,14 +10623,6 @@
         "type": "variable"
       },
       {
-        "id": "consider_blocks",
-        "type": "enum",
-        "values": [
-          "FALSE",
-          "TRUE"
-        ]
-      },
-      {
         "id": "origin",
         "type": "location"
       },
@@ -10645,6 +10637,14 @@
       {
         "id": "selection_size",
         "type": "number"
+      },
+      {
+        "id": "consider_blocks",
+        "type": "enum",
+        "values": [
+          "FALSE",
+          "TRUE"
+        ]
       },
       {
         "id": "ignore_passable_blocks",
@@ -11593,13 +11593,13 @@
         "type": "variable"
       },
       {
+        "id": "key",
+        "type": "text"
+      },
+      {
         "id": "args",
         "type": "text",
         "array": 21
-      },
-      {
-        "id": "key",
-        "type": "text"
       }
     ],
     "assign": [
@@ -15015,6 +15015,18 @@
         "type": "location"
       },
       {
+        "id": "ray_size",
+        "type": "number"
+      },
+      {
+        "id": "max_distance",
+        "type": "number"
+      },
+      {
+        "id": "entities",
+        "type": "array"
+      },
+      {
         "id": "ray_collision_mode",
         "type": "enum",
         "values": [
@@ -15024,24 +15036,12 @@
         ]
       },
       {
-        "id": "ray_size",
-        "type": "number"
-      },
-      {
-        "id": "entities",
-        "type": "array"
-      },
-      {
         "id": "ignore_passable_blocks",
         "type": "enum",
         "values": [
           "FALSE",
           "TRUE"
         ]
-      },
-      {
-        "id": "max_distance",
-        "type": "number"
       },
       {
         "id": "fluid_collision_mode",
@@ -15567,13 +15567,13 @@
         "type": "variable"
       },
       {
+        "id": "map",
+        "type": "map"
+      },
+      {
         "id": "values",
         "type": "any",
         "array": 18
-      },
-      {
-        "id": "map",
-        "type": "map"
       },
       {
         "id": "key",
@@ -15983,13 +15983,13 @@
         "type": "variable"
       },
       {
+        "id": "book",
+        "type": "item"
+      },
+      {
         "id": "text",
         "type": "text",
         "array": 21
-      },
-      {
-        "id": "book",
-        "type": "item"
       }
     ],
     "assign": [
@@ -16077,13 +16077,13 @@
         "type": "variable"
       },
       {
+        "id": "component",
+        "type": "text"
+      },
+      {
         "id": "children",
         "type": "text",
         "array": 21
-      },
-      {
-        "id": "component",
-        "type": "text"
       }
     ],
     "assign": [

@@ -1846,15 +1846,15 @@ player::play_sound(sound("entity.zombie.hurt"),location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-player::play_sound_from_entity([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")],"name_or_uuid");
+player::play_sound_from_entity("name_or_uuid",[sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 ```
 
 **Arguments:**
 
 | **Name**       | **Type**    | **Description**     |
 | -------------- | ----------- | ------------------- |
-| `sounds`       | list[Sound] | Sound to play       |
 | `name_or_uuid` | Text        | Entity name or UUID |
+| `sounds`       | list[Sound] | Sound to play       |
 <h3 id=player_play_sound_sequence>
   <code>player::play_sound_sequence</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2567,17 +2567,17 @@ player::set_block_opened_state(location(0,0,0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-player::set_boss_bar("DARK_SKY","id","title",1,"NOTCHED_10","BLUE");
+player::set_boss_bar("id","title",1,"DARK_SKY","NOTCHED_10","BLUE");
 ```
 
 **Arguments:**
 
 | **Name**     | **Type**                                                                                                                                                          | **Description**   |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `sky_effect` | Marker<br/>**DARK_SKY** - Dark Sky<br/>**FOG** - Fog<br/>**FOG_AND_DARK_SKY** - Fog and dark sky<br/>**NONE** - None                                              | Sky Effect        |
 | `id`         | Text                                                                                                                                                              | Boss Bar ID       |
 | `title`      | Text                                                                                                                                                              | Text              |
 | `progress`   | Number                                                                                                                                                            | Occupancy (0-100) |
+| `sky_effect` | Marker<br/>**DARK_SKY** - Dark Sky<br/>**FOG** - Fog<br/>**FOG_AND_DARK_SKY** - Fog and dark sky<br/>**NONE** - None                                              | Sky Effect        |
 | `style`      | Marker<br/>**NOTCHED_10** - 10 segments<br/>**NOTCHED_12** - 12 segments<br/>**NOTCHED_20** - 20 segments<br/>**NOTCHED_6** - 6 segments<br/>**PROGRESS** - Solid | Style             |
 | `color`      | Marker<br/>**BLUE** - Blue<br/>**GREEN** - Green<br/>**PINK** - Pink<br/>**PURPLE** - Purple<br/>**RED** - Red<br/>**WHITE** - White<br/>**YELLOW** - Yellow      | Color             |
 <h3 id=player_set_chat_completions>

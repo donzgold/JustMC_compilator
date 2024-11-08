@@ -369,7 +369,7 @@ select::filter_by_distance(location(0,0,0,0,0),1,"FALSE","FARTHEST");
 
 **Usage example:** 
 ```ts
-select::filter_by_raycast(a1,"FALSE",location(0,0,0,0,0),1,2,3,"FALSE","ALWAYS");
+select::filter_by_raycast(a1,location(0,0,0,0,0),1,2,3,"FALSE","FALSE","ALWAYS");
 ```
 
 **Arguments:**
@@ -377,11 +377,11 @@ select::filter_by_raycast(a1,"FALSE",location(0,0,0,0,0),1,2,3,"FALSE","ALWAYS")
 | **Name**                 | **Type**                                                                                                             | **Description**        |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | `variable`               | Variable                                                                                                             | Ray End Point          |
-| `consider_blocks`        | Marker<br/>**FALSE** - Don't Consider<br/>**TRUE** - Consider                                                        | Consider Blocks        |
 | `origin`                 | Location                                                                                                             | Ray Origin             |
 | `max_distance`           | Number                                                                                                               | Ray Length             |
 | `ray_size`               | Number                                                                                                               | Ray Width              |
 | `selection_size`         | Number                                                                                                               | Selection Size         |
+| `consider_blocks`        | Marker<br/>**FALSE** - Don't Consider<br/>**TRUE** - Consider                                                        | Consider Blocks        |
 | `ignore_passable_blocks` | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore                                                            | Ignore Passable Blocks |
 | `fluid_collision_mode`   | Marker<br/>**ALWAYS** - Don't Ignore<br/>**NEVER** - Totally Ignore<br/>**SOURCE_ONLY** - Consider fluid source only | Ignore Fluid           |
 <h3 id=select_filter_randomly>

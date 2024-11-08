@@ -25,7 +25,7 @@ if(variable::is_dummy(){
 
 **Пример использования:** 
 ```ts
-if(variable::equals(["any value", "any value"],"any value"){
+if(variable::equals("any value",["any value", "any value"]){
     player::message("Условие верно");
 }
 
@@ -40,8 +40,8 @@ if("any value".equals(["any value", "any value"]){
 
 | **Имя**   | **Тип**                | **Описание**             |
 | --------- | ---------------------- | ------------------------ |
-| `compare` | список[Любое значение] | Сравниваемые значения    |
 | `value`   | Любое значение         | Переменная для сравнения |
+| `compare` | список[Любое значение] | Сравниваемые значения    |
 <h3 id=if_variable_exists>
   <code>variable::exists</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -340,7 +340,7 @@ if((1).less_or_equals(2){
 
 **Пример использования:** 
 ```ts
-if(variable::list_contains_value(["any value", "any value"],`list`,"ALL"){
+if(variable::list_contains_value(`list`,["any value", "any value"],"ALL"){
     player::message("Условие верно");
 }
 
@@ -355,8 +355,8 @@ if(`list`.list_contains_value(["any value", "any value"],"ALL"){
 
 | **Имя**      | **Тип**                                                        | **Описание**          |
 | ------------ | -------------------------------------------------------------- | --------------------- |
-| `values`     | список[Любое значение]                                         | Значения для проверки |
 | `list`       | Список                                                         | Список для проверки   |
+| `values`     | список[Любое значение]                                         | Значения для проверки |
 | `check_mode` | Маркер<br/>**ALL** - Все значения<br/>**ANY** - Любое значение | Режим проверки        |
 <h3 id=if_variable_list_is_empty>
   <code>variable::list_is_empty</code>
@@ -400,13 +400,13 @@ if("any value".list_is_empty(){
 
 **Пример использования:** 
 ```ts
-if(variable::list_value_equals(`list`,["any value", "any value"],1){
+if(variable::list_value_equals(`list`,1,["any value", "any value"]){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(`list`.list_value_equals(["any value", "any value"],1){
+if(`list`.list_value_equals(1,["any value", "any value"]){
     player::message("Условие верно");
 }
 ```
@@ -416,8 +416,8 @@ if(`list`.list_value_equals(["any value", "any value"],1){
 | **Имя**  | **Тип**                | **Описание**          |
 | -------- | ---------------------- | --------------------- |
 | `list`   | Список                 | Список для проверки   |
-| `values` | список[Любое значение] | Сравниваемые значения |
 | `index`  | Число                  | Индекс значения       |
+| `values` | список[Любое значение] | Сравниваемые значения |
 <h3 id=if_variable_location_in_range>
   <code>variable::location_in_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -459,13 +459,13 @@ if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0)
 
 **Пример использования:** 
 ```ts
-if(variable::location_is_near([location(0,0,0,0,0), location(0,0,0,0,0)],location(0,0,0,0,0),1,"CIRCLE"){
+if(variable::location_is_near(location(0,0,0,0,0),1,[location(0,0,0,0,0), location(0,0,0,0,0)],"CIRCLE"){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(location(0,0,0,0,0).location_is_near([location(0,0,0,0,0), location(0,0,0,0,0)],1,"CIRCLE"){
+if(location(0,0,0,0,0).location_is_near(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"CIRCLE"){
     player::message("Условие верно");
 }
 ```
@@ -474,9 +474,9 @@ if(location(0,0,0,0,0).location_is_near([location(0,0,0,0,0), location(0,0,0,0,0
 
 | **Имя**    | **Тип**                                                                                         | **Описание**                 |
 | ---------- | ----------------------------------------------------------------------------------------------- | ---------------------------- |
-| `check`    | список[Местоположение]                                                                          | Местоположение центра фигуры |
 | `location` | Местоположение                                                                                  | Местоположение для проверки  |
 | `radius`   | Число                                                                                           | Радиус проверки              |
+| `check`    | список[Местоположение]                                                                          | Местоположение центра фигуры |
 | `shape`    | Маркер<br/>**CIRCLE** - Круг<br/>**CUBE** - Куб<br/>**SPHERE** - Сфера<br/>**SQUARE** - Квадрат | Фигура                       |
 <h3 id=if_variable_map_has_key>
   <code>variable::map_has_key</code>
@@ -517,13 +517,13 @@ if(`map`.map_has_key("any value"){
 
 **Пример использования:** 
 ```ts
-if(variable::map_value_equals(`map`,["any value", "any value"],"any value"){
+if(variable::map_value_equals(`map`,"any value",["any value", "any value"]){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(`map`.map_value_equals(["any value", "any value"],"any value"){
+if(`map`.map_value_equals("any value",["any value", "any value"]){
     player::message("Условие верно");
 }
 ```
@@ -533,8 +533,8 @@ if(`map`.map_value_equals(["any value", "any value"],"any value"){
 | **Имя**  | **Тип**                | **Описание**          |
 | -------- | ---------------------- | --------------------- |
 | `map`    | Словарь                | Словарь для проверки  |
-| `values` | список[Любое значение] | Сравниваемые значения |
 | `key`    | Любое значение         | Ключ                  |
+| `values` | список[Любое значение] | Сравниваемые значения |
 <h3 id=if_variable_not_equals>
   <code>variable::not_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -546,7 +546,7 @@ if(`map`.map_value_equals(["any value", "any value"],"any value"){
 
 **Пример использования:** 
 ```ts
-if(variable::not_equals(["any value", "any value"],"any value"){
+if(variable::not_equals("any value",["any value", "any value"]){
     player::message("Условие верно");
 }
 
@@ -561,8 +561,8 @@ if("any value".not_equals(["any value", "any value"]){
 
 | **Имя**   | **Тип**                | **Описание**            |
 | --------- | ---------------------- | ----------------------- |
-| `compare` | список[Любое значение] | Сравниваемые значения   |
 | `value`   | Любое значение         | Сравниваемая переменная |
+| `compare` | список[Любое значение] | Сравниваемые значения   |
 <h3 id=if_variable_range_intersects_range>
   <code>variable::range_intersects_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1510,11 +1510,11 @@ variable::create_map_from_values(a1,["any value", "any value"],["any value", "an
 
 **Пример использования:** 
 ```ts
-a1 = variable::create_translatable_component(["args", "args"],"key");
+a1 = variable::create_translatable_component("key",["args", "args"]);
 
 #Или в сухую
 
-variable::create_translatable_component(a1,["args", "args"],"key");
+variable::create_translatable_component(a1,"key",["args", "args"]);
 ```
 
 **Аргументы:**
@@ -1522,8 +1522,8 @@ variable::create_translatable_component(a1,["args", "args"],"key");
 | **Имя**    | **Тип**       | **Описание**              |
 | ---------- | ------------- | ------------------------- |
 | `variable` | Переменная    | Переменная для присвоения |
-| `args`     | список[Текст] | Аргументы для вставки     |
 | `key`      | Текст         | Ключ                      |
+| `args`     | список[Текст] | Аргументы для вставки     |
 <h3 id=set_variable_decrement>
   <code>variable::decrement</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4834,11 +4834,11 @@ variable::randomize_list_order(a1,`list`);
 
 **Пример использования:** 
 ```ts
-a1, a2, a3, a4 = variable::ray_trace_result(location(0,0,0,0,0),"BLOCKS_AND_ENTITIES",1,`entities`,"FALSE",2,"ALWAYS");
+a1, a2, a3, a4 = variable::ray_trace_result(location(0,0,0,0,0),1,2,`entities`,"BLOCKS_AND_ENTITIES","FALSE","ALWAYS");
 
 #Или в сухую
 
-variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),"BLOCKS_AND_ENTITIES",1,`entities`,"FALSE",2,"ALWAYS");
+variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),1,2,`entities`,"BLOCKS_AND_ENTITIES","FALSE","ALWAYS");
 ```
 
 **Аргументы:**
@@ -4850,11 +4850,11 @@ variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),"BLOCKS_AND_ENTITIES"
 | `variable_for_hit_block_face`     | Переменная                                                                                                                                     | Сторона блока/хитбокса                                                           |
 | `variable_for_hit_entity_uuid`    | Переменная                                                                                                                                     | UUID сущности                                                                    |
 | `start`                           | Местоположение                                                                                                                                 | Начало луча                                                                      |
-| `ray_collision_mode`              | Маркер<br/>**BLOCKS_AND_ENTITIES** - С блоками и сущностями<br/>**ONLY_BLOCKS** - Только с блоками<br/>**ONLY_ENTITIES** - Только с сущностями | Столкновение с объектами                                                         |
 | `ray_size`                        | Число                                                                                                                                          | Ширина луча                                                                      |
-| `entities`                        | Список                                                                                                                                         | Имена или UUID сущностей для столкновения (по умолчанию - все игроки и сущности) |
-| `ignore_passable_blocks`          | Маркер<br/>**FALSE** - Не игнорировать<br/>**TRUE** - Игнорировать                                                                             | Игнорировать проходимые блоки                                                    |
 | `max_distance`                    | Число                                                                                                                                          | Длина луча                                                                       |
+| `entities`                        | Список                                                                                                                                         | Имена или UUID сущностей для столкновения (по умолчанию - все игроки и сущности) |
+| `ray_collision_mode`              | Маркер<br/>**BLOCKS_AND_ENTITIES** - С блоками и сущностями<br/>**ONLY_BLOCKS** - Только с блоками<br/>**ONLY_ENTITIES** - Только с сущностями | Столкновение с объектами                                                         |
+| `ignore_passable_blocks`          | Маркер<br/>**FALSE** - Не игнорировать<br/>**TRUE** - Игнорировать                                                                             | Игнорировать проходимые блоки                                                    |
 | `fluid_collision_mode`            | Маркер<br/>**ALWAYS** - Не игнорировать<br/>**NEVER** - Полностью игнорировать<br/>**SOURCE_ONLY** - Учитывать только источник жидкости        | Игнорировать жидкость                                                            |
 <h3 id=set_variable_reflect_vector_product>
   <code>variable::reflect_vector_product</code>
@@ -5247,7 +5247,7 @@ variable::remove_list_value_at_index(a1,a2,`list`,1);
 
 **Пример использования:** 
 ```ts
-a2, a1 = variable::remove_map_entry(["any value", "any value"],`map`,"any value");
+a2, a1 = variable::remove_map_entry(`map`,["any value", "any value"],"any value");
 
 #Или от объекта
 
@@ -5255,7 +5255,7 @@ a2, a1 = `map`.remove_map_entry(["any value", "any value"],"any value");
 
 #Или в сухую
 
-variable::remove_map_entry(a1,a2,["any value", "any value"],`map`,"any value");
+variable::remove_map_entry(a1,a2,`map`,["any value", "any value"],"any value");
 ```
 
 **Аргументы:**
@@ -5264,8 +5264,8 @@ variable::remove_map_entry(a1,a2,["any value", "any value"],`map`,"any value");
 | --------------- | ---------------------- | ------------------------- |
 | `removed_value` | Переменная             | Удалённое значение        |
 | `variable`      | Переменная             | Переменная для присвоения |
-| `values`        | список[Любое значение] | Значения                  |
 | `map`           | Словарь                | Словарь для изменения     |
+| `values`        | список[Любое значение] | Значения                  |
 | `key`           | Любое значение         | Ключ                      |
 <h3 id=set_variable_remove_text>
   <code>variable::remove_text</code>
@@ -5599,7 +5599,7 @@ variable::set_book_page(a1,item("stick"),"text",1,"APPEND");
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_book_pages(["text", "text"],item("stick"));
+a1 = variable::set_book_pages(item("stick"),["text", "text"]);
 
 #Или от объекта
 
@@ -5607,7 +5607,7 @@ a1 = item("stick").set_book_pages(["text", "text"]);
 
 #Или в сухую
 
-variable::set_book_pages(a1,["text", "text"],item("stick"));
+variable::set_book_pages(a1,item("stick"),["text", "text"]);
 ```
 
 **Аргументы:**
@@ -5615,8 +5615,8 @@ variable::set_book_pages(a1,["text", "text"],item("stick"));
 | **Имя**    | **Тип**       | **Описание**              |
 | ---------- | ------------- | ------------------------- |
 | `variable` | Переменная    | Переменная для присвоения |
-| `text`     | список[Текст] | Новый текст               |
 | `book`     | Предмет       | Книга для изменения       |
+| `text`     | список[Текст] | Новый текст               |
 <h3 id=set_variable_set_bundle_items>
   <code>variable::set_bundle_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5684,7 +5684,7 @@ variable::set_compass_lodestone(a1,item("stick"),location(0,0,0,0,0),"FALSE");
 
 **Пример использования:** 
 ```ts
-a1 = variable::set_component_children(["children", "children"],"component");
+a1 = variable::set_component_children("component",["children", "children"]);
 
 #Или от объекта
 
@@ -5692,7 +5692,7 @@ a1 = "component".set_component_children(["children", "children"]);
 
 #Или в сухую
 
-variable::set_component_children(a1,["children", "children"],"component");
+variable::set_component_children(a1,"component",["children", "children"]);
 ```
 
 **Аргументы:**
@@ -5700,8 +5700,8 @@ variable::set_component_children(a1,["children", "children"],"component");
 | **Имя**     | **Тип**       | **Описание**                |
 | ----------- | ------------- | --------------------------- |
 | `variable`  | Переменная    | Переменная для присвоения   |
-| `children`  | список[Текст] | Дочерние стилизуемые тексты |
 | `component` | Текст         | Основный стилизуемый текст  |
+| `children`  | список[Текст] | Дочерние стилизуемые тексты |
 <h3 id=set_variable_set_component_click>
   <code>variable::set_component_click</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

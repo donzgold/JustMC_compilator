@@ -1846,15 +1846,15 @@ player::play_sound(sound("entity.zombie.hurt"),location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-player::play_sound_from_entity([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")],"name_or_uuid");
+player::play_sound_from_entity("name_or_uuid",[sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 ```
 
 **Аргументы:**
 
 | **Имя**        | **Тип**      | **Описание**          |
 | -------------- | ------------ | --------------------- |
-| `sounds`       | список[Звук] | Звук для проигрывания |
 | `name_or_uuid` | Текст        | Имя или UUID сущности |
+| `sounds`       | список[Звук] | Звук для проигрывания |
 <h3 id=player_play_sound_sequence>
   <code>player::play_sound_sequence</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2567,17 +2567,17 @@ player::set_block_opened_state(location(0,0,0,0,0),"FALSE");
 
 **Пример использования:** 
 ```ts
-player::set_boss_bar("DARK_SKY","id","title",1,"NOTCHED_10","BLUE");
+player::set_boss_bar("id","title",1,"DARK_SKY","NOTCHED_10","BLUE");
 ```
 
 **Аргументы:**
 
 | **Имя**      | **Тип**                                                                                                                                                                    | **Описание**          |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `sky_effect` | Маркер<br/>**DARK_SKY** - Тёмное небо<br/>**FOG** - Туман<br/>**FOG_AND_DARK_SKY** - Туман и тёмное небо<br/>**NONE** - Отсутствует                                        | Эффект неба           |
 | `id`         | Текст                                                                                                                                                                      | ID босс-бара          |
 | `title`      | Текст                                                                                                                                                                      | Текст                 |
 | `progress`   | Число                                                                                                                                                                      | Заполненность (0-100) |
+| `sky_effect` | Маркер<br/>**DARK_SKY** - Тёмное небо<br/>**FOG** - Туман<br/>**FOG_AND_DARK_SKY** - Туман и тёмное небо<br/>**NONE** - Отсутствует                                        | Эффект неба           |
 | `style`      | Маркер<br/>**NOTCHED_10** - 10 сегментов<br/>**NOTCHED_12** - 12 сегментов<br/>**NOTCHED_20** - 20 сегментов<br/>**NOTCHED_6** - 6 сегментов<br/>**PROGRESS** - Сплошной   | Стиль                 |
 | `color`      | Маркер<br/>**BLUE** - Синий<br/>**GREEN** - Зелёный<br/>**PINK** - Розовый<br/>**PURPLE** - Фиолетовый<br/>**RED** - Красный<br/>**WHITE** - Белый<br/>**YELLOW** - Жёлтый | Цвет                  |
 <h3 id=player_set_chat_completions>

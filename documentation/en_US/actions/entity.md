@@ -834,15 +834,15 @@ entity::set_allay_dancing("FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_angry("FALSE","target");
+entity::set_angry("target","FALSE");
 ```
 
 **Arguments:**
 
 | **Name** | **Type**                                             | **Description** |
 | -------- | ---------------------------------------------------- | --------------- |
-| `angry`  | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Angry Mode      |
 | `target` | Text                                                 | Target Name     |
+| `angry`  | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Angry Mode      |
 <h3 id=entity_set_animal_age>
   <code>entity::set_animal_age</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1587,16 +1587,16 @@ entity::set_display_interpolation(1,2);
 
 **Usage example:** 
 ```ts
-entity::set_display_rotation_from_axis_angle("ADD",vector(0,0,0),1,"DEGREES","LEFT_ROTATION");
+entity::set_display_rotation_from_axis_angle(vector(0,0,0),1,"ADD","DEGREES","LEFT_ROTATION");
 ```
 
 **Arguments:**
 
 | **Name**      | **Type**                                                                                                                 | **Description**         |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| `mode`        | Marker<br/>**ADD** - Add<br/>**SET** - Set                                                                               | Set Mode                |
 | `axis_vector` | Vector                                                                                                                   | Axis Vector             |
 | `angle`       | Number                                                                                                                   | Rotation Angle          |
+| `mode`        | Marker<br/>**ADD** - Add<br/>**SET** - Set                                                                               | Set Mode                |
 | `input`       | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                               | Type of angle           |
 | `rotation`    | Marker<br/>**LEFT_ROTATION** - Left Rotation (Rotation x Size)<br/>**RIGHT_ROTATION** - Right Rotation (Size x Rotation) | Order to Apply Rotation |
 <h3 id=entity_set_display_rotation_from_euler_angles>
@@ -1612,17 +1612,17 @@ entity::set_display_rotation_from_axis_angle("ADD",vector(0,0,0),1,"DEGREES","LE
 
 **Usage example:** 
 ```ts
-entity::set_display_rotation_from_euler_angles("ADD",1,2,3,"DEGREES","LEFT_ROTATION");
+entity::set_display_rotation_from_euler_angles(1,2,3,"ADD","DEGREES","LEFT_ROTATION");
 ```
 
 **Arguments:**
 
 | **Name**   | **Type**                                                                                                                 | **Description**         |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| `mode`     | Marker<br/>**ADD** - Add<br/>**SET** - Set                                                                               | Set Mode                |
 | `pitch`    | Number                                                                                                                   | Pitch Angle             |
 | `yaw`      | Number                                                                                                                   | Yaw Angle (yaw)         |
 | `roll`     | Number                                                                                                                   | Roll Angle (roll)       |
+| `mode`     | Marker<br/>**ADD** - Add<br/>**SET** - Set                                                                               | Set Mode                |
 | `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                               | Type of angle           |
 | `rotation` | Marker<br/>**LEFT_ROTATION** - Left Rotation (Rotation x Size)<br/>**RIGHT_ROTATION** - Right Rotation (Size x Rotation) | Order to Apply Rotation |
 <h3 id=entity_set_display_scale>
@@ -2514,7 +2514,7 @@ entity::set_max_health(1,"FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"APPEND",2,3,4,5,6,7,"FALSE","FALSE");
+entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,2,3,4,5,6,7,"APPEND","FALSE","FALSE");
 ```
 
 **Arguments:**
@@ -2524,14 +2524,14 @@ entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,"APPEND"
 | `result`              | Item                                                 | Purchasable Item    |
 | `ingredient_one`      | Item                                                 | First Item          |
 | `ingredient_two`      | Item                                                 | Second Item         |
-| `index`               | Number                                               | Product Index       |
-| `mode`                | Marker<br/>**APPEND** - Add<br/>**MERGE** - Replace  | Set Mode            |
 | `uses`                | Number                                               | Number of Uses      |
 | `max_uses`            | Number                                               | Max Uses            |
+| `index`               | Number                                               | Product Index       |
 | `villager_experience` | Number                                               | Villager Experience |
 | `price_multiplifier`  | Number                                               | Price Multiplier    |
 | `demand`              | Number                                               | Product Demand      |
 | `special_price`       | Number                                               | Special Price       |
+| `mode`                | Marker<br/>**APPEND** - Add<br/>**MERGE** - Replace  | Set Mode            |
 | `experience_reward`   | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Experience Reward   |
 | `ignore_discounts`    | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Ignore Discounts    |
 <h3 id=entity_set_minecart_block>

@@ -73,7 +73,7 @@ world::bone_meal_block(location(0,0,0,0,0),1);
 
 **Пример использования:** 
 ```ts
-world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE",item("stick"));
+world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stick"),"FALSE");
 ```
 
 **Аргументы:**
@@ -81,8 +81,8 @@ world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE",item("stic
 | **Имя**     | **Тип**                                                  | **Описание**          |
 | ----------- | -------------------------------------------------------- | --------------------- |
 | `locations` | список[Местоположение]                                   | Местоположения блоков |
-| `drop_exp`  | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Выпадение опыта       |
 | `tool`      | Предмет                                                  | Инструмент            |
+| `drop_exp`  | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Выпадение опыта       |
 <h3 id=game_cancel_event>
   <code>world::cancel_event</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -592,7 +592,7 @@ world::set_age(location(0,0,0,0,0),1);
 
 **Пример использования:** 
 ```ts
-world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE",item("stone"));
+world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stone"),"FALSE");
 ```
 
 **Аргументы:**
@@ -600,8 +600,8 @@ world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE",item("stone"
 | **Имя**         | **Тип**                                                      | **Описание**                   |
 | --------------- | ------------------------------------------------------------ | ------------------------------ |
 | `locations`     | список[Местоположение]                                       | Местоположения установки блока |
-| `update_blocks` | Маркер<br/>**FALSE** - Не обновлять<br/>**TRUE** - Обновлять | Обновлять блоки вокруг         |
 | `block`         | Блок                                                         | Блок                           |
+| `update_blocks` | Маркер<br/>**FALSE** - Не обновлять<br/>**TRUE** - Обновлять | Обновлять блоки вокруг         |
 <h3 id=game_set_block_analogue_power>
   <code>world::set_block_analogue_power</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1618,15 +1618,15 @@ world::set_world_time(1);
 
 **Пример использования:** 
 ```ts
-world::set_world_weather("CLEAR",1);
+world::set_world_weather(1,"CLEAR");
 ```
 
 **Аргументы:**
 
 | **Имя**            | **Тип**                                                                          | **Описание** |
 | ------------------ | -------------------------------------------------------------------------------- | ------------ |
-| `weather_type`     | Маркер<br/>**CLEAR** - Ясная<br/>**RAINING** - Дождливая<br/>**THUNDER** - Гроза | Тип погоды   |
 | `weather_duration` | Число                                                                            | Длительность |
+| `weather_type`     | Маркер<br/>**CLEAR** - Ясная<br/>**RAINING** - Дождливая<br/>**THUNDER** - Гроза | Тип погоды   |
 <h3 id=game_spawn_armor_stand>
   <code>world::spawn_armor_stand</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1638,7 +1638,7 @@ world::set_world_weather("CLEAR",1);
 
 **Пример использования:** 
 ```ts
-world::spawn_armor_stand(item("stick"),item("stick"),"FALSE","FALSE",item("stick"),item("stick"),location(0,0,0,0,0),"custom_name","FALSE","FALSE",item("stick"),item("stick"),"FALSE","FALSE");
+world::spawn_armor_stand(item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),location(0,0,0,0,0),"custom_name","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
 ```
 
 **Аргументы:**
@@ -1646,17 +1646,17 @@ world::spawn_armor_stand(item("stick"),item("stick"),"FALSE","FALSE",item("stick
 | **Имя**       | **Тип**                                                  | **Описание**          |
 | ------------- | -------------------------------------------------------- | --------------------- |
 | `helmet`      | Предмет                                                  | Головной убор         |
-| `boots`       | Предмет                                                  | Ботинки               |
-| `gravity`     | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Установить гравитацию |
-| `marker`      | Маркер<br/>**FALSE** - Выключен<br/>**TRUE** - Включён   | Режим маркера         |
 | `chestplate`  | Предмет                                                  | Нагрудник             |
+| `boots`       | Предмет                                                  | Ботинки               |
+| `leggings`    | Предмет                                                  | Поножи                |
 | `right_hand`  | Предмет                                                  | Предмет в правой руке |
+| `left_hand`   | Предмет                                                  | Предмет в левой руке  |
 | `location`    | Местоположение                                           | Место создания        |
 | `custom_name` | Текст                                                    | Имя стойки            |
+| `gravity`     | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Установить гравитацию |
+| `marker`      | Маркер<br/>**FALSE** - Выключен<br/>**TRUE** - Включён   | Режим маркера         |
 | `small`       | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Сделать маленьким     |
 | `show_arms`   | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Отображение рук       |
-| `leggings`    | Предмет                                                  | Поножи                |
-| `left_hand`   | Предмет                                                  | Предмет в левой руке  |
 | `base_plate`  | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Отображение плиты     |
 | `invisible`   | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Невидимость           |
 <h3 id=game_spawn_block_display>
@@ -1691,7 +1691,7 @@ world::spawn_block_display(location(0,0,0,0,0),"custom_name",item("stone"));
 
 **Пример использования:** 
 ```ts
-world::spawn_effect_cloud(location(0,0,0,0,0),[potion("slow_falling"), potion("slow_falling")],particle("fire"),1,"custom_name",2);
+world::spawn_effect_cloud(location(0,0,0,0,0),1,2,[potion("slow_falling"), potion("slow_falling")],particle("fire"),"custom_name");
 ```
 
 **Аргументы:**
@@ -1699,11 +1699,11 @@ world::spawn_effect_cloud(location(0,0,0,0,0),[potion("slow_falling"), potion("s
 | **Имя**       | **Тип**        | **Описание**   |
 | ------------- | -------------- | -------------- |
 | `location`    | Местоположение | Место создания |
+| `duration`    | Число          | Длительность   |
+| `radius`      | Число          | Радиус облака  |
 | `effects`     | список[Зелье]  | Эффекты зелья  |
 | `particle`    | Эффект частиц  | Частицы облака |
-| `duration`    | Число          | Длительность   |
 | `custom_name` | Текст          | Имя            |
-| `radius`      | Число          | Радиус облака  |
 <h3 id=game_spawn_end_crystal>
   <code>world::spawn_end_crystal</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1847,17 +1847,17 @@ world::spawn_interaction_entity(location(0,0,0,0,0),"custom_name",1,2,"FALSE");
 
 **Пример использования:** 
 ```ts
-world::spawn_item("FALSE",location(0,0,0,0,0),item("stick"),"custom_name","FALSE","FALSE");
+world::spawn_item(location(0,0,0,0,0),item("stick"),"custom_name","FALSE","FALSE","FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**             | **Тип**                                      | **Описание**                          |
 | ------------------- | -------------------------------------------- | ------------------------------------- |
-| `can_mob_pickup`    | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Смогут ли подбирать предмет мобы      |
 | `location`          | Местоположение                               | Место создания                        |
 | `item`              | Предмет                                      | Предмет для создания                  |
 | `custom_name`       | Текст                                        | Имя                                   |
+| `can_mob_pickup`    | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Смогут ли подбирать предмет мобы      |
 | `can_player_pickup` | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Смогут ли подбирать предмет игроки    |
 | `apply_motion`      | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Задать движение предмета при создании |
 <h3 id=game_spawn_item_display>
@@ -1911,25 +1911,25 @@ world::spawn_lightning_bolt(location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-world::spawn_mob([potion("slow_falling"), potion("slow_falling")],item("stick"),item("stick"),item("stick"),location(0,0,0,0,0),item("stick"),1,item("stick"),"custom_name",item("stick"),"FALSE",item("stick"));
+world::spawn_mob(item("stick"),location(0,0,0,0,0),1,[potion("slow_falling"), potion("slow_falling")],"custom_name",item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),"FALSE");
 ```
 
 **Аргументы:**
 
 | **Имя**             | **Тип**                                                  | **Описание**                   |
 | ------------------- | -------------------------------------------------------- | ------------------------------ |
-| `potion_effects`    | список[Зелье]                                            | Эффекты                        |
-| `main_hand`         | Предмет                                                  | Предмет в основной руке        |
 | `mob`               | Предмет                                                  | Тип моба                       |
-| `helmet`            | Предмет                                                  | Головной убор                  |
 | `location`          | Местоположение                                           | Место создания                 |
-| `chestplate`        | Предмет                                                  | Нагрудник                      |
 | `health`            | Число                                                    | Количество здоровья            |
-| `leggings`          | Предмет                                                  | Поножи                         |
+| `potion_effects`    | список[Зелье]                                            | Эффекты                        |
 | `custom_name`       | Текст                                                    | Имя                            |
+| `main_hand`         | Предмет                                                  | Предмет в основной руке        |
+| `helmet`            | Предмет                                                  | Головной убор                  |
+| `chestplate`        | Предмет                                                  | Нагрудник                      |
+| `leggings`          | Предмет                                                  | Поножи                         |
 | `boots`             | Предмет                                                  | Ботинки                        |
-| `natural_equipment` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Стандартное снаряжение         |
 | `off_hand`          | Предмет                                                  | Предмет во второстепенной руке |
+| `natural_equipment` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Стандартное снаряжение         |
 <h3 id=game_spawn_primed_tnt>
   <code>world::spawn_primed_tnt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

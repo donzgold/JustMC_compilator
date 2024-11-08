@@ -184,7 +184,7 @@ repeat::on_grid(location(0,0,0,0,0),location(0,0,0,0,0)){a1->
 
 **Usage example:** 
 ```ts
-repeat::on_path([location(0,0,0,0,0), location(0,0,0,0,0)],1,"FALSE"){a1->
+repeat::on_path(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){a1->
     player::message("Code in cycle")
 }
 ```
@@ -194,8 +194,8 @@ repeat::on_path([location(0,0,0,0,0), location(0,0,0,0,0)],1,"FALSE"){a1->
 | **Name**    | **Type**                                              | **Description**                     |
 | ----------- | ----------------------------------------------------- | ----------------------------------- |
 | `variable`  | Variable                                              | To assign location                  |
-| `locations` | list[Location]                                        | Line End Locations                  |
 | `step`      | Number                                                | Distance between points             |
+| `locations` | list[Location]                                        | Line End Locations                  |
 | `rotation`  | Marker<br/>**FALSE** - Don't Save<br/>**TRUE** - Keep | Keep rotation of specified location |
 <h3 id=repeat_on_range>
   <code>repeat::on_range</code>
