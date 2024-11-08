@@ -13276,7 +13276,6 @@
         "type": "enum",
         "values": [
           "GAME",
-          "LINE",
           "LOCAL",
           "SAVE"
         ]
@@ -14852,7 +14851,6 @@
         "type": "enum",
         "values": [
           "GAME",
-          "LINE",
           "LOCAL",
           "SAVE"
         ]

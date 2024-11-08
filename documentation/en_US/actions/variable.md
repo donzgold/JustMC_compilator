@@ -3169,10 +3169,10 @@ variable::get_list_variables(a1,"GAME");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                    | **Description**    |
-| ---------- | ------------------------------------------------------------------------------------------- | ------------------ |
-| `variable` | Variable                                                                                    | Variable to assign |
-| `scope`    | Marker<br/>**GAME** - Game<br/>**LINE** - Little<br/>**LOCAL** - Local<br/>**SAVE** - Saved | Variable Type      |
+| **Name**   | **Type**                                                              | **Description**    |
+| ---------- | --------------------------------------------------------------------- | ------------------ |
+| `variable` | Variable                                                              | Variable to assign |
+| `scope`    | Marker<br/>**GAME** - Game<br/>**LOCAL** - Local<br/>**SAVE** - Saved | Variable Type      |
 <h3 id=set_variable_get_location_direction>
   <code>variable::get_location_direction</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4716,7 +4716,7 @@ variable::purge(["names", "names"],"GAME","EQUALS","FALSE");
 | **Name**      | **Type**                                                                                                                 | **Description**  |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------- |
 | `names`       | list[Text]                                                                                                               | Names to Compare |
-| `scope`       | Marker<br/>**GAME** - Gaming<br/>**LINE** - Line<br/>**LOCAL** - Local<br/>**SAVE** - Saved                              | Variable Type    |
+| `scope`       | Marker<br/>**GAME** - Gaming<br/>**LOCAL** - Local<br/>**SAVE** - Saved                                                  | Variable Type    |
 | `match`       | Marker<br/>**EQUALS** - Full Match<br/>**NAME_CONTAINS** - Name contains text<br/>**PART_CONTAINS** - Text contains name | Comparison Mode  |
 | `ignore_case` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                                                                   | Ignore case      |
 <h3 id=set_variable_random>
