@@ -3204,6 +3204,10 @@ class item:
     def json(self):
         return {"type": "item", "item": str(self.item)}
 
+    def remove_inlines(self):
+        self.args = self.args.remove_inlines()
+        return self
+
 
 # noinspection PyUnresolvedReferences
 class location:
@@ -3262,6 +3266,10 @@ class location:
         return {"type": "location", "x": get_value(self.args["x"], 0), "y": get_value(self.args["y"], 0),
                 "z": get_value(self.args["z"], 0), "yaw": get_value(self.args["yaw"], 0),
                 "pitch": get_value(self.args["pitch"], 0)}
+
+    def remove_inlines(self):
+        self.args = self.args.remove_inlines()
+        return self
 
 
 # noinspection PyUnresolvedReferences
@@ -3322,6 +3330,10 @@ class vector:
         return {"type": "vector", "x": get_value(self.args["x"], 0), "y": get_value(self.args["y"], 0),
                 "z": get_value(self.args["z"], 0)}
 
+    def remove_inlines(self):
+        self.args = self.args.remove_inlines()
+        return self
+
 
 # noinspection PyUnresolvedReferences
 class potion:
@@ -3376,6 +3388,10 @@ class potion:
     def json(self):
         return {"type": "potion", "potion": get_value(self.args["potion"], ""),
                 "amplifier": get_value(self.args["amplifier"], 0), "duration": get_value(self.args["duration"], 0)}
+
+    def remove_inlines(self):
+        self.args = self.args.remove_inlines()
+        return self
 
 
 # noinspection PyUnresolvedReferences
@@ -3433,6 +3449,10 @@ class sound:
                 "volume": get_value(self.args["volume"], 0),
                 "pitch": get_value(self.args["pitch"], 0), "variation": get_value(self.args["variation"], ""),
                 "source": get_value(self.args["source"], "MASTER")}
+
+    def remove_inlines(self):
+        self.args = self.args.remove_inlines()
+        return self
 
 
 # noinspection PyUnresolvedReferences
@@ -3495,6 +3515,10 @@ class particle:
                 "y_motion": get_value(self.args["motion_y"], 0), "z_motion": get_value(self.args["motion_z"], 0),
                 "color": get_value(self.args["color"], 0), "material": get_value(self.args["material"], ""),
                 "size": get_value(self.args["size"], 0), "to_color": get_value(self.args["to_color"], 0)}
+
+    def remove_inlines(self):
+        self.args = self.args.remove_inlines()
+        return self
 
 
 def parse(tokens, source):
