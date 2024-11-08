@@ -86,7 +86,7 @@ def fix_operations_len(operations, limit=43):
                             save_ops, additional3, thing2 = spl(op["operations"], curr_limit=lim - 3, lim=lim)
                             func_count = new('function')
                             additional2.extend(additional3)
-                            ops[i] = {"action": "call_function", "values": [{"name": "function_name",
+                            ops[i1] = {"action": "call_function", "values": [{"name": "function_name",
                                                                              "value": {"type": "text",
                                                                                        "text": f"jmcc.{func_count}",
                                                                                        "parsing": "legacy"}}]}
@@ -100,7 +100,7 @@ def fix_operations_len(operations, limit=43):
                             if cur_weight + thing2 + 2 > curr_limit:
                                 cur_weight += 1
                                 func_count = new('function')
-                                ops[i] = {"action": "call_function", "values": [{"name": "function_name",
+                                ops[i1] = {"action": "call_function", "values": [{"name": "function_name",
                                                                                  "value": {"type": "text",
                                                                                            "text": f"jmcc.{func_count}",
                                                                                            "parsing": "legacy"}}]}
@@ -2161,14 +2161,14 @@ class action:
                     if args[k1].type == "item":
                         args[k1] = block(
                             calling_args([], {"block": args[k1]["id"]}, args[k1].starting_pos, args[k1].ending_pos,
-                                         args[k1].file), args[k1].starting_pos,
-                            args[k1].ending_pos, args[k1].file)
+                                         args[k1].source), args[k1].starting_pos,
+                            args[k1].ending_pos, args[k1].source)
                         continue
                     if args[k1].type == "text":
                         args[k1] = block(
                             calling_args([], {"block": args[k1].value}, args[k1].starting_pos, args[k1].ending_pos,
-                                         args[k1].file), args[k1].starting_pos,
-                            args[k1].ending_pos, args[k1].file)
+                                         args[k1].source), args[k1].starting_pos,
+                            args[k1].ending_pos, args[k1].source)
                         continue
                 if args[k1].type == "text":
                     continue
@@ -2311,7 +2311,7 @@ class calling_object:
             if "array" in arges[k1]:
                 if args[k1].type == "array":
                     continue
-                args[k1] = lst([args[k1]], args[k1].starting_pos, args[k1].ending_pos, args[k1].file)
+                args[k1] = lst([args[k1]], args[k1].starting_pos, args[k1].ending_pos, args[k1].source)
             if args[k1].type == "variable":
                 if args[k1].value_type is None:
                     continue
@@ -3255,11 +3255,11 @@ class location:
         if isinstance(work_with, var):
             current_operation = work_with
         else:
-            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.file)
+            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
         previous_operations.append(action("variable", "set_all_coordinates", calling_args([], {
             "variable": current_operation, "x": self.args["x"], "y": self.args["y"], "z": self.args["z"],
-            "yaw": self.args["yaw"], "pitch": self.args["pitch"]}, self.starting_pos, self.ending_pos, self.file),
-                                          self.starting_pos, self.ending_pos, self.file))
+            "yaw": self.args["yaw"], "pitch": self.args["pitch"]}, self.starting_pos, self.ending_pos, self.source),
+                                          self.starting_pos, self.ending_pos, self.source))
         return previous_operations, current_operation, next_operations
 
     def json(self):
@@ -3318,12 +3318,12 @@ class vector:
         if isinstance(work_with, var):
             current_operation = work_with
         else:
-            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.file)
+            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
         previous_operations.append(action("variable", "set_vector", calling_args([], {
             "variable": current_operation, "x": self.args["x"], "y": self.args["y"], "z": self.args["z"]},
                                                                                  self.starting_pos, self.ending_pos,
-                                                                                 self.file),
-                                          self.starting_pos, self.ending_pos, self.file))
+                                                                                 self.source),
+                                          self.starting_pos, self.ending_pos, self.source))
         return previous_operations, current_operation, next_operations
 
     def json(self):
@@ -3382,7 +3382,7 @@ class potion:
         if isinstance(work_with, var):
             current_operation = work_with
         else:
-            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.file)
+            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
         return previous_operations, current_operation, next_operations
 
     def json(self):
@@ -3441,7 +3441,7 @@ class sound:
         if isinstance(work_with, var):
             current_operation = work_with
         else:
-            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.file)
+            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
         return previous_operations, current_operation, next_operations
 
     def json(self):
@@ -3505,7 +3505,7 @@ class particle:
         if isinstance(work_with, var):
             current_operation = work_with
         else:
-            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.file)
+            current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
         return previous_operations, current_operation, next_operations
 
     def json(self):
