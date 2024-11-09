@@ -269,7 +269,7 @@
   - [*entity::set_despawning [ Установить пропадание существа ]*](./entity.md#entity_set_despawning)
   - [*entity::set_display_billboard [ Установить режим отображения ]*](./entity.md#entity_set_display_billboard)
   - [*entity::set_display_brightness [ Установить яркость ]*](./entity.md#entity_set_display_brightness)
-  - [*entity::set_display_culling_suze [ Установить размер области видимости ]*](./entity.md#entity_set_display_culling_suze)
+  - [*entity::set_display_culling_size [ Установить размер области видимости ]*](./entity.md#entity_set_display_culling_suze)
   - [*entity::set_display_glow_color [ Установить цвет свечения ]*](./entity.md#entity_set_display_glow_color)
   - [*entity::set_display_interpolation [ Установить интерполяцию ]*](./entity.md#entity_set_display_interpolation)
   - [*entity::set_display_rotation_from_axis_angle [ Установить поворот по осевому вектору ]*](./entity.md#entity_set_display_rotation_from_axis_angle)

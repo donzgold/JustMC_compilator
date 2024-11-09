@@ -2705,9 +2705,10 @@ class function:
 
     def __init__(self, name: str, operations: list, args: calling_args, source, inline=False, return_var=None):
         self.name = name
-        while (operations[-1].type == "action") and (
-                operations[-1].object + "::" + operations[-1].name == "code::return_function"):
-            del operations[-1]
+        if len(operations) > 0:
+            while (operations[-1].type == "action") and (
+                    operations[-1].object + "::" + operations[-1].name == "code::return_function"):
+                del operations[-1]
         self.operations = operations
         self.args = args
         self.source = source
@@ -3022,13 +3023,7 @@ def minecraft_text(text1):
     def add(txt):
         new_txt = {}
         for i1 in txt.keys():
-            if i1 == "italic":
-                if not txt[i1]:
-                    new_txt[i1] = txt[i1]
-            elif i1 == "color":
-                if txt[i1] != "#FFFFFF":
-                    new_txt[i1] = txt[i1]
-            elif txt[i1]:
+            if (i1 == "italic" and not txt[i1]) or txt[i1]:
                 new_txt[i1] = txt[i1]
         full_msg["extra"].append(new_txt)
 

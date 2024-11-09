@@ -1322,7 +1322,7 @@
   },
   {
     "id": "entity_set_display_culling_suze",
-    "name": "set_display_culling_suze",
+    "name": "set_display_culling_size",
     "object": "entity",
     "args": [
       {

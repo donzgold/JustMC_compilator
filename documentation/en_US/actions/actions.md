@@ -269,7 +269,7 @@
   - [*entity::set_despawning [ Set Entity Despawning ]*](./entity.md#entity_set_despawning)
   - [*entity::set_display_billboard [ Set Display Mode ]*](./entity.md#entity_set_display_billboard)
   - [*entity::set_display_brightness [ Set Brightness ]*](./entity.md#entity_set_display_brightness)
-  - [*entity::set_display_culling_suze [ Set Visibility Size ]*](./entity.md#entity_set_display_culling_suze)
+  - [*entity::set_display_culling_size [ Set Visibility Size ]*](./entity.md#entity_set_display_culling_suze)
   - [*entity::set_display_glow_color [ Set Glow Color ]*](./entity.md#entity_set_display_glow_color)
   - [*entity::set_display_interpolation [ Set Interpolation ]*](./entity.md#entity_set_display_interpolation)
   - [*entity::set_display_rotation_from_axis_angle [ Set Rotation From Axis Vector ]*](./entity.md#entity_set_display_rotation_from_axis_angle)

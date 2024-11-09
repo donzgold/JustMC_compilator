@@ -1509,7 +1509,7 @@ entity::set_display_brightness(1,2);
 | `block_light_level` | Number   | Block Light Level |
 | `sky_light_level`   | Number   | Skylight level    |
 <h3 id=entity_set_display_culling_suze>
-  <code>entity::set_display_culling_suze</code>
+  <code>entity::set_display_culling_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
@@ -1521,7 +1521,7 @@ entity::set_display_brightness(1,2);
 
 **Usage example:** 
 ```ts
-entity::set_display_culling_suze(1,2);
+entity::set_display_culling_size(1,2);
 ```
 
 **Arguments:**
