@@ -2958,7 +2958,7 @@ class block:
     type = "block"
 
     def __init__(self, id_: str, starting_pos: int, ending_pos: int, source: str):
-        self.id = id_.replace("minecraft:", "").lower()
+        self.id = id_.lower().replace("minecraft:", "")
         self.starting_pos = starting_pos
         self.ending_pos = ending_pos
         self.source = source
@@ -3222,7 +3222,7 @@ class item:
                     continue
             error_from_object(self.args[k1], "ArgumentError", translate("error.argumenterror.wrong_argument",
                                                                         {0: self.args[k1].type, 1: self.type_args[k1]}))
-        self.args["id"].value = self.args["id"].value.replace("minecraft:", "")
+        self.args["id"].value = self.args["id"].value.lower().replace("minecraft:", "")
         if self.args["id"].value not in items:
             error_from_object(self.args["id"], "ArgumentError",
                               translate("error.unexistsitem", {0: self.args["id"].value}))
@@ -3433,7 +3433,7 @@ class potion:
                 if self.args[k1].type in self.type_args[k1]:
                     continue
             is_simple = False
-        self.args["potion"].value = self.args["potion"].value.replace("minecraft:", "")
+        self.args["potion"].value = self.args["potion"].value.lower().replace("minecraft:", "")
         if self.args["potion"].value not in particles:
             error_from_object(self.args["potion"], "ArgumentError",
                               translate("error.unexistspotion", {0: self.args["potion"].value}))
@@ -3560,7 +3560,7 @@ class particle:
                 if self.args[k1].type in self.type_args[k1]:
                     continue
             is_simple = False
-        self.args["particle"].value = self.args["particle"].value.replace("minecraft:", "")
+        self.args["particle"].value = self.args["particle"].value.lower().replace("minecraft:", "")
         if self.args["particle"].value not in particles:
             error_from_object(self.args["particle"], "ArgumentError",
                               translate("error.unexistsparticle", {0: self.args["particle"].value}))
