@@ -8,9 +8,12 @@ from jmcc import translate, minecraft_based_text, color_codes, allowed_symbols, 
 
 actions = {}
 origin_actions = {}
-spec_actions = {}
 events = {}
 values = {}
+items = json.load(open("data/items.json"))
+blocks = json.load(open("data/blocks.json"))
+particles = json.load(open("data/particles.json"))
+potions = json.load(open("data/potions.json"))
 objects = set()
 
 for i in json.load(open("data/actions.json")):
@@ -18,7 +21,6 @@ for i in json.load(open("data/actions.json")):
     objects.add(i["object"])
     if "origin" in i:
         origin_actions[i["name"]] = i["object"] + "::" + i["name"]
-    spec_actions[i["id"]] = i["object"] + "::" + i["name"]
 for i in json.load(open("data/events.json")):
     events[i["id"]] = i
 for i in json.load(open("data/values.json")):
@@ -87,9 +89,9 @@ def fix_operations_len(operations, limit=43):
                             func_count = new('function')
                             additional2.extend(additional3)
                             ops[i1] = {"action": "call_function", "values": [{"name": "function_name",
-                                                                             "value": {"type": "text",
-                                                                                       "text": f"jmcc.{func_count}",
-                                                                                       "parsing": "legacy"}}]}
+                                                                              "value": {"type": "text",
+                                                                                        "text": f"jmcc.{func_count}",
+                                                                                        "parsing": "legacy"}}]}
                             additional2.append(
                                 {"type": "function", "position": new("event"), "operations": remove_weight([op]),
                                  "is_hidden": False, "name": f"jmcc.{func_count}"})
@@ -101,9 +103,9 @@ def fix_operations_len(operations, limit=43):
                                 cur_weight += 1
                                 func_count = new('function')
                                 ops[i1] = {"action": "call_function", "values": [{"name": "function_name",
-                                                                                 "value": {"type": "text",
-                                                                                           "text": f"jmcc.{func_count}",
-                                                                                           "parsing": "legacy"}}]}
+                                                                                  "value": {"type": "text",
+                                                                                            "text": f"jmcc.{func_count}",
+                                                                                            "parsing": "legacy"}}]}
                                 additional2.append(
                                     {"type": "function", "position": new("event"), "operations": remove_weight([op]),
                                      "is_hidden": False, "name": f"jmcc.{func_count}"})
@@ -907,7 +909,7 @@ class Parser:
             if os.path.exists(thing.value):
                 fil_source = os.path.abspath(thing.value)
                 if (fil_source in Context.context) and (not Context(fil_source).compiled):
-                    error_from_object(thing,"ImportError", translate("error.importerror.recursion"))
+                    error_from_object(thing, "ImportError", translate("error.importerror.recursion"))
                 self.context.extend(parse_from_file(open(thing.value, "r", encoding="UTF-8")))
             else:
                 error_from_object(thing, "UnexistsFile", translate("error.unexistsfile", {0: thing.value}))
@@ -1921,9 +1923,9 @@ class calling_args:
 
     def remove_inlines(self):
         for i1 in range(len(self.positional)):
-            self.positional[i1]=self.positional[i1].remove_inlines()
+            self.positional[i1] = self.positional[i1].remove_inlines()
         for i1 in self.unpositional:
-            self.unpositional[i1]=self.unpositional[i1].remove_inlines()
+            self.unpositional[i1] = self.unpositional[i1].remove_inlines()
         return self
 
 
@@ -1954,7 +1956,8 @@ class value:
 
     def json(self):
         return {"type": "game_value", "game_value": values[self.value]["id"],
-                "selection": json.dumps({"type": self.selector}) if self.selector is not None else "null"}
+                "selection": json.dumps({"type": self.selector},
+                                        separators=(',', ':')) if self.selector is not None else "null"}
 
     def remove_inlines(self):
         return self
@@ -2159,16 +2162,18 @@ class action:
                     if args[k1].type == "block":
                         continue
                     if args[k1].type == "item":
-                        args[k1] = block(
-                            calling_args([], {"block": args[k1]["id"]}, args[k1].starting_pos, args[k1].ending_pos,
-                                         args[k1].source), args[k1].starting_pos,
-                            args[k1].ending_pos, args[k1].source)
+                        block_id = args[k1].item["id"].value
+                        if "components" in args[k1].item and "minecraft:block_state" in args[k1].item[
+                            "components"] and isinstance(args[k1].item["components"]["minecraft:block_state"],
+                                                         nbtworker.Compound):
+                            block_id += "[" + ",".join([f"{k1}={v1.value}" for k1, v1 in args[k1].item["components"][
+                                "minecraft:block_state"].values.items()]) + "]"
+                        args[k1] = block(block_id, args[k1].starting_pos,
+                                         args[k1].ending_pos, args[k1].source)
                         continue
                     if args[k1].type == "text":
-                        args[k1] = block(
-                            calling_args([], {"block": args[k1].value}, args[k1].starting_pos, args[k1].ending_pos,
-                                         args[k1].source), args[k1].starting_pos,
-                            args[k1].ending_pos, args[k1].source)
+                        args[k1] = block(args[k1].value, args[k1].starting_pos,
+                                         args[k1].ending_pos, args[k1].source)
                         continue
                 if args[k1].type == "text":
                     continue
@@ -2549,7 +2554,7 @@ class calling_function:
 
     def remove_inlines(self):
         self.args = self.args.remove_inlines()
-        self.value = self.value.remove_inlines()
+        self.object = self.object.remove_inlines()
         return self
 
 
@@ -2578,7 +2583,6 @@ class subscript:
     @staticmethod
     def is_simple():
         return False
-
 
 
 class if_:
@@ -2695,7 +2699,6 @@ class if_:
         if len(next_operations) > 0:
             error_from_object(self, "", "ебанутый?")
         return previous_operations, default_jmcc_object, next_operations
-
 
 
 class function:
@@ -2947,7 +2950,7 @@ class enum_:
         return a
 
     def remove_inlines(self):
-        self.var=self.var.remove_inlines()
+        self.var = self.var.remove_inlines()
         return self
 
 
@@ -2955,10 +2958,37 @@ class block:
     type = "block"
 
     def __init__(self, id_: str, starting_pos: int, ending_pos: int, source: str):
-        self.id = id_
+        self.id = id_.replace("minecraft:", "").lower()
         self.starting_pos = starting_pos
         self.ending_pos = ending_pos
         self.source = source
+        self.check_block()
+
+    def check_block(self):
+        parameters = self.id.find("[")
+        if parameters == -1:
+            if self.id not in blocks:
+                error_from_object(self, "ArgumentError",
+                                  translate("error.unexistsblock", {0: self.id}))
+            return
+        block_id = self.id[:self.id.find("[")]
+        if block_id not in blocks:
+            error_from_object(self, "ArgumentError",
+                              translate("error.unexistsblock", {0: block_id}))
+        if self.id[-1] != "]":
+            error_from_object(self, "ArgumentError",
+                              translate("error.wrongblock", {0: self.id}))
+        parameters = self.id[parameters + 1:-1]
+        states = blocks[block_id]
+        for data in parameters.split(","):
+            k, v = data.split("=")
+            if k not in states:
+                error_from_object(self, "ArgumentError",
+                                  translate("error.wrongblock_state", {0: k, 1: ", ".join(states)}))
+            if v not in states[k]:
+                error_from_object(self, "ArgumentError",
+                                  translate("error.wrongblock_state_value", {0: v, 1: ", ".join(states[k])}))
+        # world::set_block([location(0, 0, 0, 0, 0), location(0, 0, 0, 0, 0)], item("stone"), "FALSE");
 
     def __str__(self):
         return f'block({self.id})'
@@ -2992,6 +3022,20 @@ def minecraft_text(text1):
     pos = 0
     msg = ""
     full_msg = {"text": "", "extra": []}
+
+    def add(txt):
+        new_txt = {}
+        for i1 in txt.keys():
+            if i1 == "italic":
+                if not txt[i1]:
+                    new_txt[i1] = txt[i1]
+            elif i1 == "color":
+                if txt[i1] != "#FFFFFF":
+                    new_txt[i1] = txt[i1]
+            elif txt[i1]:
+                new_txt[i1] = txt[i1]
+        full_msg["extra"].append(new_txt)
+
     italic = False
     obfuscated = False
     underlined = False
@@ -3006,7 +3050,7 @@ def minecraft_text(text1):
                 if msg != "":
                     old_msg = {"text": msg, "italic": italic, "obfuscated": obfuscated, "underlined": underlined,
                                "strikethrough": strikethrough, "color": color, "bold": bold}
-                    full_msg["extra"].append(old_msg)
+                    add(old_msg)
                     msg = ""
                 italic = False
                 obfuscated = False
@@ -3019,7 +3063,7 @@ def minecraft_text(text1):
                 if msg != "":
                     old_msg = {"text": msg, "italic": italic, "obfuscated": obfuscated, "underlined": underlined,
                                "strikethrough": strikethrough, "color": color, "bold": bold}
-                    full_msg["extra"].append(old_msg)
+                    add(old_msg)
                     msg = ""
                 italic = False
                 obfuscated = False
@@ -3032,7 +3076,7 @@ def minecraft_text(text1):
                 if msg != "":
                     old_msg = {"text": msg, "italic": italic, "obfuscated": obfuscated, "underlined": underlined,
                                "strikethrough": strikethrough, "color": color, "bold": bold}
-                    full_msg["extra"].append(old_msg)
+                    add(old_msg)
                     msg = ""
                 underlined = True
                 continue
@@ -3040,7 +3084,7 @@ def minecraft_text(text1):
                 if msg != "":
                     old_msg = {"text": msg, "italic": italic, "obfuscated": obfuscated, "underlined": underlined,
                                "strikethrough": strikethrough, "color": color, "bold": bold}
-                    full_msg["extra"].append(old_msg)
+                    add(old_msg)
                     msg = ""
                 strikethrough = True
                 continue
@@ -3048,7 +3092,7 @@ def minecraft_text(text1):
                 if msg != "":
                     old_msg = {"text": msg, "italic": italic, "obfuscated": obfuscated, "underlined": underlined,
                                "strikethrough": strikethrough, "color": color, "bold": bold}
-                    full_msg["extra"].append(old_msg)
+                    add(old_msg)
                     msg = ""
                 italic = True
                 continue
@@ -3056,7 +3100,7 @@ def minecraft_text(text1):
                 if msg != "":
                     old_msg = {"text": msg, "italic": italic, "obfuscated": obfuscated, "underlined": underlined,
                                "strikethrough": strikethrough, "color": color, "bold": bold}
-                    full_msg["extra"].append(old_msg)
+                    add(old_msg)
                     msg = ""
                 bold = True
                 continue
@@ -3064,7 +3108,7 @@ def minecraft_text(text1):
                 if msg != "":
                     old_msg = {"text": msg, "italic": italic, "obfuscated": obfuscated, "underlined": underlined,
                                "strikethrough": strikethrough, "color": color, "bold": bold}
-                    full_msg["extra"].append(old_msg)
+                    add(old_msg)
                     msg = ""
                 obfuscated = True
                 continue
@@ -3091,13 +3135,13 @@ def minecraft_text(text1):
                 if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
-                    if not symbol in allowed_symbols:
+                    if symbol not in allowed_symbols:
                         msg += "&" + thing
                         continue
                 if (s := next_symbol(text1, pos))[1] is not None:
                     pos, symbol = s[0], s[1]
                     thing += symbol
-                    if not symbol in allowed_symbols:
+                    if symbol not in allowed_symbols:
                         msg += "&" + thing
                         continue
                 if (s := next_symbol(text1, pos))[1] is not None:
@@ -3109,7 +3153,7 @@ def minecraft_text(text1):
                 if msg != "":
                     old_msg = {"text": msg, "italic": italic, "obfuscated": obfuscated, "underlined": underlined,
                                "strikethrough": strikethrough, "color": color, "bold": bold}
-                    full_msg["extra"].append(old_msg)
+                    add(old_msg)
                     msg = ""
                 color = thing.upper()
                 continue
@@ -3121,14 +3165,23 @@ def minecraft_text(text1):
     if msg != "":
         old_msg = {"text": msg, "italic": italic, "obfuscated": obfuscated, "underlined": underlined,
                    "strikethrough": strikethrough, "color": color, "bold": bold}
-        full_msg["extra"].append(old_msg)
+        add(old_msg)
+    if len(full_msg["extra"]) > 0:
+        new_msg = full_msg["extra"][0]
+        del full_msg["extra"][0]
+        new_msg["extra"] = full_msg["extra"]
+        if len(new_msg["extra"]) == 0:
+            del new_msg["extra"]
+        full_msg = new_msg
+    else:
+        del full_msg["extra"]
     return full_msg
 
 
 # noinspection PyUnresolvedReferences
 class item:
     type = "item"
-    type_args = {"id": ("number", "text"), "name": "text", "count": "number", "lore": ("array", "text"), "nbt": "snbt",
+    type_args = {"id": "text", "name": "text", "count": "number", "lore": ("array", "text"), "nbt": "snbt",
                  "custom_tags": "map"}
 
     def __init__(self, args: calling_args, starting_pos: int, ending_pos: int, source: str):
@@ -3169,9 +3222,13 @@ class item:
                     continue
             error_from_object(self.args[k1], "ArgumentError", translate("error.argumenterror.wrong_argument",
                                                                         {0: self.args[k1].type, 1: self.type_args[k1]}))
+        self.args["id"].value = self.args["id"].value.replace("minecraft:", "")
+        if self.args["id"].value not in items:
+            error_from_object(self.args["id"], "ArgumentError",
+                              translate("error.unexistsitem", {0: self.args["id"].value}))
         self.item = nbtworker.Compound(
             id=nbtworker.String(self.args["id"].value if self.args["id"] is not None else ""),
-            count=nbtworker.Short(self.args["count"].value if self.args["count"] is not None else 1))
+            count=nbtworker.Int(self.args["count"].value if self.args["count"] is not None else 1))
         if self.args["nbt"] is not None:
             self.item["components"] = self.args["nbt"].value
         if self.args["name"] is not None or self.args["lore"] is not None:
@@ -3179,14 +3236,15 @@ class item:
                 self.item["components"] = nbtworker.Compound()
             if self.args["name"] is not None:
                 self.item["components"]["minecraft:custom_name"] = nbtworker.String(
-                    json.dumps(minecraft_text(self.args["name"].value), ensure_ascii=False))
+                    json.dumps(minecraft_text(self.args["name"].value), ensure_ascii=False, separators=(',', ':')))
             if self.args["lore"] is not None:
                 if self.args["lore"].type != "array":
                     lore = self.args["lore"].value.split("\\n")
                 else:
                     lore = [i1.value for i1 in self.args["lore"].values]
                 self.item["components"]["minecraft:lore"] = nbtworker.List(
-                    *map(nbtworker.String, [json.dumps(i2, ensure_ascii=False) for i2 in map(minecraft_text, lore)]))
+                    *map(nbtworker.String, [json.dumps(i2, ensure_ascii=False, separators=(',', ':')) for i2 in
+                                            map(minecraft_text, lore)]))
         if self.args["custom_tags"] is not None:
             if "components" not in self.item:
                 self.item["components"] = nbtworker.Compound()
@@ -3375,6 +3433,10 @@ class potion:
                 if self.args[k1].type in self.type_args[k1]:
                     continue
             is_simple = False
+        self.args["potion"].value = self.args["potion"].value.replace("minecraft:", "")
+        if self.args["potion"].value not in particles:
+            error_from_object(self.args["potion"], "ArgumentError",
+                              translate("error.unexistspotion", {0: self.args["potion"].value}))
         self.simple = True
         if len(previous_operations) == 0 and len(next_operations) == 0 and is_simple:
             return previous_operations, self, next_operations
@@ -3498,6 +3560,10 @@ class particle:
                 if self.args[k1].type in self.type_args[k1]:
                     continue
             is_simple = False
+        self.args["particle"].value = self.args["particle"].value.replace("minecraft:", "")
+        if self.args["particle"].value not in particles:
+            error_from_object(self.args["particle"], "ArgumentError",
+                              translate("error.unexistsparticle", {0: self.args["particle"].value}))
         self.simple = True
         if len(previous_operations) == 0 and len(next_operations) == 0 and is_simple:
             return previous_operations, self, next_operations
@@ -3575,15 +3641,14 @@ def compile_file(file_path, upload=False, properties=None):
     code = code.get_json()
     if not upload:
         if properties.setdefault("compact", False):
-            open(source + ".json", "w").write(json.dumps(code))
+            open(source + ".json", "w").write(json.dumps(code, separators=(',', ':'), ensure_ascii=False))
         else:
-            open(source + ".json", "w").write(json.dumps(code, indent=2))
+            open(source + ".json", "w").write(json.dumps(code, indent=2, ensure_ascii=False))
     else:
-        response = requests.post('https://m.justmc.ru/api/upload', data=json.dumps(code)).json()
-        print(response)
+        response = requests.post('https://m.justmc.ru/api/upload', json=code).json()
         print(minecraft_based_text(f"&aФайл успешно загружен\n\n&7Используйте данную команду на сервере для загрузки "
                                    f"модуля:\n&9/module loadUrl force https://m.justmc.ru/api/{response['id']}\n"
                                    f"\n&eВажно &fМодуль по ссылке удалится через &c3 минуты!"
                                    f"\n      &fУспейте использовать команду на сервере за данное время"))
 
-
+# compile_file("a.jc", False, properties={"compact": True})

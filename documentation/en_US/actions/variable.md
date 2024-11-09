@@ -1537,6 +1537,10 @@ variable::create_translatable_component(a1,"key",["args", "args"]);
 ```ts
 a1 = variable::decrement(1);
 
+#Or from the object
+
+a1.decrement(1);
+
 #Or dry
 
 variable::decrement(a1,1);
@@ -4264,7 +4268,7 @@ a1 = variable::increment(1);
 
 #Or from the object
 
-a1 = (1).increment();
+a1.increment(1);
 
 #Or dry
 

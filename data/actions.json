@@ -11630,6 +11630,7 @@
         "type": "number"
       }
     ],
+    "origin": "variable",
     "type": "basic"
   },
   {
@@ -14340,7 +14341,7 @@
         "type": "number"
       }
     ],
-    "origin": "number",
+    "origin": "variable",
     "type": "basic"
   },
   {
