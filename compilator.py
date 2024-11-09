@@ -1246,9 +1246,6 @@ class Context:
         self.context[self.source]["settings"] = val
 
     def add_operation(self, jmcc_obj):
-        if isinstance(jmcc_obj, dict):
-            self.cur_context["operations"].append(jmcc_obj)
-            return
         if jmcc_obj.is_independent():
             if jmcc_obj.is_simple():
                 if self.context_lvl == 0 and not (jmcc_obj.type in ("function", "process", "event")):
@@ -1361,11 +1358,13 @@ class Context:
     def get_json(self):
         json_obj = {"handlers": []}
         for i1 in self.context[self.source][self.context_lvl]["operations"]:
-            if isinstance(i1, dict):
-                json_obj["handlers"].append(i1)
-                continue
             if i1.is_simple():
-                json_obj["handlers"].append(i1.json())
+                if i1.type in {"event", "function", "process"}:
+                    op, adds = i1.json()
+                    json_obj["handlers"].append(op)
+                    json_obj["handlers"].extend(adds)
+                else:
+                    json_obj["handlers"].append(i1.json())
             else:
                 prev_ops, cur_op, next_ops = i1.simplify()
                 for i2 in prev_ops:
@@ -2743,8 +2742,7 @@ class function:
         operations, additional2 = fix_operations_len([i3.json() for i3 in self.operations])
         additional_events.extend(additional2)
         a["operations"] = operations
-        Context(self.source).add_operations(additional_events)
-        return a
+        return a, additional_events
 
 
 class process:
@@ -2780,8 +2778,7 @@ class process:
         operations, additional2 = fix_operations_len([i3.json() for i3 in self.operations])
         additional_events.extend(additional2)
         a["operations"] = operations
-        Context(self.source).add_operations(additional_events)
-        return a
+        return a, additional_events
 
 
 class return_:
@@ -2872,8 +2869,7 @@ class event:
         operations, additional2 = fix_operations_len([i3.json() for i3 in self.operations])
         additional_events.extend(additional2)
         a["operations"] = operations
-        Context(self.source).add_operations(additional_events)
-        return a
+        return a, additional_events
 
 
 class assign:
@@ -3651,4 +3647,5 @@ def compile_file(file_path, upload=False, properties=None):
                                    f"\n&eВажно &fМодуль по ссылке удалится через &c3 минуты!"
                                    f"\n      &fУспейте использовать команду на сервере за данное время"))
 
-# compile_file("a.jc", False, properties={"compact": True})
+
+compile_file("a.jc", False, properties={"compact": False})
