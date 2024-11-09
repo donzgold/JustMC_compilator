@@ -3434,7 +3434,7 @@ class potion:
                     continue
             is_simple = False
         self.args["potion"].value = self.args["potion"].value.lower().replace("minecraft:", "")
-        if self.args["potion"].value not in particles:
+        if self.args["potion"].value not in potions:
             error_from_object(self.args["potion"], "ArgumentError",
                               translate("error.unexistspotion", {0: self.args["potion"].value}))
         self.simple = True
