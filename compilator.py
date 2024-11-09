@@ -3648,4 +3648,3 @@ def compile_file(file_path, upload=False, properties=None):
                                    f"\n      &fУспейте использовать команду на сервере за данное время"))
 
 
-compile_file("a.jc", False, properties={"compact": False})
