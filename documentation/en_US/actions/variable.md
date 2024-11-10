@@ -9,7 +9,7 @@
 
 **Usage example:** 
 ```ts
-if(variable::is_dummy(){
+if(variable::is_dummy()){
     player::message("Condition is true");
 }
 ```
@@ -25,7 +25,7 @@ if(variable::is_dummy(){
 
 **Usage example:** 
 ```ts
-if(variable::equals("any value",["any value", "any value"]){
+if(variable::equals("any value",["any value", "any value"])){
     player::message("Condition is true");
 }
 
@@ -53,7 +53,7 @@ if("any value".equals(["any value", "any value"]){
 
 **Usage example:** 
 ```ts
-if(variable::exists(a1){
+if(variable::exists(a1)){
     player::message("Condition is true");
 }
 
@@ -80,7 +80,7 @@ if(a1.exists(){
 
 **Usage example:** 
 ```ts
-if(variable::greater(1,2){
+if(variable::greater(1,2)){
     player::message("Condition is true");
 }
 
@@ -108,7 +108,7 @@ if((1).greater(2){
 
 **Usage example:** 
 ```ts
-if(variable::greater_or_equals(1,2){
+if(variable::greater_or_equals(1,2)){
     player::message("Condition is true");
 }
 
@@ -139,7 +139,7 @@ if((1).greater_or_equals(2){
 
 **Usage example:** 
 ```ts
-if(variable::in_range("any value","any value","any value"){
+if(variable::in_range("any value","any value","any value")){
     player::message("Condition is true");
 }
 
@@ -168,7 +168,7 @@ if("any value".in_range("any value","any value"){
 
 **Usage example:** 
 ```ts
-if(variable::is_type("any value","ARRAY"){
+if(variable::is_type("any value","ARRAY")){
     player::message("Condition is true");
 }
 
@@ -196,7 +196,7 @@ if("any value".is_type("ARRAY"){
 
 **Usage example:** 
 ```ts
-if(variable::item_equals(item("stick"),[item("stick"), item("stick")],"EXACTLY"){
+if(variable::item_equals(item("stick"),[item("stick"), item("stick")],"EXACTLY")){
     player::message("Condition is true");
 }
 
@@ -225,7 +225,7 @@ if(item("stick").item_equals([item("stick"), item("stick")],"EXACTLY"){
 
 **Usage example:** 
 ```ts
-if(variable::item_has_enchantment(item("stick"),"enchant",1){
+if(variable::item_has_enchantment(item("stick"),"enchant",1)){
     player::message("Condition is true");
 }
 
@@ -254,7 +254,7 @@ if(item("stick").item_has_enchantment("enchant",1){
 
 **Usage example:** 
 ```ts
-if(variable::item_has_tag(item("stick"),"tag","value","CONTAINS"){
+if(variable::item_has_tag(item("stick"),"tag","value","CONTAINS")){
     player::message("Condition is true");
 }
 
@@ -284,7 +284,7 @@ if(item("stick").item_has_tag("tag","value","CONTAINS"){
 
 **Usage example:** 
 ```ts
-if(variable::less(1,2){
+if(variable::less(1,2)){
     player::message("Condition is true");
 }
 
@@ -312,7 +312,7 @@ if((1).less(2){
 
 **Usage example:** 
 ```ts
-if(variable::less_or_equals(1,2){
+if(variable::less_or_equals(1,2)){
     player::message("Condition is true");
 }
 
@@ -340,7 +340,7 @@ if((1).less_or_equals(2){
 
 **Usage example:** 
 ```ts
-if(variable::list_contains_value(`list`,["any value", "any value"],"ALL"){
+if(variable::list_contains_value(`list`,["any value", "any value"],"ALL")){
     player::message("Condition is true");
 }
 
@@ -373,7 +373,7 @@ if(`list`.list_contains_value(["any value", "any value"],"ALL"){
 
 **Usage example:** 
 ```ts
-if(variable::list_is_empty("any value"){
+if(variable::list_is_empty("any value")){
     player::message("Condition is true");
 }
 
@@ -400,7 +400,7 @@ if("any value".list_is_empty(){
 
 **Usage example:** 
 ```ts
-if(variable::list_value_equals(`list`,1,["any value", "any value"]){
+if(variable::list_value_equals(`list`,1,["any value", "any value"])){
     player::message("Condition is true");
 }
 
@@ -429,7 +429,7 @@ if(`list`.list_value_equals(1,["any value", "any value"]){
 
 **Usage example:** 
 ```ts
-if(variable::location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"BLOCK"){
+if(variable::location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"BLOCK")){
     player::message("Condition is true");
 }
 
@@ -459,7 +459,7 @@ if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0)
 
 **Usage example:** 
 ```ts
-if(variable::location_is_near(location(0,0,0,0,0),1,[location(0,0,0,0,0), location(0,0,0,0,0)],"CIRCLE"){
+if(variable::location_is_near(location(0,0,0,0,0),1,[location(0,0,0,0,0), location(0,0,0,0,0)],"CIRCLE")){
     player::message("Condition is true");
 }
 
@@ -489,7 +489,7 @@ if(location(0,0,0,0,0).location_is_near(1,[location(0,0,0,0,0), location(0,0,0,0
 
 **Usage example:** 
 ```ts
-if(variable::map_has_key(`map`,"any value"){
+if(variable::map_has_key(`map`,"any value")){
     player::message("Condition is true");
 }
 
@@ -517,7 +517,7 @@ if(`map`.map_has_key("any value"){
 
 **Usage example:** 
 ```ts
-if(variable::map_value_equals(`map`,"any value",["any value", "any value"]){
+if(variable::map_value_equals(`map`,"any value",["any value", "any value"])){
     player::message("Condition is true");
 }
 
@@ -546,7 +546,7 @@ if(`map`.map_value_equals("any value",["any value", "any value"]){
 
 **Usage example:** 
 ```ts
-if(variable::not_equals("any value",["any value", "any value"]){
+if(variable::not_equals("any value",["any value", "any value"])){
     player::message("Condition is true");
 }
 
@@ -574,7 +574,7 @@ if("any value".not_equals(["any value", "any value"]){
 
 **Usage example:** 
 ```ts
-if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"CONTAINS"){
+if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"CONTAINS")){
     player::message("Condition is true");
 }
 ```
@@ -599,7 +599,7 @@ if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),loca
 
 **Usage example:** 
 ```ts
-if(variable::text_contains("value",["compare", "compare"],"FALSE"){
+if(variable::text_contains("value",["compare", "compare"],"FALSE")){
     player::message("Condition is true");
 }
 
@@ -628,7 +628,7 @@ if("value".text_contains(["compare", "compare"],"FALSE"){
 
 **Usage example:** 
 ```ts
-if(variable::text_ends_with("value",["compare", "compare"],"FALSE"){
+if(variable::text_ends_with("value",["compare", "compare"],"FALSE")){
     player::message("Condition is true");
 }
 
@@ -657,7 +657,7 @@ if("value".text_ends_with(["compare", "compare"],"FALSE"){
 
 **Usage example:** 
 ```ts
-if(variable::text_matches("match",["values", "values"],"FALSE","FALSE"){
+if(variable::text_matches("match",["values", "values"],"FALSE","FALSE")){
     player::message("Condition is true");
 }
 
@@ -687,7 +687,7 @@ if("match".text_matches(["values", "values"],"FALSE","FALSE"){
 
 **Usage example:** 
 ```ts
-if(variable::text_starts_with("value",["compare", "compare"],"FALSE"){
+if(variable::text_starts_with("value",["compare", "compare"],"FALSE")){
     player::message("Condition is true");
 }
 

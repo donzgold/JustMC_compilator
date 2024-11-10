@@ -27,7 +27,7 @@
 
 **Пример использования:** 
 ```ts
-if(player::chat_colors_enabled(){
+if(player::chat_colors_enabled()){
     player::message("Условие верно");
 }
 ```
@@ -43,7 +43,7 @@ if(player::chat_colors_enabled(){
 
 **Пример использования:** 
 ```ts
-if(player::chat_message_equals(["chat_messages", "chat_messages"]){
+if(player::chat_message_equals(["chat_messages", "chat_messages"])){
     player::message("Условие верно");
 }
 ```
@@ -64,7 +64,7 @@ if(player::chat_message_equals(["chat_messages", "chat_messages"]){
 
 **Пример использования:** 
 ```ts
-if(player::collides_at_location(location(0,0,0,0,0)){
+if(player::collides_at_location(location(0,0,0,0,0))){
     player::message("Условие верно");
 }
 ```
@@ -85,7 +85,7 @@ if(player::collides_at_location(location(0,0,0,0,0)){
 
 **Пример использования:** 
 ```ts
-if(player::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
+if(player::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0))){
     player::message("Условие верно");
 }
 ```
@@ -107,7 +107,7 @@ if(player::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
 
 **Пример использования:** 
 ```ts
-if(player::collides_with_entity("name_or_uuid","CONTAINS"){
+if(player::collides_with_entity("name_or_uuid","CONTAINS")){
     player::message("Условие верно");
 }
 ```
@@ -129,7 +129,7 @@ if(player::collides_with_entity("name_or_uuid","CONTAINS"){
 
 **Пример использования:** 
 ```ts
-if(player::cursor_item_equals([item("stick"), item("stick")],"EXACTLY"){
+if(player::cursor_item_equals([item("stick"), item("stick")],"EXACTLY")){
     player::message("Условие верно");
 }
 ```
@@ -151,7 +151,7 @@ if(player::cursor_item_equals([item("stick"), item("stick")],"EXACTLY"){
 
 **Пример использования:** 
 ```ts
-if(player::is_dummy(){
+if(player::is_dummy()){
     player::message("Условие верно");
 }
 ```
@@ -167,7 +167,7 @@ if(player::is_dummy(){
 
 **Пример использования:** 
 ```ts
-if(player::gamemode_equals("ADVENTURE"){
+if(player::gamemode_equals("ADVENTURE")){
     player::message("Условие верно");
 }
 ```
@@ -188,7 +188,7 @@ if(player::gamemode_equals("ADVENTURE"){
 
 **Пример использования:** 
 ```ts
-if(player::has_item([item("stick"), item("stick")],"ALL","EXACTLY"){
+if(player::has_item([item("stick"), item("stick")],"ALL","EXACTLY")){
     player::message("Условие верно");
 }
 ```
@@ -211,7 +211,7 @@ if(player::has_item([item("stick"), item("stick")],"ALL","EXACTLY"){
 
 **Пример использования:** 
 ```ts
-if(player::has_item_at_least(item("stick"),1,"EXACTLY"){
+if(player::has_item_at_least(item("stick"),1,"EXACTLY")){
     player::message("Условие верно");
 }
 ```
@@ -234,7 +234,7 @@ if(player::has_item_at_least(item("stick"),1,"EXACTLY"){
 
 **Пример использования:** 
 ```ts
-if(player::has_item_in_slot([1, 2],[item("stick"), item("stick")],"EXACTLY"){
+if(player::has_item_in_slot([1, 2],[item("stick"), item("stick")],"EXACTLY")){
     player::message("Условие верно");
 }
 ```
@@ -257,7 +257,7 @@ if(player::has_item_in_slot([1, 2],[item("stick"), item("stick")],"EXACTLY"){
 
 **Пример использования:** 
 ```ts
-if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ALL"){
+if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ALL")){
     player::message("Условие верно");
 }
 ```
@@ -281,7 +281,7 @@ if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 
 **Пример использования:** 
 ```ts
-if(player::has_privilege("BUILDER","FALSE"){
+if(player::has_privilege("BUILDER","FALSE")){
     player::message("Условие верно");
 }
 ```
@@ -303,7 +303,7 @@ if(player::has_privilege("BUILDER","FALSE"){
 
 **Пример использования:** 
 ```ts
-if(player::has_room_for_item([item("stick"), item("stick")],"ARMOR","ALL"){
+if(player::has_room_for_item([item("stick"), item("stick")],"ARMOR","ALL")){
     player::message("Условие верно");
 }
 ```
@@ -326,7 +326,7 @@ if(player::has_room_for_item([item("stick"), item("stick")],"ARMOR","ALL"){
 
 **Пример использования:** 
 ```ts
-if(player::hotbar_slot_equals(1){
+if(player::hotbar_slot_equals(1)){
     player::message("Условие верно");
 }
 ```
@@ -347,7 +347,7 @@ if(player::hotbar_slot_equals(1){
 
 **Пример использования:** 
 ```ts
-if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CONTAINS"){
+if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CONTAINS")){
     player::message("Условие верно");
 }
 ```
@@ -372,7 +372,7 @@ if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CON
 
 **Пример использования:** 
 ```ts
-if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"EXACTLY"){
+if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"EXACTLY")){
     player::message("Условие верно");
 }
 ```
@@ -395,7 +395,7 @@ if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"EXA
 
 **Пример использования:** 
 ```ts
-if(player::inventory_type_open("ANVIL"){
+if(player::inventory_type_open("ANVIL")){
     player::message("Условие верно");
 }
 ```
@@ -416,7 +416,7 @@ if(player::inventory_type_open("ANVIL"){
 
 **Пример использования:** 
 ```ts
-if(player::is_allow_server_listing(){
+if(player::is_allow_server_listing()){
     player::message("Условие верно");
 }
 ```
@@ -432,7 +432,7 @@ if(player::is_allow_server_listing(){
 
 **Пример использования:** 
 ```ts
-if(player::is_blocking(){
+if(player::is_blocking()){
     player::message("Условие верно");
 }
 ```
@@ -448,7 +448,7 @@ if(player::is_blocking(){
 
 **Пример использования:** 
 ```ts
-if(player::is_disguised(){
+if(player::is_disguised()){
     player::message("Условие верно");
 }
 ```
@@ -464,7 +464,7 @@ if(player::is_disguised(){
 
 **Пример использования:** 
 ```ts
-if(player::is_flying(){
+if(player::is_flying()){
     player::message("Условие верно");
 }
 ```
@@ -480,7 +480,7 @@ if(player::is_flying(){
 
 **Пример использования:** 
 ```ts
-if(player::is_gliding(){
+if(player::is_gliding()){
     player::message("Условие верно");
 }
 ```
@@ -496,7 +496,7 @@ if(player::is_gliding(){
 
 **Пример использования:** 
 ```ts
-if(player::holding([item("stick"), item("stick")],"EITHER_HAND","EXACTLY"){
+if(player::holding([item("stick"), item("stick")],"EITHER_HAND","EXACTLY")){
     player::message("Условие верно");
 }
 ```
@@ -519,7 +519,7 @@ if(player::holding([item("stick"), item("stick")],"EITHER_HAND","EXACTLY"){
 
 **Пример использования:** 
 ```ts
-if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],1,"ALWAYS"){
+if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],1,"ALWAYS")){
     player::message("Условие верно");
 }
 ```
@@ -543,7 +543,7 @@ if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,
 
 **Пример использования:** 
 ```ts
-if(player::is_near(1,location(0,0,0,0,0),"FALSE"){
+if(player::is_near(1,location(0,0,0,0,0),"FALSE")){
     player::message("Условие верно");
 }
 ```
@@ -566,7 +566,7 @@ if(player::is_near(1,location(0,0,0,0,0),"FALSE"){
 
 **Пример использования:** 
 ```ts
-if(player::is_on_ground(){
+if(player::is_on_ground()){
     player::message("Условие верно");
 }
 ```
@@ -582,7 +582,7 @@ if(player::is_on_ground(){
 
 **Пример использования:** 
 ```ts
-if(player::is_online_mode(){
+if(player::is_online_mode()){
     player::message("Условие верно");
 }
 ```
@@ -598,7 +598,7 @@ if(player::is_online_mode(){
 
 **Пример использования:** 
 ```ts
-if(player::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST"){
+if(player::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST")){
     player::message("Условие верно");
 }
 ```
@@ -620,7 +620,7 @@ if(player::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST"){
 
 **Пример использования:** 
 ```ts
-if(player::is_self_disguised(){
+if(player::is_self_disguised()){
     player::message("Условие верно");
 }
 ```
@@ -636,7 +636,7 @@ if(player::is_self_disguised(){
 
 **Пример использования:** 
 ```ts
-if(player::is_sleeping(){
+if(player::is_sleeping()){
     player::message("Условие верно");
 }
 ```
@@ -652,7 +652,7 @@ if(player::is_sleeping(){
 
 **Пример использования:** 
 ```ts
-if(player::is_sneaking(){
+if(player::is_sneaking()){
     player::message("Условие верно");
 }
 ```
@@ -668,7 +668,7 @@ if(player::is_sneaking(){
 
 **Пример использования:** 
 ```ts
-if(player::is_sprinting(){
+if(player::is_sprinting()){
     player::message("Условие верно");
 }
 ```
@@ -684,7 +684,7 @@ if(player::is_sprinting(){
 
 **Пример использования:** 
 ```ts
-if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){
+if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE")){
     player::message("Условие верно");
 }
 ```
@@ -707,7 +707,7 @@ if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 
 **Пример использования:** 
 ```ts
-if(player::is_swimming(){
+if(player::is_swimming()){
     player::message("Условие верно");
 }
 ```
@@ -723,7 +723,7 @@ if(player::is_swimming(){
 
 **Пример использования:** 
 ```ts
-if(player::is_using_item([item("stick"), item("stick")],"EXACTLY"){
+if(player::is_using_item([item("stick"), item("stick")],"EXACTLY")){
     player::message("Условие верно");
 }
 ```
@@ -745,7 +745,7 @@ if(player::is_using_item([item("stick"), item("stick")],"EXACTLY"){
 
 **Пример использования:** 
 ```ts
-if(player::is_wearing_item([item("stick"), item("stick")],"ALL","EXACTLY"){
+if(player::is_wearing_item([item("stick"), item("stick")],"ALL","EXACTLY")){
     player::message("Условие верно");
 }
 ```
@@ -768,7 +768,7 @@ if(player::is_wearing_item([item("stick"), item("stick")],"ALL","EXACTLY"){
 
 **Пример использования:** 
 ```ts
-if(player::item_is_not_on_cooldown([item("stick"), item("stick")]){
+if(player::item_is_not_on_cooldown([item("stick"), item("stick")])){
     player::message("Условие верно");
 }
 ```
@@ -789,7 +789,7 @@ if(player::item_is_not_on_cooldown([item("stick"), item("stick")]){
 
 **Пример использования:** 
 ```ts
-if(player::name_equals(["names_or_uuids", "names_or_uuids"]){
+if(player::name_equals(["names_or_uuids", "names_or_uuids"])){
     player::message("Условие верно");
 }
 ```
@@ -810,7 +810,7 @@ if(player::name_equals(["names_or_uuids", "names_or_uuids"]){
 
 **Пример использования:** 
 ```ts
-if(player::text_filtering_enabled(){
+if(player::text_filtering_enabled()){
     player::message("Условие верно");
 }
 ```

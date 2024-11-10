@@ -27,7 +27,7 @@
 
 **Usage example:** 
 ```ts
-if(player::chat_colors_enabled(){
+if(player::chat_colors_enabled()){
     player::message("Condition is true");
 }
 ```
@@ -43,7 +43,7 @@ if(player::chat_colors_enabled(){
 
 **Usage example:** 
 ```ts
-if(player::chat_message_equals(["chat_messages", "chat_messages"]){
+if(player::chat_message_equals(["chat_messages", "chat_messages"])){
     player::message("Condition is true");
 }
 ```
@@ -64,7 +64,7 @@ if(player::chat_message_equals(["chat_messages", "chat_messages"]){
 
 **Usage example:** 
 ```ts
-if(player::collides_at_location(location(0,0,0,0,0)){
+if(player::collides_at_location(location(0,0,0,0,0))){
     player::message("Condition is true");
 }
 ```
@@ -85,7 +85,7 @@ if(player::collides_at_location(location(0,0,0,0,0)){
 
 **Usage example:** 
 ```ts
-if(player::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
+if(player::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0))){
     player::message("Condition is true");
 }
 ```
@@ -107,7 +107,7 @@ if(player::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
 
 **Usage example:** 
 ```ts
-if(player::collides_with_entity("name_or_uuid","CONTAINS"){
+if(player::collides_with_entity("name_or_uuid","CONTAINS")){
     player::message("Condition is true");
 }
 ```
@@ -129,7 +129,7 @@ if(player::collides_with_entity("name_or_uuid","CONTAINS"){
 
 **Usage example:** 
 ```ts
-if(player::cursor_item_equals([item("stick"), item("stick")],"EXACTLY"){
+if(player::cursor_item_equals([item("stick"), item("stick")],"EXACTLY")){
     player::message("Condition is true");
 }
 ```
@@ -151,7 +151,7 @@ if(player::cursor_item_equals([item("stick"), item("stick")],"EXACTLY"){
 
 **Usage example:** 
 ```ts
-if(player::is_dummy(){
+if(player::is_dummy()){
     player::message("Condition is true");
 }
 ```
@@ -167,7 +167,7 @@ if(player::is_dummy(){
 
 **Usage example:** 
 ```ts
-if(player::gamemode_equals("ADVENTURE"){
+if(player::gamemode_equals("ADVENTURE")){
     player::message("Condition is true");
 }
 ```
@@ -188,7 +188,7 @@ if(player::gamemode_equals("ADVENTURE"){
 
 **Usage example:** 
 ```ts
-if(player::has_item([item("stick"), item("stick")],"ALL","EXACTLY"){
+if(player::has_item([item("stick"), item("stick")],"ALL","EXACTLY")){
     player::message("Condition is true");
 }
 ```
@@ -211,7 +211,7 @@ if(player::has_item([item("stick"), item("stick")],"ALL","EXACTLY"){
 
 **Usage example:** 
 ```ts
-if(player::has_item_at_least(item("stick"),1,"EXACTLY"){
+if(player::has_item_at_least(item("stick"),1,"EXACTLY")){
     player::message("Condition is true");
 }
 ```
@@ -234,7 +234,7 @@ if(player::has_item_at_least(item("stick"),1,"EXACTLY"){
 
 **Usage example:** 
 ```ts
-if(player::has_item_in_slot([1, 2],[item("stick"), item("stick")],"EXACTLY"){
+if(player::has_item_in_slot([1, 2],[item("stick"), item("stick")],"EXACTLY")){
     player::message("Condition is true");
 }
 ```
@@ -257,7 +257,7 @@ if(player::has_item_in_slot([1, 2],[item("stick"), item("stick")],"EXACTLY"){
 
 **Usage example:** 
 ```ts
-if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ALL"){
+if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ALL")){
     player::message("Condition is true");
 }
 ```
@@ -281,7 +281,7 @@ if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 
 **Usage example:** 
 ```ts
-if(player::has_privilege("BUILDER","FALSE"){
+if(player::has_privilege("BUILDER","FALSE")){
     player::message("Condition is true");
 }
 ```
@@ -303,7 +303,7 @@ if(player::has_privilege("BUILDER","FALSE"){
 
 **Usage example:** 
 ```ts
-if(player::has_room_for_item([item("stick"), item("stick")],"ARMOR","ALL"){
+if(player::has_room_for_item([item("stick"), item("stick")],"ARMOR","ALL")){
     player::message("Condition is true");
 }
 ```
@@ -326,7 +326,7 @@ if(player::has_room_for_item([item("stick"), item("stick")],"ARMOR","ALL"){
 
 **Usage example:** 
 ```ts
-if(player::hotbar_slot_equals(1){
+if(player::hotbar_slot_equals(1)){
     player::message("Condition is true");
 }
 ```
@@ -347,7 +347,7 @@ if(player::hotbar_slot_equals(1){
 
 **Usage example:** 
 ```ts
-if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CONTAINS"){
+if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CONTAINS")){
     player::message("Condition is true");
 }
 ```
@@ -372,7 +372,7 @@ if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CON
 
 **Usage example:** 
 ```ts
-if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"EXACTLY"){
+if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"EXACTLY")){
     player::message("Condition is true");
 }
 ```
@@ -395,7 +395,7 @@ if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"EXA
 
 **Usage example:** 
 ```ts
-if(player::inventory_type_open("ANVIL"){
+if(player::inventory_type_open("ANVIL")){
     player::message("Condition is true");
 }
 ```
@@ -416,7 +416,7 @@ if(player::inventory_type_open("ANVIL"){
 
 **Usage example:** 
 ```ts
-if(player::is_allow_server_listing(){
+if(player::is_allow_server_listing()){
     player::message("Condition is true");
 }
 ```
@@ -432,7 +432,7 @@ if(player::is_allow_server_listing(){
 
 **Usage example:** 
 ```ts
-if(player::is_blocking(){
+if(player::is_blocking()){
     player::message("Condition is true");
 }
 ```
@@ -448,7 +448,7 @@ if(player::is_blocking(){
 
 **Usage example:** 
 ```ts
-if(player::is_disguised(){
+if(player::is_disguised()){
     player::message("Condition is true");
 }
 ```
@@ -464,7 +464,7 @@ if(player::is_disguised(){
 
 **Usage example:** 
 ```ts
-if(player::is_flying(){
+if(player::is_flying()){
     player::message("Condition is true");
 }
 ```
@@ -480,7 +480,7 @@ if(player::is_flying(){
 
 **Usage example:** 
 ```ts
-if(player::is_gliding(){
+if(player::is_gliding()){
     player::message("Condition is true");
 }
 ```
@@ -496,7 +496,7 @@ if(player::is_gliding(){
 
 **Usage example:** 
 ```ts
-if(player::holding([item("stick"), item("stick")],"EITHER_HAND","EXACTLY"){
+if(player::holding([item("stick"), item("stick")],"EITHER_HAND","EXACTLY")){
     player::message("Condition is true");
 }
 ```
@@ -519,7 +519,7 @@ if(player::holding([item("stick"), item("stick")],"EITHER_HAND","EXACTLY"){
 
 **Usage example:** 
 ```ts
-if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],1,"ALWAYS"){
+if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],1,"ALWAYS")){
     player::message("Condition is true");
 }
 ```
@@ -543,7 +543,7 @@ if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,
 
 **Usage example:** 
 ```ts
-if(player::is_near(1,location(0,0,0,0,0),"FALSE"){
+if(player::is_near(1,location(0,0,0,0,0),"FALSE")){
     player::message("Condition is true");
 }
 ```
@@ -566,7 +566,7 @@ if(player::is_near(1,location(0,0,0,0,0),"FALSE"){
 
 **Usage example:** 
 ```ts
-if(player::is_on_ground(){
+if(player::is_on_ground()){
     player::message("Condition is true");
 }
 ```
@@ -582,7 +582,7 @@ if(player::is_on_ground(){
 
 **Usage example:** 
 ```ts
-if(player::is_online_mode(){
+if(player::is_online_mode()){
     player::message("Condition is true");
 }
 ```
@@ -598,7 +598,7 @@ if(player::is_online_mode(){
 
 **Usage example:** 
 ```ts
-if(player::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST"){
+if(player::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST")){
     player::message("Condition is true");
 }
 ```
@@ -620,7 +620,7 @@ if(player::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST"){
 
 **Usage example:** 
 ```ts
-if(player::is_self_disguised(){
+if(player::is_self_disguised()){
     player::message("Condition is true");
 }
 ```
@@ -636,7 +636,7 @@ if(player::is_self_disguised(){
 
 **Usage example:** 
 ```ts
-if(player::is_sleeping(){
+if(player::is_sleeping()){
     player::message("Condition is true");
 }
 ```
@@ -652,7 +652,7 @@ if(player::is_sleeping(){
 
 **Usage example:** 
 ```ts
-if(player::is_sneaking(){
+if(player::is_sneaking()){
     player::message("Condition is true");
 }
 ```
@@ -668,7 +668,7 @@ if(player::is_sneaking(){
 
 **Usage example:** 
 ```ts
-if(player::is_sprinting(){
+if(player::is_sprinting()){
     player::message("Condition is true");
 }
 ```
@@ -684,7 +684,7 @@ if(player::is_sprinting(){
 
 **Usage example:** 
 ```ts
-if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){
+if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE")){
     player::message("Condition is true");
 }
 ```
@@ -707,7 +707,7 @@ if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 
 **Usage example:** 
 ```ts
-if(player::is_swimming(){
+if(player::is_swimming()){
     player::message("Condition is true");
 }
 ```
@@ -723,7 +723,7 @@ if(player::is_swimming(){
 
 **Usage example:** 
 ```ts
-if(player::is_using_item([item("stick"), item("stick")],"EXACTLY"){
+if(player::is_using_item([item("stick"), item("stick")],"EXACTLY")){
     player::message("Condition is true");
 }
 ```
@@ -745,7 +745,7 @@ if(player::is_using_item([item("stick"), item("stick")],"EXACTLY"){
 
 **Usage example:** 
 ```ts
-if(player::is_wearing_item([item("stick"), item("stick")],"ALL","EXACTLY"){
+if(player::is_wearing_item([item("stick"), item("stick")],"ALL","EXACTLY")){
     player::message("Condition is true");
 }
 ```
@@ -768,7 +768,7 @@ if(player::is_wearing_item([item("stick"), item("stick")],"ALL","EXACTLY"){
 
 **Usage example:** 
 ```ts
-if(player::item_is_not_on_cooldown([item("stick"), item("stick")]){
+if(player::item_is_not_on_cooldown([item("stick"), item("stick")])){
     player::message("Condition is true");
 }
 ```
@@ -789,7 +789,7 @@ if(player::item_is_not_on_cooldown([item("stick"), item("stick")]){
 
 **Usage example:** 
 ```ts
-if(player::name_equals(["names_or_uuids", "names_or_uuids"]){
+if(player::name_equals(["names_or_uuids", "names_or_uuids"])){
     player::message("Condition is true");
 }
 ```
@@ -810,7 +810,7 @@ if(player::name_equals(["names_or_uuids", "names_or_uuids"]){
 
 **Usage example:** 
 ```ts
-if(player::text_filtering_enabled(){
+if(player::text_filtering_enabled()){
     player::message("Condition is true");
 }
 ```

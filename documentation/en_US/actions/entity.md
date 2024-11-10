@@ -3873,7 +3873,7 @@ entity::use_item("MAIN_HAND","FALSE");
 
 **Usage example:** 
 ```ts
-if(entity::collides_at_location(location(0,0,0,0,0)){
+if(entity::collides_at_location(location(0,0,0,0,0))){
     player::message("Condition is true");
 }
 ```
@@ -3894,7 +3894,7 @@ if(entity::collides_at_location(location(0,0,0,0,0)){
 
 **Usage example:** 
 ```ts
-if(entity::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
+if(entity::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0))){
     player::message("Condition is true");
 }
 ```
@@ -3916,7 +3916,7 @@ if(entity::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0)){
 
 **Usage example:** 
 ```ts
-if(entity::collides_with_entity("name_or_uuid","CONTAINS"){
+if(entity::collides_with_entity("name_or_uuid","CONTAINS")){
     player::message("Condition is true");
 }
 ```
@@ -3938,7 +3938,7 @@ if(entity::collides_with_entity("name_or_uuid","CONTAINS"){
 
 **Usage example:** 
 ```ts
-if(entity::is_dummy(){
+if(entity::is_dummy()){
     player::message("Condition is true");
 }
 ```
@@ -3954,7 +3954,7 @@ if(entity::is_dummy(){
 
 **Usage example:** 
 ```ts
-if(entity::exists(){
+if(entity::exists()){
     player::message("Condition is true");
 }
 ```
@@ -3970,7 +3970,7 @@ if(entity::exists(){
 
 **Usage example:** 
 ```ts
-if(entity::has_custom_tag("tag","tag_value","CONTAINS"){
+if(entity::has_custom_tag("tag","tag_value","CONTAINS")){
     player::message("Condition is true");
 }
 ```
@@ -3993,7 +3993,7 @@ if(entity::has_custom_tag("tag","tag_value","CONTAINS"){
 
 **Usage example:** 
 ```ts
-if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ALL"){
+if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ALL")){
     player::message("Condition is true");
 }
 ```
@@ -4015,7 +4015,7 @@ if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 
 **Usage example:** 
 ```ts
-if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CONTAINS"){
+if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CONTAINS")){
     player::message("Condition is true");
 }
 ```
@@ -4040,7 +4040,7 @@ if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CON
 
 **Usage example:** 
 ```ts
-if(entity::is_disguised(){
+if(entity::is_disguised()){
     player::message("Condition is true");
 }
 ```
@@ -4056,7 +4056,7 @@ if(entity::is_disguised(){
 
 **Usage example:** 
 ```ts
-if(entity::is_grounded(){
+if(entity::is_grounded()){
     player::message("Condition is true");
 }
 ```
@@ -4072,7 +4072,7 @@ if(entity::is_grounded(){
 
 **Usage example:** 
 ```ts
-if(entity::is_item(){
+if(entity::is_item()){
     player::message("Condition is true");
 }
 ```
@@ -4088,7 +4088,7 @@ if(entity::is_item(){
 
 **Usage example:** 
 ```ts
-if(entity::is_mob(){
+if(entity::is_mob()){
     player::message("Condition is true");
 }
 ```
@@ -4104,7 +4104,7 @@ if(entity::is_mob(){
 
 **Usage example:** 
 ```ts
-if(entity::is_near_location(1,location(0,0,0,0,0),"FALSE"){
+if(entity::is_near_location(1,location(0,0,0,0,0),"FALSE")){
     player::message("Condition is true");
 }
 ```
@@ -4127,7 +4127,7 @@ if(entity::is_near_location(1,location(0,0,0,0,0),"FALSE"){
 
 **Usage example:** 
 ```ts
-if(entity::is_projectile(){
+if(entity::is_projectile()){
     player::message("Condition is true");
 }
 ```
@@ -4143,7 +4143,7 @@ if(entity::is_projectile(){
 
 **Usage example:** 
 ```ts
-if(entity::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST"){
+if(entity::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST")){
     player::message("Condition is true");
 }
 ```
@@ -4165,7 +4165,7 @@ if(entity::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST"){
 
 **Usage example:** 
 ```ts
-if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){
+if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE")){
     player::message("Condition is true");
 }
 ```
@@ -4188,7 +4188,7 @@ if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 
 **Usage example:** 
 ```ts
-if(entity::is_type([item("stick"), item("stick")]){
+if(entity::is_type([item("stick"), item("stick")])){
     player::message("Condition is true");
 }
 ```
@@ -4209,7 +4209,7 @@ if(entity::is_type([item("stick"), item("stick")]){
 
 **Usage example:** 
 ```ts
-if(entity::is_vehicle(){
+if(entity::is_vehicle()){
     player::message("Condition is true");
 }
 ```
@@ -4225,7 +4225,7 @@ if(entity::is_vehicle(){
 
 **Usage example:** 
 ```ts
-if(entity::name_equals(["names_or_uuids", "names_or_uuids"]){
+if(entity::name_equals(["names_or_uuids", "names_or_uuids"])){
     player::message("Condition is true");
 }
 ```
@@ -4246,7 +4246,7 @@ if(entity::name_equals(["names_or_uuids", "names_or_uuids"]){
 
 **Usage example:** 
 ```ts
-if(entity::spawn_reason_equals("BEEHIVE"){
+if(entity::spawn_reason_equals("BEEHIVE")){
     player::message("Condition is true");
 }
 ```

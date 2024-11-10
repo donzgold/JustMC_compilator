@@ -2060,7 +2060,7 @@ world::update_block(location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-if(world::block_equals([item("stone"), item("stone")],location(0,0,0,0,0)){
+if(world::block_equals([item("stone"), item("stone")],location(0,0,0,0,0))){
     player::message("Условие верно");
 }
 ```
@@ -2082,7 +2082,7 @@ if(world::block_equals([item("stone"), item("stone")],location(0,0,0,0,0)){
 
 **Пример использования:** 
 ```ts
-if(world::block_powered([location(0,0,0,0,0), location(0,0,0,0,0)],"DIRECT"){
+if(world::block_powered([location(0,0,0,0,0), location(0,0,0,0,0)],"DIRECT")){
     player::message("Условие верно");
 }
 ```
@@ -2104,7 +2104,7 @@ if(world::block_powered([location(0,0,0,0,0), location(0,0,0,0,0)],"DIRECT"){
 
 **Пример использования:** 
 ```ts
-if(world::chunk_is_loaded(location(0,0,0,0,0)){
+if(world::chunk_is_loaded(location(0,0,0,0,0))){
     player::message("Условие верно");
 }
 ```
@@ -2125,7 +2125,7 @@ if(world::chunk_is_loaded(location(0,0,0,0,0)){
 
 **Пример использования:** 
 ```ts
-if(world::container_has([item("stick"), item("stick")],location(0,0,0,0,0),"ALL","EXACTLY"){
+if(world::container_has([item("stick"), item("stick")],location(0,0,0,0,0),"ALL","EXACTLY")){
     player::message("Условие верно");
 }
 ```
@@ -2149,7 +2149,7 @@ if(world::container_has([item("stick"), item("stick")],location(0,0,0,0,0),"ALL"
 
 **Пример использования:** 
 ```ts
-if(world::container_has_room_for_item([item("stick"), item("stick")],location(0,0,0,0,0),"ALL"){
+if(world::container_has_room_for_item([item("stick"), item("stick")],location(0,0,0,0,0),"ALL")){
     player::message("Условие верно");
 }
 ```
@@ -2172,7 +2172,7 @@ if(world::container_has_room_for_item([item("stick"), item("stick")],location(0,
 
 **Пример использования:** 
 ```ts
-if(world::damage_cause_equals("BLOCK_EXPLOSION"){
+if(world::damage_cause_equals("BLOCK_EXPLOSION")){
     player::message("Условие верно");
 }
 ```
@@ -2193,7 +2193,7 @@ if(world::damage_cause_equals("BLOCK_EXPLOSION"){
 
 **Пример использования:** 
 ```ts
-if(world::is_dummy(){
+if(world::is_dummy()){
     player::message("Условие верно");
 }
 ```
@@ -2209,7 +2209,7 @@ if(world::is_dummy(){
 
 **Пример использования:** 
 ```ts
-if(world::event_attack_is_critical(){
+if(world::event_attack_is_critical()){
     player::message("Условие верно");
 }
 ```
@@ -2225,7 +2225,7 @@ if(world::event_attack_is_critical(){
 
 **Пример использования:** 
 ```ts
-if(world::event_block_equals([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)]){
+if(world::event_block_equals([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)])){
     player::message("Условие верно");
 }
 ```
@@ -2247,7 +2247,7 @@ if(world::event_block_equals([item("stone"), item("stone")],[location(0,0,0,0,0)
 
 **Пример использования:** 
 ```ts
-if(world::event_is_canceled(){
+if(world::event_is_canceled()){
     player::message("Условие верно");
 }
 ```
@@ -2263,7 +2263,7 @@ if(world::event_is_canceled(){
 
 **Пример использования:** 
 ```ts
-if(world::event_item_equals([item("stick"), item("stick")],"EXACTLY"){
+if(world::event_item_equals([item("stick"), item("stick")],"EXACTLY")){
     player::message("Условие верно");
 }
 ```
@@ -2285,7 +2285,7 @@ if(world::event_item_equals([item("stick"), item("stick")],"EXACTLY"){
 
 **Пример использования:** 
 ```ts
-if(world::has_player(["names_or_uuids", "names_or_uuids"]){
+if(world::has_player(["names_or_uuids", "names_or_uuids"])){
     player::message("Условие верно");
 }
 ```
@@ -2306,7 +2306,7 @@ if(world::has_player(["names_or_uuids", "names_or_uuids"]){
 
 **Пример использования:** 
 ```ts
-if(world::heal_cause_equals("CUSTOM"){
+if(world::heal_cause_equals("CUSTOM")){
     player::message("Условие верно");
 }
 ```
@@ -2327,7 +2327,7 @@ if(world::heal_cause_equals("CUSTOM"){
 
 **Пример использования:** 
 ```ts
-if(world::ignite_cause_equals("ARROW"){
+if(world::ignite_cause_equals("ARROW")){
     player::message("Условие верно");
 }
 ```
@@ -2348,7 +2348,7 @@ if(world::ignite_cause_equals("ARROW"){
 
 **Пример использования:** 
 ```ts
-if(world::instrument_equals("BANJO"){
+if(world::instrument_equals("BANJO")){
     player::message("Условие верно");
 }
 ```
@@ -2369,7 +2369,7 @@ if(world::instrument_equals("BANJO"){
 
 **Пример использования:** 
 ```ts
-if(world::sign_contains(location(0,0,0,0,0),["texts", "texts"],"ANY","ALL","ALL"){
+if(world::sign_contains(location(0,0,0,0,0),["texts", "texts"],"ANY","ALL","ALL")){
     player::message("Условие верно");
 }
 ```
