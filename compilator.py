@@ -36,107 +36,6 @@ def new(source):
     return global_new[source]
 
 
-def fix_operations_len(operations, limit=43):
-    def get_operations(ops):
-        cont = 0
-        for op in ops:
-            cont += 1
-            op["weight"] = 1
-            if "operations" in op:
-                op_opers, cont_op = get_operations(op["operations"])
-                op["operations"] = op_opers
-                cont += cont_op + 1
-                op["weight"] += cont_op + 1
-        return ops, cont
-
-    def remove_weight(ops):
-        for op in ops:
-            if "weight" in op:
-                del op["weight"]
-            if "operations" in op:
-                op["operations"] = remove_weight(op["operations"])
-        return ops
-
-    operations, op_count = get_operations(operations)
-    additional_events = []
-    if op_count > limit:
-
-        def spl(ops, curr_limit=43, lim=43):
-            additional2 = []
-            i1 = 0
-            cur_weight = 0
-            new_ops = []
-            while i1 < len(ops):
-                op = ops[i1]
-                weight = op["weight"]
-                next_weight = cur_weight + weight
-                if next_weight >= curr_limit - 1:
-                    if weight <= lim:
-                        if i1 != 0:
-                            save_ops = ops[:i1]
-                            ops = ops[i1:]
-                            i1 = 0
-                            cur_weight = 1
-                            new_ops.append(save_ops)
-                        else:
-                            cur_weight = 1
-                            new_ops.append(ops)
-                            ops = []
-                    else:
-                        next_l = curr_limit - (cur_weight + 3 + len(ops))
-                        if next_l <= 0:
-                            save_ops, additional3, thing2 = spl(op["operations"], curr_limit=lim - 3, lim=lim)
-                            func_count = new('function')
-                            additional2.extend(additional3)
-                            ops[i1] = {"action": "call_function", "values": [{"name": "function_name",
-                                                                              "value": {"type": "text",
-                                                                                        "text": f"jmcc.{func_count}",
-                                                                                        "parsing": "legacy"}}]}
-                            additional2.append(
-                                {"type": "function", "position": new("event"), "operations": remove_weight([op]),
-                                 "is_hidden": False, "name": f"jmcc.{func_count}"})
-                            cur_weight += 1
-                        else:
-                            save_ops, additional3, thing2 = spl(op["operations"], curr_limit=next_l, lim=lim)
-                            additional2.extend(additional3)
-                            if cur_weight + thing2 + 2 > curr_limit:
-                                cur_weight += 1
-                                func_count = new('function')
-                                ops[i1] = {"action": "call_function", "values": [{"name": "function_name",
-                                                                                  "value": {"type": "text",
-                                                                                            "text": f"jmcc.{func_count}",
-                                                                                            "parsing": "legacy"}}]}
-                                additional2.append(
-                                    {"type": "function", "position": new("event"), "operations": remove_weight([op]),
-                                     "is_hidden": False, "name": f"jmcc.{func_count}"})
-                            else:
-                                op["operations"] = save_ops
-                                cur_weight += thing2 + 2
-                        i1 += 1
-                else:
-                    cur_weight = next_weight
-                    i1 += 1
-            if len(ops) > 0:
-                new_ops.append(ops)
-            else:
-                new_ops.insert(0, [])
-            for i1 in range(1, len(new_ops)):
-                func_count = new('function')
-                new_ops[i1 - 1].append({"action": "call_function", "values": [{"name": "function_name",
-                                                                               "value": {"type": "text",
-                                                                                         "text": f"jmcc.{func_count}",
-                                                                                         "parsing": "legacy"}}]})
-                additional2.append(
-                    {"type": "function", "position": new("event"), "operations": remove_weight(new_ops[i1]),
-                     "is_hidden": False, "name": f"jmcc.{func_count}"})
-            return remove_weight(new_ops[0]), additional2, cur_weight
-
-        operations, additional_events, thing = spl(operations, lim=limit, curr_limit=limit)
-    else:
-        operations = remove_weight(operations)
-    return operations, additional_events
-
-
 class Tokens:
     NONE: int = -1
     NUMBER: int = 0
@@ -1212,6 +1111,8 @@ class Context:
                                                          "callable": {}},
                                          "compiled": False,
                                          "properties": {}}
+        self.idx = 0
+        self.json_obj = {}
 
     @property
     def cur_context(self):
@@ -1356,24 +1257,66 @@ class Context:
         self.context[self.source][self.context_lvl] = self.cur_context
 
     def get_json(self):
-        json_obj = {"handlers": []}
+        self.json_obj = {"handlers": []}
         for i1 in self.context[self.source][self.context_lvl]["operations"]:
             if i1.is_simple():
-                if i1.type in {"event", "function", "process"}:
-                    op, adds = i1.json()
-                    json_obj["handlers"].append(op)
-                    json_obj["handlers"].extend(adds)
-                else:
-                    json_obj["handlers"].append(i1.json())
+                self.json_obj["handlers"].append(i1.json())
             else:
                 prev_ops, cur_op, next_ops = i1.simplify()
                 for i2 in prev_ops:
-                    json_obj["handlers"].append(i2.json())
+                    self.json_obj["handlers"].append(i2.json())
                 if cur_op.is_independant():
-                    json_obj["handlers"].append(cur_op.json())
+                    self.json_obj["handlers"].append(cur_op.json())
                 for i2 in next_ops:
-                    json_obj["handlers"].append(i2.json())
-        return json_obj
+                    self.json_obj["handlers"].append(i2.json())
+        i1 = 0
+        while i1 < len(self.json_obj["handlers"]):
+            self.idx = 0
+            self.json_obj["handlers"][i1] = self.walk(self.json_obj["handlers"][i1], 43)
+            i1 += 1
+        return self.json_obj
+
+    def walk(self, act, max_length):
+        if "operations" in act:
+            acts = act["operations"]
+        else:
+            return act
+        for actionIdx in range(len(acts)):
+            acti = acts[actionIdx]
+            isContainer = "operations" in acti
+            actionLength = 2 if isContainer else 1
+            newIdx = self.idx + actionLength
+            hasNext = actionIdx + 1 < len(acts)
+            hasContents = isContainer and len(acti["operations"]) > 0
+            next_acti = acts[actionIdx + 1] if hasNext else None
+            reserved = 0
+            if hasNext:
+                reserved += 1
+            if hasNext and isContainer and "operations" in next_acti and next_acti["action"] == "else":
+                reserved += 2
+                if len(next_acti["operations"]) > 0:
+                    reserved += 1
+                if actionIdx + 2 < len(acts):
+                    reserved += 1
+            containerMaxLength = max_length - reserved - hasContents
+            if newIdx > containerMaxLength:
+                func_count = new('function')
+                call_func = {"action": "call_function", "values": [{"name": "function_name",
+                                                                    "value": {"type": "text",
+                                                                              "text": f"jmcc.{func_count}",
+                                                                              "parsing": "legacy"}}]}
+                func = {"type": "function", "position": new("event"), "operations": acts[actionIdx:],
+                        "is_hidden": False, "name": f"jmcc.{func_count}"}
+                acts = acts[:actionIdx]
+                acts.append(call_func)
+                self.json_obj["handlers"].append(func)
+                self.idx += 1
+                break
+            self.idx = newIdx
+            if isContainer:
+                acts[actionIdx] = self.walk(acti, max_length - reserved)
+        act["operations"] = actions
+        return act
 
     def extend(self, another_context):
         self.context[self.source]["cur_context"]["variables"].update(
@@ -1401,17 +1344,14 @@ class Context:
         if len(another_context.context[another_context.source][another_context.context_lvl]["operations"]) == 0:
             another_context.context[another_context.source][another_context.context_lvl]["operations"].append(
                 event("world_start", [], self.source))
-        elif another_context.context[another_context.source][another_context.context_lvl]["operations"][
-            0].type != "event":
+        elif another_context.context[another_context.source][another_context.context_lvl]["operations"][0].type != "event":
             another_context.context[another_context.source][another_context.context_lvl]["operations"].insert(0, event(
                 "world_start", [], self.source))
-        elif another_context.context[another_context.source][another_context.context_lvl]["operations"][
-            0].name != "world_start":
+        elif another_context.context[another_context.source][another_context.context_lvl]["operations"][0].name != "world_start":
             another_context.context[another_context.source][another_context.context_lvl]["operations"].insert(0, event(
                 "world_start", [], self.source))
         self.context[self.source]["cur_context"]["operations"][0].operations.extend(
-            another_context.context[another_context.source][another_context.context_lvl]["operations"].pop(
-                0).operations)
+            another_context.context[another_context.source][another_context.context_lvl]["operations"].pop(0).operations)
         self.context[self.source]["cur_context"]["operations"].extend(
             another_context.context[another_context.source][another_context.context_lvl]["operations"])
 
@@ -2442,9 +2382,7 @@ class calling_function:
                     prev_ops.extend(previous_operations)
                     previous_operations = prev_ops
                     next_operations = next_ops
-                if not ((self.args.positional[0].type == "action") or (
-                        self.args.positional[0].type == "variable" and self.args.positional[
-                    0].value_type == "number") or (self.args.positional[0].type == "number")):
+                if not ((self.args.positional[0].type == "action") or (self.args.positional[0].type == "variable" and self.args.positional[0].value_type == "number") or (self.args.positional[0].type == "number")):
                     error_from_object(self.args.positional[0], "ArgumentError",
                                       translate("error.argumenterror.wrong_argument",
                                                 {0: self.args.positional[0].type, 1: "boolean"}))
@@ -2737,13 +2675,8 @@ class function:
         return a
 
     def json(self):
-        a = {"type": "function", "position": new("event"), "operations": [],
-             "is_hidden": False, "name": self.name}
-        additional_events = []
-        operations, additional2 = fix_operations_len([i3.json() for i3 in self.operations])
-        additional_events.extend(additional2)
-        a["operations"] = operations
-        return a, additional_events
+        return {"type": "function", "position": new("event"), "operations": [i3.json() for i3 in self.operations],
+                "is_hidden": False, "name": self.name}
 
 
 class process:
@@ -2773,13 +2706,8 @@ class process:
         return {"type": "process", "name": self.name, "args": self.args.set_args()}
 
     def json(self):
-        a = {"type": "process", "position": new('event'), "operations": [],
-             "name": self.name, "is_hidden": False}
-        additional_events = []
-        operations, additional2 = fix_operations_len([i3.json() for i3 in self.operations])
-        additional_events.extend(additional2)
-        a["operations"] = operations
-        return a, additional_events
+        return {"type": "process", "position": new('event'), "operations": [i3.json() for i3 in self.operations],
+                "name": self.name, "is_hidden": False}
 
 
 class return_:
@@ -2865,12 +2793,8 @@ class event:
         return True
 
     def json(self):
-        a = {"type": "event", "event": self.name, "position": new("event"), "operations": []}
-        additional_events = []
-        operations, additional2 = fix_operations_len([i3.json() for i3 in self.operations])
-        additional_events.extend(additional2)
-        a["operations"] = operations
-        return a, additional_events
+        return {"type": "event", "event": self.name, "position": new("event"),
+                "operations": [i3.json() for i3 in self.operations]}
 
 
 class assign:
@@ -3641,5 +3565,3 @@ def compile_file(file_path, upload=False, properties=None):
                                    f"модуля:\n&9/module loadUrl force https://m.justmc.ru/api/{response['id']}\n"
                                    f"\n&eВажно &fМодуль по ссылке удалится через &c3 минуты!"
                                    f"\n      &fУспейте использовать команду на сервере за данное время"))
-
-
