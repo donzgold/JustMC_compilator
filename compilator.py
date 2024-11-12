@@ -1273,7 +1273,6 @@ class Context:
         while i1 < len(self.json_obj["handlers"]):
             self.idx = 0
             self.json_obj["handlers"][i1] = self.walk(self.json_obj["handlers"][i1], 43)
-            print(self.json_obj["handlers"][i1])
             i1 += 1
         return self.json_obj
 
