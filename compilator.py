@@ -1273,6 +1273,7 @@ class Context:
         while i1 < len(self.json_obj["handlers"]):
             self.idx = 0
             self.json_obj["handlers"][i1] = self.walk(self.json_obj["handlers"][i1], 43)
+            print(self.json_obj["handlers"][i1])
             i1 += 1
         return self.json_obj
 
@@ -1315,7 +1316,7 @@ class Context:
             self.idx = newIdx
             if isContainer:
                 acts[actionIdx] = self.walk(acti, max_length - reserved)
-        act["operations"] = actions
+        act["operations"] = acts
         return act
 
     def extend(self, another_context):
