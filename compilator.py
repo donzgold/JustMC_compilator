@@ -1067,7 +1067,7 @@ class Parser:
                     if self.current_token.type != Tokens.RPAREN:
                         self.eat(Tokens.COMMA)
                 self.eat(Tokens.RPAREN)
-            elif name.value == "return_var":
+            elif name.value == "return":
                 self.eat(Tokens.VARIABLE)
                 self.eat(Tokens.LPAREN)
                 if self.current_token.type in {Tokens.VARIABLE, Tokens.LINE_VARIABLE, Tokens.SAVE_VARIABLE,
