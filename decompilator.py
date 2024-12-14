@@ -289,5 +289,3 @@ def decompile_file(file, properties=None):
     writing = open(file[:file.rfind(".")] + ".jc", "w+", encoding="UTF-8")
     for i in json.load(open(file, encoding="UTF-8"))["handlers"]:
         writing.write(decompile(i) + "\n")
-
-#decompile_file("a.json")
