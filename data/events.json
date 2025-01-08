@@ -136,6 +136,10 @@
     "cancellable": true
   },
   {
+    "id": "entity_knockback",
+    "cancellable": true
+  },
+  {
     "id": "entity_load_crossbow",
     "cancellable": true
   },
@@ -380,6 +384,10 @@
     "cancellable": true
   },
   {
+    "id": "player_knockback",
+    "cancellable": true
+  },
+  {
     "id": "player_launch_projectile",
     "cancellable": true
   },
@@ -554,6 +562,10 @@
   {
     "id": "player_vehicle_move",
     "cancellable": false
+  },
+  {
+    "id": "player_velocity",
+    "cancellable": true
   },
   {
     "id": "portal_create",

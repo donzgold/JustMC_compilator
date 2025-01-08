@@ -248,6 +248,18 @@
     "type": "array"
   },
   {
+    "id": "event_knockback_cause",
+    "type": "text"
+  },
+  {
+    "id": "event_knockback_event_type",
+    "type": "text"
+  },
+  {
+    "id": "event_knockback_vector",
+    "type": "vector"
+  },
+  {
     "id": "event_message",
     "type": "text"
   },
@@ -322,6 +334,10 @@
   {
     "id": "event_tree_type",
     "type": "text"
+  },
+  {
+    "id": "event_velocity",
+    "type": "vector"
   },
   {
     "id": "experience_level",

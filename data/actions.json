@@ -1633,6 +1633,7 @@
         "id": "slot",
         "type": "enum",
         "values": [
+          "BODY",
           "CHEST",
           "FEET",
           "HAND",
@@ -3482,6 +3483,22 @@
       {
         "id": "power",
         "type": "number"
+      },
+      {
+        "id": "fire",
+        "type": "enum",
+        "values": [
+          "FALSE",
+          "TRUE"
+        ]
+      },
+      {
+        "id": "break_blocks",
+        "type": "enum",
+        "values": [
+          "FALSE",
+          "TRUE"
+        ]
       }
     ],
     "type": "basic"
@@ -3552,6 +3569,7 @@
           "JUNGLE",
           "JUNGLE_BUSH",
           "MANGROVE",
+          "MEGA_PINE",
           "MEGA_REDWOOD",
           "REDWOOD",
           "RED_MUSHROOM",
@@ -3793,6 +3811,7 @@
         "values": [
           "DELETE",
           "GET",
+          "HEAD",
           "POST",
           "PUT"
         ]
@@ -5750,6 +5769,7 @@
         "type": "enum",
         "values": [
           "BLOCK_EXPLOSION",
+          "CAMPFIRE",
           "CONTACT",
           "CRAMMING",
           "CUSTOM",
@@ -9118,6 +9138,7 @@
         "id": "slot",
         "type": "enum",
         "values": [
+          "BODY",
           "CHEST",
           "FEET",
           "HAND",
@@ -9534,10 +9555,13 @@
           "DYING",
           "EMERGING",
           "FALL_FLYING",
+          "INHALING",
           "LONG_JUMPING",
           "ROARING",
+          "SHOOTING",
           "SITTING",
           "SLEEPING",
+          "SLIDING",
           "SNEAKING",
           "SNIFFING",
           "SPIN_ATTACK",
@@ -9890,6 +9914,7 @@
           "CARTOGRAPHY",
           "CHEST",
           "COMPOSTER",
+          "CRAFTER",
           "CRAFTING",
           "CREATIVE",
           "DISPENSER",
@@ -12967,6 +12992,14 @@
       {
         "id": "item",
         "type": "item"
+      },
+      {
+        "id": "fetch_mode",
+        "type": "enum",
+        "values": [
+          "ALL",
+          "CUSTOM_DATA"
+        ]
       }
     ],
     "assign": [

@@ -1434,7 +1434,9 @@ entity::set_death_time(1);
 
 **Name:** Set visibility\
 **Type:** Action without value\
-**Description:** Establishes entities with visibility.
+**Description:** Establishes entities with visibility.\
+**Additional info:**\
+&nbsp;&nbsp;None
 
 **Usage example:** 
 ```ts
@@ -1852,15 +1854,15 @@ entity::set_enderman_block(item("stone"));
 
 **Usage example:** 
 ```ts
-entity::set_equipment_item(item("stick"),"CHEST");
+entity::set_equipment_item(item("stick"),"BODY");
 ```
 
 **Arguments:**
 
-| **Name** | **Type**                                                                                                                                         | **Description** |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `item`   | Item                                                                                                                                             | Items to Grant  |
-| `slot`   | Marker<br/>**CHEST** - Chest<br/>**FEET** - Boots<br/>**HAND** - Main Hand<br/>**HEAD** - Helmet<br/>**LEGS** - Legs<br/>**OFF_HAND** - Sub-Hand | Equipment Slot  |
+| **Name** | **Type**                                                                                                                                                             | **Description** |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `item`   | Item                                                                                                                                                                 | Items to Grant  |
+| `slot`   | Marker<br/>**BODY** - None<br/>**CHEST** - Chest<br/>**FEET** - Boots<br/>**HAND** - Main Hand<br/>**HEAD** - Helmet<br/>**LEGS** - Legs<br/>**OFF_HAND** - Sub-Hand | Equipment Slot  |
 <h3 id=entity_set_explosive_power>
   <code>entity::set_explosive_power</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

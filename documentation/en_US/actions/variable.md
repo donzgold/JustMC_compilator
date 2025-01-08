@@ -2826,23 +2826,24 @@ variable::get_item_name(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_nbt_tags(item("stick"));
+a1 = variable::get_item_nbt_tags(item("stick"),"ALL");
 
 #Or from the object
 
-a1 = item("stick").get_item_nbt_tags();
+a1 = item("stick").get_item_nbt_tags("ALL");
 
 #Or dry
 
-variable::get_item_nbt_tags(a1,item("stick"));
+variable::get_item_nbt_tags(a1,item("stick"),"ALL");
 ```
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
+| **Name**     | **Type**                                             | **Description**    |
+| ------------ | ---------------------------------------------------- | ------------------ |
+| `variable`   | Variable                                             | Variable to assign |
+| `item`       | Item                                                 | Item               |
+| `fetch_mode` | Marker<br/>**ALL** - None<br/>**CUSTOM_DATA** - None | None               |
 <h3 id=set_variable_get_item_placeable_blocks>
   <code>variable::get_item_placeable_blocks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
