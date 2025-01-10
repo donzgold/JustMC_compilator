@@ -6,7 +6,8 @@ import requests
 
 import nbtworker
 from jmcc import translate, minecraft_based_text, color_codes, allowed_symbols, Properties
-
+from time import time
+start_time = time()
 origin_actions = {}
 events = {}
 values = {}
@@ -117,6 +118,7 @@ class Tokens:
     MULTIPLY_ASSIGN: int = 67
     QUESTION_MARK: int = 68
     DOUBLE_MULTIPLY: int = 69
+    NEXT_LINE: int = 70
 
 
 class Token:
@@ -182,7 +184,7 @@ class Lexer:
 
     @property
     def next_token(self) -> Token:
-        while self.current_char == " " or self.current_char == "\n" or self.current_char == "\t":
+        while self.current_char == " ":
             self.advance()
         starting_pos = self.current_pos
         sign_mode = False
@@ -192,42 +194,46 @@ class Lexer:
                     self.current_char.isalpha() or self.current_char.isdigit() or self.current_char == "_"):
                 token_value += self.current_char
                 self.advance()
-            if token_value == "if":
-                return Token(Tokens.IF, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "else":
-                return Token(Tokens.ELSE, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "function":
-                return Token(Tokens.FUNCTION_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "process":
-                return Token(Tokens.PROCESS_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "var":
-                return Token(Tokens.VAR_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "inline":
-                return Token(Tokens.INLINE_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "local":
-                return Token(Tokens.LOCAL_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "game":
-                return Token(Tokens.GAME_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "save":
-                return Token(Tokens.SAVE_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "class":
-                return Token(Tokens.CLASS_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "event":
-                return Token(Tokens.EVENT_DEFINE, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "import":
-                return Token(Tokens.IMPORT, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "and":
-                return Token(Tokens.AND, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "or":
-                return Token(Tokens.OR, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "not":
-                return Token(Tokens.NOT, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "return":
-                return Token(Tokens.RETURN, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "elif":
-                return Token(Tokens.ELIF, token_value, starting_pos, self.current_pos - 1, self.source)
-            if token_value == "as":
-                return Token(Tokens.AS, token_value, starting_pos, self.current_pos - 1, self.source)
+            token_type = None
+            match token_value:
+                case "if":
+                    token_type = Tokens.IF
+                case "else":
+                    token_type = Tokens.ELSE
+                case "function":
+                    token_type = Tokens.FUNCTION_DEFINE
+                case "process":
+                    token_type = Tokens.PROCESS_DEFINE
+                case "var":
+                    token_type = Tokens.VAR_DEFINE
+                case "inline":
+                    token_type = Tokens.INLINE_DEFINE
+                case "local":
+                    token_type = Tokens.LOCAL_DEFINE
+                case "game":
+                    token_type = Tokens.GAME_DEFINE
+                case "save":
+                    token_type = Tokens.SAVE_DEFINE
+                case "class":
+                    token_type = Tokens.CLASS_DEFINE
+                case "event":
+                    token_type = Tokens.EVENT_DEFINE
+                case "import":
+                    token_type = Tokens.IMPORT
+                case "and":
+                    token_type = Tokens.AND
+                case "or":
+                    token_type = Tokens.OR
+                case "not":
+                    token_type = Tokens.NOT
+                case "return":
+                    token_type = Tokens.RETURN
+                case "elif":
+                    token_type = Tokens.ELIF
+                case "as":
+                    token_type = Tokens.AS
+            if token_type is not None:
+                return Token(token_type, token_value, starting_pos, self.current_pos - 1, self.source)
             sign_mode = True
 
         if self.current_char == "\"" or self.current_char == "\'" or self.current_char == "`" or self.current_char == "<":
@@ -262,9 +268,12 @@ class Lexer:
                     block_next_symbol = False
                     if self.current_char == "n":
                         token_value += "\\"
-                    token_value += self.current_char
+                    if self.current_char not in {"\n", "\t"}:
+                        token_value += self.current_char
                 elif self.current_char == "\\":
                     block_next_symbol = True
+                elif self.current_char in {"\n", "\t"}:
+                    token_value+="\\n"
                 elif self.current_char == "$":
                     if len(token_value) > 0:
                         giga_token.append(
@@ -500,7 +509,18 @@ class Lexer:
         if self.current_char == "?":
             self.advance()
             return Token(Tokens.QUESTION_MARK, "?", starting_pos, starting_pos, self.source)
-        return Token(Tokens.EOF, "None", starting_pos, starting_pos, self.source)
+        if self.current_char == "\\":
+            if self.text[self.current_pos+1] in {"\n","\t"}:
+                self.advance()
+                self.advance()
+                return self.next_token
+        if self.current_char == "\n" or self.current_char == "\t":
+            self.advance()
+            return Token(Tokens.NEXT_LINE, "\n", starting_pos, starting_pos, self.source)
+        if self.current_char == "":
+            return Token(Tokens.EOF, "None", starting_pos, starting_pos, self.source)
+        else:
+            error("SyntaxError",translate("error.syntaxerror.unexpected_symbol", {0: self.current_char}),starting_pos,starting_pos,source=self.source)
 
     def get_remaining_tokens(self) -> list:
         lest = []
@@ -544,7 +564,10 @@ class Parser:
 
     def token(self, index: int) -> Token:
         if index >= len(self.tokens):
-            return Token(Tokens.EOF, "None", self.tokens[-1].ending_pos + 2, self.tokens[-1].ending_pos + 2,
+            if len(self.tokens) == 0:
+                return Token(Tokens.EOF, None, -1, -1,
+                         self.source)
+            return Token(Tokens.EOF, None, self.tokens[-1].ending_pos + 2, self.tokens[-1].ending_pos + 2,
                          self.source)
         return self.tokens[index]
 
@@ -552,6 +575,11 @@ class Parser:
         if self.current_token.type == token_type:
             self.index += 1
             self.current_token = self.token(self.index)
+            if len(self.context.settings["ignore_next_lines"]) > 0:
+                while self.current_token.type == Tokens.NEXT_LINE:
+                    self.index += 1
+                    self.current_token = self.token(self.index)
+
         else:
             error_from_object(self.current_token, "SyntaxError", translate("error.syntaxerror.wrong_token", {
                 0: translate('token.' + str(token_type) + '.name'),
@@ -706,8 +734,7 @@ class Parser:
                     self.context.add_operations(previous_operations)
                     self.eat(Tokens.LCPAREN)
                     while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                        if (a := self.statement()) is not None:
-                            self.context.add_operation(a)
+                        self.context.add_operation(self.up_statement())
                         self.context.update()
                     self.eat(Tokens.RCPAREN)
                     ops = self.context.get_operations().copy()
@@ -744,38 +771,7 @@ class Parser:
                 args = self.get_args()
                 ending_pos = self.current_token.ending_pos
                 self.eat(Tokens.RPAREN)
-                if actions[token.value][act.value]["type"].startswith(
-                        "container"):
-                    if self.current_token.type == Tokens.LCPAREN and (
-                            not actions[token.value][act.value].setdefault("boolean", False)):
-                        self.eat(Tokens.LCPAREN)
-                        if "lambda" in actions[token.value][act.value]:
-                            lambd = []
-                            while (self.current_token.type != Tokens.EOF) and (
-                                    self.current_token.type != Tokens.CYCLE_THING):
-                                if (a := self.expr()) is not None:
-                                    lambd.append(a)
-                                if self.current_token.type != Tokens.CYCLE_THING:
-                                    self.eat(Tokens.COMMA)
-                            self.eat(Tokens.CYCLE_THING)
-                        else:
-                            lambd = None
-                        self.context.next_lvl()
-                        while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                            if (a := self.statement()) is not None:
-                                self.context.add_operation(a)
-                            self.context.update()
-                        ops = self.context.get_operations()
-                        self.context.previous_lvl()
-                        self.eat(Tokens.RCPAREN)
-                    else:
-                        ops = None
-                        lambd = None
-                else:
-                    ops = None
-                    lambd = None
-                return action(token.value, act.value, args, token.starting_pos, ending_pos, self.source,
-                              operations=ops, lambd=lambd, selector=selector)
+                return action(token.value, act.value, args, token.starting_pos, ending_pos, self.source, selector=selector)
             else:
                 if not self.context.has_variable(token.value):
                     self.context.set_variable(token.value, Vars.LOCAL)
@@ -888,9 +884,9 @@ class Parser:
                 token = self.current_token
                 self.eat(Tokens.VARIABLE)
                 self.eat(Tokens.ASSIGN)
-                if (arg := self.expr()) is not None:
-                    ending_pos = arg.ending_pos
-                    unpos[token.value] = arg
+                if (arg1 := self.expr()) is not None:
+                    ending_pos = arg1.ending_pos
+                    unpos[token.value] = arg1
             else:
                 if self.current_token.type == Tokens.MULTIPLY and multi == 0:
                     self.eat(Tokens.MULTIPLY)
@@ -900,17 +896,17 @@ class Parser:
                     self.eat(Tokens.DOUBLE_MULTIPLY)
                     multi = 2
                     now = True
-                if (arg := self.expr()) is not None:
+                if (arg1 := self.expr()) is not None:
                     if multi > 0 and not now:
-                        error_from_object(arg, "", "")
-                    if arg.type == "variable" and self.current_token.type == Tokens.COLON and save_types:
+                        error_from_object(arg1, "", translate("error.unknown"))
+                    if arg1.type == "variable" and self.current_token.type == Tokens.COLON and save_types:
                         self.eat(Tokens.COLON)
-                        arg.value_type = self.current_token.value
+                        arg1.value_type = self.current_token.value
                         self.eat(Tokens.VARIABLE)
-                    ending_pos = arg.ending_pos
+                    ending_pos = arg1.ending_pos
                     if now:
-                        arg = unpacked_args(arg, arg.starting_pos, arg.ending_pos, arg.source, multi)
-                    pos.append(arg)
+                        arg1 = unpacked_args(arg1, arg1.starting_pos, arg1.ending_pos, arg1.source, multi)
+                    pos.append(arg1)
             if self.current_token.type != reason_to_stop:
                 self.eat(Tokens.COMMA)
             now = False
@@ -1005,7 +1001,7 @@ class Parser:
                            token.starting_pos, token.ending_pos, self.source)
             self.context.set_variable(variable.value, Vars.INLINE)
         elif self.current_token.type in {Tokens.VARIABLE, Tokens.LOCAL_VARIABLE, Tokens.SAVE_VARIABLE,
-                                         Tokens.GAME_VARIABLE, Tokens.LINE_VARIABLE, Tokens.INLINE_VARIABLE}:
+                                         Tokens.GAME_VARIABLE, Tokens.LINE_VARIABLE, Tokens.INLINE_VARIABLE} and self.token(self.index+1).type != Tokens.DOUBLE_COLON:
             variable = self.factor()
         else:
             return variables
@@ -1067,7 +1063,7 @@ class Parser:
                     if self.current_token.type != Tokens.RPAREN:
                         self.eat(Tokens.COMMA)
                 self.eat(Tokens.RPAREN)
-            elif name.value == "return":
+            elif name.value == "returns":
                 self.eat(Tokens.VARIABLE)
                 self.eat(Tokens.LPAREN)
                 if self.current_token.type in {Tokens.VARIABLE, Tokens.LINE_VARIABLE, Tokens.SAVE_VARIABLE,
@@ -1080,7 +1076,7 @@ class Parser:
                     self.eat(Tokens.STRING)
                 self.eat(Tokens.RPAREN)
             else:
-                error_from_object(name, "", "")
+                error_from_object(name, "", translate("error.unknown"))
         if ((self.current_token.type == Tokens.FUNCTION_DEFINE and (
                 self.context.context_lvl == 0 or len(self.context.settings["class_define"]) > 0))
                 or (self.current_token.type == Tokens.INLINE_DEFINE
@@ -1165,9 +1161,6 @@ class Parser:
         return 0
 
     def statement(self):
-        if self.current_token.type == Tokens.SEMICOLON:
-            self.eat(Tokens.SEMICOLON)
-            return
         if self.current_token.type == Tokens.IMPORT and self.context.context_lvl == 0 and len(
                 self.context.settings["class_define"]) == 0:
             self.eat(Tokens.IMPORT)
@@ -1229,8 +1222,7 @@ class Parser:
                 self.eat(Tokens.LCPAREN)
                 self.context.next_lvl()
                 while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                    if (a := self.statement()) is not None:
-                        self.context.add_operation(a)
+                    self.context.add_operation(self.up_statement(Tokens.RCPAREN))
                     self.context.update()
                 main_ops = self.context.get_operations()
                 self.context.previous_lvl()
@@ -1249,8 +1241,7 @@ class Parser:
                     self.eat(Tokens.LCPAREN)
                     self.context.next_lvl()
                     while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                        if (a := self.statement()) is not None:
-                            self.context.add_operation(a)
+                        self.context.add_operation(self.up_statement(Tokens.RCPAREN))
                         self.context.update()
                     ops = self.context.get_operations()
                     self.context.previous_lvl()
@@ -1263,8 +1254,7 @@ class Parser:
                     self.eat(Tokens.LCPAREN)
                     self.context.next_lvl()
                     while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                        if (a := self.statement()) is not None:
-                            self.context.add_operation(a)
+                        self.context.add_operation(self.up_statement(Tokens.RCPAREN))
                         self.context.update()
                     els.extend(self.context.get_operations())
                     self.context.previous_lvl()
@@ -1280,7 +1270,7 @@ class Parser:
             if len(self.context.settings["inline"]) > 0:
                 self.context.settings["return_counter"] += 1
                 if self.context.settings["return_counter"] > 1:
-                    error_from_object(obej, "SyntaxError", "низя так много ретурнов")
+                    error_from_object(obej, "SyntaxError", translate("error.unknown"))
             return obej
         elif self.current_token.type == Tokens.CLASS_DEFINE or (self.current_token.type == Tokens.INLINE_DEFINE
                                                                 and self.token(
@@ -1308,7 +1298,7 @@ class Parser:
             self.eat(Tokens.LCPAREN)
             functions = []
             while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                if (a := self.statement()) is not None:
+                if (a := self.up_statement()) is not None:
                     if isinstance(a, (function, process, class_)):
                         functions.append(a)
                     else:
@@ -1359,18 +1349,71 @@ class Parser:
                             if i3.value_type is not None:
                                 self.context.set_variable_type(i3.var_type, i3.value, i3.value_type)
                     return
+                self.context.settings["ignore_next_lines"].append(None)
                 obj = self.expr()
+                del self.context.settings["ignore_next_lines"][-1]
                 return assign(variables, assign_type, obj, variables[0].starting_pos, obj.ending_pos, self.source)
 
         if len(self.context.settings["class_define"]) > 0:
             error_from_object(self.current_token, "ClassError", translate("error.classerror.expected_function", {
                 0: translate('token.' + str(self.current_token.type) + '.name')}))
-        return self.expr()
+        self.context.settings["ignore_next_lines"].append(None)
+        obj = self.expr()
+        del self.context.settings["ignore_next_lines"][-1]
+        if obj.type == "action":
+            if actions[obj.object][obj.name]["type"].startswith(
+                    "container"):
+                if self.current_token.type == Tokens.LCPAREN and (
+                        not actions[obj.object][obj.name].setdefault("boolean", False)):
+                    self.eat(Tokens.LCPAREN)
+                    if "lambda" in actions[obj.object][obj.name]:
+                        lambd = []
+                        while (self.current_token.type != Tokens.EOF) and (
+                                self.current_token.type != Tokens.CYCLE_THING):
+                            if (a := self.expr()) is not None:
+                                lambd.append(a)
+                            if self.current_token.type != Tokens.CYCLE_THING:
+                                self.eat(Tokens.COMMA)
+                        self.eat(Tokens.CYCLE_THING)
+                    else:
+                        lambd = None
+                    self.context.next_lvl()
+                    while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
+                        self.context.add_operation(self.up_statement(Tokens.RCPAREN))
+                        self.context.update()
+                    ops = self.context.get_operations()
+                    self.context.previous_lvl()
+                    self.eat(Tokens.RCPAREN)
+                else:
+                    ops = None
+                    lambd = None
+            else:
+                ops = None
+                lambd = None
+            obj.operations = ops
+            obj.lambd = lambd
+        return obj
 
+    def up_statement(self, end_reason=None):
+        while self.current_token.type == Tokens.NEXT_LINE:
+            self.eat(self.current_token.type)
+        if self.current_token.type == Tokens.EOF:
+            return
+        jmcc_obj = self.statement()
+        if end_reason is not None and self.current_token.type == end_reason:
+            return jmcc_obj
+        if self.current_token.type == Tokens.NEXT_LINE:
+            self.eat(Tokens.NEXT_LINE)
+        elif self.current_token.type == Tokens.SEMICOLON:
+            self.eat(Tokens.SEMICOLON)
+        elif self.current_token.type != Tokens.EOF:
+            error_from_object(self.current_token, "SyntaxError", translate("error.syntaxerror.statements_not_separated"))
+        while self.current_token.type == Tokens.NEXT_LINE:
+            self.eat(self.current_token.type)
+        return jmcc_obj
     def parse(self):
         while self.current_token.type != Tokens.EOF:
-            if (jmcc_obj := self.statement()) is not None:
-                self.context.add_operation(jmcc_obj)
+            self.context.add_operation(self.up_statement())
             self.context.update()
         for i1 in self.context.get_operations():
             if not i1.is_ready():
@@ -1385,8 +1428,7 @@ class Parser:
                     self.context.update()
                     self.context.settings["allow_returns"].append(i1.return_var)
                     while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                        if (a := self.statement()) is not None:
-                            self.context.add_operation(a)
+                        self.context.add_operation(self.up_statement())
                         self.context.update()
                     del self.context.settings["allow_returns"][-1]
                 elif isinstance(i1, (process, event)):
@@ -1395,15 +1437,15 @@ class Parser:
                             self.context.set_variable_type(Vars.LOCAL, i2["id"], i2["type"])
                         self.context.update()
                     while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                        if (a := self.statement()) is not None:
-                            self.context.add_operation(a)
+                        self.context.add_operation(self.up_statement())
                         self.context.update()
                 else:
-                    error_from_object(i1, "", "ебнутый?")
+                    error_from_object(i1, "", translate("error.unknown"))
                 ops = self.context.get_operations()
                 i1.operations = ops
                 self.context.previous_lvl()
                 self.eat(Tokens.RCPAREN)
+                i1.ready = True
         self.context.compiled = True
         if self.context.get_property("create_world_restart_function", False):
             cringe = {"start": [], "stop": [], "join": [], "quit": []}
@@ -1530,19 +1572,20 @@ class Parser:
 
 class Context:
     context = {}
+    default_context = {"operations": [], "variables": {}, "vars": {0: {}, 1: {}, 2: {}, 3: {}, 4: {}}, "inline_vars": {}, "callable": {}}
+    default_cur_context = copy.deepcopy(default_context)
+    del default_cur_context["operations"]
 
     def __init__(self, source):
         self.source = source
         if self.source not in self.context:
-            self.context[self.source] = {"context_lvl": 0, 0: {"operations": [], "variables": {},
-                                                               "vars": {0: {}, 1: {}, 2: {}, 3: {}, 4: {}},
-                                                               "inline_vars": {}, "callable": {}},
+            self.context[self.source] = {"context_lvl": 0, 0: copy.deepcopy(self.default_context),
                                          "cur_context": None,
                                          "compiled": False,
                                          "settings": {"allow_returns": [], "inline": [], "return_counter": 0,
-                                                      "class_define": []},
+                                                      "class_define": [], "ignore_next_lines": []},
                                          "properties": {}}
-            self.context[self.source]["cur_context"] = copy.deepcopy(self.context[self.source][0])
+            self.context[self.source]["cur_context"] = copy.deepcopy(self.default_cur_context)
         self.idx = 0
         self.json_obj = {}
 
@@ -1584,15 +1627,15 @@ class Context:
         if jmcc_obj.is_independent():
             if jmcc_obj.is_simple():
                 if self.context_lvl == 0 and not (jmcc_obj.type in ("function", "process", "event")):
-                    if len(self.cur_context["operations"]) == 0:
-                        self.cur_context["operations"].append(event("world_start", [], self.source))
-                    elif self.cur_context["operations"][0].type != "event":
-                        self.cur_context["operations"].insert(0, event("world_start", [], self.source))
-                    elif self.cur_context["operations"][0].name != "world_start":
-                        self.cur_context["operations"].insert(0, event("world_start", [], self.source))
-                    self.cur_context["operations"][0].operations.append(jmcc_obj)
+                    if len(self.context[self.source][self.context_lvl]["operations"]) == 0:
+                        self.context[self.source][self.context_lvl]["operations"].append(event("world_start", [], self.source))
+                    elif self.context[self.source][self.context_lvl]["operations"][0].type != "event":
+                        self.context[self.source][self.context_lvl]["operations"].insert(0, event("world_start", [], self.source))
+                    elif self.context[self.source][self.context_lvl]["operations"][0].name != "world_start":
+                        self.context[self.source][self.context_lvl]["operations"].insert(0, event("world_start", [], self.source))
+                    self.context[self.source][self.context_lvl]["operations"][0].operations.append(jmcc_obj)
                 else:
-                    self.cur_context["operations"].append(jmcc_obj)
+                    self.context[self.source][self.context_lvl]["operations"].append(jmcc_obj)
             else:
                 prev_ops, cur_op, next_ops = jmcc_obj.simplify()
                 self.add_operations(prev_ops)
@@ -1624,12 +1667,15 @@ class Context:
         return self.context[self.source]["properties"]
 
     def has_variable(self, var_name):
-        return var_name in self.context[self.source][self.context_lvl]["variables"]
+        for cur_context_lvl in range(self.context_lvl+1):
+            if var_name in self.context[self.source][cur_context_lvl]["variables"]:
+                return True
+        return False
 
     def get_variable(self, var_name):
-        if var_name not in self.context[self.source][self.context_lvl]["variables"]:
-            return
-        return self.context[self.source][self.context_lvl]["variables"][var_name]
+        for cur_context_lvl in range(self.context_lvl, -1, -1):
+            if var_name in self.context[self.source][cur_context_lvl]["variables"]:
+                return self.context[self.source][cur_context_lvl]["variables"][var_name]
 
     def get_variables(self):
         return self.context[self.source][self.context_lvl]["variables"]
@@ -1638,20 +1684,23 @@ class Context:
         self.cur_context["vars"][var_type][var_name] = value_type
 
     def get_variable_type(self, var_type, var_name):
-        if var_name not in self.context[self.source][self.context_lvl]["vars"][var_type]:
-            return
-        return self.context[self.source][self.context_lvl]["vars"][var_type][var_name]
+        for cur_context_lvl in range(self.context_lvl, -1, -1):
+            if var_name in self.context[self.source][cur_context_lvl]["vars"][var_type]:
+                return self.context[self.source][cur_context_lvl]["vars"][var_type][var_name]
 
     def set_inline(self, var_name, var_object):
         self.cur_context["inline_vars"][var_name] = var_object
 
     def get_inline(self, var_name):
-        if var_name not in self.context[self.source][self.context_lvl]["inline_vars"]:
-            return
-        return self.context[self.source][self.context_lvl]["inline_vars"][var_name].copy()
+        for cur_context_lvl in range(self.context_lvl, -1, -1):
+            if var_name in self.context[self.source][cur_context_lvl]["inline_vars"]:
+                return self.context[self.source][cur_context_lvl]["inline_vars"][var_name].copy()
 
     def has_inline(self, var_name):
-        return var_name in self.context[self.source][self.context_lvl]["inline_vars"]
+        for cur_context_lvl in range(self.context_lvl+1):
+            if var_name in self.context[self.source][cur_context_lvl]["inline_vars"]:
+                return True
+        return False
 
     def get_inlines(self):
         return {k1: v1.copy() for k1, v1 in self.context[self.source][self.context_lvl]["inline_vars"].items()}
@@ -1660,35 +1709,39 @@ class Context:
         self.cur_context["callable"][var_name] = var_object
 
     def get_special(self, var_name):
-        if var_name not in self.context[self.source][self.context_lvl]["callable"]:
-            return
-        return self.context[self.source][self.context_lvl]["callable"][var_name]
+        for cur_context_lvl in range(self.context_lvl, -1, -1):
+            if var_name in self.context[self.source][cur_context_lvl]["callable"]:
+                return self.context[self.source][cur_context_lvl]["callable"][var_name]
 
     def has_special(self, var_name):
-        return var_name in self.context[self.source][self.context_lvl]["callable"]
+        for cur_context_lvl in range(self.context_lvl+1):
+            if var_name in self.context[self.source][cur_context_lvl]["callable"]:
+                return True
+        return False
 
     def get_specials(self):
         return self.context[self.source][self.context_lvl]["callable"]
 
     def next_lvl(self):
         self.context_lvl += 1
-        self.context[self.source][self.context_lvl] = copy.deepcopy(self.context[self.source][
-                                                                        self.context_lvl - 1])
-        self.context[self.source][self.context_lvl]["operations"] = []
-        self.cur_context = copy.deepcopy(self.context[self.source][self.context_lvl])
+        self.context[self.source][self.context_lvl] = copy.deepcopy(self.default_context)
+        self.cur_context = copy.deepcopy(self.default_cur_context)
 
     def previous_lvl(self):
         del self.context[self.source][self.context_lvl]
         self.context_lvl -= 1
         if self.context_lvl not in self.context[self.source]:
-            self.context[self.source][self.context_lvl] = {"operations": [], "variables": {},
-                                                           "vars": {0: {}, 1: {}, 2: {}, 3: {}, 4: {}},
-                                                           "inline_vars": {},
-                                                           "callable": {}}
-        self.cur_context = copy.deepcopy(self.context[self.source][self.context_lvl])
+            self.context[self.source][self.context_lvl] = copy.deepcopy(self.default_context)
+        self.cur_context = copy.deepcopy(self.default_cur_context)
 
     def update(self):
-        self.context[self.source][self.context_lvl] = copy.deepcopy(self.cur_context)
+        #{"operations": [], "variables": {}, "vars": {0: {}, 1: {}, 2: {}, 3: {}, 4: {}}, "inline_vars": {}, "callable": {}}
+        self.context[self.source][self.context_lvl]["variables"].update(self.cur_context["variables"])
+        for vars_type in range(5):
+            self.context[self.source][self.context_lvl]["vars"][vars_type].update(self.cur_context["vars"][vars_type])
+        self.context[self.source][self.context_lvl]["inline_vars"].update(self.cur_context["inline_vars"])
+        self.context[self.source][self.context_lvl]["callable"].update(self.cur_context["callable"])
+        self.cur_context = copy.deepcopy(self.default_cur_context)
 
     def get_json(self):
         self.json_obj = {"handlers": []}
@@ -1774,12 +1827,12 @@ class Context:
             another_context.context[another_context.source][another_context.context_lvl]["inline_vars"])
         self.context[self.source]["cur_context"]["callable"].update(
             another_context.context[another_context.source][another_context.context_lvl]["callable"])
-        if len(self.context[self.source]["cur_context"]["operations"]) == 0:
-            self.context[self.source]["cur_context"]["operations"].append(event("world_start", [], self.source))
-        elif self.context[self.source]["cur_context"]["operations"][0].type != "event":
-            self.context[self.source]["cur_context"]["operations"].insert(0, event("world_start", [], self.source))
-        elif self.context[self.source]["cur_context"]["operations"][0].name != "world_start":
-            self.context[self.source]["cur_context"]["operations"].insert(0, event("world_start", [], self.source))
+        if len(self.context[self.source][self.context_lvl]["operations"]) == 0:
+            self.context[self.source][self.context_lvl]["operations"].append(event("world_start", [], self.source))
+        elif self.context[self.source][self.context_lvl]["operations"][0].type != "event":
+            self.context[self.source][self.context_lvl]["operations"].insert(0, event("world_start", [], self.source))
+        elif self.context[self.source][self.context_lvl]["operations"][0].name != "world_start":
+            self.context[self.source][self.context_lvl]["operations"].insert(0, event("world_start", [], self.source))
         if len(another_context.context[another_context.source][another_context.context_lvl]["operations"]) == 0:
             another_context.context[another_context.source][another_context.context_lvl]["operations"].append(
                 event("world_start", [], self.source))
@@ -1791,10 +1844,10 @@ class Context:
             0].name != "world_start":
             another_context.context[another_context.source][another_context.context_lvl]["operations"].insert(0, event(
                 "world_start", [], self.source))
-        self.context[self.source]["cur_context"]["operations"][0].operations.extend(
+        self.context[self.source][self.context_lvl]["operations"][0].operations.extend(
             another_context.context[another_context.source][another_context.context_lvl]["operations"].pop(
                 0).operations)
-        self.context[self.source]["cur_context"]["operations"].extend(
+        self.context[self.source][self.context_lvl]["operations"].extend(
             another_context.context[another_context.source][another_context.context_lvl]["operations"])
 
     def __str__(self):
@@ -2268,7 +2321,7 @@ class var:
         elif self.var_type == Vars.SAVE:
             var_prefix = "%var_save("
         else:
-            error_from_object(self, "", "")
+            error_from_object(self, "", translate("error.unknown"))
             var_prefix = ""
         return var_prefix + self.value + ")"
 
@@ -2279,7 +2332,7 @@ class var:
             previous_operations, self.value, next_operations = giga_value(self, self.value)
         if self.var_type == Vars.INLINE:
             if len(previous_operations) + len(next_operations) > 0:
-                error_from_object(self, "", "")
+                error_from_object(self, "", translate("error.unknown"))
             val = Context(self.source).get_inline(self.value)
             val.starting_pos = self.starting_pos
             val.ending_pos = self.ending_pos
@@ -2388,7 +2441,7 @@ class calling_args:
                                   translate("error.argumenterror.wrong_argument", {0: i1.type, 1: "variable"}))
                 exit()
             if arg["id"] in arg_names:
-                error_from_object(i1, "", "")
+                error_from_object(i1, "", translate("error.unknown"))
             args.append(arg)
             arg_names.add(arg["id"])
         for k1, v1 in self.unpositional.items():
@@ -2397,7 +2450,7 @@ class calling_args:
                                   translate("error.jsonerror.object_isnt_simple", {0: v1}))
             arg = {"id": k1, "type": v1.type, "optional": v1, "unpacked": 0}
             if k1 in arg_names:
-                error_from_object(v1, "", "")
+                error_from_object(v1, "", translate("error.unknown"))
             args.append(arg)
             arg_names.add(k1)
         return args
@@ -2480,6 +2533,8 @@ def find_value_from_list(val, possible_list=None):
         if i1.lower().startswith(val.lower()):
             check_enum += 1
             val = i1
+        if i1.lower() == val.lower():
+            return i1
 
     if check_enum != 1:
         return -1
@@ -2501,7 +2556,7 @@ class value:
             if isinstance(selector.value, list):
                 previous_operations, selector.value, next_operations = giga_value(self, selector.value)
                 if len(previous_operations) + len(next_operations) > 0:
-                    error_from_object(self, "", "")
+                    error_from_object(self, "", translate("error.unknown"))
             self.selector = find_value_from_list(selector.value, self.possible_selectors)
             if self.selector == -1:
                 error_from_object(selector, "SelectorError", translate("error.argumenterror.unknown_selector",
@@ -2590,7 +2645,7 @@ class action:
             if isinstance(self.selector.value, list):
                 previous_operations, self.selector.value, next_operations = giga_value(self, self.selector)
                 if len(previous_operations) + len(next_operations) > 0:
-                    error_from_object(self, "", "")
+                    error_from_object(self, "", translate("error.unknown"))
             if self.object == "player":
                 possible_selectors = {"current", "default_player", "killer_player", "damager_player", "shooter_player",
                                       "victim_player", "random_player", "all_players"}
@@ -2613,11 +2668,11 @@ class action:
             thing = self.args.get_args(["conditional"])["conditional"]
             a1, thing, a2 = thing.simplify()
             if not thing.type == "action":
-                error_from_object(thing, "", translate("error.unknown"))
+                error_from_object(thing, "ArgumentError", translate("error.argumenterror.wrong_argument",{0:thing.type,1:"action"}))
             if not actions[thing.object][thing.name].setdefault("boolean", False):
-                error_from_object(thing, "", translate("error.unknown"))
+                error_from_object(thing, "ArgumentError", translate("error.argumenterror.expected_boolean"))
             if len(a1) + len(a2) > 0:
-                error_from_object(thing, "", translate("error.unknown"))
+                error_from_object(thing, "ArgumentError", translate("error.jsonerror.object_isnt_simple"))
             self.conditional = thing
             self.simple = True
             self.args = thing.args
@@ -2689,9 +2744,10 @@ class action:
                         return load_args["value"].simplify(mode=0, work_with=work_with)
                     if load_args["variable"].type in {"subscript", "calling_argument"}:
                         return load_args["variable"].simplify(mode=1, work_with=load_args["value"])
-                    load_args["variable"].value_type = load_args["value"].type if load_args[
-                                                                                      "value"].type != "variable" else \
-                    load_args["value"].value_type
+                    if load_args["value"].type == "variable":
+                        load_args["variable"].value_type = load_args["value"].value_type if load_args["value"].value_type is not None else context.get_variable_type(load_args["value"].var_type, load_args["value"].value)
+                    elif load_args["value"].type == "value":
+                        load_args["variable"].value_type = load_args["value"].value_type
             if inline:
                 context.set_inline(work_with[0].value, self.remove_inlines())
                 return [], None, []
@@ -3005,7 +3061,7 @@ class calling_object:
             if mode == 0:
                 error_from_object(self, "ActionError", translate("error.actionerror.action_has_no_value", {0: self}))
         else:
-            error_from_object(self, "", "Не поддерживается")
+            error_from_object(self, "", translate("error.unknown"))
         return previous_operations, None, next_operations
 
     def remove_inlines(self):
@@ -3022,7 +3078,7 @@ class calling_argument:
         self.starting_pos = starting_pos
         self.ending_pos = ending_pos
         self.source = source
-        error_from_object(self, "", "Не поддерживается")
+        error_from_object(self, "", translate("error.unknown"))
 
     def __str__(self):
         return f'call_argument({self.object}, {self.arg})'
@@ -3108,7 +3164,7 @@ class calling_function:
                 else:
                     return self.object.simplify(mode=mode, work_with=work_with)
             else:
-                error_from_object(self, "", "Не поддерживается")
+                error_from_object(self, "", translate("error.unknown"))
         if mode == 1:
             error_from_object(self, "ActionError", translate("error.actionerror.action_cant_be_setter", {0: self}))
 
@@ -3128,7 +3184,7 @@ class subscript:
         self.starting_pos = starting_pos
         self.ending_pos = ending_pos
         self.source = source
-        error_from_object(self, "", "Не поддерживается")
+        error_from_object(self, "", translate("error.unknown"))
 
     def __str__(self):
         return f'subscript({self.object}, {self.arg1}:{self.arg2})'
@@ -3361,19 +3417,19 @@ class function:
             if self.description is not None:
                 nani1, args["description"], nani2 = lst(self.description, -1, -1, self.source).simplify()
                 if len(nani1) + len(nani2) > 0:
-                    error_from_object(self, "", "")
+                    error_from_object(self, "", translate("error.unknown"))
                 for i1 in args["description"].values:
                     if not i1.type == "text":
-                        error_from_object(i1, "", "")
+                        error_from_object(i1, "", translate("error.unknown"))
             if self.icon is not None:
                 if not self.icon.is_simple():
                     nani1, args["icon"], nani2 = self.icon.simplify()
                     if len(nani1) + len(nani2) > 0:
-                        error_from_object(self, "", "")
+                        error_from_object(self, "", translate("error.unknown"))
                 else:
                     args["icon"] = self.icon
                 if not args["icon"].type == "item":
-                    error_from_object(args["icon"], "", "")
+                    error_from_object(args["icon"], "", translate("error.unknown"))
         if len(args) > 0:
             a["values"] = [{"name": k1, "value": v1.json()} for k1, v1 in args.items()]
         return a
@@ -3442,19 +3498,19 @@ class process:
             if self.description is not None:
                 nani1, args["description"], nani2 = lst(self.description, -1, -1, self.source).simplify()
                 if len(nani1) + len(nani2) > 0:
-                    error_from_object(self, "", "")
+                    error_from_object(self, "", translate("error.unknown"))
                 for i1 in args["description"].values:
                     if not i1.type == "text":
-                        error_from_object(i1, "", "")
+                        error_from_object(i1, "", translate("error.unknown"))
             if self.icon is not None:
                 if not self.icon.is_simple():
                     nani1, args["icon"], nani2 = self.icon.simplify()
                     if len(nani1) + len(nani2) > 0:
-                        error_from_object(self, "", "")
+                        error_from_object(self, "", translate("error.unknown"))
                 else:
                     args["icon"] = self.icon
                 if not args["icon"].type == "item":
-                    error_from_object(args["icon"], "", "")
+                    error_from_object(args["icon"], "", translate("error.unknown"))
         if len(args) > 0:
             a["values"] = [{"name": k1, "value": v1.json()} for k1, v1 in args.items()]
         return a
@@ -3902,56 +3958,56 @@ class item:
                                                                                                 work_with=work_with)
         previous_operations = []
         next_operations = []
-        self.args = self.args.get_args(list(self.type_args.keys()))
-        for k1 in self.args:
-            if self.args[k1] is None:
+        args = self.args.get_args(list(self.type_args.keys()))
+        for k1 in args:
+            if args[k1] is None:
                 continue
-            if not self.args[k1].is_simple():
-                if self.args[k1].type == "snbt":
+            if not args[k1].is_simple():
+                if args[k1].type == "snbt":
                     continue
-                prev_ops, self.args[k1], next_ops = self.args[k1].simplify()
+                prev_ops, args[k1], next_ops = args[k1].simplify()
                 previous_operations.extend(prev_ops)
                 next_operations.extend(next_ops)
             if isinstance(self.type_args[k1], str):
-                if self.args[k1].type == self.type_args[k1]:
+                if args[k1].type == self.type_args[k1]:
                     continue
             elif isinstance(self.type_args[k1], (list, tuple)):
-                if self.args[k1].type in self.type_args[k1]:
+                if args[k1].type in self.type_args[k1]:
                     continue
-            error_from_object(self.args[k1], "ArgumentError", translate("error.argumenterror.wrong_argument",
-                                                                        {0: self.args[k1].type, 1: self.type_args[k1]}))
-        self.args["id"].value = self.args["id"].value.lower().replace("minecraft:", "")
-        if self.args["id"].value not in items:
-            error_from_object(self.args["id"], "ArgumentError",
-                              translate("error.unexistsitem", {0: self.args["id"].value}))
+            error_from_object(args[k1], "ArgumentError", translate("error.argumenterror.wrong_argument",
+                                                                        {0: args[k1].type, 1: self.type_args[k1]}))
+        args["id"].value = args["id"].value.lower().replace("minecraft:", "")
+        if args["id"].value not in items:
+            error_from_object(args["id"], "ArgumentError",
+                              translate("error.unexistsitem", {0: args["id"].value}))
         self.item = nbtworker.Compound(
-            id=nbtworker.String(self.args["id"].value if self.args["id"] is not None else ""),
-            count=nbtworker.Int(self.args["count"].value if self.args["count"] is not None else 1))
-        if self.args["nbt"] is not None:
-            self.item["components"] = self.args["nbt"].value
-        if self.args["name"] is not None or self.args["lore"] is not None:
+            id=nbtworker.String(args["id"].value if args["id"] is not None else ""),
+            count=nbtworker.Int(args["count"].value if args["count"] is not None else 1))
+        if args["nbt"] is not None:
+            self.item["components"] = args["nbt"].value
+        if args["name"] is not None or args["lore"] is not None:
             if "components" not in self.item:
                 self.item["components"] = nbtworker.Compound()
-            if self.args["name"] is not None:
+            if args["name"] is not None:
                 self.item["components"]["minecraft:custom_name"] = nbtworker.String(
-                    json.dumps(minecraft_text(self.args["name"].value), ensure_ascii=False, separators=(',', ':')))
-            if self.args["lore"] is not None:
-                if self.args["lore"].type != "array":
-                    lore = self.args["lore"].value.split("\\n")
+                    json.dumps(minecraft_text(args["name"].value), ensure_ascii=False, separators=(',', ':')))
+            if args["lore"] is not None:
+                if args["lore"].type != "array":
+                    lore = args["lore"].value.split("\\n")
                 else:
-                    lore = [i1.value for i1 in self.args["lore"].values]
+                    lore = [i1.value for i1 in args["lore"].values]
                 self.item["components"]["minecraft:lore"] = nbtworker.List(
                     *map(nbtworker.String, [json.dumps(i2, ensure_ascii=False, separators=(',', ':')) for i2 in
                                             map(minecraft_text, lore)]))
-        if self.args["custom_tags"] is not None:
+        if args["custom_tags"] is not None:
             if "components" not in self.item:
                 self.item["components"] = nbtworker.Compound()
             if "custom_data" not in self.item:
                 self.item["components"]["minecraft:custom_data"] = nbtworker.Compound()
             if "PublicBukkitValues" not in self.item["components"]:
                 self.item["components"]["minecraft:custom_data"]["PublicBukkitValues"] = nbtworker.Compound()
-            for ind in range(len(self.args["custom_tags"].keys)):
-                k1, v1 = self.args["custom_tags"].keys[ind].value, self.args["custom_tags"].values[ind].value
+            for ind in range(len(args["custom_tags"].keys)):
+                k1, v1 = args["custom_tags"].keys[ind].value, args["custom_tags"].values[ind].value
                 self.item["components"]["minecraft:custom_data"]["PublicBukkitValues"][
                     f"justcreativeplus:{k1}"] = nbtworker.String(str(v1))
         self.simple = True
@@ -3967,6 +4023,8 @@ class item:
         return self
 
     def remove_inlines(self):
+        if self.simple:
+            return self
         self.args = self.args.remove_inlines()
         return self
 
@@ -4040,6 +4098,8 @@ class location:
         return self
 
     def remove_inlines(self):
+        if self.simple:
+            return self
         self.args = self.args.remove_inlines()
         return self
 
@@ -4399,7 +4459,7 @@ class class_:
         self.source = source
 
     def __str__(self):
-        return f'class({self.args})'
+        return f'class({self.name})'
 
     def __repr__(self):
         return self.__str__()
@@ -4466,6 +4526,8 @@ def compile_file(file_path, upload=False, properties=None):
         properties = Properties(text=open(pr_source, "r", encoding="UTF-8").read()).properties
     code = parse_from_file(file, properties)
     code = code.get_json()
+    end_time = time()
+    print(minecraft_based_text(f"&fКомпиляция кода заняла: &e{round(end_time-start_time,3)} &fсекунд."))
     if not upload:
         if properties.setdefault("compact", False):
             open(source + ".json", "w").write(json.dumps(code, separators=(',', ':')))
