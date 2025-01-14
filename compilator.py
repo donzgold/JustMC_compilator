@@ -1105,7 +1105,7 @@ class Parser:
                     count += 1
                 elif self.current_token.type == Tokens.RCPAREN:
                     count -= 1
-                if self.current_token.type == Tokens.RETURN:
+                if self.current_token.type == Tokens.RETURN and (self.token(self.index+1).type not in {Tokens.NEXT_LINE, Tokens.SEMICOLON}):
                     allow_return = True
                 self.eat(self.current_token.type)
             if allow_return:
@@ -1228,10 +1228,15 @@ class Parser:
                 self.context.previous_lvl()
                 ending_pos = self.current_token.ending_pos
                 self.eat(Tokens.RCPAREN)
+                found = False
+                cur_index = self.index
+                self.skip_next_lines()
                 eli = []
                 while (self.current_token.type != Tokens.EOF) and (
                         self.current_token.type == Tokens.ELIF or (self.current_token.type == Tokens.ELSE
                                                                    and self.token(self.index + 1).type == Tokens.IF)):
+                    found = True
+
                     if self.current_token.type == Tokens.ELIF:
                         self.eat(Tokens.ELIF)
                     else:
@@ -1248,8 +1253,11 @@ class Parser:
                     ending_pos = self.current_token.ending_pos
                     self.eat(Tokens.RCPAREN)
                     eli.append([condition, ops])
+                    cur_index = self.index
+                    self.skip_next_lines()
                 els = []
                 if self.current_token.type == Tokens.ELSE:
+                    found = True
                     self.eat(Tokens.ELSE)
                     self.eat(Tokens.LCPAREN)
                     self.context.next_lvl()
@@ -1260,13 +1268,29 @@ class Parser:
                     self.context.previous_lvl()
                     ending_pos = self.current_token.ending_pos
                     self.eat(Tokens.RCPAREN)
+                if not found:
+                    self.index = cur_index
+                    self.current_token = self.token(self.index)
             return if_(main_condition, main_ops, eli, els, token.starting_pos, ending_pos, self.source)
         elif self.current_token.type == Tokens.RETURN and len(self.context.settings["allow_returns"]) > 0:
             starting_pos = self.current_token.starting_pos
+            ending_pos = self.current_token.ending_pos
             self.eat(Tokens.RETURN)
-            obj = self.expr()
-            obej = return_(obj, starting_pos, obj.ending_pos, self.source,
-                           in_var=self.context.settings["allow_returns"][-1])
+            if self.current_token.type == Tokens.NEXT_LINE:
+                obj = None
+                self.eat(Tokens.NEXT_LINE)
+            elif self.current_token.type == Tokens.SEMICOLON:
+                obj = None
+                self.eat(Tokens.SEMICOLON)
+            else:
+                obj = self.expr()
+                ending_pos = obj.ending_pos
+            if obj is not None:
+                obej = return_(obj, starting_pos, ending_pos, self.source,
+                               in_var=self.context.settings["allow_returns"][-1])
+            else:
+                obej = action("code", "return_function", calling_args([], {}, starting_pos, ending_pos, self.source),
+                       starting_pos, ending_pos, self.source)
             if len(self.context.settings["inline"]) > 0:
                 self.context.settings["return_counter"] += 1
                 if self.context.settings["return_counter"] > 1:
@@ -1394,22 +1418,29 @@ class Parser:
             obj.lambd = lambd
         return obj
 
-    def up_statement(self, end_reason=None):
+    def skip_next_lines(self):
         while self.current_token.type == Tokens.NEXT_LINE:
             self.eat(self.current_token.type)
-        if self.current_token.type == Tokens.EOF or self.current_token.type == end_reason:
+
+    def up_statement(self, end_reason=None):
+        self.skip_next_lines()
+        if self.current_token.type == Tokens.EOF or (end_reason is not None and self.current_token.type == end_reason):
             return
         jmcc_obj = self.statement()
-        if end_reason is not None and self.current_token.type == end_reason:
-            return jmcc_obj
+        if end_reason is not None:
+            cur_index = self.index
+            self.skip_next_lines()
+            if self.current_token.type == end_reason:
+                return jmcc_obj
+            else:
+                self.index = cur_index
+                self.current_token = self.token(self.index)
         if self.current_token.type == Tokens.NEXT_LINE:
             self.eat(Tokens.NEXT_LINE)
         elif self.current_token.type == Tokens.SEMICOLON:
             self.eat(Tokens.SEMICOLON)
         elif self.current_token.type != Tokens.EOF:
             error_from_object(self.current_token, "SyntaxError", translate("error.syntaxerror.statements_not_separated"))
-        while self.current_token.type == Tokens.NEXT_LINE:
-            self.eat(self.current_token.type)
         return jmcc_obj
     def parse(self):
         while self.current_token.type != Tokens.EOF:
@@ -1428,7 +1459,7 @@ class Parser:
                     self.context.update()
                     self.context.settings["allow_returns"].append(i1.return_var)
                     while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                        self.context.add_operation(self.up_statement())
+                        self.context.add_operation(self.up_statement(Tokens.RCPAREN))
                         self.context.update()
                     del self.context.settings["allow_returns"][-1]
                 elif isinstance(i1, (process, event)):
@@ -1437,7 +1468,7 @@ class Parser:
                             self.context.set_variable_type(Vars.LOCAL, i2["id"], i2["type"])
                         self.context.update()
                     while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                        self.context.add_operation(self.up_statement())
+                        self.context.add_operation(self.up_statement(Tokens.RCPAREN))
                         self.context.update()
                 else:
                     error_from_object(i1, "", translate("error.unknown"))
@@ -3391,10 +3422,9 @@ class function:
         return a
 
     def json(self):
-        if len(self.operations) > 0:
-            while self.operations[-1].type == "action" and (
-                    self.operations[-1].object == "code" and self.operations[-1].name == "return_function"):
-                del self.operations[-1]
+        while len(self.operations) > 0 and self.operations[-1].type == "action" and (
+                self.operations[-1].object == "code" and self.operations[-1].name == "return_function"):
+            del self.operations[-1]
         a = {"type": "function", "position": new("event"), "operations": [i3.json() for i3 in self.operations],
              "name": self.name}
         args = {}
@@ -4457,6 +4487,7 @@ class class_:
 
     def __init__(self, name: str, parent: str, operations: list, source, inline=False, return_var=None):
         self.source = source
+        self.name = name
 
     def __str__(self):
         return f'class({self.name})'

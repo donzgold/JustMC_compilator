@@ -6,11 +6,6 @@ symbol_table = dict()
 actions = dict()
 origin_actions = dict()
 non_origin_actions = dict()
-allowed_actions = ["=", "+=", "-=", "%=", "^=", "//=", "/=", "*=", "subscript"]
-math_functions = {"round": ["first", "second"], "floor": ["first"], "ceil": ["first"], "abs": ["first"],
-                  "sqrt": ["first"], "cbrt:": ["first"], "pow": ["first"], "min": ["first", "second"],
-                  "max": ["first", "second"],
-                  "sign": ["first"]}
 events = dict()
 values = dict()
 color_codes = {"0": "#000000", "1": "#0000AA", "2": "#00AA00", "3": "#00AAAA", "4": "#AA0000", "5": "#AA00AA",
@@ -22,8 +17,7 @@ current_indent = 0
 
 
 def fix_var_name(var_name):
-    for i in var_name:
-        if not (i in allowed_symbols or i == "_"):
+    if not is_normal(var_name):
             return "`" + var_name.replace("\\", "\\\\").replace('`', '\\`') + "`"
     return var_name
 
@@ -31,6 +25,11 @@ def fix_var_name(var_name):
 def is_not_none(th):
     return th is not None
 
+def is_normal(th):
+    for i in th:
+        if not (i.isalpha() or i.isdigit() or i == "_"):
+            return False
+    return True
 
 def decompile(thing):
     global current_indent
@@ -44,7 +43,7 @@ def decompile(thing):
                       "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
         return ret
     elif typ == "function":
-        ret = f"function {fix_var_name(thing['name'])}()" + "{" + (
+        ret = f"function {fix_var_name(thing['name'])}" + "{" + (
                 "\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
                       "\n" + " " * (current_indent * 4)).join(
             list(filter(is_not_none, map(decompile, thing["operations"])))) + (
@@ -63,7 +62,9 @@ def decompile(thing):
         return (thing['parsing'][0] if thing['parsing'] != 'legacy' else '') + "\"" + thing['text'].replace(
             "\\", "\\\\").replace("\"", "\\\"") + "\""
     elif typ == "variable":
-        return thing['scope'][0] + "`" + thing['variable'].replace("\\", "\\\\").replace('`', '\\`') + "`"
+        if thing["scope"] == "local" and is_normal(thing['variable']):
+            return thing['variable']
+        return thing['scope'][0] + fix_var_name(thing['variable'])
     elif typ == "number":
         if isinstance(thing["number"], int) or isinstance(thing["number"], float):
             return str(thing["number"])
@@ -74,7 +75,10 @@ def decompile(thing):
         else:
             return "\"" + thing['enum'].replace("\\", "\\\\").replace("\"", "\\\"") + "\""
     elif typ == "array":
-        return f"[{', '.join(list(filter(is_not_none, map(decompile, thing['values']))))}]"
+        arr = list(filter(is_not_none, map(decompile, thing['values'])))
+        if len(arr) == 1:
+            return arr[0]
+        return f"[{', '.join(arr)}]"
     elif typ == "item":
         try:
             it = nbtworker.load(thing["item"])
@@ -111,7 +115,7 @@ def decompile(thing):
             ret = "else{" + ("\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
                     "\n" + " " * (current_indent * 4)).join(
                 list(filter(is_not_none, map(decompile, thing["operations"])))) + (
-                          "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
+                          "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}"
             return ret
         act = actions[thing["action"]]
         if act["type"] == "basic":
@@ -119,7 +123,7 @@ def decompile(thing):
             arg_text = []
             pos = True
             if "assign" in act:
-                ass = [list(arg.keys())[0] for arg in act["assign"]]
+                ass = [arg["id"] for arg in act["assign"]]
                 ass_pos = True
             else:
                 ass_pos = False
@@ -154,15 +158,15 @@ def decompile(thing):
                 elif pos:
                     pos = False
             if act["id"] == "set_variable_value":
-                ret = (f"{', '.join(ass_text)} = {', '.join(arg_text)}" if len(ass_text) != 0 else "")
+                ret = (f"{', '.join(ass_text)} = {', '.join(arg_text)};" if len(ass_text) != 0 else "")
             elif act["id"] == "set_variable_create_list":
-                ret = (f"{', '.join(ass_text)} = [{', '.join(arg_text)}]" if len(ass_text) != 0 else "")
+                ret = (f"{', '.join(ass_text)} = {', '.join(arg_text)};" if len(ass_text) != 0 else "")
             else:
                 ret = ""
             if ret == "":
                 ret = (f"{', '.join(ass_text)} = " if len(ass_text) != 0 else "") + (
                     (ori + ".") if (ori != "") else (act["object"] + "::")) + act["name"] + "(" + ", ".join(
-                    arg_text) + ")"
+                    arg_text) + ");"
             return ret
         elif act["type"] == "basic_with_conditional":
             new_thing = thing["conditional"]
@@ -196,7 +200,7 @@ def decompile(thing):
             new_ret = ('not ' if new_thing.setdefault('is_inverted', False) else '') + (
                 (ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
                 arg_text) + ")"
-            return act["object"] + "::" + act["name"] + "(" + new_ret + ")"
+            return act["object"] + "::" + act["name"] + "(" + new_ret + ");"
         elif act["type"] == "container":
             args = {arg["name"]: arg for arg in thing["values"]}
             arg_text = []
@@ -235,7 +239,7 @@ def decompile(thing):
             ret = ret + "{" + ("\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
                     "\n" + " " * (current_indent * 4)).join(
                 list(filter(is_not_none, map(decompile, thing["operations"])))) + (
-                          "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
+                          "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}"
             return ret
         elif act["type"] == "container_with_conditional":
             new_thing = thing["conditional"]
