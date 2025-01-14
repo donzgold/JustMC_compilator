@@ -1397,7 +1397,7 @@ class Parser:
     def up_statement(self, end_reason=None):
         while self.current_token.type == Tokens.NEXT_LINE:
             self.eat(self.current_token.type)
-        if self.current_token.type == Tokens.EOF:
+        if self.current_token.type == Tokens.EOF or self.current_token.type == end_reason:
             return
         jmcc_obj = self.statement()
         if end_reason is not None and self.current_token.type == end_reason:

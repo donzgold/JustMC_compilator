@@ -30,7 +30,7 @@
 
    ```shell
    # Для Windows
-   $ python jmcc.py compile example.jc
+   $ py jmcc.py compile example.jc
    ```
 
 Для просмотра помощи о командах, используйте команду `help`
