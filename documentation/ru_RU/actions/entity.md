@@ -4200,6 +4200,22 @@ if(entity::is_type([item("stick"), item("stick")])){
 | **Имя**        | **Тип**         | **Описание** |
 | -------------- | --------------- | ------------ |
 | `entity_types` | список[Предмет] | Тип существа |
+<h3 id=if_entity_is_undead>
+  <code>entity::is_undead</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Является нежитью\
+**Тип:** Действие, проверяющее условие\
+**Описание:** Проверяет, является ли существо нежитью.
+
+**Пример использования:** 
+```ts
+if(entity::is_undead()){
+    player::message("Условие верно");
+}
+```
+
 <h3 id=if_entity_is_vehicle>
   <code>entity::is_vehicle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

@@ -4200,6 +4200,22 @@ if(entity::is_type([item("stick"), item("stick")])){
 | **Name**       | **Type**   | **Description** |
 | -------------- | ---------- | --------------- |
 | `entity_types` | list[Item] | Entity Type     |
+<h3 id=if_entity_is_undead>
+  <code>entity::is_undead</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action that checks the conditions\
+**Description:** None
+
+**Usage example:** 
+```ts
+if(entity::is_undead()){
+    player::message("Condition is true");
+}
+```
+
 <h3 id=if_entity_is_vehicle>
   <code>entity::is_vehicle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

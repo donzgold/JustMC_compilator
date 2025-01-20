@@ -62,8 +62,10 @@ def decompile(thing):
         return (thing['parsing'][0] if thing['parsing'] != 'legacy' else '') + "\"" + thing['text'].replace(
             "\\", "\\\\").replace("\"", "\\\"") + "\""
     elif typ == "variable":
-        if thing["scope"] == "local" and is_normal(thing['variable']):
-            return thing['variable']
+        if is_normal(thing['variable']):
+            if thing["scope"] == "local":
+                return thing['variable']
+            return thing['scope'][0] + "`"+fix_var_name(thing['variable'])+"`"
         return thing['scope'][0] + fix_var_name(thing['variable'])
     elif typ == "number":
         if isinstance(thing["number"], int) or isinstance(thing["number"], float):

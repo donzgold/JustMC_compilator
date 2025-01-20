@@ -277,7 +277,8 @@ class Lexer:
                 elif self.current_char == "$":
                     if len(token_value) > 0:
                         giga_token.append(
-                            Token(Tokens.STRING, token_value, starting_pos, self.current_pos - 1, self.source))
+                            [Token(Tokens.STRING, token_value, starting_pos, self.current_pos - 1, self.source),
+                             Token(Tokens.NONE, "${", self.current_pos, self.current_pos, self.source)])
                     token_value = ""
                     new_starting_pos = self.current_pos
                     self.advance()
@@ -322,8 +323,9 @@ class Lexer:
                                  self.current_pos - 1, self.source)
                 else:
                     if len(token_value) > 0:
-                        giga_token.append(
-                            Token(Tokens.STRING, token_value, starting_pos, self.current_pos - 1, self.source))
+                        giga_token.append([
+                            Token(Tokens.STRING, token_value, starting_pos, self.current_pos - 1, self.source),
+                            Token(Tokens.NONE, "}", self.current_pos, self.current_pos, self.source)])
                     release_index = global_text[self.source].index(mode if mode != ">" else "<", starting_pos,
                                                                    self.current_pos - 1) + 1
                     release = global_text[self.source][release_index:self.current_pos - 1]
@@ -676,6 +678,10 @@ class Parser:
                 sargs = self.get_args()
                 ending_pos = self.current_token.ending_pos
                 self.eat(Tokens.RPAREN)
+                if token.giga is not None:
+                    previous_operations, token.value, next_operations = giga_value(token, self.get_giga_token(token.giga))
+                    if len(previous_operations) + len(next_operations) > 0:
+                        error_from_object(token, "", translate("error.unknown"))
                 tru = self.context.get_special(token.value)
                 if tru is not None and tru["type"] == "function" and tru["inline"]:
                     self.context.next_lvl()
@@ -960,7 +966,7 @@ class Parser:
             self.eat(Tokens.VARIABLE)
             variable = var(token.value if token.giga is None else self.get_giga_token(token.giga), Vars.SAVE,
                            token.starting_pos, token.ending_pos, self.source)
-            self.context.set_variable(variable.value, Vars.SAVE)
+            self.context.set_variable(token.value, Vars.SAVE)
         elif self.current_token.type == Tokens.GAME_DEFINE:
             self.eat(Tokens.GAME_DEFINE)
             self.eat(Tokens.VAR_DEFINE)
@@ -968,7 +974,7 @@ class Parser:
             self.eat(Tokens.VARIABLE)
             variable = var(token.value if token.giga is None else self.get_giga_token(token.giga), Vars.GAME,
                            token.starting_pos, token.ending_pos, self.source)
-            self.context.set_variable(variable.value, Vars.GAME)
+            self.context.set_variable(token.value, Vars.GAME)
         elif self.current_token.type == Tokens.LOCAL_DEFINE:
             self.eat(Tokens.LOCAL_DEFINE)
             self.eat(Tokens.VAR_DEFINE)
@@ -976,14 +982,14 @@ class Parser:
             self.eat(Tokens.VARIABLE)
             variable = var(token.value if token.giga is None else self.get_giga_token(token.giga), Vars.LOCAL,
                            token.starting_pos, token.ending_pos, self.source)
-            self.context.set_variable(variable.value, Vars.LOCAL)
+            self.context.set_variable(token.value, Vars.LOCAL)
         elif self.current_token.type == Tokens.VAR_DEFINE:
             self.eat(Tokens.VAR_DEFINE)
             token = self.current_token
             self.eat(Tokens.VARIABLE)
             variable = var(token.value if token.giga is None else self.get_giga_token(token.giga), Vars.LOCAL,
                            token.starting_pos, token.ending_pos, self.source)
-            self.context.set_variable(variable.value, Vars.LOCAL)
+            self.context.set_variable(token.value, Vars.LOCAL)
         elif self.current_token.type == Tokens.LINE_DEFINE:
             self.eat(Tokens.LINE_DEFINE)
             self.eat(Tokens.VAR_DEFINE)
@@ -991,7 +997,7 @@ class Parser:
             self.eat(Tokens.VARIABLE)
             variable = var(token.value if token.giga is None else self.get_giga_token(token.giga), Vars.LINE,
                            token.starting_pos, token.ending_pos, self.source)
-            self.context.set_variable(variable.value, Vars.LINE)
+            self.context.set_variable(token.value, Vars.LINE)
         elif self.current_token.type == Tokens.INLINE_DEFINE:
             self.eat(Tokens.INLINE_DEFINE)
             self.eat(Tokens.VAR_DEFINE)
@@ -999,7 +1005,7 @@ class Parser:
             self.eat(Tokens.VARIABLE)
             variable = var(token.value if token.giga is None else self.get_giga_token(token.giga), Vars.INLINE,
                            token.starting_pos, token.ending_pos, self.source)
-            self.context.set_variable(variable.value, Vars.INLINE)
+            self.context.set_variable(token.value, Vars.INLINE)
         elif self.current_token.type in {Tokens.VARIABLE, Tokens.LOCAL_VARIABLE, Tokens.SAVE_VARIABLE,
                                          Tokens.GAME_VARIABLE, Tokens.LINE_VARIABLE, Tokens.INLINE_VARIABLE} and self.token(self.index+1).type != Tokens.DOUBLE_COLON:
             variable = self.factor()
@@ -3734,7 +3740,8 @@ class enum_:
         return self
 
     def remove_inlines(self):
-        self.var = self.var.remove_inlines()
+        if self.var is not None:
+            self.var = self.var.remove_inlines()
         return self
 
 

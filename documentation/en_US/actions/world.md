@@ -1571,6 +1571,28 @@ world::set_world_difficulty("EASY");
 | **Name**     | **Type**                                                                                           | **Description** |
 | ------------ | -------------------------------------------------------------------------------------------------- | --------------- |
 | `difficulty` | Marker<br/>**EASY** - Easy<br/>**HARD** - Hard<br/>**NORMAL** - Normal<br/>**PEACEFUL** - Peaceful | Difficulty      |
+<h3 id=game_set_world_gamerule>
+  <code>world::set_gamerule</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+world::set_gamerule("DISABLE_RAIDS","value");
+```
+
+**Arguments:**
+
+| **Name**   | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Description** |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `gamerule` | Marker<br/>**DISABLE_RAIDS** - None<br/>**DO_DAYLIGHT_CYCLE** - None<br/>**DO_ENTITY_DROPS** - None<br/>**DO_FIRE_TICK** - None<br/>**DO_IMMEDIATE_RESPAWN** - None<br/>**DO_INSOMNIA** - None<br/>**DO_MOB_LOOT** - None<br/>**DO_MOB_SPAWNING** - None<br/>**DO_PATROL_SPAWNING** - None<br/>**DO_TILE_DROPS** - None<br/>**DO_TRADER_SPAWNING** - None<br/>**DO_WEATHER_CYCLE** - None<br/>**DROWNING_DAMAGE** - None<br/>**FALL_DAMAGE** - None<br/>**FIRE_DAMAGE** - None<br/>**FORGIVE_DEAD_PLAYERS** - None<br/>**KEEP_INVENTORY** - None<br/>**MOB_GRIEFING** - None<br/>**PROJECTILES_CAN_BREAK_BLOCKS** - None<br/>**SHOW_DEATH_MESSAGES** - None<br/>**NATURAL_REGENERATION** - None<br/>**UNIVERSAL_ANGER** - None<br/>**PLAYERS_SLEEPING_PERCENTAGE** - None<br/>**REDUCED_DEBUG_INFO** - None<br/>**FREEZE_DAMAGE** - None<br/>**RANDOM_TICK_SPEED** - None<br/>**MAX_ENTITY_CRAMMING** - None<br/>**SPAWN_RADIUS** - None<br/>**LAVA_SOURCE_CONVERSION** - None<br/>**WATER_SOURCE_CONVERSION** - None<br/>**TNT_EXPLOSION_DROP_DECAY** - None<br/>**BLOCK_EXPLOSION_DROP_DECAY** - None<br/>**MOB_EXPLOSION_DROP_DECAY** - None<br/>**DO_LIMITED_CRAFTING** - None<br/>**PLAYERS_NETHER_PORTAL_DEFAULT_DELAY** - None<br/>**PLAYERS_NETHER_PORTAL_CREATIVE_DELAY** - None<br/>**SNOW_ACCUMULATION_HEIGHT** - None<br/>**SPAWN_CHUNK_RADIUS** - None<br/>**DO_WARDEN_SPAWNING** - None<br/>**ENDER_PEARLS_VANISH_ON_DEATH** - None<br/>**DO_VINES_SPREAD** - None | None            |
+| `value`    | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | None            |
 <h3 id=game_set_world_simulation_distance>
   <code>world::set_world_simulation_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2362,6 +2384,27 @@ if(world::instrument_equals("BANJO")){
 | **Name**     | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | **Description** |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
 | `instrument` | Marker<br/>**BANJO** - Banjo<br/>**BASS_DRUM** - Bass Drum<br/>**BASS_GUITAR** - Bass Guitar<br/>**BELL** - Bell<br/>**BIT** - Bit<br/>**CHIME** - Chimes<br/>**COW_BELL** - Cowbell<br/>**CREEPER** - Creeper<br/>**CUSTOM_HEAD** - Custom head<br/>**DIDGERIDOO** - Didgeridoo<br/>**DRAGON** - Ender Dragon<br/>**FLUTE** - Flute<br/>**GUITAR** - Guitar<br/>**IRON_XYLOPHONE** - Iron Xylophone<br/>**PIANO** - Piano<br/>**PIGLIN** - Piglin<br/>**PLING** - Pling<br/>**SKELETON** - Skeleton<br/>**SNARE_DRUM** - Snare Drum<br/>**STICKS** - Klaves<br/>**WITHER_SKELETON** - Wither skeleton<br/>**XYLOPHONE** - Xylophone<br/>**ZOMBIE** - Zombie | Instrument      |
+<h3 id=if_game_location_in_block>
+  <code>world::location_in_block</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action that checks the conditions\
+**Description:** None
+
+**Usage example:** 
+```ts
+if(world::location_in_block(location(0,0,0,0,0))){
+    player::message("Condition is true");
+}
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `location` | Location | None            |
 <h3 id=if_game_sign_contains>
   <code>world::sign_contains</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

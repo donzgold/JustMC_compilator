@@ -1,3 +1,30 @@
+<h3 id=if_variable_block_is_solid>
+  <code>variable::block_is_solid</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action that checks the conditions\
+**Description:** None
+
+**Usage example:** 
+```ts
+if(variable::block_is_solid(item("stone"))){
+    player::message("Condition is true");
+}
+
+#Or from the object
+
+if(item("stone").block_is_solid(){
+    player::message("Condition is true");
+}
+```
+
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `block`  | Block    | None            |
 <h3 id=if_variable_dummy>
   <code>variable::is_dummy</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -273,6 +300,33 @@ if(item("stick").item_has_tag("tag","value","CONTAINS"){
 | `tag`          | Text                                                                                                                                       | Tag name           |
 | `value`        | Text                                                                                                                                       | Tag Value          |
 | `compare_type` | Marker<br/>**CONTAINS** - Contains<br/>**ENDS_WITH** - Ends on<br/>**EQUALS** - Accurate correspondence<br/>**STARTS_WITH** - It begins on | Type of comparison |
+<h3 id=if_variable_item_is_block>
+  <code>variable::item_is_block</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action that checks the conditions\
+**Description:** None
+
+**Usage example:** 
+```ts
+if(variable::item_is_block(item("stick"))){
+    player::message("Condition is true");
+}
+
+#Or from the object
+
+if(item("stick").item_is_block(){
+    player::message("Condition is true");
+}
+```
+
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `item`   | Item     | None            |
 <h3 id=if_variable_less>
   <code>variable::less</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1010,6 +1064,31 @@ a1.append_value(["any value", "any value"]);
 | ---------- | --------------- | --------------- |
 | `variable` | Variable        | List            |
 | `values`   | list[Any Value] | Values          |
+<h3 id=set_variable_atan2>
+  <code>variable::atan2</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+a1 = variable::atan2(1,2);
+
+#Or dry
+
+variable::atan2(a1,1,2);
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | None            |
+| `y`        | Number   | None            |
+| `x`        | Number   | None            |
 <h3 id=set_variable_average>
   <code>variable::average</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1359,12 +1438,12 @@ variable::cosine(a1,1,"ARCCOSINE","DEGREES");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                   | **Description**      |
-| ---------- | ---------------------------------------------------------------------------------------------------------- | -------------------- |
-| `variable` | Variable                                                                                                   | Variable to assign   |
-| `number`   | Number                                                                                                     | Number to get cosine |
-| `variant`  | Marker<br/>**ARCCOSINE** - Arccosine<br/>**COSINE** - Cosine<br/>**HYPERBOLIC_COSINE** - Hyperbolic Cosine | Operation Type       |
-| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                 | Corner Type          |
+| **Name**   | **Type**                                                                                                                                       | **Description**      |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| `variable` | Variable                                                                                                                                       | Variable to assign   |
+| `number`   | Number                                                                                                                                         | Number to get cosine |
+| `variant`  | Marker<br/>**ARCCOSINE** - Arccosine<br/>**COSINE** - Cosine<br/>**HYPERBOLIC_ARCCOSINE** - None<br/>**HYPERBOLIC_COSINE** - Hyperbolic Cosine | Operation Type       |
+| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                     | Corner Type          |
 <h3 id=set_variable_cotangent>
   <code>variable::cotangent</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1389,12 +1468,12 @@ variable::cotangent(a1,1,"ARCCOTANGENT","DEGREES");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                                     | **Description**         |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| `variable` | Variable                                                                                                                     | Variable to assign      |
-| `number`   | Number                                                                                                                       | Number to get cotangent |
-| `variant`  | Marker<br/>**ARCCOTANGENT** - Arccotangent<br/>**COTANGENT** - Cotangent<br/>**HYPERBOLIC_COTANGENT** - Hyperbolic Cotangent | Operation Type          |
-| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                   | Angle Type              |
+| **Name**   | **Type**                                                                                                                                                            | **Description**         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `variable` | Variable                                                                                                                                                            | Variable to assign      |
+| `number`   | Number                                                                                                                                                              | Number to get cotangent |
+| `variant`  | Marker<br/>**ARCCOTANGENT** - Arccotangent<br/>**COTANGENT** - Cotangent<br/>**HYPERBOLIC_ARCCOTANGENT** - None<br/>**HYPERBOLIC_COTANGENT** - Hyperbolic Cotangent | Operation Type          |
+| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                                          | Angle Type              |
 <h3 id=set_variable_create_keybind_component>
   <code>variable::create_keybind_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1989,6 +2068,35 @@ variable::get_block_power(a1,location(0,0,0,0,0));
 | ---------- | -------- | ------------------ |
 | `variable` | Variable | Variable to assign |
 | `location` | Location | Block Location     |
+<h3 id=set_variable_get_block_sound>
+  <code>variable::get_block_sound</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+a1 = variable::get_block_sound(item("stone"),"BREAK");
+
+#Or from the object
+
+a1 = item("stone").get_block_sound("BREAK");
+
+#Or dry
+
+variable::get_block_sound(a1,item("stone"),"BREAK");
+```
+
+**Arguments:**
+
+| **Name**   | **Type**                                                                                                    | **Description** |
+| ---------- | ----------------------------------------------------------------------------------------------------------- | --------------- |
+| `variable` | Variable                                                                                                    | None            |
+| `block`    | Block                                                                                                       | None            |
+| `source`   | Marker<br/>**BREAK** - None<br/>**PLACE** - None<br/>**HIT** - None<br/>**FALL** - None<br/>**STEP** - None | None            |
 <h3 id=set_variable_get_book_text>
   <code>variable::get_book_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7346,12 +7454,12 @@ variable::sine(a1,1,"ARCSINE","DEGREES");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                       | **Description**    |
-| ---------- | ---------------------------------------------------------------------------------------------- | ------------------ |
-| `variable` | Variable                                                                                       | Variable to assign |
-| `number`   | Number                                                                                         | Number to get sine |
-| `variant`  | Marker<br/>**ARCSINE** - Arcsine<br/>**HYPERBOLIC_SINE** - Hyperbolic Sine<br/>**SINE** - Sine | Operation Type     |
-| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                     | Angle Type         |
+| **Name**   | **Type**                                                                                                                         | **Description**    |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `variable` | Variable                                                                                                                         | Variable to assign |
+| `number`   | Number                                                                                                                           | Number to get sine |
+| `variant`  | Marker<br/>**ARCSINE** - Arcsine<br/>**HYPERBOLIC_ARCSINE** - None<br/>**HYPERBOLIC_SINE** - Hyperbolic Sine<br/>**SINE** - Sine | Operation Type     |
+| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                       | Angle Type         |
 <h3 id=set_variable_sort_any_list>
   <code>variable::sort_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7545,12 +7653,12 @@ variable::tangent(a1,1,"ARCTANGENT","DEGREES");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                         | **Description**       |
-| ---------- | ---------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `variable` | Variable                                                                                                         | Variable to assign    |
-| `number`   | Number                                                                                                           | Number to get tangent |
-| `variant`  | Marker<br/>**ARCTANGENT** - Arctangent<br/>**HYPERBOLIC_TANGENT** - Hyperbolic Tangent<br/>**TANGENT** - Tangent | Operation Type        |
-| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                       | Angle Type            |
+| **Name**   | **Type**                                                                                                                                              | **Description**       |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `variable` | Variable                                                                                                                                              | Variable to assign    |
+| `number`   | Number                                                                                                                                                | Number to get tangent |
+| `variant`  | Marker<br/>**ARCTANGENT** - Arctangent<br/>**HYPERBOLIC_ARCTANGENT** - None<br/>**HYPERBOLIC_TANGENT** - Hyperbolic Tangent<br/>**TANGENT** - Tangent | Operation Type        |
+| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                            | Angle Type            |
 <h3 id=set_variable_text>
   <code>variable::set_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

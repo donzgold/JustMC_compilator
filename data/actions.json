@@ -4697,6 +4697,65 @@
     "type": "basic"
   },
   {
+    "id": "game_set_world_gamerule",
+    "name": "set_gamerule",
+    "object": "world",
+    "args": [
+      {
+        "id": "gamerule",
+        "type": "enum",
+        "values": [
+          "DISABLE_RAIDS",
+          "DO_DAYLIGHT_CYCLE",
+          "DO_ENTITY_DROPS",
+          "DO_FIRE_TICK",
+          "DO_IMMEDIATE_RESPAWN",
+          "DO_INSOMNIA",
+          "DO_MOB_LOOT",
+          "DO_MOB_SPAWNING",
+          "DO_PATROL_SPAWNING",
+          "DO_TILE_DROPS",
+          "DO_TRADER_SPAWNING",
+          "DO_WEATHER_CYCLE",
+          "DROWNING_DAMAGE",
+          "FALL_DAMAGE",
+          "FIRE_DAMAGE",
+          "FORGIVE_DEAD_PLAYERS",
+          "KEEP_INVENTORY",
+          "MOB_GRIEFING",
+          "PROJECTILES_CAN_BREAK_BLOCKS",
+          "SHOW_DEATH_MESSAGES",
+          "NATURAL_REGENERATION",
+          "UNIVERSAL_ANGER",
+          "PLAYERS_SLEEPING_PERCENTAGE",
+          "REDUCED_DEBUG_INFO",
+          "FREEZE_DAMAGE",
+          "RANDOM_TICK_SPEED",
+          "MAX_ENTITY_CRAMMING",
+          "SPAWN_RADIUS",
+          "LAVA_SOURCE_CONVERSION",
+          "WATER_SOURCE_CONVERSION",
+          "TNT_EXPLOSION_DROP_DECAY",
+          "BLOCK_EXPLOSION_DROP_DECAY",
+          "MOB_EXPLOSION_DROP_DECAY",
+          "DO_LIMITED_CRAFTING",
+          "PLAYERS_NETHER_PORTAL_DEFAULT_DELAY",
+          "PLAYERS_NETHER_PORTAL_CREATIVE_DELAY",
+          "SNOW_ACCUMULATION_HEIGHT",
+          "SPAWN_CHUNK_RADIUS",
+          "DO_WARDEN_SPAWNING",
+          "ENDER_PEARLS_VANISH_ON_DEATH",
+          "DO_VINES_SPREAD"
+        ]
+      },
+      {
+        "id": "value",
+        "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "game_set_world_simulation_distance",
     "name": "set_world_simulation_distance",
     "object": "world",
@@ -5573,6 +5632,14 @@
     "type": "container"
   },
   {
+    "id": "if_entity_is_undead",
+    "name": "is_undead",
+    "object": "entity",
+    "args": [],
+    "boolean": true,
+    "type": "basic"
+  },
+  {
     "id": "if_entity_is_vehicle",
     "name": "is_vehicle",
     "object": "entity",
@@ -5974,6 +6041,19 @@
     ],
     "boolean": true,
     "type": "container"
+  },
+  {
+    "id": "if_game_location_in_block",
+    "name": "location_in_block",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      }
+    ],
+    "boolean": true,
+    "type": "basic"
   },
   {
     "id": "if_game_sign_contains",
@@ -6778,6 +6858,20 @@
     "type": "container"
   },
   {
+    "id": "if_variable_block_is_solid",
+    "name": "block_is_solid",
+    "object": "variable",
+    "args": [
+      {
+        "id": "block",
+        "type": "block"
+      }
+    ],
+    "origin": "block",
+    "boolean": true,
+    "type": "basic"
+  },
+  {
     "id": "if_variable_dummy",
     "name": "is_dummy",
     "object": "variable",
@@ -6988,6 +7082,20 @@
     "origin": "item",
     "boolean": true,
     "type": "container"
+  },
+  {
+    "id": "if_variable_item_is_block",
+    "name": "item_is_block",
+    "object": "variable",
+    "args": [
+      {
+        "id": "item",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "boolean": true,
+    "type": "basic"
   },
   {
     "id": "if_variable_less",
@@ -11122,6 +11230,32 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_atan2",
+    "name": "atan2",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "y",
+        "type": "number"
+      },
+      {
+        "id": "x",
+        "type": "number"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "set_variable_average",
     "name": "average",
     "object": "variable",
@@ -11448,6 +11582,7 @@
         "values": [
           "ARCCOSINE",
           "COSINE",
+          "HYPERBOLIC_ARCCOSINE",
           "HYPERBOLIC_COSINE"
         ]
       },
@@ -11488,6 +11623,7 @@
         "values": [
           "ARCCOTANGENT",
           "COTANGENT",
+          "HYPERBOLIC_ARCCOTANGENT",
           "HYPERBOLIC_COTANGENT"
         ]
       },
@@ -12159,6 +12295,40 @@
       }
     ],
     "origin": "location",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_get_block_sound",
+    "name": "get_block_sound",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "block",
+        "type": "block"
+      },
+      {
+        "id": "source",
+        "type": "enum",
+        "values": [
+          "BREAK",
+          "PLACE",
+          "HIT",
+          "FALL",
+          "STEP"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "sound"
+      }
+    ],
+    "origin": "block",
     "type": "basic"
   },
   {
@@ -17971,6 +18141,7 @@
         "type": "enum",
         "values": [
           "ARCSINE",
+          "HYPERBOLIC_ARCSINE",
           "HYPERBOLIC_SINE",
           "SINE"
         ]
@@ -18187,6 +18358,7 @@
         "type": "enum",
         "values": [
           "ARCTANGENT",
+          "HYPERBOLIC_ARCTANGENT",
           "HYPERBOLIC_TANGENT",
           "TANGENT"
         ]
