@@ -1130,7 +1130,7 @@ class Parser:
                               args_description=arg_description)
             if len(self.context.settings["class_define"]) == 0:
                 if self.context.has_special(token.value):
-                    error_from_object(token, "NameError",translate("error.nameerror.special_cant_be_rewritten"))
+                    error_from_object(token, "NameError", translate("error.nameerror.special_cant_be_rewritten"))
                 self.context.set_special(token.value, result.special())
             return result if result.inline is False else None
         elif self.current_token.type == Tokens.PROCESS_DEFINE and (
@@ -1158,7 +1158,7 @@ class Parser:
                              icon=icon, hide=hide, args_description=arg_description)
             if len(self.context.settings["class_define"]) == 0:
                 if self.context.has_special(token.value):
-                    error_from_object(token, "NameError",translate("error.nameerror.special_cant_be_rewritten"))
+                    error_from_object(token, "NameError", translate("error.nameerror.special_cant_be_rewritten"))
                 self.context.set_special(token.value, result.special())
             return result
         if used_decorators:
@@ -1396,7 +1396,7 @@ class Parser:
                 if self.current_token.type == Tokens.LCPAREN and (
                         not actions[obj.object][obj.name].setdefault("boolean", False)):
                     self.eat(Tokens.LCPAREN)
-                    if "lambda" in actions[obj.object][obj.name]:
+                    if "lambda" in actions[obj.object][obj.name] and self.current_token.type != Tokens.NEXT_LINE:
                         lambd = []
                         while (self.current_token.type != Tokens.EOF) and (
                                 self.current_token.type != Tokens.CYCLE_THING):
