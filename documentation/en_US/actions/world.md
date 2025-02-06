@@ -26,9 +26,9 @@ world::block_growth(location(0,0,0,0,0),1,"PERCENTAGE");
 
 **Name:** Bloom Skulk Catalyst\
 **Type:** Action without value\
-**Description:** It extends the rock and the disposal to the location.
+**Description:** Spreads sculk from a sculk catalyst to a location.
 **Work_with:**\
-&nbsp;&nbsp;Catalist rocks
+&nbsp;&nbsp;Sculk Catalyst
 
 **Usage example:** 
 ```ts
@@ -37,11 +37,11 @@ world::bloom_skulk_catalyst(location(0,0,0,0,0),location(0,0,0,0,0),1);
 
 **Arguments:**
 
-| **Name**         | **Type** | **Description**                  |
-| ---------------- | -------- | -------------------------------- |
-| `location`       | Location | The location of a rocky catalyst |
-| `bloom_location` | Location | The final location               |
-| `charge`         | Number   | The power of infection           |
+| **Name**         | **Type** | **Description**                |
+| ---------------- | -------- | ------------------------------ |
+| `location`       | Location | Location of the sculk catalyst |
+| `bloom_location` | Location | New location                   |
+| `charge`         | Number   | Speed of spread                |
 <h3 id=game_bone_meal_block>
   <code>world::bone_meal_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -82,7 +82,7 @@ world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stick"),"FAL
 | ----------- | ------------------------------------------------------ | --------------- |
 | `locations` | list[Location]                                         | Block Locations |
 | `tool`      | Item                                                   | Tool            |
-| `drop_exp`  | Marker<br/>**FALSE** - Turn off<br/>**TRUE** - Turn on | Experience loss |
+| `drop_exp`  | Marker<br/>**FALSE** - Turn off<br/>**TRUE** - Turn on | Experience drop |
 <h3 id=game_cancel_event>
   <code>world::cancel_event</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -106,7 +106,7 @@ world::cancel_event();
 **Type:** Action without value\
 **Description:** Removes all items from a container at the selected location.
 **Work_with:**\
-&nbsp;&nbsp;Any containers
+&nbsp;&nbsp;Containers
 
 **Usage example:** 
 ```ts
@@ -127,7 +127,7 @@ world::clear_container(location(0,0,0,0,0));
 **Type:** Action without value\
 **Description:** Clears the specified items from a container.
 **Work_with:**\
-&nbsp;&nbsp;Any containers
+&nbsp;&nbsp;Containers
 
 **Usage example:** 
 ```ts
@@ -217,14 +217,14 @@ world::clone_region(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),
 
 **Arguments:**
 
-| **Name**      | **Type**                                                  | **Description**        |
-| ------------- | --------------------------------------------------------- | ---------------------- |
-| `pos_1`       | Location                                                  | Region Corner          |
-| `pos_2`       | Location                                                  | Opposite Region Corner |
-| `target_pos`  | Location                                                  | Copy Location          |
-| `paste_pos`   | Location                                                  | Paste Location         |
-| `ignore_air`  | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore | Ignore Air             |
-| `copy_entity` | Marker<br/>**FALSE** - Don't clone<br/>**TRUE** - Clone   | Clone Creatures        |
+| **Name**      | **Type**                                                   | **Description**        |
+| ------------- | ---------------------------------------------------------- | ---------------------- |
+| `pos_1`       | Location                                                   | Region Corner          |
+| `pos_2`       | Location                                                   | Opposite Region Corner |
+| `target_pos`  | Location                                                   | Copy Location          |
+| `paste_pos`   | Location                                                   | Paste Location         |
+| `ignore_air`  | Marker<br/>**FALSE** - Don\'t Ignore<br/>**TRUE** - Ignore | Ignore Air             |
+| `copy_entity` | Marker<br/>**FALSE** - Don\'t clone<br/>**TRUE** - Clone   | Clone Creatures        |
 <h3 id=game_create_explosion>
   <code>world::create_explosion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -241,12 +241,12 @@ world::create_explosion(location(0,0,0,0,0),1,"FALSE","FALSE");
 
 **Arguments:**
 
-| **Name**       | **Type**                                        | **Description**          |
-| -------------- | ----------------------------------------------- | ------------------------ |
-| `location`     | Location                                        | Creation Location        |
-| `power`        | Number                                          | Explosion Power (0 to 4) |
-| `fire`         | Marker<br/>**FALSE** - None<br/>**TRUE** - None | None                     |
-| `break_blocks` | Marker<br/>**FALSE** - None<br/>**TRUE** - None | None                     |
+| **Name**       | **Type**                                         | **Description**          |
+| -------------- | ------------------------------------------------ | ------------------------ |
+| `location`     | Location                                         | Creation Location        |
+| `power`        | Number                                           | Explosion Power (0 to 4) |
+| `fire`         | Marker<br/>**FALSE** - False<br/>**TRUE** - True | Create fire              |
+| `break_blocks` | Marker<br/>**FALSE** - False<br/>**TRUE** - True | Break blocks             |
 <h3 id=game_create_scoreboard>
   <code>world::create_scoreboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -290,7 +290,7 @@ world::dummy();
 **Type:** Action without value\
 **Description:** Fills a container at the selected location with the specified items.
 **Work_with:**\
-&nbsp;&nbsp;Any containers
+&nbsp;&nbsp;Containers
 
 **Usage example:** 
 ```ts
@@ -319,10 +319,10 @@ world::generate_tree(location(0,0,0,0,0),"ACACIA");
 
 **Arguments:**
 
-| **Name**    | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | **Description** |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `location`  | Location                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Tree Location   |
-| `tree_type` | Marker<br/>**ACACIA** - Acacia<br/>**AZALEA** - Azalea<br/>**BIG_TREE** - Big Tree<br/>**BIRCH** - Common Birch<br/>**BROWN_MUSHROOM** - Brown Mushroom<br/>**CHERRY** - Cherry<br/>**CHORUS_PLANT** - Chorus Tree<br/>**COCOA_TREE** - Cocoa Bean Jungle Tree<br/>**CRIMSON_FUNGUS** - Crimson Mushroom<br/>**DARK_OAK** - Dark Oak<br/>**JUNGLE** - Jungle Tree<br/>**JUNGLE_BUSH** - Jungle Bush<br/>**MANGROVE** - Mangrove Tree<br/>**MEGA_PINE** - None<br/>**MEGA_REDWOOD** - Great Sequoia<br/>**REDWOOD** - Regular Spruce<br/>**RED_MUSHROOM** - Red Mushroom<br/>**SMALL_JUNGLE** - Small Jungle Tree<br/>**SWAMP** - Swamp Tree<br/>**TALL_BIRCH** - Tall Birch<br/>**TALL_MANGROVE** - Tall Mangrove Tree<br/>**TALL_REDWOOD** - Tall Spruce<br/>**TREE** - Regular Tree<br/>**WARPED_FUNGUS** - Warped Mushroom | Tree Type       |
+| **Name**    | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | **Description** |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `location`  | Location                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Tree Location   |
+| `tree_type` | Marker<br/>**ACACIA** - Acacia<br/>**AZALEA** - Azalea<br/>**BIG_TREE** - Big Tree<br/>**BIRCH** - Common Birch<br/>**BROWN_MUSHROOM** - Brown Mushroom<br/>**CHERRY** - Cherry<br/>**CHORUS_PLANT** - Chorus Tree<br/>**COCOA_TREE** - Cocoa Bean Jungle Tree<br/>**CRIMSON_FUNGUS** - Crimson Mushroom<br/>**DARK_OAK** - Dark Oak<br/>**JUNGLE** - Jungle Tree<br/>**JUNGLE_BUSH** - Jungle Bush<br/>**MANGROVE** - Mangrove Tree<br/>**MEGA_PINE** - Mega Pine<br/>**MEGA_REDWOOD** - Great Sequoia<br/>**REDWOOD** - Regular Spruce<br/>**RED_MUSHROOM** - Red Mushroom<br/>**SMALL_JUNGLE** - Small Jungle Tree<br/>**SWAMP** - Swamp Tree<br/>**TALL_BIRCH** - Tall Birch<br/>**TALL_MANGROVE** - Tall Mangrove Tree<br/>**TALL_REDWOOD** - Tall Spruce<br/>**TREE** - Regular Tree<br/>**WARPED_FUNGUS** - Warped Mushroom | Tree Type       |
 <h3 id=game_hide_event_message>
   <code>world::hide_event_message</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -421,7 +421,7 @@ world::random_tick_block(location(0,0,0,0,0),1);
 **Type:** Action without value\
 **Description:** Removes the specified items from a container at the selected location.
 **Work_with:**\
-&nbsp;&nbsp;Any containers
+&nbsp;&nbsp;Containers
 
 **Usage example:** 
 ```ts
@@ -524,7 +524,7 @@ world::replace_blocks_in_region([item("stone"), item("stone")],location(0,0,0,0,
 **Type:** Action without value\
 **Description:** Replaces the specified items in a container at the selected location with a specific item.
 **Work_with:**\
-&nbsp;&nbsp;Any containers
+&nbsp;&nbsp;Containers
 
 **Usage example:** 
 ```ts
@@ -559,7 +559,7 @@ world::send_web_request("url","content_body","DELETE","APPLICATION_JSON");
 | -------------- | ---------------------------------------------------------------------------------------------------------- | ------------------ |
 | `url`          | Text                                                                                                       | URL                |
 | `content_body` | Text                                                                                                       | Request Body       |
-| `request_type` | Marker<br/>**DELETE** - DELETE<br/>**GET** - GET<br/>**HEAD** - None<br/>**POST** - POST<br/>**PUT** - PUT | Request Type       |
+| `request_type` | Marker<br/>**DELETE** - DELETE<br/>**GET** - GET<br/>**HEAD** - HEAD<br/>**POST** - POST<br/>**PUT** - PUT | Request Type       |
 | `content_type` | Marker<br/>**APPLICATION_JSON** - JSON (application/json)<br/>**TEXT_PLAIN** - Plain Text (text/plain)     | Media Request Type |
 <h3 id=game_set_age>
   <code>world::set_age</code>
@@ -570,7 +570,7 @@ world::send_web_request("url","content_body","DELETE","APPLICATION_JSON");
 **Type:** Action without value\
 **Description:** Sets the age of the block at the selected location.
 **Work_with:**\
-&nbsp;&nbsp;Any blocks that can have age
+&nbsp;&nbsp;Ageable blocks
 
 **Usage example:** 
 ```ts
@@ -599,11 +599,11 @@ world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stone"),"FALSE
 
 **Arguments:**
 
-| **Name**        | **Type**                                                   | **Description**      |
-| --------------- | ---------------------------------------------------------- | -------------------- |
-| `locations`     | list[Location]                                             | Block Set Locations  |
-| `block`         | Block                                                      | Block                |
-| `update_blocks` | Marker<br/>**FALSE** - Do not update<br/>**TRUE** - Update | Update blocks around |
+| **Name**        | **Type**                                                   | **Description**        |
+| --------------- | ---------------------------------------------------------- | ---------------------- |
+| `locations`     | list[Location]                                             | Block Set Locations    |
+| `block`         | Block                                                      | Block                  |
+| `update_blocks` | Marker<br/>**FALSE** - Don\'t update<br/>**TRUE** - Update | Update adjacent blocks |
 <h3 id=game_set_block_analogue_power>
   <code>world::set_block_analogue_power</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -613,7 +613,7 @@ world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stone"),"FALSE
 **Type:** Action without value\
 **Description:** Sets the selected location to a specific signal strength.
 **Work_with:**\
-&nbsp;&nbsp;Activated blocks
+&nbsp;&nbsp;Powerable blocks
 
 **Usage example:** 
 ```ts
@@ -695,7 +695,7 @@ world::set_block_drops_enabled("FALSE");
 **Type:** Action without value\
 **Description:** Activates a block at the selected location.
 **Work_with:**\
-&nbsp;&nbsp;Activated blocks
+&nbsp;&nbsp;Powerable blocks
 
 **Usage example:** 
 ```ts
@@ -715,7 +715,7 @@ world::set_block_powered(location(0,0,0,0,0),"FALSE");
 
 **Name:** Set Block Single Data\
 **Type:** Action without value\
-**Description:** Sets the indicated parameter of the block at the location for a given value.
+**Description:** Sets the given parameter to a block at the location to a given value.
 
 **Usage example:** 
 ```ts
@@ -724,11 +724,11 @@ world::set_block_single_data(location(0,0,0,0,0),"data","value");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**           |
-| ---------- | -------- | ------------------------- |
-| `location` | Location | The location of the block |
-| `data`     | Text     | Changed parameter         |
-| `value`    | Text     | New meaning               |
+| **Name**   | **Type** | **Description**   |
+| ---------- | -------- | ----------------- |
+| `location` | Location | Block location    |
+| `data`     | Text     | Varying parameter |
+| `value`    | Text     | New value         |
 <h3 id=game_set_brushable_block_item>
   <code>world::set_brushable_block_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -738,8 +738,8 @@ world::set_block_single_data(location(0,0,0,0,0),"data","value");
 **Type:** Action without value\
 **Description:** Sets an item into a suspicious block (sand, gravel) at the selected location.
 **Work_with:**\
-&nbsp;&nbsp;Suspicious sand\
-&nbsp;&nbsp;Suspicious gravel
+&nbsp;&nbsp;Suspicious Sand\
+&nbsp;&nbsp;Suspicious Gravel
 
 **Usage example:** 
 ```ts
@@ -761,7 +761,7 @@ world::set_brushable_block_item(location(0,0,0,0,0),item("stick"));
 **Type:** Action without value\
 **Description:** Sets an item to a campfire at the selected location.
 **Work_with:**\
-&nbsp;&nbsp;Fires
+&nbsp;&nbsp;Campfires
 
 **Usage example:** 
 ```ts
@@ -785,7 +785,7 @@ world::set_campfire_item(location(0,0,0,0,0),item("stick"),1,"FIRST");
 **Type:** Action without value\
 **Description:** Sets the specified items into a container at the selected location.
 **Work_with:**\
-&nbsp;&nbsp;Any containers
+&nbsp;&nbsp;Containers
 
 **Usage example:** 
 ```ts
@@ -829,7 +829,7 @@ world::set_container_lock(location(0,0,0,0,0),"container_key");
 **Type:** Action without value\
 **Description:** Sets the name of the container at the selected location.
 **Work_with:**\
-&nbsp;&nbsp;Any containers
+&nbsp;&nbsp;Containers
 
 **Usage example:** 
 ```ts
@@ -849,9 +849,9 @@ world::set_container_name(location(0,0,0,0,0),"name");
 
 **Name:** Set Decorate Pot Sherd\
 **Type:** Action without value\
-**Description:** Sets the indicated cherries of the selected side of the jug in the specified location.
+**Description:** Sets the specified shard to the selected side of the vase at the specified location.
 **Work_with:**\
-&nbsp;&nbsp;Vases
+&nbsp;&nbsp;Decorated Pots
 
 **Usage example:** 
 ```ts
@@ -860,11 +860,11 @@ world::set_decorate_pot_sherd(location(0,0,0,0,0),item("stick"),"BACK");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                                       | **Description**          |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
-| `location` | Location                                                                                                                       | The location of the jug  |
-| `item`     | Item                                                                                                                           | Clousse for installation |
-| `side`     | Marker<br/>**BACK** - The back side<br/>**FRONT** - The front side<br/>**LEFT** - The left side<br/>**RIGHT** - The right side | Side of the jug          |
+| **Name**   | **Type**                                                                                                       | **Description**        |
+| ---------- | -------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `location` | Location                                                                                                       | Decorated pot location |
+| `item`     | Item                                                                                                           | Sherd item             |
+| `side`     | Marker<br/>**BACK** - Back side<br/>**FRONT** - Front side<br/>**LEFT** - Left side<br/>**RIGHT** - Right side | Decorated pot side     |
 <h3 id=game_set_event_damage>
   <code>world::set_event_damage</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -893,9 +893,9 @@ world::set_event_damage(1);
 
 **Name:** Set Event Exhaustion\
 **Type:** Action without value\
-**Description:** Establishes the value of exhaustion associated with this event.
+**Description:** Sets the exhaustion level.
 **Work_with:**\
-&nbsp;&nbsp;Event of exhaustion
+&nbsp;&nbsp;Player Exhaustion
 
 **Usage example:** 
 ```ts
@@ -904,9 +904,9 @@ world::set_event_exhaustion(1);
 
 **Arguments:**
 
-| **Name**     | **Type** | **Description**          |
-| ------------ | -------- | ------------------------ |
-| `exhaustion` | Number   | The amount of exhaustion |
+| **Name**     | **Type** | **Description**  |
+| ------------ | -------- | ---------------- |
+| `exhaustion` | Number   | Exhaustion level |
 <h3 id=game_set_event_experience>
   <code>world::set_event_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -991,9 +991,9 @@ world::set_event_item(item("stick"));
 
 **Name:** Set Event Items\
 **Type:** Action without value\
-**Description:** Sets objects related to this event.
+**Description:** Sets the items related to the event.
 **Work_with:**\
-&nbsp;&nbsp;The event of the subject in the inventory
+&nbsp;&nbsp;Player Pick Item
 
 **Usage example:** 
 ```ts
@@ -1002,9 +1002,31 @@ world::set_event_items([item("stick"), item("stick")]);
 
 **Arguments:**
 
-| **Name** | **Type**   | **Description**        |
-| -------- | ---------- | ---------------------- |
-| `items`  | list[Item] | Items for installation |
+| **Name** | **Type**   | **Description** |
+| -------- | ---------- | --------------- |
+| `items`  | list[Item] | Items to set    |
+<h3 id=game_set_event_knockback_vector>
+  <code>world::set_event_knockback_vector</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+world::set_event_knockback_vector(vector(0,0,0));
+```
+
+**Arguments:**
+
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `knockback` | Vector   | None            |
 <h3 id=game_set_event_move_allowed>
   <code>world::set_event_move_allowed</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1072,9 +1094,9 @@ world::set_event_sound(sound("entity.zombie.hurt"));
 
 **Name:** Set Event Source Slot\
 **Type:** Action without value\
-**Description:** Sets the initial slot associated with this event.
+**Description:** Sets the source slot of the event.
 **Work_with:**\
-&nbsp;&nbsp;The event of the subject in the inventory
+&nbsp;&nbsp;Player Pick Item
 
 **Usage example:** 
 ```ts
@@ -1083,9 +1105,9 @@ world::set_event_source_slot(1);
 
 **Arguments:**
 
-| **Name**      | **Type** | **Description**       |
-| ------------- | -------- | --------------------- |
-| `source_slot` | Number   | Slot for installation |
+| **Name**      | **Type** | **Description** |
+| ------------- | -------- | --------------- |
+| `source_slot` | Number   | Slot            |
 <h3 id=game_set_event_target_slot>
   <code>world::set_event_target_slot</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1093,9 +1115,9 @@ world::set_event_source_slot(1);
 
 **Name:** Set Event Target Slot\
 **Type:** Action without value\
-**Description:** It sets the final slot associated with this event.
+**Description:** Sets the destination slot of the event.
 **Work_with:**\
-&nbsp;&nbsp;The event of the subject in the inventory
+&nbsp;&nbsp;Player Pick Item
 
 **Usage example:** 
 ```ts
@@ -1104,9 +1126,9 @@ world::set_event_target_slot(1);
 
 **Arguments:**
 
-| **Name** | **Type** | **Description**       |
-| -------- | -------- | --------------------- |
-| `target` | Number   | Slot for installation |
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `target` | Number   | Slot            |
 <h3 id=game_set_event_uery_info>
   <code>world::set_event_uery_info</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1131,6 +1153,27 @@ world::set_event_uery_info("information");
 | **Name**      | **Type** | **Description** |
 | ------------- | -------- | --------------- |
 | `information` | Text     | Additional Tags |
+<h3 id=game_set_event_velocity>
+  <code>world::set_event_velocity</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+world::set_event_velocity(vector(0,0,0));
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `velocity` | Vector   | None            |
 <h3 id=game_set_furnace_cook_time>
   <code>world::set_furnace_cook_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1141,7 +1184,7 @@ world::set_event_uery_info("information");
 **Description:** Sets the cooking time for the oven at the selected location.
 **Work_with:**\
 &nbsp;&nbsp;Furnaces\
-&nbsp;&nbsp;Blast furnaces\
+&nbsp;&nbsp;Blast Furnaces\
 &nbsp;&nbsp;Smokers
 
 **Usage example:** 
@@ -1164,7 +1207,7 @@ world::set_furnace_cook_time(location(0,0,0,0,0),1);
 **Type:** Action without value\
 **Description:** Sets an item in the specified container slot at the selected location.
 **Work_with:**\
-&nbsp;&nbsp;Any containers
+&nbsp;&nbsp;Containers
 
 **Usage example:** 
 ```ts
@@ -1187,7 +1230,7 @@ world::set_item_in_container_slot(location(0,0,0,0,0),item("stick"),1);
 **Type:** Action without value\
 **Description:** Sets a book in the lectern at the selected location.
 **Work_with:**\
-&nbsp;&nbsp;Departments
+&nbsp;&nbsp;Lecterns
 
 **Usage example:** 
 ```ts
@@ -1208,9 +1251,9 @@ world::set_lectern_book(location(0,0,0,0,0),item("stick"),1);
 
 **Name:** Set Player Head\
 **Type:** Action without value\
-**Description:** Sets the player's head at the selected location.
+**Description:** Sets the player\'s head at the selected location.
 **Work_with:**\
-&nbsp;&nbsp;Player heads
+&nbsp;&nbsp;Player Heads
 
 **Usage example:** 
 ```ts
@@ -1219,11 +1262,11 @@ world::set_player_head(location(0,0,0,0,0),"name_or_uuid","NAME_OR_UUID");
 
 **Arguments:**
 
-| **Name**       | **Type**                                                                                     | **Description**     |
-| -------------- | -------------------------------------------------------------------------------------------- | ------------------- |
-| `location`     | Location                                                                                     | Head Location       |
-| `name_or_uuid` | Text                                                                                         | Player name or UUID |
-| `receive_type` | Marker<br/>**NAME_OR_UUID** - Name or uuid player<br/>**VALUE** - The parameter "Value" skin | Type of value       |
+| **Name**       | **Type**                                                              | **Description**     |
+| -------------- | --------------------------------------------------------------------- | ------------------- |
+| `location`     | Location                                                              | Head Location       |
+| `name_or_uuid` | Text                                                                  | Player name or UUID |
+| `receive_type` | Marker<br/>**NAME_OR_UUID** - Name or UUID<br/>**VALUE** - Skin value | Value type          |
 <h3 id=game_set_region>
   <code>world::set_region</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1252,7 +1295,7 @@ world::set_region(item("stone"),location(0,0,0,0,0),location(0,0,0,0,0));
 
 **Name:** Set Scoreboard Line\
 **Type:** Action without value\
-**Description:** Sets a line in a scorchor.
+**Description:** Sets a line in the scoreboard
 
 **Usage example:** 
 ```ts
@@ -1265,14 +1308,14 @@ world::set_scoreboard_line("id","line","display",1,"format_content","BLANK");
 
 **Arguments:**
 
-| **Name**         | **Type**                                                                                          | **Description**        |
-| ---------------- | ------------------------------------------------------------------------------------------------- | ---------------------- |
-| `id`             | Text                                                                                              | ID Skorboard           |
-| `line`           | Text                                                                                              | ID lines               |
-| `display`        | Text                                                                                              | Displayed text         |
-| `score`          | Number                                                                                            | Meaning                |
-| `format_content` | Text                                                                                              | The format of the text |
-| `format`         | Marker<br/>**BLANK** - Empty<br/>**FIXED** - Text<br/>**RESET** - Ordinary<br/>**STYLED** - Style | Type of format         |
+| **Name**         | **Type**                                                                                         | **Description** |
+| ---------------- | ------------------------------------------------------------------------------------------------ | --------------- |
+| `id`             | Text                                                                                             | Scoreboard ID   |
+| `line`           | Text                                                                                             | Line ID         |
+| `display`        | Text                                                                                             | Displayed text  |
+| `score`          | Number                                                                                           | Score           |
+| `format_content` | Text                                                                                             | Format content  |
+| `format`         | Marker<br/>**BLANK** - Blank<br/>**FIXED** - Fixed<br/>**RESET** - Reset<br/>**STYLED** - Styled | Format Type     |
 <h3 id=game_set_scoreboard_line_display>
   <code>world::set_scoreboard_line_display</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1280,7 +1323,7 @@ world::set_scoreboard_line("id","line","display",1,"format_content","BLANK");
 
 **Name:** Set Scoreboard Line Display\
 **Type:** Action without value\
-**Description:** The displayed text sets the specified scorchor line.
+**Description:** Sets a scoreboard line to a text.
 
 **Usage example:** 
 ```ts
@@ -1295,8 +1338,8 @@ world::set_scoreboard_line_display("id","line","display");
 
 | **Name**  | **Type** | **Description** |
 | --------- | -------- | --------------- |
-| `id`      | Text     | ID Skorboard    |
-| `line`    | Text     | ID lines        |
+| `id`      | Text     | Scoreboard ID   |
+| `line`    | Text     | Line ID         |
 | `display` | Text     | Displayed text  |
 <h3 id=game_set_scoreboard_line_format>
   <code>world::set_scoreboard_line_format</code>
@@ -1305,7 +1348,7 @@ world::set_scoreboard_line_display("id","line","display");
 
 **Name:** Set Scoreboard Line Format\
 **Type:** Action without value\
-**Description:** Establishes the formatting of the text of the specified Scorbox line.
+**Description:** Sets the text formatting of a specific scoreboard line.
 
 **Usage example:** 
 ```ts
@@ -1318,12 +1361,12 @@ world::set_scoreboard_line_format("id","line","format_content","BLANK");
 
 **Arguments:**
 
-| **Name**         | **Type**                                                                                          | **Description**        |
-| ---------------- | ------------------------------------------------------------------------------------------------- | ---------------------- |
-| `id`             | Text                                                                                              | ID Skorboard           |
-| `line`           | Text                                                                                              | ID lines               |
-| `format_content` | Text                                                                                              | The format of the text |
-| `format`         | Marker<br/>**BLANK** - Empty<br/>**FIXED** - Text<br/>**RESET** - Ordinary<br/>**STYLED** - Style | Type of format         |
+| **Name**         | **Type**                                                                                         | **Description** |
+| ---------------- | ------------------------------------------------------------------------------------------------ | --------------- |
+| `id`             | Text                                                                                             | Scoreboard ID   |
+| `line`           | Text                                                                                             | Line ID         |
+| `format_content` | Text                                                                                             | Format content  |
+| `format`         | Marker<br/>**BLANK** - Blank<br/>**FIXED** - Fixed<br/>**RESET** - Reset<br/>**STYLED** - Styled | Format type     |
 <h3 id=game_set_scoreboard_number_format>
   <code>world::set_scoreboard_number_format</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1331,7 +1374,7 @@ world::set_scoreboard_line_format("id","line","format_content","BLANK");
 
 **Name:** Set Scoreboard Number Format\
 **Type:** Action without value\
-**Description:** Establishes formatting values for a scorching.
+**Description:** Sets the format for the values of the scoreboard.
 
 **Usage example:** 
 ```ts
@@ -1344,11 +1387,11 @@ world::set_scoreboard_number_format("id","format_content","BLANK");
 
 **Arguments:**
 
-| **Name**         | **Type**                                                                                          | **Description**        |
-| ---------------- | ------------------------------------------------------------------------------------------------- | ---------------------- |
-| `id`             | Text                                                                                              | ID Skorboard           |
-| `format_content` | Text                                                                                              | The format of the text |
-| `format`         | Marker<br/>**BLANK** - Empty<br/>**FIXED** - Text<br/>**RESET** - Ordinary<br/>**STYLED** - Style | Type of format         |
+| **Name**         | **Type**                                                                                         | **Description** |
+| ---------------- | ------------------------------------------------------------------------------------------------ | --------------- |
+| `id`             | Text                                                                                             | Scoreboard ID   |
+| `format_content` | Text                                                                                             | Format content  |
+| `format`         | Marker<br/>**BLANK** - Blank<br/>**FIXED** - Fixed<br/>**RESET** - Reset<br/>**STYLED** - Styled | Format type     |
 <h3 id=game_set_scoreboard_score>
   <code>world::set_scoreboard_score</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1397,9 +1440,9 @@ world::set_scoreboard_title("id","title");
 
 **Name:** Set Sculk Shrieker Can Summon\
 **Type:** Action without value\
-**Description:** It sets the indicated rock crkun with the possibility of calling Warden.
+**Description:** Sets the Sculk Shriker\'s ability to summon Wardens.
 **Work_with:**\
-&nbsp;&nbsp;Sculk shriekers
+&nbsp;&nbsp;Sculk Shrieker
 
 **Usage example:** 
 ```ts
@@ -1408,10 +1451,10 @@ world::set_sculk_shrieker_can_summon(location(0,0,0,0,0),"FALSE");
 
 **Arguments:**
 
-| **Name**     | **Type**                                                                | **Description**                 |
-| ------------ | ----------------------------------------------------------------------- | ------------------------------- |
-| `location`   | Location                                                                | The location of the rock-crkuna |
-| `can_summon` | Marker<br/>**FALSE** - Cannot be called<br/>**TRUE** - It can be called | The possibility of calling      |
+| **Name**     | **Type**                                         | **Description**         |
+| ------------ | ------------------------------------------------ | ----------------------- |
+| `location`   | Location                                         | Sculk Shrieker location |
+| `can_summon` | Marker<br/>**FALSE** - False<br/>**TRUE** - True | Can summon              |
 <h3 id=game_set_sculk_shrieker_shrieking>
   <code>world::set_sculk_shrieker_shrieking</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1419,9 +1462,9 @@ world::set_sculk_shrieker_can_summon(location(0,0,0,0,0),"FALSE");
 
 **Name:** Set Sculk Shrieker Shrieking\
 **Type:** Action without value\
-**Description:** Establishes the specified rock-ricked condition.
+**Description:** Sets the shrieking status of a Sculk Shrieker.
 **Work_with:**\
-&nbsp;&nbsp;Sculk shriekers
+&nbsp;&nbsp;Sculk Shrieker
 
 **Usage example:** 
 ```ts
@@ -1430,10 +1473,10 @@ world::set_sculk_shrieker_shrieking(location(0,0,0,0,0),"FALSE");
 
 **Arguments:**
 
-| **Name**    | **Type**                                                      | **Description**                 |
-| ----------- | ------------------------------------------------------------- | ------------------------------- |
-| `location`  | Location                                                      | The location of the rock-crkuna |
-| `shrieking` | Marker<br/>**FALSE** - Not screaming<br/>**TRUE** - Screaming | State                           |
+| **Name**    | **Type**                                         | **Description**         |
+| ----------- | ------------------------------------------------ | ----------------------- |
+| `location`  | Location                                         | Sculk Shrieker location |
+| `shrieking` | Marker<br/>**FALSE** - False<br/>**TRUE** - True | Shrieking               |
 <h3 id=game_set_sculk_shrieker_warning_level>
   <code>world::set_sculk_shrieker_warning_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1441,9 +1484,9 @@ world::set_sculk_shrieker_shrieking(location(0,0,0,0,0),"FALSE");
 
 **Name:** Set Sculk Shrieker Warning Level\
 **Type:** Action without value\
-**Description:** Sets the indicated rock rod level of danger.
+**Description:** Sets the warning levels of a Sculk Shrieker.
 **Work_with:**\
-&nbsp;&nbsp;Rock-rockers
+&nbsp;&nbsp;Sculk Shrieker
 
 **Usage example:** 
 ```ts
@@ -1452,10 +1495,10 @@ world::set_sculk_shrieker_warning_level(location(0,0,0,0,0),1);
 
 **Arguments:**
 
-| **Name**        | **Type** | **Description**                 |
-| --------------- | -------- | ------------------------------- |
-| `location`      | Location | The location of the rock-crkuna |
-| `warning_level` | Number   | The level of danger             |
+| **Name**        | **Type** | **Description**         |
+| --------------- | -------- | ----------------------- |
+| `location`      | Location | Sculk Shrieker location |
+| `warning_level` | Number   | Warning level           |
 <h3 id=game_set_sign_text>
   <code>world::set_sign_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1465,7 +1508,7 @@ world::set_sculk_shrieker_warning_level(location(0,0,0,0,0),1);
 **Type:** Action without value\
 **Description:** Sets the sign text at the selected location.
 **Work_with:**\
-&nbsp;&nbsp;None
+&nbsp;&nbsp;Signs
 
 **Usage example:** 
 ```ts
@@ -1533,7 +1576,7 @@ world::set_sign_waxed(location(0,0,0,0,0),"FALSE");
 
 **Name:** Set Spawner Entity\
 **Type:** Action without value\
-**Description:** It sets spavner in the selected location of the entity inside.
+**Description:** Sets the entity that spawns near a Spawner.
 **Work_with:**\
 &nbsp;&nbsp;Spawner
 
@@ -1548,10 +1591,10 @@ location(0,0,0,0,0).set_spawner_entity(item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**             |
-| ---------- | -------- | --------------------------- |
-| `location` | Location | The location of the spavner |
-| `entity`   | Item     | The egg is an entity        |
+| **Name**   | **Type** | **Description**  |
+| ---------- | -------- | ---------------- |
+| `location` | Location | Spawner location |
+| `entity`   | Item     | Entity           |
 <h3 id=game_set_world_difficulty>
   <code>world::set_world_difficulty</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1576,11 +1619,11 @@ world::set_world_difficulty("EASY");
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Set World Gamerule\
 **Type:** Action without value\
-**Description:** None\
+**Description:** Sets a specific game rule in the world.\
 **Additional info:**\
-&nbsp;&nbsp;None
+&nbsp;&nbsp;Leave the value argument empty to reset the gamerule to its default state.
 
 **Usage example:** 
 ```ts
@@ -1589,10 +1632,10 @@ world::set_gamerule("DISABLE_RAIDS","value");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Description** |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `gamerule` | Marker<br/>**DISABLE_RAIDS** - None<br/>**DO_DAYLIGHT_CYCLE** - None<br/>**DO_ENTITY_DROPS** - None<br/>**DO_FIRE_TICK** - None<br/>**DO_IMMEDIATE_RESPAWN** - None<br/>**DO_INSOMNIA** - None<br/>**DO_MOB_LOOT** - None<br/>**DO_MOB_SPAWNING** - None<br/>**DO_PATROL_SPAWNING** - None<br/>**DO_TILE_DROPS** - None<br/>**DO_TRADER_SPAWNING** - None<br/>**DO_WEATHER_CYCLE** - None<br/>**DROWNING_DAMAGE** - None<br/>**FALL_DAMAGE** - None<br/>**FIRE_DAMAGE** - None<br/>**FORGIVE_DEAD_PLAYERS** - None<br/>**KEEP_INVENTORY** - None<br/>**MOB_GRIEFING** - None<br/>**PROJECTILES_CAN_BREAK_BLOCKS** - None<br/>**SHOW_DEATH_MESSAGES** - None<br/>**NATURAL_REGENERATION** - None<br/>**UNIVERSAL_ANGER** - None<br/>**PLAYERS_SLEEPING_PERCENTAGE** - None<br/>**REDUCED_DEBUG_INFO** - None<br/>**FREEZE_DAMAGE** - None<br/>**RANDOM_TICK_SPEED** - None<br/>**MAX_ENTITY_CRAMMING** - None<br/>**SPAWN_RADIUS** - None<br/>**LAVA_SOURCE_CONVERSION** - None<br/>**WATER_SOURCE_CONVERSION** - None<br/>**TNT_EXPLOSION_DROP_DECAY** - None<br/>**BLOCK_EXPLOSION_DROP_DECAY** - None<br/>**MOB_EXPLOSION_DROP_DECAY** - None<br/>**DO_LIMITED_CRAFTING** - None<br/>**PLAYERS_NETHER_PORTAL_DEFAULT_DELAY** - None<br/>**PLAYERS_NETHER_PORTAL_CREATIVE_DELAY** - None<br/>**SNOW_ACCUMULATION_HEIGHT** - None<br/>**SPAWN_CHUNK_RADIUS** - None<br/>**DO_WARDEN_SPAWNING** - None<br/>**ENDER_PEARLS_VANISH_ON_DEATH** - None<br/>**DO_VINES_SPREAD** - None | None            |
-| `value`    | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | None            |
+| **Name**   | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | **Description** |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `gamerule` | Marker<br/>**DISABLE_RAIDS** - disableRaids<br/>**DO_DAYLIGHT_CYCLE** - doDaylightCycle<br/>**DO_ENTITY_DROPS** - doEntityDrops<br/>**DO_FIRE_TICK** - doFireTick<br/>**DO_IMMEDIATE_RESPAWN** - doImmediateRespawn<br/>**DO_INSOMNIA** - doInsomnia<br/>**DO_MOB_LOOT** - doMobLoot<br/>**DO_MOB_SPAWNING** - doMobSpawning<br/>**DO_PATROL_SPAWNING** - doPatrolSpawning<br/>**DO_TILE_DROPS** - doTileDrops<br/>**DO_TRADER_SPAWNING** - doTraderSpawning<br/>**DO_WEATHER_CYCLE** - doWeatherCycle<br/>**DROWNING_DAMAGE** - drowningDamage<br/>**FALL_DAMAGE** - fallDamage<br/>**FIRE_DAMAGE** - fireDamage<br/>**FORGIVE_DEAD_PLAYERS** - forgiveDeadPlayers<br/>**KEEP_INVENTORY** - keepInventory<br/>**MOB_GRIEFING** - mobGriefing<br/>**PROJECTILES_CAN_BREAK_BLOCKS** - projectilesCanBreakBlocks<br/>**SHOW_DEATH_MESSAGES** - showDeathMessages<br/>**NATURAL_REGENERATION** - naturalRegeneration<br/>**UNIVERSAL_ANGER** - universalAnger<br/>**PLAYERS_SLEEPING_PERCENTAGE** - playersSleepingPercentage<br/>**REDUCED_DEBUG_INFO** - reducedDebugInfo<br/>**FREEZE_DAMAGE** - freezeDamage<br/>**RANDOM_TICK_SPEED** - randomTickSpeed<br/>**MAX_ENTITY_CRAMMING** - maxEntityCramming<br/>**SPAWN_RADIUS** - spawnRadius<br/>**LAVA_SOURCE_CONVERSION** - lavaSourceConversion<br/>**WATER_SOURCE_CONVERSION** - waterSourceConversion<br/>**TNT_EXPLOSION_DROP_DECAY** - tntExplosionDropDecay<br/>**BLOCK_EXPLOSION_DROP_DECAY** - blockExplosionDropDecay<br/>**MOB_EXPLOSION_DROP_DECAY** - mobExplosionDropDecay<br/>**DO_LIMITED_CRAFTING** - doLimitedCrafting<br/>**PLAYERS_NETHER_PORTAL_DEFAULT_DELAY** - playersNetherPortalDefaultDelay<br/>**PLAYERS_NETHER_PORTAL_CREATIVE_DELAY** - playersNetherPortalCreativeDelay<br/>**SNOW_ACCUMULATION_HEIGHT** - snowAccumulationHeight<br/>**SPAWN_CHUNK_RADIUS** - spawnChunkRadius<br/>**DO_WARDEN_SPAWNING** - doWardenSpawning<br/>**ENDER_PEARLS_VANISH_ON_DEATH** - enderPearlsVanishOnDeath<br/>**DO_VINES_SPREAD** - doVinesSpread | Gamerule        |
+| `value`    | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Value           |
 <h3 id=game_set_world_simulation_distance>
   <code>world::set_world_simulation_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1638,7 +1681,7 @@ world::set_world_time(1);
 
 **Name:** Set World Weather\
 **Type:** Action without value\
-**Description:** Sets the world's weather for a certain amount of time.\
+**Description:** Sets the world\'s weather for a certain amount of time.\
 **Additional info:**\
 &nbsp;&nbsp;By default, if no duration is specified, the weather will not change.
 
@@ -1893,7 +1936,7 @@ world::spawn_item(location(0,0,0,0,0),item("stick"),"custom_name","FALSE","FALSE
 
 **Name:** Spawn Item Display\
 **Type:** Action without value\
-**Description:** Spawns an item display at the specified location
+**Description:** Spawns an item visualizer at the specified location
 
 **Usage example:** 
 ```ts
@@ -1978,7 +2021,7 @@ world::spawn_primed_tnt(location(0,0,0,0,0),1,2,"custom_name",item("stone"));
 | `tnt_power`     | Number   | Dynamite Power (0 to 4) |
 | `fuse_duration` | Number   | Explosion Delay Time    |
 | `custom_name`   | Text     | Name                    |
-| `block`         | Block    | Block for disguise      |
+| `block`         | Block    | Disguise block          |
 <h3 id=game_spawn_shulker_bullet>
   <code>world::spawn_shulker_bullet</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2063,7 +2106,7 @@ world::uncancel_event();
 
 **Name:** Update Adjacent Block\
 **Type:** Action without value\
-**Description:** Updates neighboring blocks in the indicated location if the block in the location is not air.The unit on its location is not updated, but can be updated from the neighboring ones.
+**Description:** Updates adjacent blocks at the specified location if the block is not air. The block on the location itself is not updated, but it can be updated from adjacent blocks.
 
 **Usage example:** 
 ```ts
@@ -2194,7 +2237,7 @@ if(world::container_has_room_for_item([item("stick"), item("stick")],location(0,
 
 **Name:** Event Damage Source Equals\
 **Type:** Action that checks the conditions\
-**Description:** Checks if the event's damage source is equal to the selected one.
+**Description:** Checks if the event\'s damage source is equal to the selected one.
 
 **Usage example:** 
 ```ts
@@ -2205,9 +2248,9 @@ if(world::damage_cause_equals("BLOCK_EXPLOSION")){
 
 **Arguments:**
 
-| **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | **Description** |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `cause`  | Marker<br/>**BLOCK_EXPLOSION** - Block Explosion<br/>**CAMPFIRE** - None<br/>**CONTACT** - Contact<br/>**CRAMMING** - Crowd<br/>**CUSTOM** - Custom<br/>**DRAGON_BREATH** - Dragon Breath<br/>**DROWNING** - Drowning<br/>**DRYOUT** - Dryout<br/>**ENTITY_ATTACK** - Entity Attack<br/>**ENTITY_EXPLOSION** - Entity Explosion<br/>**ENTITY_SWEEP_ATTACK** - Entity Sweep Attack.name=Entity Sweep Attack<br/>**FALL** - Fall<br/>**FALLING_BLOCK** - Falling Block<br/>**FIRE** - Direct Fire<br/>**FIRE_TICK** - Burning<br/>**FLY_INTO_WALL** - Kinetic Energy<br/>**FREEZE** - Freeze<br/>**HOT_FLOOR** - Magma<br/>**KILL** - Command<br/>**LAVA** - Lava<br/>**LIGHTNING** - Lightning<br/>**MAGIC** - Magic<br/>**MELTING** - Melting<br/>**POISON** - Poison<br/>**PROJECTILE** - Projectile<br/>**SONIC_BOOM** - Explosive Wave<br/>**STARVATION** - Hunger<br/>**SUFFOCATION** - Suffocation<br/>**SUICIDE** - Suicide (Sin)<br/>**THORNS** - Thorns<br/>**VOID** - Void<br/>**WITHER** - Wither<br/>**WORLD_BORDER** - World Border | Damage Source   |
+| **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Description** |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `cause`  | Marker<br/>**BLOCK_EXPLOSION** - Block Explosion<br/>**CAMPFIRE** - Campfire<br/>**CONTACT** - Contact<br/>**CRAMMING** - Crowd<br/>**CUSTOM** - Custom<br/>**DRAGON_BREATH** - Dragon Breath<br/>**DROWNING** - Drowning<br/>**DRYOUT** - Dryout<br/>**ENTITY_ATTACK** - Entity Attack<br/>**ENTITY_EXPLOSION** - Entity Explosion<br/>**ENTITY_SWEEP_ATTACK** - Entity Sweep Attack.name=Entity Sweep Attack<br/>**FALL** - Fall<br/>**FALLING_BLOCK** - Falling Block<br/>**FIRE** - Direct Fire<br/>**FIRE_TICK** - Burning<br/>**FLY_INTO_WALL** - Kinetic Energy<br/>**FREEZE** - Freeze<br/>**HOT_FLOOR** - Magma<br/>**KILL** - Command<br/>**LAVA** - Lava<br/>**LIGHTNING** - Lightning<br/>**MAGIC** - Magic<br/>**MELTING** - Melting<br/>**POISON** - Poison<br/>**PROJECTILE** - Projectile<br/>**SONIC_BOOM** - Explosive Wave<br/>**STARVATION** - Hunger<br/>**SUFFOCATION** - Suffocation<br/>**SUICIDE** - Suicide (Sin)<br/>**THORNS** - Thorns<br/>**VOID** - Void<br/>**WITHER** - Wither<br/>**WORLD_BORDER** - World Border | Damage Source   |
 <h3 id=if_game_dummy>
   <code>world::is_dummy</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2247,7 +2290,7 @@ if(world::event_attack_is_critical()){
 
 **Name:** Event Block Equals\
 **Type:** Action that checks the conditions\
-**Description:** Checks if the current event's block is equal to certain blocks.
+**Description:** Checks if the current event\'s block is equal to certain blocks.
 
 **Usage example:** 
 ```ts
@@ -2383,15 +2426,15 @@ if(world::instrument_equals("BANJO")){
 
 | **Name**     | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | **Description** |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `instrument` | Marker<br/>**BANJO** - Banjo<br/>**BASS_DRUM** - Bass Drum<br/>**BASS_GUITAR** - Bass Guitar<br/>**BELL** - Bell<br/>**BIT** - Bit<br/>**CHIME** - Chimes<br/>**COW_BELL** - Cowbell<br/>**CREEPER** - Creeper<br/>**CUSTOM_HEAD** - Custom head<br/>**DIDGERIDOO** - Didgeridoo<br/>**DRAGON** - Ender Dragon<br/>**FLUTE** - Flute<br/>**GUITAR** - Guitar<br/>**IRON_XYLOPHONE** - Iron Xylophone<br/>**PIANO** - Piano<br/>**PIGLIN** - Piglin<br/>**PLING** - Pling<br/>**SKELETON** - Skeleton<br/>**SNARE_DRUM** - Snare Drum<br/>**STICKS** - Klaves<br/>**WITHER_SKELETON** - Wither skeleton<br/>**XYLOPHONE** - Xylophone<br/>**ZOMBIE** - Zombie | Instrument      |
+| `instrument` | Marker<br/>**BANJO** - Banjo<br/>**BASS_DRUM** - Bass Drum<br/>**BASS_GUITAR** - Bass Guitar<br/>**BELL** - Bell<br/>**BIT** - Bit<br/>**CHIME** - Chimes<br/>**COW_BELL** - Cowbell<br/>**CREEPER** - Creeper<br/>**CUSTOM_HEAD** - Custom head<br/>**DIDGERIDOO** - Didgeridoo<br/>**DRAGON** - Ender-dragon<br/>**FLUTE** - Flute<br/>**GUITAR** - Guitar<br/>**IRON_XYLOPHONE** - Iron Xylophone<br/>**PIANO** - Piano<br/>**PIGLIN** - Piglin<br/>**PLING** - Pling<br/>**SKELETON** - Skeleton<br/>**SNARE_DRUM** - Snare Drum<br/>**STICKS** - Klaves<br/>**WITHER_SKELETON** - Wither-skeleton<br/>**XYLOPHONE** - Xylophone<br/>**ZOMBIE** - Zombie | Instrument      |
 <h3 id=if_game_location_in_block>
   <code>world::location_in_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** If Location in Block\
 **Type:** Action that checks the conditions\
-**Description:** None
+**Description:** Checks if the specified location is in a block.
 
 **Usage example:** 
 ```ts
@@ -2402,9 +2445,9 @@ if(world::location_in_block(location(0,0,0,0,0))){
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `location` | Location | None            |
+| **Name**   | **Type** | **Description**   |
+| ---------- | -------- | ----------------- |
+| `location` | Location | Location to check |
 <h3 id=if_game_sign_contains>
   <code>world::sign_contains</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

@@ -120,6 +120,10 @@
     "type": "text"
   },
   {
+    "id": "entity_fuse_ticks",
+    "type": "number"
+  },
+  {
     "id": "entity_height",
     "type": "number"
   },

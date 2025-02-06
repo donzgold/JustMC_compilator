@@ -3,9 +3,9 @@
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Block Is Solid\
 **Type:** Action that checks the conditions\
-**Description:** None
+**Description:** Checks if the specified block is solid.
 
 **Usage example:** 
 ```ts
@@ -24,7 +24,7 @@ if(item("stone").block_is_solid(){
 
 | **Name** | **Type** | **Description** |
 | -------- | -------- | --------------- |
-| `block`  | Block    | None            |
+| `block`  | Block    | Block to check  |
 <h3 id=if_variable_dummy>
   <code>variable::is_dummy</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -191,7 +191,7 @@ if("any value".in_range("any value","any value"){
 
 **Name:** Variable Type Equals\
 **Type:** Action that checks the conditions\
-**Description:** Checks if a variable's value type is equal to the specified one.
+**Description:** Checks if a variable\'s value type is equal to the specified one.
 
 **Usage example:** 
 ```ts
@@ -248,7 +248,7 @@ if(item("stick").item_equals([item("stick"), item("stick")],"EXACTLY"){
 
 **Name:** Item Has Enchantment\
 **Type:** Action that checks the conditions\
-**Description:** Checks whether the subject variable is the specified enchanting of a certain level.
+**Description:** Checks if an item have a specific enchantment of a specific level.
 
 **Usage example:** 
 ```ts
@@ -265,11 +265,11 @@ if(item("stick").item_has_enchantment("enchant",1){
 
 **Arguments:**
 
-| **Name**  | **Type** | **Description**  |
-| --------- | -------- | ---------------- |
-| `item`    | Item     | Subject variable |
-| `enchant` | Text     | Furning key      |
-| `level`   | Number   | Level            |
+| **Name**  | **Type** | **Description** |
+| --------- | -------- | --------------- |
+| `item`    | Item     | item            |
+| `enchant` | Text     | Enchantment     |
+| `level`   | Number   | Level           |
 <h3 id=if_variable_item_has_tag>
   <code>variable::item_has_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -294,20 +294,20 @@ if(item("stick").item_has_tag("tag","value","CONTAINS"){
 
 **Arguments:**
 
-| **Name**       | **Type**                                                                                                                                   | **Description**    |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| `item`         | Item                                                                                                                                       | Item Variable      |
-| `tag`          | Text                                                                                                                                       | Tag name           |
-| `value`        | Text                                                                                                                                       | Tag Value          |
-| `compare_type` | Marker<br/>**CONTAINS** - Contains<br/>**ENDS_WITH** - Ends on<br/>**EQUALS** - Accurate correspondence<br/>**STARTS_WITH** - It begins on | Type of comparison |
+| **Name**       | **Type**                                                                                                                   | **Description** |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `item`         | Item                                                                                                                       | Item Variable   |
+| `tag`          | Text                                                                                                                       | Tag name        |
+| `value`        | Text                                                                                                                       | Tag Value       |
+| `compare_type` | Marker<br/>**CONTAINS** - Contains<br/>**ENDS_WITH** - Ends With<br/>**EQUALS** - Equals<br/>**STARTS_WITH** - Starts With | Comparison Type |
 <h3 id=if_variable_item_is_block>
   <code>variable::item_is_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Item Is Block\
 **Type:** Action that checks the conditions\
-**Description:** None
+**Description:** Checks if the provided item is a block.
 
 **Usage example:** 
 ```ts
@@ -326,7 +326,7 @@ if(item("stick").item_is_block(){
 
 | **Name** | **Type** | **Description** |
 | -------- | -------- | --------------- |
-| `item`   | Item     | None            |
+| `item`   | Item     | Item to check   |
 <h3 id=if_variable_less>
   <code>variable::less</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -635,13 +635,13 @@ if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),loca
 
 **Arguments:**
 
-| **Name**     | **Type**                                                         | **Description**                        |
-| ------------ | ---------------------------------------------------------------- | -------------------------------------- |
-| `min1`       | Location                                                         | The first corner of the first region   |
-| `max1`       | Location                                                         | The second corner of the first region  |
-| `min2`       | Location                                                         | The first corner of the second region  |
-| `max2`       | Location                                                         | The second corner of the second region |
-| `check_type` | Marker<br/>**CONTAINS** - Contains<br/>**OVERLAPS** - Intersects | Type of verification                   |
+| **Name**     | **Type**                                                         | **Description**                    |
+| ------------ | ---------------------------------------------------------------- | ---------------------------------- |
+| `min1`       | Location                                                         | First corner of the first region   |
+| `max1`       | Location                                                         | Second corner of the first region  |
+| `min2`       | Location                                                         | First corner of the second region  |
+| `max2`       | Location                                                         | Second corner of the second region |
+| `check_type` | Marker<br/>**CONTAINS** - Contains<br/>**OVERLAPS** - Intersects | Check type                         |
 <h3 id=if_variable_text_contains>
   <code>variable::text_contains</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -964,7 +964,7 @@ variable::align_to_axis_vector(a1,vector(0,0,0),"FALSE");
 
 **Name:** Append Stylized Texts\
 **Type:** An action that returns a value\
-**Description:** Combines these stylized texts into a single stylized text and assigns the result to the variable.
+**Description:** Appends different Styled Text together.
 
 **Usage example:** 
 ```ts
@@ -977,11 +977,11 @@ variable::append_component(a1,["components", "components"],"CONCATENATION");
 
 **Arguments:**
 
-| **Name**     | **Type**                                                                                                                         | **Description**              |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| `variable`   | Variable                                                                                                                         | Variable for appropriation   |
-| `components` | list[Text]                                                                                                                       | Stylized texts for combining |
-| `merging`    | Marker<br/>**CONCATENATION** - Association<br/>**SEPARATE_LINES** - Separation into lines<br/>**SPACES** - Separation with a gap | The combination of the text  |
+| **Name**     | **Type**                                                                                                    | **Description** |
+| ------------ | ----------------------------------------------------------------------------------------------------------- | --------------- |
+| `variable`   | Variable                                                                                                    | Variable to set |
+| `components` | list[Text]                                                                                                  | Texts to append |
+| `merging`    | Marker<br/>**CONCATENATION** - Merging<br/>**SEPARATE_LINES** - Separate with lines<br/>**SPACES** - Spaces | Merge Text      |
 <h3 id=set_variable_append_list>
   <code>variable::append_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1069,9 +1069,9 @@ a1.append_value(["any value", "any value"]);
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Inverse Tangent\
 **Type:** An action that returns a value\
-**Description:** None
+**Description:** Returns the inverse tangent of the two specified numbers.
 
 **Usage example:** 
 ```ts
@@ -1084,11 +1084,11 @@ variable::atan2(a1,1,2);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `y`        | Number   | None            |
-| `x`        | Number   | None            |
+| **Name**   | **Type** | **Description**    |
+| ---------- | -------- | ------------------ |
+| `variable` | Variable | Variable to assign |
+| `y`        | Number   | First Number (y)   |
+| `x`        | Number   | Second Number (x)  |
 <h3 id=set_variable_average>
   <code>variable::average</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1170,7 +1170,7 @@ variable::center_location(a1,[location(0,0,0,0,0), location(0,0,0,0,0)]);
 
 **Name:** Change Stylized Text Parsing\
 **Type:** An action that returns a value\
-**Description:** Changes the type of transformation for the specified stylized text.
+**Description:** Change how the Styled Text is parsed.
 
 **Usage example:** 
 ```ts
@@ -1187,11 +1187,11 @@ variable::change_component_parsing(a1,"component","JSON");
 
 **Arguments:**
 
-| **Name**    | **Type**                                                                                                       | **Description**                |
-| ----------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `variable`  | Variable                                                                                                       | Variable for appropriation     |
-| `component` | Text                                                                                                           | Stylized text for installation |
-| `parsing`   | Marker<br/>**JSON** - Zhnon<br/>**LEGACY** - Color (&)<br/>**MINIMESSAGE** - Stylized<br/>**PLAIN** - Ordinary | Type of transformation         |
+| **Name**    | **Type**                                                                                                      | **Description**   |
+| ----------- | ------------------------------------------------------------------------------------------------------------- | ----------------- |
+| `variable`  | Variable                                                                                                      | Variable to set   |
+| `component` | Text                                                                                                          | The text to parse |
+| `parsing`   | Marker<br/>**JSON** - JSON<br/>**LEGACY** - Colored (&)<br/>**MINIMESSAGE** - Stylized<br/>**PLAIN** - Normal | Parse method      |
 <h3 id=set_variable_char_to_number>
   <code>variable::char_to_number</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1308,7 +1308,7 @@ a1.clear_map();
 
 **Name:** Compact Stylized Text\
 **Type:** An action that returns a value\
-**Description:** Assigns to the variable the specified stylized text without elements of style and subsidiaries.
+**Description:** Compacts the Styled Text by removing all styles.
 
 **Usage example:** 
 ```ts
@@ -1325,18 +1325,18 @@ variable::compact_component(a1,"component");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**            |
-| ----------- | -------- | -------------------------- |
-| `variable`  | Variable | Variable for appropriation |
-| `component` | Text     | Compressed stylized text   |
+| **Name**    | **Type** | **Description**    |
+| ----------- | -------- | ------------------ |
+| `variable`  | Variable | Variable to assign |
+| `component` | Text     | The Styled Text    |
 <h3 id=set_variable_component_of_children>
   <code>variable::component_of_children</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** Create a stylized text from subsidiaries\
+**Name:** Create Styled Text From Children\
 **Type:** An action that returns a value\
-**Description:** Creates a stylized text from these subsidiaries of stylized texts and assigns the result to the variable.
+**Description:** Creates a new Styled Text from the children Styled Text.
 
 **Usage example:** 
 ```ts
@@ -1349,10 +1349,10 @@ variable::component_of_children(a1,["components", "components"]);
 
 **Arguments:**
 
-| **Name**     | **Type**   | **Description**            |
-| ------------ | ---------- | -------------------------- |
-| `variable`   | Variable   | Variable for appropriation |
-| `components` | list[Text] | Stylized texts             |
+| **Name**     | **Type**   | **Description**    |
+| ------------ | ---------- | ------------------ |
+| `variable`   | Variable   | Variable to assign |
+| `components` | list[Text] | Stylized texts     |
 <h3 id=set_variable_convert_number_to_text>
   <code>variable::convert_number_to_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1438,12 +1438,12 @@ variable::cosine(a1,1,"ARCCOSINE","DEGREES");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                                                       | **Description**      |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| `variable` | Variable                                                                                                                                       | Variable to assign   |
-| `number`   | Number                                                                                                                                         | Number to get cosine |
-| `variant`  | Marker<br/>**ARCCOSINE** - Arccosine<br/>**COSINE** - Cosine<br/>**HYPERBOLIC_ARCCOSINE** - None<br/>**HYPERBOLIC_COSINE** - Hyperbolic Cosine | Operation Type       |
-| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                     | Corner Type          |
+| **Name**   | **Type**                                                                                                                                                       | **Description**      |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| `variable` | Variable                                                                                                                                                       | Variable to assign   |
+| `number`   | Number                                                                                                                                                         | Number to get cosine |
+| `variant`  | Marker<br/>**ARCCOSINE** - Arccosine<br/>**COSINE** - Cosine<br/>**HYPERBOLIC_ARCCOSINE** - Hyperbolic Arccosine<br/>**HYPERBOLIC_COSINE** - Hyperbolic Cosine | Operation Type       |
+| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                                     | Corner Type          |
 <h3 id=set_variable_cotangent>
   <code>variable::cotangent</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1468,12 +1468,12 @@ variable::cotangent(a1,1,"ARCCOTANGENT","DEGREES");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                                                                            | **Description**         |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| `variable` | Variable                                                                                                                                                            | Variable to assign      |
-| `number`   | Number                                                                                                                                                              | Number to get cotangent |
-| `variant`  | Marker<br/>**ARCCOTANGENT** - Arccotangent<br/>**COTANGENT** - Cotangent<br/>**HYPERBOLIC_ARCCOTANGENT** - None<br/>**HYPERBOLIC_COTANGENT** - Hyperbolic Cotangent | Operation Type          |
-| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                                          | Angle Type              |
+| **Name**   | **Type**                                                                                                                                                                               | **Description**         |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `variable` | Variable                                                                                                                                                                               | Variable to assign      |
+| `number`   | Number                                                                                                                                                                                 | Number to get cotangent |
+| `variant`  | Marker<br/>**ARCCOTANGENT** - Arccotangent<br/>**COTANGENT** - Cotangent<br/>**HYPERBOLIC_ARCCOTANGENT** - Hyperbolic Arccotangent<br/>**HYPERBOLIC_COTANGENT** - Hyperbolic Cotangent | Operation Type          |
+| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                                                             | Angle Type              |
 <h3 id=set_variable_create_keybind_component>
   <code>variable::create_keybind_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1481,7 +1481,7 @@ variable::cotangent(a1,1,"ARCCOTANGENT","DEGREES");
 
 **Name:** Create Stylized Text With Key Binding\
 **Type:** An action that returns a value\
-**Description:** Assigns to the variable stylized text tied to the client key.
+**Description:** Create a keybind Styled Text.
 
 **Usage example:** 
 ```ts
@@ -1494,10 +1494,10 @@ variable::create_keybind_component(a1,"key");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**            |
-| ---------- | -------- | -------------------------- |
-| `variable` | Variable | Variable for appropriation |
-| `key`      | Text     | Keybind                    |
+| **Name**   | **Type** | **Description**    |
+| ---------- | -------- | ------------------ |
+| `variable` | Variable | Variable to assign |
+| `key`      | Text     | Keybind key        |
 <h3 id=set_variable_create_list>
   <code>variable::create_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1556,11 +1556,11 @@ variable::create_map(a1,`keys`,`values`);
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** Create a dictionary of meanings\
+**Name:** Create Dictionary From Values\
 **Type:** An action that returns a value\
-**Description:** Creates a dictionary from keys and meanings and assigns the result to the variable.\
+**Description:** Creates a dictionary from keys and values and assigns the result to a variable.\
 **Additional info:**\
-&nbsp;&nbsp;Cleans the dictionary if it already exists.
+&nbsp;&nbsp;Clears the dictionary if it already exists.
 
 **Usage example:** 
 ```ts
@@ -1573,11 +1573,11 @@ variable::create_map_from_values(a1,["any value", "any value"],["any value", "an
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**            |
-| ---------- | --------------- | -------------------------- |
-| `variable` | Variable        | Variable for appropriation |
-| `keys`     | list[Any Value] | Keys                       |
-| `values`   | list[Any Value] | Meanings                   |
+| **Name**   | **Type**        | **Description**    |
+| ---------- | --------------- | ------------------ |
+| `variable` | Variable        | Variable to assign |
+| `keys`     | list[Any Value] | Keys               |
+| `values`   | list[Any Value] | Values             |
 <h3 id=set_variable_create_translatable_component>
   <code>variable::create_translatable_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1585,7 +1585,7 @@ variable::create_map_from_values(a1,["any value", "any value"],["any value", "an
 
 **Name:** Create Translatable Stylized Text\
 **Type:** An action that returns a value\
-**Description:** Assigns to the variable the translated stylized text with the indicated arguments.
+**Description:** Creates a translated Styled Text.
 
 **Usage example:** 
 ```ts
@@ -1598,11 +1598,11 @@ variable::create_translatable_component(a1,"key",["args", "args"]);
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**            |
-| ---------- | ---------- | -------------------------- |
-| `variable` | Variable   | Variable for appropriation |
-| `key`      | Text       | Key                        |
-| `args`     | list[Text] | Arguments for inserting    |
+| **Name**   | **Type**   | **Description**    |
+| ---------- | ---------- | ------------------ |
+| `variable` | Variable   | Variable to assign |
+| `key`      | Text       | Key                |
+| `args`     | list[Text] | Arguments to add   |
 <h3 id=set_variable_decrement>
   <code>variable::decrement</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1651,11 +1651,11 @@ variable::divide(a1,[1, 2],"CEIL");
 
 **Arguments:**
 
-| **Name**        | **Type**                                                                                                                               | **Description**    |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`      | Variable                                                                                                                               | Variable to assign |
-| `value`         | list[Number]                                                                                                                           | Numbers to Divide  |
-| `division_mode` | Marker<br/>**CEIL** - Round up to more<br/>**DEFAULT** - Default<br/>**FLOOR** - Round to less<br/>**ROUND_TO_INT** - Round To Integer | Division Mode      |
+| **Name**        | **Type**                                                                                                                    | **Description**    |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `variable`      | Variable                                                                                                                    | Variable to assign |
+| `value`         | list[Number]                                                                                                                | Numbers to Divide  |
+| `division_mode` | Marker<br/>**CEIL** - Round up<br/>**DEFAULT** - Default<br/>**FLOOR** - Round down<br/>**ROUND_TO_INT** - Round To Integer | Division Mode      |
 <h3 id=set_variable_divide_vector>
   <code>variable::divide_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2073,9 +2073,9 @@ variable::get_block_power(a1,location(0,0,0,0,0));
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** None\
+**Name:** Get Block Sound\
 **Type:** An action that returns a value\
-**Description:** None
+**Description:** Gets the sound of a specified block and assigns it to a variable.
 
 **Usage example:** 
 ```ts
@@ -2092,11 +2092,11 @@ variable::get_block_sound(a1,item("stone"),"BREAK");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                    | **Description** |
-| ---------- | ----------------------------------------------------------------------------------------------------------- | --------------- |
-| `variable` | Variable                                                                                                    | None            |
-| `block`    | Block                                                                                                       | None            |
-| `source`   | Marker<br/>**BREAK** - None<br/>**PLACE** - None<br/>**HIT** - None<br/>**FALL** - None<br/>**STEP** - None | None            |
+| **Name**   | **Type**                                                                                                     | **Description**    |
+| ---------- | ------------------------------------------------------------------------------------------------------------ | ------------------ |
+| `variable` | Variable                                                                                                     | Variable to assign |
+| `block`    | Block                                                                                                        | Block              |
+| `source`   | Marker<br/>**BREAK** - Break<br/>**PLACE** - Place<br/>**HIT** - Hit<br/>**FALL** - Fall<br/>**STEP** - Step | Sound Source       |
 <h3 id=set_variable_get_book_text>
   <code>variable::get_book_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2161,7 +2161,7 @@ variable::get_brushable_block_item(a1,location(0,0,0,0,0));
 
 **Name:** Get Bundle Items\
 **Type:** Action without value\
-**Description:** He receives the contents of the bag and assigns the result to the variable.
+**Description:** Gets the list of items stored in a bundle.
 
 **Usage example:** 
 ```ts
@@ -2174,10 +2174,10 @@ item("stick").get_bundle_items(a1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**            |
-| ---------- | -------- | -------------------------- |
-| `variable` | Variable | Variable for appropriation |
-| `bundle`   | Item     | Bundle                     |
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | Variable to set |
+| `bundle`   | Item     | Bundle          |
 <h3 id=set_variable_get_char_at>
   <code>variable::get_char_at</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2271,7 +2271,7 @@ variable::get_compass_lodestone(a1,item("stick"));
 
 **Name:** Get Stylized Text Children Components\
 **Type:** An action that returns a value\
-**Description:** Assigns to the variable the subsidiaries of the specified stylized text.
+**Description:** Gets children components of the Styled Text.
 
 **Usage example:** 
 ```ts
@@ -2288,10 +2288,10 @@ variable::get_component_children(a1,"component");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**            |
-| ----------- | -------- | -------------------------- |
-| `variable`  | Variable | Variable for appropriation |
-| `component` | Text     | Stylized text              |
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `variable`  | Variable | Variable to set |
+| `component` | Text     | Stylized text   |
 <h3 id=set_variable_get_component_decorations>
   <code>variable::get_component_decorations</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2299,7 +2299,7 @@ variable::get_component_children(a1,"component");
 
 **Name:** Get Stylized Text Decorations\
 **Type:** An action that returns a value\
-**Description:** Assigns to the variable all the scenery (stylization) of the stylized text.
+**Description:** Gets the text decorations (bold, italics, underlined, strikethrough, obfuscated) of a Styled Text.
 
 **Usage example:** 
 ```ts
@@ -2316,10 +2316,10 @@ variable::get_component_decorations(a1,"component");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**            |
-| ----------- | -------- | -------------------------- |
-| `variable`  | Variable | Variable for appropriation |
-| `component` | Text     | Stylized text              |
+| **Name**    | **Type** | **Description**    |
+| ----------- | -------- | ------------------ |
+| `variable`  | Variable | Variable to assign |
+| `component` | Text     | Stylized text      |
 <h3 id=set_variable_get_component_hex_color>
   <code>variable::get_component_hex_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2327,7 +2327,7 @@ variable::get_component_decorations(a1,"component");
 
 **Name:** Get Stylized Text Hex Color\
 **Type:** An action that returns a value\
-**Description:** Assigns to the variable HEX-color of the specified stylized text.
+**Description:** Gets the color in hex of a Styled Text.
 
 **Usage example:** 
 ```ts
@@ -2344,10 +2344,10 @@ variable::get_component_hex_color(a1,"component");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**            |
-| ----------- | -------- | -------------------------- |
-| `variable`  | Variable | Variable for appropriation |
-| `component` | Text     | Stylized text              |
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `variable`  | Variable | Variable to set |
+| `component` | Text     | The Styled Text |
 <h3 id=set_variable_get_component_parsing>
   <code>variable::get_component_parsing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2355,7 +2355,7 @@ variable::get_component_hex_color(a1,"component");
 
 **Name:** Get Type Stylized Text Parsing\
 **Type:** An action that returns a value\
-**Description:** Assigns to the variable value of the type of transformation of the specified stylized text.
+**Description:** Get the method of parsing for a Styled Text.
 
 **Usage example:** 
 ```ts
@@ -2372,10 +2372,10 @@ variable::get_component_parsing(a1,"component");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**            |
-| ----------- | -------- | -------------------------- |
-| `variable`  | Variable | Variable for appropriation |
-| `component` | Text     | The initial stylized text  |
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `variable`  | Variable | Variable to set |
+| `component` | Text     | The styled text |
 <h3 id=set_variable_get_container_contents>
   <code>variable::get_container_contents</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2400,11 +2400,11 @@ variable::get_container_contents(a1,location(0,0,0,0,0),"FALSE");
 
 **Arguments:**
 
-| **Name**             | **Type**                                                  | **Description**    |
-| -------------------- | --------------------------------------------------------- | ------------------ |
-| `variable`           | Variable                                                  | Variable to assign |
-| `location`           | Location                                                  | Container Location |
-| `ignore_empty_slots` | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore | Ignore Empty Slots |
+| **Name**             | **Type**                                                   | **Description**    |
+| -------------------- | ---------------------------------------------------------- | ------------------ |
+| `variable`           | Variable                                                   | Variable to assign |
+| `location`           | Location                                                   | Container Location |
+| `ignore_empty_slots` | Marker<br/>**FALSE** - Don\'t Ignore<br/>**TRUE** - Ignore | Ignore Empty Slots |
 <h3 id=set_variable_get_container_lock>
   <code>variable::get_container_lock</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2497,7 +2497,7 @@ variable::get_coordinate(a1,location(0,0,0,0,0),"PITCH");
 
 **Name:** Get Decorate Pot Sherd\
 **Type:** An action that returns a value\
-**Description:** It assigns to the variable material the bar of the selected side of the jug in the indicated location.
+**Description:** Gets the selected vase side shard material of the selected vase side at the specified location.
 
 **Usage example:** 
 ```ts
@@ -2514,11 +2514,11 @@ variable::get_decorate_pot_sherd(a1,location(0,0,0,0,0),"BACK");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                                       | **Description**            |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------- |
-| `variable` | Variable                                                                                                                       | Variable for appropriation |
-| `location` | Location                                                                                                                       | The location of the jug    |
-| `side`     | Marker<br/>**BACK** - The back side<br/>**FRONT** - The front side<br/>**LEFT** - The left side<br/>**RIGHT** - The right side | Side of the jug            |
+| **Name**   | **Type**                                                                                                       | **Description**        |
+| ---------- | -------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `variable` | Variable                                                                                                       | Variable to assign     |
+| `location` | Location                                                                                                       | Decorated pot location |
+| `side`     | Marker<br/>**BACK** - Back side<br/>**FRONT** - Front side<br/>**LEFT** - Left side<br/>**RIGHT** - Right side | Decorated pot side     |
 <h3 id=set_variable_get_index_of_subtext>
   <code>variable::get_index_of_subtext</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2602,14 +2602,14 @@ variable::get_item_attribute(a1,item("stick"),"name","ARMOR","ALL","ADD_NUMBER")
 
 **Arguments:**
 
-| **Name**    | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **Description**     |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `variable`  | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Variable to assign  |
-| `item`      | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Item                |
-| `name`      | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Attribute Name      |
-| `attribute` | Marker<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor toughness<br/>**ATTACK_DAMAGE** - Attack damage<br/>**ATTACK_KNOCKBACK** - Attack knockback<br/>**ATTACK_SPEED** - Attack speed<br/>**FLYING_SPEED** - Flying speed<br/>**FOLLOW_RANGE** - Follow range<br/>**GENERIC_ARMOR** - Protection Points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Defense Density Points (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack Damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack Knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack Speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion knockback resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall damage multiplier<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback Resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Fishing Luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (Generic.max_Absorption)<br/>**GENERIC_MAX_HEALTH** - Maximum Health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement speed for slowing blocks<br/>**GENERIC_MOVEMENT_SPEED** - Movement Speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Air underwater<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe fall distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Movement speed underwater<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Knockback resistance<br/>**LUCK** - Luck<br/>**MAX_ABSORPTION** - Max absorption<br/>**MAX_HEALTH** - Max health<br/>**MOVEMENT_SPEED** - Movement speed<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block breaking speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - The distance of interaction with blocks<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - The distance of interaction with entities<br/>**PLAYER_MINING_EFFICIENCY** - Digging speed<br/>**PLAYER_SNEAKING_SPEED** - Movement speed while sneaking<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Digging speed underwater<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - The coefficient of a break in a blow<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zombie reinforcements (zombie.spawn_reinforcements) | Attribute Type      |
-| `slot`      | Marker<br/>**ALL** - All<br/>**ARMOR** - Any armor<br/>**BODY** - Body (does not work with all entities)<br/>**BOOTS** - Boots<br/>**CHEST** - Chest<br/>**HAND** - Any hand<br/>**HEAD** - Helmet<br/>**LEGGINGS** - Leggings<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Offhand                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Attribute Slot      |
-| `operation` | Marker<br/>**ADD_NUMBER** - Amount<br/>**ADD_SCALAR** - Percentage<br/>**MULTIPLY_SCALAR_1** - Product (multiplicative)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Attribute Operation |
+| **Name**    | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Description**     |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `variable`  | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Variable to assign  |
+| `item`      | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Item                |
+| `name`      | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Attribute Name      |
+| `attribute` | Marker<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor Toughness<br/>**ATTACK_DAMAGE** - Attack Damage<br/>**ATTACK_KNOCKBACK** - Attack Knockback<br/>**ATTACK_SPEED** - Attack Speed<br/>**FLYING_SPEED** - Flying Speed<br/>**FOLLOW_RANGE** - Follow Range<br/>**GENERIC_ARMOR** - Protection Points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Defense Density Points (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack Damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack Knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack Speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning Time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion Knockback Resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall Damage Multiplier<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump Strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback Resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Fishing Luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Maximum Health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement Efficiency<br/>**GENERIC_MOVEMENT_SPEED** - Movement Speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Oxygen Bonus<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe Fall Distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step Height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Water Movement Efficiency<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Knockback Resistance<br/>**LUCK** - Luck<br/>**MAX_ABSORPTION** - Max Absorption<br/>**MAX_HEALTH** - Max Health<br/>**MOVEMENT_SPEED** - Movement Speed<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block Breaking Speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Block Interaction Range<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Entity Interaction Range<br/>**PLAYER_MINING_EFFICIENCY** - Mining Efficiency<br/>**PLAYER_SNEAKING_SPEED** - Sneaking SPeed<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Submerged Mining Speed<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Sweeping Damage Ratio<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zombie reinforcements (zombie.spawn_reinforcements) | Attribute Type      |
+| `slot`      | Marker<br/>**ALL** - All<br/>**ARMOR** - Armor<br/>**BODY** - Body (doesn\'t work with all entities)<br/>**BOOTS** - Boots<br/>**CHEST** - Chest<br/>**HAND** - Hand<br/>**HEAD** - Helmet<br/>**LEGGINGS** - Leggings<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Offhand                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Attribute Slot      |
+| `operation` | Marker<br/>**ADD_NUMBER** - Amount<br/>**ADD_SCALAR** - Percentage<br/>**MULTIPLY_SCALAR_1** - Product (multiplicative)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Attribute Operation |
 <h3 id=set_variable_get_item_color>
   <code>variable::get_item_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2617,7 +2617,7 @@ variable::get_item_attribute(a1,item("stick"),"name","ARMOR","ALL","ADD_NUMBER")
 
 **Name:** Get Item Color\
 **Type:** An action that returns a value\
-**Description:** Sets an item's color value to a variable.
+**Description:** Sets an item\'s color value to a variable.
 **Work_with:**\
 &nbsp;&nbsp;Leather Armor\
 &nbsp;&nbsp;Potions\
@@ -2650,7 +2650,7 @@ variable::get_item_color(a1,item("stick"));
 
 **Name:** Get Item Model Data\
 **Type:** An action that returns a value\
-**Description:** Gets the item's model data (CustomModelData) and assigns the result to a variable.
+**Description:** Gets the item\'s model data (CustomModelData) and assigns the result to a variable.
 
 **Usage example:** 
 ```ts
@@ -2678,7 +2678,7 @@ variable::get_item_custom_model_data(a1,item("stick"));
 
 **Name:** Get Custom Item Tag\
 **Type:** An action that returns a value\
-**Description:** Sets the item's custom tag value to a variable.
+**Description:** Sets the item\'s custom tag value to a variable.
 
 **Usage example:** 
 ```ts
@@ -2736,7 +2736,7 @@ variable::get_item_custom_tags(a1,item("stick"));
 
 **Name:** Get Item Destroyable Blocks\
 **Type:** Action without value\
-**Description:** He receives blocks that can break the subject and assigns the result to the variable.
+**Description:** Gets what blocks this item can break.
 
 **Usage example:** 
 ```ts
@@ -2749,10 +2749,10 @@ item("stick").get_item_destroyable_blocks(a1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**            |
-| ---------- | -------- | -------------------------- |
-| `variable` | Variable | Variable for appropriation |
-| `item`     | Item     | Item                       |
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | Variable to set |
+| `item`     | Item     | Item            |
 <h3 id=set_variable_get_item_durability>
   <code>variable::get_item_durability</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2817,7 +2817,7 @@ variable::get_item_enchantments(a1,item("stick"));
 
 **Name:** Get Item Description\
 **Type:** An action that returns a value\
-**Description:** Sets an item's description text to a variable.
+**Description:** Sets an item\'s description text to a variable.
 
 **Usage example:** 
 ```ts
@@ -2845,7 +2845,7 @@ variable::get_item_lore(a1,item("stick"));
 
 **Name:** Get Item Description Line\
 **Type:** An action that returns a value\
-**Description:** Sets an item's description line to a variable.
+**Description:** Sets an item\'s description line to a variable.
 
 **Usage example:** 
 ```ts
@@ -2902,7 +2902,7 @@ variable::get_item_max_stack_size(a1,item("stick"));
 
 **Name:** Get Item Name\
 **Type:** An action that returns a value\
-**Description:** Sets an item's display name to a variable.
+**Description:** Sets an item\'s display name to a variable.
 
 **Usage example:** 
 ```ts
@@ -2947,11 +2947,11 @@ variable::get_item_nbt_tags(a1,item("stick"),"ALL");
 
 **Arguments:**
 
-| **Name**     | **Type**                                             | **Description**    |
-| ------------ | ---------------------------------------------------- | ------------------ |
-| `variable`   | Variable                                             | Variable to assign |
-| `item`       | Item                                                 | Item               |
-| `fetch_mode` | Marker<br/>**ALL** - None<br/>**CUSTOM_DATA** - None | None               |
+| **Name**     | **Type**                                                   | **Description**    |
+| ------------ | ---------------------------------------------------------- | ------------------ |
+| `variable`   | Variable                                                   | Variable to assign |
+| `item`       | Item                                                       | Item               |
+| `fetch_mode` | Marker<br/>**ALL** - All<br/>**CUSTOM_DATA** - Custom data | Get data           |
 <h3 id=set_variable_get_item_placeable_blocks>
   <code>variable::get_item_placeable_blocks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2959,7 +2959,7 @@ variable::get_item_nbt_tags(a1,item("stick"),"ALL");
 
 **Name:** Get Item Placeable Blocks\
 **Type:** Action without value\
-**Description:** He receives blocks on which an object can be installed and assigns the result to the variable.
+**Description:** Gets what blocks this item is placeable against.
 
 **Usage example:** 
 ```ts
@@ -2972,10 +2972,10 @@ item("stick").get_item_placeable_blocks(a1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**            |
-| ---------- | -------- | -------------------------- |
-| `variable` | Variable | Variable for appropriation |
-| `item`     | Item     | Item                       |
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | Variable to set |
+| `item`     | Item     | Item            |
 <h3 id=set_variable_get_item_potion_effects>
   <code>variable::get_item_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3321,7 +3321,7 @@ variable::get_location_direction(a1,location(0,0,0,0,0));
 
 **Name:** Get Dictionary Key By Index\
 **Type:** An action that returns a value\
-**Description:** He receives the index key and assigns the result to the variable.
+**Description:** Gets the key by the order it is inserted in.
 
 **Usage example:** 
 ```ts
@@ -3338,12 +3338,12 @@ variable::get_map_key_by_index(a1,`map`,1,"any value");
 
 **Arguments:**
 
-| **Name**        | **Type**   | **Description**                |
-| --------------- | ---------- | ------------------------------ |
-| `variable`      | Variable   | Variable for appropriation     |
-| `map`           | Dictionary | Dictionary for obtaining a key |
-| `index`         | Number     | Key index                      |
-| `default_value` | Any Value  | Default value                  |
+| **Name**        | **Type**   | **Description** |
+| --------------- | ---------- | --------------- |
+| `variable`      | Variable   | Variable to set |
+| `map`           | Dictionary | The dictionary  |
+| `index`         | Number     | Index           |
+| `default_value` | Any Value  | Default value   |
 <h3 id=set_variable_get_map_keys>
   <code>variable::get_map_keys</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3468,7 +3468,7 @@ variable::get_map_value(a1,`map`,"any value","any value");
 
 **Name:** Get Dictionary Value By Index\
 **Type:** An action that returns a value\
-**Description:** He receives a value for the index and assigns the result to the variable.
+**Description:** Gets the value by the order it is inserted in.
 
 **Usage example:** 
 ```ts
@@ -3485,12 +3485,12 @@ variable::get_map_value_by_index(a1,`map`,1,"any value");
 
 **Arguments:**
 
-| **Name**        | **Type**   | **Description**                |
-| --------------- | ---------- | ------------------------------ |
-| `variable`      | Variable   | Variable for appropriation     |
-| `map`           | Dictionary | Dictionary for obtaining value |
-| `index`         | Number     | The index of value             |
-| `default_value` | Any Value  | Default value                  |
+| **Name**        | **Type**   | **Description** |
+| --------------- | ---------- | --------------- |
+| `variable`      | Variable   | Variable to set |
+| `map`           | Dictionary | The dictionary  |
+| `index`         | Number     | Index           |
+| `default_value` | Any Value  | Default value   |
 <h3 id=set_variable_get_map_values>
   <code>variable::get_map_values</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3579,7 +3579,7 @@ variable::get_particle_amount(a1,particle("fire"));
 
 **Name:** Get Particle Color\
 **Type:** An action that returns a value\
-**Description:** Sets a particle's color value to a variable.
+**Description:** Sets a particle\'s color value to a variable.
 
 **Usage example:** 
 ```ts
@@ -3596,11 +3596,11 @@ variable::get_particle_color(a1,particle("fire"),"COLOR");
 
 **Arguments:**
 
-| **Name**     | **Type**                                                                              | **Description**       |
-| ------------ | ------------------------------------------------------------------------------------- | --------------------- |
-| `variable`   | Variable                                                                              | Variable to assign    |
-| `particle`   | Particle Effect                                                                       | Particle to get value |
-| `color_type` | Marker<br/>**COLOR** - The usual color<br/>**TO_COLOR** - The color of the transition | Type of color         |
+| **Name**     | **Type**                                                                | **Description**       |
+| ------------ | ----------------------------------------------------------------------- | --------------------- |
+| `variable`   | Variable                                                                | Variable to assign    |
+| `particle`   | Particle Effect                                                         | Particle to get value |
+| `color_type` | Marker<br/>**COLOR** - Normal color<br/>**TO_COLOR** - Transition color | Color type            |
 <h3 id=set_variable_get_particle_material>
   <code>variable::get_particle_material</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3608,7 +3608,7 @@ variable::get_particle_color(a1,particle("fire"),"COLOR");
 
 **Name:** Get Particle Material\
 **Type:** An action that returns a value\
-**Description:** Sets a particle's material value to a variable.
+**Description:** Sets a particle\'s material value to a variable.
 
 **Usage example:** 
 ```ts
@@ -3636,7 +3636,7 @@ variable::get_particle_material(a1,particle("fire"));
 
 **Name:** Get Particle Motion\
 **Type:** An action that returns a value\
-**Description:** Sets a particle's movement value to a variable.
+**Description:** Sets a particle\'s movement value to a variable.
 
 **Usage example:** 
 ```ts
@@ -3692,7 +3692,7 @@ variable::get_particle_size(a1,particle("fire"));
 
 **Name:** Get Particle Spread\
 **Type:** An action that returns a value\
-**Description:** Sets a particle's spread value to a variable.
+**Description:** Sets a particle\'s spread value to a variable.
 
 **Usage example:** 
 ```ts
@@ -3749,7 +3749,7 @@ variable::get_particle_type(a1,particle("fire"));
 
 **Name:** Get Player Head\
 **Type:** An action that returns a value\
-**Description:** Gets the player's head as an item and assigns the result to a variable.
+**Description:** Gets the player\'s head as an item and assigns the result to a variable.
 
 **Usage example:** 
 ```ts
@@ -3762,11 +3762,11 @@ variable::get_player_head(a1,"name_or_uuid","NAME_OR_UUID");
 
 **Arguments:**
 
-| **Name**       | **Type**                                                                               | **Description**     |
-| -------------- | -------------------------------------------------------------------------------------- | ------------------- |
-| `variable`     | Variable                                                                               | Variable to assign  |
-| `name_or_uuid` | Text                                                                                   | Player name or UUID |
-| `receive_type` | Marker<br/>**NAME_OR_UUID** - Name or uuid player<br/>**VALUE** - Value Skin parameter | Type of value       |
+| **Name**       | **Type**                                                                            | **Description**     |
+| -------------- | ----------------------------------------------------------------------------------- | ------------------- |
+| `variable`     | Variable                                                                            | Variable to assign  |
+| `name_or_uuid` | Text                                                                                | Player name or UUID |
+| `receive_type` | Marker<br/>**NAME_OR_UUID** - Player name or UUID<br/>**VALUE** - Value of the skin | Value type          |
 <h3 id=set_variable_get_player_head_owner>
   <code>variable::get_player_head_owner</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3791,11 +3791,11 @@ variable::get_player_head_owner(a1,item("stick"),"NAME");
 
 **Arguments:**
 
-| **Name**       | **Type**                                                                            | **Description**    |
-| -------------- | ----------------------------------------------------------------------------------- | ------------------ |
-| `variable`     | Variable                                                                            | Variable to assign |
-| `head`         | Item                                                                                | Player Head        |
-| `return_value` | Marker<br/>**NAME** - Name<br/>**UUID** - UUID<br/>**VALUE** - Value Skin parameter | Return Value       |
+| **Name**       | **Type**                                                                         | **Description**    |
+| -------------- | -------------------------------------------------------------------------------- | ------------------ |
+| `variable`     | Variable                                                                         | Variable to assign |
+| `head`         | Item                                                                             | Player Head        |
+| `return_value` | Marker<br/>**NAME** - Name<br/>**UUID** - UUID<br/>**VALUE** - Value of the skin | Return Value       |
 <h3 id=set_variable_get_player_head_value>
   <code>variable::get_player_head_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3803,7 +3803,7 @@ variable::get_player_head_owner(a1,item("stick"),"NAME");
 
 **Name:** Get Player Head At Location\
 **Type:** An action that returns a value\
-**Description:** He receives the name or UUID of the owner of the head in the location and assigns the result to the variable.
+**Description:** Gets the skull owner at a location.
 
 **Usage example:** 
 ```ts
@@ -3820,11 +3820,11 @@ variable::get_player_head_value(a1,location(0,0,0,0,0),"NAME");
 
 **Arguments:**
 
-| **Name**       | **Type**                                                                                                   | **Description**            |
-| -------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `variable`     | Variable                                                                                                   | Variable for appropriation |
-| `location`     | Location                                                                                                   | The location of the head   |
-| `return_value` | Marker<br/>**NAME** - The name of the owner<br/>**UUID** - UUID owner<br/>**VALUE** - Value Skin parameter | Returned value             |
+| **Name**       | **Type**                                                                  | **Description** |
+| -------------- | ------------------------------------------------------------------------- | --------------- |
+| `variable`     | Variable                                                                  | Variable to set |
+| `location`     | Location                                                                  | Skull location  |
+| `return_value` | Marker<br/>**NAME** - Name<br/>**UUID** - UUID<br/>**VALUE** - Skin value | Return value    |
 <h3 id=set_variable_get_potion_effect_amplifier>
   <code>variable::get_potion_effect_amplifier</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3832,7 +3832,7 @@ variable::get_player_head_value(a1,location(0,0,0,0,0),"NAME");
 
 **Name:** Get Potion Power\
 **Type:** An action that returns a value\
-**Description:** Sets a potion's power to a variable.
+**Description:** Sets a potion\'s power to a variable.
 
 **Usage example:** 
 ```ts
@@ -3860,7 +3860,7 @@ variable::get_potion_effect_amplifier(a1,potion("slow_falling"));
 
 **Name:** Get Potion Duration\
 **Type:** An action that returns a value\
-**Description:** Sets the potion's duration to a variable.
+**Description:** Sets the potion\'s duration to a variable.
 
 **Usage example:** 
 ```ts
@@ -3916,7 +3916,7 @@ variable::get_potion_effect_type(a1,potion("slow_falling"));
 
 **Name:** Get Sculk Shrieker Warning Level\
 **Type:** An action that returns a value\
-**Description:** It assigns to the variable the hazard level of the rock-crkuna in the specified location.
+**Description:** Gets the warning levels of the Sculk Shrieker.
 
 **Usage example:** 
 ```ts
@@ -3933,10 +3933,10 @@ variable::get_sculk_shrieker_warning_level(a1,location(0,0,0,0,0));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**                 |
-| ---------- | -------- | ------------------------------- |
-| `variable` | Variable | Variable for appropriation      |
-| `location` | Location | The location of the rock-crkuna |
+| **Name**   | **Type** | **Description**         |
+| ---------- | -------- | ----------------------- |
+| `variable` | Variable | Variable to set         |
+| `location` | Location | Sculk Shrieker location |
 <h3 id=set_variable_get_sign_text>
   <code>variable::get_sign_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4203,7 +4203,7 @@ variable::get_text_width(a1,"text");
 
 **Name:** Get All Vector Coordinates\
 **Type:** An action that returns a value\
-**Description:** He receives all the coordinates of the vector and assigns the result to the alternating.
+**Description:** Gets all coordinates of a vector and assigns the result to variables.
 
 **Usage example:** 
 ```ts
@@ -4220,12 +4220,12 @@ variable::get_vector_all_components(a1,a2,a3,vector(0,0,0));
 
 **Arguments:**
 
-| **Name** | **Type** | **Description**             |
-| -------- | -------- | --------------------------- |
-| `x`      | Variable | Coordinate x                |
-| `y`      | Variable | Coordinate y                |
-| `z`      | Variable | Coordinate z                |
-| `vector` | Vector   | Vector for obtaining values |
+| **Name** | **Type** | **Description**           |
+| -------- | -------- | ------------------------- |
+| `x`      | Variable | X location                |
+| `y`      | Variable | Y location                |
+| `z`      | Variable | Z location                |
+| `vector` | Vector   | Vector to get values from |
 <h3 id=set_variable_get_vector_between_locations>
   <code>variable::get_vector_between_locations</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4287,7 +4287,7 @@ variable::get_vector_component(a1,vector(0,0,0),"X");
 
 **Name:** Create Vector From Cardinal Direction\
 **Type:** An action that returns a value\
-**Description:** Generates a normalized vector based on the specified cardinal direction (\"south\", \"north\", \"east\", \"west\", \"up\", \"down\").
+**Description:** Generates a normalized vector based on the specified cardinal direction (\"south\", \"north\", \"east\", \"west\", \"up\", \" down\").
 
 **Usage example:** 
 ```ts
@@ -4444,15 +4444,15 @@ variable::join_text(a1,`list`,"separator","prefix","postfix",1,"truncated");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**                     |
-| ----------- | -------- | ----------------------------------- |
-| `variable`  | Variable | Variable to assign                  |
-| `list`      | List     | List to Join                        |
-| `separator` | Text     | Separator                           |
-| `prefix`    | Text     | Prefix                              |
-| `postfix`   | Text     | Postfix                             |
-| `limit`     | Number   | Item Limit (if empty, all items)    |
-| `truncated` | Text     | Text after limit (default is "...") |
+| **Name**    | **Type** | **Description**                       |
+| ----------- | -------- | ------------------------------------- |
+| `variable`  | Variable | Variable to assign                    |
+| `list`      | List     | List to Join                          |
+| `separator` | Text     | Separator                             |
+| `prefix`    | Text     | Prefix                                |
+| `postfix`   | Text     | Postfix                               |
+| `limit`     | Number   | Item Limit (if empty, all items)      |
+| `truncated` | Text     | Text after limit (default is \"...\") |
 <h3 id=set_variable_lerp_number>
   <code>variable::lerp_number</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4460,7 +4460,7 @@ variable::join_text(a1,`list`,"separator","prefix","postfix",1,"truncated");
 
 **Name:** Lerp Number\
 **Type:** An action that returns a value\
-**Description:** Calculates the number between two numbers with a certain coefficient and assigns the result to the variable.With a coefficient of 0, the first number will be returned, at 1 - the second, at 0.5 - the average value.
+**Description:** Calculates a number between two numbers with a certain factor and assigns the result to a variable. With a factor of 0, the first number will be returned, with 1 - the second, with 0.5 - the average value.
 
 **Usage example:** 
 ```ts
@@ -4477,12 +4477,12 @@ variable::lerp_number(a1,1,2,3);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**            |
-| ---------- | -------- | -------------------------- |
-| `variable` | Variable | Variable for appropriation |
-| `start`    | Number   | The first number           |
-| `stop`     | Number   | The second                 |
-| `amount`   | Number   | Coefficient (from 0 to 1)  |
+| **Name**   | **Type** | **Description**      |
+| ---------- | -------- | -------------------- |
+| `variable` | Variable | Variable to assign   |
+| `start`    | Number   | First number         |
+| `stop`     | Number   | Second number        |
+| `amount`   | Number   | Factor (from 0 to 1) |
 <h3 id=set_variable_location_relative>
   <code>variable::location_relative</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4575,7 +4575,7 @@ variable::log(a1,1,2);
 
 **Name:** Set New Number Range\
 **Type:** An action that returns a value\
-**Description:** It translates the number from one range to another and assigns the result to the variable.
+**Description:** Converts a number from one range to another and assigns the result to a variable.
 
 **Usage example:** 
 ```ts
@@ -4592,14 +4592,14 @@ variable::map_range(a1,1,2,3,4,5);
 
 **Arguments:**
 
-| **Name**     | **Type** | **Description**                       |
-| ------------ | -------- | ------------------------------------- |
-| `variable`   | Variable | Variable for appropriation            |
-| `number`     | Number   | The number for change                 |
-| `from_start` | Number   | The lower limit of the original range |
-| `from_stop`  | Number   | The upper limit of the original range |
-| `to_start`   | Number   | The lower limit of the new range      |
-| `to_stop`    | Number   | The upper limit of the new range      |
+| **Name**     | **Type** | **Description**                    |
+| ------------ | -------- | ---------------------------------- |
+| `variable`   | Variable | Variable to assign                 |
+| `number`     | Number   | Number to modify                   |
+| `from_start` | Number   | Lowest limit of the initial range  |
+| `from_stop`  | Number   | Highest limit of the initial range |
+| `to_start`   | Number   | Lowest limit of the new range      |
+| `to_stop`    | Number   | Highest limit of the new range     |
 <h3 id=set_variable_max>
   <code>variable::max</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4728,7 +4728,7 @@ variable::parse_json(a1,"json");
 
 **Name:** Parse To Stylized Text\
 **Type:** An action that returns a value\
-**Description:** Converts the usual text into stylized text.
+**Description:** Turns normal text into stylized text.
 
 **Usage example:** 
 ```ts
@@ -4745,11 +4745,11 @@ variable::parse_to_component(a1,"text","JSON");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                       | **Description**            |
-| ---------- | -------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `variable` | Variable                                                                                                       | Variable for appropriation |
-| `text`     | Text                                                                                                           | Text for transformation    |
-| `parsing`  | Marker<br/>**JSON** - Zhnon<br/>**LEGACY** - Color (&)<br/>**MINIMESSAGE** - Stylized<br/>**PLAIN** - Ordinary | Type of transformation     |
+| **Name**   | **Type**                                                                                                      | **Description**    |
+| ---------- | ------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `variable` | Variable                                                                                                      | Variable to assign |
+| `text`     | Text                                                                                                          | Text to convert    |
+| `parsing`  | Marker<br/>**JSON** - JSON<br/>**LEGACY** - Colored (&)<br/>**MINIMESSAGE** - Stylized<br/>**PLAIN** - Normal | Convertion type    |
 <h3 id=set_variable_perlin_noise_3d>
   <code>variable::perlin_noise_3d</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4780,7 +4780,7 @@ variable::perlin_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE")
 | `frequency`     | Number                                                                                | Frequency of Noise Octaves |
 | `amplitude`     | Number                                                                                | Noise Octave Amplitude     |
 | `range_mode`    | Marker<br/>**FULL_RANGE** - Full Range (-1 to 1 or more)<br/>**ZERO_TO_ONE** - 0 to 1 | Value Range                |
-| `normalized`    | Marker<br/>**FALSE** - Don't Normalize<br/>**TRUE** - Normalize                       | Normalize Values           |
+| `normalized`    | Marker<br/>**FALSE** - Don\'t Normalize<br/>**TRUE** - Normalize                      | Normalize Values           |
 <h3 id=set_variable_pow>
   <code>variable::pow</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4967,8 +4967,8 @@ variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),1,2,`entities`,"BLOCK
 | `max_distance`                    | Number                                                                                                                                     | Beam length                                                                          |
 | `entities`                        | List                                                                                                                                       | Names or UUIDs of the entities to collide with (default is all players and entities) |
 | `ray_collision_mode`              | Marker<br/>**BLOCKS_AND_ENTITIES** - With blocks and entities<br/>**ONLY_BLOCKS** - Only with Blocks<br/>**ONLY_ENTITIES** - Entities Only | Object Collision                                                                     |
-| `ignore_passable_blocks`          | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore                                                                                  | Ignore Passable Blocks                                                               |
-| `fluid_collision_mode`            | Marker<br/>**ALWAYS** - Don't Ignore<br/>**NEVER** - Ignore Completely<br/>**SOURCE_ONLY** - Consider Fluid Source Only                    | Ignore Fluid                                                                         |
+| `ignore_passable_blocks`          | Marker<br/>**FALSE** - Don\'t Ignore<br/>**TRUE** - Ignore                                                                                 | Ignore Passable Blocks                                                               |
+| `fluid_collision_mode`            | Marker<br/>**ALWAYS** - Don\'t Ignore<br/>**NEVER** - Ignore Completely<br/>**SOURCE_ONLY** - Consider Fluid Source Only                   | Ignore Fluid                                                                         |
 <h3 id=set_variable_reflect_vector_product>
   <code>variable::reflect_vector_product</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5002,7 +5002,7 @@ variable::reflect_vector_product(a1,vector(0,0,0),vector(0,0,0),1);
 
 **Name:** Replace Match With Regular Expression\
 **Type:** An action that returns a value\
-**Description:** Replaces text matching the specified regular expression and assigns the result to a variable. The "Replacement" argument can contain $\<group name\> to refer to the group. Include only the flags you need!
+**Description:** Replaces text matching the specified regular expression and assigns the result to a variable. The \"Replacement\" argument can contain $\<group name\> to refer to the group. Include only the flags you need!
 
 **Usage example:** 
 ```ts
@@ -5127,7 +5127,7 @@ variable::remove_enchantment(a1,item("stick"),"enchantment");
 
 **Name:** Remove Item Attribute\
 **Type:** Action without value\
-**Description:** Removes the attribute from the subject and assigns the result to the variable.
+**Description:** Remove an attribute from the item.
 
 **Usage example:** 
 ```ts
@@ -5140,12 +5140,12 @@ item("stick").remove_item_attribute(a1,"name_or_uuid","ARMOR");
 
 **Arguments:**
 
-| **Name**       | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | **Description**            |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `variable`     | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Variable for appropriation |
-| `item`         | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Item                       |
-| `name_or_uuid` | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Name or uuid attribute     |
-| `attribute`    | Marker<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor toughness<br/>**ATTACK_DAMAGE** - Attack damage<br/>**ATTACK_KNOCKBACK** - Attack knockback<br/>**ATTACK_SPEED** - Attack speed<br/>**FLYING_SPEED** - Flight speed<br/>**FOLLOW_RANGE** - The distance<br/>**GENERIC_ARMOR** - Generic.armor glasses)<br/>**GENERIC_ARMOR_TOUGHNESS** - Generic.armor_touchHness density glasses)<br/>**GENERIC_ATTACK_DAMAGE** - Generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Repulsion of the attack (Generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Generic.attack_Speed)<br/>**GENERIC_BURNING_TIME** - Burning time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion knockback resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall damage multiplier<br/>**GENERIC_FLYING_SPEED** - Generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Publishing resistance (Generic.knockback_resistance)<br/>**GENERIC_LUCK** - Luck of fishing (Generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (Generic.max_Absorption)<br/>**GENERIC_MAX_HEALTH** - Max health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement speed for slowing blocks<br/>**GENERIC_MOVEMENT_SPEED** - Generic.movement_Speed)<br/>**GENERIC_OXYGEN_BONUS** - Air underwater<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe fall distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Movement speed underwater<br/>**HORSE_JUMP_STRENGTH** - Horse jump (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Knockback resistance<br/>**LUCK** - Luck<br/>**MAX_ABSORPTION** - Max absorption<br/>**MAX_HEALTH** - Max health<br/>**MOVEMENT_SPEED** - Movement speed<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block breaking speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - The distance of interaction with blocks<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - The distance of interaction with entities<br/>**PLAYER_MINING_EFFICIENCY** - Digging speed<br/>**PLAYER_SNEAKING_SPEED** - Movement speed while sneaking<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Digging speed underwater<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - The coefficient of a break in a blow<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - The chance of reinforcing the zombie | Type of attribute          |
+| **Name**       | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | **Description** |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `variable`     | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Variable to set |
+| `item`         | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Item            |
+| `name_or_uuid` | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Name or UUID    |
+| `attribute`    | Marker<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor Toughness<br/>**ATTACK_DAMAGE** - Attack Damage<br/>**ATTACK_KNOCKBACK** - Attack Knockback<br/>**ATTACK_SPEED** - Attack Speed<br/>**FLYING_SPEED** - Flying Speed<br/>**FOLLOW_RANGE** - Follow Range<br/>**GENERIC_ARMOR** - Armor (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Armor Toughness (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack Damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack Knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack Speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning TIme<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion Knockback Resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall Damage Multiplier<br/>**GENERIC_FLYING_SPEED** - Flying Speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow Range (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump Strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback Resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Max Health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement Efficiency<br/>**GENERIC_MOVEMENT_SPEED** - Movement Speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Oxygen Bonus<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe Fall Distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step Height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Water Movement Efficiency<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Knockback Resistance<br/>**LUCK** - Luck<br/>**MAX_ABSORPTION** - Max Absorption<br/>**MAX_HEALTH** - Max Health<br/>**MOVEMENT_SPEED** - Movement Speed<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block Breaking Speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Block Interaction Range<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Entity Interaction Range<br/>**PLAYER_MINING_EFFICIENCY** - Mining Efficiency<br/>**PLAYER_SNEAKING_SPEED** - Sneaking Speed<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Submerged Mining Speed<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Sweeping Damage Ratio<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zomie spawn reinforcements (zombie.spawn_reinforcements) | Attribute       |
 <h3 id=set_variable_remove_item_custom_model_data>
   <code>variable::remove_item_custom_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5210,7 +5210,7 @@ variable::remove_item_custom_tag(a1,item("stick"),"tag_name");
 
 **Name:** Remove Item Description Line\
 **Type:** An action that returns a value\
-**Description:** Removes an item's description line and assigns the result to a variable.
+**Description:** Removes an item\'s description line and assigns the result to a variable.
 
 **Usage example:** 
 ```ts
@@ -5313,12 +5313,12 @@ variable::remove_list_value(a1,`list`,"any value","ALL");
 
 **Arguments:**
 
-| **Name**      | **Type**                                                                                                        | **Description**    |
-| ------------- | --------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`    | Variable                                                                                                        | Variable to Assign |
-| `list`        | List                                                                                                            | List               |
-| `value`       | Any Value                                                                                                       | Value              |
-| `remove_mode` | Marker<br/>**ALL** - All coincidences<br/>**FIRST** - The first coincidence<br/>**LAST** - The last coincidence | Removal mode       |
+| **Name**      | **Type**                                                           | **Description**    |
+| ------------- | ------------------------------------------------------------------ | ------------------ |
+| `variable`    | Variable                                                           | Variable to Assign |
+| `list`        | List                                                               | List               |
+| `value`       | Any Value                                                          | Value              |
+| `remove_mode` | Marker<br/>**ALL** - All<br/>**FIRST** - First<br/>**LAST** - Last | Remove mode        |
 <h3 id=set_variable_remove_list_value_at_index>
   <code>variable::remove_list_value_at_index</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5470,7 +5470,7 @@ variable::replace_text(a1,"text","replace","replacement","ANY","FALSE");
 | `replace`     | Text                                                                              | Text to Replace        |
 | `replacement` | Text                                                                              | Replacement            |
 | `first`       | Marker<br/>**ANY** - Replace All Matches<br/>**FIRST** - Replace First Match Only | Number of replacements |
-| `ignore_case` | Marker<br/>**FALSE** - Don't ignore<br/>**TRUE** - Ignore                         | Ignore case            |
+| `ignore_case` | Marker<br/>**FALSE** - Don\'t ignore<br/>**TRUE** - Ignore                        | Ignore case            |
 <h3 id=set_variable_reverse_list>
   <code>variable::reverse_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5651,7 +5651,7 @@ variable::set_all_coordinates(a1,1,2,3,4,5);
 
 **Name:** Set Armor Trim\
 **Type:** Action without value\
-**Description:** The armor sets the specified template and assigns the result to the variable.
+**Description:** Sets the armor trim on an armor piece.
 
 **Usage example:** 
 ```ts
@@ -5664,12 +5664,12 @@ item("stick").set_armor_trim(a1,item("stick"),item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**              |
-| ---------- | -------- | ---------------------------- |
-| `variable` | Variable | Variable for appropriation   |
-| `armor`    | Item     | Armor                        |
-| `material` | Item     | The material of the template |
-| `pattern`  | Item     | Pattern                      |
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | Variable to set |
+| `armor`    | Item     | Armor           |
+| `material` | Item     | Material        |
+| `pattern`  | Item     | Pattern         |
 <h3 id=set_variable_set_book_page>
   <code>variable::set_book_page</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5737,7 +5737,7 @@ variable::set_book_pages(a1,item("stick"),["text", "text"]);
 
 **Name:** Set Bundle Items\
 **Type:** Action without value\
-**Description:** Changes the contents of the bag and assigns the result to the variable.
+**Description:** Sets the items in a bundle.
 
 **Usage example:** 
 ```ts
@@ -5750,12 +5750,12 @@ item("stick").set_bundle_items(a1,[item("stick"), item("stick")],"ADD");
 
 **Arguments:**
 
-| **Name**       | **Type**                                                           | **Description**            |
-| -------------- | ------------------------------------------------------------------ | -------------------------- |
-| `variable`     | Variable                                                           | Variable for appropriation |
-| `items`        | list[Item]                                                         | Change items               |
-| `bundle`       | Item                                                               | Bundle                     |
-| `setting_mode` | Marker<br/>**ADD** - Add<br/>**REMOVE** - Delete<br/>**SET** - Set | Type of change             |
+| **Name**       | **Type**                                                           | **Description** |
+| -------------- | ------------------------------------------------------------------ | --------------- |
+| `variable`     | Variable                                                           | Variable to set |
+| `items`        | list[Item]                                                         | Items           |
+| `bundle`       | Item                                                               | Bundle          |
+| `setting_mode` | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove<br/>**SET** - Set | Set mode        |
 <h3 id=set_variable_set_compass_lodestone>
   <code>variable::set_compass_lodestone</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5780,20 +5780,20 @@ variable::set_compass_lodestone(a1,item("stick"),location(0,0,0,0,0),"FALSE");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                | **Description**             |
-| ---------- | ------------------------------------------------------- | --------------------------- |
-| `variable` | Variable                                                | Variable to Assign          |
-| `item`     | Item                                                    | Compass                     |
-| `location` | Location                                                | Magnetite Location          |
-| `tracked`  | Marker<br/>**FALSE** - Don't check<br/>**TRUE** - Track | Location Magnetite Presence |
+| **Name**   | **Type**                                                 | **Description**             |
+| ---------- | -------------------------------------------------------- | --------------------------- |
+| `variable` | Variable                                                 | Variable to Assign          |
+| `item`     | Item                                                     | Compass                     |
+| `location` | Location                                                 | Magnetite Location          |
+| `tracked`  | Marker<br/>**FALSE** - Don\'t check<br/>**TRUE** - Track | Location Magnetite Presence |
 <h3 id=set_variable_set_component_children>
   <code>variable::set_component_children</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** Set the subsidiaries to the stylized text\
+**Name:** Set Styled Text Children Components\
 **Type:** An action that returns a value\
-**Description:** Assigns to the variable stylized text with the specified daughter parts.
+**Description:** Sets the children components of the Styled Text.
 
 **Usage example:** 
 ```ts
@@ -5810,11 +5810,11 @@ variable::set_component_children(a1,"component",["children", "children"]);
 
 **Arguments:**
 
-| **Name**    | **Type**   | **Description**            |
-| ----------- | ---------- | -------------------------- |
-| `variable`  | Variable   | Variable for appropriation |
-| `component` | Text       | The main stylized text     |
-| `children`  | list[Text] | Dummies stylized texts     |
+| **Name**    | **Type**   | **Description**         |
+| ----------- | ---------- | ----------------------- |
+| `variable`  | Variable   | Variable to assign      |
+| `component` | Text       | Main stylized text      |
+| `children`  | list[Text] | Children stylized texts |
 <h3 id=set_variable_set_component_click>
   <code>variable::set_component_click</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5822,7 +5822,7 @@ variable::set_component_children(a1,"component",["children", "children"]);
 
 **Name:** Set Stylized Text Click Action\
 **Type:** An action that returns a value\
-**Description:** It sets the action indicated by the stylized text when pressing and assigns it to the variable.
+**Description:** Sets the click event of the Styled Text.
 
 **Usage example:** 
 ```ts
@@ -5839,12 +5839,12 @@ variable::set_component_click(a1,"component","value","CHANGE_PAGE");
 
 **Arguments:**
 
-| **Name**       | **Type**                                                                                                                                                                                                                               | **Description**            |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `variable`     | Variable                                                                                                                                                                                                                               | Variable for appropriation |
-| `component`    | Text                                                                                                                                                                                                                                   | Stylized text              |
-| `value`        | Text                                                                                                                                                                                                                                   | The value of the action    |
-| `click_action` | Marker<br/>**CHANGE_PAGE** - Change the page of the book<br/>**COPY_TO_CLIPBOARD** - Copy to the clipboard<br/>**COPY_TO_CLIPBORD** - Copy to the clipboard<br/>**OPEN_URL** - Open the link<br/>**SUGGEST_COMMAND** - Offer a message | Action when pressing       |
+| **Name**       | **Type**                                                                                                                                                                                                  | **Description**  |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `variable`     | Variable                                                                                                                                                                                                  | Variable to set  |
+| `component`    | Text                                                                                                                                                                                                      | The Styled Text  |
+| `value`        | Text                                                                                                                                                                                                      | Value            |
+| `click_action` | Marker<br/>**CHANGE_PAGE** - Change page<br/>**COPY_TO_CLIPBOARD** - Copy to Clipboard<br/>**COPY_TO_CLIPBORD** - Copy to clipboard<br/>**OPEN_URL** - Open URL<br/>**SUGGEST_COMMAND** - Suggest command | Click Event Type |
 <h3 id=set_variable_set_component_decorations>
   <code>variable::set_component_decorations</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5852,7 +5852,7 @@ variable::set_component_click(a1,"component","value","CHANGE_PAGE");
 
 **Name:** Set Stylized Text Decorations\
 **Type:** An action that returns a value\
-**Description:** It sets the scenery of the specified stylized text and assigns it to the variable.
+**Description:** Sets the text decorations (bold, italics, underlined, strikethrough, obfuscated) of a Styled Text.
 
 **Usage example:** 
 ```ts
@@ -5869,15 +5869,15 @@ variable::set_component_decorations(a1,"component","FALSE","FALSE","FALSE","FALS
 
 **Arguments:**
 
-| **Name**        | **Type**                                                                     | **Description**            |
-| --------------- | ---------------------------------------------------------------------------- | -------------------------- |
-| `variable`      | Variable                                                                     | Variable for appropriation |
-| `component`     | Text                                                                         | Stylized text              |
-| `bold`          | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not installed<br/>**TRUE** - Yes | Bold                       |
-| `italic`        | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not installed<br/>**TRUE** - Yes | Italic                     |
-| `underlined`    | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not installed<br/>**TRUE** - Yes | Undrelined                 |
-| `strikethrough` | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not installed<br/>**TRUE** - Yes | Strikethrough              |
-| `obfuscated`    | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not installed<br/>**TRUE** - Yes | Obfuscated                 |
+| **Name**        | **Type**                                                               | **Description**     |
+| --------------- | ---------------------------------------------------------------------- | ------------------- |
+| `variable`      | Variable                                                               | Variable to assign  |
+| `component`     | Text                                                                   | Stylized text       |
+| `bold`          | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not set<br/>**TRUE** - Yes | Bold text           |
+| `italic`        | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not set<br/>**TRUE** - Yes | Italic text         |
+| `underlined`    | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not set<br/>**TRUE** - Yes | Underlined text     |
+| `strikethrough` | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not set<br/>**TRUE** - Yes | Strikedthrough text |
+| `obfuscated`    | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not set<br/>**TRUE** - Yes | Obfuscated text     |
 <h3 id=set_variable_set_component_entity_hover>
   <code>variable::set_component_entity_hover</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5885,7 +5885,7 @@ variable::set_component_decorations(a1,"component","FALSE","FALSE","FALSE","FALS
 
 **Name:** Set Stylized Text Entity Hover\
 **Type:** An action that returns a value\
-**Description:** It sets the entity displayed by the specified stylized text when hovering and assigns it to the variable.
+**Description:** Sets the hover entity of the Styled Text.
 
 **Usage example:** 
 ```ts
@@ -5902,11 +5902,11 @@ variable::set_component_entity_hover(a1,"component","name_or_uuid");
 
 **Arguments:**
 
-| **Name**       | **Type** | **Description**            |
-| -------------- | -------- | -------------------------- |
-| `variable`     | Variable | Variable for appropriation |
-| `component`    | Text     | Stylized text              |
-| `name_or_uuid` | Text     | Name or uuid entity        |
+| **Name**       | **Type** | **Description**    |
+| -------------- | -------- | ------------------ |
+| `variable`     | Variable | Variable to set    |
+| `component`    | Text     | The Styled Text    |
+| `name_or_uuid` | Text     | UUID of the entity |
 <h3 id=set_variable_set_component_font>
   <code>variable::set_component_font</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5914,7 +5914,7 @@ variable::set_component_entity_hover(a1,"component","name_or_uuid");
 
 **Name:** Set Stylized Text Font\
 **Type:** An action that returns a value\
-**Description:** It sets the font to the specified stylized text and assigns it to the variable.
+**Description:** Sets the font of the Styled Text.
 
 **Usage example:** 
 ```ts
@@ -5931,12 +5931,12 @@ variable::set_component_font(a1,"component","namespace","value");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**                        |
-| ----------- | -------- | -------------------------------------- |
-| `variable`  | Variable | Variable for appropriation             |
-| `component` | Text     | Stylized text                          |
-| `namespace` | Text     | The space of names (minecraft \: etc.) |
-| `value`     | Text     | Font ID                                |
+| **Name**    | **Type** | **Description**               |
+| ----------- | -------- | ----------------------------- |
+| `variable`  | Variable | Variable to assign            |
+| `component` | Text     | Stylized text                 |
+| `namespace` | Text     | Namespace (minecraft\:, etc.) |
+| `value`     | Text     | Font ID                       |
 <h3 id=set_variable_set_component_hex_color>
   <code>variable::set_component_hex_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5944,7 +5944,7 @@ variable::set_component_font(a1,"component","namespace","value");
 
 **Name:** Set Stylized Text Hex Color\
 **Type:** An action that returns a value\
-**Description:** Sets HEX-color with the specified stylized text and assigns it to the variable.
+**Description:** Sets the color in hex of a Styled Text.
 
 **Usage example:** 
 ```ts
@@ -5961,19 +5961,19 @@ variable::set_component_hex_color(a1,"component","color");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**            |
-| ----------- | -------- | -------------------------- |
-| `variable`  | Variable | Variable for appropriation |
-| `component` | Text     | Stylized text              |
-| `color`     | Text     | HEX-color                  |
+| **Name**    | **Type** | **Description**    |
+| ----------- | -------- | ------------------ |
+| `variable`  | Variable | Variable to assign |
+| `component` | Text     | Stylized text      |
+| `color`     | Text     | HEX-color          |
 <h3 id=set_variable_set_component_hover>
   <code>variable::set_component_hover</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** Set Stylized Text Text Hover\
+**Name:** Set Stylized Text Hover\
 **Type:** An action that returns a value\
-**Description:** It sets the text displayed by indicated by the stylized text and assigns it to the variable.
+**Description:** Sets the hover text of the Styled Text.
 
 **Usage example:** 
 ```ts
@@ -5990,11 +5990,11 @@ variable::set_component_hover(a1,"component","hover");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**                       |
-| ----------- | -------- | ------------------------------------- |
-| `variable`  | Variable | Variable for appropriation            |
-| `component` | Text     | Stylized text                         |
-| `hover`     | Text     | Stylized text displayed when entering |
+| **Name**    | **Type** | **Description**    |
+| ----------- | -------- | ------------------ |
+| `variable`  | Variable | Variable to assign |
+| `component` | Text     | Stylized text      |
+| `hover`     | Text     | Hover text         |
 <h3 id=set_variable_set_component_insertion>
   <code>variable::set_component_insertion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6002,7 +6002,7 @@ variable::set_component_hover(a1,"component","hover");
 
 **Name:** Set Stylized Text Hover Text\
 **Type:** An action that returns a value\
-**Description:** It sets the proposed message to the specified stylized text when pressing with Shift and appropriates it to the variable.
+**Description:** Sets the insert text of the Styled Text.
 
 **Usage example:** 
 ```ts
@@ -6019,11 +6019,11 @@ variable::set_component_insertion(a1,"component","insertion");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**            |
-| ----------- | -------- | -------------------------- |
-| `variable`  | Variable | Variable for appropriation |
-| `component` | Text     | Stylized text              |
-| `insertion` | Text     | The proposed message       |
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `variable`  | Variable | Variable to set |
+| `component` | Text     | The Styled Text |
+| `insertion` | Text     | Text to insert  |
 <h3 id=set_variable_set_component_item_hover>
   <code>variable::set_component_item_hover</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6031,7 +6031,7 @@ variable::set_component_insertion(a1,"component","insertion");
 
 **Name:** Set Stylized Text Item Hover\
 **Type:** An action that returns a value\
-**Description:** It sets an object displayed by the indicated stylized text and assigns it to the variable.
+**Description:** Sets the hover item of the Styled Text.
 
 **Usage example:** 
 ```ts
@@ -6048,11 +6048,11 @@ variable::set_component_item_hover(a1,"component",item("stick"));
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**            |
-| ----------- | -------- | -------------------------- |
-| `variable`  | Variable | Variable for appropriation |
-| `component` | Text     | Stylized text              |
-| `hover`     | Item     | A subject displayed when   |
+| **Name**    | **Type** | **Description**    |
+| ----------- | -------- | ------------------ |
+| `variable`  | Variable | Variable to assign |
+| `component` | Text     | Stylized text      |
+| `hover`     | Item     | Hover item         |
 <h3 id=set_variable_set_coordinate>
   <code>variable::set_coordinate</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6136,15 +6136,15 @@ variable::set_item_attribute(a1,item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER
 
 **Arguments:**
 
-| **Name**    | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **Description**     |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `variable`  | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Variable to assign  |
-| `item`      | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Item                |
-| `amount`    | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Attribute Value     |
-| `name`      | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Attribute Name      |
-| `attribute` | Marker<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor toughness<br/>**ATTACK_DAMAGE** - Attack damage<br/>**ATTACK_KNOCKBACK** - Attack knockback<br/>**ATTACK_SPEED** - Attack speed<br/>**FLYING_SPEED** - Flight speed<br/>**FOLLOW_RANGE** - Follow range<br/>**GENERIC_ARMOR** - Protection Points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Defense Density Points (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack Damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack Knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack Speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion knockback resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall damage multiplier<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback Resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Fishing Luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (Generic.max_Absorption)<br/>**GENERIC_MAX_HEALTH** - Maximum Health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement speed for slowing blocks<br/>**GENERIC_MOVEMENT_SPEED** - Movement Speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Air underwater<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe fall distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Movement speed underwater<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Knockback resistance<br/>**LUCK** - Luck<br/>**MAX_ABSORPTION** - Max absorption<br/>**MAX_HEALTH** - Max health<br/>**MOVEMENT_SPEED** - Movement speed<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block breaking speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - The distance of interaction with blocks<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - The distance of interaction with entities<br/>**PLAYER_MINING_EFFICIENCY** - Digging speed<br/>**PLAYER_SNEAKING_SPEED** - Movement speed while sneaking<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Digging speed underwater<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - The coefficient of a break in a blow<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zombie reinforcements (zombie.spawn_reinforcements) | Attribute Type      |
-| `slot`      | Marker<br/>**ALL** - All<br/>**ARMOR** - Any armor<br/>**BODY** - Body (does not work with all entities)<br/>**BOOTS** - Boots<br/>**CHEST** - Chest<br/>**HAND** - Any hand<br/>**HEAD** - Helmet<br/>**LEGGINGS** - Leggings<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Offhand                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Attribute Slot      |
-| `operation` | Marker<br/>**ADD_NUMBER** - Amount<br/>**ADD_SCALAR** - Percentage<br/>**MULTIPLY_SCALAR_1** - Product (multiplicative)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Attribute Operation |
+| **Name**    | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Description**     |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `variable`  | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Variable to assign  |
+| `item`      | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Item                |
+| `amount`    | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Attribute Value     |
+| `name`      | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Attribute Name      |
+| `attribute` | Marker<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor Toughness<br/>**ATTACK_DAMAGE** - Attack Damage<br/>**ATTACK_KNOCKBACK** - Attack Knockback<br/>**ATTACK_SPEED** - Attack Speed<br/>**FLYING_SPEED** - Flying Speed<br/>**FOLLOW_RANGE** - Follow Range<br/>**GENERIC_ARMOR** - Protection Points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Defense Density Points (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack Damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack Knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack Speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning Time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion Knockback Resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall Damage Multiplier<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump Strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback Resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Fishing Luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Maximum Health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement Efficiency<br/>**GENERIC_MOVEMENT_SPEED** - Movement Speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Oxygen Bonus<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe Fall Distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step Height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Water Movement Efficiency<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Knockback Resistance<br/>**LUCK** - Luck<br/>**MAX_ABSORPTION** - Max Absorption<br/>**MAX_HEALTH** - Max Health<br/>**MOVEMENT_SPEED** - Movement Speed<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block Breaking Speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Block Interaction Range<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Entity Interaction Range<br/>**PLAYER_MINING_EFFICIENCY** - Mining Efficiency<br/>**PLAYER_SNEAKING_SPEED** - Sneaking Speed<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Submerged Mining Speed<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Sweeping Damage Ratio<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zombie reinforcements (zombie.spawn_reinforcements) | Attribute Type      |
+| `slot`      | Marker<br/>**ALL** - All<br/>**ARMOR** - Armor<br/>**BODY** - Body (doesn\'t work with all entities)<br/>**BOOTS** - Boots<br/>**CHEST** - Chest<br/>**HAND** - Hand<br/>**HEAD** - Helmet<br/>**LEGGINGS** - Leggings<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Offhand                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Attribute Slot      |
+| `operation` | Marker<br/>**ADD_NUMBER** - Amount<br/>**ADD_SCALAR** - Percentage<br/>**MULTIPLY_SCALAR_1** - Product (multiplicative)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Attribute Operation |
 <h3 id=set_variable_set_item_color>
   <code>variable::set_item_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6185,9 +6185,9 @@ variable::set_item_color(a1,item("stick"),"color");
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** Set the item component\
+**Name:** Set Item Component\
 **Type:** An action that returns a value\
-**Description:** It sets the subject with the component with the specified value and assigns the subject to the variable.
+**Description:** Sets a component to an item with the specified value and assigns the resulting item to a variable.
 
 **Usage example:** 
 ```ts
@@ -6208,8 +6208,8 @@ variable::set_item_component(a1,item("stick"),"component","any value");
 | ----------- | --------- | --------------- |
 | `variable`  | Variable  | Variable        |
 | `item`      | Item      | Item            |
-| `component` | Text      | Component key   |
-| `value`     | Any Value | Meaning         |
+| `component` | Text      | Component Key   |
+| `value`     | Any Value | Component Value |
 <h3 id=set_variable_set_item_custom_model_data>
   <code>variable::set_item_custom_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6217,7 +6217,7 @@ variable::set_item_component(a1,item("stick"),"component","any value");
 
 **Name:** Set Item Model Data\
 **Type:** An action that returns a value\
-**Description:** Sets the item's model data (CustomModelData) and assigns the result to a variable.
+**Description:** Sets the item\'s model data (CustomModelData) and assigns the result to a variable.
 
 **Usage example:** 
 ```ts
@@ -6305,7 +6305,7 @@ variable::set_item_destroyable_blocks(a1,[item("stick"), item("stick")],item("st
 
 **Name:** Set Item Durability\
 **Type:** An action that returns a value\
-**Description:** Sets an item's durability and assigns the result to a variable.
+**Description:** Sets an item\'s durability and assigns the result to a variable.
 
 **Usage example:** 
 ```ts
@@ -6364,7 +6364,7 @@ variable::set_item_enchantments(a1,item("stick"),`enchantments`);
 
 **Name:** Set Item Description\
 **Type:** An action that returns a value\
-**Description:** Sets the item's description.\
+**Description:** Sets the item\'s description.\
 **Additional info:**\
 &nbsp;&nbsp;Clears the description if no new one is specified.
 
@@ -6395,7 +6395,7 @@ variable::set_item_lore(a1,["lore", "lore"],item("stick"));
 
 **Name:** Set Item Description Line\
 **Type:** An action that returns a value\
-**Description:** Sets the item's description line.
+**Description:** Sets the item\'s description line.
 
 **Usage example:** 
 ```ts
@@ -6424,12 +6424,12 @@ variable::set_item_lore_line(a1,item("stick"),"text",1,"APPEND");
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** Set the maximum number of items\
+**Name:** Set Max Item Amount\
 **Type:** Action without value\
-**Description:** Sets the maximum number of items in a glass for the specified item and assigns it to the variable.\
+**Description:** Sets the max stack size for the specified item and assigns the resulting item to a variable.\
 **Additional info:**\
-&nbsp;&nbsp;The number of items in a glass can only be from 1 to 99.\
-&nbsp;&nbsp;The value 0 will return the maximum amount to the default value.
+&nbsp;&nbsp;The number of items in a stack can only be between 1 and 99.\
+&nbsp;&nbsp;A value of 0 will set the max stack size to the default value.
 
 **Usage example:** 
 ```ts
@@ -6442,7 +6442,7 @@ variable::set_item_max_stack_size(a1,item("stick"),1);
 | ---------- | -------- | ---------------------------------- |
 | `variable` | Variable | Variable                           |
 | `item`     | Item     | Item                               |
-| `size`     | Number   | The number of objects in the glass |
+| `size`     | Number   | Number of maximum items in a stack |
 <h3 id=set_variable_set_item_name>
   <code>variable::set_item_name</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6450,7 +6450,7 @@ variable::set_item_max_stack_size(a1,item("stick"),1);
 
 **Name:** Set Item Name\
 **Type:** An action that returns a value\
-**Description:** Sets the item's display name.
+**Description:** Sets the item\'s display name.
 
 **Usage example:** 
 ```ts
@@ -6537,7 +6537,7 @@ variable::set_item_type(a1,item("stick"),"type");
 
 **Name:** Set Item Unbreakable\
 **Type:** An action that returns a value\
-**Description:** Sets an item's unbreakable and assigns the result to a variable.
+**Description:** Sets an item\'s unbreakable and assigns the result to a variable.
 
 **Usage example:** 
 ```ts
@@ -6737,12 +6737,12 @@ variable::set_particle_color(a1,particle("fire"),"hex_color","COLOR");
 
 **Arguments:**
 
-| **Name**     | **Type**                                                                              | **Description**    |
-| ------------ | ------------------------------------------------------------------------------------- | ------------------ |
-| `variable`   | Variable                                                                              | Variable to assign |
-| `particle`   | Particle Effect                                                                       | Particle to change |
-| `hex_color`  | Text                                                                                  | HEX color          |
-| `color_type` | Marker<br/>**COLOR** - The usual color<br/>**TO_COLOR** - The color of the transition | Type of color      |
+| **Name**     | **Type**                                                                | **Description**    |
+| ------------ | ----------------------------------------------------------------------- | ------------------ |
+| `variable`   | Variable                                                                | Variable to assign |
+| `particle`   | Particle Effect                                                         | Particle to change |
+| `hex_color`  | Text                                                                    | HEX color          |
+| `color_type` | Marker<br/>**COLOR** - Normal color<br/>**TO_COLOR** - Transition color | Color type         |
 <h3 id=set_variable_set_particle_material>
   <code>variable::set_particle_material</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6837,7 +6837,7 @@ variable::set_particle_size(a1,particle("fire"),1);
 
 **Name:** Set Particle Spread\
 **Type:** An action that returns a value\
-**Description:** Sets a particle's spread value to a variable.
+**Description:** Sets a particle\'s spread value to a variable.
 
 **Usage example:** 
 ```ts
@@ -7282,7 +7282,7 @@ variable::shift_all_coordinates(a1,location(0,0,0,0,0),1,2,3,4,5);
 
 **Name:** Shift Location Coordinate\
 **Type:** An action that returns a value\
-**Description:** Shifts a location's coordinate by a certain amount.
+**Description:** Shifts a location\'s coordinate by a certain amount.
 
 **Usage example:** 
 ```ts
@@ -7359,12 +7359,12 @@ variable::shift_location_on_vector(a1,location(0,0,0,0,0),vector(0,0,0),1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**           |
-| ---------- | -------- | ------------------------- |
-| `variable` | Variable | Variable to assign        |
-| `location` | Location | Location to Shift         |
-| `vector`   | Vector   | Shift Vector              |
-| `length`   | Number   | The distance of the shift |
+| **Name**   | **Type** | **Description**    |
+| ---------- | -------- | ------------------ |
+| `variable` | Variable | Variable to assign |
+| `location` | Location | Location to Shift  |
+| `vector`   | Vector   | Shift Vector       |
+| `length`   | Number   | Shift distance     |
 <h3 id=set_variable_shift_location_towards_location>
   <code>variable::shift_location_towards_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7429,7 +7429,7 @@ variable::simplex_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE"
 | `frequency`     | Number                                                                                | Noise Octave Frequency |
 | `amplitude`     | Number                                                                                | Noise Octave Amplitude |
 | `range_mode`    | Marker<br/>**FULL_RANGE** - Full Range (-1 to 1 or more)<br/>**ZERO_TO_ONE** - 0 to 1 | Value Range            |
-| `normalized`    | Marker<br/>**FALSE** - Don't Normalize<br/>**TRUE** - Normalize                       | Normalize Values       |
+| `normalized`    | Marker<br/>**FALSE** - Don\'t Normalize<br/>**TRUE** - Normalize                      | Normalize Values       |
 <h3 id=set_variable_sine>
   <code>variable::sine</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7454,12 +7454,12 @@ variable::sine(a1,1,"ARCSINE","DEGREES");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                                         | **Description**    |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable` | Variable                                                                                                                         | Variable to assign |
-| `number`   | Number                                                                                                                           | Number to get sine |
-| `variant`  | Marker<br/>**ARCSINE** - Arcsine<br/>**HYPERBOLIC_ARCSINE** - None<br/>**HYPERBOLIC_SINE** - Hyperbolic Sine<br/>**SINE** - Sine | Operation Type     |
-| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                       | Angle Type         |
+| **Name**   | **Type**                                                                                                                                       | **Description**    |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `variable` | Variable                                                                                                                                       | Variable to assign |
+| `number`   | Number                                                                                                                                         | Number to get sine |
+| `variant`  | Marker<br/>**ARCSINE** - Arcsine<br/>**HYPERBOLIC_ARCSINE** - Hyperbolic Arcsine<br/>**HYPERBOLIC_SINE** - Hyperbolic Sine<br/>**SINE** - Sine | Operation Type     |
+| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                     | Angle Type         |
 <h3 id=set_variable_sort_any_list>
   <code>variable::sort_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7653,12 +7653,12 @@ variable::tangent(a1,1,"ARCTANGENT","DEGREES");
 
 **Arguments:**
 
-| **Name**   | **Type**                                                                                                                                              | **Description**       |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `variable` | Variable                                                                                                                                              | Variable to assign    |
-| `number`   | Number                                                                                                                                                | Number to get tangent |
-| `variant`  | Marker<br/>**ARCTANGENT** - Arctangent<br/>**HYPERBOLIC_ARCTANGENT** - None<br/>**HYPERBOLIC_TANGENT** - Hyperbolic Tangent<br/>**TANGENT** - Tangent | Operation Type        |
-| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                            | Angle Type            |
+| **Name**   | **Type**                                                                                                                                                               | **Description**       |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `variable` | Variable                                                                                                                                                               | Variable to assign    |
+| `number`   | Number                                                                                                                                                                 | Number to get tangent |
+| `variant`  | Marker<br/>**ARCTANGENT** - Arctangent<br/>**HYPERBOLIC_ARCTANGENT** - Hyperbolic Arctangent<br/>**HYPERBOLIC_TANGENT** - Hyperbolic Tangent<br/>**TANGENT** - Tangent | Operation Type        |
+| `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                                             | Angle Type            |
 <h3 id=set_variable_text>
   <code>variable::set_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

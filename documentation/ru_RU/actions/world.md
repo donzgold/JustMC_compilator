@@ -1005,6 +1005,28 @@ world::set_event_items([item("stick"), item("stick")]);
 | **Имя** | **Тип**         | **Описание**           |
 | ------- | --------------- | ---------------------- |
 | `items` | список[Предмет] | Предметы для установки |
+<h3 id=game_set_event_knockback_vector>
+  <code>world::set_event_knockback_vector</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить вектор отталкивания события\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает вектор отталкивания, связанный с этим событием.
+**Работает с:**\
+&nbsp;&nbsp;Событием "Игрок отталкивается"\
+&nbsp;&nbsp;Событием "Сущность отталкивается"
+
+**Пример использования:** 
+```ts
+world::set_event_knockback_vector(vector(0,0,0));
+```
+
+**Аргументы:**
+
+| **Имя**     | **Тип** | **Описание**        |
+| ----------- | ------- | ------------------- |
+| `knockback` | Вектор  | Вектор отталкивания |
 <h3 id=game_set_event_move_allowed>
   <code>world::set_event_move_allowed</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1131,6 +1153,27 @@ world::set_event_uery_info("information");
 | **Имя**       | **Тип** | **Описание**        |
 | ------------- | ------- | ------------------- |
 | `information` | Текст   | Дополнительные теги |
+<h3 id=game_set_event_velocity>
+  <code>world::set_event_velocity</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить вектор скорости события\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает вектор скорости, связанный с этим событием.
+**Работает с:**\
+&nbsp;&nbsp;Событием "Игрок изменил вектор скорости"
+
+**Пример использования:** 
+```ts
+world::set_event_velocity(vector(0,0,0));
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип** | **Описание**    |
+| ---------- | ------- | --------------- |
+| `velocity` | Вектор  | Вектор скорости |
 <h3 id=game_set_furnace_cook_time>
   <code>world::set_furnace_cook_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

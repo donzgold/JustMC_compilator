@@ -20,7 +20,7 @@ repeat::adjacently(location(0,0,0,0,0),"FALSE","FALSE","ADJACENT"){a1->
 | ----------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `variable`        | Variable                                                                                                   | To assign location                                                                     |
 | `origin`          | Location                                                                                                   | Central block                                                                          |
-| `change_rotation` | Marker<br/>**FALSE** - Don't Rotate<br/>**TRUE** - Rotate                                                  | Rotate the direction of view of the current element relative to the specified location |
+| `change_rotation` | Marker<br/>**FALSE** - Don\'t Rotate<br/>**TRUE** - Rotate                                                 | Rotate the direction of view of the current element relative to the specified location |
 | `include_self`    | Marker<br/>**FALSE** - Do not include<br/>**TRUE** - Include                                               | Include Center Block                                                                   |
 | `pattern`         | Marker<br/>**ADJACENT** - Adjacent<br/>**CARDINAL** - Cardinal<br/>**CUBE** - Cube<br/>**SQUARE** - Square | Adjacent Block Selection Type                                                          |
 <h3 id=repeat_dummy>
@@ -191,12 +191,12 @@ repeat::on_path(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){a1->
 
 **Arguments:**
 
-| **Name**    | **Type**                                              | **Description**                     |
-| ----------- | ----------------------------------------------------- | ----------------------------------- |
-| `variable`  | Variable                                              | To assign location                  |
-| `step`      | Number                                                | Distance between points             |
-| `locations` | list[Location]                                        | Line End Locations                  |
-| `rotation`  | Marker<br/>**FALSE** - Don't Save<br/>**TRUE** - Keep | Keep rotation of specified location |
+| **Name**    | **Type**                                               | **Description**                     |
+| ----------- | ------------------------------------------------------ | ----------------------------------- |
+| `variable`  | Variable                                               | To assign location                  |
+| `step`      | Number                                                 | Distance between points             |
+| `locations` | list[Location]                                         | Line End Locations                  |
+| `rotation`  | Marker<br/>**FALSE** - Don\'t Save<br/>**TRUE** - Keep | Keep rotation of specified location |
 <h3 id=repeat_on_range>
   <code>repeat::on_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

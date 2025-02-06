@@ -23,7 +23,7 @@
 
 **Name:** Chat Colors Enabled\
 **Type:** Action that checks the conditions\
-**Description:** Checks whether the player’s color settings is enabled.
+**Description:** Checks if the player enabled \"Chat Colors\" in settings.
 
 **Usage example:** 
 ```ts
@@ -39,7 +39,7 @@ if(player::chat_colors_enabled()){
 
 **Name:** Chat Message Equals\
 **Type:** Action that checks the conditions\
-**Description:** Checks if the player's message is equal to the selected one.
+**Description:** Checks if the player\'s message is equal to the selected one.
 
 **Usage example:** 
 ```ts
@@ -60,7 +60,7 @@ if(player::chat_message_equals(["chat_messages", "chat_messages"])){
 
 **Name:** Collidies At Location\
 **Type:** Action that checks the conditions\
-**Description:** Checks whether the player is faced with blocks, shalkers, boats and the border of the world in the indicated location.
+**Description:** Checks if a player collides with blocks, shulkers, boats and worldborder on given location.
 
 **Usage example:** 
 ```ts
@@ -71,9 +71,9 @@ if(player::collides_at_location(location(0,0,0,0,0))){
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**           |
-| ---------- | -------- | ------------------------- |
-| `location` | Location | Location for verification |
+| **Name**   | **Type** | **Description**   |
+| ---------- | -------- | ----------------- |
+| `location` | Location | Location to check |
 <h3 id=if_player_collides_using_hitbox>
   <code>player::collides_using_hitbox</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -81,7 +81,7 @@ if(player::collides_at_location(location(0,0,0,0,0))){
 
 **Name:** Collides Using Custom Hitbox\
 **Type:** Action that checks the conditions\
-**Description:** Checks whether the player is faced with blocks, huts, boats and the border of the world using a custom hitx.
+**Description:** Checks if a player collides with blocks, shulkers, boats and worldborder using a custom hitbox.
 
 **Usage example:** 
 ```ts
@@ -92,10 +92,10 @@ if(player::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0))){
 
 **Arguments:**
 
-| **Name** | **Type** | **Description**                 |
-| -------- | -------- | ------------------------------- |
-| `min`    | Location | The first corner of the hitbox  |
-| `max`    | Location | The second corner of the hitbox |
+| **Name** | **Type** | **Description**             |
+| -------- | -------- | --------------------------- |
+| `min`    | Location | First corner of the hitbox  |
+| `max`    | Location | Second corner of the hitbox |
 <h3 id=if_player_collides_with_entity>
   <code>player::collides_with_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -103,7 +103,7 @@ if(player::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0))){
 
 **Name:** Collidies With Entity\
 **Type:** Action that checks the conditions\
-**Description:** Checks whether the player is faced with a player with a hitbox of this entity.
+**Description:** Checks if player\'s hitbox collides with a hitbox of given entity.
 
 **Usage example:** 
 ```ts
@@ -114,10 +114,10 @@ if(player::collides_with_entity("name_or_uuid","CONTAINS")){
 
 **Arguments:**
 
-| **Name**       | **Type**                                                         | **Description**             |
-| -------------- | ---------------------------------------------------------------- | --------------------------- |
-| `name_or_uuid` | Text                                                             | Name or uuid entity         |
-| `check_type`   | Marker<br/>**CONTAINS** - Contains<br/>**OVERLAPS** - Intersects | The type of collision check |
+| **Name**       | **Type**                                                         | **Description**     |
+| -------------- | ---------------------------------------------------------------- | ------------------- |
+| `name_or_uuid` | Text                                                             | Entity name or UUID |
+| `check_type`   | Marker<br/>**CONTAINS** - Contains<br/>**OVERLAPS** - Intersects | Collide check type  |
 <h3 id=if_player_cursor_item_equals>
   <code>player::cursor_item_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -125,7 +125,7 @@ if(player::collides_with_entity("name_or_uuid","CONTAINS")){
 
 **Name:** Cursor Item Is Equal To\
 **Type:** Action that checks the conditions\
-**Description:** Checks if the item at the player's cursor is equal to the selected item.
+**Description:** Checks if the item at the player\'s cursor is equal to the selected item.
 
 **Usage example:** 
 ```ts
@@ -163,7 +163,7 @@ if(player::is_dummy()){
 
 **Name:** Game Mode Equals\
 **Type:** Action that checks the conditions\
-**Description:** Checks if the player's gamemode is equal to the selected one.
+**Description:** Checks if the player\'s gamemode is equal to the selected one.
 
 **Usage example:** 
 ```ts
@@ -277,7 +277,7 @@ if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 **Type:** Action that checks the conditions\
 **Description:** Checks if a player has certain rights in the world.\
 **Additional info:**\
-&nbsp;&nbsp;If the "Check Accuracy" marker is enabled, building and development permissions will be checked even if the player is whitelisted.
+&nbsp;&nbsp;If the \"Check Accuracy\" marker is enabled, building and development permissions will be checked even if the player is whitelisted.
 
 **Usage example:** 
 ```ts
@@ -322,7 +322,7 @@ if(player::has_room_for_item([item("stick"), item("stick")],"ARMOR","ALL")){
 
 **Name:** Hotbar Slot Equals\
 **Type:** Action that checks the conditions\
-**Description:** Checks if the player's current hotbar slot matches slot 1 to 9 in the chest.
+**Description:** Checks if the player\'s current hotbar slot matches slot 1 to 9 in the chest.
 
 **Usage example:** 
 ```ts
@@ -354,13 +354,13 @@ if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CON
 
 **Arguments:**
 
-| **Name**         | **Type**                                                         | **Description**             |
-| ---------------- | ---------------------------------------------------------------- | --------------------------- |
-| `location_1`     | Location                                                         | First corner of region      |
-| `location_2`     | Location                                                         | Second Region Corner        |
-| `ignore_y_axis`  | Marker<br/>**FALSE** - Don't ignore<br/>**TRUE** - Ignore        | Ignore Y Axis               |
-| `intersect_type` | Marker<br/>**HITBOX** - Hitbox<br/>**POINT** - Location          | Type of intersection        |
-| `check_type`     | Marker<br/>**CONTAINS** - Contains<br/>**OVERLAPS** - Intersects | Type of check of the hitbox |
+| **Name**         | **Type**                                                         | **Description**        |
+| ---------------- | ---------------------------------------------------------------- | ---------------------- |
+| `location_1`     | Location                                                         | First corner of region |
+| `location_2`     | Location                                                         | Second Region Corner   |
+| `ignore_y_axis`  | Marker<br/>**FALSE** - Don\'t ignore<br/>**TRUE** - Ignore       | Ignore Y Axis          |
+| `intersect_type` | Marker<br/>**HITBOX** - Hitbox<br/>**POINT** - Location          | Intersection type      |
+| `check_type`     | Marker<br/>**CONTAINS** - Contains<br/>**OVERLAPS** - Intersects | Hitbox check type      |
 <h3 id=if_player_inventory_menu_slot_equals>
   <code>player::inventory_menu_slot_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -391,7 +391,7 @@ if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"EXA
 
 **Name:** Open Inventory Type Equals\
 **Type:** Action that checks the conditions\
-**Description:** Checks if a player's inventory type is open.
+**Description:** Checks if a player\'s inventory type is open.
 
 **Usage example:** 
 ```ts
@@ -402,9 +402,9 @@ if(player::inventory_type_open("ANVIL")){
 
 **Arguments:**
 
-| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | **Description** |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `inventory_type` | Marker<br/>**ANVIL** - Anvil<br/>**BARREL** - Barrel<br/>**BEACON** - Beacon<br/>**BLAST_FURNACE** - Smelter<br/>**BREWING** - Potion Brewing<br/>**CARTOGRAPHY** - Cartographer's Desk<br/>**CHEST** - Chest<br/>**CHISELED_BOOKSHELF** - Carved bookshelf<br/>**COMPOSTER** - Composter<br/>**CRAFTER** - Crafter<br/>**CRAFTING** - Not Open<br/>**CREATIVE** - Creative Inventory<br/>**DECORATED_POT** - Vase<br/>**DISPENSER** - Dispenser<br/>**DROPPER** - Dropper<br/>**ENCHANTING** - Enchanting Table<br/>**ENDER_CHEST** - Ender Chest<br/>**FURNACE** - Furnace<br/>**GRINDSTONE** - Grindstone<br/>**HOPPER** - Funnel<br/>**JUKEBOX** - NOTO BOK<br/>**LECTERN** - Pulpit<br/>**LOOM** - Loom<br/>**MERCHANT** - Merchant<br/>**PLAYER** - Player Inventory<br/>**SHULKER_BOX** - Shulker Box<br/>**SMITHING** - Blacksmith's Table<br/>**SMITHING_NEW** - The table of the blacksmith<br/>**SMOKER** - Smoker<br/>**STONECUTTER** - Stonecutter<br/>**WORKBENCH** - Workbench | Inventory Type  |
+| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | **Description** |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `inventory_type` | Marker<br/>**ANVIL** - Anvil<br/>**BARREL** - Barrel<br/>**BEACON** - Beacon<br/>**BLAST_FURNACE** - Smelter<br/>**BREWING** - Potion Brewing<br/>**CARTOGRAPHY** - Cartographer\'s Desk<br/>**CHEST** - Chest<br/>**CHISELED_BOOKSHELF** - Chiseled Bookshelf<br/>**COMPOSTER** - Composter<br/>**CRAFTER** - Crafter<br/>**CRAFTING** - Not Open<br/>**CREATIVE** - Creative Inventory<br/>**DECORATED_POT** - Decorated Pot<br/>**DISPENSER** - Dispenser<br/>**DROPPER** - Dropper<br/>**ENCHANTING** - Enchanting Table<br/>**ENDER_CHEST** - Ender Chest<br/>**FURNACE** - Furnace<br/>**GRINDSTONE** - Grindstone<br/>**HOPPER** - Funnel<br/>**JUKEBOX** - Jukebox<br/>**LECTERN** - Pulpit<br/>**LOOM** - Loom<br/>**MERCHANT** - Merchant<br/>**PLAYER** - Player Inventory<br/>**SHULKER_BOX** - Shulker Box<br/>**SMITHING** - Blacksmith\'s Table<br/>**SMITHING_NEW** - Smithing Table<br/>**SMOKER** - Smoker<br/>**STONECUTTER** - Stonecutter<br/>**WORKBENCH** - Workbench | Inventory Type  |
 <h3 id=if_player_is_allow_server_listing>
   <code>player::is_allow_server_listing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -412,7 +412,7 @@ if(player::inventory_type_open("ANVIL")){
 
 **Name:** Is Allow Server Listing\
 **Type:** Action that checks the conditions\
-**Description:** Checks whether the settings are included in the lists by the player.
+**Description:** Checks if the player enabled \"Allow Server Listing\" in settings.
 
 **Usage example:** 
 ```ts
@@ -550,11 +550,11 @@ if(player::is_near(1,location(0,0,0,0,0),"FALSE")){
 
 **Arguments:**
 
-| **Name**        | **Type**                                                  | **Description**   |
-| --------------- | --------------------------------------------------------- | ----------------- |
-| `range`         | Number                                                    | Check Range       |
-| `location`      | Location                                                  | Location to check |
-| `ignore_y_axis` | Marker<br/>**FALSE** - Don't Ignore<br/>**TRUE** - Ignore | Ignore Y Axis     |
+| **Name**        | **Type**                                                   | **Description**   |
+| --------------- | ---------------------------------------------------------- | ----------------- |
+| `range`         | Number                                                     | Check Range       |
+| `location`      | Location                                                   | Location to check |
+| `ignore_y_axis` | Marker<br/>**FALSE** - Don\'t Ignore<br/>**TRUE** - Ignore | Ignore Y Axis     |
 <h3 id=if_player_is_on_ground>
   <code>player::is_on_ground</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -691,11 +691,11 @@ if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 
 **Arguments:**
 
-| **Name**     | **Type**                                           | **Description**                   |
-| ------------ | -------------------------------------------------- | --------------------------------- |
-| `blocks`     | list[Block]                                        | Blocks to Check                   |
-| `locations`  | list[Location]                                     | Location to check                 |
-| `only_solid` | Marker<br/>**FALSE** - Off<br/>**TRUE** - Included | Take into account passable blocks |
+| **Name**     | **Type**                                                             | **Description**   |
+| ------------ | -------------------------------------------------------------------- | ----------------- |
+| `blocks`     | list[Block]                                                          | Blocks to Check   |
+| `locations`  | list[Location]                                                       | Location to check |
+| `only_solid` | Marker<br/>**FALSE** - All blocks.<br/>**TRUE** - Only solid blocks. | Block check type  |
 <h3 id=if_player_is_swimming>
   <code>player::is_swimming</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -764,7 +764,7 @@ if(player::is_wearing_item([item("stick"), item("stick")],"ALL","EXACTLY")){
 
 **Name:** Item Has No Cooldown\
 **Type:** Action that checks the conditions\
-**Description:** Checks if the player's item has a cooldown applicable to a specific item type.
+**Description:** Checks if the player\'s item has a cooldown applicable to a specific item type.
 
 **Usage example:** 
 ```ts
@@ -785,7 +785,7 @@ if(player::item_is_not_on_cooldown([item("stick"), item("stick")])){
 
 **Name:** Name Equals\
 **Type:** Action that checks the conditions\
-**Description:** Checks if the player's name is equal to the name in the chest.
+**Description:** Checks if the player\'s name is equal to the name in the chest.
 
 **Usage example:** 
 ```ts
@@ -806,7 +806,7 @@ if(player::name_equals(["names_or_uuids", "names_or_uuids"])){
 
 **Name:** Text Filtering Enabled\
 **Type:** Action that checks the conditions\
-**Description:** Checks whether the filter of words from Mojang is included in the player.
+**Description:** Checks if the player have Mojang word filters enabled.
 
 **Usage example:** 
 ```ts
@@ -822,7 +822,7 @@ if(player::text_filtering_enabled()){
 
 **Name:** Add Inventory Menu Row\
 **Type:** Action without value\
-**Description:** Adds a row with the specified items to the "Chest" type inventory.
+**Description:** Adds a row with the specified items to the \"Chest\" type inventory.
 
 **Usage example:** 
 ```ts
@@ -881,7 +881,7 @@ player::boost_elytra(item("stick"));
 
 **Name:** Clear Chat\
 **Type:** Action without value\
-**Description:** Clears all messages from the selected player's chat window.
+**Description:** Clears all messages from the selected player\'s chat window.
 
 **Usage example:** 
 ```ts
@@ -909,7 +909,7 @@ player::clear_debug_markers();
 
 **Name:** Clear Ender Chest Contents\
 **Type:** Action without value\
-**Description:** Clears items in a player's Ender Chest inventory.
+**Description:** Clears items in a player\'s Ender Chest inventory.
 
 **Usage example:** 
 ```ts
@@ -923,7 +923,7 @@ player::clear_ender_chest_contents();
 
 **Name:** Clear Inventory\
 **Type:** Action without value\
-**Description:** Clears the player's inventory.
+**Description:** Clears the player\'s inventory.
 
 **Usage example:** 
 ```ts
@@ -942,7 +942,7 @@ player::clear_inventory("ARMOR");
 
 **Name:** Clear Items\
 **Type:** Action without value\
-**Description:** Removes all selected items from the player's inventory.
+**Description:** Removes all selected items from the player\'s inventory.
 
 **Usage example:** 
 ```ts
@@ -975,7 +975,7 @@ player::clear_potion_effects();
 
 **Name:** Close Inventory Menu\
 **Type:** Action without value\
-**Description:** Closes a player's opened inventory menu.
+**Description:** Closes a player\'s opened inventory menu.
 
 **Usage example:** 
 ```ts
@@ -989,7 +989,7 @@ player::close_inventory();
 
 **Name:** Deal Damage\
 **Type:** Action without value\
-**Description:** Deals damage to the player.
+**Description:** Deals damage to a player.
 
 **Usage example:** 
 ```ts
@@ -1018,10 +1018,10 @@ player::disguise_as_block(item("stone"),"FALSE");
 
 **Arguments:**
 
-| **Name**          | **Type**                                                      | **Description**           |
-| ----------------- | ------------------------------------------------------------- | ------------------------- |
-| `block`           | Block                                                         | Disguise Block            |
-| `visible_to_self` | Marker<br/>**FALSE** - Not visible<br/>**TRUE** - You can see | Visibility for the player |
+| **Name**          | **Type**                                         | **Description** |
+| ----------------- | ------------------------------------------------ | --------------- |
+| `block`           | Block                                            | Disguise Block  |
+| `visible_to_self` | Marker<br/>**FALSE** - False<br/>**TRUE** - True | Visible to self |
 <h3 id=player_disguise_as_entity>
   <code>player::disguise_as_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1038,10 +1038,10 @@ player::disguise_as_entity(item("stick"),"FALSE");
 
 **Arguments:**
 
-| **Name**          | **Type**                                                      | **Description**           |
-| ----------------- | ------------------------------------------------------------- | ------------------------- |
-| `entity_type`     | Item                                                          | Entity to Disguise        |
-| `visible_to_self` | Marker<br/>**FALSE** - Not visible<br/>**TRUE** - You can see | Visibility for the player |
+| **Name**          | **Type**                                         | **Description**    |
+| ----------------- | ------------------------------------------------ | ------------------ |
+| `entity_type`     | Item                                             | Entity to Disguise |
+| `visible_to_self` | Marker<br/>**FALSE** - False<br/>**TRUE** - True | Visible to self    |
 <h3 id=player_disguise_as_item>
   <code>player::disguise_as_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1058,10 +1058,10 @@ player::disguise_as_item(item("stick"),"FALSE");
 
 **Arguments:**
 
-| **Name**          | **Type**                                                      | **Description**           |
-| ----------------- | ------------------------------------------------------------- | ------------------------- |
-| `item`            | Item                                                          | Disguise Item             |
-| `visible_to_self` | Marker<br/>**FALSE** - Not visible<br/>**TRUE** - You can see | Visibility for the player |
+| **Name**          | **Type**                                         | **Description** |
+| ----------------- | ------------------------------------------------ | --------------- |
+| `item`            | Item                                             | Disguise Item   |
+| `visible_to_self` | Marker<br/>**FALSE** - False<br/>**TRUE** - True | Visible to self |
 <h3 id=player_display_bell_ring>
   <code>player::display_bell_ring</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1069,11 +1069,11 @@ player::disguise_as_item(item("stick"),"FALSE");
 
 **Name:** Display Bell Ring\
 **Type:** Action without value\
-**Description:** Shows the player an animation of the blow to the bell without affecting other players.\
+**Description:** Displays the Bell ringing animation.\
 **Additional info:**\
-&nbsp;&nbsp;The direction "down" stops the animation of the impact.\
+&nbsp;&nbsp;The \"Down\" direction stops the punch animation.\
 **Work_with:**\
-&nbsp;&nbsp;Bells
+&nbsp;&nbsp;Bell
 
 **Usage example:** 
 ```ts
@@ -1086,10 +1086,10 @@ location(0,0,0,0,0).display_bell_ring("DOWN");
 
 **Arguments:**
 
-| **Name**    | **Type**                                                                                                                                            | **Description**           |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| `location`  | Location                                                                                                                                            | The location of the bell  |
-| `direction` | Marker<br/>**DOWN** - Down (down)<br/>**EAST** - East (East)<br/>**NORTH** - North (north)<br/>**SOUTH** - South (South)<br/>**WEST** - West (West) | The direction of the blow |
+| **Name**    | **Type**                                                                                                       | **Description** |
+| ----------- | -------------------------------------------------------------------------------------------------------------- | --------------- |
+| `location`  | Location                                                                                                       | Bell location   |
+| `direction` | Marker<br/>**DOWN** - Down<br/>**EAST** - East<br/>**NORTH** - North<br/>**SOUTH** - South<br/>**WEST** - West | Direction       |
 <h3 id=player_display_block>
   <code>player::display_block</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1198,7 +1198,7 @@ player::display_particle([particle("fire"), particle("fire")],[location(0,0,0,0,
 
 **Name:** Display Particle Circle\
 **Type:** Action without value\
-**Description:** The player displays a circle from the particle effect with the specified parameters.
+**Description:** Shows a player a circle out of particles with given parameters.
 
 **Usage example:** 
 ```ts
@@ -1207,15 +1207,15 @@ player::display_particle_circle(particle("fire"),location(0,0,0,0,0),1,2,3,vecto
 
 **Arguments:**
 
-| **Name**        | **Type**                                                   | **Description**                                            |
-| --------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `particle`      | Particle Effect                                            | The effect of particles for display                        |
-| `center`        | Location                                                   | The center of the circle                                   |
-| `radius`        | Number                                                     | The radius of the circle                                   |
-| `points`        | Number                                                     | The number of points of the circle                         |
-| `start_angle`   | Number                                                     | The initial corner                                         |
-| `perpendicular` | Vector                                                     | The normal plane to which the circle will be perpendicular |
-| `angle_unit`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians | Type of angle                                              |
+| **Name**        | **Type**                                                   | **Description**                                               |
+| --------------- | ---------------------------------------------------------- | ------------------------------------------------------------- |
+| `particle`      | Particle Effect                                            | Particle to show                                              |
+| `center`        | Location                                                   | Circle center                                                 |
+| `radius`        | Number                                                     | Circle radius                                                 |
+| `points`        | Number                                                     | Amount of points on the circle                                |
+| `start_angle`   | Number                                                     | Starting angle                                                |
+| `perpendicular` | Vector                                                     | Normal of the plane to which the circle will be perpendicular |
+| `angle_unit`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians | Angle type                                                    |
 <h3 id=player_display_particle_cube>
   <code>player::display_particle_cube</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1223,7 +1223,7 @@ player::display_particle_circle(particle("fire"),location(0,0,0,0,0),1,2,3,vecto
 
 **Name:** Display Particle Cube\
 **Type:** Action without value\
-**Description:** Displays a cube to the player from the effect of particles with the specified parameters.
+**Description:** Displays a particle cuboid to the player.
 
 **Usage example:** 
 ```ts
@@ -1232,13 +1232,13 @@ player::display_particle_cube(particle("fire"),location(0,0,0,0,0),location(0,0,
 
 **Arguments:**
 
-| **Name**        | **Type**                                                                        | **Description**                     |
-| --------------- | ------------------------------------------------------------------------------- | ----------------------------------- |
-| `particle`      | Particle Effect                                                                 | The effect of particles for display |
-| `first_corner`  | Location                                                                        | The first corner of the cube        |
-| `second_corner` | Location                                                                        | The second corner of the cube       |
-| `spacing`       | Number                                                                          | The distance between the particles  |
-| `type`          | Marker<br/>**HOLLOW** - Hollow<br/>**SOLID** - Filled<br/>**WIREFRAME** - Frame | Cuba type                           |
+| **Name**        | **Type**                                                                           | **Description** |
+| --------------- | ---------------------------------------------------------------------------------- | --------------- |
+| `particle`      | Particle Effect                                                                    | Particle        |
+| `first_corner`  | Location                                                                           | First corner    |
+| `second_corner` | Location                                                                           | Second corner   |
+| `spacing`       | Number                                                                             | Spacing         |
+| `type`          | Marker<br/>**HOLLOW** - Hollow<br/>**SOLID** - Solid<br/>**WIREFRAME** - Wireframe | Cuboid type     |
 <h3 id=player_display_particle_line>
   <code>player::display_particle_line</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1292,7 +1292,7 @@ player::display_particle_ray(particle("fire"),location(0,0,0,0,0),vector(0,0,0),
 
 **Name:** Display Particle Sphere\
 **Type:** Action without value\
-**Description:** Displays the player a sphere from the effect of particles with the indicated parameters.
+**Description:** Displays a particle sphere to the player.
 
 **Usage example:** 
 ```ts
@@ -1301,12 +1301,12 @@ player::display_particle_sphere(particle("fire"),location(0,0,0,0,0),1,2);
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**                     |
-| ---------- | --------------- | ----------------------------------- |
-| `particle` | Particle Effect | The effect of particles for display |
-| `center`   | Location        | The center of the sphere            |
-| `radius`   | Number          | The radius of the sphere            |
-| `points`   | Number          | The number of sphere points         |
+| **Name**   | **Type**        | **Description** |
+| ---------- | --------------- | --------------- |
+| `particle` | Particle Effect | Particle        |
+| `center`   | Location        | Center          |
+| `radius`   | Number          | Radius          |
+| `points`   | Number          | Points          |
 <h3 id=player_display_particle_spiral>
   <code>player::display_particle_spiral</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1314,7 +1314,7 @@ player::display_particle_sphere(particle("fire"),location(0,0,0,0,0),1,2);
 
 **Name:** Display Particle Spiral\
 **Type:** Action without value\
-**Description:** Displays a spiral to the player from the particle effect with the indicated parameters.
+**Description:** Displays a particle spiral to the player.
 
 **Usage example:** 
 ```ts
@@ -1323,16 +1323,16 @@ player::display_particle_spiral(particle("fire"),location(0,0,0,0,0),1,2,3,4,5,"
 
 **Arguments:**
 
-| **Name**      | **Type**                                                   | **Description**                     |
-| ------------- | ---------------------------------------------------------- | ----------------------------------- |
-| `particle`    | Particle Effect                                            | The effect of particles for display |
-| `center`      | Location                                                   | The center of the spiral            |
-| `distance`    | Number                                                     | The distance of the spiral          |
-| `radius`      | Number                                                     | The radius of the spiral            |
-| `points`      | Number                                                     | The number of spiral points         |
-| `rotations`   | Number                                                     | The number of revolutions           |
-| `start_angle` | Number                                                     | The initial corner                  |
-| `angle_unit`  | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians | Type of angle                       |
+| **Name**      | **Type**                                                   | **Description** |
+| ------------- | ---------------------------------------------------------- | --------------- |
+| `particle`    | Particle Effect                                            | Particle        |
+| `center`      | Location                                                   | Center          |
+| `distance`    | Number                                                     | Distance        |
+| `radius`      | Number                                                     | Radius          |
+| `points`      | Number                                                     | Points          |
+| `rotations`   | Number                                                     | Rotations       |
+| `start_angle` | Number                                                     | Start Angle     |
+| `angle_unit`  | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians | Angle type      |
 <h3 id=player_display_pick_up_animation>
   <code>player::display_pick_up_animation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1343,7 +1343,7 @@ player::display_particle_spiral(particle("fire"),location(0,0,0,0,0),1,2,3,4,5,"
 **Description:** Shows the player a pickup animation.\
 **Additional info:**\
 &nbsp;&nbsp;Essences that can be picked up can be items, experience orbs, and arrows.\
-&nbsp;&nbsp;The action works with any entity, including a player.
+&nbsp;&nbsp;This action works with any entity, not just the player.
 
 **Usage example:** 
 ```ts
@@ -1364,7 +1364,7 @@ player::display_pick_up_animation("collected_name_or_uuid","collector_name_or_uu
 
 **Name:** Display Sign Text\
 **Type:** Action without value\
-**Description:** Show the sign's text change to the player without changing its text for other players.
+**Description:** Show the sign\'s text change to the player without changing its text for other players.
 
 **Usage example:** 
 ```ts
@@ -1422,7 +1422,7 @@ player::dummy();
 
 **Name:** Expand Inventory Menu\
 **Type:** Action without value\
-**Description:** Expands the player's opened inventory menu by the selected number of lines and populates it with the specified items.
+**Description:** Expands the player\'s opened inventory menu by the selected number of lines and populates it with the specified items.
 
 **Usage example:** 
 ```ts
@@ -1520,7 +1520,7 @@ player::give_items([item("stick"), item("stick")],1);
 
 **Name:** Give Potion Effect\
 **Type:** Action without value\
-**Description:** Gives the selected effects to the player.
+**Description:** Gives the selected effects to a player.
 
 **Usage example:** 
 ```ts
@@ -1542,7 +1542,7 @@ player::give_potion_effect([potion("slow_falling"), potion("slow_falling")],"FAL
 
 **Name:** Give a Random Item\
 **Type:** Action without value\
-**Description:** Gives the player a random item or a stack of items in a chest.
+**Description:** Gives a player a random item or a stack of items in a chest.
 
 **Usage example:** 
 ```ts
@@ -1561,7 +1561,7 @@ player::give_random_item([item("stick"), item("stick")]);
 
 **Name:** Heal Player\
 **Type:** Action without value\
-**Description:** Heals the player.
+**Description:** Heals a player.
 
 **Usage example:** 
 ```ts
@@ -1600,7 +1600,7 @@ player::hide_entity(["name_or_uuid", "name_or_uuid"],"FALSE");
 
 **Name:** Hide Scoreboard\
 **Type:** Action without value\
-**Description:** Hides the player's current scoreboard.
+**Description:** Hides the player\'s current scoreboard.
 
 **Usage example:** 
 ```ts
@@ -1649,7 +1649,7 @@ player::launch_forward(1,"FALSE","YAW");
 
 **Name:** Launch Projectile\
 **Type:** Action without value\
-**Description:** Launch a projectile from the player's location.
+**Description:** Launch a projectile from the player\'s location.
 
 **Usage example:** 
 ```ts
@@ -1712,9 +1712,9 @@ player::launch_up(1,"FALSE");
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** Land out of transport\
+**Name:** Dismount\
 **Type:** Action without value\
-**Description:** Plants a player from transport or creatures.
+**Description:** Dismounts a player from a vehicle or entity.
 
 **Usage example:** 
 ```ts
@@ -1730,7 +1730,7 @@ player::leave_vehicle();
 **Type:** Action without value\
 **Description:** Loads the selected saved inventory.\
 **Additional info:**\
-&nbsp;&nbsp;If there is no saved inventory, the player's inventory will be cleared.
+&nbsp;&nbsp;If there is no saved inventory, the player\'s inventory will be cleared.
 
 **Usage example:** 
 ```ts
@@ -1801,7 +1801,7 @@ player::play_animation_action("DAMAGE");
 
 **Name:** Play Hurt Animation\
 **Type:** Action without value\
-**Description:** It loses to the player an animation of getting damage with a certain inclination.
+**Description:** Plays a hurt animation for the player with a given angle.
 
 **Usage example:** 
 ```ts
@@ -1810,9 +1810,9 @@ player::play_hurt_animation(1);
 
 **Arguments:**
 
-| **Name** | **Type** | **Description**             |
-| -------- | -------- | --------------------------- |
-| `yaw`    | Number   | Malia receipt angle (0-360) |
+| **Name** | **Type** | **Description**                       |
+| -------- | -------- | ------------------------------------- |
+| `yaw`    | Number   | Received damage angle (from 0 to 360) |
 <h3 id=player_play_sound>
   <code>player::play_sound</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1943,7 +1943,7 @@ player::remove_boss_bar("id");
 
 **Name:** Remove Disguise\
 **Type:** Action without value\
-**Description:** Removes a player's disguise.
+**Description:** Removes a player\'s disguise.
 
 **Usage example:** 
 ```ts
@@ -1957,7 +1957,7 @@ player::remove_disguise();
 
 **Name:** Remove Display Blocks\
 **Type:** Action without value\
-**Description:** He hides from the player all the displayed blocks in the selected space without affecting other players (the maximum size of space is 500 blocks).
+**Description:** Removes all client-sided display blocks (maximum size: 500).
 
 **Usage example:** 
 ```ts
@@ -1966,10 +1966,10 @@ player::remove_display_blocks(location(0,0,0,0,0),location(0,0,0,0,0));
 
 **Arguments:**
 
-| **Name** | **Type** | **Description**                  |
-| -------- | -------- | -------------------------------- |
-| `pos_1`  | Location | The location of the first corner |
-| `pos_2`  | Location | The location of the second angle |
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `pos_1`  | Location | First corner    |
+| `pos_2`  | Location | Second corner   |
 <h3 id=player_remove_inventory_menu_row>
   <code>player::remove_inventory_menu_row</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1997,7 +1997,7 @@ player::remove_inventory_menu_row(1,"BUTTON");
 
 **Name:** Remove Items\
 **Type:** Action without value\
-**Description:** Removes the specified items from the player's inventory.
+**Description:** Removes the specified items from the player\'s inventory.
 
 **Usage example:** 
 ```ts
@@ -2016,7 +2016,7 @@ player::remove_items([item("stick"), item("stick")]);
 
 **Name:** Reset Player Pose\
 **Type:** Action without value\
-**Description:** Resets a player's pose.
+**Description:** Resets a player\'s pose.
 
 **Usage example:** 
 ```ts
@@ -2030,7 +2030,7 @@ player::remove_pose();
 
 **Name:** Remove Potion Effect\
 **Type:** Action without value\
-**Description:** Removes the selected effects from the player.
+**Description:** Removes the selected effects from a player.
 
 **Usage example:** 
 ```ts
@@ -2049,7 +2049,7 @@ player::remove_potion_effect([potion("slow_falling"), potion("slow_falling")]);
 
 **Name:** Remove Self Disguise\
 **Type:** Action without value\
-**Description:** Removes a player's disguise that only they can see.
+**Description:** Removes a player\'s disguise that only they can see.
 
 **Usage example:** 
 ```ts
@@ -2077,7 +2077,7 @@ player::remove_skin();
 
 **Name:** Remove World Border\
 **Type:** Action without value\
-**Description:** Set the player's world border to the default value.
+**Description:** Set the player\'s world border to the default value.
 
 **Usage example:** 
 ```ts
@@ -2112,7 +2112,7 @@ player::replace_items([item("stick"), item("stick")],item("stick"),1);
 
 **Name:** Reset Weather\
 **Type:** Action without value\
-**Description:** Reset the weather to the player
+**Description:** Resets player weather
 
 **Usage example:** 
 ```ts
@@ -2145,7 +2145,7 @@ player::ride_entity("name_or_uuid");
 
 **Name:** Save Current Inventory\
 **Type:** Action without value\
-**Description:** Saves the player's current inventory. It can be loaded later using 'Load Saved Inventory'.
+**Description:** Saves the player\'s current inventory. It can be loaded later using \'Load Saved Inventory\'.
 
 **Usage example:** 
 ```ts
@@ -2197,7 +2197,7 @@ player::self_disguise_as_entity(item("stick"));
 
 **Name:** Disguise Self As Item\
 **Type:** Action without value\
-**Description:** The player is masked for the subject, but this disguise can only be seen by this player.
+**Description:** Disguises the player as an item onto to themself.
 
 **Usage example:** 
 ```ts
@@ -2206,9 +2206,9 @@ player::self_disguise_as_item(item("stick"));
 
 **Arguments:**
 
-| **Name** | **Type** | **Description** |
-| -------- | -------- | --------------- |
-| `item`   | Item     | Masked item     |
+| **Name** | **Type** | **Description**     |
+| -------- | -------- | ------------------- |
+| `item`   | Item     | Item to disguise as |
 <h3 id=player_send_action_bar>
   <code>player::send_action_bar</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2236,7 +2236,7 @@ player::send_action_bar(["messages", "messages"],"CONCATENATION");
 
 **Name:** Send an Advancement to a Player\
 **Type:** Action without value\
-**Description:** Shows the player a custom advancement popup.
+**Description:** Shows a player a custom advancement popup.
 
 **Usage example:** 
 ```ts
@@ -2245,11 +2245,11 @@ player::send_advancement(item("stick"),"name","CHALLENGE");
 
 **Arguments:**
 
-| **Name** | **Type**                                                                        | **Description** |
-| -------- | ------------------------------------------------------------------------------- | --------------- |
-| `icon`   | Item                                                                            | Icon            |
-| `name`   | Text                                                                            | Name            |
-| `frame`  | Marker<br/>**CHALLENGE** - Challenge<br/>**GOAL** - Goal<br/>**TASK** - Regular | Type            |
+| **Name** | **Type**                                                                        | **Description**  |
+| -------- | ------------------------------------------------------------------------------- | ---------------- |
+| `icon`   | Item                                                                            | Icon             |
+| `name`   | Text                                                                            | Name             |
+| `frame`  | Marker<br/>**CHALLENGE** - Challenge<br/>**GOAL** - Goal<br/>**TASK** - Regular | Achievement Type |
 <h3 id=player_send_break_animation>
   <code>player::send_break_animation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2297,7 +2297,7 @@ player::send_dialogue(["messages", "messages"],1);
 
 **Name:** Send Hover Message\
 **Type:** Action without value\
-**Description:** Sends a message to the selected player. When the player 'hovers' over it, a second message appears.
+**Description:** Sends a message to the selected player. When a player \'hovers\' over it, a second message appears.
 
 **Usage example:** 
 ```ts
@@ -2337,7 +2337,7 @@ player::message(["messages", "messages"],"CONCATENATION");
 
 **Name:** Send a MiniMessage\
 **Type:** Action without value\
-**Description:** Sends a MiniMessage message to the player.
+**Description:** Sends a MiniMessage message to a player.
 
 **Usage example:** 
 ```ts
@@ -2379,7 +2379,7 @@ player::send_title("title","subtitle",1,2,3);
 
 **Name:** Set Bonus Health\
 **Type:** Action without value\
-**Description:** Sets the player's bonus health.
+**Description:** Sets a player\'s bonus health.
 
 **Usage example:** 
 ```ts
@@ -2398,7 +2398,7 @@ player::set_absorption_health(1);
 
 **Name:** Set Remaining Air\
 **Type:** Action without value\
-**Description:** Sets the player's remaining air.
+**Description:** Sets the player\'s remaining air.
 
 **Usage example:** 
 ```ts
@@ -2436,7 +2436,7 @@ player::set_allow_flying("FALSE");
 
 **Name:** Set Armor\
 **Type:** Action without value\
-**Description:** Sets the player's armor.\
+**Description:** Sets the player\'s armor.\
 **Additional info:**\
 &nbsp;&nbsp;Any item or block will appear on the head when placed in the helmet slot.
 
@@ -2479,7 +2479,7 @@ player::set_arrows_in_body(1);
 
 **Name:** Set Attack Speed\
 **Type:** Action without value\
-**Description:** Sets the player's attack speed.
+**Description:** Sets the player\'s attack speed.
 
 **Usage example:** 
 ```ts
@@ -2496,9 +2496,9 @@ player::set_attack_speed(1);
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** Set the attribute\
+**Name:** Set Attribute\
 **Type:** Action without value\
-**Description:** Sets the player with the specified attribute value.
+**Description:** Sets the specified attribute of a player.
 
 **Usage example:** 
 ```ts
@@ -2507,10 +2507,10 @@ player::set_attribute(1,"GENERIC_ARMOR");
 
 **Arguments:**
 
-| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | **Description**            |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `value`          | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | The value of the attribute |
-| `attribute_type` | Marker<br/>**GENERIC_ARMOR** - Generic.armor<br/>**GENERIC_ARMOR_TOUGHNESS** - Generic.armor_toughness<br/>**GENERIC_ATTACK_DAMAGE** - Generic.attack_damage<br/>**GENERIC_ATTACK_KNOCKBACK** - Repulsion of the attack (Generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Generic.attack_Speed<br/>**GENERIC_BURNING_TIME** - Burning time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion knockback resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall damage multiplier<br/>**GENERIC_FLYING_SPEED** - Generic.flying_speed<br/>**GENERIC_FOLLOW_RANGE** - Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Publishing resistance (Generic.knockback_resistance)<br/>**GENERIC_LUCK** - Luck of fishing (Generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (Generic.max_Absorption)<br/>**GENERIC_MAX_HEALTH** - Max health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement speed for slowing blocks<br/>**GENERIC_MOVEMENT_SPEED** - Generic.movement_Speed<br/>**GENERIC_OXYGEN_BONUS** - Air underwater<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe fall distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Movement speed underwater<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block breaking speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - The distance of interaction with blocks<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - The distance of interaction with entities<br/>**PLAYER_MINING_EFFICIENCY** - Digging speed<br/>**PLAYER_SNEAKING_SPEED** - Movement speed while sneaking<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Digging speed underwater<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - The coefficient of a break in a blow<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - The chance of reinforcing zombies | Type of attribute          |
+| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **Description** |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `value`          | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Attribute Value |
+| `attribute_type` | Marker<br/>**GENERIC_ARMOR** - Armor points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Armor toughness points (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning Time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion Knockback Resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall Damage Multiplier<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow range (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump Strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Fishing luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Max health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement Efficiency<br/>**GENERIC_MOVEMENT_SPEED** - Movement speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Oxygen Bonus<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe Fall Distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step Height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Water Movement Efficiency<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block Breaking Speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Block Interaction Range<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Entity Interaction Range<br/>**PLAYER_MINING_EFFICIENCY** - Mining Efficiency<br/>**PLAYER_SNEAKING_SPEED** - Sneaking Speed<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Submerged Mining Speed<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Sweeping Damage Ratio<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zomie spawn reinforcements | Attribute Type  |
 <h3 id=player_set_bee_stingers_in_body>
   <code>player::set_bee_stingers_in_body</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2585,9 +2585,9 @@ player::set_boss_bar("id","title",1,"DARK_SKY","NOTCHED_10","BLUE");
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** Update tips in chat\
+**Name:** Modify Chat Suggestions\
 **Type:** Action without value\
-**Description:** Updates the player prompts shown when entering the text in the chat.
+**Description:** Modifies the player\'s auto-completion suggestions shown when typing in chat.
 
 **Usage example:** 
 ```ts
@@ -2596,10 +2596,10 @@ player::set_chat_completions(["completions", "completions"],"ADD");
 
 **Arguments:**
 
-| **Name**       | **Type**                                                           | **Description** |
-| -------------- | ------------------------------------------------------------------ | --------------- |
-| `completions`  | list[Text]                                                         | Hipples         |
-| `setting_mode` | Marker<br/>**ADD** - Add<br/>**REMOVE** - Delete<br/>**SET** - Set | Type of update  |
+| **Name**       | **Type**                                                           | **Description**   |
+| -------------- | ------------------------------------------------------------------ | ----------------- |
+| `completions`  | list[Text]                                                         | Chat Suggestions  |
+| `setting_mode` | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove<br/>**SET** - Set | Modification Type |
 <h3 id=player_set_collidable>
   <code>player::set_collidable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2607,7 +2607,7 @@ player::set_chat_completions(["completions", "completions"],"ADD");
 
 **Name:** Set Collidable Mode\
 **Type:** Action without value\
-**Description:** Sets the player's creature collision mode.
+**Description:** Sets the player\'s creature collision mode.
 
 **Usage example:** 
 ```ts
@@ -2626,7 +2626,7 @@ player::set_collidable("FALSE");
 
 **Name:** Set Compass Target\
 **Type:** Action without value\
-**Description:** Sets the player's compass target in which direction the compass needle will point.
+**Description:** Sets the player\'s compass target in which direction the compass needle will point.
 
 **Usage example:** 
 ```ts
@@ -2645,7 +2645,7 @@ player::set_compass_target(location(0,0,0,0,0));
 
 **Name:** Set Item on Cursor\
 **Type:** Action without value\
-**Description:** Sets an item on the player's cursor.
+**Description:** Sets an item on the player\'s cursor.
 
 **Usage example:** 
 ```ts
@@ -2681,11 +2681,11 @@ player::set_death_drops("FALSE");
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** Set visibility\
+**Name:** Set Visibility\
 **Type:** Action without value\
-**Description:** Sets the player with visibility.\
+**Description:** Sets the player\'s visibility.\
 **Additional info:**\
-&nbsp;&nbsp;None
+&nbsp;&nbsp;Player\'s visibility can be changed via the \"Hide Entity\" action.
 
 **Usage example:** 
 ```ts
@@ -2704,7 +2704,7 @@ player::set_default_visible("TRUE");
 
 **Name:** Set Ender Chest Contents\
 **Type:** Action without value\
-**Description:** Sets items in the player's Ender Chest inventory.
+**Description:** Sets items in the player\'s Ender Chest inventory.
 
 **Usage example:** 
 ```ts
@@ -2723,7 +2723,7 @@ player::set_ender_chest_contents([item("stick"), item("stick")]);
 
 **Name:** Set Entity Glowing\
 **Type:** Action without value\
-**Description:** Includes or offs the glow of the entity for a given player.
+**Description:** Toggles entity glowing effect for a player.
 
 **Usage example:** 
 ```ts
@@ -2732,11 +2732,11 @@ player::set_entity_glowing(["name_or_uuid", "name_or_uuid"],"AQUA","FALSE");
 
 **Arguments:**
 
-| **Name**       | **Type**                                                                                                                                                                                                                                                                                                                                                                                                           | **Description**       |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
-| `name_or_uuid` | list[Text]                                                                                                                                                                                                                                                                                                                                                                                                         | Name or uuid entity   |
-| `color`        | Marker<br/>**AQUA** - Aqua<br/>**BLACK** - Black<br/>**BLUE** - Blue<br/>**DARK_AQUA** - Dark aqua<br/>**DARK_BLUE** - Dark blue<br/>**DARK_GRAY** - Dark gray<br/>**DARK_GREEN** - Dark green<br/>**DARK_PURPLE** - Dark purple<br/>**DARK_RED** - Dark red<br/>**GOLD** - Gold<br/>**GRAY** - Gray<br/>**GREEN** - Green<br/>**PURPLE** - Purple<br/>**RED** - Red<br/>**WHITE** - White<br/>**YELLOW** - Yellow | The color of the glow |
-| `glow`         | Marker<br/>**FALSE** - Turn off<br/>**TRUE** - Turn on                                                                                                                                                                                                                                                                                                                                                             | Glow                  |
+| **Name**       | **Type**                                                                                                                                                                                                                                                                                                                                                                                                             | **Description**     |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `name_or_uuid` | list[Text]                                                                                                                                                                                                                                                                                                                                                                                                           | Entity name or UUID |
+| `color`        | Marker<br/>**AQUA** - Light-blue<br/>**BLACK** - Black<br/>**BLUE** - Blue<br/>**DARK_AQUA** - Cyan<br/>**DARK_BLUE** - Dark-blue<br/>**DARK_GRAY** - Gray<br/>**DARK_GREEN** - Dark-green<br/>**DARK_PURPLE** - Dark-purple<br/>**DARK_RED** - Dark-red<br/>**GOLD** - Gold<br/>**GRAY** - Light-gray<br/>**GREEN** - Green<br/>**PURPLE** - Purple<br/>**RED** - Red<br/>**WHITE** - White<br/>**YELLOW** - Yellow | Glow color          |
+| `glow`         | Marker<br/>**FALSE** - Turn off<br/>**TRUE** - Turn on                                                                                                                                                                                                                                                                                                                                                               | Glowing             |
 <h3 id=player_set_equipment>
   <code>player::set_equipment</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2744,7 +2744,7 @@ player::set_entity_glowing(["name_or_uuid", "name_or_uuid"],"AQUA","FALSE");
 
 **Name:** Set Equipment\
 **Type:** Action without value\
-**Description:** Sets an item to one of the player's equipment slots (armor and items in hand).
+**Description:** Sets an item to one of player\'s equipment slots (armor and items in hand).
 
 **Usage example:** 
 ```ts
@@ -2756,15 +2756,15 @@ player::set_equipment(item("stick"),"BODY");
 | **Name** | **Type**                                                                                                                                                            | **Description** |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | `item`   | Item                                                                                                                                                                | Items to give   |
-| `slot`   | Marker<br/>**BODY** - None<br/>**CHEST** - Chest<br/>**FEET** - Boots<br/>**HAND** - Main Hand<br/>**HEAD** - Helmet<br/>**LEGS** - Legs<br/>**OFF_HAND** - OffHand | Equipment slot  |
+| `slot`   | Marker<br/>**BODY** - Body<br/>**CHEST** - Chest<br/>**FEET** - Boots<br/>**HAND** - Main Hand<br/>**HEAD** - Helmet<br/>**LEGS** - Legs<br/>**OFF_HAND** - OffHand | Equipment slot  |
 <h3 id=player_set_exhaustion>
   <code>player::set_exhaustion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Name:** Set the level of exhaustion\
+**Name:** Set Exhaustion Level\
 **Type:** Action without value\
-**Description:** Sets the level of exhaustion to the player.
+**Description:** Sets the exhaustion level of the player.
 
 **Usage example:** 
 ```ts
@@ -2773,10 +2773,10 @@ player::set_exhaustion(1,"ADD");
 
 **Arguments:**
 
-| **Name**     | **Type**                                   | **Description**         |
-| ------------ | ------------------------------------------ | ----------------------- |
-| `exhaustion` | Number                                     | The level of exhaustion |
-| `mode`       | Marker<br/>**ADD** - Add<br/>**SET** - Set | Installation mode       |
+| **Name**     | **Type**                                   | **Description**  |
+| ------------ | ------------------------------------------ | ---------------- |
+| `exhaustion` | Number                                     | Exhaustion Level |
+| `mode`       | Marker<br/>**ADD** - Add<br/>**SET** - Set | Set Mode         |
 <h3 id=player_set_experience>
   <code>player::set_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2784,7 +2784,7 @@ player::set_exhaustion(1,"ADD");
 
 **Name:** Set Experience\
 **Type:** Action without value\
-**Description:** Sets a player's level.
+**Description:** Sets a player\'s level.
 
 **Usage example:** 
 ```ts
@@ -2823,7 +2823,7 @@ player::set_fall_distance(1);
 
 **Name:** Set Player on Fire\
 **Type:** Action without value\
-**Description:** Sets the player on fire for the selected amount of time.
+**Description:** Sets a player on fire for the selected amount of time.
 
 **Usage example:** 
 ```ts
@@ -2842,7 +2842,7 @@ player::set_fire_ticks(1);
 
 **Name:** Set Flying\
 **Type:** Action without value\
-**Description:** Sets the player's flying state.
+**Description:** Sets the player\'s flying state.
 
 **Usage example:** 
 ```ts
@@ -2880,7 +2880,7 @@ player::set_fog_distance(1);
 
 **Name:** Set Hunger\
 **Type:** Action without value\
-**Description:** Sets the player's hunger level.
+**Description:** Sets a player\'s hunger level.
 
 **Usage example:** 
 ```ts
@@ -2900,7 +2900,7 @@ player::set_food(1,"ADD");
 
 **Name:** Set Freeze Time\
 **Type:** Action without value\
-**Description:** Sets the player's freeze time (the number of ticks the player has spent in loose snow).
+**Description:** Sets the player\'s freeze time (the number of ticks the player has spent in powder snow).
 
 **Usage example:** 
 ```ts
@@ -2940,7 +2940,7 @@ player::set_gamemode("ADVENTURE","KEEP_ORIGINAL");
 
 **Name:** Set Elytra Flying\
 **Type:** Action without value\
-**Description:** Sets the player's elytra flying state.
+**Description:** Sets the player\'s elytra flying state.
 
 **Usage example:** 
 ```ts
@@ -2959,7 +2959,7 @@ player::set_gliding("FALSE");
 
 **Name:** Set Player Health\
 **Type:** Action without value\
-**Description:** Sets the player's health to the selected amount.
+**Description:** Sets a player\'s health to the selected amount.
 
 **Usage example:** 
 ```ts
@@ -2978,7 +2978,7 @@ player::set_health(1);
 
 **Name:** Set Hotbar Slot\
 **Type:** Action without value\
-**Description:** Sets the selected slot to the player.
+**Description:** Sets the selected slot to a player.
 
 **Usage example:** 
 ```ts
@@ -3035,7 +3035,7 @@ player::set_inventory_kept("FALSE");
 
 **Name:** Set Item Into Inventory Slot\
 **Type:** Action without value\
-**Description:** Sets an item to the specified slot in the player's open inventory menu.
+**Description:** Sets an item to the specified slot in the player\'s open inventory menu.
 
 **Usage example:** 
 ```ts
@@ -3055,7 +3055,7 @@ player::set_inventory_menu_item(item("stick"),1);
 
 **Name:** Set Inventory Menu Name\
 **Type:** Action without value\
-**Description:** Sets a new name for the player's opened inventory menu.
+**Description:** Sets a new name for the player\'s opened inventory menu.
 
 **Usage example:** 
 ```ts
@@ -3116,7 +3116,7 @@ player::set_item_cooldown(1,item("stick"),sound("entity.zombie.hurt"));
 
 **Name:** Set Items\
 **Type:** Action without value\
-**Description:** Sets the player's inventory accordingly to items from the chest.
+**Description:** Sets a player\'s inventory accordingly to items from the chest.
 
 **Usage example:** 
 ```ts
@@ -3135,7 +3135,7 @@ player::set_items([item("stick"), item("stick")]);
 
 **Name:** Set Player Max Health\
 **Type:** Action without value\
-**Description:** Sets the player's maximum health.
+**Description:** Sets a player\'s maximum health.
 
 **Usage example:** 
 ```ts
@@ -3155,7 +3155,7 @@ player::set_max_health(1,"FALSE");
 
 **Name:** Set Movement Speed\
 **Type:** Action without value\
-**Description:** Sets the player's movement speed.
+**Description:** Sets the player\'s movement speed.
 
 **Usage example:** 
 ```ts
@@ -3194,7 +3194,7 @@ player::set_nametag_visible("FALSE");
 
 **Name:** Set Player Tab List Text\
 **Type:** Action without value\
-**Description:** Sets the text above or below the player list for the player.
+**Description:** Sets the text above or below the player list for a player.
 
 **Usage example:** 
 ```ts
@@ -3224,10 +3224,10 @@ player::set_pose("CROAKING","FALSE");
 
 **Arguments:**
 
-| **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | **Description** |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `pose`   | Marker<br/>**CROAKING** - Croaking (for Toads)<br/>**CROUCHING** - Crouching<br/>**DIGGING** - Digging (For Guardian)<br/>**DYING** - Death<br/>**EMERGING** - Emerging from the Earth (for Guardian)<br/>**FALL_FLYING** - Elytra Flying<br/>**INHALING** - None<br/>**LONG_JUMPING** - Long Jump<br/>**ROARING** - Roar (for Guardian)<br/>**SHOOTING** - None<br/>**SITTING** - Sitting<br/>**SLEEPING** - Sleeping<br/>**SLIDING** - None<br/>**SNEAKING** - None<br/>**SNIFFING** - Sniffing (for Guardian)<br/>**SPIN_ATTACK** - Use Thrust<br/>**STANDING** - Normal State<br/>**SWIMMING** - Swimming<br/>**USING_TONGUE** - Using Tongue (For Toads) | Display Pose    |
-| `locked` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Lock Pose       |
+| **Name** | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Description** |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `pose`   | Marker<br/>**CROAKING** - Croaking (for Toads)<br/>**CROUCHING** - Crouching<br/>**DIGGING** - Digging (For Guardian)<br/>**DYING** - Death<br/>**EMERGING** - Emerging from the Earth (for Guardian)<br/>**FALL_FLYING** - Elytra Flying<br/>**INHALING** - Inhalation (for Vortex)<br/>**LONG_JUMPING** - Long Jump<br/>**ROARING** - Roar (for Guardian)<br/>**SHOOTING** - Shooting (for Vortex)<br/>**SITTING** - Sitting<br/>**SLEEPING** - Sleeping<br/>**SLIDING** - Sliding (for Vortex)<br/>**SNEAKING** - None<br/>**SNIFFING** - Sniffing (for Guardian)<br/>**SPIN_ATTACK** - Use Thrust<br/>**STANDING** - Normal State<br/>**SWIMMING** - Swimming<br/>**USING_TONGUE** - Using Tongue (For Toads) | Display Pose    |
+| `locked` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Lock Pose       |
 <h3 id=player_set_pvp>
   <code>player::set_pvp</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3235,7 +3235,7 @@ player::set_pose("CROAKING","FALSE");
 
 **Name:** Set PVP Enabled\
 **Type:** Action without value\
-**Description:** Sets the player's permission to attack and damage other players.
+**Description:** Sets the player\'s permission to attack and damage other players.
 
 **Usage example:** 
 ```ts
@@ -3254,7 +3254,7 @@ player::set_pvp("FALSE");
 
 **Name:** Set Rain Level\
 **Type:** Action without value\
-**Description:** Sets the level of rain to the player.
+**Description:** Sets player\'s level of rain
 
 **Usage example:** 
 ```ts
@@ -3263,9 +3263,9 @@ player::set_rain_level(1);
 
 **Arguments:**
 
-| **Name**     | **Type** | **Description**            |
-| ------------ | -------- | -------------------------- |
-| `rain_level` | Number   | Rain level (from 0 to 100) |
+| **Name**     | **Type** | **Description**               |
+| ------------ | -------- | ----------------------------- |
+| `rain_level` | Number   | Level of rain (from 0 to 100) |
 <h3 id=player_set_rotation>
   <code>player::set_rotation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3273,7 +3273,7 @@ player::set_rain_level(1);
 
 **Name:** Set Rotation\
 **Type:** Action without value\
-**Description:** Sets the player's rotation.
+**Description:** Sets the player\'s rotation.
 
 **Usage example:** 
 ```ts
@@ -3312,7 +3312,7 @@ player::set_rotation_by_vector(vector(0,0,0));
 
 **Name:** Set Saturation\
 **Type:** Action without value\
-**Description:** Sets the player's secondary hunger level (saturation).
+**Description:** Sets a player\'s secondary hunger level (saturation).
 
 **Usage example:** 
 ```ts
@@ -3351,7 +3351,7 @@ player::set_simulation_distance(1);
 
 **Name:** Set Skin\
 **Type:** Action without value\
-**Description:** Sets the specified player's skin for the target of the event.
+**Description:** Sets the specified player\'s skin for the target of the event.
 
 **Usage example:** 
 ```ts
@@ -3371,7 +3371,7 @@ player::set_skin("name_or_uuid","MOJANG");
 
 **Name:** Set Item In Slot\
 **Type:** Action without value\
-**Description:** Sets an item to a slot in the player's inventory.
+**Description:** Sets an item to a slot in a player\'s inventory.
 
 **Usage example:** 
 ```ts
@@ -3410,9 +3410,9 @@ player::set_spawn_point(location(0,0,0,0,0));
 
 **Name:** Set Thunder Level\
 **Type:** Action without value\
-**Description:** Sets the level of a thunderstorm to the player.\
+**Description:** Sets player\'s level of thunder\
 **Additional info:**\
-&nbsp;&nbsp;Rainy weather is necessary for installation.
+&nbsp;&nbsp;Rainy weather is required to set thunder level
 
 **Usage example:** 
 ```ts
@@ -3421,9 +3421,9 @@ player::set_thunder_level(1);
 
 **Arguments:**
 
-| **Name**        | **Type** | **Description**                    |
-| --------------- | -------- | ---------------------------------- |
-| `thunder_level` | Number   | Thunderstorm level (from 0 to 100) |
+| **Name**        | **Type** | **Description**                  |
+| --------------- | -------- | -------------------------------- |
+| `thunder_level` | Number   | Level of thunder (from 0 to 100) |
 <h3 id=player_set_tick_rate>
   <code>player::set_tick_rate</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3431,7 +3431,7 @@ player::set_thunder_level(1);
 
 **Name:** Set Tick Rate\
 **Type:** Action without value\
-**Description:** It sets the player Tick Rate without affecting other players.
+**Description:** Sets the player\'s tick rate.
 
 **Usage example:** 
 ```ts
@@ -3442,7 +3442,7 @@ player::set_tick_rate(1);
 
 | **Name**    | **Type** | **Description** |
 | ----------- | -------- | --------------- |
-| `tick_rate` | Number   | Tick Rate       |
+| `tick_rate` | Number   | Tick rate       |
 <h3 id=player_set_time>
   <code>player::set_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3450,7 +3450,7 @@ player::set_tick_rate(1);
 
 **Name:** Set Player Time\
 **Type:** Action without value\
-**Description:** Set a player's time without changing it for other players.
+**Description:** Set a player\'s time without changing it for other players.
 
 **Usage example:** 
 ```ts
@@ -3619,11 +3619,11 @@ player::show_inventory_menu([item("stick"), item("stick")],"name","ANVIL");
 
 **Arguments:**
 
-| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Description** |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `items`          | list[Item]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Inventory Items |
-| `name`           | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Inventory name  |
-| `inventory_type` | Marker<br/>**ANVIL** - Anvil<br/>**BARREL** - Barrel<br/>**BEACON** - Beacon<br/>**BLAST_FURNACE** - Smelter<br/>**BREWING** - Potion Brewing<br/>**CARTOGRAPHY** - Cartographer's Desk<br/>**CHEST** - Chest<br/>**COMPOSTER** - Composter<br/>**CRAFTER** - None<br/>**CRAFTING** - Not opened<br/>**CREATIVE** - Creative Inventory<br/>**DISPENSER** - Dispenser<br/>**DROPPER** - Dropper<br/>**ENCHANTING** - Enchanting Table<br/>**ENDER_CHEST** - Ender Chest<br/>**FURNACE** - Furnace<br/>**GRINDSTONE** - Grindstone<br/>**HOPPER** - Funnel<br/>**LECTERN** - Pulpit<br/>**LOOM** - Loom<br/>**MERCHANT** - Merchant<br/>**PLAYER** - Player Inventory<br/>**SHULKER_BOX** - Shulker Box<br/>**SMITHING** - Blacksmith's Table<br/>**SMOKER** - Smoker<br/>**STONECUTTER** - Stonecutter<br/>**WORKBENCH** - Workbench | Inventory Type  |
+| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | **Description** |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `items`          | list[Item]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Inventory Items |
+| `name`           | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Inventory name  |
+| `inventory_type` | Marker<br/>**ANVIL** - Anvil<br/>**BARREL** - Barrel<br/>**BEACON** - Beacon<br/>**BLAST_FURNACE** - Smelter<br/>**BREWING** - Potion Brewing<br/>**CARTOGRAPHY** - Cartographer\'s Desk<br/>**CHEST** - Chest<br/>**COMPOSTER** - Composter<br/>**CRAFTER** - Crafter<br/>**CRAFTING** - Not opened<br/>**CREATIVE** - Creative Inventory<br/>**DISPENSER** - Dispenser<br/>**DROPPER** - Dropper<br/>**ENCHANTING** - Enchanting Table<br/>**ENDER_CHEST** - Ender Chest<br/>**FURNACE** - Furnace<br/>**GRINDSTONE** - Grindstone<br/>**HOPPER** - Funnel<br/>**LECTERN** - Pulpit<br/>**LOOM** - Loom<br/>**MERCHANT** - Merchant<br/>**PLAYER** - Player Inventory<br/>**SHULKER_BOX** - Shulker Box<br/>**SMITHING** - Blacksmith\'s Table<br/>**SMOKER** - Smoker<br/>**STONECUTTER** - Stonecutter<br/>**WORKBENCH** - Workbench | Inventory Type  |
 <h3 id=player_show_scoreboard>
   <code>player::show_scoreboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3666,7 +3666,7 @@ player::show_win_screen();
 
 **Name:** Spectate Target\
 **Type:** Action without value\
-**Description:** Sets the player's spectate target in spectator mode.
+**Description:** Sets the player\'s spectate target in spectator mode.
 
 **Usage example:** 
 ```ts

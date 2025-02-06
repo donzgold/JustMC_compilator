@@ -37,7 +37,7 @@ controller::async_run(){
 
 **Name:** Catch Error\
 **Type:** Action without value\
-**Description:** Catches a code error inside the pistons as an \"ID - Message\" dictionary, assigns the result to a variable.\
+**Description:** Catches a code error inside the pistons as a \"ID - Message\" dictionary, assigns the result to a variable.\
 **Additional info:**\
 &nbsp;&nbsp;Does not catch global or fatal errors.
 

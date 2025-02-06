@@ -740,7 +740,7 @@ class Parser:
                     self.context.add_operations(previous_operations)
                     self.eat(Tokens.LCPAREN)
                     while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                        self.context.add_operation(self.up_statement())
+                        self.context.add_operation(self.up_statement(Tokens.RCPAREN))
                         self.context.update()
                     self.eat(Tokens.RCPAREN)
                     ops = self.context.get_operations().copy()

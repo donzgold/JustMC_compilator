@@ -1701,6 +1701,16 @@
       {
         "id": "time",
         "type": "number"
+      },
+      {
+        "id": "wait_type",
+        "type": "enum",
+        "values": [
+          "MAX_WAIT",
+          "MIN_MAX_WAIT",
+          "MIN_WAIT",
+          "WAIT"
+        ]
       }
     ],
     "type": "basic"
@@ -1787,6 +1797,18 @@
           "TEMPERATE",
           "WARM"
         ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_fuse_ticks",
+    "name": "set_fuse_ticks",
+    "object": "entity",
+    "args": [
+      {
+        "id": "fuse_ticks",
+        "type": "number"
       }
     ],
     "type": "basic"
@@ -4172,6 +4194,18 @@
     "type": "basic"
   },
   {
+    "id": "game_set_event_knockback_vector",
+    "name": "set_event_knockback_vector",
+    "object": "world",
+    "args": [
+      {
+        "id": "knockback",
+        "type": "vector"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "game_set_event_move_allowed",
     "name": "set_event_move_allowed",
     "object": "world",
@@ -4247,6 +4281,18 @@
       {
         "id": "information",
         "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "game_set_event_velocity",
+    "name": "set_event_velocity",
+    "object": "world",
+    "args": [
+      {
+        "id": "velocity",
+        "type": "vector"
       }
     ],
     "type": "basic"
