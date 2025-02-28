@@ -1,0 +1,18 @@
+{"player_dummy": {"cancellable": false},
+  "player_command": {"cancellable": true},
+  "entity_dummy": {"cancellable": false},
+  "world_dummy": {"cancellable": false},
+  "player_open_advancements_tab": {"cancellable": true},
+  "player_close_advancements_menu": {"cancellable": false},
+  "world_web_exception": {"cancellable": false},
+  "player_sign_change": {"cancellable": true},
+  "player_item_mend": {"cancellable": false},
+  "player_anvil_rename_input": {"cancellable": false},
+  "player_location_change": {"cancellable": true},
+  "player_rotate": {"cancellable": true},
+  "item_merge": {"cancellable": true},
+  "entity_teleport": {"cancellable": true},
+  "player_velocity": {"cancellable": true},
+  "player_knockback": {"cancellable": true},
+  "entity_knockback": {"cancellable": true}
+}

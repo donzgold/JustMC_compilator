@@ -1,4 +1,6 @@
 import json
+from sys import setrecursionlimit
+setrecursionlimit(99999999)
 import os
 import copy
 
@@ -7,6 +9,7 @@ import requests
 import nbtworker
 from jmcc import translate, minecraft_based_text, color_codes, allowed_symbols, Properties
 from time import time
+
 start_time = time()
 origin_actions = {}
 events = {}
@@ -75,7 +78,7 @@ class Tokens:
     LOCAL_VARIABLE: int = 24
     GAME_VARIABLE: int = 25
     SAVE_VARIABLE: int = 26
-    LINE_VARIABLE: int = 27
+    BRACKET_VARIABLE: int = 27
     PLAIN_STRING: int = 28
     LEGACY_STRING: int = 29
     MINIMESSAGE_STRING: int = 30
@@ -103,7 +106,7 @@ class Tokens:
     CYCLE_THING: int = 52
     EOF: int = 53
     ELIF: int = 54
-    LINE_DEFINE: int = 55
+    BRACKET_DEFINE: int = 55
     AS: int = 56
     DECORATOR: int = 57
     LESS_OR_EQUALS: int = 58
@@ -208,6 +211,8 @@ class Lexer:
                     token_type = Tokens.VAR_DEFINE
                 case "inline":
                     token_type = Tokens.INLINE_DEFINE
+                case "bracket":
+                    token_type = Tokens.BRACKET_DEFINE
                 case "local":
                     token_type = Tokens.LOCAL_DEFINE
                 case "game":
@@ -239,18 +244,18 @@ class Lexer:
         if self.current_char == "\"" or self.current_char == "\'" or self.current_char == "`" or self.current_char == "<":
             mode = self.current_char
             if sign_mode:
-                if mode == "`" and token_value in {"l", "local", "g", "game", "s", "save", "i", "inline", "line"}:
-                    token_type = Tokens.LOCAL_VARIABLE if token_value in {"l", "local"} else (
-                        Tokens.INLINE_VARIABLE if token_value in {"i", "inline"} else (
-                            Tokens.LINE_VARIABLE if token_value == "line" else (
-                                Tokens.GAME_VARIABLE if token_value in {"g", "game"} else Tokens.SAVE_VARIABLE)))
-                elif mode in {'"', "'"} and token_value in {"p", "plain", "l", "legacy", "m", "minimessage", "j",
-                                                            "json"}:
-                    token_type = Tokens.PLAIN_STRING if token_value in {"p", "plain"} else (
-                        Tokens.MINIMESSAGE_STRING if token_value in {"m", "minimessage"} else (
-                            Tokens.LEGACY_STRING if token_value in {"l", "legacy"} else Tokens.JSON_STRING))
+                if mode == "`":
+                    dect = {"bracket":Tokens.BRACKET_VARIABLE,"inline":Tokens.INLINE_VARIABLE,"local":Tokens.LOCAL_VARIABLE,"game":Tokens.GAME_VARIABLE,"save":Tokens.SAVE_VARIABLE}
+                    res = find_value_from_list(token_value, dect)
+                elif mode in {'"', "'"}:
+                    dect = {"plain": Tokens.PLAIN_STRING, "minimessage": Tokens.MINIMESSAGE_STRING, "legacy": Tokens.LEGACY_STRING}
+                    res = find_value_from_list(token_value, dect)
                 else:
+                    dect = {}
+                    res = -1
+                if res == -1:
                     return Token(Tokens.VARIABLE, token_value, starting_pos, self.current_pos - 1, self.source)
+                token_type = dect[res]
             else:
                 if mode == "`":
                     token_type = Tokens.VARIABLE
@@ -273,7 +278,7 @@ class Lexer:
                 elif self.current_char == "\\":
                     block_next_symbol = True
                 elif self.current_char in {"\n", "\t"}:
-                    token_value+="\\n"
+                    token_value += "\\n"
                 elif self.current_char == "$":
                     if len(token_value) > 0:
                         giga_token.append(
@@ -512,7 +517,7 @@ class Lexer:
             self.advance()
             return Token(Tokens.QUESTION_MARK, "?", starting_pos, starting_pos, self.source)
         if self.current_char == "\\":
-            if self.text[self.current_pos+1] in {"\n","\t"}:
+            if self.text[self.current_pos + 1] in {"\n", "\t"}:
                 self.advance()
                 self.advance()
                 return self.next_token
@@ -522,7 +527,8 @@ class Lexer:
         if self.current_char == "":
             return Token(Tokens.EOF, "None", starting_pos, starting_pos, self.source)
         else:
-            error("SyntaxError",translate("error.syntaxerror.unexpected_symbol", {0: self.current_char}),starting_pos,starting_pos,source=self.source)
+            error("SyntaxError", translate("error.syntaxerror.unexpected_symbol", {0: self.current_char}), starting_pos,
+                  starting_pos, source=self.source)
 
     def get_remaining_tokens(self) -> list:
         lest = []
@@ -568,7 +574,7 @@ class Parser:
         if index >= len(self.tokens):
             if len(self.tokens) == 0:
                 return Token(Tokens.EOF, None, -1, -1,
-                         self.source)
+                             self.source)
             return Token(Tokens.EOF, None, self.tokens[-1].ending_pos + 2, self.tokens[-1].ending_pos + 2,
                          self.source)
         return self.tokens[index]
@@ -679,7 +685,8 @@ class Parser:
                 ending_pos = self.current_token.ending_pos
                 self.eat(Tokens.RPAREN)
                 if token.giga is not None:
-                    previous_operations, token.value, next_operations = giga_value(token, self.get_giga_token(token.giga))
+                    previous_operations, token.value, next_operations = giga_value(token,
+                                                                                   self.get_giga_token(token.giga))
                     if len(previous_operations) + len(next_operations) > 0:
                         error_from_object(token, "", translate("error.unknown"))
                 tru = self.context.get_special(token.value)
@@ -694,6 +701,8 @@ class Parser:
                     args = {}
                     previous_operations = []
                     next_operations = []
+                    if tru["autocomplete"]:
+                        self.context.settings["autocomplete"]+=1
                     for k1, v1 in sargs.get_args(list(arges), func=tru["template"]).items():
                         if v1 is None:
                             v1 = arges[k1]["optional"]
@@ -703,8 +712,14 @@ class Parser:
                                       token.starting_pos, ending_pos, token.source)
                         args[k1] = v1.remove_inlines()
                         arg_type = args[k1].type
-                        self.context.set_inline(k1, args[k1])
-                        self.context.set_variable(k1, Vars.INLINE)
+                        if tru["autocomplete"]:
+                            self.context.add_operation(assign([var(k1, Vars.INLINE, args[k1].starting_pos, args[k1].ending_pos, args[k1].source)],None,args[k1], args[k1].starting_pos, args[k1].ending_pos, args[k1].source))
+                            self.context.set_variable(k1, Vars.INLINE)
+                            self.context.complete()
+                            self.context.update()
+                        else:
+                            self.context.set_inline(k1, args[k1])
+                            self.context.set_variable(k1, Vars.INLINE)
                         need_typ = arges[k1]["type"]
                         if need_typ is None:
                             continue
@@ -713,7 +728,7 @@ class Parser:
                                 continue
                             args[k1] = lst([args[k1]], args[k1].starting_pos, args[k1].ending_pos, args[k1].source)
                             self.context.set_inline(k1, args[k1])
-                        if args[k1].type in {"variable", "value"}:
+                        if hasattr(args[k1], "value_type"):
                             if args[k1].value_type is None:
                                 continue
                             if args[k1].value_type == "any":
@@ -738,16 +753,40 @@ class Parser:
                     self.current_token = self.token(self.index)
                     self.context.update()
                     self.context.add_operations(previous_operations)
+                    self.context.complete()
+                    self.context.update()
                     self.eat(Tokens.LCPAREN)
                     while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
                         self.context.add_operation(self.up_statement(Tokens.RCPAREN))
+                        if tru["autocomplete"]:
+                            self.context.complete()
                         self.context.update()
+                        if tru["autocomplete"]:
+                            if self.context.abort_current_context:
+                                self.context.abort_current_context = False
+                                counter = 1
+                                while counter > 0:
+                                    if self.current_token.type == Tokens.LCPAREN:
+                                        counter += 1
+                                    if self.current_token.type == Tokens.RCPAREN:
+                                        counter -= 1
+                                        if counter == 0:
+                                            break
+                                    self.eat(self.current_token.type)
+                                break
                     self.eat(Tokens.RCPAREN)
-                    ops = self.context.get_operations().copy()
+                    if tru["autocomplete"]:
+                        self.context.settings["autocomplete"]-=1
+                    ops = self.context.get_operations()
                     del self.context.settings["inline"][-1]
                     del self.context.settings["allow_returns"][-1]
-                    data = self.context.get_inline(return_var.value)
+                    if not tru["autocomplete"]:
+                        data = self.context.get_inline(return_var.value)
+                    else:
+                        data = self.context.get_variable_value(return_var)
                     self.context.previous_lvl()
+                    if tru["autocomplete"]:
+                        return data
                     self.context.set_inline(return_var.value, data)
                     self.context.add_operations(ops)
                     self.context.add_operations(next_operations)
@@ -777,7 +816,8 @@ class Parser:
                 args = self.get_args()
                 ending_pos = self.current_token.ending_pos
                 self.eat(Tokens.RPAREN)
-                return action(token.value, act.value, args, token.starting_pos, ending_pos, self.source, selector=selector)
+                return action(token.value, act.value, args, token.starting_pos, ending_pos, self.source,
+                              selector=selector)
             else:
                 if not self.context.has_variable(token.value):
                     self.context.set_variable(token.value, Vars.LOCAL)
@@ -789,14 +829,14 @@ class Parser:
                 return var(token.value if token.giga is None else self.get_giga_token(token.giga), var_type,
                            token.starting_pos, token.ending_pos, token.source,
                            value_type=value_type)
-        elif token.type in {Tokens.LOCAL_VARIABLE, Tokens.LINE_VARIABLE, Tokens.INLINE_VARIABLE, Tokens.GAME_VARIABLE,
+        elif token.type in {Tokens.LOCAL_VARIABLE, Tokens.BRACKET_VARIABLE, Tokens.INLINE_VARIABLE, Tokens.GAME_VARIABLE,
                             Tokens.SAVE_VARIABLE}:
             if token.type == Tokens.LOCAL_VARIABLE:
                 self.eat(Tokens.LOCAL_VARIABLE)
                 var_type = Vars.LOCAL
-            elif token.type == Tokens.LINE_VARIABLE:
-                self.eat(Tokens.LINE_VARIABLE)
-                var_type = Vars.LINE
+            elif token.type == Tokens.BRACKET_VARIABLE:
+                self.eat(Tokens.BRACKET_VARIABLE)
+                var_type = Vars.BRACKET
             elif token.type == Tokens.INLINE_VARIABLE:
                 self.eat(Tokens.INLINE_VARIABLE)
                 var_type = Vars.INLINE
@@ -990,14 +1030,14 @@ class Parser:
             variable = var(token.value if token.giga is None else self.get_giga_token(token.giga), Vars.LOCAL,
                            token.starting_pos, token.ending_pos, self.source)
             self.context.set_variable(token.value, Vars.LOCAL)
-        elif self.current_token.type == Tokens.LINE_DEFINE:
-            self.eat(Tokens.LINE_DEFINE)
+        elif self.current_token.type == Tokens.BRACKET_DEFINE:
+            self.eat(Tokens.BRACKET_DEFINE)
             self.eat(Tokens.VAR_DEFINE)
             token = self.current_token
             self.eat(Tokens.VARIABLE)
-            variable = var(token.value if token.giga is None else self.get_giga_token(token.giga), Vars.LINE,
+            variable = var(token.value if token.giga is None else self.get_giga_token(token.giga), Vars.BRACKET,
                            token.starting_pos, token.ending_pos, self.source)
-            self.context.set_variable(token.value, Vars.LINE)
+            self.context.set_variable(token.value, Vars.BRACKET)
         elif self.current_token.type == Tokens.INLINE_DEFINE:
             self.eat(Tokens.INLINE_DEFINE)
             self.eat(Tokens.VAR_DEFINE)
@@ -1007,7 +1047,9 @@ class Parser:
                            token.starting_pos, token.ending_pos, self.source)
             self.context.set_variable(token.value, Vars.INLINE)
         elif self.current_token.type in {Tokens.VARIABLE, Tokens.LOCAL_VARIABLE, Tokens.SAVE_VARIABLE,
-                                         Tokens.GAME_VARIABLE, Tokens.LINE_VARIABLE, Tokens.INLINE_VARIABLE} and self.token(self.index+1).type != Tokens.DOUBLE_COLON:
+                                         Tokens.GAME_VARIABLE, Tokens.BRACKET_VARIABLE,
+                                         Tokens.INLINE_VARIABLE} and self.token(
+            self.index + 1).type != Tokens.DOUBLE_COLON:
             variable = self.factor()
         else:
             return variables
@@ -1032,6 +1074,7 @@ class Parser:
         arg_description = None
         return_var = None
         return_var_description = None
+        autocomplete = None
         while self.current_token.type == Tokens.DECORATOR:
             used_decorators = True
             self.eat(Tokens.DECORATOR)
@@ -1072,7 +1115,7 @@ class Parser:
             elif name.value == "returns":
                 self.eat(Tokens.VARIABLE)
                 self.eat(Tokens.LPAREN)
-                if self.current_token.type in {Tokens.VARIABLE, Tokens.LINE_VARIABLE, Tokens.SAVE_VARIABLE,
+                if self.current_token.type in {Tokens.VARIABLE, Tokens.BRACKET_VARIABLE, Tokens.SAVE_VARIABLE,
                                                Tokens.LOCAL_VARIABLE, Tokens.GAME_VARIABLE}:
                     return_var = self.expr()
                     if self.current_token.type != Tokens.RPAREN:
@@ -1081,8 +1124,12 @@ class Parser:
                     return_var_description = self.current_token.value
                     self.eat(Tokens.STRING)
                 self.eat(Tokens.RPAREN)
+            elif name.value == "autocomplete":
+                self.eat(Tokens.VARIABLE)
+                autocomplete = True
             else:
                 error_from_object(name, "", translate("error.unknown"))
+            self.eat(Tokens.NEXT_LINE)
         if ((self.current_token.type == Tokens.FUNCTION_DEFINE and (
                 self.context.context_lvl == 0 or len(self.context.settings["class_define"]) > 0))
                 or (self.current_token.type == Tokens.INLINE_DEFINE
@@ -1111,7 +1158,8 @@ class Parser:
                     count += 1
                 elif self.current_token.type == Tokens.RCPAREN:
                     count -= 1
-                if self.current_token.type == Tokens.RETURN and (self.token(self.index+1).type not in {Tokens.NEXT_LINE, Tokens.SEMICOLON}):
+                if self.current_token.type == Tokens.RETURN and (
+                        self.token(self.index + 1).type not in {Tokens.NEXT_LINE, Tokens.SEMICOLON}):
                     allow_return = True
                 self.eat(self.current_token.type)
             if allow_return:
@@ -1127,7 +1175,7 @@ class Parser:
                     arg_description[return_var.value] = return_var_description
             result = function(token.value, token_value, args, self.source, inline=inline, return_var=return_var,
                               ready=False, description=description, icon=icon, hide=hide,
-                              args_description=arg_description)
+                              args_description=arg_description, autocomplete=autocomplete)
             if len(self.context.settings["class_define"]) == 0:
                 if self.context.has_special(token.value):
                     error_from_object(token, "NameError", translate("error.nameerror.special_cant_be_rewritten"))
@@ -1296,11 +1344,7 @@ class Parser:
                                in_var=self.context.settings["allow_returns"][-1])
             else:
                 obej = action("code", "return_function", calling_args([], {}, starting_pos, ending_pos, self.source),
-                       starting_pos, ending_pos, self.source)
-            if len(self.context.settings["inline"]) > 0:
-                self.context.settings["return_counter"] += 1
-                if self.context.settings["return_counter"] > 1:
-                    error_from_object(obej, "SyntaxError", translate("error.unknown"))
+                              starting_pos, ending_pos, self.source)
             return obej
         elif self.current_token.type == Tokens.CLASS_DEFINE or (self.current_token.type == Tokens.INLINE_DEFINE
                                                                 and self.token(
@@ -1446,8 +1490,10 @@ class Parser:
         elif self.current_token.type == Tokens.SEMICOLON:
             self.eat(Tokens.SEMICOLON)
         elif self.current_token.type != Tokens.EOF:
-            error_from_object(self.current_token, "SyntaxError", translate("error.syntaxerror.statements_not_separated"))
+            error_from_object(self.current_token, "SyntaxError",
+                              translate("error.syntaxerror.statements_not_separated"))
         return jmcc_obj
+
     def parse(self):
         while self.current_token.type != Tokens.EOF:
             self.context.add_operation(self.up_statement())
@@ -1609,8 +1655,11 @@ class Parser:
 
 class Context:
     context = {}
-    default_context = {"operations": [], "variables": {}, "vars": {0: {}, 1: {}, 2: {}, 3: {}, 4: {}}, "inline_vars": {}, "callable": {}}
+    default_context = {"operations": [], "variables": {}, "vars": {0: {}, 1: {}, 2: {}, 3: {}, 4: {}},
+                       "inline_vars": {}, "callable": {}, "special_vars": {0: {}, 1: {}, 2: {}, 3: {}, 4: {}}}
     default_cur_context = copy.deepcopy(default_context)
+    ignore_next_else = False
+    abort_current_context = False
     del default_cur_context["operations"]
 
     def __init__(self, source):
@@ -1619,7 +1668,7 @@ class Context:
             self.context[self.source] = {"context_lvl": 0, 0: copy.deepcopy(self.default_context),
                                          "cur_context": None,
                                          "compiled": False,
-                                         "settings": {"allow_returns": [], "inline": [], "return_counter": 0,
+                                         "settings": {"allow_returns": [], "inline": [], "autocomplete": 0,
                                                       "class_define": [], "ignore_next_lines": []},
                                          "properties": {}}
             self.context[self.source]["cur_context"] = copy.deepcopy(self.default_cur_context)
@@ -1665,11 +1714,14 @@ class Context:
             if jmcc_obj.is_simple():
                 if self.context_lvl == 0 and not (jmcc_obj.type in ("function", "process", "event")):
                     if len(self.context[self.source][self.context_lvl]["operations"]) == 0:
-                        self.context[self.source][self.context_lvl]["operations"].append(event("world_start", [], self.source))
+                        self.context[self.source][self.context_lvl]["operations"].append(
+                            event("world_start", [], self.source))
                     elif self.context[self.source][self.context_lvl]["operations"][0].type != "event":
-                        self.context[self.source][self.context_lvl]["operations"].insert(0, event("world_start", [], self.source))
+                        self.context[self.source][self.context_lvl]["operations"].insert(0, event("world_start", [],
+                                                                                                  self.source))
                     elif self.context[self.source][self.context_lvl]["operations"][0].name != "world_start":
-                        self.context[self.source][self.context_lvl]["operations"].insert(0, event("world_start", [], self.source))
+                        self.context[self.source][self.context_lvl]["operations"].insert(0, event("world_start", [],
+                                                                                                  self.source))
                     self.context[self.source][self.context_lvl]["operations"][0].operations.append(jmcc_obj)
                 else:
                     self.context[self.source][self.context_lvl]["operations"].append(jmcc_obj)
@@ -1692,6 +1744,25 @@ class Context:
     def set_variable(self, var_name, var_type):
         self.cur_context["variables"][var_name] = var_type
 
+    def set_variable_value(self, vari, val):
+        vari: var
+        val: default_jmcc_object
+        self.cur_context["special_vars"][vari.var_type][vari.value] = val
+    def get_variable_value(self, vari):
+        vari: var
+        for cur_context_lvl in range(self.context_lvl, -1, -1):
+            if vari.value in self.context[self.source][cur_context_lvl]["special_vars"][vari.var_type]:
+                return self.context[self.source][cur_context_lvl]["special_vars"][vari.var_type][vari.value]
+
+    def has_variable(self, vari):
+        for cur_context_lvl in range(self.context_lvl + 1):
+            if vari.value in self.context[self.source][cur_context_lvl]["special_vars"][vari.var_type]:
+                return True
+        return False
+
+    def get_variable_values(self):
+        return self.context[self.source][self.context_lvl]["special_vars"]
+
     def set_properties(self, properties):
         self.context[self.source]["properties"] = properties
 
@@ -1704,7 +1775,7 @@ class Context:
         return self.context[self.source]["properties"]
 
     def has_variable(self, var_name):
-        for cur_context_lvl in range(self.context_lvl+1):
+        for cur_context_lvl in range(self.context_lvl + 1):
             if var_name in self.context[self.source][cur_context_lvl]["variables"]:
                 return True
         return False
@@ -1734,7 +1805,7 @@ class Context:
                 return self.context[self.source][cur_context_lvl]["inline_vars"][var_name].copy()
 
     def has_inline(self, var_name):
-        for cur_context_lvl in range(self.context_lvl+1):
+        for cur_context_lvl in range(self.context_lvl + 1):
             if var_name in self.context[self.source][cur_context_lvl]["inline_vars"]:
                 return True
         return False
@@ -1751,7 +1822,7 @@ class Context:
                 return self.context[self.source][cur_context_lvl]["callable"][var_name]
 
     def has_special(self, var_name):
-        for cur_context_lvl in range(self.context_lvl+1):
+        for cur_context_lvl in range(self.context_lvl + 1):
             if var_name in self.context[self.source][cur_context_lvl]["callable"]:
                 return True
         return False
@@ -1772,13 +1843,29 @@ class Context:
         self.cur_context = copy.deepcopy(self.default_cur_context)
 
     def update(self):
-        #{"operations": [], "variables": {}, "vars": {0: {}, 1: {}, 2: {}, 3: {}, 4: {}}, "inline_vars": {}, "callable": {}}
         self.context[self.source][self.context_lvl]["variables"].update(self.cur_context["variables"])
         for vars_type in range(5):
             self.context[self.source][self.context_lvl]["vars"][vars_type].update(self.cur_context["vars"][vars_type])
+            self.context[self.source][self.context_lvl]["special_vars"][vars_type].update(self.cur_context["special_vars"][vars_type])
         self.context[self.source][self.context_lvl]["inline_vars"].update(self.cur_context["inline_vars"])
         self.context[self.source][self.context_lvl]["callable"].update(self.cur_context["callable"])
         self.cur_context = copy.deepcopy(self.default_cur_context)
+
+    def complete(self, ops=None):
+        if ops is None:
+            for op in self.get_operations():
+                self.work(op)
+                if self.abort_current_context:
+                    break
+            self.context[self.source][self.context_lvl]["operations"] = []
+        else:
+            for op in ops:
+                self.work(op)
+
+    def work(self, act):
+        act.complete(self)
+        return None
+
 
     def get_json(self):
         self.json_obj = {"handlers": []}
@@ -1937,6 +2024,25 @@ class number:
     def __repr__(self):
         return self.__str__()
 
+    def __isub__(self, other):
+        if other.type == "number":
+            return number(self.value-other.value,self.starting_pos,self.ending_pos,self.source)
+        else:
+            error_from_object(self, "", translate("error.unknown"))
+        return self
+
+    def __iadd__(self, other):
+        if other.type == "number":
+            return number(self.value+other.value,self.starting_pos,self.ending_pos,self.source)
+        else:
+            error_from_object(self, "", translate("error.unknown"))
+        return self
+
+    def __eq__(self, other):
+        if other.type == "number":
+            return self.value.__eq__(other.value)
+        return False
+
     @staticmethod
     def is_independent():
         return False
@@ -2025,6 +2131,17 @@ class lst:
     def __repr__(self):
         return self.__str__()
 
+    def __len__(self):
+        return self.values.__len__()
+    def __iter__(self):
+        return self.values.__iter__()
+
+    def __contains__(self, item):
+        for item2 in self.values:
+            if item == item2:
+                return True
+        return False
+
     @staticmethod
     def is_independent():
         return False
@@ -2050,7 +2167,7 @@ class lst:
                 new_lst.append(cur_op)
         self.values = new_lst
         self.simple = True
-        if mode == 0 or (len_limit is not None and (len(new_lst) > len_limit)):
+        if (mode == 0 or (len_limit is not None and (len(new_lst) > len_limit))) and False:
             if isinstance(work_with, var):
                 current_operation = work_with
             else:
@@ -2115,6 +2232,11 @@ class lst:
             self.values[i1] = self.values[i1].remove_inlines()
         return self
 
+    def clear_variables(self, context):
+        for i1 in range(len(self.values)):
+            self.values[i1] = check_is_arg_normal(self.values[i1], context)
+        return self
+
 
 class dct:
     type = "map"
@@ -2145,10 +2267,6 @@ class dct:
     def in_text(self):
         return None
 
-    def json(self):
-        return {"type": "map", "keys": [i3.json() for i3 in self.keys],
-                "values": [i3.json() for i3 in self.values]}
-
     def copy(self):
         return dct([i3.copy() for i3 in self.old_keys], [i3.copy() for i3 in self.old_values], self.starting_pos,
                    self.ending_pos, self.source)
@@ -2178,7 +2296,7 @@ class dct:
                 next_operations.extend(next_ops)
                 new_values.append(cur_op)
         self.values = new_values
-        if mode == 0:
+        if mode == -3:
             if isinstance(work_with, var):
                 current_operation = work_with
             else:
@@ -2264,9 +2382,19 @@ class dct:
 
     def remove_inlines(self):
         for i1 in range(len(self.values)):
-            self.values[i1] = self.values[i1].remove_inlines()
+            self.values[i1] = self.values[i1]
         for i1 in range(len(self.keys)):
-            self.keys[i1] = self.keys[i1].remove_inlines()
+            self.keys[i1] = self.keys[i1]
+        return self
+
+    def json(self):
+        return {"type": "map", "values":{json.dumps(self.keys[i1].json(), separators=(',', ':')):self.values[i1].json() for i1 in range(min(len(self.keys),len(self.values)))}}
+
+    def clear_variables(self, context):
+        for i1 in range(len(self.values)):
+            self.values[i1] = check_is_arg_normal(self.values[i1], context)
+        for i1 in range(len(self.keys)):
+            self.keys[i1] = check_is_arg_normal(self.keys[i1], context)
         return self
 
 
@@ -2317,12 +2445,12 @@ class NBT:
 
 class Vars:
     NONE: int = -1
-    LINE: int = 0
+    BRACKET: int = 0
     INLINE: int = 1
     LOCAL: int = 2
     GAME: int = 3
     SAVE: int = 4
-    changer = {-1: "NONE", 0: "LINE", 1: "INLINE", 2: "LOCAL", 3: "GAME", 4: "SAVE"}
+    changer = {-1: "NONE", 0: "BRACKET", 1: "INLINE", 2: "LOCAL", 3: "GAME", 4: "SAVE"}
 
 
 class var:
@@ -2335,7 +2463,7 @@ class var:
         self.ending_pos = ending_pos
         self.source = source
         self.value_type = value_type
-        self.simple = (self.var_type not in {0, 1}) and isinstance(self.value, str)
+        self.simple = self.var_type != 1 and isinstance(self.value, str)
 
     def __str__(self):
         return f'var(`{self.value}`,{self.var_type})'
@@ -2348,6 +2476,9 @@ class var:
         return False
 
     def is_simple(self):
+        if Context(self.source).settings["autocomplete"] > 0:
+            self.simple = True
+            return True
         return self.simple
 
     def in_text(self):
@@ -2357,6 +2488,8 @@ class var:
             var_prefix = "%var("
         elif self.var_type == Vars.SAVE:
             var_prefix = "%var_save("
+        elif self.var_type == Vars.BRACKET:
+            var_prefix = "%var_bracket("
         else:
             error_from_object(self, "", translate("error.unknown"))
             var_prefix = ""
@@ -2367,7 +2500,7 @@ class var:
         next_operations = []
         if isinstance(self.value, list):
             previous_operations, self.value, next_operations = giga_value(self, self.value)
-        if self.var_type == Vars.INLINE:
+        if self.var_type == Vars.INLINE and mode == 0 and Context(self.source).settings["autocomplete"] == 0:
             if len(previous_operations) + len(next_operations) > 0:
                 error_from_object(self, "", translate("error.unknown"))
             val = Context(self.source).get_inline(self.value)
@@ -2377,10 +2510,6 @@ class var:
             if val.is_simple():
                 return [], val, []
             return val.simplify(mode=mode, work_with=work_with)
-        elif self.var_type == Vars.LINE:
-            self.var_type = Vars.LOCAL
-            self.value = f"{self.value}_%var_local(var_depth)"
-            self.simple = True
         return previous_operations, self, next_operations
 
     def json(self):
@@ -2391,11 +2520,12 @@ class var:
 
     def remove_inlines(self):
         if self.var_type == Vars.INLINE:
-            val = Context(self.source).get_inline(self.value)
-            val.starting_pos = self.starting_pos
-            val.ending_pos = self.ending_pos
-            val.source = self.source
-            return val
+            if Context(self.source).has_inline(self.value):
+                val = Context(self.source).get_inline(self.value)
+                val.starting_pos = self.starting_pos
+                val.ending_pos = self.ending_pos
+                val.source = self.source
+                return val
         return self
 
 
@@ -2420,7 +2550,7 @@ class calling_args:
         args = {i1: None for i1 in template}
         have_kwargs = None
         if func is not None:
-            for k1,v1 in func.items():
+            for k1, v1 in func.items():
                 if v1 == 2:
                     have_kwargs = k1
         for k1, v1 in self.unpositional.items():
@@ -2431,7 +2561,7 @@ class calling_args:
             elif have_kwargs is not None:
                 if args[have_kwargs] is None:
                     args[have_kwargs] = dct([], [], self.starting_pos, self.ending_pos, self.source)
-                args[have_kwargs].keys.append(text(k1,Texts.LEGACY, v1.starting_pos, v1.ending_pos, v1.source))
+                args[have_kwargs].keys.append(text(k1, Texts.LEGACY, v1.starting_pos, v1.ending_pos, v1.source))
                 args[have_kwargs].values.append(v1)
             else:
                 error_from_object(self, "ArgumentError", translate("error.argumenterror.argument_with_wrong_name",
@@ -2564,7 +2694,7 @@ def giga_value(self, giga):
 
 def find_value_from_list(val, possible_list=None):
     if possible_list is None:
-        possible_list = {}
+        possible_list = set()
     check_enum = 0
     for i1 in possible_list:
         if i1.lower().startswith(val.lower()):
@@ -2636,7 +2766,15 @@ class value:
     def remove_inlines(self):
         return self
 
-
+def check_is_arg_normal(arg: default_jmcc_object, context):
+    if arg.type == "variable":
+        return context.get_variable_value(arg)
+    elif arg.type in {"map", "array"}:
+        return arg.clear_variables(context)
+    elif arg.type in {"text", "number"}:
+        return arg
+    else:
+        error_from_object(arg, "", translate("error.unknown"))
 class action:
     type = "action"
 
@@ -2656,7 +2794,10 @@ class action:
         self.invert = inver
         self.simple = simple
         self.conditional = conditional
-        self.return_type = set()
+        if "assign" in actions[self.object][self.name]:
+            self.value_type = actions[self.object][self.name]["assign"][0]["type"]
+        else:
+            self.value_type = "None"
 
     def __str__(self):
         return f'action({self.object}::{self.name}, {self.args})'
@@ -2690,6 +2831,7 @@ class action:
                 possible_selectors = {"current", "default_entity", "killer_entity", "shooter_entity", "projectile",
                                       "victim_entity", "random_entity", "all_mobs", "all_entities", "last_entity"}
             else:
+                error_from_object(self.selector, "SelectorError", translate("error.argumenterror.no_selector"))
                 possible_selectors = None
             val1 = find_value_from_list(self.selector.value, possible_selectors)
 
@@ -2705,7 +2847,8 @@ class action:
             thing = self.args.get_args(["conditional"])["conditional"]
             a1, thing, a2 = thing.simplify()
             if not thing.type == "action":
-                error_from_object(thing, "ArgumentError", translate("error.argumenterror.wrong_argument",{0:thing.type,1:"action"}))
+                error_from_object(thing, "ArgumentError",
+                                  translate("error.argumenterror.wrong_argument", {0: thing.type, 1: "action"}))
             if not actions[thing.object][thing.name].setdefault("boolean", False):
                 error_from_object(thing, "ArgumentError", translate("error.argumenterror.expected_boolean"))
             if len(a1) + len(a2) > 0:
@@ -2719,6 +2862,7 @@ class action:
             previous_operations = []
             next_operations = []
             inline = False
+            broke_inline = context.settings["autocomplete"] > 0
             if mode == 0:
                 if "assign" in actions[self.object][self.name]:
                     if not isinstance(work_with, list):
@@ -2728,7 +2872,7 @@ class action:
                         work_with = [work_with]
                     for i2 in range(len(actions[self.object][self.name]["assign"])):
                         if i2 < len(work_with):
-                            if work_with[i2].type == "variable" and work_with[i2].var_type == Vars.INLINE:
+                            if work_with[i2].type == "variable" and work_with[i2].var_type == Vars.INLINE and not broke_inline:
                                 inline = True
                                 break
                             else:
@@ -2760,21 +2904,23 @@ class action:
                 for i2 in actions[self.object][self.name]["assign"]:
                     if load_args[i2["id"]] is None:
                         continue
-                    if load_args[i2["id"]].type == "variable" and load_args[i2["id"]].var_type == Vars.INLINE:
+                    if load_args[i2["id"]].type == "variable" and load_args[i2["id"]].var_type == Vars.INLINE and not broke_inline:
                         work_with.append(load_args[i2["id"]])
                         del load_args[i2["id"]]
                         inline = True
-                if inline:
+                if inline and not broke_inline:
                     for i2 in set(load_args):
                         if load_args[i2] is None:
                             del load_args[i2]
                 self.args = calling_args([], load_args, self.args.starting_pos, self.args.ending_pos, self.args.source)
+            if broke_inline:
+                inline = False
             if self.object == "variable":
                 if self.name == "set_value":
                     if inline:
                         context.set_inline(work_with[0].value, load_args["value"].remove_inlines())
                         return [], None, []
-                    if load_args["value"].type in {"array", "map", "subscript", "calling_argument", "calling_function",
+                    if load_args["value"].type in {"subscript", "calling_argument", "calling_function",
                                                    "calling_object", "action", "if_else_expr"}:
                         if len(work_with) < 2:
                             work_with = load_args["variable"]
@@ -2782,7 +2928,9 @@ class action:
                     if load_args["variable"].type in {"subscript", "calling_argument"}:
                         return load_args["variable"].simplify(mode=1, work_with=load_args["value"])
                     if load_args["value"].type == "variable":
-                        load_args["variable"].value_type = load_args["value"].value_type if load_args["value"].value_type is not None else context.get_variable_type(load_args["value"].var_type, load_args["value"].value)
+                        load_args["variable"].value_type = load_args["value"].value_type if load_args[
+                                                                                                "value"].value_type is not None else context.get_variable_type(
+                            load_args["value"].var_type, load_args["value"].value)
                     elif load_args["value"].type == "value":
                         load_args["variable"].value_type = load_args["value"].value_type
             if inline:
@@ -2808,11 +2956,14 @@ class action:
                 assigning = {}
             v1: default_jmcc_object
             for k1, v1 in load_args.items():
+                need_typ = arges[k1]["type"]
                 if v1 is None:
                     if "array" in arges[k1]:
                         args[k1] = lst([], self.starting_pos, self.ending_pos, self.source)
                     continue
-                v1 = v1.remove_inlines()
+                if v1.type == "variable":
+                    if k1 not in assigning:
+                        v1 = v1.remove_inlines()
                 if v1.is_simple():
                     args[k1] = v1
                 else:
@@ -2826,13 +2977,11 @@ class action:
                     previous_operations = prev_ops
                     next_operations.extend(next_ops)
                     v1 = args[k1]
-                need_typ = arges[k1]["type"]
                 if args[k1].type == "variable":
                     if k1 in assigning:
                         if assigning[k1] != "any":
                             args[k1].value_type = assigning[k1]
                             context.set_variable_type(args[k1].var_type, args[k1].value, args[k1].value_type)
-                            self.return_type.add(args[k1].value_type)
                     if need_typ == "variable":
                         context.set_variable_type(args[k1].var_type, args[k1].value, args[k1].value_type)
                         continue
@@ -2943,6 +3092,53 @@ class action:
         return self
 
 
+    def complete(self, context):
+        if self.object == "variable":
+            self.args: dict
+            if "assign" in actions[self.object][self.name]:
+                assigning = {i2["id"]: i2["type"] for i2 in actions[self.object][self.name]["assign"]}
+            else:
+                assigning = {}
+            for k1, v1 in self.args.items():
+                if k1 not in assigning:
+                    self.args[k1] = check_is_arg_normal(v1, context)
+            if self.name == "add":
+                res = None
+                for val in self.args["value"]:
+                    if res is None:
+                        res = val
+                    else:
+                        res += val
+                context.set_variable_value(self.args["variable"], res)
+                return True
+            if self.name == "subtract":
+                res = None
+                for val in self.args["value"]:
+                    if res is None:
+                        res = val
+                    else:
+                        res -= val
+                context.set_variable_value(self.args["variable"], res)
+                return True
+            if self.name == "equals":
+                if self.args["value"] in self.args["compare"]:
+                    context.ignore_next_else = True
+                    context.complete(self.operations)
+                    context.update()
+                else:
+                    context.ignore_next_else = False
+                return
+            if self.name == "set_value":
+                context.set_variable_value(self.args["variable"], self.args["value"])
+                return
+        elif self.object == "code":
+            if self.name == "return_function":
+                context.abort_current_context = True
+                return
+        print(self)
+        error_from_object(self, "", translate("неизвестное действие xxx"))
+
+
 class calling_object:
     type = "calling_object"
 
@@ -3024,11 +3220,11 @@ class calling_object:
                     error_from_object(self, "ArgumentError",
                                       translate("error.argumenterror.argument_is_not_specified", {0: k1}))
             var_thing = var(k1, Vars.LOCAL, self.starting_pos, self.ending_pos, self.source,
-                                    value_type=arges[k1]["type"])
+                            value_type=arges[k1]["type"])
             if v1.is_simple():
                 args[k1] = v1
             else:
-                prev_ops, args[k1], next_ops = v1.simplify(mode=0, work_with = var_thing)
+                prev_ops, args[k1], next_ops = v1.simplify(mode=0, work_with=var_thing)
                 prev_ops.extend(previous_operations)
                 previous_operations = prev_ops
                 next_operations.extend(next_ops)
@@ -3177,7 +3373,7 @@ class calling_function:
                 true = number(1, self.starting_pos, self.ending_pos, self.source)
                 false = number(0, self.starting_pos, self.ending_pos, self.source)
                 false_thing = \
-                assign([work_with], None, false, self.starting_pos, self.ending_pos, self.source).simplify()[0]
+                    assign([work_with], None, false, self.starting_pos, self.ending_pos, self.source).simplify()[0]
                 true_thing = assign([work_with], None, true, self.starting_pos, self.ending_pos,
                                     self.source).simplify()[0]
                 if self.value == "__or__":
@@ -3373,7 +3569,7 @@ class function:
     type = "function"
 
     def __init__(self, name: str, operations: list, args: calling_args, source, inline=False, return_var=None,
-                 ready=True, description=None, icon=None, hide=None, args_description=None):
+                 ready=True, description=None, icon=None, hide=None, args_description=None, autocomplete=None):
         self.name = name
         self.operations = operations
         self.args = args
@@ -3385,6 +3581,7 @@ class function:
         self.icon = icon
         self.hide = hide
         self.args_description = args_description
+        self.autocomplete = autocomplete
 
     def __str__(self):
         return f'function({self.name} {self.args} {self.operations})'
@@ -3422,7 +3619,7 @@ class function:
                 self.description = []
             self.description.extend(description)
         a = {"type": "function", "name": self.name, "args": args, "template": unpacked, "return_var": self.return_var,
-             "inline": self.inline, "completed": False}
+             "inline": self.inline, "autocomplete": self.autocomplete}
         if self.inline:
             a["operations"] = self.operations
         return a
@@ -3597,8 +3794,8 @@ class return_:
                 work_with = self.in_var
         else:
             work_with = self.in_var
-        if len(Context(self.source).settings["inline"]) > 0:
-            Context(self.source).set_inline(work_with.value, self.object)
+        if len(Context(self.source).settings["inline"]) > 0 and Context(self.source).settings["autocomplete"] == 0:
+            Context(self.source).set_inline(work_with.value, self.object.remove_inlines())
             return [], None, []
         if not self.object.is_simple():
             prev_ops, cur_op, next_ops = self.object.simplify(mode=0, work_with=work_with)
@@ -3615,7 +3812,7 @@ class return_:
             prev_ops.extend(previous_operations)
             previous_operations = prev_ops
             next_operations.extend(next_ops)
-        if len(Context(self.source).settings["inline"]) == 0:
+        if len(Context(self.source).settings["inline"]) == 0 or Context(self.source).settings["autocomplete"] > 0:
             next_operations.append(
                 action("code", "return_function", calling_args([], {}, self.starting_pos, self.ending_pos, self.source),
                        self.starting_pos, self.ending_pos, self.source))
@@ -3703,6 +3900,43 @@ class assign:
                                                                       self.ending_pos, self.source)}, self.starting_pos,
                                        self.ending_pos, self.source),
                           self.starting_pos, self.ending_pos, self.source).simplify(mode=0, work_with=self.variables)
+
+
+class special_function:
+    def __init__(self, name, args, template, return_var, inline, operations=None):
+        self.name = name
+        self.args = args
+        self.template = template
+        self.return_var = return_var
+        self.inline = inline
+        self.operations = operations
+
+    def add_overload(self, jmcc_special):
+        return special_overload(self.name, [self, jmcc_special])
+
+class special_process:
+    def __init__(self, name, args, template):
+        self.name = name
+        self.args = args
+        self.template = template
+
+    def add_overload(self, jmcc_special):
+        return special_overload(self.name, [self, jmcc_special])
+
+
+class special_class:
+    def __init__(self):
+        pass
+
+
+class special_overload:
+    def __init__(self, name, overload_list):
+        self.name = name
+        self.overload_list = overload_list
+
+    def add_overload(self, jmcc_special):
+        self.overload_list.append(jmcc_special)
+        return self
 
 
 class enum_:
@@ -4012,7 +4246,7 @@ class item:
                 if args[k1].type in self.type_args[k1]:
                     continue
             error_from_object(args[k1], "ArgumentError", translate("error.argumenterror.wrong_argument",
-                                                                        {0: args[k1].type, 1: self.type_args[k1]}))
+                                                                   {0: args[k1].type, 1: self.type_args[k1]}))
         args["id"].value = args["id"].value.lower().replace("minecraft:", "")
         if args["id"].value not in items:
             error_from_object(args["id"], "ArgumentError",
@@ -4565,7 +4799,7 @@ def compile_file(file_path, upload=False, properties=None):
     code = parse_from_file(file, properties)
     code = code.get_json()
     end_time = time()
-    print(minecraft_based_text(f"&fКомпиляция кода заняла: &e{round(end_time-start_time,3)} &fсекунд."))
+    print(minecraft_based_text(f"&fКомпиляция кода заняла: &e{round(end_time - start_time, 3)} &fсекунд."))
     if not upload:
         if properties.setdefault("compact", False):
             open(source + ".json", "w").write(json.dumps(code, separators=(',', ':')))

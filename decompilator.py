@@ -88,8 +88,7 @@ def decompile(thing):
                 return None
             return f"item({it['id']}, {it['Count'].value}" + (f", nbt=m{it['tag']})" if "tag" in it else ")")
         except Exception:
-            return ("\"\\\"" + thing["item"].replace("\\", "\\\\").replace("\"", "\\\\\\\"") + "\\\"\"").replace('\n',
-                                                                                                                 '\\n')
+            return "\"" + thing["item"] + "\""
     elif typ == "game_value":
         return f"value::{thing['game_value']}" + (
             f"<{json.loads(thing['selection'])['type']}>" if thing["selection"] != "null" else "")

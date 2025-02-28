@@ -1,0 +1,111 @@
+{"player_dummy": {"id":"player_dummy","type":"basic","args": []},
+  "player_play_sound": {"id": "player_play_sound","type": "basic","args": [
+    {"id": "sound","plural": false,"valueSlots": [12],"type": "sound"},
+    {"id": "location","plural": false,"valueSlots": [14],"type": "location"}]},
+  "player_play_sound_sequence": {"id": "player_play_sound_sequence","type": "basic","args": [
+    {"id": "sounds","plural": false,"valueSlots": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42],"type": "sound"},
+    {"id": "delay","plural": false,"valueSlots": [44],"type": "number"},
+    {"id": "location","plural": false,"valueSlots": [43],"type": "location"}]},
+  "if_player_dummy": {"id":"if_player_dummy","type":"container","args": []},
+  "entity_dummy": {"id":"player_dummy","type":"basic","args": []},
+  "if_entity_dummy": {"id":"if_player_dummy","type":"container","args": []},
+  "if_entity_has_custom_tag" : {"id": "if_entity_has_custom_tag", "type": "container", "args": [
+    {"id": "tag", "plural": false, "type": "text", "valueSlots": [12]},
+    {"id": "tag_value", "plural": false, "type": "text", "valueSlots": [14]},
+    {"id": "compare_type", "plural": false, "type": "enum", "valueSlots": [18], "values": ["EQUALS", "CONTAINS", "STARTS_WITH", "ENDS_WITH"]}]},
+  "if_variable_dummy": {"id":"if_variable_dummy","type":"container","args": []},
+  "if_variable_item_has_tag": {"id": "if_variable_item_has_tag", "type": "container", "args": [
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [11]},
+    {"id": "tag", "plural": false, "type": "text", "valueSlots": [13]},
+    {"id": "value", "plural": false, "type": "text", "valueSlots": [15]},
+    {"id": "compare_type", "plural": false, "type": "enum", "valueSlots": [35], "values": ["EQUALS", "CONTAINS", "STARTS_WITH", "ENDS_WITH"]}]},
+  "game_dummy": {"id":"game_dummy","type":"basic","args": []},
+  "if_game_dummy": {"id":"if_game_dummy","type":"container","args": []},
+  "select_dummy": {"id":"select_dummy","type":"basic","args": []},
+  "control_dummy": {"id":"control_dummy","type":"basic","args": []},
+  "repeat_dummy": {"id":"repeat_dummy","type":"container","args": []},
+  "set_variable_dummy": {"id":"set_variable_dummy","type":"basic","args": []},
+  "entity_set_projectile_power": {"id":"entity_set_projectile_power","type": "basic","args": [
+    {"id": "power","type": "vector","plural": false,"valueSlots": [13]}]},
+  "entity_set_pickup": {"id": "entity_set_pickup", "type": "basic", "args": [
+    {"id": "can_mob_pickup","type": "enum","plural": false,"valueSlots": [12], "values": ["TRUE", "FALSE"]},
+    {"id": "can_player_pickup","type": "enum","plural": false,"valueSlots": [14], "values": ["TRUE", "FALSE"]}]},
+  "if_player_is_allow_server_listing": {"id": "if_player_is_allow_server_listing","type": "container", "args": []},
+  "if_player_chat_colors_enabled": {"id": "if_player_chat_colors_enabled","type": "container", "args": []},
+  "if_player_text_filtering_enabled": {"id": "if_player_text_filtering_enabled","type": "container", "args": []},
+  "player_set_default_visible": {"id": "player_set_default_visible","type": "basic", "args": [
+    {"id": "default_visible","plural": false,"type": "enum","valueSlots": [13], "values": ["TRUE", "FALSE"]}]},
+  "player_leave_vehicle": {"id": "player_leave_vehicle","type": "basic", "args": []},
+  "set_variable_set_item_max_stack_size": {"id": "set_variable_set_item_max_stack_size","type": "basic", "args": [
+    {"id": "variable","plural": false,"type": "variable","valueSlots": [11]},
+    {"id": "item","plural": false,"type": "item","valueSlots": [13]},
+    {"id": "size","plural": false,"type": "number","valueSlots": [15]}]},
+  "entity_set_panda_sad_ticks": {"id": "entity_set_panda_sad_ticks","type": "basic", "args": [
+    {"id": "sad_ticks","plural": false,"type": "number","valueSlots": [13]}]},
+  "entity_set_arrow_pierce": {"id": "entity_set_arrow_pierce","type": "basic", "args": [
+    {"id": "pierce","plural": false,"type": "number","valueSlots": [13]}]},
+  "entity_set_base_arrow_damage": {"id": "entity_set_base_arrow_damage","type": "basic", "args": [
+    {"id": "damage","plural": false,"type": "number","valueSlots": [13]}]},
+  "entity_set_wolf_type": {"id": "entity_set_wolf_type","type": "basic", "args": [
+    {"id": "wolf_type","plural": false,"type": "enum","valueSlots": [13]}]},
+  "entity_set_shulker_peek": {"id": "entity_set_shulker_peek","type": "basic", "args": [
+    {"id": "rolling","plural": false,"type": "number","valueSlots": [13]},
+    {"id": "silent","plural": false,"type": "enum","valueSlots": [15], "values": ["TRUE", "FALSE"]}]},
+  "entity_leave_vehicle": {"id": "entity_leave_vehicle","type": "basic", "args": []},
+  "entity_set_friction": {"id": "entity_set_friction","type": "basic", "args": [
+    {"id": "friction","plural": false,"type": "enum","valueSlots": [14], "values": ["NOT_SET", "TRUE", "FALSE"]}]},
+  "entity_set_bee_has_stinger": {"id": "entity_set_bee_has_stinger","type": "basic", "args": [
+    {"id": "stinger","plural": false,"type": "enum","valueSlots": [14], "values": ["TRUE", "FALSE"]}]},
+  "entity_set_panda_on_back": {"id": "entity_set_panda_on_back","type": "basic", "args": [
+    {"id": "on_back","plural": false,"type": "enum","valueSlots": [14], "values": ["TRUE", "FALSE"]}]},
+  "entity_set_panda_rolling": {"id": "entity_set_panda_rolling","type": "basic", "args": [
+    {"id": "rolling","plural": false,"type": "enum","valueSlots": [14], "values": ["TRUE", "FALSE"]}]},
+  "entity_shear": {"id": "entity_shear","type": "basic", "args": []},
+  "entity_set_arrow_hit_sound": {"id": "entity_shear","type": "basic", "args": [
+    {"id": "sound","type": "sound","plural": false,"valueSlots": [14]}]},
+  "entity_set_default_visible": {"id": "entity_set_default_visible","type": "basic", "args": [
+    {"id": "default_visible","plural": false,"type": "enum","valueSlots": [13], "values": ["TRUE", "FALSE"]}]},
+  "entity_set_no_physics": {"id": "entity_set_no_physics","type": "basic", "args": [
+    {"id": "no_physics","plural": false,"type": "enum","valueSlots": [13], "values": ["TRUE", "FALSE"]}]},
+  "set_variable_set_item_component": {"id": "set_variable_set_item_component","type": "basic", "args": [
+    {"id": "variable","plural": false,"type": "variable","valueSlots": [0]},
+    {"id": "item","plural": false,"type": "item","valueSlots": [1]},
+    {"id": "component","plural": false,"type": "text","valueSlots": [2]},
+    {"id": "value","plural": false,"type": "any","valueSlots": [3]}]},
+  "game_create_explosion" : {"id": "game_create_explosion", "type": "basic", "args": [
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [12]},
+    {"id": "power", "plural": false, "type": "number", "valueSlots": [14]},
+    {"id": "fire", "plural": false, "type": "enum", "values": ["TRUE", "FALSE"], "valueSlots": [25]},
+    {"id": "break_blocks", "plural": false, "type": "enum", "values": ["TRUE", "FALSE"], "valueSlots": [26]}]},
+  "set_variable_get_item_nbt_tags": {"id": "set_variable_get_item_nbt_tags", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [12]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [14]},
+    {"id": "fetch_mode", "plural": false, "type": "enum", "values": ["ALL", "CUSTOM_DATA"], "valueSlots": [16]}]},
+  "if_entity_is_undead": {"id": "if_entity_is_undead", "type": "basic", "args": []},
+  "game_set_world_gamerule": {"id": "game_set_world_gamerule", "type": "basic", "args": [
+    {"id": "gamerule", "plural": false, "type": "enum", "valueSlots": [0], "values": ["DISABLE_RAIDS", "DO_DAYLIGHT_CYCLE", "DO_ENTITY_DROPS", "DO_FIRE_TICK", "DO_IMMEDIATE_RESPAWN", "DO_INSOMNIA", "DO_MOB_LOOT", "DO_MOB_SPAWNING", "DO_PATROL_SPAWNING", "DO_TILE_DROPS", "DO_TRADER_SPAWNING", "DO_WEATHER_CYCLE", "DROWNING_DAMAGE", "FALL_DAMAGE", "FIRE_DAMAGE", "FORGIVE_DEAD_PLAYERS", "KEEP_INVENTORY", "MOB_GRIEFING", "PROJECTILES_CAN_BREAK_BLOCKS", "SHOW_DEATH_MESSAGES", "NATURAL_REGENERATION", "UNIVERSAL_ANGER", "PLAYERS_SLEEPING_PERCENTAGE", "REDUCED_DEBUG_INFO", "FREEZE_DAMAGE", "RANDOM_TICK_SPEED", "MAX_ENTITY_CRAMMING", "SPAWN_RADIUS", "LAVA_SOURCE_CONVERSION", "WATER_SOURCE_CONVERSION", "TNT_EXPLOSION_DROP_DECAY", "BLOCK_EXPLOSION_DROP_DECAY", "MOB_EXPLOSION_DROP_DECAY", "DO_LIMITED_CRAFTING", "PLAYERS_NETHER_PORTAL_DEFAULT_DELAY", "PLAYERS_NETHER_PORTAL_CREATIVE_DELAY", "SNOW_ACCUMULATION_HEIGHT", "SPAWN_CHUNK_RADIUS", "DO_WARDEN_SPAWNING", "ENDER_PEARLS_VANISH_ON_DEATH", "DO_VINES_SPREAD"]},
+    {"id": "value", "plural": false, "type": "text", "valueSlots": [1]}]},
+  "if_game_location_in_block": {"id": "if_game_location_in_block", "type": "basic", "args": [
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [0]}]},
+  "set_variable_atan2": {"id": "set_variable_atan2", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "y", "plural": false, "type": "number", "valueSlots": [1]},
+    {"id": "x", "plural": false, "type": "number", "valueSlots": [2]}]},
+  "if_variable_item_is_block": {"id": "if_variable_item_is_block", "type": "basic", "args": [
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [0]}]},
+  "if_variable_block_is_solid": {"id": "if_variable_block_is_solid", "type": "basic", "args": [
+    {"id": "block", "plural": false, "type": "block", "valueSlots": [0]}]},
+  "set_variable_get_block_sound": {"id": "set_variable_get_block_sound", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "block", "plural": false, "type": "block", "valueSlots": [1]},
+    {"id": "source", "plural": false, "type": "enum", "valueSlots": [2], "values": ["BREAK", "PLACE", "HIT", "FALL", "STEP"]}]},
+  "entity_set_fuse_ticks": {"id": "entity_set_fuse_ticks", "type": "basic", "args": [
+    {"id": "fuse_ticks", "plural": false, "type": "number", "valueSlots": [0]}]},
+  "entity_set_fishing_wait": {"id": "entity_set_fishing_wait", "type": "basic", "args": [
+    {"id": "time", "plural": false, "type": "number", "valueSlots": [0]},
+    {"id": "wait_type", "plural": false, "type": "enum", "valueSlots": [1], "values": ["MIN_MAX_WAIT", "WAIT", "MIN_WAIT", "MAX_WAIT"]}]},
+  "game_set_event_knockback_vector": {"id": "game_set_event_knockback_vector", "type": "basic", "args": [
+    {"id": "knockback", "plural": false, "type": "vector", "valueSlots": [0]}]},
+  "game_set_event_velocity": {"id": "game_set_event_velocity", "type": "basic", "args": [
+    {"id": "velocity", "plural": false, "type": "vector", "valueSlots": [0]}]}
+}

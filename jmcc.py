@@ -291,6 +291,7 @@ path = path[:path.rfind("\\")]
 os.chdir(path)
 an_data = Properties(text="")
 if not os.path.isfile("jmcc.properties"):
+    lang = None
     download_latest_release()
     exit()
 else:
