@@ -107,5 +107,18 @@
   "game_set_event_knockback_vector": {"id": "game_set_event_knockback_vector", "type": "basic", "args": [
     {"id": "knockback", "plural": false, "type": "vector", "valueSlots": [0]}]},
   "game_set_event_velocity": {"id": "game_set_event_velocity", "type": "basic", "args": [
-    {"id": "velocity", "plural": false, "type": "vector", "valueSlots": [0]}]}
+    {"id": "velocity", "plural": false, "type": "vector", "valueSlots": [0]}]},
+  "game_send_web_request": {"id": "game_send_web_request", "type": "basic", "args": [
+    {"id": "url", "plural": false, "type": "text", "valueSlots": [11]},
+    {"id": "content_body", "plural": false, "type": "text", "valueSlots": [13]},
+    {"id": "request_type", "values": ["DELETE", "GET", "HEAD", "PATCH", "POST", "PUT"], "plural": false, "type": "enum", "valueSlots": [25]},
+    {"id": "content_type", "values": ["APPLICATION_JSON", "TEXT_PLAIN"], "plural": false, "type": "enum", "valueSlots": [26]},
+    {"id": "headers", "plural": false, "type": "map", "valueSlots": [15]}]},
+  "set_variable_gamma_function": {"id": "set_variable_gamma_function", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "number", "plural": false, "type": "number", "valueSlots": [1]}]},
+  "set_variable_hadamard_vector_product": {"id": "set_variable_hadamard_vector_product", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "vector_1", "plural": false, "type": "vector", "valueSlots": [1]},
+    {"id": "vector_2", "plural": false, "type": "vector", "valueSlots": [2]}]}
 }

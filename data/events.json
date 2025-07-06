@@ -68,6 +68,10 @@
     "cancellable": true
   },
   {
+    "id": "crafter_craft",
+    "cancellable": true
+  },
+  {
     "id": "dispenser_dispense_item",
     "cancellable": true
   },
@@ -236,6 +240,10 @@
     "cancellable": true
   },
   {
+    "id": "moisture_change",
+    "cancellable": true
+  },
+  {
     "id": "note_play",
     "cancellable": true
   },
@@ -325,6 +333,10 @@
   },
   {
     "id": "player_edit_book",
+    "cancellable": true
+  },
+  {
+    "id": "player_enchant_item",
     "cancellable": true
   },
   {
@@ -621,6 +633,10 @@
   },
   {
     "id": "tnt_prime",
+    "cancellable": true
+  },
+  {
+    "id": "vault_display_item",
     "cancellable": true
   },
   {

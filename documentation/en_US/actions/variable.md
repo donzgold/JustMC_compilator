@@ -596,7 +596,7 @@ if(`map`.map_value_equals("any value",["any value", "any value"]){
 
 **Name:** Not Equals\
 **Type:** Action that checks the conditions\
-**Description:** Checks if a variable is equal to at least one of the values being compared.
+**Description:** Checks if a variable is not equal to all of the values being compared.
 
 **Usage example:** 
 ```ts
@@ -1784,6 +1784,37 @@ variable::format_timestamp(a1,1,"pattern","zone_id","locale","CUSTOM");
 | `zone_id`  | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Timezone (GMT+1\.\.13, GMT-1\.\.13) |
 | `locale`   | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Language (ru_RU, en_US...)          |
 | `format`   | Marker<br/>**CUSTOM** - Custom<br/>**DD_MM_YYYY** - 01\/01\/1970 (dd_mm_yyyy)<br/>**DD_MM_YYYY_HH_MM_S** - 01\/01\/1970 00\:00\:00 (dd_mm_yyyy_hh_mm_s)<br/>**EEEE** - Thursday (eeee)<br/>**EEE_D_MMMM** - Thu, 01 January (eee_d_mmmm)<br/>**EEE_MMMM_D** - Thu, January 01 (eee_mmmm_d)<br/>**HH_MM_SS** - 00\:00\:00 (hh_mm_ss)<br/>**H_H_M_M_S_S** - 00h00m00s (h_h_m_m_s_s)<br/>**H_MM_A** - 00\:00 AM (h_mm_a)<br/>**S_S** - 00.00 (s_s)<br/>**YYYY_MM_DD** - 1970\/01\/01 (yyyy_mm_dd)<br/>**YYYY_MM_DD_HH_MM_S** - 1970\/01\/01 00\:00\:00 (yyyy_mm_dd_hh_mm_s) | Time Format                         |
+<h3 id=set_variable_gamma_function>
+  <code>variable::gamma_function</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+a1 = variable::gamma_function(1);
+
+#Or from the object
+
+a1 = (1).gamma_function();
+
+#Or dry
+
+variable::gamma_function(a1,1);
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | None            |
+| `number`   | Number   | None            |
 <h3 id=set_variable_gaussian_distribution>
   <code>variable::gaussian_distribution</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4333,6 +4364,35 @@ variable::get_vector_length(a1,vector(0,0,0),"LENGTH");
 | `variable`    | Variable                                                                    | Variable to assign   |
 | `vector`      | Vector                                                                      | Vector to get length |
 | `length_type` | Marker<br/>**LENGTH** - Real Length<br/>**LENGTH_SQUARED** - Length Squared | Value Type           |
+<h3 id=set_variable_hadamard_vector_product>
+  <code>variable::hadamard_vector_product</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+a1 = variable::hadamard_vector_product(vector(0,0,0),vector(0,0,0));
+
+#Or from the object
+
+a1 = vector(0,0,0).hadamard_vector_product(vector(0,0,0));
+
+#Or dry
+
+variable::hadamard_vector_product(a1,vector(0,0,0),vector(0,0,0));
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | None            |
+| `vector_1` | Vector   | None            |
+| `vector_2` | Vector   | None            |
 <h3 id=set_variable_hash>
   <code>variable::get_text_hash</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4821,17 +4881,17 @@ variable::pow(a1,1,2);
 
 **Usage example:** 
 ```ts
-variable::purge(["names", "names"],"GAME","EQUALS","FALSE");
+variable::purge(["names", "names"],"GAME","ENDS_WITH","FALSE");
 ```
 
 **Arguments:**
 
-| **Name**      | **Type**                                                                                                                 | **Description**  |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| `names`       | list[Text]                                                                                                               | Names to Compare |
-| `scope`       | Marker<br/>**GAME** - Gaming<br/>**LOCAL** - Local<br/>**SAVE** - Saved                                                  | Variable Type    |
-| `match`       | Marker<br/>**EQUALS** - Full Match<br/>**NAME_CONTAINS** - Name contains text<br/>**PART_CONTAINS** - Text contains name | Comparison Mode  |
-| `ignore_case` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                                                                   | Ignore case      |
+| **Name**      | **Type**                                                                                                                                                                     | **Description**  |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `names`       | list[Text]                                                                                                                                                                   | Names to Compare |
+| `scope`       | Marker<br/>**GAME** - Game<br/>**LOCAL** - Local<br/>**SAVE** - Saved                                                                                                        | Variable Type    |
+| `match`       | Marker<br/>**ENDS_WITH** - None<br/>**EQUALS** - Full Match<br/>**NAME_CONTAINS** - Name contains text<br/>**PART_CONTAINS** - Text contains name<br/>**STARTS_WITH** - None | Comparison Mode  |
+| `ignore_case` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                                                                                                                       | Ignore case      |
 <h3 id=set_variable_random>
   <code>variable::random</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7266,15 +7326,15 @@ variable::shift_all_coordinates(a1,location(0,0,0,0,0),1,2,3,4,5);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**              |
-| ---------- | -------- | ---------------------------- |
-| `variable` | Variable | Variable to assign           |
-| `location` | Location | Locations to Shift           |
-| `x`        | Number   | Shift X                      |
-| `y`        | Number   | Shift Y                      |
-| `z`        | Number   | Shift Z                      |
-| `yaw`      | Number   | Shift by Horizontal Rotation |
-| `pitch`    | Number   | Pitch Shift                  |
+| **Name**   | **Type** | **Description**    |
+| ---------- | -------- | ------------------ |
+| `variable` | Variable | Variable to assign |
+| `location` | Location | Locations to Shift |
+| `x`        | Number   | Shift X            |
+| `y`        | Number   | Shift Y            |
+| `z`        | Number   | Shift Z            |
+| `yaw`      | Number   | Shift Yaw          |
+| `pitch`    | Number   | Shift Pitch        |
 <h3 id=set_variable_shift_coordinate>
   <code>variable::shift_coordinate</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7334,7 +7394,7 @@ variable::shift_location_in_direction(a1,location(0,0,0,0,0),1,"FORWARD");
 | `variable`  | Variable                                                                                         | Variable to assign |
 | `location`  | Location                                                                                         | Location to Shift  |
 | `shift`     | Number                                                                                           | Shift Value        |
-| `direction` | Marker<br/>**FORWARD** - Forward/Backward<br/>**SIDEWAYS** - Left/Right<br/>**UPWARD** - Up/Down | Direction          |
+| `direction` | Marker<br/>**FORWARD** - Forward/Backward<br/>**SIDEWAYS** - Right/Left<br/>**UPWARD** - Up/Down | Direction          |
 <h3 id=set_variable_shift_location_on_vector>
   <code>variable::shift_location_on_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

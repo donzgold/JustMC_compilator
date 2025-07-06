@@ -80,6 +80,10 @@
     "type": "number"
   },
   {
+    "id": "clientside_locale",
+    "type": "text"
+  },
+  {
     "id": "cpu_usage",
     "type": "number"
   },
@@ -190,6 +194,18 @@
   {
     "id": "event_drag_type",
     "type": "text"
+  },
+  {
+    "id": "event_enchantment_hint",
+    "type": "text"
+  },
+  {
+    "id": "event_enchantment_level_hint",
+    "type": "number"
+  },
+  {
+    "id": "event_enchantments_to_add",
+    "type": "map"
   },
   {
     "id": "event_equipment_slot",
@@ -528,6 +544,10 @@
     "type": "number"
   },
   {
+    "id": "response_headers",
+    "type": "map"
+  },
+  {
     "id": "saddle_item",
     "type": "item"
   },
@@ -624,11 +644,27 @@
     "type": "number"
   },
   {
+    "id": "world_clear_weather_duration",
+    "type": "number"
+  },
+  {
+    "id": "world_game_time",
+    "type": "number"
+  },
+  {
     "id": "world_id",
     "type": "text"
   },
   {
+    "id": "world_moon_phase",
+    "type": "text"
+  },
+  {
     "id": "world_size",
+    "type": "number"
+  },
+  {
+    "id": "world_thunder_duration",
     "type": "number"
   },
   {
@@ -638,6 +674,10 @@
   {
     "id": "world_weather",
     "type": "text"
+  },
+  {
+    "id": "world_weather_duration",
+    "type": "number"
   },
   {
     "id": "x_coordinate",

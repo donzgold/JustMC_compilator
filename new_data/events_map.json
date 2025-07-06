@@ -14,5 +14,9 @@
   "entity_teleport": {"cancellable": true},
   "player_velocity": {"cancellable": true},
   "player_knockback": {"cancellable": true},
-  "entity_knockback": {"cancellable": true}
+  "entity_knockback": {"cancellable": true},
+  "moisture_change": {"cancellable": true},
+  "vault_display_item": {"cancellable": true},
+  "crafter_craft": {"cancellable": true},
+  "player_enchant_item": {"cancellable": true}
 }

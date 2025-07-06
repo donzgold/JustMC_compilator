@@ -310,6 +310,10 @@ if __name__ == "__main__":
             from compilator import compile_file
 
             compile_file(additional[1], upload=(additional[-1] == "-u"), properties=data.properties)
+        elif additional[0] == "build" and len(additional) > 1:
+            from compilator import build_directory
+
+            build_directory(additional[1], upload=(additional[-1] == "-u"), properties=data.properties)
         elif additional[0] == "decompile" and len(additional) > 1:
             from decompilator import decompile_file
 
@@ -326,7 +330,10 @@ if __name__ == "__main__":
             else:
                 print(minecraft_based_text("&c" + translate("error.unknown_command", {0: "&4help"})))
         elif additional[0] == "help":
+            command_list = ["help", "about", "compile", "decompile", "update.data","update.to_release","update.to_version"]
             print(minecraft_based_text("&f" + translate("jmcc.command.help")))
+            for command in command_list:
+                print(minecraft_based_text("&f" + translate(f"jmcc.command.help.line",{0:command,1:translate(f"jmcc.command.{command}.description")})))
         elif additional[0] == "about":
             print(minecraft_based_text("&f" + translate("jmcc.command.about")))
         else:

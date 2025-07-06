@@ -2500,10 +2500,13 @@
           "DYING",
           "EMERGING",
           "FALL_FLYING",
+          "INHALING",
           "LONG_JUMPING",
           "ROARING",
+          "SHOOTING",
           "SITTING",
           "SLEEPING",
+          "SLIDING",
           "SNEAKING",
           "SNIFFING",
           "SPIN_ATTACK",
@@ -3828,12 +3831,17 @@
         "type": "text"
       },
       {
+        "id": "headers",
+        "type": "map"
+      },
+      {
         "id": "request_type",
         "type": "enum",
         "values": [
           "DELETE",
           "GET",
           "HEAD",
+          "PATCH",
           "POST",
           "PUT"
         ]
@@ -12010,6 +12018,29 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_gamma_function",
+    "name": "gamma_function",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "number",
+        "type": "number"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
+      }
+    ],
+    "origin": "number",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_gaussian_distribution",
     "name": "gaussian_distribution",
     "object": "variable",
@@ -14539,6 +14570,33 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_hadamard_vector_product",
+    "name": "hadamard_vector_product",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "vector_1",
+        "type": "vector"
+      },
+      {
+        "id": "vector_2",
+        "type": "vector"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "vector"
+      }
+    ],
+    "origin": "vector_1",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_hash",
     "name": "get_text_hash",
     "object": "variable",
@@ -15109,9 +15167,11 @@
         "id": "match",
         "type": "enum",
         "values": [
+          "ENDS_WITH",
           "EQUALS",
           "NAME_CONTAINS",
-          "PART_CONTAINS"
+          "PART_CONTAINS",
+          "STARTS_WITH"
         ]
       },
       {

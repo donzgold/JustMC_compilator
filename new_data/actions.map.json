@@ -858,5 +858,7 @@
   "set_variable_get_block_sound": {"name": "get_block_sound","object": "variable","assign": [{"variable": "sound"}], "origin": "block"},
   "entity_set_fuse_ticks": {"name": "set_fuse_ticks","object": "entity"},
   "game_set_event_knockback_vector": {"name": "set_event_knockback_vector","object": "world"},
-  "game_set_event_velocity": {"name": "set_event_velocity","object": "world"}
+  "game_set_event_velocity": {"name": "set_event_velocity","object": "world"},
+  "set_variable_gamma_function": {"name": "gamma_function","object": "variable","origin": "number","assign": [{"variable": "number"}]},
+  "set_variable_hadamard_vector_product": {"name": "hadamard_vector_product","object": "variable","origin": "vector_1","assign": [{"variable": "vector"}]}
 }

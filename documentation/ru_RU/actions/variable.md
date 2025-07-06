@@ -596,7 +596,7 @@ if(`map`.map_value_equals("any value",["any value", "any value"]){
 
 **Имя:** Не равна\
 **Тип:** Действие, проверяющее условие\
-**Описание:** Проверяет, не равна ли переменная хотя бы одному сравниваемых значений.
+**Описание:** Проверяет, не равна ли переменная всем сравниваемым значениям.
 
 **Пример использования:** 
 ```ts
@@ -1784,6 +1784,37 @@ variable::format_timestamp(a1,1,"pattern","zone_id","locale","CUSTOM");
 | `zone_id`  | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Часовой пояс (GMT+1\.\.13, GMT-1\.\.13) |
 | `locale`   | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Язык (ru_RU, en_US...)                  |
 | `format`   | Маркер<br/>**CUSTOM** - Настраиваемое<br/>**DD_MM_YYYY** - 01\/01\/1970 (dd_mm_yyyy)<br/>**DD_MM_YYYY_HH_MM_S** - 01\/01\/1970 00\:00\:00 (dd_mm_yyyy_hh_mm_s)<br/>**EEEE** - Thursday (eeee)<br/>**EEE_D_MMMM** - Thu, 01 January (eee_d_mmmm)<br/>**EEE_MMMM_D** - Thu, January 01 (eee_mmmm_d)<br/>**HH_MM_SS** - 00\:00\:00 (hh_mm_ss)<br/>**H_H_M_M_S_S** - 00h00m00s (h_h_m_m_s_s)<br/>**H_MM_A** - 00\:00 AM (h_mm_a)<br/>**S_S** - 00.00 (s_s)<br/>**YYYY_MM_DD** - 1970\/01\/01 (yyyy_mm_dd)<br/>**YYYY_MM_DD_HH_MM_S** - 1970\/01\/01 00\:00\:00 (yyyy_mm_dd_hh_mm_s) | Формат времени                          |
+<h3 id=set_variable_gamma_function>
+  <code>variable::gamma_function</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Гамма-функция\
+**Тип:** Действие, возращающее значение\
+**Описание:** Возвращает гамма-функцию числа и присваивает к переменной.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Является обобщением факториала.\
+&nbsp;&nbsp;Гамма-функция может быть представлена как (n-1)!, где n - заданное число.
+
+**Пример использования:** 
+```ts
+a1 = variable::gamma_function(1);
+
+#Или от объекта
+
+a1 = (1).gamma_function();
+
+#Или в сухую
+
+variable::gamma_function(a1,1);
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**    | **Описание**              |
+| ---------- | ---------- | ------------------------- |
+| `variable` | Переменная | Переменная для присвоения |
+| `number`   | Число      | Число                     |
 <h3 id=set_variable_gaussian_distribution>
   <code>variable::gaussian_distribution</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4333,6 +4364,35 @@ variable::get_vector_length(a1,vector(0,0,0),"LENGTH");
 | `variable`    | Переменная                                                                       | Переменная для присвоения  |
 | `vector`      | Вектор                                                                           | Вектор для получения длины |
 | `length_type` | Маркер<br/>**LENGTH** - Реальная длина<br/>**LENGTH_SQUARED** - Длина в квадрате | Тип значения               |
+<h3 id=set_variable_hadamard_vector_product>
+  <code>variable::hadamard_vector_product</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Адамарово произведение векторов\
+**Тип:** Действие, возращающее значение\
+**Описание:** Присваивает к переменной адамарово произведение двух векторов.
+
+**Пример использования:** 
+```ts
+a1 = variable::hadamard_vector_product(vector(0,0,0),vector(0,0,0));
+
+#Или от объекта
+
+a1 = vector(0,0,0).hadamard_vector_product(vector(0,0,0));
+
+#Или в сухую
+
+variable::hadamard_vector_product(a1,vector(0,0,0),vector(0,0,0));
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**    | **Описание**              |
+| ---------- | ---------- | ------------------------- |
+| `variable` | Переменная | Переменная для присвоения |
+| `vector_1` | Вектор     | Первый вектор             |
+| `vector_2` | Вектор     | Второй вектор             |
 <h3 id=set_variable_hash>
   <code>variable::get_text_hash</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4821,17 +4881,17 @@ variable::pow(a1,1,2);
 
 **Пример использования:** 
 ```ts
-variable::purge(["names", "names"],"GAME","EQUALS","FALSE");
+variable::purge(["names", "names"],"GAME","ENDS_WITH","FALSE");
 ```
 
 **Аргументы:**
 
-| **Имя**       | **Тип**                                                                                                                           | **Описание**           |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `names`       | список[Текст]                                                                                                                     | Имена для сравнения    |
-| `scope`       | Маркер<br/>**GAME** - Игровая<br/>**LOCAL** - Локальная<br/>**SAVE** - Сохранённая                                                | Тип переменной         |
-| `match`       | Маркер<br/>**EQUALS** - Полное соответствие<br/>**NAME_CONTAINS** - Имя содержит текст<br/>**PART_CONTAINS** - Текст содержит имя | Режим сравнения        |
-| `ignore_case` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено                                                                          | Игнорирование регистра |
+| **Имя**       | **Тип**                                                                                                                                                                                                           | **Описание**           |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `names`       | список[Текст]                                                                                                                                                                                                     | Имена для сравнения    |
+| `scope`       | Маркер<br/>**GAME** - Игровая<br/>**LOCAL** - Локальная<br/>**SAVE** - Сохранённая                                                                                                                                | Тип переменной         |
+| `match`       | Маркер<br/>**ENDS_WITH** - Имя заканчивается на<br/>**EQUALS** - Полное соответствие<br/>**NAME_CONTAINS** - Имя содержит текст<br/>**PART_CONTAINS** - Текст содержит имя<br/>**STARTS_WITH** - Имя начинается с | Режим сравнения        |
+| `ignore_case` | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено                                                                                                                                                          | Игнорирование регистра |
 <h3 id=set_variable_random>
   <code>variable::random</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7334,7 +7394,7 @@ variable::shift_location_in_direction(a1,location(0,0,0,0,0),1,"FORWARD");
 | `variable`  | Переменная                                                                                        | Переменная для присвоения |
 | `location`  | Местоположение                                                                                    | Местоположение для сдвига |
 | `shift`     | Число                                                                                             | Значение сдвига           |
-| `direction` | Маркер<br/>**FORWARD** - Вперёд/Назад<br/>**SIDEWAYS** - Влево/Вправо<br/>**UPWARD** - Вверх/Вниз | Направление               |
+| `direction` | Маркер<br/>**FORWARD** - Вперёд/Назад<br/>**SIDEWAYS** - Вправо/Влево<br/>**UPWARD** - Вверх/Вниз | Направление               |
 <h3 id=set_variable_shift_location_on_vector>
   <code>variable::shift_location_on_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

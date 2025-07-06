@@ -50,7 +50,7 @@ def decompile(thing):
                       "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}\n"
         return ret
     elif typ == "process":
-        ret = f"process {fix_var_name(thing['name'])}()" + "{" + (
+        ret = f"process {fix_var_name(thing['name'])}" + "{" + (
                 "\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
                       "\n" + " " * (current_indent * 4)).join(
             list(filter(is_not_none, map(decompile, thing["operations"])))) + (

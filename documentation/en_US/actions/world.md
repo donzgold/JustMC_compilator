@@ -550,17 +550,18 @@ world::replace_container_items([item("stick"), item("stick")],location(0,0,0,0,0
 
 **Usage example:** 
 ```ts
-world::send_web_request("url","content_body","DELETE","APPLICATION_JSON");
+world::send_web_request("url","content_body",`headers`,"DELETE","APPLICATION_JSON");
 ```
 
 **Arguments:**
 
-| **Name**       | **Type**                                                                                                   | **Description**    |
-| -------------- | ---------------------------------------------------------------------------------------------------------- | ------------------ |
-| `url`          | Text                                                                                                       | URL                |
-| `content_body` | Text                                                                                                       | Request Body       |
-| `request_type` | Marker<br/>**DELETE** - DELETE<br/>**GET** - GET<br/>**HEAD** - HEAD<br/>**POST** - POST<br/>**PUT** - PUT | Request Type       |
-| `content_type` | Marker<br/>**APPLICATION_JSON** - JSON (application/json)<br/>**TEXT_PLAIN** - Plain Text (text/plain)     | Media Request Type |
+| **Name**       | **Type**                                                                                                                        | **Description**    |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `url`          | Text                                                                                                                            | URL                |
+| `content_body` | Text                                                                                                                            | Request Body       |
+| `headers`      | Dictionary                                                                                                                      | None               |
+| `request_type` | Marker<br/>**DELETE** - DELETE<br/>**GET** - GET<br/>**HEAD** - HEAD<br/>**PATCH** - None<br/>**POST** - POST<br/>**PUT** - PUT | Request Type       |
+| `content_type` | Marker<br/>**APPLICATION_JSON** - JSON (application/json)<br/>**TEXT_PLAIN** - Plain Text (text/plain)                          | Media Request Type |
 <h3 id=game_set_age>
   <code>world::set_age</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
