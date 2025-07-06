@@ -369,7 +369,7 @@ select::filter_by_distance(location(0,0,0,0,0),1,"FALSE","FARTHEST");
 
 **Usage example:** 
 ```ts
-select::filter_by_raycast(a1,location(0,0,0,0,0),1,2,3,"FALSE","FALSE","ALWAYS");
+select::filter_by_raycast(`variable`,location(0,0,0,0,0),1,2,3,"FALSE","FALSE","ALWAYS");
 ```
 
 **Arguments:**

@@ -701,7 +701,6 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
             ru_code_example = "```ts\n"
             en_code_example = "```ts\n"
             current_number = 0
-            current_var = 0
 
 
             def base_arg(arg, ignore=False):
@@ -715,7 +714,7 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                 elif arg["type"] == "enum":
                     return "\"" + arg["values"][0] + "\""
                 elif arg["type"] == "variable":
-                    return "a" + str(current_var := current_var + 1)
+                    return f"`{arg['id']}`"
                 elif arg["type"] == "location":
                     return "location(0,0,0,0,0)"
                 elif arg["type"] == "block":

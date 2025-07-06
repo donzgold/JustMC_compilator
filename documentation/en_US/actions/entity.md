@@ -268,11 +268,11 @@ entity::face_location(location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = entity::get_custom_tag("name","any value");
+`variable` = entity::get_custom_tag("name","any value");
 
 #Or dry
 
-entity::get_custom_tag(a1,"name","any value");
+entity::get_custom_tag(`variable`,"name","any value");
 ```
 
 **Arguments:**

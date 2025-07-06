@@ -9,7 +9,7 @@
 
 **Usage example:** 
 ```ts
-repeat::adjacently(location(0,0,0,0,0),"FALSE","FALSE","ADJACENT"){a1->
+repeat::adjacently(location(0,0,0,0,0),"FALSE","FALSE","ADJACENT"){`variable`->
     player::message("Code in cycle")
 }
 ```
@@ -50,7 +50,7 @@ repeat::dummy(){
 
 **Usage example:** 
 ```ts
-repeat::for_each_in_list(`list`){a1, a2->
+repeat::for_each_in_list(`list`){`index_variable`, `value_variable`->
     player::message("Code in cycle")
 }
 ```
@@ -73,7 +73,7 @@ repeat::for_each_in_list(`list`){a1, a2->
 
 **Usage example:** 
 ```ts
-repeat::for_each_map_entry(`map`){a1, a2->
+repeat::for_each_map_entry(`map`){`key_variable`, `value_variable`->
     player::message("Code in cycle")
 }
 ```
@@ -112,7 +112,7 @@ repeat::forever(){
 
 **Usage example:** 
 ```ts
-repeat::multi_times(1){a1->
+repeat::multi_times(1){`variable`->
     player::message("Code in cycle")
 }
 ```
@@ -134,7 +134,7 @@ repeat::multi_times(1){a1->
 
 **Usage example:** 
 ```ts
-repeat::on_circle(location(0,0,0,0,0),1,2,vector(0,0,0),3,"DEGREES"){a1->
+repeat::on_circle(location(0,0,0,0,0),1,2,vector(0,0,0),3,"DEGREES"){`variable`->
     player::message("Code in cycle")
 }
 ```
@@ -161,7 +161,7 @@ repeat::on_circle(location(0,0,0,0,0),1,2,vector(0,0,0),3,"DEGREES"){a1->
 
 **Usage example:** 
 ```ts
-repeat::on_grid(location(0,0,0,0,0),location(0,0,0,0,0)){a1->
+repeat::on_grid(location(0,0,0,0,0),location(0,0,0,0,0)){`variable`->
     player::message("Code in cycle")
 }
 ```
@@ -184,7 +184,7 @@ repeat::on_grid(location(0,0,0,0,0),location(0,0,0,0,0)){a1->
 
 **Usage example:** 
 ```ts
-repeat::on_path(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){a1->
+repeat::on_path(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){`variable`->
     player::message("Code in cycle")
 }
 ```
@@ -208,7 +208,7 @@ repeat::on_path(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){a1->
 
 **Usage example:** 
 ```ts
-repeat::on_range(1,2,3){a1->
+repeat::on_range(1,2,3){`variable`->
     player::message("Code in cycle")
 }
 ```
@@ -232,7 +232,7 @@ repeat::on_range(1,2,3){a1->
 
 **Usage example:** 
 ```ts
-repeat::on_sphere(location(0,0,0,0,0),1,2,"INWARDS"){a1->
+repeat::on_sphere(location(0,0,0,0,0),1,2,"INWARDS"){`variable`->
     player::message("Code in cycle")
 }
 ```

@@ -43,7 +43,7 @@ controller::async_run(){
 
 **Пример использования:** 
 ```ts
-controller::catch_exception(a1,"ALL"){
+controller::catch_exception(`variable`,"ALL"){
     player::message("Всё работает");
 }
 ```
@@ -67,7 +67,7 @@ controller::catch_exception(a1,"ALL"){
 
 **Пример использования:** 
 ```ts
-controller::measure_time(a1,"MICROSECONDS"){
+controller::measure_time(`variable`,"MICROSECONDS"){
     player::message("Всё работает");
 }
 ```

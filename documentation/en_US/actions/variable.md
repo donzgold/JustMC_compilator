@@ -80,13 +80,13 @@ if("any value".equals(["any value", "any value"]){
 
 **Usage example:** 
 ```ts
-if(variable::exists(a1)){
+if(variable::exists(`variable`)){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(a1.exists(){
+if(`variable`.exists(){
     player::message("Condition is true");
 }
 ```
@@ -770,15 +770,15 @@ if("value".text_starts_with(["compare", "compare"],"FALSE"){
 
 **Usage example:** 
 ```ts
-a1 = variable::absolute(1);
+`variable` = variable::absolute(1);
 
 #Or from the object
 
-a1 = (1).absolute();
+`variable` = (1).absolute();
 
 #Or dry
 
-variable::absolute(a1,1);
+variable::absolute(`variable`,1);
 ```
 
 **Arguments:**
@@ -798,11 +798,11 @@ variable::absolute(a1,1);
 
 **Usage example:** 
 ```ts
-a1 = variable::add([1, 2]);
+`variable` = variable::add([1, 2]);
 
 #Or dry
 
-variable::add(a1,[1, 2]);
+variable::add(`variable`,[1, 2]);
 ```
 
 **Arguments:**
@@ -822,15 +822,15 @@ variable::add(a1,[1, 2]);
 
 **Usage example:** 
 ```ts
-a1 = variable::add_item_enchantment(item("stick"),"enchantment",1);
+`variable` = variable::add_item_enchantment(item("stick"),"enchantment",1);
 
 #Or from the object
 
-a1 = item("stick").add_item_enchantment("enchantment",1);
+`variable` = item("stick").add_item_enchantment("enchantment",1);
 
 #Or dry
 
-variable::add_item_enchantment(a1,item("stick"),"enchantment",1);
+variable::add_item_enchantment(`variable`,item("stick"),"enchantment",1);
 ```
 
 **Arguments:**
@@ -852,15 +852,15 @@ variable::add_item_enchantment(a1,item("stick"),"enchantment",1);
 
 **Usage example:** 
 ```ts
-a1 = variable::add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],item("stick"),"FALSE","FALSE","AMBIENT");
+`variable` = variable::add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],item("stick"),"FALSE","FALSE","AMBIENT");
 
 #Or from the object
 
-a1 = item("stick").add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],"FALSE","FALSE","AMBIENT");
+`variable` = item("stick").add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],"FALSE","FALSE","AMBIENT");
 
 #Or dry
 
-variable::add_item_potion_effects(a1,[potion("slow_falling"), potion("slow_falling")],item("stick"),"FALSE","FALSE","AMBIENT");
+variable::add_item_potion_effects(`variable`,[potion("slow_falling"), potion("slow_falling")],item("stick"),"FALSE","FALSE","AMBIENT");
 ```
 
 **Arguments:**
@@ -884,11 +884,11 @@ variable::add_item_potion_effects(a1,[potion("slow_falling"), potion("slow_falli
 
 **Usage example:** 
 ```ts
-a1 = variable::add_vectors([vector(0,0,0), vector(0,0,0)]);
+`variable` = variable::add_vectors([vector(0,0,0), vector(0,0,0)]);
 
 #Or dry
 
-variable::add_vectors(a1,[vector(0,0,0), vector(0,0,0)]);
+variable::add_vectors(`variable`,[vector(0,0,0), vector(0,0,0)]);
 ```
 
 **Arguments:**
@@ -908,15 +908,15 @@ variable::add_vectors(a1,[vector(0,0,0), vector(0,0,0)]);
 
 **Usage example:** 
 ```ts
-a1 = variable::align_location(location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENTER");
+`variable` = variable::align_location(location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENTER");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).align_location("KEEP","ALL","BLOCK_CENTER");
+`variable` = location(0,0,0,0,0).align_location("KEEP","ALL","BLOCK_CENTER");
 
 #Or dry
 
-variable::align_location(a1,location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENTER");
+variable::align_location(`variable`,location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENTER");
 ```
 
 **Arguments:**
@@ -939,15 +939,15 @@ variable::align_location(a1,location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENTER");
 
 **Usage example:** 
 ```ts
-a1 = variable::align_to_axis_vector(vector(0,0,0),"FALSE");
+`variable` = variable::align_to_axis_vector(vector(0,0,0),"FALSE");
 
 #Or from the object
 
-a1 = vector(0,0,0).align_to_axis_vector("FALSE");
+`variable` = vector(0,0,0).align_to_axis_vector("FALSE");
 
 #Or dry
 
-variable::align_to_axis_vector(a1,vector(0,0,0),"FALSE");
+variable::align_to_axis_vector(`variable`,vector(0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -968,11 +968,11 @@ variable::align_to_axis_vector(a1,vector(0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-a1 = variable::append_component(["components", "components"],"CONCATENATION");
+`variable` = variable::append_component(["components", "components"],"CONCATENATION");
 
 #Or dry
 
-variable::append_component(a1,["components", "components"],"CONCATENATION");
+variable::append_component(`variable`,["components", "components"],"CONCATENATION");
 ```
 
 **Arguments:**
@@ -993,15 +993,15 @@ variable::append_component(a1,["components", "components"],"CONCATENATION");
 
 **Usage example:** 
 ```ts
-a1 = variable::append_list(`list_1`,`list_2`);
+`variable` = variable::append_list(`list_1`,`list_2`);
 
 #Or from the object
 
-a1 = `list_1`.append_list(`list_2`);
+`variable` = `list_1`.append_list(`list_2`);
 
 #Or dry
 
-variable::append_list(a1,`list_1`,`list_2`);
+variable::append_list(`variable`,`list_1`,`list_2`);
 ```
 
 **Arguments:**
@@ -1022,15 +1022,15 @@ variable::append_list(a1,`list_1`,`list_2`);
 
 **Usage example:** 
 ```ts
-a1 = variable::append_map(`map`,`other_map`);
+`variable` = variable::append_map(`map`,`other_map`);
 
 #Or from the object
 
-a1 = `map`.append_map(`other_map`);
+`variable` = `map`.append_map(`other_map`);
 
 #Or dry
 
-variable::append_map(a1,`map`,`other_map`);
+variable::append_map(`variable`,`map`,`other_map`);
 ```
 
 **Arguments:**
@@ -1051,11 +1051,11 @@ variable::append_map(a1,`map`,`other_map`);
 
 **Usage example:** 
 ```ts
-variable::append_value(a1,["any value", "any value"]);
+variable::append_value(`variable`,["any value", "any value"]);
 
 #Or from the object
 
-a1.append_value(["any value", "any value"]);
+`variable`.append_value(["any value", "any value"]);
 ```
 
 **Arguments:**
@@ -1075,11 +1075,11 @@ a1.append_value(["any value", "any value"]);
 
 **Usage example:** 
 ```ts
-a1 = variable::atan2(1,2);
+`variable` = variable::atan2(1,2);
 
 #Or dry
 
-variable::atan2(a1,1,2);
+variable::atan2(`variable`,1,2);
 ```
 
 **Arguments:**
@@ -1100,11 +1100,11 @@ variable::atan2(a1,1,2);
 
 **Usage example:** 
 ```ts
-a1 = variable::average([1, 2]);
+`variable` = variable::average([1, 2]);
 
 #Or dry
 
-variable::average(a1,[1, 2]);
+variable::average(`variable`,[1, 2]);
 ```
 
 **Arguments:**
@@ -1124,11 +1124,11 @@ variable::average(a1,[1, 2]);
 
 **Usage example:** 
 ```ts
-a1 = variable::bitwise_operation(1,2,"AND");
+`variable` = variable::bitwise_operation(1,2,"AND");
 
 #Or dry
 
-variable::bitwise_operation(a1,1,2,"AND");
+variable::bitwise_operation(`variable`,1,2,"AND");
 ```
 
 **Arguments:**
@@ -1150,11 +1150,11 @@ variable::bitwise_operation(a1,1,2,"AND");
 
 **Usage example:** 
 ```ts
-a1 = variable::center_location([location(0,0,0,0,0), location(0,0,0,0,0)]);
+`variable` = variable::center_location([location(0,0,0,0,0), location(0,0,0,0,0)]);
 
 #Or dry
 
-variable::center_location(a1,[location(0,0,0,0,0), location(0,0,0,0,0)]);
+variable::center_location(`variable`,[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
 
 **Arguments:**
@@ -1174,15 +1174,15 @@ variable::center_location(a1,[location(0,0,0,0,0), location(0,0,0,0,0)]);
 
 **Usage example:** 
 ```ts
-a1 = variable::change_component_parsing("component","JSON");
+`variable` = variable::change_component_parsing("component","JSON");
 
 #Or from the object
 
-a1 = "component".change_component_parsing("JSON");
+`variable` = "component".change_component_parsing("JSON");
 
 #Or dry
 
-variable::change_component_parsing(a1,"component","JSON");
+variable::change_component_parsing(`variable`,"component","JSON");
 ```
 
 **Arguments:**
@@ -1203,15 +1203,15 @@ variable::change_component_parsing(a1,"component","JSON");
 
 **Usage example:** 
 ```ts
-a1 = variable::char_to_number("char");
+`variable` = variable::char_to_number("char");
 
 #Or from the object
 
-a1 = "char".char_to_number();
+`variable` = "char".char_to_number();
 
 #Or dry
 
-variable::char_to_number(a1,"char");
+variable::char_to_number(`variable`,"char");
 ```
 
 **Arguments:**
@@ -1231,15 +1231,15 @@ variable::char_to_number(a1,"char");
 
 **Usage example:** 
 ```ts
-a1 = variable::clamp(1,2,3);
+`variable` = variable::clamp(1,2,3);
 
 #Or from the object
 
-a1 = (1).clamp(2,3);
+`variable` = (1).clamp(2,3);
 
 #Or dry
 
-variable::clamp(a1,1,2,3);
+variable::clamp(`variable`,1,2,3);
 ```
 
 **Arguments:**
@@ -1261,15 +1261,15 @@ variable::clamp(a1,1,2,3);
 
 **Usage example:** 
 ```ts
-a1 = variable::clear_color_codes("text");
+`variable` = variable::clear_color_codes("text");
 
 #Or from the object
 
-a1 = "text".clear_color_codes();
+`variable` = "text".clear_color_codes();
 
 #Or dry
 
-variable::clear_color_codes(a1,"text");
+variable::clear_color_codes(`variable`,"text");
 ```
 
 **Arguments:**
@@ -1289,11 +1289,11 @@ variable::clear_color_codes(a1,"text");
 
 **Usage example:** 
 ```ts
-variable::clear_map(a1);
+variable::clear_map(`map`);
 
 #Or from the object
 
-a1.clear_map();
+`map`.clear_map();
 ```
 
 **Arguments:**
@@ -1312,15 +1312,15 @@ a1.clear_map();
 
 **Usage example:** 
 ```ts
-a1 = variable::compact_component("component");
+`variable` = variable::compact_component("component");
 
 #Or from the object
 
-a1 = "component".compact_component();
+`variable` = "component".compact_component();
 
 #Or dry
 
-variable::compact_component(a1,"component");
+variable::compact_component(`variable`,"component");
 ```
 
 **Arguments:**
@@ -1340,11 +1340,11 @@ variable::compact_component(a1,"component");
 
 **Usage example:** 
 ```ts
-a1 = variable::component_of_children(["components", "components"]);
+`variable` = variable::component_of_children(["components", "components"]);
 
 #Or dry
 
-variable::component_of_children(a1,["components", "components"]);
+variable::component_of_children(`variable`,["components", "components"]);
 ```
 
 **Arguments:**
@@ -1367,15 +1367,15 @@ variable::component_of_children(a1,["components", "components"]);
 
 **Usage example:** 
 ```ts
-a1 = variable::convert_number_to_text(1,2);
+`variable` = variable::convert_number_to_text(1,2);
 
 #Or from the object
 
-a1 = (1).convert_number_to_text(2);
+`variable` = (1).convert_number_to_text(2);
 
 #Or dry
 
-variable::convert_number_to_text(a1,1,2);
+variable::convert_number_to_text(`variable`,1,2);
 ```
 
 **Arguments:**
@@ -1396,15 +1396,15 @@ variable::convert_number_to_text(a1,1,2);
 
 **Usage example:** 
 ```ts
-a1 = variable::convert_text_to_number("text",1);
+`variable` = variable::convert_text_to_number("text",1);
 
 #Or from the object
 
-a1 = "text".convert_text_to_number(1);
+`variable` = "text".convert_text_to_number(1);
 
 #Or dry
 
-variable::convert_text_to_number(a1,"text",1);
+variable::convert_text_to_number(`variable`,"text",1);
 ```
 
 **Arguments:**
@@ -1425,15 +1425,15 @@ variable::convert_text_to_number(a1,"text",1);
 
 **Usage example:** 
 ```ts
-a1 = variable::cosine(1,"ARCCOSINE","DEGREES");
+`variable` = variable::cosine(1,"ARCCOSINE","DEGREES");
 
 #Or from the object
 
-a1 = (1).cosine("ARCCOSINE","DEGREES");
+`variable` = (1).cosine("ARCCOSINE","DEGREES");
 
 #Or dry
 
-variable::cosine(a1,1,"ARCCOSINE","DEGREES");
+variable::cosine(`variable`,1,"ARCCOSINE","DEGREES");
 ```
 
 **Arguments:**
@@ -1455,15 +1455,15 @@ variable::cosine(a1,1,"ARCCOSINE","DEGREES");
 
 **Usage example:** 
 ```ts
-a1 = variable::cotangent(1,"ARCCOTANGENT","DEGREES");
+`variable` = variable::cotangent(1,"ARCCOTANGENT","DEGREES");
 
 #Or from the object
 
-a1 = (1).cotangent("ARCCOTANGENT","DEGREES");
+`variable` = (1).cotangent("ARCCOTANGENT","DEGREES");
 
 #Or dry
 
-variable::cotangent(a1,1,"ARCCOTANGENT","DEGREES");
+variable::cotangent(`variable`,1,"ARCCOTANGENT","DEGREES");
 ```
 
 **Arguments:**
@@ -1485,11 +1485,11 @@ variable::cotangent(a1,1,"ARCCOTANGENT","DEGREES");
 
 **Usage example:** 
 ```ts
-a1 = variable::create_keybind_component("key");
+`variable` = variable::create_keybind_component("key");
 
 #Or dry
 
-variable::create_keybind_component(a1,"key");
+variable::create_keybind_component(`variable`,"key");
 ```
 
 **Arguments:**
@@ -1511,11 +1511,11 @@ variable::create_keybind_component(a1,"key");
 
 **Usage example:** 
 ```ts
-a1 = variable::create_list(["any value", "any value"]);
+`variable` = variable::create_list(["any value", "any value"]);
 
 #Or dry
 
-variable::create_list(a1,["any value", "any value"]);
+variable::create_list(`variable`,["any value", "any value"]);
 ```
 
 **Arguments:**
@@ -1537,11 +1537,11 @@ variable::create_list(a1,["any value", "any value"]);
 
 **Usage example:** 
 ```ts
-a1 = variable::create_map(`keys`,`values`);
+`variable` = variable::create_map(`keys`,`values`);
 
 #Or dry
 
-variable::create_map(a1,`keys`,`values`);
+variable::create_map(`variable`,`keys`,`values`);
 ```
 
 **Arguments:**
@@ -1564,11 +1564,11 @@ variable::create_map(a1,`keys`,`values`);
 
 **Usage example:** 
 ```ts
-a1 = variable::create_map_from_values(["any value", "any value"],["any value", "any value"]);
+`variable` = variable::create_map_from_values(["any value", "any value"],["any value", "any value"]);
 
 #Or dry
 
-variable::create_map_from_values(a1,["any value", "any value"],["any value", "any value"]);
+variable::create_map_from_values(`variable`,["any value", "any value"],["any value", "any value"]);
 ```
 
 **Arguments:**
@@ -1589,11 +1589,11 @@ variable::create_map_from_values(a1,["any value", "any value"],["any value", "an
 
 **Usage example:** 
 ```ts
-a1 = variable::create_translatable_component("key",["args", "args"]);
+`variable` = variable::create_translatable_component("key",["args", "args"]);
 
 #Or dry
 
-variable::create_translatable_component(a1,"key",["args", "args"]);
+variable::create_translatable_component(`variable`,"key",["args", "args"]);
 ```
 
 **Arguments:**
@@ -1614,15 +1614,15 @@ variable::create_translatable_component(a1,"key",["args", "args"]);
 
 **Usage example:** 
 ```ts
-a1 = variable::decrement(1);
+`variable` = variable::decrement(1);
 
 #Or from the object
 
-a1.decrement(1);
+`variable`.decrement(1);
 
 #Or dry
 
-variable::decrement(a1,1);
+variable::decrement(`variable`,1);
 ```
 
 **Arguments:**
@@ -1642,11 +1642,11 @@ variable::decrement(a1,1);
 
 **Usage example:** 
 ```ts
-a1 = variable::divide([1, 2],"CEIL");
+`variable` = variable::divide([1, 2],"CEIL");
 
 #Or dry
 
-variable::divide(a1,[1, 2],"CEIL");
+variable::divide(`variable`,[1, 2],"CEIL");
 ```
 
 **Arguments:**
@@ -1667,11 +1667,11 @@ variable::divide(a1,[1, 2],"CEIL");
 
 **Usage example:** 
 ```ts
-a1 = variable::divide_vector(vector(0,0,0),vector(0,0,0));
+`variable` = variable::divide_vector(vector(0,0,0),vector(0,0,0));
 
 #Or dry
 
-variable::divide_vector(a1,vector(0,0,0),vector(0,0,0));
+variable::divide_vector(`variable`,vector(0,0,0),vector(0,0,0));
 ```
 
 **Arguments:**
@@ -1706,15 +1706,15 @@ variable::dummy();
 
 **Usage example:** 
 ```ts
-a1 = variable::face_location(location(0,0,0,0,0),location(0,0,0,0,0));
+`variable` = variable::face_location(location(0,0,0,0,0),location(0,0,0,0,0));
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).face_location(location(0,0,0,0,0));
+`variable` = location(0,0,0,0,0).face_location(location(0,0,0,0,0));
 
 #Or dry
 
-variable::face_location(a1,location(0,0,0,0,0),location(0,0,0,0,0));
+variable::face_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -1735,15 +1735,15 @@ variable::face_location(a1,location(0,0,0,0,0),location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::flatten_list(`list`);
+`variable` = variable::flatten_list(`list`);
 
 #Or from the object
 
-a1 = `list`.flatten_list();
+`variable` = `list`.flatten_list();
 
 #Or dry
 
-variable::flatten_list(a1,`list`);
+variable::flatten_list(`variable`,`list`);
 ```
 
 **Arguments:**
@@ -1763,15 +1763,15 @@ variable::flatten_list(a1,`list`);
 
 **Usage example:** 
 ```ts
-a1 = variable::format_timestamp(1,"pattern","zone_id","locale","CUSTOM");
+`variable` = variable::format_timestamp(1,"pattern","zone_id","locale","CUSTOM");
 
 #Or from the object
 
-a1 = (1).format_timestamp("pattern","zone_id","locale","CUSTOM");
+`variable` = (1).format_timestamp("pattern","zone_id","locale","CUSTOM");
 
 #Or dry
 
-variable::format_timestamp(a1,1,"pattern","zone_id","locale","CUSTOM");
+variable::format_timestamp(`variable`,1,"pattern","zone_id","locale","CUSTOM");
 ```
 
 **Arguments:**
@@ -1798,15 +1798,15 @@ variable::format_timestamp(a1,1,"pattern","zone_id","locale","CUSTOM");
 
 **Usage example:** 
 ```ts
-a1 = variable::gamma_function(1);
+`variable` = variable::gamma_function(1);
 
 #Or from the object
 
-a1 = (1).gamma_function();
+`variable` = (1).gamma_function();
 
 #Or dry
 
-variable::gamma_function(a1,1);
+variable::gamma_function(`variable`,1);
 ```
 
 **Arguments:**
@@ -1826,11 +1826,11 @@ variable::gamma_function(a1,1);
 
 **Usage example:** 
 ```ts
-a1 = variable::gaussian_distribution(1,2,"FOLDER_NORMAL");
+`variable` = variable::gaussian_distribution(1,2,"FOLDER_NORMAL");
 
 #Or dry
 
-variable::gaussian_distribution(a1,1,2,"FOLDER_NORMAL");
+variable::gaussian_distribution(`variable`,1,2,"FOLDER_NORMAL");
 ```
 
 **Arguments:**
@@ -1852,15 +1852,15 @@ variable::gaussian_distribution(a1,1,2,"FOLDER_NORMAL");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_all_block_data(location(0,0,0,0,0),"FALSE");
+`variable` = variable::get_all_block_data(location(0,0,0,0,0),"FALSE");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_all_block_data("FALSE");
+`variable` = location(0,0,0,0,0).get_all_block_data("FALSE");
 
 #Or dry
 
-variable::get_all_block_data(a1,location(0,0,0,0,0),"FALSE");
+variable::get_all_block_data(`variable`,location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -1881,15 +1881,15 @@ variable::get_all_block_data(a1,location(0,0,0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-a1, a2, a3, a4, a5 = variable::get_all_coordinates(location(0,0,0,0,0));
+`x`, `y`, `z`, `yaw`, `pitch` = variable::get_all_coordinates(location(0,0,0,0,0));
 
 #Or from the object
 
-a1, a2, a3, a4, a5 = location(0,0,0,0,0).get_all_coordinates();
+`x`, `y`, `z`, `yaw`, `pitch` = location(0,0,0,0,0).get_all_coordinates();
 
 #Or dry
 
-variable::get_all_coordinates(a1,a2,a3,a4,a5,location(0,0,0,0,0));
+variable::get_all_coordinates(`x`,`y`,`z`,`yaw`,`pitch`,location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -1913,11 +1913,11 @@ variable::get_all_coordinates(a1,a2,a3,a4,a5,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_angle_between_vectors(vector(0,0,0),vector(0,0,0),"DEGREES");
+`variable` = variable::get_angle_between_vectors(vector(0,0,0),vector(0,0,0),"DEGREES");
 
 #Or dry
 
-variable::get_angle_between_vectors(a1,vector(0,0,0),vector(0,0,0),"DEGREES");
+variable::get_angle_between_vectors(`variable`,vector(0,0,0),vector(0,0,0),"DEGREES");
 ```
 
 **Arguments:**
@@ -1939,11 +1939,11 @@ variable::get_angle_between_vectors(a1,vector(0,0,0),vector(0,0,0),"DEGREES");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_block_custom_tag(location(0,0,0,0,0),"tag_name","tag_value","any value");
+`variable` = variable::get_block_custom_tag(location(0,0,0,0,0),"tag_name","tag_value","any value");
 
 #Or dry
 
-variable::get_block_custom_tag(a1,location(0,0,0,0,0),"tag_name","tag_value","any value");
+variable::get_block_custom_tag(`variable`,location(0,0,0,0,0),"tag_name","tag_value","any value");
 ```
 
 **Arguments:**
@@ -1966,15 +1966,15 @@ variable::get_block_custom_tag(a1,location(0,0,0,0,0),"tag_name","tag_value","an
 
 **Usage example:** 
 ```ts
-a1 = variable::get_block_data(location(0,0,0,0,0),"tag_name");
+`variable` = variable::get_block_data(location(0,0,0,0,0),"tag_name");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_block_data("tag_name");
+`variable` = location(0,0,0,0,0).get_block_data("tag_name");
 
 #Or dry
 
-variable::get_block_data(a1,location(0,0,0,0,0),"tag_name");
+variable::get_block_data(`variable`,location(0,0,0,0,0),"tag_name");
 ```
 
 **Arguments:**
@@ -1995,15 +1995,15 @@ variable::get_block_data(a1,location(0,0,0,0,0),"tag_name");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_block_growth(location(0,0,0,0,0),"GROWTH_PERCENTAGE");
+`variable` = variable::get_block_growth(location(0,0,0,0,0),"GROWTH_PERCENTAGE");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_block_growth("GROWTH_PERCENTAGE");
+`variable` = location(0,0,0,0,0).get_block_growth("GROWTH_PERCENTAGE");
 
 #Or dry
 
-variable::get_block_growth(a1,location(0,0,0,0,0),"GROWTH_PERCENTAGE");
+variable::get_block_growth(`variable`,location(0,0,0,0,0),"GROWTH_PERCENTAGE");
 ```
 
 **Arguments:**
@@ -2024,15 +2024,15 @@ variable::get_block_growth(a1,location(0,0,0,0,0),"GROWTH_PERCENTAGE");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_block_material(location(0,0,0,0,0),"ID");
+`variable` = variable::get_block_material(location(0,0,0,0,0),"ID");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_block_material("ID");
+`variable` = location(0,0,0,0,0).get_block_material("ID");
 
 #Or dry
 
-variable::get_block_material(a1,location(0,0,0,0,0),"ID");
+variable::get_block_material(`variable`,location(0,0,0,0,0),"ID");
 ```
 
 **Arguments:**
@@ -2053,15 +2053,15 @@ variable::get_block_material(a1,location(0,0,0,0,0),"ID");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_block_material_property(item("stone"),"BLAST_RESISTANCE");
+`variable` = variable::get_block_material_property(item("stone"),"BLAST_RESISTANCE");
 
 #Or from the object
 
-a1 = item("stone").get_block_material_property("BLAST_RESISTANCE");
+`variable` = item("stone").get_block_material_property("BLAST_RESISTANCE");
 
 #Or dry
 
-variable::get_block_material_property(a1,item("stone"),"BLAST_RESISTANCE");
+variable::get_block_material_property(`variable`,item("stone"),"BLAST_RESISTANCE");
 ```
 
 **Arguments:**
@@ -2082,15 +2082,15 @@ variable::get_block_material_property(a1,item("stone"),"BLAST_RESISTANCE");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_block_power(location(0,0,0,0,0));
+`variable` = variable::get_block_power(location(0,0,0,0,0));
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_block_power();
+`variable` = location(0,0,0,0,0).get_block_power();
 
 #Or dry
 
-variable::get_block_power(a1,location(0,0,0,0,0));
+variable::get_block_power(`variable`,location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -2110,15 +2110,15 @@ variable::get_block_power(a1,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_block_sound(item("stone"),"BREAK");
+`variable` = variable::get_block_sound(item("stone"),"BREAK");
 
 #Or from the object
 
-a1 = item("stone").get_block_sound("BREAK");
+`variable` = item("stone").get_block_sound("BREAK");
 
 #Or dry
 
-variable::get_block_sound(a1,item("stone"),"BREAK");
+variable::get_block_sound(`variable`,item("stone"),"BREAK");
 ```
 
 **Arguments:**
@@ -2139,15 +2139,15 @@ variable::get_block_sound(a1,item("stone"),"BREAK");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_book_text(item("stick"),1);
+`variable` = variable::get_book_text(item("stick"),1);
 
 #Or from the object
 
-a1 = item("stick").get_book_text(1);
+`variable` = item("stick").get_book_text(1);
 
 #Or dry
 
-variable::get_book_text(a1,item("stick"),1);
+variable::get_book_text(`variable`,item("stick"),1);
 ```
 
 **Arguments:**
@@ -2168,15 +2168,15 @@ variable::get_book_text(a1,item("stick"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_brushable_block_item(location(0,0,0,0,0));
+`variable` = variable::get_brushable_block_item(location(0,0,0,0,0));
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_brushable_block_item();
+`variable` = location(0,0,0,0,0).get_brushable_block_item();
 
 #Or dry
 
-variable::get_brushable_block_item(a1,location(0,0,0,0,0));
+variable::get_brushable_block_item(`variable`,location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -2196,11 +2196,11 @@ variable::get_brushable_block_item(a1,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-variable::get_bundle_items(a1,item("stick"));
+variable::get_bundle_items(`variable`,item("stick"));
 
 #Or from the object
 
-item("stick").get_bundle_items(a1);
+item("stick").get_bundle_items(`variable`);
 ```
 
 **Arguments:**
@@ -2220,15 +2220,15 @@ item("stick").get_bundle_items(a1);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_char_at("text",1);
+`variable` = variable::get_char_at("text",1);
 
 #Or from the object
 
-a1 = "text".get_char_at(1);
+`variable` = "text".get_char_at(1);
 
 #Or dry
 
-variable::get_char_at(a1,"text",1);
+variable::get_char_at(`variable`,"text",1);
 ```
 
 **Arguments:**
@@ -2249,15 +2249,15 @@ variable::get_char_at(a1,"text",1);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_color_channels("color","HSB");
+`variable` = variable::get_color_channels("color","HSB");
 
 #Or from the object
 
-a1 = "color".get_color_channels("HSB");
+`variable` = "color".get_color_channels("HSB");
 
 #Or dry
 
-variable::get_color_channels(a1,"color","HSB");
+variable::get_color_channels(`variable`,"color","HSB");
 ```
 
 **Arguments:**
@@ -2278,15 +2278,15 @@ variable::get_color_channels(a1,"color","HSB");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_compass_lodestone(item("stick"));
+`variable` = variable::get_compass_lodestone(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").get_compass_lodestone();
+`variable` = item("stick").get_compass_lodestone();
 
 #Or dry
 
-variable::get_compass_lodestone(a1,item("stick"));
+variable::get_compass_lodestone(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -2306,15 +2306,15 @@ variable::get_compass_lodestone(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_component_children("component");
+`variable` = variable::get_component_children("component");
 
 #Or from the object
 
-a1 = "component".get_component_children();
+`variable` = "component".get_component_children();
 
 #Or dry
 
-variable::get_component_children(a1,"component");
+variable::get_component_children(`variable`,"component");
 ```
 
 **Arguments:**
@@ -2334,15 +2334,15 @@ variable::get_component_children(a1,"component");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_component_decorations("component");
+`variable` = variable::get_component_decorations("component");
 
 #Or from the object
 
-a1 = "component".get_component_decorations();
+`variable` = "component".get_component_decorations();
 
 #Or dry
 
-variable::get_component_decorations(a1,"component");
+variable::get_component_decorations(`variable`,"component");
 ```
 
 **Arguments:**
@@ -2362,15 +2362,15 @@ variable::get_component_decorations(a1,"component");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_component_hex_color("component");
+`variable` = variable::get_component_hex_color("component");
 
 #Or from the object
 
-a1 = "component".get_component_hex_color();
+`variable` = "component".get_component_hex_color();
 
 #Or dry
 
-variable::get_component_hex_color(a1,"component");
+variable::get_component_hex_color(`variable`,"component");
 ```
 
 **Arguments:**
@@ -2390,15 +2390,15 @@ variable::get_component_hex_color(a1,"component");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_component_parsing("component");
+`variable` = variable::get_component_parsing("component");
 
 #Or from the object
 
-a1 = "component".get_component_parsing();
+`variable` = "component".get_component_parsing();
 
 #Or dry
 
-variable::get_component_parsing(a1,"component");
+variable::get_component_parsing(`variable`,"component");
 ```
 
 **Arguments:**
@@ -2418,15 +2418,15 @@ variable::get_component_parsing(a1,"component");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_container_contents(location(0,0,0,0,0),"FALSE");
+`variable` = variable::get_container_contents(location(0,0,0,0,0),"FALSE");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_container_contents("FALSE");
+`variable` = location(0,0,0,0,0).get_container_contents("FALSE");
 
 #Or dry
 
-variable::get_container_contents(a1,location(0,0,0,0,0),"FALSE");
+variable::get_container_contents(`variable`,location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -2447,15 +2447,15 @@ variable::get_container_contents(a1,location(0,0,0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_container_lock(location(0,0,0,0,0));
+`variable` = variable::get_container_lock(location(0,0,0,0,0));
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_container_lock();
+`variable` = location(0,0,0,0,0).get_container_lock();
 
 #Or dry
 
-variable::get_container_lock(a1,location(0,0,0,0,0));
+variable::get_container_lock(`variable`,location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -2475,15 +2475,15 @@ variable::get_container_lock(a1,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_container_name(location(0,0,0,0,0));
+`variable` = variable::get_container_name(location(0,0,0,0,0));
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_container_name();
+`variable` = location(0,0,0,0,0).get_container_name();
 
 #Or dry
 
-variable::get_container_name(a1,location(0,0,0,0,0));
+variable::get_container_name(`variable`,location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -2503,15 +2503,15 @@ variable::get_container_name(a1,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_coordinate(location(0,0,0,0,0),"PITCH");
+`variable` = variable::get_coordinate(location(0,0,0,0,0),"PITCH");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_coordinate("PITCH");
+`variable` = location(0,0,0,0,0).get_coordinate("PITCH");
 
 #Or dry
 
-variable::get_coordinate(a1,location(0,0,0,0,0),"PITCH");
+variable::get_coordinate(`variable`,location(0,0,0,0,0),"PITCH");
 ```
 
 **Arguments:**
@@ -2532,15 +2532,15 @@ variable::get_coordinate(a1,location(0,0,0,0,0),"PITCH");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_decorate_pot_sherd(location(0,0,0,0,0),"BACK");
+`variable` = variable::get_decorate_pot_sherd(location(0,0,0,0,0),"BACK");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_decorate_pot_sherd("BACK");
+`variable` = location(0,0,0,0,0).get_decorate_pot_sherd("BACK");
 
 #Or dry
 
-variable::get_decorate_pot_sherd(a1,location(0,0,0,0,0),"BACK");
+variable::get_decorate_pot_sherd(`variable`,location(0,0,0,0,0),"BACK");
 ```
 
 **Arguments:**
@@ -2561,15 +2561,15 @@ variable::get_decorate_pot_sherd(a1,location(0,0,0,0,0),"BACK");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_index_of_subtext("text","subtext",1,"FIRST");
+`variable` = variable::get_index_of_subtext("text","subtext",1,"FIRST");
 
 #Or from the object
 
-a1 = "text".get_index_of_subtext("subtext",1,"FIRST");
+`variable` = "text".get_index_of_subtext("subtext",1,"FIRST");
 
 #Or dry
 
-variable::get_index_of_subtext(a1,"text","subtext",1,"FIRST");
+variable::get_index_of_subtext(`variable`,"text","subtext",1,"FIRST");
 ```
 
 **Arguments:**
@@ -2592,15 +2592,15 @@ variable::get_index_of_subtext(a1,"text","subtext",1,"FIRST");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_amount(item("stick"));
+`variable` = variable::get_item_amount(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").get_item_amount();
+`variable` = item("stick").get_item_amount();
 
 #Or dry
 
-variable::get_item_amount(a1,item("stick"));
+variable::get_item_amount(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -2620,15 +2620,15 @@ variable::get_item_amount(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_attribute(item("stick"),"name","ARMOR","ALL","ADD_NUMBER");
+`variable` = variable::get_item_attribute(item("stick"),"name","ARMOR","ALL","ADD_NUMBER");
 
 #Or from the object
 
-a1 = item("stick").get_item_attribute("name","ARMOR","ALL","ADD_NUMBER");
+`variable` = item("stick").get_item_attribute("name","ARMOR","ALL","ADD_NUMBER");
 
 #Or dry
 
-variable::get_item_attribute(a1,item("stick"),"name","ARMOR","ALL","ADD_NUMBER");
+variable::get_item_attribute(`variable`,item("stick"),"name","ARMOR","ALL","ADD_NUMBER");
 ```
 
 **Arguments:**
@@ -2657,15 +2657,15 @@ variable::get_item_attribute(a1,item("stick"),"name","ARMOR","ALL","ADD_NUMBER")
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_color(item("stick"));
+`variable` = variable::get_item_color(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").get_item_color();
+`variable` = item("stick").get_item_color();
 
 #Or dry
 
-variable::get_item_color(a1,item("stick"));
+variable::get_item_color(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -2685,15 +2685,15 @@ variable::get_item_color(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_custom_model_data(item("stick"));
+`variable` = variable::get_item_custom_model_data(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").get_item_custom_model_data();
+`variable` = item("stick").get_item_custom_model_data();
 
 #Or dry
 
-variable::get_item_custom_model_data(a1,item("stick"));
+variable::get_item_custom_model_data(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -2713,15 +2713,15 @@ variable::get_item_custom_model_data(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_custom_tag(item("stick"),"tag_name","any value");
+`variable` = variable::get_item_custom_tag(item("stick"),"tag_name","any value");
 
 #Or from the object
 
-a1 = item("stick").get_item_custom_tag("tag_name","any value");
+`variable` = item("stick").get_item_custom_tag("tag_name","any value");
 
 #Or dry
 
-variable::get_item_custom_tag(a1,item("stick"),"tag_name","any value");
+variable::get_item_custom_tag(`variable`,item("stick"),"tag_name","any value");
 ```
 
 **Arguments:**
@@ -2743,15 +2743,15 @@ variable::get_item_custom_tag(a1,item("stick"),"tag_name","any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_custom_tags(item("stick"));
+`variable` = variable::get_item_custom_tags(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").get_item_custom_tags();
+`variable` = item("stick").get_item_custom_tags();
 
 #Or dry
 
-variable::get_item_custom_tags(a1,item("stick"));
+variable::get_item_custom_tags(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -2771,11 +2771,11 @@ variable::get_item_custom_tags(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-variable::get_item_destroyable_blocks(a1,item("stick"));
+variable::get_item_destroyable_blocks(`variable`,item("stick"));
 
 #Or from the object
 
-item("stick").get_item_destroyable_blocks(a1);
+item("stick").get_item_destroyable_blocks(`variable`);
 ```
 
 **Arguments:**
@@ -2795,15 +2795,15 @@ item("stick").get_item_destroyable_blocks(a1);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_durability(item("stick"),"DAMAGE");
+`variable` = variable::get_item_durability(item("stick"),"DAMAGE");
 
 #Or from the object
 
-a1 = item("stick").get_item_durability("DAMAGE");
+`variable` = item("stick").get_item_durability("DAMAGE");
 
 #Or dry
 
-variable::get_item_durability(a1,item("stick"),"DAMAGE");
+variable::get_item_durability(`variable`,item("stick"),"DAMAGE");
 ```
 
 **Arguments:**
@@ -2824,15 +2824,15 @@ variable::get_item_durability(a1,item("stick"),"DAMAGE");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_enchantments(item("stick"));
+`variable` = variable::get_item_enchantments(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").get_item_enchantments();
+`variable` = item("stick").get_item_enchantments();
 
 #Or dry
 
-variable::get_item_enchantments(a1,item("stick"));
+variable::get_item_enchantments(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -2852,15 +2852,15 @@ variable::get_item_enchantments(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_lore(item("stick"));
+`variable` = variable::get_item_lore(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").get_item_lore();
+`variable` = item("stick").get_item_lore();
 
 #Or dry
 
-variable::get_item_lore(a1,item("stick"));
+variable::get_item_lore(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -2880,15 +2880,15 @@ variable::get_item_lore(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_lore_line(item("stick"),1);
+`variable` = variable::get_item_lore_line(item("stick"),1);
 
 #Or from the object
 
-a1 = item("stick").get_item_lore_line(1);
+`variable` = item("stick").get_item_lore_line(1);
 
 #Or dry
 
-variable::get_item_lore_line(a1,item("stick"),1);
+variable::get_item_lore_line(`variable`,item("stick"),1);
 ```
 
 **Arguments:**
@@ -2909,15 +2909,15 @@ variable::get_item_lore_line(a1,item("stick"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_max_stack_size(item("stick"));
+`variable` = variable::get_item_max_stack_size(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").get_item_max_stack_size();
+`variable` = item("stick").get_item_max_stack_size();
 
 #Or dry
 
-variable::get_item_max_stack_size(a1,item("stick"));
+variable::get_item_max_stack_size(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -2937,15 +2937,15 @@ variable::get_item_max_stack_size(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_name(item("stick"));
+`variable` = variable::get_item_name(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").get_item_name();
+`variable` = item("stick").get_item_name();
 
 #Or dry
 
-variable::get_item_name(a1,item("stick"));
+variable::get_item_name(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -2965,15 +2965,15 @@ variable::get_item_name(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_nbt_tags(item("stick"),"ALL");
+`variable` = variable::get_item_nbt_tags(item("stick"),"ALL");
 
 #Or from the object
 
-a1 = item("stick").get_item_nbt_tags("ALL");
+`variable` = item("stick").get_item_nbt_tags("ALL");
 
 #Or dry
 
-variable::get_item_nbt_tags(a1,item("stick"),"ALL");
+variable::get_item_nbt_tags(`variable`,item("stick"),"ALL");
 ```
 
 **Arguments:**
@@ -2994,11 +2994,11 @@ variable::get_item_nbt_tags(a1,item("stick"),"ALL");
 
 **Usage example:** 
 ```ts
-variable::get_item_placeable_blocks(a1,item("stick"));
+variable::get_item_placeable_blocks(`variable`,item("stick"));
 
 #Or from the object
 
-item("stick").get_item_placeable_blocks(a1);
+item("stick").get_item_placeable_blocks(`variable`);
 ```
 
 **Arguments:**
@@ -3018,15 +3018,15 @@ item("stick").get_item_placeable_blocks(a1);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_potion_effects(item("stick"));
+`variable` = variable::get_item_potion_effects(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").get_item_potion_effects();
+`variable` = item("stick").get_item_potion_effects();
 
 #Or dry
 
-variable::get_item_potion_effects(a1,item("stick"));
+variable::get_item_potion_effects(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -3046,15 +3046,15 @@ variable::get_item_potion_effects(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_rarity(item("stick"));
+`variable` = variable::get_item_rarity(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").get_item_rarity();
+`variable` = item("stick").get_item_rarity();
 
 #Or dry
 
-variable::get_item_rarity(a1,item("stick"));
+variable::get_item_rarity(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -3074,15 +3074,15 @@ variable::get_item_rarity(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_item_type(item("stick"),"ID");
+`variable` = variable::get_item_type(item("stick"),"ID");
 
 #Or from the object
 
-a1 = item("stick").get_item_type("ID");
+`variable` = item("stick").get_item_type("ID");
 
 #Or dry
 
-variable::get_item_type(a1,item("stick"),"ID");
+variable::get_item_type(`variable`,item("stick"),"ID");
 ```
 
 **Arguments:**
@@ -3103,15 +3103,15 @@ variable::get_item_type(a1,item("stick"),"ID");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_lectern_book(location(0,0,0,0,0));
+`variable` = variable::get_lectern_book(location(0,0,0,0,0));
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_lectern_book();
+`variable` = location(0,0,0,0,0).get_lectern_book();
 
 #Or dry
 
-variable::get_lectern_book(a1,location(0,0,0,0,0));
+variable::get_lectern_book(`variable`,location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -3131,15 +3131,15 @@ variable::get_lectern_book(a1,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_lectern_page(location(0,0,0,0,0));
+`variable` = variable::get_lectern_page(location(0,0,0,0,0));
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_lectern_page();
+`variable` = location(0,0,0,0,0).get_lectern_page();
 
 #Or dry
 
-variable::get_lectern_page(a1,location(0,0,0,0,0));
+variable::get_lectern_page(`variable`,location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -3159,15 +3159,15 @@ variable::get_lectern_page(a1,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_light_level(location(0,0,0,0,0),"BLOCKS");
+`variable` = variable::get_light_level(location(0,0,0,0,0),"BLOCKS");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_light_level("BLOCKS");
+`variable` = location(0,0,0,0,0).get_light_level("BLOCKS");
 
 #Or dry
 
-variable::get_light_level(a1,location(0,0,0,0,0),"BLOCKS");
+variable::get_light_level(`variable`,location(0,0,0,0,0),"BLOCKS");
 ```
 
 **Arguments:**
@@ -3188,15 +3188,15 @@ variable::get_light_level(a1,location(0,0,0,0,0),"BLOCKS");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_list_index_of_value(`list`,"any value","FIRST");
+`variable` = variable::get_list_index_of_value(`list`,"any value","FIRST");
 
 #Or from the object
 
-a1 = `list`.get_list_index_of_value("any value","FIRST");
+`variable` = `list`.get_list_index_of_value("any value","FIRST");
 
 #Or dry
 
-variable::get_list_index_of_value(a1,`list`,"any value","FIRST");
+variable::get_list_index_of_value(`variable`,`list`,"any value","FIRST");
 ```
 
 **Arguments:**
@@ -3218,15 +3218,15 @@ variable::get_list_index_of_value(a1,`list`,"any value","FIRST");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_list_length(`list`);
+`variable` = variable::get_list_length(`list`);
 
 #Or from the object
 
-a1 = `list`.get_list_length();
+`variable` = `list`.get_list_length();
 
 #Or dry
 
-variable::get_list_length(a1,`list`);
+variable::get_list_length(`variable`,`list`);
 ```
 
 **Arguments:**
@@ -3246,15 +3246,15 @@ variable::get_list_length(a1,`list`);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_list_random_value(`list`);
+`variable` = variable::get_list_random_value(`list`);
 
 #Or from the object
 
-a1 = `list`.get_list_random_value();
+`variable` = `list`.get_list_random_value();
 
 #Or dry
 
-variable::get_list_random_value(a1,`list`);
+variable::get_list_random_value(`variable`,`list`);
 ```
 
 **Arguments:**
@@ -3274,15 +3274,15 @@ variable::get_list_random_value(a1,`list`);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_list_value(`list`,1,"any value");
+`variable` = variable::get_list_value(`list`,1,"any value");
 
 #Or from the object
 
-a1 = `list`.get_list_value(1,"any value");
+`variable` = `list`.get_list_value(1,"any value");
 
 #Or dry
 
-variable::get_list_value(a1,`list`,1,"any value");
+variable::get_list_value(`variable`,`list`,1,"any value");
 ```
 
 **Arguments:**
@@ -3304,11 +3304,11 @@ variable::get_list_value(a1,`list`,1,"any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_list_variables("GAME");
+`variable` = variable::get_list_variables("GAME");
 
 #Or dry
 
-variable::get_list_variables(a1,"GAME");
+variable::get_list_variables(`variable`,"GAME");
 ```
 
 **Arguments:**
@@ -3328,15 +3328,15 @@ variable::get_list_variables(a1,"GAME");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_location_direction(location(0,0,0,0,0));
+`variable` = variable::get_location_direction(location(0,0,0,0,0));
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_location_direction();
+`variable` = location(0,0,0,0,0).get_location_direction();
 
 #Or dry
 
-variable::get_location_direction(a1,location(0,0,0,0,0));
+variable::get_location_direction(`variable`,location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -3356,15 +3356,15 @@ variable::get_location_direction(a1,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_map_key_by_index(`map`,1,"any value");
+`variable` = variable::get_map_key_by_index(`map`,1,"any value");
 
 #Or from the object
 
-a1 = `map`.get_map_key_by_index(1,"any value");
+`variable` = `map`.get_map_key_by_index(1,"any value");
 
 #Or dry
 
-variable::get_map_key_by_index(a1,`map`,1,"any value");
+variable::get_map_key_by_index(`variable`,`map`,1,"any value");
 ```
 
 **Arguments:**
@@ -3386,15 +3386,15 @@ variable::get_map_key_by_index(a1,`map`,1,"any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_map_keys(`map`);
+`variable` = variable::get_map_keys(`map`);
 
 #Or from the object
 
-a1 = `map`.get_map_keys();
+`variable` = `map`.get_map_keys();
 
 #Or dry
 
-variable::get_map_keys(a1,`map`);
+variable::get_map_keys(`variable`,`map`);
 ```
 
 **Arguments:**
@@ -3414,15 +3414,15 @@ variable::get_map_keys(a1,`map`);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_map_keys_by_value(`map`,"any value","any value","ALL");
+`variable` = variable::get_map_keys_by_value(`map`,"any value","any value","ALL");
 
 #Or from the object
 
-a1 = `map`.get_map_keys_by_value("any value","any value","ALL");
+`variable` = `map`.get_map_keys_by_value("any value","any value","ALL");
 
 #Or dry
 
-variable::get_map_keys_by_value(a1,`map`,"any value","any value","ALL");
+variable::get_map_keys_by_value(`variable`,`map`,"any value","any value","ALL");
 ```
 
 **Arguments:**
@@ -3445,15 +3445,15 @@ variable::get_map_keys_by_value(a1,`map`,"any value","any value","ALL");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_map_size(`map`);
+`variable` = variable::get_map_size(`map`);
 
 #Or from the object
 
-a1 = `map`.get_map_size();
+`variable` = `map`.get_map_size();
 
 #Or dry
 
-variable::get_map_size(a1,`map`);
+variable::get_map_size(`variable`,`map`);
 ```
 
 **Arguments:**
@@ -3473,15 +3473,15 @@ variable::get_map_size(a1,`map`);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_map_value(`map`,"any value","any value");
+`variable` = variable::get_map_value(`map`,"any value","any value");
 
 #Or from the object
 
-a1 = `map`.get_map_value("any value","any value");
+`variable` = `map`.get_map_value("any value","any value");
 
 #Or dry
 
-variable::get_map_value(a1,`map`,"any value","any value");
+variable::get_map_value(`variable`,`map`,"any value","any value");
 ```
 
 **Arguments:**
@@ -3503,15 +3503,15 @@ variable::get_map_value(a1,`map`,"any value","any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_map_value_by_index(`map`,1,"any value");
+`variable` = variable::get_map_value_by_index(`map`,1,"any value");
 
 #Or from the object
 
-a1 = `map`.get_map_value_by_index(1,"any value");
+`variable` = `map`.get_map_value_by_index(1,"any value");
 
 #Or dry
 
-variable::get_map_value_by_index(a1,`map`,1,"any value");
+variable::get_map_value_by_index(`variable`,`map`,1,"any value");
 ```
 
 **Arguments:**
@@ -3533,15 +3533,15 @@ variable::get_map_value_by_index(a1,`map`,1,"any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_map_values(`map`);
+`variable` = variable::get_map_values(`map`);
 
 #Or from the object
 
-a1 = `map`.get_map_values();
+`variable` = `map`.get_map_values();
 
 #Or dry
 
-variable::get_map_values(a1,`map`);
+variable::get_map_values(`variable`,`map`);
 ```
 
 **Arguments:**
@@ -3561,11 +3561,11 @@ variable::get_map_values(a1,`map`);
 
 **Usage example:** 
 ```ts
-a1 = variable::get_midpoint_between_vectors(vector(0,0,0),vector(0,0,0));
+`variable` = variable::get_midpoint_between_vectors(vector(0,0,0),vector(0,0,0));
 
 #Or dry
 
-variable::get_midpoint_between_vectors(a1,vector(0,0,0),vector(0,0,0));
+variable::get_midpoint_between_vectors(`variable`,vector(0,0,0),vector(0,0,0));
 ```
 
 **Arguments:**
@@ -3586,15 +3586,15 @@ variable::get_midpoint_between_vectors(a1,vector(0,0,0),vector(0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_particle_amount(particle("fire"));
+`variable` = variable::get_particle_amount(particle("fire"));
 
 #Or from the object
 
-a1 = particle("fire").get_particle_amount();
+`variable` = particle("fire").get_particle_amount();
 
 #Or dry
 
-variable::get_particle_amount(a1,particle("fire"));
+variable::get_particle_amount(`variable`,particle("fire"));
 ```
 
 **Arguments:**
@@ -3614,15 +3614,15 @@ variable::get_particle_amount(a1,particle("fire"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_particle_color(particle("fire"),"COLOR");
+`variable` = variable::get_particle_color(particle("fire"),"COLOR");
 
 #Or from the object
 
-a1 = particle("fire").get_particle_color("COLOR");
+`variable` = particle("fire").get_particle_color("COLOR");
 
 #Or dry
 
-variable::get_particle_color(a1,particle("fire"),"COLOR");
+variable::get_particle_color(`variable`,particle("fire"),"COLOR");
 ```
 
 **Arguments:**
@@ -3643,15 +3643,15 @@ variable::get_particle_color(a1,particle("fire"),"COLOR");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_particle_material(particle("fire"));
+`variable` = variable::get_particle_material(particle("fire"));
 
 #Or from the object
 
-a1 = particle("fire").get_particle_material();
+`variable` = particle("fire").get_particle_material();
 
 #Or dry
 
-variable::get_particle_material(a1,particle("fire"));
+variable::get_particle_material(`variable`,particle("fire"));
 ```
 
 **Arguments:**
@@ -3671,15 +3671,15 @@ variable::get_particle_material(a1,particle("fire"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_particle_offset(particle("fire"));
+`variable` = variable::get_particle_offset(particle("fire"));
 
 #Or from the object
 
-a1 = particle("fire").get_particle_offset();
+`variable` = particle("fire").get_particle_offset();
 
 #Or dry
 
-variable::get_particle_offset(a1,particle("fire"));
+variable::get_particle_offset(`variable`,particle("fire"));
 ```
 
 **Arguments:**
@@ -3699,15 +3699,15 @@ variable::get_particle_offset(a1,particle("fire"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_particle_size(particle("fire"));
+`variable` = variable::get_particle_size(particle("fire"));
 
 #Or from the object
 
-a1 = particle("fire").get_particle_size();
+`variable` = particle("fire").get_particle_size();
 
 #Or dry
 
-variable::get_particle_size(a1,particle("fire"));
+variable::get_particle_size(`variable`,particle("fire"));
 ```
 
 **Arguments:**
@@ -3727,15 +3727,15 @@ variable::get_particle_size(a1,particle("fire"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_particle_spread(particle("fire"),"HORIZONTAL");
+`variable` = variable::get_particle_spread(particle("fire"),"HORIZONTAL");
 
 #Or from the object
 
-a1 = particle("fire").get_particle_spread("HORIZONTAL");
+`variable` = particle("fire").get_particle_spread("HORIZONTAL");
 
 #Or dry
 
-variable::get_particle_spread(a1,particle("fire"),"HORIZONTAL");
+variable::get_particle_spread(`variable`,particle("fire"),"HORIZONTAL");
 ```
 
 **Arguments:**
@@ -3756,15 +3756,15 @@ variable::get_particle_spread(a1,particle("fire"),"HORIZONTAL");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_particle_type(particle("fire"));
+`variable` = variable::get_particle_type(particle("fire"));
 
 #Or from the object
 
-a1 = particle("fire").get_particle_type();
+`variable` = particle("fire").get_particle_type();
 
 #Or dry
 
-variable::get_particle_type(a1,particle("fire"));
+variable::get_particle_type(`variable`,particle("fire"));
 ```
 
 **Arguments:**
@@ -3784,11 +3784,11 @@ variable::get_particle_type(a1,particle("fire"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_player_head("name_or_uuid","NAME_OR_UUID");
+`variable` = variable::get_player_head("name_or_uuid","NAME_OR_UUID");
 
 #Or dry
 
-variable::get_player_head(a1,"name_or_uuid","NAME_OR_UUID");
+variable::get_player_head(`variable`,"name_or_uuid","NAME_OR_UUID");
 ```
 
 **Arguments:**
@@ -3809,15 +3809,15 @@ variable::get_player_head(a1,"name_or_uuid","NAME_OR_UUID");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_player_head_owner(item("stick"),"NAME");
+`variable` = variable::get_player_head_owner(item("stick"),"NAME");
 
 #Or from the object
 
-a1 = item("stick").get_player_head_owner("NAME");
+`variable` = item("stick").get_player_head_owner("NAME");
 
 #Or dry
 
-variable::get_player_head_owner(a1,item("stick"),"NAME");
+variable::get_player_head_owner(`variable`,item("stick"),"NAME");
 ```
 
 **Arguments:**
@@ -3838,15 +3838,15 @@ variable::get_player_head_owner(a1,item("stick"),"NAME");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_player_head_value(location(0,0,0,0,0),"NAME");
+`variable` = variable::get_player_head_value(location(0,0,0,0,0),"NAME");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_player_head_value("NAME");
+`variable` = location(0,0,0,0,0).get_player_head_value("NAME");
 
 #Or dry
 
-variable::get_player_head_value(a1,location(0,0,0,0,0),"NAME");
+variable::get_player_head_value(`variable`,location(0,0,0,0,0),"NAME");
 ```
 
 **Arguments:**
@@ -3867,15 +3867,15 @@ variable::get_player_head_value(a1,location(0,0,0,0,0),"NAME");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_potion_effect_amplifier(potion("slow_falling"));
+`variable` = variable::get_potion_effect_amplifier(potion("slow_falling"));
 
 #Or from the object
 
-a1 = potion("slow_falling").get_potion_effect_amplifier();
+`variable` = potion("slow_falling").get_potion_effect_amplifier();
 
 #Or dry
 
-variable::get_potion_effect_amplifier(a1,potion("slow_falling"));
+variable::get_potion_effect_amplifier(`variable`,potion("slow_falling"));
 ```
 
 **Arguments:**
@@ -3895,15 +3895,15 @@ variable::get_potion_effect_amplifier(a1,potion("slow_falling"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_potion_effect_duration(potion("slow_falling"));
+`variable` = variable::get_potion_effect_duration(potion("slow_falling"));
 
 #Or from the object
 
-a1 = potion("slow_falling").get_potion_effect_duration();
+`variable` = potion("slow_falling").get_potion_effect_duration();
 
 #Or dry
 
-variable::get_potion_effect_duration(a1,potion("slow_falling"));
+variable::get_potion_effect_duration(`variable`,potion("slow_falling"));
 ```
 
 **Arguments:**
@@ -3923,15 +3923,15 @@ variable::get_potion_effect_duration(a1,potion("slow_falling"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_potion_effect_type(potion("slow_falling"));
+`variable` = variable::get_potion_effect_type(potion("slow_falling"));
 
 #Or from the object
 
-a1 = potion("slow_falling").get_potion_effect_type();
+`variable` = potion("slow_falling").get_potion_effect_type();
 
 #Or dry
 
-variable::get_potion_effect_type(a1,potion("slow_falling"));
+variable::get_potion_effect_type(`variable`,potion("slow_falling"));
 ```
 
 **Arguments:**
@@ -3951,15 +3951,15 @@ variable::get_potion_effect_type(a1,potion("slow_falling"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_sculk_shrieker_warning_level(location(0,0,0,0,0));
+`variable` = variable::get_sculk_shrieker_warning_level(location(0,0,0,0,0));
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_sculk_shrieker_warning_level();
+`variable` = location(0,0,0,0,0).get_sculk_shrieker_warning_level();
 
 #Or dry
 
-variable::get_sculk_shrieker_warning_level(a1,location(0,0,0,0,0));
+variable::get_sculk_shrieker_warning_level(`variable`,location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -3979,15 +3979,15 @@ variable::get_sculk_shrieker_warning_level(a1,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_sign_text(location(0,0,0,0,0),"ALL","ALL");
+`variable` = variable::get_sign_text(location(0,0,0,0,0),"ALL","ALL");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).get_sign_text("ALL","ALL");
+`variable` = location(0,0,0,0,0).get_sign_text("ALL","ALL");
 
 #Or dry
 
-variable::get_sign_text(a1,location(0,0,0,0,0),"ALL","ALL");
+variable::get_sign_text(`variable`,location(0,0,0,0,0),"ALL","ALL");
 ```
 
 **Arguments:**
@@ -4009,15 +4009,15 @@ variable::get_sign_text(a1,location(0,0,0,0,0),"ALL","ALL");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_sound_pitch(sound("entity.zombie.hurt"));
+`variable` = variable::get_sound_pitch(sound("entity.zombie.hurt"));
 
 #Or from the object
 
-a1 = sound("entity.zombie.hurt").get_sound_pitch();
+`variable` = sound("entity.zombie.hurt").get_sound_pitch();
 
 #Or dry
 
-variable::get_sound_pitch(a1,sound("entity.zombie.hurt"));
+variable::get_sound_pitch(`variable`,sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -4037,15 +4037,15 @@ variable::get_sound_pitch(a1,sound("entity.zombie.hurt"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_sound_source(sound("entity.zombie.hurt"));
+`variable` = variable::get_sound_source(sound("entity.zombie.hurt"));
 
 #Or from the object
 
-a1 = sound("entity.zombie.hurt").get_sound_source();
+`variable` = sound("entity.zombie.hurt").get_sound_source();
 
 #Or dry
 
-variable::get_sound_source(a1,sound("entity.zombie.hurt"));
+variable::get_sound_source(`variable`,sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -4065,15 +4065,15 @@ variable::get_sound_source(a1,sound("entity.zombie.hurt"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_sound_type(sound("entity.zombie.hurt"));
+`variable` = variable::get_sound_type(sound("entity.zombie.hurt"));
 
 #Or from the object
 
-a1 = sound("entity.zombie.hurt").get_sound_type();
+`variable` = sound("entity.zombie.hurt").get_sound_type();
 
 #Or dry
 
-variable::get_sound_type(a1,sound("entity.zombie.hurt"));
+variable::get_sound_type(`variable`,sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -4095,15 +4095,15 @@ variable::get_sound_type(a1,sound("entity.zombie.hurt"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_sound_variation(sound("entity.zombie.hurt"));
+`variable` = variable::get_sound_variation(sound("entity.zombie.hurt"));
 
 #Or from the object
 
-a1 = sound("entity.zombie.hurt").get_sound_variation();
+`variable` = sound("entity.zombie.hurt").get_sound_variation();
 
 #Or dry
 
-variable::get_sound_variation(a1,sound("entity.zombie.hurt"));
+variable::get_sound_variation(`variable`,sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -4123,15 +4123,15 @@ variable::get_sound_variation(a1,sound("entity.zombie.hurt"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_sound_variations(sound("entity.zombie.hurt"));
+`variable` = variable::get_sound_variations(sound("entity.zombie.hurt"));
 
 #Or from the object
 
-a1 = sound("entity.zombie.hurt").get_sound_variations();
+`variable` = sound("entity.zombie.hurt").get_sound_variations();
 
 #Or dry
 
-variable::get_sound_variations(a1,sound("entity.zombie.hurt"));
+variable::get_sound_variations(`variable`,sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -4151,15 +4151,15 @@ variable::get_sound_variations(a1,sound("entity.zombie.hurt"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_sound_volume_action(sound("entity.zombie.hurt"));
+`variable` = variable::get_sound_volume_action(sound("entity.zombie.hurt"));
 
 #Or from the object
 
-a1 = sound("entity.zombie.hurt").get_sound_volume_action();
+`variable` = sound("entity.zombie.hurt").get_sound_volume_action();
 
 #Or dry
 
-variable::get_sound_volume_action(a1,sound("entity.zombie.hurt"));
+variable::get_sound_volume_action(`variable`,sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -4179,15 +4179,15 @@ variable::get_sound_volume_action(a1,sound("entity.zombie.hurt"));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_template_code(item("stick"),"MAP");
+`variable` = variable::get_template_code(item("stick"),"MAP");
 
 #Or from the object
 
-a1 = item("stick").get_template_code("MAP");
+`variable` = item("stick").get_template_code("MAP");
 
 #Or dry
 
-variable::get_template_code(a1,item("stick"),"MAP");
+variable::get_template_code(`variable`,item("stick"),"MAP");
 ```
 
 **Arguments:**
@@ -4210,15 +4210,15 @@ variable::get_template_code(a1,item("stick"),"MAP");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_text_width("text");
+`variable` = variable::get_text_width("text");
 
 #Or from the object
 
-a1 = "text".get_text_width();
+`variable` = "text".get_text_width();
 
 #Or dry
 
-variable::get_text_width(a1,"text");
+variable::get_text_width(`variable`,"text");
 ```
 
 **Arguments:**
@@ -4238,15 +4238,15 @@ variable::get_text_width(a1,"text");
 
 **Usage example:** 
 ```ts
-a1, a2, a3 = variable::get_vector_all_components(vector(0,0,0));
+`x`, `y`, `z` = variable::get_vector_all_components(vector(0,0,0));
 
 #Or from the object
 
-a1, a2, a3 = vector(0,0,0).get_vector_all_components();
+`x`, `y`, `z` = vector(0,0,0).get_vector_all_components();
 
 #Or dry
 
-variable::get_vector_all_components(a1,a2,a3,vector(0,0,0));
+variable::get_vector_all_components(`x`,`y`,`z`,vector(0,0,0));
 ```
 
 **Arguments:**
@@ -4268,11 +4268,11 @@ variable::get_vector_all_components(a1,a2,a3,vector(0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_vector_between_locations(location(0,0,0,0,0),location(0,0,0,0,0));
+`variable` = variable::get_vector_between_locations(location(0,0,0,0,0),location(0,0,0,0,0));
 
 #Or dry
 
-variable::get_vector_between_locations(a1,location(0,0,0,0,0),location(0,0,0,0,0));
+variable::get_vector_between_locations(`variable`,location(0,0,0,0,0),location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -4293,15 +4293,15 @@ variable::get_vector_between_locations(a1,location(0,0,0,0,0),location(0,0,0,0,0
 
 **Usage example:** 
 ```ts
-a1 = variable::get_vector_component(vector(0,0,0),"X");
+`variable` = variable::get_vector_component(vector(0,0,0),"X");
 
 #Or from the object
 
-a1 = vector(0,0,0).get_vector_component("X");
+`variable` = vector(0,0,0).get_vector_component("X");
 
 #Or dry
 
-variable::get_vector_component(a1,vector(0,0,0),"X");
+variable::get_vector_component(`variable`,vector(0,0,0),"X");
 ```
 
 **Arguments:**
@@ -4322,11 +4322,11 @@ variable::get_vector_component(a1,vector(0,0,0),"X");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_vector_from_block_face("block_face");
+`variable` = variable::get_vector_from_block_face("block_face");
 
 #Or dry
 
-variable::get_vector_from_block_face(a1,"block_face");
+variable::get_vector_from_block_face(`variable`,"block_face");
 ```
 
 **Arguments:**
@@ -4346,15 +4346,15 @@ variable::get_vector_from_block_face(a1,"block_face");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_vector_length(vector(0,0,0),"LENGTH");
+`variable` = variable::get_vector_length(vector(0,0,0),"LENGTH");
 
 #Or from the object
 
-a1 = vector(0,0,0).get_vector_length("LENGTH");
+`variable` = vector(0,0,0).get_vector_length("LENGTH");
 
 #Or dry
 
-variable::get_vector_length(a1,vector(0,0,0),"LENGTH");
+variable::get_vector_length(`variable`,vector(0,0,0),"LENGTH");
 ```
 
 **Arguments:**
@@ -4375,15 +4375,15 @@ variable::get_vector_length(a1,vector(0,0,0),"LENGTH");
 
 **Usage example:** 
 ```ts
-a1 = variable::hadamard_vector_product(vector(0,0,0),vector(0,0,0));
+`variable` = variable::hadamard_vector_product(vector(0,0,0),vector(0,0,0));
 
 #Or from the object
 
-a1 = vector(0,0,0).hadamard_vector_product(vector(0,0,0));
+`variable` = vector(0,0,0).hadamard_vector_product(vector(0,0,0));
 
 #Or dry
 
-variable::hadamard_vector_product(a1,vector(0,0,0),vector(0,0,0));
+variable::hadamard_vector_product(`variable`,vector(0,0,0),vector(0,0,0));
 ```
 
 **Arguments:**
@@ -4404,15 +4404,15 @@ variable::hadamard_vector_product(a1,vector(0,0,0),vector(0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::get_text_hash("text","MD5");
+`variable` = variable::get_text_hash("text","MD5");
 
 #Or from the object
 
-a1 = "text".get_text_hash("MD5");
+`variable` = "text".get_text_hash("MD5");
 
 #Or dry
 
-variable::get_text_hash(a1,"text","MD5");
+variable::get_text_hash(`variable`,"text","MD5");
 ```
 
 **Arguments:**
@@ -4433,15 +4433,15 @@ variable::get_text_hash(a1,"text","MD5");
 
 **Usage example:** 
 ```ts
-a1 = variable::increment(1);
+`variable` = variable::increment(1);
 
 #Or from the object
 
-a1.increment(1);
+`variable`.increment(1);
 
 #Or dry
 
-variable::increment(a1,1);
+variable::increment(`variable`,1);
 ```
 
 **Arguments:**
@@ -4461,15 +4461,15 @@ variable::increment(a1,1);
 
 **Usage example:** 
 ```ts
-a1 = variable::insert_list_value(`list`,1,"any value");
+`variable` = variable::insert_list_value(`list`,1,"any value");
 
 #Or from the object
 
-a1 = `list`.insert_list_value(1,"any value");
+`variable` = `list`.insert_list_value(1,"any value");
 
 #Or dry
 
-variable::insert_list_value(a1,`list`,1,"any value");
+variable::insert_list_value(`variable`,`list`,1,"any value");
 ```
 
 **Arguments:**
@@ -4491,15 +4491,15 @@ variable::insert_list_value(a1,`list`,1,"any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::join_text(`list`,"separator","prefix","postfix",1,"truncated");
+`variable` = variable::join_text(`list`,"separator","prefix","postfix",1,"truncated");
 
 #Or from the object
 
-a1 = `list`.join_text("separator","prefix","postfix",1,"truncated");
+`variable` = `list`.join_text("separator","prefix","postfix",1,"truncated");
 
 #Or dry
 
-variable::join_text(a1,`list`,"separator","prefix","postfix",1,"truncated");
+variable::join_text(`variable`,`list`,"separator","prefix","postfix",1,"truncated");
 ```
 
 **Arguments:**
@@ -4524,15 +4524,15 @@ variable::join_text(a1,`list`,"separator","prefix","postfix",1,"truncated");
 
 **Usage example:** 
 ```ts
-a1 = variable::lerp_number(1,2,3);
+`variable` = variable::lerp_number(1,2,3);
 
 #Or from the object
 
-a1 = (3).lerp_number(1,2);
+`variable` = (3).lerp_number(1,2);
 
 #Or dry
 
-variable::lerp_number(a1,1,2,3);
+variable::lerp_number(`variable`,1,2,3);
 ```
 
 **Arguments:**
@@ -4554,15 +4554,15 @@ variable::lerp_number(a1,1,2,3);
 
 **Usage example:** 
 ```ts
-a1 = variable::location_relative(location(0,0,0,0,0),1,"DOWN");
+`variable` = variable::location_relative(location(0,0,0,0,0),1,"DOWN");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).location_relative(1,"DOWN");
+`variable` = location(0,0,0,0,0).location_relative(1,"DOWN");
 
 #Or dry
 
-variable::location_relative(a1,location(0,0,0,0,0),1,"DOWN");
+variable::location_relative(`variable`,location(0,0,0,0,0),1,"DOWN");
 ```
 
 **Arguments:**
@@ -4584,11 +4584,11 @@ variable::location_relative(a1,location(0,0,0,0,0),1,"DOWN");
 
 **Usage example:** 
 ```ts
-a1 = variable::locations_distance(location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUDE");
+`variable` = variable::locations_distance(location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUDE");
 
 #Or dry
 
-variable::locations_distance(a1,location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUDE");
+variable::locations_distance(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUDE");
 ```
 
 **Arguments:**
@@ -4610,15 +4610,15 @@ variable::locations_distance(a1,location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUD
 
 **Usage example:** 
 ```ts
-a1 = variable::log(1,2);
+`variable` = variable::log(1,2);
 
 #Or from the object
 
-a1 = (1).log(2);
+`variable` = (1).log(2);
 
 #Or dry
 
-variable::log(a1,1,2);
+variable::log(`variable`,1,2);
 ```
 
 **Arguments:**
@@ -4639,15 +4639,15 @@ variable::log(a1,1,2);
 
 **Usage example:** 
 ```ts
-a1 = variable::map_range(1,2,3,4,5);
+`variable` = variable::map_range(1,2,3,4,5);
 
 #Or from the object
 
-a1 = (1).map_range(2,3,4,5);
+`variable` = (1).map_range(2,3,4,5);
 
 #Or dry
 
-variable::map_range(a1,1,2,3,4,5);
+variable::map_range(`variable`,1,2,3,4,5);
 ```
 
 **Arguments:**
@@ -4671,11 +4671,11 @@ variable::map_range(a1,1,2,3,4,5);
 
 **Usage example:** 
 ```ts
-a1 = variable::max([1, 2]);
+`variable` = variable::max([1, 2]);
 
 #Or dry
 
-variable::max(a1,[1, 2]);
+variable::max(`variable`,[1, 2]);
 ```
 
 **Arguments:**
@@ -4695,11 +4695,11 @@ variable::max(a1,[1, 2]);
 
 **Usage example:** 
 ```ts
-a1 = variable::min([1, 2]);
+`variable` = variable::min([1, 2]);
 
 #Or dry
 
-variable::min(a1,[1, 2]);
+variable::min(`variable`,[1, 2]);
 ```
 
 **Arguments:**
@@ -4719,11 +4719,11 @@ variable::min(a1,[1, 2]);
 
 **Usage example:** 
 ```ts
-a1 = variable::multiply([1, 2]);
+`variable` = variable::multiply([1, 2]);
 
 #Or dry
 
-variable::multiply(a1,[1, 2]);
+variable::multiply(`variable`,[1, 2]);
 ```
 
 **Arguments:**
@@ -4743,11 +4743,11 @@ variable::multiply(a1,[1, 2]);
 
 **Usage example:** 
 ```ts
-a1 = variable::multiply_vector(vector(0,0,0),1);
+`variable` = variable::multiply_vector(vector(0,0,0),1);
 
 #Or dry
 
-variable::multiply_vector(a1,vector(0,0,0),1);
+variable::multiply_vector(`variable`,vector(0,0,0),1);
 ```
 
 **Arguments:**
@@ -4768,11 +4768,11 @@ variable::multiply_vector(a1,vector(0,0,0),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::parse_json("json");
+`variable` = variable::parse_json("json");
 
 #Or dry
 
-variable::parse_json(a1,"json");
+variable::parse_json(`variable`,"json");
 ```
 
 **Arguments:**
@@ -4792,15 +4792,15 @@ variable::parse_json(a1,"json");
 
 **Usage example:** 
 ```ts
-a1 = variable::parse_to_component("text","JSON");
+`variable` = variable::parse_to_component("text","JSON");
 
 #Or from the object
 
-a1 = "text".parse_to_component("JSON");
+`variable` = "text".parse_to_component("JSON");
 
 #Or dry
 
-variable::parse_to_component(a1,"text","JSON");
+variable::parse_to_component(`variable`,"text","JSON");
 ```
 
 **Arguments:**
@@ -4821,11 +4821,11 @@ variable::parse_to_component(a1,"text","JSON");
 
 **Usage example:** 
 ```ts
-a1 = variable::perlin_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
+`variable` = variable::perlin_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
 
 #Or dry
 
-variable::perlin_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
+variable::perlin_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
 ```
 
 **Arguments:**
@@ -4852,15 +4852,15 @@ variable::perlin_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE")
 
 **Usage example:** 
 ```ts
-a1 = variable::pow(1,2);
+`variable` = variable::pow(1,2);
 
 #Or from the object
 
-a1 = (1).pow(2);
+`variable` = (1).pow(2);
 
 #Or dry
 
-variable::pow(a1,1,2);
+variable::pow(`variable`,1,2);
 ```
 
 **Arguments:**
@@ -4903,11 +4903,11 @@ variable::purge(["names", "names"],"GAME","ENDS_WITH","FALSE");
 
 **Usage example:** 
 ```ts
-a1 = variable::random(["any value", "any value"]);
+`variable` = variable::random(["any value", "any value"]);
 
 #Or dry
 
-variable::random(a1,["any value", "any value"]);
+variable::random(`variable`,["any value", "any value"]);
 ```
 
 **Arguments:**
@@ -4927,11 +4927,11 @@ variable::random(a1,["any value", "any value"]);
 
 **Usage example:** 
 ```ts
-a1 = variable::random_location(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
+`variable` = variable::random_location(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
 
 #Or dry
 
-variable::random_location(a1,location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
+variable::random_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -4953,11 +4953,11 @@ variable::random_location(a1,location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-a1 = variable::random_number(1,2,"FALSE");
+`variable` = variable::random_number(1,2,"FALSE");
 
 #Or dry
 
-variable::random_number(a1,1,2,"FALSE");
+variable::random_number(`variable`,1,2,"FALSE");
 ```
 
 **Arguments:**
@@ -4979,15 +4979,15 @@ variable::random_number(a1,1,2,"FALSE");
 
 **Usage example:** 
 ```ts
-a1 = variable::randomize_list_order(`list`);
+`variable` = variable::randomize_list_order(`list`);
 
 #Or from the object
 
-a1 = `list`.randomize_list_order();
+`variable` = `list`.randomize_list_order();
 
 #Or dry
 
-variable::randomize_list_order(a1,`list`);
+variable::randomize_list_order(`variable`,`list`);
 ```
 
 **Arguments:**
@@ -5007,11 +5007,11 @@ variable::randomize_list_order(a1,`list`);
 
 **Usage example:** 
 ```ts
-a1, a2, a3, a4 = variable::ray_trace_result(location(0,0,0,0,0),1,2,`entities`,"BLOCKS_AND_ENTITIES","FALSE","ALWAYS");
+`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid` = variable::ray_trace_result(location(0,0,0,0,0),1,2,`entities`,"BLOCKS_AND_ENTITIES","FALSE","ALWAYS");
 
 #Or dry
 
-variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),1,2,`entities`,"BLOCKS_AND_ENTITIES","FALSE","ALWAYS");
+variable::ray_trace_result(`variable_for_hit_location`,`variable_for_hit_block_location`,`variable_for_hit_block_face`,`variable_for_hit_entity_uuid`,location(0,0,0,0,0),1,2,`entities`,"BLOCKS_AND_ENTITIES","FALSE","ALWAYS");
 ```
 
 **Arguments:**
@@ -5040,11 +5040,11 @@ variable::ray_trace_result(a1,a2,a3,a4,location(0,0,0,0,0),1,2,`entities`,"BLOCK
 
 **Usage example:** 
 ```ts
-a1 = variable::reflect_vector_product(vector(0,0,0),vector(0,0,0),1);
+`variable` = variable::reflect_vector_product(vector(0,0,0),vector(0,0,0),1);
 
 #Or dry
 
-variable::reflect_vector_product(a1,vector(0,0,0),vector(0,0,0),1);
+variable::reflect_vector_product(`variable`,vector(0,0,0),vector(0,0,0),1);
 ```
 
 **Arguments:**
@@ -5066,15 +5066,15 @@ variable::reflect_vector_product(a1,vector(0,0,0),vector(0,0,0),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::regex_replace_text("text","regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
+`variable` = variable::regex_replace_text("text","regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
 
 #Or from the object
 
-a1 = "text".regex_replace_text("regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
+`variable` = "text".regex_replace_text("regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
 
 #Or dry
 
-variable::regex_replace_text(a1,"text","regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
+variable::regex_replace_text(`variable`,"text","regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
 ```
 
 **Arguments:**
@@ -5104,15 +5104,15 @@ variable::regex_replace_text(a1,"text","regex","replacement","ANY","FALSE","FALS
 
 **Usage example:** 
 ```ts
-a1 = variable::remainder(1,2,"MODULO");
+`variable` = variable::remainder(1,2,"MODULO");
 
 #Or from the object
 
-a1 = (1).remainder(2,"MODULO");
+`variable` = (1).remainder(2,"MODULO");
 
 #Or dry
 
-variable::remainder(a1,1,2,"MODULO");
+variable::remainder(`variable`,1,2,"MODULO");
 ```
 
 **Arguments:**
@@ -5134,15 +5134,15 @@ variable::remainder(a1,1,2,"MODULO");
 
 **Usage example:** 
 ```ts
-a1 = variable::remove_compass_lodestone(item("stick"));
+`variable` = variable::remove_compass_lodestone(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").remove_compass_lodestone();
+`variable` = item("stick").remove_compass_lodestone();
 
 #Or dry
 
-variable::remove_compass_lodestone(a1,item("stick"));
+variable::remove_compass_lodestone(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -5162,15 +5162,15 @@ variable::remove_compass_lodestone(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::remove_enchantment(item("stick"),"enchantment");
+`variable` = variable::remove_enchantment(item("stick"),"enchantment");
 
 #Or from the object
 
-a1 = item("stick").remove_enchantment("enchantment");
+`variable` = item("stick").remove_enchantment("enchantment");
 
 #Or dry
 
-variable::remove_enchantment(a1,item("stick"),"enchantment");
+variable::remove_enchantment(`variable`,item("stick"),"enchantment");
 ```
 
 **Arguments:**
@@ -5191,11 +5191,11 @@ variable::remove_enchantment(a1,item("stick"),"enchantment");
 
 **Usage example:** 
 ```ts
-variable::remove_item_attribute(a1,item("stick"),"name_or_uuid","ARMOR");
+variable::remove_item_attribute(`variable`,item("stick"),"name_or_uuid","ARMOR");
 
 #Or from the object
 
-item("stick").remove_item_attribute(a1,"name_or_uuid","ARMOR");
+item("stick").remove_item_attribute(`variable`,"name_or_uuid","ARMOR");
 ```
 
 **Arguments:**
@@ -5217,15 +5217,15 @@ item("stick").remove_item_attribute(a1,"name_or_uuid","ARMOR");
 
 **Usage example:** 
 ```ts
-a1 = variable::remove_item_custom_model_data(item("stick"));
+`variable` = variable::remove_item_custom_model_data(item("stick"));
 
 #Or from the object
 
-a1 = item("stick").remove_item_custom_model_data();
+`variable` = item("stick").remove_item_custom_model_data();
 
 #Or dry
 
-variable::remove_item_custom_model_data(a1,item("stick"));
+variable::remove_item_custom_model_data(`variable`,item("stick"));
 ```
 
 **Arguments:**
@@ -5245,15 +5245,15 @@ variable::remove_item_custom_model_data(a1,item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::remove_item_custom_tag(item("stick"),"tag_name");
+`variable` = variable::remove_item_custom_tag(item("stick"),"tag_name");
 
 #Or from the object
 
-a1 = item("stick").remove_item_custom_tag("tag_name");
+`variable` = item("stick").remove_item_custom_tag("tag_name");
 
 #Or dry
 
-variable::remove_item_custom_tag(a1,item("stick"),"tag_name");
+variable::remove_item_custom_tag(`variable`,item("stick"),"tag_name");
 ```
 
 **Arguments:**
@@ -5274,15 +5274,15 @@ variable::remove_item_custom_tag(a1,item("stick"),"tag_name");
 
 **Usage example:** 
 ```ts
-a1 = variable::remove_item_lore_line(item("stick"),1);
+`variable` = variable::remove_item_lore_line(item("stick"),1);
 
 #Or from the object
 
-a1 = item("stick").remove_item_lore_line(1);
+`variable` = item("stick").remove_item_lore_line(1);
 
 #Or dry
 
-variable::remove_item_lore_line(a1,item("stick"),1);
+variable::remove_item_lore_line(`variable`,item("stick"),1);
 ```
 
 **Arguments:**
@@ -5303,15 +5303,15 @@ variable::remove_item_lore_line(a1,item("stick"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::remove_item_potion_effects([potion("slow_falling"), potion("slow_falling")],item("stick"));
+`variable` = variable::remove_item_potion_effects([potion("slow_falling"), potion("slow_falling")],item("stick"));
 
 #Or from the object
 
-a1 = item("stick").remove_item_potion_effects([potion("slow_falling"), potion("slow_falling")]);
+`variable` = item("stick").remove_item_potion_effects([potion("slow_falling"), potion("slow_falling")]);
 
 #Or dry
 
-variable::remove_item_potion_effects(a1,[potion("slow_falling"), potion("slow_falling")],item("stick"));
+variable::remove_item_potion_effects(`variable`,[potion("slow_falling"), potion("slow_falling")],item("stick"));
 ```
 
 **Arguments:**
@@ -5332,15 +5332,15 @@ variable::remove_item_potion_effects(a1,[potion("slow_falling"), potion("slow_fa
 
 **Usage example:** 
 ```ts
-a1 = variable::remove_list_duplicates(`list`);
+`variable` = variable::remove_list_duplicates(`list`);
 
 #Or from the object
 
-a1 = `list`.remove_list_duplicates();
+`variable` = `list`.remove_list_duplicates();
 
 #Or dry
 
-variable::remove_list_duplicates(a1,`list`);
+variable::remove_list_duplicates(`variable`,`list`);
 ```
 
 **Arguments:**
@@ -5360,15 +5360,15 @@ variable::remove_list_duplicates(a1,`list`);
 
 **Usage example:** 
 ```ts
-a1 = variable::remove_list_value(`list`,"any value","ALL");
+`variable` = variable::remove_list_value(`list`,"any value","ALL");
 
 #Or from the object
 
-a1 = `list`.remove_list_value("any value","ALL");
+`variable` = `list`.remove_list_value("any value","ALL");
 
 #Or dry
 
-variable::remove_list_value(a1,`list`,"any value","ALL");
+variable::remove_list_value(`variable`,`list`,"any value","ALL");
 ```
 
 **Arguments:**
@@ -5390,15 +5390,15 @@ variable::remove_list_value(a1,`list`,"any value","ALL");
 
 **Usage example:** 
 ```ts
-a2, a1 = variable::remove_list_value_at_index(`list`,1);
+`variable`, `removed_value` = variable::remove_list_value_at_index(`list`,1);
 
 #Or from the object
 
-a2, a1 = `list`.remove_list_value_at_index(1);
+`variable`, `removed_value` = `list`.remove_list_value_at_index(1);
 
 #Or dry
 
-variable::remove_list_value_at_index(a1,a2,`list`,1);
+variable::remove_list_value_at_index(`removed_value`,`variable`,`list`,1);
 ```
 
 **Arguments:**
@@ -5420,15 +5420,15 @@ variable::remove_list_value_at_index(a1,a2,`list`,1);
 
 **Usage example:** 
 ```ts
-a2, a1 = variable::remove_map_entry(`map`,["any value", "any value"],"any value");
+`variable`, `removed_value` = variable::remove_map_entry(`map`,["any value", "any value"],"any value");
 
 #Or from the object
 
-a2, a1 = `map`.remove_map_entry(["any value", "any value"],"any value");
+`variable`, `removed_value` = `map`.remove_map_entry(["any value", "any value"],"any value");
 
 #Or dry
 
-variable::remove_map_entry(a1,a2,`map`,["any value", "any value"],"any value");
+variable::remove_map_entry(`removed_value`,`variable`,`map`,["any value", "any value"],"any value");
 ```
 
 **Arguments:**
@@ -5451,15 +5451,15 @@ variable::remove_map_entry(a1,a2,`map`,["any value", "any value"],"any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::remove_text(["remove", "remove"],"text","FALSE");
+`variable` = variable::remove_text(["remove", "remove"],"text","FALSE");
 
 #Or from the object
 
-a1 = "text".remove_text(["remove", "remove"],"FALSE");
+`variable` = "text".remove_text(["remove", "remove"],"FALSE");
 
 #Or dry
 
-variable::remove_text(a1,["remove", "remove"],"text","FALSE");
+variable::remove_text(`variable`,["remove", "remove"],"text","FALSE");
 ```
 
 **Arguments:**
@@ -5481,15 +5481,15 @@ variable::remove_text(a1,["remove", "remove"],"text","FALSE");
 
 **Usage example:** 
 ```ts
-a1 = variable::repeat_text("text",1);
+`variable` = variable::repeat_text("text",1);
 
 #Or from the object
 
-a1 = "text".repeat_text(1);
+`variable` = "text".repeat_text(1);
 
 #Or dry
 
-variable::repeat_text(a1,"text",1);
+variable::repeat_text(`variable`,"text",1);
 ```
 
 **Arguments:**
@@ -5510,15 +5510,15 @@ variable::repeat_text(a1,"text",1);
 
 **Usage example:** 
 ```ts
-a1 = variable::replace_text("text","replace","replacement","ANY","FALSE");
+`variable` = variable::replace_text("text","replace","replacement","ANY","FALSE");
 
 #Or from the object
 
-a1 = "text".replace_text("replace","replacement","ANY","FALSE");
+`variable` = "text".replace_text("replace","replacement","ANY","FALSE");
 
 #Or dry
 
-variable::replace_text(a1,"text","replace","replacement","ANY","FALSE");
+variable::replace_text(`variable`,"text","replace","replacement","ANY","FALSE");
 ```
 
 **Arguments:**
@@ -5542,15 +5542,15 @@ variable::replace_text(a1,"text","replace","replacement","ANY","FALSE");
 
 **Usage example:** 
 ```ts
-a1 = variable::reverse_list(`list`);
+`variable` = variable::reverse_list(`list`);
 
 #Or from the object
 
-a1 = `list`.reverse_list();
+`variable` = `list`.reverse_list();
 
 #Or dry
 
-variable::reverse_list(a1,`list`);
+variable::reverse_list(`variable`,`list`);
 ```
 
 **Arguments:**
@@ -5570,11 +5570,11 @@ variable::reverse_list(a1,`list`);
 
 **Usage example:** 
 ```ts
-a1 = variable::root(1,2);
+`variable` = variable::root(1,2);
 
 #Or dry
 
-variable::root(a1,1,2);
+variable::root(`variable`,1,2);
 ```
 
 **Arguments:**
@@ -5595,15 +5595,15 @@ variable::root(a1,1,2);
 
 **Usage example:** 
 ```ts
-a1 = variable::rotate_vector_around_axis(vector(0,0,0),1,"X","DEGREES");
+`variable` = variable::rotate_vector_around_axis(vector(0,0,0),1,"X","DEGREES");
 
 #Or from the object
 
-a1 = vector(0,0,0).rotate_vector_around_axis(1,"X","DEGREES");
+`variable` = vector(0,0,0).rotate_vector_around_axis(1,"X","DEGREES");
 
 #Or dry
 
-variable::rotate_vector_around_axis(a1,vector(0,0,0),1,"X","DEGREES");
+variable::rotate_vector_around_axis(`variable`,vector(0,0,0),1,"X","DEGREES");
 ```
 
 **Arguments:**
@@ -5626,15 +5626,15 @@ variable::rotate_vector_around_axis(a1,vector(0,0,0),1,"X","DEGREES");
 
 **Usage example:** 
 ```ts
-a1 = variable::rotate_vector_around_vector(vector(0,0,0),vector(0,0,0),1,"DEGREES");
+`variable` = variable::rotate_vector_around_vector(vector(0,0,0),vector(0,0,0),1,"DEGREES");
 
 #Or from the object
 
-a1 = vector(0,0,0).rotate_vector_around_vector(vector(0,0,0),1,"DEGREES");
+`variable` = vector(0,0,0).rotate_vector_around_vector(vector(0,0,0),1,"DEGREES");
 
 #Or dry
 
-variable::rotate_vector_around_vector(a1,vector(0,0,0),vector(0,0,0),1,"DEGREES");
+variable::rotate_vector_around_vector(`variable`,vector(0,0,0),vector(0,0,0),1,"DEGREES");
 ```
 
 **Arguments:**
@@ -5657,15 +5657,15 @@ variable::rotate_vector_around_vector(a1,vector(0,0,0),vector(0,0,0),1,"DEGREES"
 
 **Usage example:** 
 ```ts
-a1 = variable::round(1,2,"CEIL");
+`variable` = variable::round(1,2,"CEIL");
 
 #Or from the object
 
-a1 = (1).round(2,"CEIL");
+`variable` = (1).round(2,"CEIL");
 
 #Or dry
 
-variable::round(a1,1,2,"CEIL");
+variable::round(`variable`,1,2,"CEIL");
 ```
 
 **Arguments:**
@@ -5687,11 +5687,11 @@ variable::round(a1,1,2,"CEIL");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_all_coordinates(1,2,3,4,5);
+`variable` = variable::set_all_coordinates(1,2,3,4,5);
 
 #Or dry
 
-variable::set_all_coordinates(a1,1,2,3,4,5);
+variable::set_all_coordinates(`variable`,1,2,3,4,5);
 ```
 
 **Arguments:**
@@ -5715,11 +5715,11 @@ variable::set_all_coordinates(a1,1,2,3,4,5);
 
 **Usage example:** 
 ```ts
-variable::set_armor_trim(a1,item("stick"),item("stick"),item("stick"));
+variable::set_armor_trim(`variable`,item("stick"),item("stick"),item("stick"));
 
 #Or from the object
 
-item("stick").set_armor_trim(a1,item("stick"),item("stick"));
+item("stick").set_armor_trim(`variable`,item("stick"),item("stick"));
 ```
 
 **Arguments:**
@@ -5741,15 +5741,15 @@ item("stick").set_armor_trim(a1,item("stick"),item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::set_book_page(item("stick"),"text",1,"APPEND");
+`variable` = variable::set_book_page(item("stick"),"text",1,"APPEND");
 
 #Or from the object
 
-a1 = item("stick").set_book_page("text",1,"APPEND");
+`variable` = item("stick").set_book_page("text",1,"APPEND");
 
 #Or dry
 
-variable::set_book_page(a1,item("stick"),"text",1,"APPEND");
+variable::set_book_page(`variable`,item("stick"),"text",1,"APPEND");
 ```
 
 **Arguments:**
@@ -5772,15 +5772,15 @@ variable::set_book_page(a1,item("stick"),"text",1,"APPEND");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_book_pages(item("stick"),["text", "text"]);
+`variable` = variable::set_book_pages(item("stick"),["text", "text"]);
 
 #Or from the object
 
-a1 = item("stick").set_book_pages(["text", "text"]);
+`variable` = item("stick").set_book_pages(["text", "text"]);
 
 #Or dry
 
-variable::set_book_pages(a1,item("stick"),["text", "text"]);
+variable::set_book_pages(`variable`,item("stick"),["text", "text"]);
 ```
 
 **Arguments:**
@@ -5801,11 +5801,11 @@ variable::set_book_pages(a1,item("stick"),["text", "text"]);
 
 **Usage example:** 
 ```ts
-variable::set_bundle_items(a1,[item("stick"), item("stick")],item("stick"),"ADD");
+variable::set_bundle_items(`variable`,[item("stick"), item("stick")],item("stick"),"ADD");
 
 #Or from the object
 
-item("stick").set_bundle_items(a1,[item("stick"), item("stick")],"ADD");
+item("stick").set_bundle_items(`variable`,[item("stick"), item("stick")],"ADD");
 ```
 
 **Arguments:**
@@ -5827,15 +5827,15 @@ item("stick").set_bundle_items(a1,[item("stick"), item("stick")],"ADD");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_compass_lodestone(item("stick"),location(0,0,0,0,0),"FALSE");
+`variable` = variable::set_compass_lodestone(item("stick"),location(0,0,0,0,0),"FALSE");
 
 #Or from the object
 
-a1 = item("stick").set_compass_lodestone(location(0,0,0,0,0),"FALSE");
+`variable` = item("stick").set_compass_lodestone(location(0,0,0,0,0),"FALSE");
 
 #Or dry
 
-variable::set_compass_lodestone(a1,item("stick"),location(0,0,0,0,0),"FALSE");
+variable::set_compass_lodestone(`variable`,item("stick"),location(0,0,0,0,0),"FALSE");
 ```
 
 **Arguments:**
@@ -5857,15 +5857,15 @@ variable::set_compass_lodestone(a1,item("stick"),location(0,0,0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_component_children("component",["children", "children"]);
+`variable` = variable::set_component_children("component",["children", "children"]);
 
 #Or from the object
 
-a1 = "component".set_component_children(["children", "children"]);
+`variable` = "component".set_component_children(["children", "children"]);
 
 #Or dry
 
-variable::set_component_children(a1,"component",["children", "children"]);
+variable::set_component_children(`variable`,"component",["children", "children"]);
 ```
 
 **Arguments:**
@@ -5886,15 +5886,15 @@ variable::set_component_children(a1,"component",["children", "children"]);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_component_click("component","value","CHANGE_PAGE");
+`variable` = variable::set_component_click("component","value","CHANGE_PAGE");
 
 #Or from the object
 
-a1 = "component".set_component_click("value","CHANGE_PAGE");
+`variable` = "component".set_component_click("value","CHANGE_PAGE");
 
 #Or dry
 
-variable::set_component_click(a1,"component","value","CHANGE_PAGE");
+variable::set_component_click(`variable`,"component","value","CHANGE_PAGE");
 ```
 
 **Arguments:**
@@ -5916,15 +5916,15 @@ variable::set_component_click(a1,"component","value","CHANGE_PAGE");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_component_decorations("component","FALSE","FALSE","FALSE","FALSE","FALSE");
+`variable` = variable::set_component_decorations("component","FALSE","FALSE","FALSE","FALSE","FALSE");
 
 #Or from the object
 
-a1 = "component".set_component_decorations("FALSE","FALSE","FALSE","FALSE","FALSE");
+`variable` = "component".set_component_decorations("FALSE","FALSE","FALSE","FALSE","FALSE");
 
 #Or dry
 
-variable::set_component_decorations(a1,"component","FALSE","FALSE","FALSE","FALSE","FALSE");
+variable::set_component_decorations(`variable`,"component","FALSE","FALSE","FALSE","FALSE","FALSE");
 ```
 
 **Arguments:**
@@ -5949,15 +5949,15 @@ variable::set_component_decorations(a1,"component","FALSE","FALSE","FALSE","FALS
 
 **Usage example:** 
 ```ts
-a1 = variable::set_component_entity_hover("component","name_or_uuid");
+`variable` = variable::set_component_entity_hover("component","name_or_uuid");
 
 #Or from the object
 
-a1 = "component".set_component_entity_hover("name_or_uuid");
+`variable` = "component".set_component_entity_hover("name_or_uuid");
 
 #Or dry
 
-variable::set_component_entity_hover(a1,"component","name_or_uuid");
+variable::set_component_entity_hover(`variable`,"component","name_or_uuid");
 ```
 
 **Arguments:**
@@ -5978,15 +5978,15 @@ variable::set_component_entity_hover(a1,"component","name_or_uuid");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_component_font("component","namespace","value");
+`variable` = variable::set_component_font("component","namespace","value");
 
 #Or from the object
 
-a1 = "component".set_component_font("namespace","value");
+`variable` = "component".set_component_font("namespace","value");
 
 #Or dry
 
-variable::set_component_font(a1,"component","namespace","value");
+variable::set_component_font(`variable`,"component","namespace","value");
 ```
 
 **Arguments:**
@@ -6008,15 +6008,15 @@ variable::set_component_font(a1,"component","namespace","value");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_component_hex_color("component","color");
+`variable` = variable::set_component_hex_color("component","color");
 
 #Or from the object
 
-a1 = "component".set_component_hex_color("color");
+`variable` = "component".set_component_hex_color("color");
 
 #Or dry
 
-variable::set_component_hex_color(a1,"component","color");
+variable::set_component_hex_color(`variable`,"component","color");
 ```
 
 **Arguments:**
@@ -6037,15 +6037,15 @@ variable::set_component_hex_color(a1,"component","color");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_component_hover("component","hover");
+`variable` = variable::set_component_hover("component","hover");
 
 #Or from the object
 
-a1 = "component".set_component_hover("hover");
+`variable` = "component".set_component_hover("hover");
 
 #Or dry
 
-variable::set_component_hover(a1,"component","hover");
+variable::set_component_hover(`variable`,"component","hover");
 ```
 
 **Arguments:**
@@ -6066,15 +6066,15 @@ variable::set_component_hover(a1,"component","hover");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_component_insertion("component","insertion");
+`variable` = variable::set_component_insertion("component","insertion");
 
 #Or from the object
 
-a1 = "component".set_component_insertion("insertion");
+`variable` = "component".set_component_insertion("insertion");
 
 #Or dry
 
-variable::set_component_insertion(a1,"component","insertion");
+variable::set_component_insertion(`variable`,"component","insertion");
 ```
 
 **Arguments:**
@@ -6095,15 +6095,15 @@ variable::set_component_insertion(a1,"component","insertion");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_component_item_hover("component",item("stick"));
+`variable` = variable::set_component_item_hover("component",item("stick"));
 
 #Or from the object
 
-a1 = "component".set_component_item_hover(item("stick"));
+`variable` = "component".set_component_item_hover(item("stick"));
 
 #Or dry
 
-variable::set_component_item_hover(a1,"component",item("stick"));
+variable::set_component_item_hover(`variable`,"component",item("stick"));
 ```
 
 **Arguments:**
@@ -6124,15 +6124,15 @@ variable::set_component_item_hover(a1,"component",item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::set_coordinate(location(0,0,0,0,0),1,"PITCH");
+`variable` = variable::set_coordinate(location(0,0,0,0,0),1,"PITCH");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).set_coordinate(1,"PITCH");
+`variable` = location(0,0,0,0,0).set_coordinate(1,"PITCH");
 
 #Or dry
 
-variable::set_coordinate(a1,location(0,0,0,0,0),1,"PITCH");
+variable::set_coordinate(`variable`,location(0,0,0,0,0),1,"PITCH");
 ```
 
 **Arguments:**
@@ -6154,15 +6154,15 @@ variable::set_coordinate(a1,location(0,0,0,0,0),1,"PITCH");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_amount(item("stick"),1);
+`variable` = variable::set_item_amount(item("stick"),1);
 
 #Or from the object
 
-a1 = item("stick").set_item_amount(1);
+`variable` = item("stick").set_item_amount(1);
 
 #Or dry
 
-variable::set_item_amount(a1,item("stick"),1);
+variable::set_item_amount(`variable`,item("stick"),1);
 ```
 
 **Arguments:**
@@ -6183,15 +6183,15 @@ variable::set_item_amount(a1,item("stick"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_attribute(item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER");
+`variable` = variable::set_item_attribute(item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER");
 
 #Or from the object
 
-a1 = item("stick").set_item_attribute(1,"name","ARMOR","ALL","ADD_NUMBER");
+`variable` = item("stick").set_item_attribute(1,"name","ARMOR","ALL","ADD_NUMBER");
 
 #Or dry
 
-variable::set_item_attribute(a1,item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER");
+variable::set_item_attribute(`variable`,item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER");
 ```
 
 **Arguments:**
@@ -6222,15 +6222,15 @@ variable::set_item_attribute(a1,item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_color(item("stick"),"color");
+`variable` = variable::set_item_color(item("stick"),"color");
 
 #Or from the object
 
-a1 = item("stick").set_item_color("color");
+`variable` = item("stick").set_item_color("color");
 
 #Or dry
 
-variable::set_item_color(a1,item("stick"),"color");
+variable::set_item_color(`variable`,item("stick"),"color");
 ```
 
 **Arguments:**
@@ -6251,15 +6251,15 @@ variable::set_item_color(a1,item("stick"),"color");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_component(item("stick"),"component","any value");
+`variable` = variable::set_item_component(item("stick"),"component","any value");
 
 #Or from the object
 
-a1 = item("stick").set_item_component("component","any value");
+`variable` = item("stick").set_item_component("component","any value");
 
 #Or dry
 
-variable::set_item_component(a1,item("stick"),"component","any value");
+variable::set_item_component(`variable`,item("stick"),"component","any value");
 ```
 
 **Arguments:**
@@ -6281,15 +6281,15 @@ variable::set_item_component(a1,item("stick"),"component","any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_custom_model_data(item("stick"),1);
+`variable` = variable::set_item_custom_model_data(item("stick"),1);
 
 #Or from the object
 
-a1 = item("stick").set_item_custom_model_data(1);
+`variable` = item("stick").set_item_custom_model_data(1);
 
 #Or dry
 
-variable::set_item_custom_model_data(a1,item("stick"),1);
+variable::set_item_custom_model_data(`variable`,item("stick"),1);
 ```
 
 **Arguments:**
@@ -6310,15 +6310,15 @@ variable::set_item_custom_model_data(a1,item("stick"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_custom_tag(item("stick"),"tag_name","tag_value");
+`variable` = variable::set_item_custom_tag(item("stick"),"tag_name","tag_value");
 
 #Or from the object
 
-a1 = item("stick").set_item_custom_tag("tag_name","tag_value");
+`variable` = item("stick").set_item_custom_tag("tag_name","tag_value");
 
 #Or dry
 
-variable::set_item_custom_tag(a1,item("stick"),"tag_name","tag_value");
+variable::set_item_custom_tag(`variable`,item("stick"),"tag_name","tag_value");
 ```
 
 **Arguments:**
@@ -6340,15 +6340,15 @@ variable::set_item_custom_tag(a1,item("stick"),"tag_name","tag_value");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_destroyable_blocks([item("stick"), item("stick")],item("stick"));
+`variable` = variable::set_item_destroyable_blocks([item("stick"), item("stick")],item("stick"));
 
 #Or from the object
 
-a1 = item("stick").set_item_destroyable_blocks([item("stick"), item("stick")]);
+`variable` = item("stick").set_item_destroyable_blocks([item("stick"), item("stick")]);
 
 #Or dry
 
-variable::set_item_destroyable_blocks(a1,[item("stick"), item("stick")],item("stick"));
+variable::set_item_destroyable_blocks(`variable`,[item("stick"), item("stick")],item("stick"));
 ```
 
 **Arguments:**
@@ -6369,15 +6369,15 @@ variable::set_item_destroyable_blocks(a1,[item("stick"), item("stick")],item("st
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_durability(item("stick"),1,"DAMAGE");
+`variable` = variable::set_item_durability(item("stick"),1,"DAMAGE");
 
 #Or from the object
 
-a1 = item("stick").set_item_durability(1,"DAMAGE");
+`variable` = item("stick").set_item_durability(1,"DAMAGE");
 
 #Or dry
 
-variable::set_item_durability(a1,item("stick"),1,"DAMAGE");
+variable::set_item_durability(`variable`,item("stick"),1,"DAMAGE");
 ```
 
 **Arguments:**
@@ -6399,15 +6399,15 @@ variable::set_item_durability(a1,item("stick"),1,"DAMAGE");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_enchantments(item("stick"),`enchantments`);
+`variable` = variable::set_item_enchantments(item("stick"),`enchantments`);
 
 #Or from the object
 
-a1 = item("stick").set_item_enchantments(`enchantments`);
+`variable` = item("stick").set_item_enchantments(`enchantments`);
 
 #Or dry
 
-variable::set_item_enchantments(a1,item("stick"),`enchantments`);
+variable::set_item_enchantments(`variable`,item("stick"),`enchantments`);
 ```
 
 **Arguments:**
@@ -6430,15 +6430,15 @@ variable::set_item_enchantments(a1,item("stick"),`enchantments`);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_lore(["lore", "lore"],item("stick"));
+`variable` = variable::set_item_lore(["lore", "lore"],item("stick"));
 
 #Or from the object
 
-a1 = item("stick").set_item_lore(["lore", "lore"]);
+`variable` = item("stick").set_item_lore(["lore", "lore"]);
 
 #Or dry
 
-variable::set_item_lore(a1,["lore", "lore"],item("stick"));
+variable::set_item_lore(`variable`,["lore", "lore"],item("stick"));
 ```
 
 **Arguments:**
@@ -6459,15 +6459,15 @@ variable::set_item_lore(a1,["lore", "lore"],item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_lore_line(item("stick"),"text",1,"APPEND");
+`variable` = variable::set_item_lore_line(item("stick"),"text",1,"APPEND");
 
 #Or from the object
 
-a1 = item("stick").set_item_lore_line("text",1,"APPEND");
+`variable` = item("stick").set_item_lore_line("text",1,"APPEND");
 
 #Or dry
 
-variable::set_item_lore_line(a1,item("stick"),"text",1,"APPEND");
+variable::set_item_lore_line(`variable`,item("stick"),"text",1,"APPEND");
 ```
 
 **Arguments:**
@@ -6493,7 +6493,7 @@ variable::set_item_lore_line(a1,item("stick"),"text",1,"APPEND");
 
 **Usage example:** 
 ```ts
-variable::set_item_max_stack_size(a1,item("stick"),1);
+variable::set_item_max_stack_size(`variable`,item("stick"),1);
 ```
 
 **Arguments:**
@@ -6514,15 +6514,15 @@ variable::set_item_max_stack_size(a1,item("stick"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_name(item("stick"),"text");
+`variable` = variable::set_item_name(item("stick"),"text");
 
 #Or from the object
 
-a1 = item("stick").set_item_name("text");
+`variable` = item("stick").set_item_name("text");
 
 #Or dry
 
-variable::set_item_name(a1,item("stick"),"text");
+variable::set_item_name(`variable`,item("stick"),"text");
 ```
 
 **Arguments:**
@@ -6543,15 +6543,15 @@ variable::set_item_name(a1,item("stick"),"text");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_placeable_blocks([item("stick"), item("stick")],item("stick"));
+`variable` = variable::set_item_placeable_blocks([item("stick"), item("stick")],item("stick"));
 
 #Or from the object
 
-a1 = item("stick").set_item_placeable_blocks([item("stick"), item("stick")]);
+`variable` = item("stick").set_item_placeable_blocks([item("stick"), item("stick")]);
 
 #Or dry
 
-variable::set_item_placeable_blocks(a1,[item("stick"), item("stick")],item("stick"));
+variable::set_item_placeable_blocks(`variable`,[item("stick"), item("stick")],item("stick"));
 ```
 
 **Arguments:**
@@ -6572,15 +6572,15 @@ variable::set_item_placeable_blocks(a1,[item("stick"), item("stick")],item("stic
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_type(item("stick"),"type");
+`variable` = variable::set_item_type(item("stick"),"type");
 
 #Or from the object
 
-a1 = item("stick").set_item_type("type");
+`variable` = item("stick").set_item_type("type");
 
 #Or dry
 
-variable::set_item_type(a1,item("stick"),"type");
+variable::set_item_type(`variable`,item("stick"),"type");
 ```
 
 **Arguments:**
@@ -6601,15 +6601,15 @@ variable::set_item_type(a1,item("stick"),"type");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_unbreakable(item("stick"),"FALSE");
+`variable` = variable::set_item_unbreakable(item("stick"),"FALSE");
 
 #Or from the object
 
-a1 = item("stick").set_item_unbreakable("FALSE");
+`variable` = item("stick").set_item_unbreakable("FALSE");
 
 #Or dry
 
-variable::set_item_unbreakable(a1,item("stick"),"FALSE");
+variable::set_item_unbreakable(`variable`,item("stick"),"FALSE");
 ```
 
 **Arguments:**
@@ -6630,15 +6630,15 @@ variable::set_item_unbreakable(a1,item("stick"),"FALSE");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_item_visibility_flags(item("stick"),"NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
+`variable` = variable::set_item_visibility_flags(item("stick"),"NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
 
 #Or from the object
 
-a1 = item("stick").set_item_visibility_flags("NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
+`variable` = item("stick").set_item_visibility_flags("NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
 
 #Or dry
 
-variable::set_item_visibility_flags(a1,item("stick"),"NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
+variable::set_item_visibility_flags(`variable`,item("stick"),"NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
 ```
 
 **Arguments:**
@@ -6666,15 +6666,15 @@ variable::set_item_visibility_flags(a1,item("stick"),"NO_CHANGE","NO_CHANGE","NO
 
 **Usage example:** 
 ```ts
-a1 = variable::set_list_value(`list`,1,"any value");
+`variable` = variable::set_list_value(`list`,1,"any value");
 
 #Or from the object
 
-a1 = `list`.set_list_value(1,"any value");
+`variable` = `list`.set_list_value(1,"any value");
 
 #Or dry
 
-variable::set_list_value(a1,`list`,1,"any value");
+variable::set_list_value(`variable`,`list`,1,"any value");
 ```
 
 **Arguments:**
@@ -6696,15 +6696,15 @@ variable::set_list_value(a1,`list`,1,"any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_location_direction(location(0,0,0,0,0),vector(0,0,0));
+`variable` = variable::set_location_direction(location(0,0,0,0,0),vector(0,0,0));
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).set_location_direction(vector(0,0,0));
+`variable` = location(0,0,0,0,0).set_location_direction(vector(0,0,0));
 
 #Or dry
 
-variable::set_location_direction(a1,location(0,0,0,0,0),vector(0,0,0));
+variable::set_location_direction(`variable`,location(0,0,0,0,0),vector(0,0,0));
 ```
 
 **Arguments:**
@@ -6725,15 +6725,15 @@ variable::set_location_direction(a1,location(0,0,0,0,0),vector(0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::set_map_value(`map`,"any value","any value");
+`variable` = variable::set_map_value(`map`,"any value","any value");
 
 #Or from the object
 
-a1 = `map`.set_map_value("any value","any value");
+`variable` = `map`.set_map_value("any value","any value");
 
 #Or dry
 
-variable::set_map_value(a1,`map`,"any value","any value");
+variable::set_map_value(`variable`,`map`,"any value","any value");
 ```
 
 **Arguments:**
@@ -6755,15 +6755,15 @@ variable::set_map_value(a1,`map`,"any value","any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_particle_amount(particle("fire"),1);
+`variable` = variable::set_particle_amount(particle("fire"),1);
 
 #Or from the object
 
-a1 = particle("fire").set_particle_amount(1);
+`variable` = particle("fire").set_particle_amount(1);
 
 #Or dry
 
-variable::set_particle_amount(a1,particle("fire"),1);
+variable::set_particle_amount(`variable`,particle("fire"),1);
 ```
 
 **Arguments:**
@@ -6784,15 +6784,15 @@ variable::set_particle_amount(a1,particle("fire"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_particle_color(particle("fire"),"hex_color","COLOR");
+`variable` = variable::set_particle_color(particle("fire"),"hex_color","COLOR");
 
 #Or from the object
 
-a1 = particle("fire").set_particle_color("hex_color","COLOR");
+`variable` = particle("fire").set_particle_color("hex_color","COLOR");
 
 #Or dry
 
-variable::set_particle_color(a1,particle("fire"),"hex_color","COLOR");
+variable::set_particle_color(`variable`,particle("fire"),"hex_color","COLOR");
 ```
 
 **Arguments:**
@@ -6814,15 +6814,15 @@ variable::set_particle_color(a1,particle("fire"),"hex_color","COLOR");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_particle_material(particle("fire"),item("stick"));
+`variable` = variable::set_particle_material(particle("fire"),item("stick"));
 
 #Or from the object
 
-a1 = particle("fire").set_particle_material(item("stick"));
+`variable` = particle("fire").set_particle_material(item("stick"));
 
 #Or dry
 
-variable::set_particle_material(a1,particle("fire"),item("stick"));
+variable::set_particle_material(`variable`,particle("fire"),item("stick"));
 ```
 
 **Arguments:**
@@ -6843,15 +6843,15 @@ variable::set_particle_material(a1,particle("fire"),item("stick"));
 
 **Usage example:** 
 ```ts
-a1 = variable::set_particle_offset(particle("fire"),vector(0,0,0));
+`variable` = variable::set_particle_offset(particle("fire"),vector(0,0,0));
 
 #Or from the object
 
-a1 = particle("fire").set_particle_offset(vector(0,0,0));
+`variable` = particle("fire").set_particle_offset(vector(0,0,0));
 
 #Or dry
 
-variable::set_particle_offset(a1,particle("fire"),vector(0,0,0));
+variable::set_particle_offset(`variable`,particle("fire"),vector(0,0,0));
 ```
 
 **Arguments:**
@@ -6872,15 +6872,15 @@ variable::set_particle_offset(a1,particle("fire"),vector(0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::set_particle_size(particle("fire"),1);
+`variable` = variable::set_particle_size(particle("fire"),1);
 
 #Or from the object
 
-a1 = particle("fire").set_particle_size(1);
+`variable` = particle("fire").set_particle_size(1);
 
 #Or dry
 
-variable::set_particle_size(a1,particle("fire"),1);
+variable::set_particle_size(`variable`,particle("fire"),1);
 ```
 
 **Arguments:**
@@ -6901,15 +6901,15 @@ variable::set_particle_size(a1,particle("fire"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_particle_spread(particle("fire"),1,2);
+`variable` = variable::set_particle_spread(particle("fire"),1,2);
 
 #Or from the object
 
-a1 = particle("fire").set_particle_spread(1,2);
+`variable` = particle("fire").set_particle_spread(1,2);
 
 #Or dry
 
-variable::set_particle_spread(a1,particle("fire"),1,2);
+variable::set_particle_spread(`variable`,particle("fire"),1,2);
 ```
 
 **Arguments:**
@@ -6931,15 +6931,15 @@ variable::set_particle_spread(a1,particle("fire"),1,2);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_particle_type(particle("fire"),"type");
+`variable` = variable::set_particle_type(particle("fire"),"type");
 
 #Or from the object
 
-a1 = particle("fire").set_particle_type("type");
+`variable` = particle("fire").set_particle_type("type");
 
 #Or dry
 
-variable::set_particle_type(a1,particle("fire"),"type");
+variable::set_particle_type(`variable`,particle("fire"),"type");
 ```
 
 **Arguments:**
@@ -6960,15 +6960,15 @@ variable::set_particle_type(a1,particle("fire"),"type");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_potion_effect_amplifier(potion("slow_falling"),1);
+`variable` = variable::set_potion_effect_amplifier(potion("slow_falling"),1);
 
 #Or from the object
 
-a1 = potion("slow_falling").set_potion_effect_amplifier(1);
+`variable` = potion("slow_falling").set_potion_effect_amplifier(1);
 
 #Or dry
 
-variable::set_potion_effect_amplifier(a1,potion("slow_falling"),1);
+variable::set_potion_effect_amplifier(`variable`,potion("slow_falling"),1);
 ```
 
 **Arguments:**
@@ -6989,15 +6989,15 @@ variable::set_potion_effect_amplifier(a1,potion("slow_falling"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_potion_effect_duration(potion("slow_falling"),1);
+`variable` = variable::set_potion_effect_duration(potion("slow_falling"),1);
 
 #Or from the object
 
-a1 = potion("slow_falling").set_potion_effect_duration(1);
+`variable` = potion("slow_falling").set_potion_effect_duration(1);
 
 #Or dry
 
-variable::set_potion_effect_duration(a1,potion("slow_falling"),1);
+variable::set_potion_effect_duration(`variable`,potion("slow_falling"),1);
 ```
 
 **Arguments:**
@@ -7018,15 +7018,15 @@ variable::set_potion_effect_duration(a1,potion("slow_falling"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_potion_effect_type(potion("slow_falling"),"effect_type");
+`variable` = variable::set_potion_effect_type(potion("slow_falling"),"effect_type");
 
 #Or from the object
 
-a1 = potion("slow_falling").set_potion_effect_type("effect_type");
+`variable` = potion("slow_falling").set_potion_effect_type("effect_type");
 
 #Or dry
 
-variable::set_potion_effect_type(a1,potion("slow_falling"),"effect_type");
+variable::set_potion_effect_type(`variable`,potion("slow_falling"),"effect_type");
 ```
 
 **Arguments:**
@@ -7047,15 +7047,15 @@ variable::set_potion_effect_type(a1,potion("slow_falling"),"effect_type");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_sound_pitch(sound("entity.zombie.hurt"),1);
+`variable` = variable::set_sound_pitch(sound("entity.zombie.hurt"),1);
 
 #Or from the object
 
-a1 = sound("entity.zombie.hurt").set_sound_pitch(1);
+`variable` = sound("entity.zombie.hurt").set_sound_pitch(1);
 
 #Or dry
 
-variable::set_sound_pitch(a1,sound("entity.zombie.hurt"),1);
+variable::set_sound_pitch(`variable`,sound("entity.zombie.hurt"),1);
 ```
 
 **Arguments:**
@@ -7076,15 +7076,15 @@ variable::set_sound_pitch(a1,sound("entity.zombie.hurt"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_sound_source(sound("entity.zombie.hurt"),"AMBIENT");
+`variable` = variable::set_sound_source(sound("entity.zombie.hurt"),"AMBIENT");
 
 #Or from the object
 
-a1 = sound("entity.zombie.hurt").set_sound_source("AMBIENT");
+`variable` = sound("entity.zombie.hurt").set_sound_source("AMBIENT");
 
 #Or dry
 
-variable::set_sound_source(a1,sound("entity.zombie.hurt"),"AMBIENT");
+variable::set_sound_source(`variable`,sound("entity.zombie.hurt"),"AMBIENT");
 ```
 
 **Arguments:**
@@ -7105,15 +7105,15 @@ variable::set_sound_source(a1,sound("entity.zombie.hurt"),"AMBIENT");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_sound_type(sound("entity.zombie.hurt"),"namespace","value");
+`variable` = variable::set_sound_type(sound("entity.zombie.hurt"),"namespace","value");
 
 #Or from the object
 
-a1 = sound("entity.zombie.hurt").set_sound_type("namespace","value");
+`variable` = sound("entity.zombie.hurt").set_sound_type("namespace","value");
 
 #Or dry
 
-variable::set_sound_type(a1,sound("entity.zombie.hurt"),"namespace","value");
+variable::set_sound_type(`variable`,sound("entity.zombie.hurt"),"namespace","value");
 ```
 
 **Arguments:**
@@ -7138,15 +7138,15 @@ variable::set_sound_type(a1,sound("entity.zombie.hurt"),"namespace","value");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_sound_variation(sound("entity.zombie.hurt"),"variation");
+`variable` = variable::set_sound_variation(sound("entity.zombie.hurt"),"variation");
 
 #Or from the object
 
-a1 = sound("entity.zombie.hurt").set_sound_variation("variation");
+`variable` = sound("entity.zombie.hurt").set_sound_variation("variation");
 
 #Or dry
 
-variable::set_sound_variation(a1,sound("entity.zombie.hurt"),"variation");
+variable::set_sound_variation(`variable`,sound("entity.zombie.hurt"),"variation");
 ```
 
 **Arguments:**
@@ -7167,15 +7167,15 @@ variable::set_sound_variation(a1,sound("entity.zombie.hurt"),"variation");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_sound_volume_action(sound("entity.zombie.hurt"),1);
+`variable` = variable::set_sound_volume_action(sound("entity.zombie.hurt"),1);
 
 #Or from the object
 
-a1 = sound("entity.zombie.hurt").set_sound_volume_action(1);
+`variable` = sound("entity.zombie.hurt").set_sound_volume_action(1);
 
 #Or dry
 
-variable::set_sound_volume_action(a1,sound("entity.zombie.hurt"),1);
+variable::set_sound_volume_action(`variable`,sound("entity.zombie.hurt"),1);
 ```
 
 **Arguments:**
@@ -7196,15 +7196,15 @@ variable::set_sound_volume_action(a1,sound("entity.zombie.hurt"),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_template_code(item("stick"),"any value");
+`variable` = variable::set_template_code(item("stick"),"any value");
 
 #Or from the object
 
-a1 = item("stick").set_template_code("any value");
+`variable` = item("stick").set_template_code("any value");
 
 #Or dry
 
-variable::set_template_code(a1,item("stick"),"any value");
+variable::set_template_code(`variable`,item("stick"),"any value");
 ```
 
 **Arguments:**
@@ -7225,15 +7225,15 @@ variable::set_template_code(a1,item("stick"),"any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_texture_to_map(item("stick"),"url");
+`variable` = variable::set_texture_to_map(item("stick"),"url");
 
 #Or from the object
 
-a1 = item("stick").set_texture_to_map("url");
+`variable` = item("stick").set_texture_to_map("url");
 
 #Or dry
 
-variable::set_texture_to_map(a1,item("stick"),"url");
+variable::set_texture_to_map(`variable`,item("stick"),"url");
 ```
 
 **Arguments:**
@@ -7254,15 +7254,15 @@ variable::set_texture_to_map(a1,item("stick"),"url");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_vector_component(vector(0,0,0),1,"X");
+`variable` = variable::set_vector_component(vector(0,0,0),1,"X");
 
 #Or from the object
 
-a1 = vector(0,0,0).set_vector_component(1,"X");
+`variable` = vector(0,0,0).set_vector_component(1,"X");
 
 #Or dry
 
-variable::set_vector_component(a1,vector(0,0,0),1,"X");
+variable::set_vector_component(`variable`,vector(0,0,0),1,"X");
 ```
 
 **Arguments:**
@@ -7284,15 +7284,15 @@ variable::set_vector_component(a1,vector(0,0,0),1,"X");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_vector_length(vector(0,0,0),1);
+`variable` = variable::set_vector_length(vector(0,0,0),1);
 
 #Or from the object
 
-a1 = vector(0,0,0).set_vector_length(1);
+`variable` = vector(0,0,0).set_vector_length(1);
 
 #Or dry
 
-variable::set_vector_length(a1,vector(0,0,0),1);
+variable::set_vector_length(`variable`,vector(0,0,0),1);
 ```
 
 **Arguments:**
@@ -7313,15 +7313,15 @@ variable::set_vector_length(a1,vector(0,0,0),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::shift_all_coordinates(location(0,0,0,0,0),1,2,3,4,5);
+`variable` = variable::shift_all_coordinates(location(0,0,0,0,0),1,2,3,4,5);
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).shift_all_coordinates(1,2,3,4,5);
+`variable` = location(0,0,0,0,0).shift_all_coordinates(1,2,3,4,5);
 
 #Or dry
 
-variable::shift_all_coordinates(a1,location(0,0,0,0,0),1,2,3,4,5);
+variable::shift_all_coordinates(`variable`,location(0,0,0,0,0),1,2,3,4,5);
 ```
 
 **Arguments:**
@@ -7346,15 +7346,15 @@ variable::shift_all_coordinates(a1,location(0,0,0,0,0),1,2,3,4,5);
 
 **Usage example:** 
 ```ts
-a1 = variable::shift_coordinate(location(0,0,0,0,0),1,"PITCH");
+`variable` = variable::shift_coordinate(location(0,0,0,0,0),1,"PITCH");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).shift_coordinate(1,"PITCH");
+`variable` = location(0,0,0,0,0).shift_coordinate(1,"PITCH");
 
 #Or dry
 
-variable::shift_coordinate(a1,location(0,0,0,0,0),1,"PITCH");
+variable::shift_coordinate(`variable`,location(0,0,0,0,0),1,"PITCH");
 ```
 
 **Arguments:**
@@ -7376,15 +7376,15 @@ variable::shift_coordinate(a1,location(0,0,0,0,0),1,"PITCH");
 
 **Usage example:** 
 ```ts
-a1 = variable::shift_location_in_direction(location(0,0,0,0,0),1,"FORWARD");
+`variable` = variable::shift_location_in_direction(location(0,0,0,0,0),1,"FORWARD");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).shift_location_in_direction(1,"FORWARD");
+`variable` = location(0,0,0,0,0).shift_location_in_direction(1,"FORWARD");
 
 #Or dry
 
-variable::shift_location_in_direction(a1,location(0,0,0,0,0),1,"FORWARD");
+variable::shift_location_in_direction(`variable`,location(0,0,0,0,0),1,"FORWARD");
 ```
 
 **Arguments:**
@@ -7406,15 +7406,15 @@ variable::shift_location_in_direction(a1,location(0,0,0,0,0),1,"FORWARD");
 
 **Usage example:** 
 ```ts
-a1 = variable::shift_location_on_vector(location(0,0,0,0,0),vector(0,0,0),1);
+`variable` = variable::shift_location_on_vector(location(0,0,0,0,0),vector(0,0,0),1);
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).shift_location_on_vector(vector(0,0,0),1);
+`variable` = location(0,0,0,0,0).shift_location_on_vector(vector(0,0,0),1);
 
 #Or dry
 
-variable::shift_location_on_vector(a1,location(0,0,0,0,0),vector(0,0,0),1);
+variable::shift_location_on_vector(`variable`,location(0,0,0,0,0),vector(0,0,0),1);
 ```
 
 **Arguments:**
@@ -7436,15 +7436,15 @@ variable::shift_location_on_vector(a1,location(0,0,0,0,0),vector(0,0,0),1);
 
 **Usage example:** 
 ```ts
-a1 = variable::shift_location_towards_location(location(0,0,0,0,0),location(0,0,0,0,0),1);
+`variable` = variable::shift_location_towards_location(location(0,0,0,0,0),location(0,0,0,0,0),1);
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).shift_location_towards_location(location(0,0,0,0,0),1);
+`variable` = location(0,0,0,0,0).shift_location_towards_location(location(0,0,0,0,0),1);
 
 #Or dry
 
-variable::shift_location_towards_location(a1,location(0,0,0,0,0),location(0,0,0,0,0),1);
+variable::shift_location_towards_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),1);
 ```
 
 **Arguments:**
@@ -7466,15 +7466,15 @@ variable::shift_location_towards_location(a1,location(0,0,0,0,0),location(0,0,0,
 
 **Usage example:** 
 ```ts
-a1 = variable::simplex_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
+`variable` = variable::simplex_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).simplex_noise_3d(1,2,3,4,5,"FULL_RANGE","FALSE");
+`variable` = location(0,0,0,0,0).simplex_noise_3d(1,2,3,4,5,"FULL_RANGE","FALSE");
 
 #Or dry
 
-variable::simplex_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
+variable::simplex_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
 ```
 
 **Arguments:**
@@ -7501,15 +7501,15 @@ variable::simplex_noise_3d(a1,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE"
 
 **Usage example:** 
 ```ts
-a1 = variable::sine(1,"ARCSINE","DEGREES");
+`variable` = variable::sine(1,"ARCSINE","DEGREES");
 
 #Or from the object
 
-a1 = (1).sine("ARCSINE","DEGREES");
+`variable` = (1).sine("ARCSINE","DEGREES");
 
 #Or dry
 
-variable::sine(a1,1,"ARCSINE","DEGREES");
+variable::sine(`variable`,1,"ARCSINE","DEGREES");
 ```
 
 **Arguments:**
@@ -7535,15 +7535,15 @@ variable::sine(a1,1,"ARCSINE","DEGREES");
 
 **Usage example:** 
 ```ts
-a1 = variable::sort_list(`list`,"ASCENDING");
+`variable` = variable::sort_list(`list`,"ASCENDING");
 
 #Or from the object
 
-a1 = `list`.sort_list("ASCENDING");
+`variable` = `list`.sort_list("ASCENDING");
 
 #Or dry
 
-variable::sort_list(a1,`list`,"ASCENDING");
+variable::sort_list(`variable`,`list`,"ASCENDING");
 ```
 
 **Arguments:**
@@ -7564,15 +7564,15 @@ variable::sort_list(a1,`list`,"ASCENDING");
 
 **Usage example:** 
 ```ts
-a1 = variable::sort_map(`map`,"ASCENDING","KEYS");
+`variable` = variable::sort_map(`map`,"ASCENDING","KEYS");
 
 #Or from the object
 
-a1 = `map`.sort_map("ASCENDING","KEYS");
+`variable` = `map`.sort_map("ASCENDING","KEYS");
 
 #Or dry
 
-variable::sort_map(a1,`map`,"ASCENDING","KEYS");
+variable::sort_map(`variable`,`map`,"ASCENDING","KEYS");
 ```
 
 **Arguments:**
@@ -7594,15 +7594,15 @@ variable::sort_map(a1,`map`,"ASCENDING","KEYS");
 
 **Usage example:** 
 ```ts
-a1 = variable::split_text("text","delimiter");
+`variable` = variable::split_text("text","delimiter");
 
 #Or from the object
 
-a1 = "text".split_text("delimiter");
+`variable` = "text".split_text("delimiter");
 
 #Or dry
 
-variable::split_text(a1,"text","delimiter");
+variable::split_text(`variable`,"text","delimiter");
 ```
 
 **Arguments:**
@@ -7623,15 +7623,15 @@ variable::split_text(a1,"text","delimiter");
 
 **Usage example:** 
 ```ts
-a1 = variable::strip_text("text","ALL");
+`variable` = variable::strip_text("text","ALL");
 
 #Or from the object
 
-a1 = "text".strip_text("ALL");
+`variable` = "text".strip_text("ALL");
 
 #Or dry
 
-variable::strip_text(a1,"text","ALL");
+variable::strip_text(`variable`,"text","ALL");
 ```
 
 **Arguments:**
@@ -7652,11 +7652,11 @@ variable::strip_text(a1,"text","ALL");
 
 **Usage example:** 
 ```ts
-a1 = variable::subtract([1, 2]);
+`variable` = variable::subtract([1, 2]);
 
 #Or dry
 
-variable::subtract(a1,[1, 2]);
+variable::subtract(`variable`,[1, 2]);
 ```
 
 **Arguments:**
@@ -7676,11 +7676,11 @@ variable::subtract(a1,[1, 2]);
 
 **Usage example:** 
 ```ts
-a1 = variable::subtract_vectors([vector(0,0,0), vector(0,0,0)]);
+`variable` = variable::subtract_vectors([vector(0,0,0), vector(0,0,0)]);
 
 #Or dry
 
-variable::subtract_vectors(a1,[vector(0,0,0), vector(0,0,0)]);
+variable::subtract_vectors(`variable`,[vector(0,0,0), vector(0,0,0)]);
 ```
 
 **Arguments:**
@@ -7700,15 +7700,15 @@ variable::subtract_vectors(a1,[vector(0,0,0), vector(0,0,0)]);
 
 **Usage example:** 
 ```ts
-a1 = variable::tangent(1,"ARCTANGENT","DEGREES");
+`variable` = variable::tangent(1,"ARCTANGENT","DEGREES");
 
 #Or from the object
 
-a1 = (1).tangent("ARCTANGENT","DEGREES");
+`variable` = (1).tangent("ARCTANGENT","DEGREES");
 
 #Or dry
 
-variable::tangent(a1,1,"ARCTANGENT","DEGREES");
+variable::tangent(`variable`,1,"ARCTANGENT","DEGREES");
 ```
 
 **Arguments:**
@@ -7730,11 +7730,11 @@ variable::tangent(a1,1,"ARCTANGENT","DEGREES");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_text(["text", "text"],"CONCATENATION");
+`variable` = variable::set_text(["text", "text"],"CONCATENATION");
 
 #Or dry
 
-variable::set_text(a1,["text", "text"],"CONCATENATION");
+variable::set_text(`variable`,["text", "text"],"CONCATENATION");
 ```
 
 **Arguments:**
@@ -7755,15 +7755,15 @@ variable::set_text(a1,["text", "text"],"CONCATENATION");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_text_case("text","INVERT");
+`variable` = variable::set_text_case("text","INVERT");
 
 #Or from the object
 
-a1 = "text".set_text_case("INVERT");
+`variable` = "text".set_text_case("INVERT");
 
 #Or dry
 
-variable::set_text_case(a1,"text","INVERT");
+variable::set_text_case(`variable`,"text","INVERT");
 ```
 
 **Arguments:**
@@ -7784,15 +7784,15 @@ variable::set_text_case(a1,"text","INVERT");
 
 **Usage example:** 
 ```ts
-a1 = variable::get_text_length("text");
+`variable` = variable::get_text_length("text");
 
 #Or from the object
 
-a1 = "text".get_text_length();
+`variable` = "text".get_text_length();
 
 #Or dry
 
-variable::get_text_length(a1,"text");
+variable::get_text_length(`variable`,"text");
 ```
 
 **Arguments:**
@@ -7812,15 +7812,15 @@ variable::get_text_length(a1,"text");
 
 **Usage example:** 
 ```ts
-a1 = variable::to_char(1);
+`variable` = variable::to_char(1);
 
 #Or from the object
 
-a1 = (1).to_char();
+`variable` = (1).to_char();
 
 #Or dry
 
-variable::to_char(a1,1);
+variable::to_char(`variable`,1);
 ```
 
 **Arguments:**
@@ -7840,11 +7840,11 @@ variable::to_char(a1,1);
 
 **Usage example:** 
 ```ts
-a1 = variable::to_hsb(1,2,3);
+`variable` = variable::to_hsb(1,2,3);
 
 #Or dry
 
-variable::to_hsb(a1,1,2,3);
+variable::to_hsb(`variable`,1,2,3);
 ```
 
 **Arguments:**
@@ -7866,11 +7866,11 @@ variable::to_hsb(a1,1,2,3);
 
 **Usage example:** 
 ```ts
-a1 = variable::to_hsl(1,2,3);
+`variable` = variable::to_hsl(1,2,3);
 
 #Or dry
 
-variable::to_hsl(a1,1,2,3);
+variable::to_hsl(`variable`,1,2,3);
 ```
 
 **Arguments:**
@@ -7892,11 +7892,11 @@ variable::to_hsl(a1,1,2,3);
 
 **Usage example:** 
 ```ts
-a1 = variable::to_json("any value","FALSE");
+`variable` = variable::to_json("any value","FALSE");
 
 #Or dry
 
-variable::to_json(a1,"any value","FALSE");
+variable::to_json(`variable`,"any value","FALSE");
 ```
 
 **Arguments:**
@@ -7917,11 +7917,11 @@ variable::to_json(a1,"any value","FALSE");
 
 **Usage example:** 
 ```ts
-a1 = variable::to_rgb(1,2,3);
+`variable` = variable::to_rgb(1,2,3);
 
 #Or dry
 
-variable::to_rgb(a1,1,2,3);
+variable::to_rgb(`variable`,1,2,3);
 ```
 
 **Arguments:**
@@ -7943,15 +7943,15 @@ variable::to_rgb(a1,1,2,3);
 
 **Usage example:** 
 ```ts
-a1 = variable::trim_list(`list`,1,2);
+`variable` = variable::trim_list(`list`,1,2);
 
 #Or from the object
 
-a1 = `list`.trim_list(1,2);
+`variable` = `list`.trim_list(1,2);
 
 #Or dry
 
-variable::trim_list(a1,`list`,1,2);
+variable::trim_list(`variable`,`list`,1,2);
 ```
 
 **Arguments:**
@@ -7973,15 +7973,15 @@ variable::trim_list(a1,`list`,1,2);
 
 **Usage example:** 
 ```ts
-a1 = variable::trim_text("text",1,2);
+`variable` = variable::trim_text("text",1,2);
 
 #Or from the object
 
-a1 = "text".trim_text(1,2);
+`variable` = "text".trim_text(1,2);
 
 #Or dry
 
-variable::trim_text(a1,"text",1,2);
+variable::trim_text(`variable`,"text",1,2);
 ```
 
 **Arguments:**
@@ -8003,11 +8003,11 @@ variable::trim_text(a1,"text",1,2);
 
 **Usage example:** 
 ```ts
-a1 = variable::set_value("any value");
+`variable` = variable::set_value("any value");
 
 #Or dry
 
-variable::set_value(a1,"any value");
+variable::set_value(`variable`,"any value");
 ```
 
 **Arguments:**
@@ -8027,11 +8027,11 @@ variable::set_value(a1,"any value");
 
 **Usage example:** 
 ```ts
-a1 = variable::set_vector(1,2,3);
+`variable` = variable::set_vector(1,2,3);
 
 #Or dry
 
-variable::set_vector(a1,1,2,3);
+variable::set_vector(`variable`,1,2,3);
 ```
 
 **Arguments:**
@@ -8053,11 +8053,11 @@ variable::set_vector(a1,1,2,3);
 
 **Usage example:** 
 ```ts
-a1 = variable::vector_cross_product(vector(0,0,0),vector(0,0,0));
+`variable` = variable::vector_cross_product(vector(0,0,0),vector(0,0,0));
 
 #Or dry
 
-variable::vector_cross_product(a1,vector(0,0,0),vector(0,0,0));
+variable::vector_cross_product(`variable`,vector(0,0,0),vector(0,0,0));
 ```
 
 **Arguments:**
@@ -8078,11 +8078,11 @@ variable::vector_cross_product(a1,vector(0,0,0),vector(0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::vector_dot_product(vector(0,0,0),vector(0,0,0));
+`variable` = variable::vector_dot_product(vector(0,0,0),vector(0,0,0));
 
 #Or dry
 
-variable::vector_dot_product(a1,vector(0,0,0),vector(0,0,0));
+variable::vector_dot_product(`variable`,vector(0,0,0),vector(0,0,0));
 ```
 
 **Arguments:**
@@ -8103,15 +8103,15 @@ variable::vector_dot_product(a1,vector(0,0,0),vector(0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::vector_to_direction_name(vector(0,0,0));
+`variable` = variable::vector_to_direction_name(vector(0,0,0));
 
 #Or from the object
 
-a1 = vector(0,0,0).vector_to_direction_name();
+`variable` = vector(0,0,0).vector_to_direction_name();
 
 #Or dry
 
-variable::vector_to_direction_name(a1,vector(0,0,0));
+variable::vector_to_direction_name(`variable`,vector(0,0,0));
 ```
 
 **Arguments:**
@@ -8131,15 +8131,15 @@ variable::vector_to_direction_name(a1,vector(0,0,0));
 
 **Usage example:** 
 ```ts
-a1 = variable::voronoi_noise_3d(location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
+`variable` = variable::voronoi_noise_3d(location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
 
 #Or from the object
 
-a1 = location(0,0,0,0,0).voronoi_noise_3d(1,2,3,"FULL_RANGE","FALSE");
+`variable` = location(0,0,0,0,0).voronoi_noise_3d(1,2,3,"FULL_RANGE","FALSE");
 
 #Or dry
 
-variable::voronoi_noise_3d(a1,location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
+variable::voronoi_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
 ```
 
 **Arguments:**
@@ -8164,15 +8164,15 @@ variable::voronoi_noise_3d(a1,location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
 
 **Usage example:** 
 ```ts
-a1 = variable::warp(1,2,3);
+`variable` = variable::warp(1,2,3);
 
 #Or from the object
 
-a1 = (1).warp(2,3);
+`variable` = (1).warp(2,3);
 
 #Or dry
 
-variable::warp(a1,1,2,3);
+variable::warp(`variable`,1,2,3);
 ```
 
 **Arguments:**
