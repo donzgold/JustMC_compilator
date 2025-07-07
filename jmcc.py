@@ -318,6 +318,10 @@ if __name__ == "__main__":
             from decompilator import decompile_file
 
             decompile_file(additional[1], properties=data.properties)
+        elif additional[0] == "fix_items" and len(additional) > 1:
+            from decompilator import fix_items
+
+            fix_items(additional[1], properties=data.properties)
         elif additional[0] == "update" and len(additional) > 1:
             if additional[1] == "data":
                 an_data = Properties(text=requests.get(
@@ -330,7 +334,7 @@ if __name__ == "__main__":
             else:
                 print(minecraft_based_text("&c" + translate("error.unknown_command", {0: "&4help"})))
         elif additional[0] == "help":
-            command_list = ["help", "about", "compile", "decompile", "update.data","update.to_release","update.to_version"]
+            command_list = ["help", "about", "compile", "decompile", "fix_items", "update.data", "update.to_release", "update.to_version"]
             print(minecraft_based_text("&f" + translate("jmcc.command.help")))
             for command in command_list:
                 print(minecraft_based_text("&f" + translate(f"jmcc.command.help.line",{0:command,1:translate(f"jmcc.command.{command}.description")})))

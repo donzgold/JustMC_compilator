@@ -15,7 +15,7 @@ allowed_symbols = "0123456789abcdefABCDEF"
 
 current_indent = 0
 
-
+item_list = set()
 def fix_var_name(var_name):
     if not is_normal(var_name):
             return "`" + var_name.replace("\\", "\\\\").replace('`', '\\`') + "`"
@@ -30,9 +30,10 @@ def is_normal(th):
         if not (i.isalpha() or i.isdigit() or i == "_"):
             return False
     return True
-
 def decompile(thing):
     global current_indent
+    if thing is None:
+        return None
     typ = thing.setdefault("type", None)
     if len(thing) == 1 and typ is None:
         return None
@@ -65,7 +66,7 @@ def decompile(thing):
         if is_normal(thing['variable']):
             if thing["scope"] == "local":
                 return thing['variable']
-            return thing['scope'][0] + "`"+fix_var_name(thing['variable'])+"`"
+            return thing['scope'][0] + "`"+thing['variable']+"`"
         return thing['scope'][0] + fix_var_name(thing['variable'])
     elif typ == "number":
         if isinstance(thing["number"], int) or isinstance(thing["number"], float):
@@ -82,12 +83,15 @@ def decompile(thing):
             return arr[0]
         return f"[{', '.join(arr)}]"
     elif typ == "item":
+        if thing["item"] == "AAAAAAAAAAA=":
+            return None
         try:
             it = nbtworker.load(thing["item"])
             if len(it) == 0:
                 return None
-            return f"item({it['id']}, {it['Count'].value}" + (f", nbt=m{it['tag']})" if "tag" in it else ")")
-        except Exception:
+            return f"item({it['id']}"+(f", count={it['count'].value}" if it['count'].value != 1 else "")  + (f", nbt=m{it['components']})" if "components" in it else ""+"")
+        except ZeroDivisionError:
+            item_list.add(thing["item"])
             return "\"" + thing["item"] + "\""
     elif typ == "game_value":
         return f"value::{thing['game_value']}" + (
@@ -282,8 +286,6 @@ def decompile(thing):
     print(thing)
     print(minecraft_based_text("&c" + translate("error.unknown_type")))
     exit()
-
-
 def decompile_file(file, properties=None):
     for i in json.load(open("data/actions.json")):
         actions[i["id"]] = i
@@ -293,4 +295,46 @@ def decompile_file(file, properties=None):
         values[i["id"]] = i
     writing = open(file[:file.rfind(".")] + ".jc", "w+", encoding="UTF-8")
     for i in json.load(open(file, encoding="UTF-8"))["handlers"]:
-        writing.write(decompile(i) + "\n")
+        res = decompile(i)
+        if res is not None:
+            writing.write(res + "\n")
+    if len(item_list) > 0:
+        print(minecraft_based_text("&fВ коде обнаружены предметы, невозможные расшифровать обычным способом.\nПрограмма выполнит компиляцию кода необходимого для исправления предметов."))
+        print(minecraft_based_text(translate("compilator.code_uploading_message")))
+        from time import time
+        from compilator import dct, text, assign, var, Vars
+        import requests
+        start_time1 = time()
+        keys = [text(i, 0, -1, -1, "") for i in item_list]
+        class fake_item:
+            def __init__(self, base64, start_pos, end_pos, source):
+                self.item = base64
+
+            def json(self):
+                return {"type": "item", "item": str(self.item)}
+            def is_simple(self):
+                return True
+        vals = [fake_item(i, -1, -1, "") for i in item_list]
+        add_actions = assign([var("a",Vars.LOCAL,-1,-1,"")],None,dct(keys, vals, -1, -1, ""),-1,-1,"").simplify()[0]
+        add_actions = [i.json() for i in add_actions]
+        code = {"handlers":[{"type":"event","event":"player_join","position":0,"operations":[{"action":"repeat_for_each_map_entry","values":[{"name":"key_variable","value":{"type":"variable","variable":"k","scope":"local"}},{"name":"value_variable","value":{"type":"variable","variable":"v","scope":"local"}},{"name":"map","value":{"type":"variable","variable":"a","scope":"local"}}],"operations":[{"action":"set_variable_replace_text","values":[{"name":"variable","value":{"type":"variable","variable":"v","scope":"local"}},{"name":"text","value":{"type":"variable","variable":"v","scope":"local"}},{"name":"replace","value":{"type":"text","text":"\"","parsing":"legacy"}},{"name":"replacement","value":{"type":"text","text":"\\\"","parsing":"legacy"}},{"name":"first","value":{"type":"enum","enum":"ANY"}}]},{"action":"if_variable_equals","values":[{"name":"value","value":{"type":"variable","variable":"i","scope":"local"}},{"name":"compare","value":{"type":"number","number":0}}],"operations":[{"action":"set_variable_value","values":[{"name":"variable","value":{"type":"variable","variable":"i","scope":"local"}},{"name":"value","value":{"type":"number","number":1}}]},{"action":"set_variable_text","values":[{"name":"variable","value":{"type":"variable","variable":"b","scope":"local"}},{"name":"text","value":{"type":"array","values":[{"type":"text","text":"{\"","parsing":"legacy"},{"type":"variable","variable":"k","scope":"local"},{"type":"text","text":"\":\"","parsing":"legacy"},{"type":"variable","variable":"v","scope":"local"},{"type":"text","text":"\"","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"CONCATENATION"}}]}]},{"action":"else","values":[],"operations":[{"action":"set_variable_text","values":[{"name":"variable","value":{"type":"variable","variable":"b","scope":"local"}},{"name":"text","value":{"type":"array","values":[{"type":"variable","variable":"b","scope":"local"},{"type":"text","text":",\"","parsing":"legacy"},{"type":"variable","variable":"k","scope":"local"},{"type":"text","text":"\":\"","parsing":"legacy"},{"type":"variable","variable":"v","scope":"local"},{"type":"text","text":"\"","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"CONCATENATION"}}]}]}]},{"action":"set_variable_text","values":[{"name":"variable","value":{"type":"variable","variable":"b","scope":"local"}},{"name":"text","value":{"type":"array","values":[{"type":"variable","variable":"b","scope":"local"},{"type":"text","text":"}","parsing":"legacy"}]}},{"name":"merging","value":{"type":"enum","enum":"CONCATENATION"}}]},{"action":"set_variable_set_component_click","values":[{"name":"variable","value":{"type":"variable","variable":"c","scope":"local"}},{"name":"component","value":{"type":"text","text":"&e\u041d\u0430\u0436\u043c\u0438\u0442\u0435 \u043d\u0430 \u044d\u0442\u043e\u0442 \u0442\u0435\u043a\u0441\u0442, \u044d\u0442\u043e \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u044b\u0435 \u0434\u0430\u043d\u043d\u044b\u0435 \u0432 \u0432\u0430\u0448 \u0431\u0443\u0444\u0435\u0440 \u043e\u0431\u043c\u0435\u043d\u0430.\\n\u0417\u0430\u043f\u0443\u0441\u0442\u0438\u0442\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u0443 `py jmcc.py fix_items \u043f\u0443\u0442\u044c_\u043a_\u0444\u0430\u0439\u043b\u0443_jc`\\n\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0432\u043e\u0437\u044c\u043c\u0451\u0442 \u0434\u0430\u043d\u043d\u044b\u0435 \u0438\u0437 \u0432\u0430\u0448\u0435\u0433\u043e \u0431\u0443\u0444\u0435\u0440\u0430 \u043e\u0431\u043c\u0435\u043d\u0430 \u0438 \u0438\u0441\u043f\u0440\u0430\u0432\u0438\u0442 \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u044b.","parsing":"legacy"}},{"name":"value","value":{"type":"variable","variable":"b","scope":"local"}},{"name":"click_action","value":{"type":"enum","enum":"COPY_TO_CLIPBOARD"}}]},{"action":"player_send_message","values":[{"name":"messages","value":{"type":"variable","variable":"c","scope":"local"}}]}]}]}
+        add_actions.extend(code["handlers"][0]["operations"])
+        code["handlers"][0]["operations"]=add_actions
+        response = requests.post('https://m.justmc.ru/api/upload', json=code).json()
+        end_time1 = time()
+        print(minecraft_based_text(translate("compilator.code_uploading_time", {0: round(end_time1 - start_time1, 3)})))
+        print(minecraft_based_text("&fДля исправления, необходимо прописать команду в свободном мире.\n"
+                                   f"&9/module loadUrl force https://m.justmc.ru/api/{response['id']}\n"
+                                   "&fДанная команда запустит код для создания словаря замен предметов."
+                                   "&fПосле выполнения кода, проследовать инструкциям на стороне джаста."))
+def fix_items(file, properties=None):
+    from tkinter import Tk
+    r = Tk()
+    s = json.loads(r.clipboard_get())
+    r.destroy()
+    reading = open(file, "r+", encoding="UTF-8").read()
+    for k, v in s.items():
+        reading = reading.replace("\""+k+"\"", decompile({"type": "item", "item": v}))
+    filename = file[:file.rfind(".")] + "(fixed).jc"
+    open(filename, "w+", encoding="UTF-8").write(reading)
+    print(minecraft_based_text(f"&fПредметы исправлены. Исправление находится в файле `{filename}`"))
