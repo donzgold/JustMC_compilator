@@ -79,8 +79,6 @@ def decompile(thing):
             return "\"" + thing['enum'].replace("\\", "\\\\").replace("\"", "\\\"") + "\""
     elif typ == "array":
         arr = list(filter(is_not_none, map(decompile, thing['values'])))
-        if len(arr) == 1:
-            return arr[0]
         return f"[{', '.join(arr)}]"
     elif typ == "item":
         if thing["item"] == "AAAAAAAAAAA=":
@@ -89,8 +87,8 @@ def decompile(thing):
             it = nbtworker.load(thing["item"])
             if len(it) == 0:
                 return None
-            return f"item({it['id']}"+(f", count={it['count'].value}" if it['count'].value != 1 else "")  + (f", nbt=m{it['components']})" if "components" in it else ""+"")
-        except ZeroDivisionError:
+            return f"item({it['id']}"+(f", count={it['count'].value}" if it['count'].value != 1 else "")  + (f", nbt=m{it['components']})" if "components" in it else "")+")"
+        except Exception:
             item_list.add(thing["item"])
             return "\"" + thing["item"] + "\""
     elif typ == "game_value":
