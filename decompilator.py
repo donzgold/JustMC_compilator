@@ -121,6 +121,8 @@ def decompile(thing):
                           "\n" + " " * ((current_indent := current_indent - 1) * 4)) + "}"
             return ret
         act = actions[thing["action"]]
+        selector = f"<{thing['selection']['type']}>" if "selection" in thing and thing["selection"] not in ("null",None) else ""
+        selector = f"<{thing['conditional']['selection']['type']}>" if "conditional" in thing and "selection" in thing['conditional'] and thing['conditional']["selection"] not in ("null",None) else selector
         if act["type"] == "basic":
             args = {arg["name"]: arg for arg in thing["values"]}
             arg_text = []
@@ -168,7 +170,7 @@ def decompile(thing):
                 ret = ""
             if ret == "":
                 ret = (f"{', '.join(ass_text)} = " if len(ass_text) != 0 else "") + (
-                    (ori + ".") if (ori != "") else (act["object"] + "::")) + act["name"] + "(" + ", ".join(
+                    (ori + ".") if (ori != "") else (act["object"] + "::")) + act["name"] + selector +"(" + ", ".join(
                     arg_text) + ");"
             return ret
         elif act["type"] == "basic_with_conditional":
@@ -201,7 +203,7 @@ def decompile(thing):
                 elif pos:
                     pos = False
             new_ret = ('not ' if new_thing.setdefault('is_inverted', False) else '') + (
-                (ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
+                (ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + selector + "(" + ", ".join(
                 arg_text) + ")"
             return act["object"] + "::" + act["name"] + "(" + new_ret + ");"
         elif act["type"] == "container":
@@ -235,7 +237,7 @@ def decompile(thing):
             else:
                 ret = ""
             if ret == "":
-                ret = ((ori + ".") if ori != "" else (act["object"] + "::")) + act["name"] + "(" + ", ".join(
+                ret = ((ori + ".") if ori != "" else (act["object"] + "::")) + act["name"] + selector + "(" + ", ".join(
                     arg_text) + ")"
                 if "boolean" in act:
                     ret = f"if{' not ' if thing.setdefault('is_inverted', False) else ''}(" + ret + ")"
@@ -273,7 +275,7 @@ def decompile(thing):
                 elif pos:
                     pos = False
             new_ret = ('not ' if new_thing.setdefault('is_inverted', False) else '') + (
-                (ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + "(" + ", ".join(
+                (ori + ".") if ori != "" else (new_act["object"] + "::")) + new_act["name"] + selector + "(" + ", ".join(
                 arg_text) + ")"
             ret = act["object"] + "::" + act["name"] + "(" + new_ret + ")" + "{" + (
                     "\n" + " " * ((current_indent := current_indent + 1) * 4)) + (
