@@ -337,7 +337,7 @@ if __name__ == "__main__":
             command_list = ["help", "about", "compile", "decompile", "fix_items", "update.data", "update.to_release", "update.to_version"]
             print(minecraft_based_text("&f" + translate("jmcc.command.help")))
             for command in command_list:
-                print(minecraft_based_text("&f" + translate(f"jmcc.command.help.line",{0:command,1:translate(f"jmcc.command.{command}.description")})))
+                print(minecraft_based_text("&f " + translate(f"jmcc.command.{command}.description")))
         elif additional[0] == "about":
             print(minecraft_based_text("&f" + translate("jmcc.command.about")))
         else:

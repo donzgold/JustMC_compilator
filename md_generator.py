@@ -145,6 +145,9 @@ for k, v in properties["ru_RU"].items():
             continue
         if game_value_data[0] not in another_game_values:
             another_game_values[game_value_data[0]] = {"id": game_value_data[0]}
+        if game_value_data[1] == "argument" and "type" in another_game_values[game_value_data[0]] and another_game_values[game_value_data[0]]["type"] != game_value_data[2]:
+            print(f"конфликт между {another_game_values[game_value_data[0]]['type']} и {game_value_data[2]} у {game_value_data[0]}")
+            exit()
         if game_value_data[1] == "argument":
             another_game_values[game_value_data[0]]["type"] = game_value_data[2]
         if game_value_data[1] == "work_with":

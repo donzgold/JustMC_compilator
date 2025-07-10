@@ -221,3 +221,5 @@ creative_plus.action.select_mob_condition.sign
 creative_plus.action.select_entity_condition.name
 creative_plus.action.select_entity_condition.description
 creative_plus.action.select_entity_condition.sign
+creative_plus.game_value.selection_target_names.argument.text.name
+creative_plus.game_value.selection_target_uuids.argument.text.name

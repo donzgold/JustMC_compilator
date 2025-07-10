@@ -557,11 +557,11 @@
   },
   {
     "id": "selection_target_names",
-    "type": "text"
+    "type": "array"
   },
   {
     "id": "selection_target_uuids",
-    "type": "text"
+    "type": "array"
   },
   {
     "id": "server_current_tick",
