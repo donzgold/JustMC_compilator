@@ -31,7 +31,11 @@
 
 **Пример использования:** 
 ```ts
-entity::attach_lead("name_or_uuid",location(0,0,0,0,0));
+entity::attach_lead("name_or_uuid", location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+entity::attach_lead(name_or_uuid="name_or_uuid", location=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -82,7 +86,11 @@ entity::clear_merchant_recipes();
 
 **Пример использования:** 
 ```ts
-entity::damage(1,"source");
+entity::damage(1, "source");
+
+#Или в сухую по ключам
+
+entity::damage(damage=1, source="source");
 ```
 
 **Аргументы:**
@@ -103,6 +111,10 @@ entity::damage(1,"source");
 **Пример использования:** 
 ```ts
 entity::disguise_as_block(item("stone"));
+
+#Или в сухую по ключам
+
+entity::disguise_as_block(block=item("stone"));
 ```
 
 **Аргументы:**
@@ -122,6 +134,10 @@ entity::disguise_as_block(item("stone"));
 **Пример использования:** 
 ```ts
 entity::disguise_as_entity(item("stick"));
+
+#Или в сухую по ключам
+
+entity::disguise_as_entity(entity_type=item("stick"));
 ```
 
 **Аргументы:**
@@ -141,6 +157,10 @@ entity::disguise_as_entity(item("stick"));
 **Пример использования:** 
 ```ts
 entity::disguise_as_item(item("stick"));
+
+#Или в сухую по ключам
+
+entity::disguise_as_item(item=item("stick"));
 ```
 
 **Аргументы:**
@@ -159,7 +179,11 @@ entity::disguise_as_item(item("stick"));
 
 **Пример использования:** 
 ```ts
-entity::disguise_as_player("name_or_uuid","display_name","MOJANG");
+entity::disguise_as_player("name_or_uuid", "display_name", "MOJANG");
+
+#Или в сухую по ключам
+
+entity::disguise_as_player(name_or_uuid="name_or_uuid", display_name="display_name", server_type="MOJANG");
 ```
 
 **Аргументы:**
@@ -213,6 +237,10 @@ entity::eat_grass();
 **Пример использования:** 
 ```ts
 entity::eat_target("name_or_uuid");
+
+#Или в сухую по ключам
+
+entity::eat_target(name_or_uuid="name_or_uuid");
 ```
 
 **Аргументы:**
@@ -250,6 +278,10 @@ entity::explode();
 **Пример использования:** 
 ```ts
 entity::face_location(location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+entity::face_location(location=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -268,11 +300,15 @@ entity::face_location(location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = entity::get_custom_tag("name","any value");
+`variable` = entity::get_custom_tag("name", "any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-entity::get_custom_tag(`variable`,"name","any value");
+entity::get_custom_tag(`variable`, "name", "any value");
+
+#Или в сухую по ключам
+
+entity::get_custom_tag(variable=`variable`, name="name", default="any value");
 ```
 
 **Аргументы:**
@@ -293,7 +329,11 @@ entity::get_custom_tag(`variable`,"name","any value");
 
 **Пример использования:** 
 ```ts
-entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"FALSE","FALSE","AMBIENT");
+entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")], "FALSE", "FALSE", "AMBIENT");
+
+#Или в сухую по ключам
+
+entity::give_potion_effects(potions=[potion("slow_falling"), potion("slow_falling")], overwrite="FALSE", show_icon="FALSE", particle_mode="AMBIENT");
 ```
 
 **Аргументы:**
@@ -316,6 +356,10 @@ entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"FA
 **Пример использования:** 
 ```ts
 entity::heal(1);
+
+#Или в сухую по ключам
+
+entity::heal(heal=1);
 ```
 
 **Аргументы:**
@@ -366,7 +410,11 @@ entity::jump();
 
 **Пример использования:** 
 ```ts
-entity::launch_forward(1,"FALSE","YAW");
+entity::launch_forward(1, "FALSE", "YAW");
+
+#Или в сухую по ключам
+
+entity::launch_forward(power=1, increment="FALSE", launch_axis="YAW");
 ```
 
 **Аргументы:**
@@ -387,7 +435,11 @@ entity::launch_forward(1,"FALSE","YAW");
 
 **Пример использования:** 
 ```ts
-entity::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle("fire"));
+entity::launch_projectile(item("stick"), location(0,0,0,0,0), "name", 1, 2, particle("fire"));
+
+#Или в сухую по ключам
+
+entity::launch_projectile(projectile=item("stick"), location=location(0,0,0,0,0), name="name", speed=1, inaccuracy=2, trail=particle("fire"));
 ```
 
 **Аргументы:**
@@ -411,7 +463,11 @@ entity::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle(
 
 **Пример использования:** 
 ```ts
-entity::launch_to_location(location(0,0,0,0,0),1,"FALSE");
+entity::launch_to_location(location(0,0,0,0,0), 1, "FALSE");
+
+#Или в сухую по ключам
+
+entity::launch_to_location(location=location(0,0,0,0,0), power=1, increment="FALSE");
 ```
 
 **Аргументы:**
@@ -432,7 +488,11 @@ entity::launch_to_location(location(0,0,0,0,0),1,"FALSE");
 
 **Пример использования:** 
 ```ts
-entity::launch_up(1,"FALSE");
+entity::launch_up(1, "FALSE");
+
+#Или в сухую по ключам
+
+entity::launch_up(power=1, increment="FALSE");
 ```
 
 **Аргументы:**
@@ -470,7 +530,11 @@ entity::leave_vehicle();
 
 **Пример использования:** 
 ```ts
-entity::modify_piglin_barter_materials([item("stick"), item("stick")],"ADD");
+entity::modify_piglin_barter_materials([item("stick"), item("stick")], "ADD");
+
+#Или в сухую по ключам
+
+entity::modify_piglin_barter_materials(materials=[item("stick"), item("stick")], modification_mode="ADD");
 ```
 
 **Аргументы:**
@@ -494,7 +558,11 @@ entity::modify_piglin_barter_materials([item("stick"), item("stick")],"ADD");
 
 **Пример использования:** 
 ```ts
-entity::modify_piglin_interested_materials([item("stick"), item("stick")],"ADD");
+entity::modify_piglin_interested_materials([item("stick"), item("stick")], "ADD");
+
+#Или в сухую по ключам
+
+entity::modify_piglin_interested_materials(materials=[item("stick"), item("stick")], modification_mode="ADD");
 ```
 
 **Аргументы:**
@@ -516,7 +584,11 @@ entity::modify_piglin_interested_materials([item("stick"), item("stick")],"ADD")
 
 **Пример использования:** 
 ```ts
-entity::move_to_location(location(0,0,0,0,0),1);
+entity::move_to_location(location(0,0,0,0,0), 1);
+
+#Или в сухую по ключам
+
+entity::move_to_location(location=location(0,0,0,0,0), speed=1);
 ```
 
 **Аргументы:**
@@ -553,6 +625,10 @@ entity::move_to_location_stop();
 **Пример использования:** 
 ```ts
 entity::play_damage_animation("CRITICAL_DAMAGE");
+
+#Или в сухую по ключам
+
+entity::play_damage_animation(damage_type="CRITICAL_DAMAGE");
 ```
 
 **Аргументы:**
@@ -572,6 +648,10 @@ entity::play_damage_animation("CRITICAL_DAMAGE");
 **Пример использования:** 
 ```ts
 entity::play_hurt_animation(1);
+
+#Или в сухую по ключам
+
+entity::play_hurt_animation(yaw=1);
 ```
 
 **Аргументы:**
@@ -593,6 +673,10 @@ entity::play_hurt_animation(1);
 **Пример использования:** 
 ```ts
 entity::ram_target("name_or_uuid");
+
+#Или в сухую по ключам
+
+entity::ram_target(name_or_uuid="name_or_uuid");
 ```
 
 **Аргументы:**
@@ -626,6 +710,10 @@ entity::remove();
 **Пример использования:** 
 ```ts
 entity::remove_custom_tag("name");
+
+#Или в сухую по ключам
+
+entity::remove_custom_tag(name="name");
 ```
 
 **Аргументы:**
@@ -662,6 +750,10 @@ entity::remove_disguise();
 **Пример использования:** 
 ```ts
 entity::remove_merchant_recipe(1);
+
+#Или в сухую по ключам
+
+entity::remove_merchant_recipe(recipe_index=1);
 ```
 
 **Аргументы:**
@@ -681,6 +773,10 @@ entity::remove_merchant_recipe(1);
 **Пример использования:** 
 ```ts
 entity::remove_potion_effect([potion("slow_falling"), potion("slow_falling")]);
+
+#Или в сухую по ключам
+
+entity::remove_potion_effect(effects=[potion("slow_falling"), potion("slow_falling")]);
 ```
 
 **Аргументы:**
@@ -749,6 +845,10 @@ entity::reset_text_display_background();
 **Пример использования:** 
 ```ts
 entity::ride_entity("name_or_uuid");
+
+#Или в сухую по ключам
+
+entity::ride_entity(name_or_uuid="name_or_uuid");
 ```
 
 **Аргументы:**
@@ -768,6 +868,10 @@ entity::ride_entity("name_or_uuid");
 **Пример использования:** 
 ```ts
 entity::set_absorption_health(1);
+
+#Или в сухую по ключам
+
+entity::set_absorption_health(health=1);
 ```
 
 **Аргументы:**
@@ -787,6 +891,10 @@ entity::set_absorption_health(1);
 **Пример использования:** 
 ```ts
 entity::set_ai("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_ai(ai="FALSE");
 ```
 
 **Аргументы:**
@@ -808,6 +916,10 @@ entity::set_ai("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_allay_dancing("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_allay_dancing(dance="FALSE");
 ```
 
 **Аргументы:**
@@ -834,7 +946,11 @@ entity::set_allay_dancing("FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_angry("target","FALSE");
+entity::set_angry("target", "FALSE");
+
+#Или в сухую по ключам
+
+entity::set_angry(target="target", angry="FALSE");
 ```
 
 **Аргументы:**
@@ -854,7 +970,11 @@ entity::set_angry("target","FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_animal_age(1,"DISABLE");
+entity::set_animal_age(1, "DISABLE");
+
+#Или в сухую по ключам
+
+entity::set_animal_age(age=1, lock="DISABLE");
 ```
 
 **Аргументы:**
@@ -876,7 +996,11 @@ entity::set_animal_age(1,"DISABLE");
 
 **Пример использования:** 
 ```ts
-entity::set_armor_items(item("stick"),item("stick"),item("stick"),item("stick"));
+entity::set_armor_items(item("stick"), item("stick"), item("stick"), item("stick"));
+
+#Или в сухую по ключам
+
+entity::set_armor_items(helmet=item("stick"), chestplate=item("stick"), leggings=item("stick"), boots=item("stick"));
 ```
 
 **Аргументы:**
@@ -900,7 +1024,11 @@ entity::set_armor_items(item("stick"),item("stick"),item("stick"),item("stick"))
 
 **Пример использования:** 
 ```ts
-entity::set_armor_stand_parts("DISABLE","DISABLE");
+entity::set_armor_stand_parts("DISABLE", "DISABLE");
+
+#Или в сухую по ключам
+
+entity::set_armor_stand_parts(arms="DISABLE", base_plate="DISABLE");
 ```
 
 **Аргументы:**
@@ -922,7 +1050,11 @@ entity::set_armor_stand_parts("DISABLE","DISABLE");
 
 **Пример использования:** 
 ```ts
-entity::set_armor_stand_pose(1,2,3,"BODY");
+entity::set_armor_stand_pose(1, 2, 3, "BODY");
+
+#Или в сухую по ключам
+
+entity::set_armor_stand_pose(x_rotation=1, y_rotation=2, z_rotation=3, body_part="BODY");
 ```
 
 **Аргументы:**
@@ -948,6 +1080,10 @@ entity::set_armor_stand_pose(1,2,3,"BODY");
 **Пример использования:** 
 ```ts
 entity::set_arrow_hit_sound(sound("entity.zombie.hurt"));
+
+#Или в сухую по ключам
+
+entity::set_arrow_hit_sound(sound=sound("entity.zombie.hurt"));
 ```
 
 **Аргументы:**
@@ -967,6 +1103,10 @@ entity::set_arrow_hit_sound(sound("entity.zombie.hurt"));
 **Пример использования:** 
 ```ts
 entity::set_arrow_pierce(1);
+
+#Или в сухую по ключам
+
+entity::set_arrow_pierce(pierce=1);
 ```
 
 **Аргументы:**
@@ -985,7 +1125,11 @@ entity::set_arrow_pierce(1);
 
 **Пример использования:** 
 ```ts
-entity::set_attribute(1,"GENERIC_ARMOR");
+entity::set_attribute(1, "GENERIC_ARMOR");
+
+#Или в сухую по ключам
+
+entity::set_attribute(value=1, attribute_type="GENERIC_ARMOR");
 ```
 
 **Аргументы:**
@@ -1008,6 +1152,10 @@ entity::set_attribute(1,"GENERIC_ARMOR");
 **Пример использования:** 
 ```ts
 entity::set_aware("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_aware(aware="FALSE");
 ```
 
 **Аргументы:**
@@ -1029,6 +1177,10 @@ entity::set_aware("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_axolotl_type("BLUE");
+
+#Или в сухую по ключам
+
+entity::set_axolotl_type(axolotl_type="BLUE");
 ```
 
 **Аргументы:**
@@ -1048,6 +1200,10 @@ entity::set_axolotl_type("BLUE");
 **Пример использования:** 
 ```ts
 entity::set_baby("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_baby(baby="FALSE");
 ```
 
 **Аргументы:**
@@ -1073,6 +1229,10 @@ entity::set_baby("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_base_arrow_damage(1);
+
+#Или в сухую по ключам
+
+entity::set_base_arrow_damage(damage=1);
 ```
 
 **Аргументы:**
@@ -1094,6 +1254,10 @@ entity::set_base_arrow_damage(1);
 **Пример использования:** 
 ```ts
 entity::set_bee_has_stinger("TRUE");
+
+#Или в сухую по ключам
+
+entity::set_bee_has_stinger(stinger="TRUE");
 ```
 
 **Аргументы:**
@@ -1115,6 +1279,10 @@ entity::set_bee_has_stinger("TRUE");
 **Пример использования:** 
 ```ts
 entity::set_bee_nectar("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_bee_nectar(nectar="FALSE");
 ```
 
 **Аргументы:**
@@ -1136,6 +1304,10 @@ entity::set_bee_nectar("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_block_display_block(item("stone"));
+
+#Или в сухую по ключам
+
+entity::set_block_display_block(displayed_block=item("stone"));
 ```
 
 **Аргументы:**
@@ -1157,6 +1329,10 @@ entity::set_block_display_block(item("stone"));
 **Пример использования:** 
 ```ts
 entity::set_camel_dashing("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_camel_dashing(dashing="FALSE");
 ```
 
 **Аргументы:**
@@ -1180,6 +1356,10 @@ entity::set_camel_dashing("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_carrying_chest("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_carrying_chest(carrying="FALSE");
 ```
 
 **Аргументы:**
@@ -1201,6 +1381,10 @@ entity::set_carrying_chest("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_cat_lying_down("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_cat_lying_down(lying_down="FALSE");
 ```
 
 **Аргументы:**
@@ -1222,6 +1406,10 @@ entity::set_cat_lying_down("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_cat_type("ALL_BLACK");
+
+#Или в сухую по ключам
+
+entity::set_cat_type(cat_type="ALL_BLACK");
 ```
 
 **Аргументы:**
@@ -1244,6 +1432,10 @@ entity::set_cat_type("ALL_BLACK");
 **Пример использования:** 
 ```ts
 entity::set_celebrating("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_celebrating(celebrating="FALSE");
 ```
 
 **Аргументы:**
@@ -1251,6 +1443,31 @@ entity::set_celebrating("FALSE");
 | **Имя**       | **Тип**                                                  | **Описание**       |
 | ------------- | -------------------------------------------------------- | ------------------ |
 | `celebrating` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Режим празднования |
+<h3 id=entity_set_chicken_type>
+  <code>entity::set_chicken_type</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить тип Курицы\
+**Тип:** Действие без значения\
+**Описание:** Устаналивает курице тип окраски.
+**Работает с:**\
+&nbsp;&nbsp;Курицами
+
+**Пример использования:** 
+```ts
+entity::set_chicken_type("COLD");
+
+#Или в сухую по ключам
+
+entity::set_chicken_type(variant="COLD");
+```
+
+**Аргументы:**
+
+| **Имя**   | **Тип**                                                                              | **Описание** |
+| --------- | ------------------------------------------------------------------------------------ | ------------ |
+| `variant` | Маркер<br/>**COLD** - Снежная<br/>**WARM** - Тропическая<br/>**TEMPERATE** - Обычная | Тип окраски  |
 <h3 id=entity_set_collidable>
   <code>entity::set_collidable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1263,6 +1480,10 @@ entity::set_celebrating("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_collidable("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_collidable(collidable="FALSE");
 ```
 
 **Аргументы:**
@@ -1270,6 +1491,31 @@ entity::set_collidable("FALSE");
 | **Имя**      | **Тип**                                                                                                      | **Описание**       |
 | ------------ | ------------------------------------------------------------------------------------------------------------ | ------------------ |
 | `collidable` | Маркер<br/>**FALSE** - Не сталкивается с другими существами<br/>**TRUE** - Сталкивается с другими существами | Режим столкновения |
+<h3 id=entity_set_cow_type>
+  <code>entity::set_cow_type</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить тип Коровы\
+**Тип:** Действие без значения\
+**Описание:** Устаналивает корове тип окраски.
+**Работает с:**\
+&nbsp;&nbsp;Коровами
+
+**Пример использования:** 
+```ts
+entity::set_cow_type("COLD");
+
+#Или в сухую по ключам
+
+entity::set_cow_type(variant="COLD");
+```
+
+**Аргументы:**
+
+| **Имя**   | **Тип**                                                                              | **Описание** |
+| --------- | ------------------------------------------------------------------------------------ | ------------ |
+| `variant` | Маркер<br/>**COLD** - Снежная<br/>**WARM** - Тропическая<br/>**TEMPERATE** - Обычная | Тип окраски  |
 <h3 id=entity_set_creeper_charge>
   <code>entity::set_creeper_charge</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1284,6 +1530,10 @@ entity::set_collidable("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_creeper_charge("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_creeper_charge(charged="FALSE");
 ```
 
 **Аргументы:**
@@ -1305,6 +1555,10 @@ entity::set_creeper_charge("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_creeper_fuse(1);
+
+#Или в сухую по ключам
+
+entity::set_creeper_fuse(fuse_ticks=1);
 ```
 
 **Аргументы:**
@@ -1324,6 +1578,10 @@ entity::set_creeper_fuse(1);
 **Пример использования:** 
 ```ts
 entity::set_current_health(1);
+
+#Или в сухую по ключам
+
+entity::set_current_health(health=1);
 ```
 
 **Аргументы:**
@@ -1343,6 +1601,10 @@ entity::set_current_health(1);
 **Пример использования:** 
 ```ts
 entity::set_custom_name("custom_name");
+
+#Или в сухую по ключам
+
+entity::set_custom_name(custom_name="custom_name");
 ```
 
 **Аргументы:**
@@ -1362,6 +1624,10 @@ entity::set_custom_name("custom_name");
 **Пример использования:** 
 ```ts
 entity::set_custom_name_visibility("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_custom_name_visibility(visibility="FALSE");
 ```
 
 **Аргументы:**
@@ -1380,7 +1646,11 @@ entity::set_custom_name_visibility("FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_custom_tag("name","value");
+entity::set_custom_tag("name", "value");
+
+#Или в сухую по ключам
+
+entity::set_custom_tag(name="name", value="value");
 ```
 
 **Аргументы:**
@@ -1401,6 +1671,10 @@ entity::set_custom_tag("name","value");
 **Пример использования:** 
 ```ts
 entity::set_death_drops("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_death_drops(drops="FALSE");
 ```
 
 **Аргументы:**
@@ -1420,6 +1694,10 @@ entity::set_death_drops("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_death_time(1);
+
+#Или в сухую по ключам
+
+entity::set_death_time(death_time=1);
 ```
 
 **Аргументы:**
@@ -1441,6 +1719,10 @@ entity::set_death_time(1);
 **Пример использования:** 
 ```ts
 entity::set_default_visible("TRUE");
+
+#Или в сухую по ключам
+
+entity::set_default_visible(default_visible="TRUE");
 ```
 
 **Аргументы:**
@@ -1460,6 +1742,10 @@ entity::set_default_visible("TRUE");
 **Пример использования:** 
 ```ts
 entity::set_despawning("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_despawning(despawning="FALSE");
 ```
 
 **Аргументы:**
@@ -1481,6 +1767,10 @@ entity::set_despawning("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_display_billboard("CENTER");
+
+#Или в сухую по ключам
+
+entity::set_display_billboard(billboard_type="CENTER");
 ```
 
 **Аргументы:**
@@ -1501,7 +1791,11 @@ entity::set_display_billboard("CENTER");
 
 **Пример использования:** 
 ```ts
-entity::set_display_brightness(1,2);
+entity::set_display_brightness(1, 2);
+
+#Или в сухую по ключам
+
+entity::set_display_brightness(block_light_level=1, sky_light_level=2);
 ```
 
 **Аргументы:**
@@ -1523,7 +1817,11 @@ entity::set_display_brightness(1,2);
 
 **Пример использования:** 
 ```ts
-entity::set_display_culling_size(1,2);
+entity::set_display_culling_size(1, 2);
+
+#Или в сухую по ключам
+
+entity::set_display_culling_size(width=1, height=2);
 ```
 
 **Аргументы:**
@@ -1547,6 +1845,10 @@ entity::set_display_culling_size(1,2);
 **Пример использования:** 
 ```ts
 entity::set_display_glow_color("color_hexadecimal");
+
+#Или в сухую по ключам
+
+entity::set_display_glow_color(color_hexadecimal="color_hexadecimal");
 ```
 
 **Аргументы:**
@@ -1567,7 +1869,11 @@ entity::set_display_glow_color("color_hexadecimal");
 
 **Пример использования:** 
 ```ts
-entity::set_display_interpolation(1,2);
+entity::set_display_interpolation(1, 2);
+
+#Или в сухую по ключам
+
+entity::set_display_interpolation(interpolation_duration=1, interpolation_delay=2);
 ```
 
 **Аргументы:**
@@ -1589,7 +1895,11 @@ entity::set_display_interpolation(1,2);
 
 **Пример использования:** 
 ```ts
-entity::set_display_rotation_from_axis_angle(vector(0,0,0),1,"ADD","DEGREES","LEFT_ROTATION");
+entity::set_display_rotation_from_axis_angle(vector(0,0,0), 1, "ADD", "DEGREES", "LEFT_ROTATION");
+
+#Или в сухую по ключам
+
+entity::set_display_rotation_from_axis_angle(axis_vector=vector(0,0,0), angle=1, mode="ADD", input="DEGREES", rotation="LEFT_ROTATION");
 ```
 
 **Аргументы:**
@@ -1614,7 +1924,11 @@ entity::set_display_rotation_from_axis_angle(vector(0,0,0),1,"ADD","DEGREES","LE
 
 **Пример использования:** 
 ```ts
-entity::set_display_rotation_from_euler_angles(1,2,3,"ADD","DEGREES","LEFT_ROTATION");
+entity::set_display_rotation_from_euler_angles(1, 2, 3, "ADD", "DEGREES", "LEFT_ROTATION");
+
+#Или в сухую по ключам
+
+entity::set_display_rotation_from_euler_angles(pitch=1, yaw=2, roll=3, mode="ADD", input="DEGREES", rotation="LEFT_ROTATION");
 ```
 
 **Аргументы:**
@@ -1640,7 +1954,11 @@ entity::set_display_rotation_from_euler_angles(1,2,3,"ADD","DEGREES","LEFT_ROTAT
 
 **Пример использования:** 
 ```ts
-entity::set_display_scale(vector(0,0,0),"ADD");
+entity::set_display_scale(vector(0,0,0), "ADD");
+
+#Или в сухую по ключам
+
+entity::set_display_scale(scale_vector=vector(0,0,0), mode="ADD");
 ```
 
 **Аргументы:**
@@ -1662,7 +1980,11 @@ entity::set_display_scale(vector(0,0,0),"ADD");
 
 **Пример использования:** 
 ```ts
-entity::set_display_shadow(1,2);
+entity::set_display_shadow(1, 2);
+
+#Или в сухую по ключам
+
+entity::set_display_shadow(shadow_radius=1, shadow_opacity_percentage=2);
 ```
 
 **Аргументы:**
@@ -1685,6 +2007,10 @@ entity::set_display_shadow(1,2);
 **Пример использования:** 
 ```ts
 entity::set_display_teleport_duration(1);
+
+#Или в сухую по ключам
+
+entity::set_display_teleport_duration(duration=1);
 ```
 
 **Аргументы:**
@@ -1706,6 +2032,10 @@ entity::set_display_teleport_duration(1);
 **Пример использования:** 
 ```ts
 entity::set_display_transformation_matrix([1, 2]);
+
+#Или в сухую по ключам
+
+entity::set_display_transformation_matrix(row_major_matrix=[1, 2]);
 ```
 
 **Аргументы:**
@@ -1726,7 +2056,11 @@ entity::set_display_transformation_matrix([1, 2]);
 
 **Пример использования:** 
 ```ts
-entity::set_display_translation(vector(0,0,0),"ADD");
+entity::set_display_translation(vector(0,0,0), "ADD");
+
+#Или в сухую по ключам
+
+entity::set_display_translation(translation_vector=vector(0,0,0), mode="ADD");
 ```
 
 **Аргументы:**
@@ -1749,6 +2083,10 @@ entity::set_display_translation(vector(0,0,0),"ADD");
 **Пример использования:** 
 ```ts
 entity::set_display_view_range(1);
+
+#Или в сухую по ключам
+
+entity::set_display_view_range(view_range=1);
 ```
 
 **Аргументы:**
@@ -1770,6 +2108,10 @@ entity::set_display_view_range(1);
 **Пример использования:** 
 ```ts
 entity::set_dragon_phase("BREATH_ATTACK");
+
+#Или в сухую по ключам
+
+entity::set_dragon_phase(phase="BREATH_ATTACK");
 ```
 
 **Аргументы:**
@@ -1794,6 +2136,10 @@ entity::set_dragon_phase("BREATH_ATTACK");
 **Пример использования:** 
 ```ts
 entity::set_dye_color("BLACK");
+
+#Или в сухую по ключам
+
+entity::set_dye_color(color="BLACK");
 ```
 
 **Аргументы:**
@@ -1815,6 +2161,10 @@ entity::set_dye_color("BLACK");
 **Пример использования:** 
 ```ts
 entity::set_end_crystal_beam(location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+entity::set_end_crystal_beam(beam=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -1836,6 +2186,10 @@ entity::set_end_crystal_beam(location(0,0,0,0,0));
 **Пример использования:** 
 ```ts
 entity::set_enderman_block(item("stone"));
+
+#Или в сухую по ключам
+
+entity::set_enderman_block(block=item("stone"));
 ```
 
 **Аргументы:**
@@ -1854,7 +2208,11 @@ entity::set_enderman_block(item("stone"));
 
 **Пример использования:** 
 ```ts
-entity::set_equipment_item(item("stick"),"BODY");
+entity::set_equipment_item(item("stick"), "BODY");
+
+#Или в сухую по ключам
+
+entity::set_equipment_item(item=item("stick"), slot="BODY");
 ```
 
 **Аргументы:**
@@ -1879,6 +2237,10 @@ entity::set_equipment_item(item("stick"),"BODY");
 **Пример использования:** 
 ```ts
 entity::set_explosive_power(1);
+
+#Или в сухую по ключам
+
+entity::set_explosive_power(power=1);
 ```
 
 **Аргументы:**
@@ -1898,6 +2260,10 @@ entity::set_explosive_power(1);
 **Пример использования:** 
 ```ts
 entity::set_fall_distance(1);
+
+#Или в сухую по ключам
+
+entity::set_fall_distance(fall_distance=1);
 ```
 
 **Аргументы:**
@@ -1919,6 +2285,10 @@ entity::set_fall_distance(1);
 **Пример использования:** 
 ```ts
 entity::set_falling_block_type(item("stone"));
+
+#Или в сухую по ключам
+
+entity::set_falling_block_type(block=item("stone"));
 ```
 
 **Аргументы:**
@@ -1938,6 +2308,10 @@ entity::set_falling_block_type(item("stone"));
 **Пример использования:** 
 ```ts
 entity::set_fire_ticks(1);
+
+#Или в сухую по ключам
+
+entity::set_fire_ticks(ticks=1);
 ```
 
 **Аргументы:**
@@ -1958,7 +2332,11 @@ entity::set_fire_ticks(1);
 
 **Пример использования:** 
 ```ts
-entity::set_fishing_wait(1,"MAX_WAIT");
+entity::set_fishing_wait(1, "MAX_WAIT");
+
+#Или в сухую по ключам
+
+entity::set_fishing_wait(time=1, wait_type="MAX_WAIT");
 ```
 
 **Аргументы:**
@@ -1981,6 +2359,10 @@ entity::set_fishing_wait(1,"MAX_WAIT");
 **Пример использования:** 
 ```ts
 entity::set_fox_leaping("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_fox_leaping(leaping="FALSE");
 ```
 
 **Аргументы:**
@@ -2002,6 +2384,10 @@ entity::set_fox_leaping("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_fox_type("RED");
+
+#Или в сухую по ключам
+
+entity::set_fox_type(fox_type="RED");
 ```
 
 **Аргументы:**
@@ -2020,7 +2406,11 @@ entity::set_fox_type("RED");
 
 **Пример использования:** 
 ```ts
-entity::set_freeze_ticks(1,"FALSE");
+entity::set_freeze_ticks(1, "FALSE");
+
+#Или в сухую по ключам
+
+entity::set_freeze_ticks(ticks=1, ticking_locked="FALSE");
 ```
 
 **Аргументы:**
@@ -2041,6 +2431,10 @@ entity::set_freeze_ticks(1,"FALSE");
 **Пример использования:** 
 ```ts
 entity::set_friction("NOT_SET");
+
+#Или в сухую по ключам
+
+entity::set_friction(friction="NOT_SET");
 ```
 
 **Аргументы:**
@@ -2062,6 +2456,10 @@ entity::set_friction("NOT_SET");
 **Пример использования:** 
 ```ts
 entity::set_frog_type("COLD");
+
+#Или в сухую по ключам
+
+entity::set_frog_type(frog_variant="COLD");
 ```
 
 **Аргументы:**
@@ -2085,6 +2483,10 @@ entity::set_frog_type("COLD");
 **Пример использования:** 
 ```ts
 entity::set_fuse_ticks(1);
+
+#Или в сухую по ключам
+
+entity::set_fuse_ticks(fuse_ticks=1);
 ```
 
 **Аргументы:**
@@ -2104,6 +2506,10 @@ entity::set_fuse_ticks(1);
 **Пример использования:** 
 ```ts
 entity::set_gliding("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_gliding(is_gliding="FALSE");
 ```
 
 **Аргументы:**
@@ -2125,6 +2531,10 @@ entity::set_gliding("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_glow_squid_dark(1);
+
+#Или в сухую по ключам
+
+entity::set_glow_squid_dark(dark_ticks=1);
 ```
 
 **Аргументы:**
@@ -2144,6 +2554,10 @@ entity::set_glow_squid_dark(1);
 **Пример использования:** 
 ```ts
 entity::set_glowing("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_glowing(glowing="FALSE");
 ```
 
 **Аргументы:**
@@ -2165,6 +2579,10 @@ entity::set_glowing("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_goat_screaming("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_goat_screaming(screams="FALSE");
 ```
 
 **Аргументы:**
@@ -2184,6 +2602,10 @@ entity::set_goat_screaming("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_gravity("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_gravity(gravity="FALSE");
 ```
 
 **Аргументы:**
@@ -2208,6 +2630,10 @@ entity::set_gravity("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_horse_jump(1);
+
+#Или в сухую по ключам
+
+entity::set_horse_jump(power=1);
 ```
 
 **Аргументы:**
@@ -2228,7 +2654,11 @@ entity::set_horse_jump(1);
 
 **Пример использования:** 
 ```ts
-entity::set_horse_pattern("BLACK","BLACK_DOTS");
+entity::set_horse_pattern("BLACK", "BLACK_DOTS");
+
+#Или в сухую по ключам
+
+entity::set_horse_pattern(horse_color="BLACK", horse_style="BLACK_DOTS");
 ```
 
 **Аргументы:**
@@ -2253,6 +2683,10 @@ entity::set_horse_pattern("BLACK","BLACK_DOTS");
 **Пример использования:** 
 ```ts
 entity::set_immune_to_zombification("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_immune_to_zombification(is_immune="FALSE");
 ```
 
 **Аргументы:**
@@ -2274,6 +2708,10 @@ entity::set_immune_to_zombification("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_interaction_responsive("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_interaction_responsive(responsive="FALSE");
 ```
 
 **Аргументы:**
@@ -2294,7 +2732,11 @@ entity::set_interaction_responsive("FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_interaction_size(1,2);
+entity::set_interaction_size(1, 2);
+
+#Или в сухую по ключам
+
+entity::set_interaction_size(width=1, height=2);
 ```
 
 **Аргументы:**
@@ -2315,6 +2757,10 @@ entity::set_interaction_size(1,2);
 **Пример использования:** 
 ```ts
 entity::set_invisible("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_invisible(invisible="FALSE");
 ```
 
 **Аргументы:**
@@ -2334,6 +2780,10 @@ entity::set_invisible("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_invulnerability_ticks(1);
+
+#Или в сухую по ключам
+
+entity::set_invulnerability_ticks(ticks=1);
 ```
 
 **Аргументы:**
@@ -2353,6 +2803,10 @@ entity::set_invulnerability_ticks(1);
 **Пример использования:** 
 ```ts
 entity::set_invulnerable("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_invulnerable(invulnerable="FALSE");
 ```
 
 **Аргументы:**
@@ -2374,6 +2828,10 @@ entity::set_invulnerable("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_item(item("stick"));
+
+#Или в сухую по ключам
+
+entity::set_item(item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2395,6 +2853,10 @@ entity::set_item(item("stick"));
 **Пример использования:** 
 ```ts
 entity::set_item_display_item(item("stick"));
+
+#Или в сухую по ключам
+
+entity::set_item_display_item(displayed_item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2416,6 +2878,10 @@ entity::set_item_display_item(item("stick"));
 **Пример использования:** 
 ```ts
 entity::set_item_display_model_type("FIRSTPERSON_LEFTHAND");
+
+#Или в сухую по ключам
+
+entity::set_item_display_model_type(display_model_type="FIRSTPERSON_LEFTHAND");
 ```
 
 **Аргументы:**
@@ -2437,6 +2903,10 @@ entity::set_item_display_model_type("FIRSTPERSON_LEFTHAND");
 **Пример использования:** 
 ```ts
 entity::set_item_in_frame(item("stick"));
+
+#Или в сухую по ключам
+
+entity::set_item_in_frame(item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2458,6 +2928,10 @@ entity::set_item_in_frame(item("stick"));
 **Пример использования:** 
 ```ts
 entity::set_llama_type("BROWN");
+
+#Или в сухую по ключам
+
+entity::set_llama_type(type="BROWN");
 ```
 
 **Аргументы:**
@@ -2476,7 +2950,11 @@ entity::set_llama_type("BROWN");
 
 **Пример использования:** 
 ```ts
-entity::set_location(vector(0,0,0),"FALSE");
+entity::set_location(vector(0,0,0), "FALSE");
+
+#Или в сухую по ключам
+
+entity::set_location(velocity=vector(0,0,0), increment="FALSE");
 ```
 
 **Аргументы:**
@@ -2499,6 +2977,10 @@ entity::set_location(vector(0,0,0),"FALSE");
 **Пример использования:** 
 ```ts
 entity::set_marker("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_marker(marker="FALSE");
 ```
 
 **Аргументы:**
@@ -2517,7 +2999,11 @@ entity::set_marker("FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_max_health(1,"FALSE");
+entity::set_max_health(1, "FALSE");
+
+#Или в сухую по ключам
+
+entity::set_max_health(max_health=1, heal_to_max="FALSE");
 ```
 
 **Аргументы:**
@@ -2540,7 +3026,11 @@ entity::set_max_health(1,"FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,2,3,4,5,6,7,"APPEND","FALSE","FALSE");
+entity::set_merchant_recipe(item("stick"), 1, 2, item("stick"), 3, item("stick"), 4, 5, 6, 7, "APPEND", "FALSE", "FALSE");
+
+#Или в сухую по ключам
+
+entity::set_merchant_recipe(result=item("stick"), uses=1, max_uses=2, ingredient_one=item("stick"), villager_experience=3, ingredient_two=item("stick"), price_multiplifier=4, demand=5, index=6, special_price=7, mode="APPEND", experience_reward="FALSE", ignore_discounts="FALSE");
 ```
 
 **Аргументы:**
@@ -2548,14 +3038,14 @@ entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,2,3,4,5,
 | **Имя**               | **Тип**                                                   | **Описание**                          |
 | --------------------- | --------------------------------------------------------- | ------------------------------------- |
 | `result`              | Предмет                                                   | Покупаемый товар                      |
-| `ingredient_one`      | Предмет                                                   | Первый предмет                        |
-| `ingredient_two`      | Предмет                                                   | Второй предмет                        |
 | `uses`                | Число                                                     | Количество использований              |
 | `max_uses`            | Число                                                     | Максимальное количество использований |
-| `index`               | Число                                                     | Индекс товара                         |
+| `ingredient_one`      | Предмет                                                   | Первый предмет                        |
 | `villager_experience` | Число                                                     | Опыт для Жителя                       |
+| `ingredient_two`      | Предмет                                                   | Второй предмет                        |
 | `price_multiplifier`  | Число                                                     | Множитель цены                        |
 | `demand`              | Число                                                     | Спрос товара                          |
+| `index`               | Число                                                     | Индекс товара                         |
 | `special_price`       | Число                                                     | Особая цена                           |
 | `mode`                | Маркер<br/>**APPEND** - Добавление<br/>**MERGE** - Замена | Режим установки                       |
 | `experience_reward`   | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить  | Награда опытом                        |
@@ -2573,7 +3063,11 @@ entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,2,3,4,5,
 
 **Пример использования:** 
 ```ts
-entity::set_minecart_block(item("stone"),1);
+entity::set_minecart_block(item("stone"), 1);
+
+#Или в сухую по ключам
+
+entity::set_minecart_block(block=item("stone"), block_offset=1);
 ```
 
 **Аргументы:**
@@ -2605,6 +3099,10 @@ entity::set_minecart_block(item("stone"),1);
 **Пример использования:** 
 ```ts
 entity::set_mob_aggressive("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_mob_aggressive(aggressive="FALSE");
 ```
 
 **Аргументы:**
@@ -2626,6 +3124,10 @@ entity::set_mob_aggressive("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_mushroom_cow_type("BROWN");
+
+#Или в сухую по ключам
+
+entity::set_mushroom_cow_type(cow_type="BROWN");
 ```
 
 **Аргументы:**
@@ -2645,6 +3147,10 @@ entity::set_mushroom_cow_type("BROWN");
 **Пример использования:** 
 ```ts
 entity::no_physics("TRUE");
+
+#Или в сухую по ключам
+
+entity::no_physics(no_physics="TRUE");
 ```
 
 **Аргументы:**
@@ -2665,7 +3171,11 @@ entity::no_physics("TRUE");
 
 **Пример использования:** 
 ```ts
-entity::set_panda_gene("BOTH","AGGRESSIVE");
+entity::set_panda_gene("BOTH", "AGGRESSIVE");
+
+#Или в сухую по ключам
+
+entity::set_panda_gene(gene="BOTH", gene_type="AGGRESSIVE");
 ```
 
 **Аргументы:**
@@ -2688,6 +3198,10 @@ entity::set_panda_gene("BOTH","AGGRESSIVE");
 **Пример использования:** 
 ```ts
 entity::set_panda_on_back("TRUE");
+
+#Или в сухую по ключам
+
+entity::set_panda_on_back(on_back="TRUE");
 ```
 
 **Аргументы:**
@@ -2709,6 +3223,10 @@ entity::set_panda_on_back("TRUE");
 **Пример использования:** 
 ```ts
 entity::set_panda_rolling("TRUE");
+
+#Или в сухую по ключам
+
+entity::set_panda_rolling(rolling="TRUE");
 ```
 
 **Аргументы:**
@@ -2730,6 +3248,10 @@ entity::set_panda_rolling("TRUE");
 **Пример использования:** 
 ```ts
 entity::set_panda_sad_ticks(1);
+
+#Или в сухую по ключам
+
+entity::set_panda_sad_ticks(sad_ticks=1);
 ```
 
 **Аргументы:**
@@ -2751,6 +3273,10 @@ entity::set_panda_sad_ticks(1);
 **Пример использования:** 
 ```ts
 entity::set_parrot_type("BLUE");
+
+#Или в сухую по ключам
+
+entity::set_parrot_type(parrot_type="BLUE");
 ```
 
 **Аргументы:**
@@ -2773,6 +3299,10 @@ entity::set_parrot_type("BLUE");
 **Пример использования:** 
 ```ts
 entity::set_persistence("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_persistence(persistence="FALSE");
 ```
 
 **Аргументы:**
@@ -2793,7 +3323,11 @@ entity::set_persistence("FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_pickup("TRUE","TRUE");
+entity::set_pickup("TRUE", "TRUE");
+
+#Или в сухую по ключам
+
+entity::set_pickup(can_mob_pickup="TRUE", can_player_pickup="TRUE");
 ```
 
 **Аргументы:**
@@ -2816,6 +3350,10 @@ entity::set_pickup("TRUE","TRUE");
 **Пример использования:** 
 ```ts
 entity::set_pickup_delay(1);
+
+#Или в сухую по ключам
+
+entity::set_pickup_delay(delay=1);
 ```
 
 **Аргументы:**
@@ -2823,6 +3361,31 @@ entity::set_pickup_delay(1);
 | **Имя** | **Тип** | **Описание** |
 | ------- | ------- | ------------ |
 | `delay` | Число   | Задержка     |
+<h3 id=entity_set_pig_type>
+  <code>entity::set_pig_type</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить тип Свиньи\
+**Тип:** Действие без значения\
+**Описание:** Устаналивает свинье тип окраски.
+**Работает с:**\
+&nbsp;&nbsp;Свиньями
+
+**Пример использования:** 
+```ts
+entity::set_pig_type("COLD");
+
+#Или в сухую по ключам
+
+entity::set_pig_type(variant="COLD");
+```
+
+**Аргументы:**
+
+| **Имя**   | **Тип**                                                                              | **Описание** |
+| --------- | ------------------------------------------------------------------------------------ | ------------ |
+| `variant` | Маркер<br/>**COLD** - Снежная<br/>**WARM** - Тропическая<br/>**TEMPERATE** - Обычная | Тип окраски  |
 <h3 id=entity_set_piglin_able_to_hunt>
   <code>entity::set_piglin_able_to_hunt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2837,6 +3400,10 @@ entity::set_pickup_delay(1);
 **Пример использования:** 
 ```ts
 entity::set_piglin_able_to_hunt("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_piglin_able_to_hunt(able="FALSE");
 ```
 
 **Аргументы:**
@@ -2858,6 +3425,10 @@ entity::set_piglin_able_to_hunt("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_piglin_charging_crossbow("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_piglin_charging_crossbow(charging="FALSE");
 ```
 
 **Аргументы:**
@@ -2881,6 +3452,10 @@ entity::set_piglin_charging_crossbow("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_piglin_dancing(1);
+
+#Или в сухую по ключам
+
+entity::set_piglin_dancing(dancing_time=1);
 ```
 
 **Аргументы:**
@@ -2900,6 +3475,10 @@ entity::set_piglin_dancing(1);
 **Пример использования:** 
 ```ts
 entity::set_pose("CROAKING");
+
+#Или в сухую по ключам
+
+entity::set_pose(pose="CROAKING");
 ```
 
 **Аргументы:**
@@ -2922,7 +3501,11 @@ entity::set_pose("CROAKING");
 
 **Пример использования:** 
 ```ts
-entity::set_potion_cloud_radius(1,2);
+entity::set_potion_cloud_radius(1, 2);
+
+#Или в сухую по ключам
+
+entity::set_potion_cloud_radius(radius=1, shrinking_speed=2);
 ```
 
 **Аргументы:**
@@ -2945,6 +3528,10 @@ entity::set_potion_cloud_radius(1,2);
 **Пример использования:** 
 ```ts
 entity::set_primed_tnt_block(item("stone"));
+
+#Или в сухую по ключам
+
+entity::set_primed_tnt_block(block=item("stone"));
 ```
 
 **Аргументы:**
@@ -2973,6 +3560,10 @@ entity::set_primed_tnt_block(item("stone"));
 **Пример использования:** 
 ```ts
 entity::set_projectile_display_item(item("stick"));
+
+#Или в сухую по ключам
+
+entity::set_projectile_display_item(item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2996,6 +3587,10 @@ entity::set_projectile_display_item(item("stick"));
 **Пример использования:** 
 ```ts
 entity::set_projectile_power(vector(0,0,0));
+
+#Или в сухую по ключам
+
+entity::set_projectile_power(power=vector(0,0,0));
 ```
 
 **Аргументы:**
@@ -3015,6 +3610,10 @@ entity::set_projectile_power(vector(0,0,0));
 **Пример использования:** 
 ```ts
 entity::set_projectile_shooter("uuid");
+
+#Или в сухую по ключам
+
+entity::set_projectile_shooter(uuid="uuid");
 ```
 
 **Аргументы:**
@@ -3036,6 +3635,10 @@ entity::set_projectile_shooter("uuid");
 **Пример использования:** 
 ```ts
 entity::set_rabbit_type("BLACK");
+
+#Или в сухую по ключам
+
+entity::set_rabbit_type(rabbit_type="BLACK");
 ```
 
 **Аргументы:**
@@ -3057,6 +3660,10 @@ entity::set_rabbit_type("BLACK");
 **Пример использования:** 
 ```ts
 entity::set_rearing("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_rearing(rearing="FALSE");
 ```
 
 **Аргументы:**
@@ -3076,6 +3683,10 @@ entity::set_rearing("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_riptiding("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_riptiding(riptiding="FALSE");
 ```
 
 **Аргументы:**
@@ -3094,7 +3705,11 @@ entity::set_riptiding("FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_rotation(1,2);
+entity::set_rotation(1, 2);
+
+#Или в сухую по ключам
+
+entity::set_rotation(yaw=1, pitch=2);
 ```
 
 **Аргументы:**
@@ -3115,6 +3730,10 @@ entity::set_rotation(1,2);
 **Пример использования:** 
 ```ts
 entity::set_rotation_by_vector(vector(0,0,0));
+
+#Или в сухую по ключам
+
+entity::set_rotation_by_vector(vector=vector(0,0,0));
 ```
 
 **Аргументы:**
@@ -3136,6 +3755,10 @@ entity::set_rotation_by_vector(vector(0,0,0));
 **Пример использования:** 
 ```ts
 entity::set_sheep_sheared("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_sheep_sheared(sheared="FALSE");
 ```
 
 **Аргументы:**
@@ -3157,6 +3780,10 @@ entity::set_sheep_sheared("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_shulker_bullet_target("target");
+
+#Или в сухую по ключам
+
+entity::set_shulker_bullet_target(target="target");
 ```
 
 **Аргументы:**
@@ -3177,7 +3804,11 @@ entity::set_shulker_bullet_target("target");
 
 **Пример использования:** 
 ```ts
-entity::set_shulker_peek(1,"TRUE");
+entity::set_shulker_peek(1, "TRUE");
+
+#Или в сухую по ключам
+
+entity::set_shulker_peek(rolling=1, silent="TRUE");
 ```
 
 **Аргументы:**
@@ -3198,6 +3829,10 @@ entity::set_shulker_peek(1,"TRUE");
 **Пример использования:** 
 ```ts
 entity::set_silenced("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_silenced(silenced="FALSE");
 ```
 
 **Аргументы:**
@@ -3223,6 +3858,10 @@ entity::set_silenced("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_sitting("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_sitting(sitting="FALSE");
 ```
 
 **Аргументы:**
@@ -3245,6 +3884,10 @@ entity::set_sitting("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_size(1);
+
+#Или в сухую по ключам
+
+entity::set_size(size=1);
 ```
 
 **Аргументы:**
@@ -3266,6 +3909,10 @@ entity::set_size(1);
 **Пример использования:** 
 ```ts
 entity::set_sniffer_state("DIGGING");
+
+#Или в сухую по ключам
+
+entity::set_sniffer_state(state="DIGGING");
 ```
 
 **Аргументы:**
@@ -3287,6 +3934,10 @@ entity::set_sniffer_state("DIGGING");
 **Пример использования:** 
 ```ts
 entity::set_snowman_pumpkin("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_snowman_pumpkin(pumpkin="FALSE");
 ```
 
 **Аргументы:**
@@ -3313,6 +3964,10 @@ entity::set_snowman_pumpkin("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_tame("name_or_uuid");
+
+#Или в сухую по ключам
+
+entity::set_tame(name_or_uuid="name_or_uuid");
 ```
 
 **Аргументы:**
@@ -3336,6 +3991,10 @@ entity::set_tame("name_or_uuid");
 **Пример использования:** 
 ```ts
 entity::set_target("name_or_uuid");
+
+#Или в сухую по ключам
+
+entity::set_target(name_or_uuid="name_or_uuid");
 ```
 
 **Аргументы:**
@@ -3357,6 +4016,10 @@ entity::set_target("name_or_uuid");
 **Пример использования:** 
 ```ts
 entity::set_text_display_alignment("CENTER");
+
+#Или в сухую по ключам
+
+entity::set_text_display_alignment(text_alignment="CENTER");
 ```
 
 **Аргументы:**
@@ -3377,7 +4040,11 @@ entity::set_text_display_alignment("CENTER");
 
 **Пример использования:** 
 ```ts
-entity::set_text_display_background("color_hexadecimal",1);
+entity::set_text_display_background("color_hexadecimal", 1);
+
+#Или в сухую по ключам
+
+entity::set_text_display_background(color_hexadecimal="color_hexadecimal", opacity=1);
 ```
 
 **Аргументы:**
@@ -3400,6 +4067,10 @@ entity::set_text_display_background("color_hexadecimal",1);
 **Пример использования:** 
 ```ts
 entity::set_text_display_line_width(1);
+
+#Или в сухую по ключам
+
+entity::set_text_display_line_width(line_width=1);
 ```
 
 **Аргументы:**
@@ -3421,6 +4092,10 @@ entity::set_text_display_line_width(1);
 **Пример использования:** 
 ```ts
 entity::set_text_display_opacity(1);
+
+#Или в сухую по ключам
+
+entity::set_text_display_opacity(text_opacity=1);
 ```
 
 **Аргументы:**
@@ -3442,6 +4117,10 @@ entity::set_text_display_opacity(1);
 **Пример использования:** 
 ```ts
 entity::set_text_display_see_through("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_text_display_see_through(enable_see_through="FALSE");
 ```
 
 **Аргументы:**
@@ -3462,7 +4141,11 @@ entity::set_text_display_see_through("FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_text_display_text(["displayed_text", "displayed_text"],"CONCATENATION");
+entity::set_text_display_text(["displayed_text", "displayed_text"], "CONCATENATION");
+
+#Или в сухую по ключам
+
+entity::set_text_display_text(displayed_text=["displayed_text", "displayed_text"], merging_mode="CONCATENATION");
 ```
 
 **Аргументы:**
@@ -3485,6 +4168,10 @@ entity::set_text_display_text(["displayed_text", "displayed_text"],"CONCATENATIO
 **Пример использования:** 
 ```ts
 entity::set_text_display_text_shadow("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_text_display_text_shadow(enable_text_shadow="FALSE");
 ```
 
 **Аргументы:**
@@ -3505,7 +4192,11 @@ entity::set_text_display_text_shadow("FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_tropical_fish_pattern("BLACK","BLACK","BETTY");
+entity::set_tropical_fish_pattern("BLACK", "BLACK", "BETTY");
+
+#Или в сухую по ключам
+
+entity::set_tropical_fish_pattern(pattern_color="BLACK", body_color="BLACK", pattern="BETTY");
 ```
 
 **Аргументы:**
@@ -3529,6 +4220,10 @@ entity::set_tropical_fish_pattern("BLACK","BLACK","BETTY");
 **Пример использования:** 
 ```ts
 entity::set_vex_charging("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_vex_charging(charging="FALSE");
 ```
 
 **Аргументы:**
@@ -3550,6 +4245,10 @@ entity::set_vex_charging("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_vex_limited_lifetime_ticks(1);
+
+#Или в сухую по ключам
+
+entity::set_vex_limited_lifetime_ticks(lifetime=1);
 ```
 
 **Аргументы:**
@@ -3571,6 +4270,10 @@ entity::set_vex_limited_lifetime_ticks(1);
 **Пример использования:** 
 ```ts
 entity::set_villager_biome("DESERT");
+
+#Или в сухую по ключам
+
+entity::set_villager_biome(biome="DESERT");
 ```
 
 **Аргументы:**
@@ -3592,6 +4295,10 @@ entity::set_villager_biome("DESERT");
 **Пример использования:** 
 ```ts
 entity::set_villager_experience(1);
+
+#Или в сухую по ключам
+
+entity::set_villager_experience(experience=1);
 ```
 
 **Аргументы:**
@@ -3614,6 +4321,10 @@ entity::set_villager_experience(1);
 **Пример использования:** 
 ```ts
 entity::set_villager_profession("ARMORER");
+
+#Или в сухую по ключам
+
+entity::set_villager_profession(profession="ARMORER");
 ```
 
 **Аргументы:**
@@ -3633,6 +4344,10 @@ entity::set_villager_profession("ARMORER");
 **Пример использования:** 
 ```ts
 entity::set_visual_fire("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_visual_fire(visual_fire="FALSE");
 ```
 
 **Аргументы:**
@@ -3655,7 +4370,11 @@ entity::set_visual_fire("FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_warden_anger_level("name_or_uuid",1);
+entity::set_warden_anger_level("name_or_uuid", 1);
+
+#Или в сухую по ключам
+
+entity::set_warden_anger_level(name_or_uuid="name_or_uuid", anger=1);
 ```
 
 **Аргументы:**
@@ -3678,6 +4397,10 @@ entity::set_warden_anger_level("name_or_uuid",1);
 **Пример использования:** 
 ```ts
 entity::set_warden_digging("DIG_DOWN");
+
+#Или в сухую по ключам
+
+entity::set_warden_digging(digging="DIG_DOWN");
 ```
 
 **Аргументы:**
@@ -3701,6 +4424,10 @@ entity::set_warden_digging("DIG_DOWN");
 **Пример использования:** 
 ```ts
 entity::set_wearing_saddle("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_wearing_saddle(wearing="FALSE");
 ```
 
 **Аргументы:**
@@ -3722,6 +4449,10 @@ entity::set_wearing_saddle("FALSE");
 **Пример использования:** 
 ```ts
 entity::set_wither_invulnerability_ticks(1);
+
+#Или в сухую по ключам
+
+entity::set_wither_invulnerability_ticks(ticks=1);
 ```
 
 **Аргументы:**
@@ -3729,6 +4460,31 @@ entity::set_wither_invulnerability_ticks(1);
 | **Имя** | **Тип** | **Описание**                        |
 | ------- | ------- | ----------------------------------- |
 | `ticks` | Число   | Длительность неуязвимости (в тиках) |
+<h3 id=entity_set_wolf_sound_variant>
+  <code>entity::set_wolf_sound_variant</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить звук Волка\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает тип издаваемых звуков волку.
+**Работает с:**\
+&nbsp;&nbsp;Волками
+
+**Пример использования:** 
+```ts
+entity::set_wolf_sound_variant("ANGRY");
+
+#Или в сухую по ключам
+
+entity::set_wolf_sound_variant(sound_variant="ANGRY");
+```
+
+**Аргументы:**
+
+| **Имя**         | **Тип**                                                                                                                                                                   | **Описание**          |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `sound_variant` | Маркер<br/>**ANGRY** - Злой<br/>**BIG** - Большой<br/>**CLASSIC** - Обычный<br/>**CUTE** - Добрый<br/>**GRUMPY** - Сварливый<br/>**PUGLIN** - Мопс<br/>**SAD** - Грустный | Тип издаваемых звуков |
 <h3 id=entity_set_wolf_type>
   <code>entity::set_wolf_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3743,6 +4499,10 @@ entity::set_wither_invulnerability_ticks(1);
 **Пример использования:** 
 ```ts
 entity::set_wolf_type("ASHEN");
+
+#Или в сухую по ключам
+
+entity::set_wolf_type(wolf_type="ASHEN");
 ```
 
 **Аргументы:**
@@ -3764,6 +4524,10 @@ entity::set_wolf_type("ASHEN");
 **Пример использования:** 
 ```ts
 entity::set_zombie_arms_raised("FALSE");
+
+#Или в сухую по ключам
+
+entity::set_zombie_arms_raised(arms_raised="FALSE");
 ```
 
 **Аргументы:**
@@ -3820,6 +4584,10 @@ entity::shear_sheep();
 **Пример использования:** 
 ```ts
 entity::sleep("FALSE");
+
+#Или в сухую по ключам
+
+entity::sleep(sleep="FALSE");
 ```
 
 **Аргументы:**
@@ -3839,6 +4607,10 @@ entity::sleep("FALSE");
 **Пример использования:** 
 ```ts
 entity::swing_hand("MAIN");
+
+#Или в сухую по ключам
+
+entity::swing_hand(hand_type="MAIN");
 ```
 
 **Аргументы:**
@@ -3857,7 +4629,11 @@ entity::swing_hand("MAIN");
 
 **Пример использования:** 
 ```ts
-entity::teleport(location(0,0,0,0,0),"FALSE");
+entity::teleport(location(0,0,0,0,0), "FALSE");
+
+#Или в сухую по ключам
+
+entity::teleport(location=location(0,0,0,0,0), keep_rotation="FALSE");
 ```
 
 **Аргументы:**
@@ -3879,7 +4655,11 @@ entity::teleport(location(0,0,0,0,0),"FALSE");
 
 **Пример использования:** 
 ```ts
-entity::use_item("MAIN_HAND","FALSE");
+entity::use_item("MAIN_HAND", "FALSE");
+
+#Или в сухую по ключам
+
+entity::use_item(hand="MAIN_HAND", enable="FALSE");
 ```
 
 **Аргументы:**
@@ -3902,6 +4682,12 @@ entity::use_item("MAIN_HAND","FALSE");
 if(entity::collides_at_location(location(0,0,0,0,0))){
     player::message("Условие верно");
 }
+
+#Или в сухую по ключам
+
+entity::collides_at_location(location=location(0,0,0,0,0)){
+    player::message("Условие верно");
+}
 ```
 
 **Аргументы:**
@@ -3920,7 +4706,13 @@ if(entity::collides_at_location(location(0,0,0,0,0))){
 
 **Пример использования:** 
 ```ts
-if(entity::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0))){
+if(entity::collides_using_hitbox(location(0,0,0,0,0), location(0,0,0,0,0))){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+entity::collides_using_hitbox(min=location(0,0,0,0,0), max=location(0,0,0,0,0)){
     player::message("Условие верно");
 }
 ```
@@ -3942,7 +4734,13 @@ if(entity::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0))){
 
 **Пример использования:** 
 ```ts
-if(entity::collides_with_entity("name_or_uuid","CONTAINS")){
+if(entity::collides_with_entity("name_or_uuid", "CONTAINS")){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+entity::collides_with_entity(name_or_uuid="name_or_uuid", check_type="CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -3996,7 +4794,13 @@ if(entity::exists()){
 
 **Пример использования:** 
 ```ts
-if(entity::has_custom_tag("tag","tag_value","CONTAINS")){
+if(entity::has_custom_tag("tag", "tag_value", "CONTAINS")){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+entity::has_custom_tag(tag="tag", tag_value="tag_value", compare_type="CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -4019,7 +4823,13 @@ if(entity::has_custom_tag("tag","tag_value","CONTAINS")){
 
 **Пример использования:** 
 ```ts
-if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ALL")){
+if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")], "ALL")){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+entity::has_potion_effect(potions=[potion("slow_falling"), potion("slow_falling")], check_mode="ALL"){
     player::message("Условие верно");
 }
 ```
@@ -4041,7 +4851,13 @@ if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 
 **Пример использования:** 
 ```ts
-if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CONTAINS")){
+if(entity::in_area(location(0,0,0,0,0), location(0,0,0,0,0), "FALSE", "HITBOX", "CONTAINS")){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+entity::in_area(location_1=location(0,0,0,0,0), location_2=location(0,0,0,0,0), ignore_y_axis="FALSE", intersect_type="HITBOX", check_type="CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -4130,7 +4946,13 @@ if(entity::is_mob()){
 
 **Пример использования:** 
 ```ts
-if(entity::is_near_location(1,location(0,0,0,0,0),"FALSE")){
+if(entity::is_near_location(1, location(0,0,0,0,0), "FALSE")){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+entity::is_near_location(range=1, location=location(0,0,0,0,0), ignore_y_axis="FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -4169,7 +4991,13 @@ if(entity::is_projectile()){
 
 **Пример использования:** 
 ```ts
-if(entity::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST")){
+if(entity::is_riding_entity(["entity_ids", "entity_ids"], "FARTHEST")){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+entity::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mode="FARTHEST"){
     player::message("Условие верно");
 }
 ```
@@ -4191,7 +5019,13 @@ if(entity::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST")){
 
 **Пример использования:** 
 ```ts
-if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE")){
+if(entity::is_standing_on_block([item("stone"), item("stone")], [location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE")){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+entity::is_standing_on_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -4215,6 +5049,12 @@ if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 **Пример использования:** 
 ```ts
 if(entity::is_type([item("stick"), item("stick")])){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+entity::is_type(entity_types=[item("stick"), item("stick")]){
     player::message("Условие верно");
 }
 ```
@@ -4270,6 +5110,12 @@ if(entity::is_vehicle()){
 if(entity::name_equals(["names_or_uuids", "names_or_uuids"])){
     player::message("Условие верно");
 }
+
+#Или в сухую по ключам
+
+entity::name_equals(names_or_uuids=["names_or_uuids", "names_or_uuids"]){
+    player::message("Условие верно");
+}
 ```
 
 **Аргументы:**
@@ -4289,6 +5135,12 @@ if(entity::name_equals(["names_or_uuids", "names_or_uuids"])){
 **Пример использования:** 
 ```ts
 if(entity::spawn_reason_equals("BEEHIVE")){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+entity::spawn_reason_equals(reason="BEEHIVE"){
     player::message("Условие верно");
 }
 ```

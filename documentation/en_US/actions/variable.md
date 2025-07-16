@@ -18,6 +18,12 @@ if(variable::block_is_solid(item("stone"))){
 if(item("stone").block_is_solid(){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+variable::block_is_solid(block=item("stone")){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -52,13 +58,19 @@ if(variable::is_dummy()){
 
 **Usage example:** 
 ```ts
-if(variable::equals("any value",["any value", "any value"])){
+if(variable::equals("any value", ["any value", "any value"])){
     player::message("Condition is true");
 }
 
 #Or from the object
 
 if("any value".equals(["any value", "any value"]){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::equals(value="any value", compare=["any value", "any value"]){
     player::message("Condition is true");
 }
 ```
@@ -89,6 +101,12 @@ if(variable::exists(`variable`)){
 if(`variable`.exists(){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+variable::exists(variable=`variable`){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -107,13 +125,19 @@ if(`variable`.exists(){
 
 **Usage example:** 
 ```ts
-if(variable::greater(1,2)){
+if(variable::greater(1, 2)){
     player::message("Condition is true");
 }
 
 #Or from the object
 
 if((1).greater(2){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::greater(value=1, compare=2){
     player::message("Condition is true");
 }
 ```
@@ -135,13 +159,19 @@ if((1).greater(2){
 
 **Usage example:** 
 ```ts
-if(variable::greater_or_equals(1,2)){
+if(variable::greater_or_equals(1, 2)){
     player::message("Condition is true");
 }
 
 #Or from the object
 
 if((1).greater_or_equals(2){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::greater_or_equals(value=1, compare=2){
     player::message("Condition is true");
 }
 ```
@@ -166,13 +196,19 @@ if((1).greater_or_equals(2){
 
 **Usage example:** 
 ```ts
-if(variable::in_range("any value","any value","any value")){
+if(variable::in_range("any value", "any value", "any value")){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if("any value".in_range("any value","any value"){
+if("any value".in_range("any value", "any value"){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::in_range(value="any value", min="any value", max="any value"){
     player::message("Condition is true");
 }
 ```
@@ -195,13 +231,19 @@ if("any value".in_range("any value","any value"){
 
 **Usage example:** 
 ```ts
-if(variable::is_type("any value","ARRAY")){
+if(variable::is_type("any value", "ARRAY")){
     player::message("Condition is true");
 }
 
 #Or from the object
 
 if("any value".is_type("ARRAY"){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::is_type(value="any value", variable_type="ARRAY"){
     player::message("Condition is true");
 }
 ```
@@ -223,13 +265,19 @@ if("any value".is_type("ARRAY"){
 
 **Usage example:** 
 ```ts
-if(variable::item_equals(item("stick"),[item("stick"), item("stick")],"EXACTLY")){
+if(variable::item_equals(item("stick"), [item("stick"), item("stick")], "EXACTLY")){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(item("stick").item_equals([item("stick"), item("stick")],"EXACTLY"){
+if(item("stick").item_equals([item("stick"), item("stick")], "EXACTLY"){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::item_equals(value=item("stick"), compare=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -252,13 +300,19 @@ if(item("stick").item_equals([item("stick"), item("stick")],"EXACTLY"){
 
 **Usage example:** 
 ```ts
-if(variable::item_has_enchantment(item("stick"),"enchant",1)){
+if(variable::item_has_enchantment(item("stick"), "enchant", 1)){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(item("stick").item_has_enchantment("enchant",1){
+if(item("stick").item_has_enchantment("enchant", 1){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::item_has_enchantment(item=item("stick"), enchant="enchant", level=1){
     player::message("Condition is true");
 }
 ```
@@ -281,13 +335,19 @@ if(item("stick").item_has_enchantment("enchant",1){
 
 **Usage example:** 
 ```ts
-if(variable::item_has_tag(item("stick"),"tag","value","CONTAINS")){
+if(variable::item_has_tag(item("stick"), "tag", "value", "CONTAINS")){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(item("stick").item_has_tag("tag","value","CONTAINS"){
+if(item("stick").item_has_tag("tag", "value", "CONTAINS"){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::item_has_tag(item=item("stick"), tag="tag", value="value", compare_type="CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -320,6 +380,12 @@ if(variable::item_is_block(item("stick"))){
 if(item("stick").item_is_block(){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+variable::item_is_block(item=item("stick")){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -338,13 +404,19 @@ if(item("stick").item_is_block(){
 
 **Usage example:** 
 ```ts
-if(variable::less(1,2)){
+if(variable::less(1, 2)){
     player::message("Condition is true");
 }
 
 #Or from the object
 
 if((1).less(2){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::less(value=1, compare=2){
     player::message("Condition is true");
 }
 ```
@@ -366,13 +438,19 @@ if((1).less(2){
 
 **Usage example:** 
 ```ts
-if(variable::less_or_equals(1,2)){
+if(variable::less_or_equals(1, 2)){
     player::message("Condition is true");
 }
 
 #Or from the object
 
 if((1).less_or_equals(2){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::less_or_equals(value=1, compare=2){
     player::message("Condition is true");
 }
 ```
@@ -394,13 +472,19 @@ if((1).less_or_equals(2){
 
 **Usage example:** 
 ```ts
-if(variable::list_contains_value(`list`,["any value", "any value"],"ALL")){
+if(variable::list_contains_value(`list`, ["any value", "any value"], "ALL")){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(`list`.list_contains_value(["any value", "any value"],"ALL"){
+if(`list`.list_contains_value(["any value", "any value"], "ALL"){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::list_contains_value(list=`list`, values=["any value", "any value"], check_mode="ALL"){
     player::message("Condition is true");
 }
 ```
@@ -436,6 +520,12 @@ if(variable::list_is_empty("any value")){
 if("any value".list_is_empty(){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+variable::list_is_empty(list="any value"){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -454,13 +544,19 @@ if("any value".list_is_empty(){
 
 **Usage example:** 
 ```ts
-if(variable::list_value_equals(`list`,1,["any value", "any value"])){
+if(variable::list_value_equals(`list`, 1, ["any value", "any value"])){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(`list`.list_value_equals(1,["any value", "any value"]){
+if(`list`.list_value_equals(1, ["any value", "any value"]){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::list_value_equals(list=`list`, index=1, values=["any value", "any value"]){
     player::message("Condition is true");
 }
 ```
@@ -483,13 +579,19 @@ if(`list`.list_value_equals(1,["any value", "any value"]){
 
 **Usage example:** 
 ```ts
-if(variable::location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"BLOCK")){
+if(variable::location_in_range(location(0,0,0,0,0), location(0,0,0,0,0), location(0,0,0,0,0), "BLOCK")){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),"BLOCK"){
+if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0), location(0,0,0,0,0), "BLOCK"){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::location_in_range(value=location(0,0,0,0,0), min=location(0,0,0,0,0), max=location(0,0,0,0,0), border_handling="BLOCK"){
     player::message("Condition is true");
 }
 ```
@@ -513,13 +615,19 @@ if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0)
 
 **Usage example:** 
 ```ts
-if(variable::location_is_near(location(0,0,0,0,0),1,[location(0,0,0,0,0), location(0,0,0,0,0)],"CIRCLE")){
+if(variable::location_is_near(location(0,0,0,0,0), 1, [location(0,0,0,0,0), location(0,0,0,0,0)], "CIRCLE")){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(location(0,0,0,0,0).location_is_near(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"CIRCLE"){
+if(location(0,0,0,0,0).location_is_near(1, [location(0,0,0,0,0), location(0,0,0,0,0)], "CIRCLE"){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::location_is_near(location=location(0,0,0,0,0), radius=1, check=[location(0,0,0,0,0), location(0,0,0,0,0)], shape="CIRCLE"){
     player::message("Condition is true");
 }
 ```
@@ -543,13 +651,19 @@ if(location(0,0,0,0,0).location_is_near(1,[location(0,0,0,0,0), location(0,0,0,0
 
 **Usage example:** 
 ```ts
-if(variable::map_has_key(`map`,"any value")){
+if(variable::map_has_key(`map`, "any value")){
     player::message("Condition is true");
 }
 
 #Or from the object
 
 if(`map`.map_has_key("any value"){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::map_has_key(map=`map`, key="any value"){
     player::message("Condition is true");
 }
 ```
@@ -571,13 +685,19 @@ if(`map`.map_has_key("any value"){
 
 **Usage example:** 
 ```ts
-if(variable::map_value_equals(`map`,"any value",["any value", "any value"])){
+if(variable::map_value_equals(`map`, "any value", ["any value", "any value"])){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if(`map`.map_value_equals("any value",["any value", "any value"]){
+if(`map`.map_value_equals("any value", ["any value", "any value"]){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::map_value_equals(map=`map`, key="any value", values=["any value", "any value"]){
     player::message("Condition is true");
 }
 ```
@@ -600,13 +720,19 @@ if(`map`.map_value_equals("any value",["any value", "any value"]){
 
 **Usage example:** 
 ```ts
-if(variable::not_equals("any value",["any value", "any value"])){
+if(variable::not_equals("any value", ["any value", "any value"])){
     player::message("Condition is true");
 }
 
 #Or from the object
 
 if("any value".not_equals(["any value", "any value"]){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::not_equals(value="any value", compare=["any value", "any value"]){
     player::message("Condition is true");
 }
 ```
@@ -628,7 +754,13 @@ if("any value".not_equals(["any value", "any value"]){
 
 **Usage example:** 
 ```ts
-if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"CONTAINS")){
+if(variable::range_intersects_range(location(0,0,0,0,0), location(0,0,0,0,0), location(0,0,0,0,0), location(0,0,0,0,0), "CONTAINS")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::range_intersects_range(min1=location(0,0,0,0,0), max1=location(0,0,0,0,0), min2=location(0,0,0,0,0), max2=location(0,0,0,0,0), check_type="CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -653,13 +785,19 @@ if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),loca
 
 **Usage example:** 
 ```ts
-if(variable::text_contains("value",["compare", "compare"],"FALSE")){
+if(variable::text_contains("value", ["compare", "compare"], "FALSE")){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if("value".text_contains(["compare", "compare"],"FALSE"){
+if("value".text_contains(["compare", "compare"], "FALSE"){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::text_contains(value="value", compare=["compare", "compare"], ignore_case="FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -682,13 +820,19 @@ if("value".text_contains(["compare", "compare"],"FALSE"){
 
 **Usage example:** 
 ```ts
-if(variable::text_ends_with("value",["compare", "compare"],"FALSE")){
+if(variable::text_ends_with("value", ["compare", "compare"], "FALSE")){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if("value".text_ends_with(["compare", "compare"],"FALSE"){
+if("value".text_ends_with(["compare", "compare"], "FALSE"){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::text_ends_with(value="value", compare=["compare", "compare"], ignore_case="FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -711,13 +855,19 @@ if("value".text_ends_with(["compare", "compare"],"FALSE"){
 
 **Usage example:** 
 ```ts
-if(variable::text_matches("match",["values", "values"],"FALSE","FALSE")){
+if(variable::text_matches("match", ["values", "values"], "FALSE", "FALSE")){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if("match".text_matches(["values", "values"],"FALSE","FALSE"){
+if("match".text_matches(["values", "values"], "FALSE", "FALSE"){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::text_matches(match="match", values=["values", "values"], regular_expressions="FALSE", ignore_case="FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -741,13 +891,19 @@ if("match".text_matches(["values", "values"],"FALSE","FALSE"){
 
 **Usage example:** 
 ```ts
-if(variable::text_starts_with("value",["compare", "compare"],"FALSE")){
+if(variable::text_starts_with("value", ["compare", "compare"], "FALSE")){
     player::message("Condition is true");
 }
 
 #Or from the object
 
-if("value".text_starts_with(["compare", "compare"],"FALSE"){
+if("value".text_starts_with(["compare", "compare"], "FALSE"){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+variable::text_starts_with(value="value", compare=["compare", "compare"], ignore_case="FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -776,9 +932,13 @@ if("value".text_starts_with(["compare", "compare"],"FALSE"){
 
 `variable` = (1).absolute();
 
-#Or dry
+#Or dry by positionals
 
-variable::absolute(`variable`,1);
+variable::absolute(`variable`, 1);
+
+#Or dry by keywords
+
+variable::absolute(variable=`variable`, number=1);
 ```
 
 **Arguments:**
@@ -800,9 +960,13 @@ variable::absolute(`variable`,1);
 ```ts
 `variable` = variable::add([1, 2]);
 
-#Or dry
+#Or dry by positionals
 
-variable::add(`variable`,[1, 2]);
+variable::add(`variable`, [1, 2]);
+
+#Or dry by keywords
+
+variable::add(variable=`variable`, value=[1, 2]);
 ```
 
 **Arguments:**
@@ -822,15 +986,19 @@ variable::add(`variable`,[1, 2]);
 
 **Usage example:** 
 ```ts
-`variable` = variable::add_item_enchantment(item("stick"),"enchantment",1);
+`variable` = variable::add_item_enchantment(item("stick"), "enchantment", 1);
 
 #Or from the object
 
-`variable` = item("stick").add_item_enchantment("enchantment",1);
+`variable` = item("stick").add_item_enchantment("enchantment", 1);
 
-#Or dry
+#Or dry by positionals
 
-variable::add_item_enchantment(`variable`,item("stick"),"enchantment",1);
+variable::add_item_enchantment(`variable`, item("stick"), "enchantment", 1);
+
+#Or dry by keywords
+
+variable::add_item_enchantment(variable=`variable`, item=item("stick"), enchantment="enchantment", level=1);
 ```
 
 **Arguments:**
@@ -852,15 +1020,19 @@ variable::add_item_enchantment(`variable`,item("stick"),"enchantment",1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],item("stick"),"FALSE","FALSE","AMBIENT");
+`variable` = variable::add_item_potion_effects([potion("slow_falling"), potion("slow_falling")], item("stick"), "FALSE", "FALSE", "AMBIENT");
 
 #Or from the object
 
-`variable` = item("stick").add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],"FALSE","FALSE","AMBIENT");
+`variable` = item("stick").add_item_potion_effects([potion("slow_falling"), potion("slow_falling")], "FALSE", "FALSE", "AMBIENT");
 
-#Or dry
+#Or dry by positionals
 
-variable::add_item_potion_effects(`variable`,[potion("slow_falling"), potion("slow_falling")],item("stick"),"FALSE","FALSE","AMBIENT");
+variable::add_item_potion_effects(`variable`, [potion("slow_falling"), potion("slow_falling")], item("stick"), "FALSE", "FALSE", "AMBIENT");
+
+#Or dry by keywords
+
+variable::add_item_potion_effects(variable=`variable`, potions=[potion("slow_falling"), potion("slow_falling")], item=item("stick"), overwrite="FALSE", show_icon="FALSE", particle_mode="AMBIENT");
 ```
 
 **Arguments:**
@@ -886,9 +1058,13 @@ variable::add_item_potion_effects(`variable`,[potion("slow_falling"), potion("sl
 ```ts
 `variable` = variable::add_vectors([vector(0,0,0), vector(0,0,0)]);
 
-#Or dry
+#Or dry by positionals
 
-variable::add_vectors(`variable`,[vector(0,0,0), vector(0,0,0)]);
+variable::add_vectors(`variable`, [vector(0,0,0), vector(0,0,0)]);
+
+#Or dry by keywords
+
+variable::add_vectors(variable=`variable`, vectors=[vector(0,0,0), vector(0,0,0)]);
 ```
 
 **Arguments:**
@@ -908,15 +1084,19 @@ variable::add_vectors(`variable`,[vector(0,0,0), vector(0,0,0)]);
 
 **Usage example:** 
 ```ts
-`variable` = variable::align_location(location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENTER");
+`variable` = variable::align_location(location(0,0,0,0,0), "KEEP", "ALL", "BLOCK_CENTER");
 
 #Or from the object
 
-`variable` = location(0,0,0,0,0).align_location("KEEP","ALL","BLOCK_CENTER");
+`variable` = location(0,0,0,0,0).align_location("KEEP", "ALL", "BLOCK_CENTER");
 
-#Or dry
+#Or dry by positionals
 
-variable::align_location(`variable`,location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENTER");
+variable::align_location(`variable`, location(0,0,0,0,0), "KEEP", "ALL", "BLOCK_CENTER");
+
+#Or dry by keywords
+
+variable::align_location(variable=`variable`, location=location(0,0,0,0,0), rotation_mode="KEEP", coordinates_mode="ALL", align_mode="BLOCK_CENTER");
 ```
 
 **Arguments:**
@@ -939,15 +1119,19 @@ variable::align_location(`variable`,location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENT
 
 **Usage example:** 
 ```ts
-`variable` = variable::align_to_axis_vector(vector(0,0,0),"FALSE");
+`variable` = variable::align_to_axis_vector(vector(0,0,0), "FALSE");
 
 #Or from the object
 
 `variable` = vector(0,0,0).align_to_axis_vector("FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::align_to_axis_vector(`variable`,vector(0,0,0),"FALSE");
+variable::align_to_axis_vector(`variable`, vector(0,0,0), "FALSE");
+
+#Or dry by keywords
+
+variable::align_to_axis_vector(variable=`variable`, vector=vector(0,0,0), normalize="FALSE");
 ```
 
 **Arguments:**
@@ -968,11 +1152,15 @@ variable::align_to_axis_vector(`variable`,vector(0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-`variable` = variable::append_component(["components", "components"],"CONCATENATION");
+`variable` = variable::append_component(["components", "components"], "CONCATENATION");
 
-#Or dry
+#Or dry by positionals
 
-variable::append_component(`variable`,["components", "components"],"CONCATENATION");
+variable::append_component(`variable`, ["components", "components"], "CONCATENATION");
+
+#Or dry by keywords
+
+variable::append_component(variable=`variable`, components=["components", "components"], merging="CONCATENATION");
 ```
 
 **Arguments:**
@@ -993,15 +1181,19 @@ variable::append_component(`variable`,["components", "components"],"CONCATENATIO
 
 **Usage example:** 
 ```ts
-`variable` = variable::append_list(`list_1`,`list_2`);
+`variable` = variable::append_list(`list_1`, `list_2`);
 
 #Or from the object
 
 `variable` = `list_1`.append_list(`list_2`);
 
-#Or dry
+#Or dry by positionals
 
-variable::append_list(`variable`,`list_1`,`list_2`);
+variable::append_list(`variable`, `list_1`, `list_2`);
+
+#Or dry by keywords
+
+variable::append_list(variable=`variable`, list_1=`list_1`, list_2=`list_2`);
 ```
 
 **Arguments:**
@@ -1022,15 +1214,19 @@ variable::append_list(`variable`,`list_1`,`list_2`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::append_map(`map`,`other_map`);
+`variable` = variable::append_map(`map`, `other_map`);
 
 #Or from the object
 
 `variable` = `map`.append_map(`other_map`);
 
-#Or dry
+#Or dry by positionals
 
-variable::append_map(`variable`,`map`,`other_map`);
+variable::append_map(`variable`, `map`, `other_map`);
+
+#Or dry by keywords
+
+variable::append_map(variable=`variable`, map=`map`, other_map=`other_map`);
 ```
 
 **Arguments:**
@@ -1051,11 +1247,15 @@ variable::append_map(`variable`,`map`,`other_map`);
 
 **Usage example:** 
 ```ts
-variable::append_value(`variable`,["any value", "any value"]);
+variable::append_value(`variable`, ["any value", "any value"]);
 
 #Or from the object
 
 `variable`.append_value(["any value", "any value"]);
+
+#Or dry by keywords
+
+variable::append_value(variable=`variable`, values=["any value", "any value"]);
 ```
 
 **Arguments:**
@@ -1075,11 +1275,15 @@ variable::append_value(`variable`,["any value", "any value"]);
 
 **Usage example:** 
 ```ts
-`variable` = variable::atan2(1,2);
+`variable` = variable::atan2(1, 2);
 
-#Or dry
+#Or dry by positionals
 
-variable::atan2(`variable`,1,2);
+variable::atan2(`variable`, 1, 2);
+
+#Or dry by keywords
+
+variable::atan2(variable=`variable`, y=1, x=2);
 ```
 
 **Arguments:**
@@ -1102,9 +1306,13 @@ variable::atan2(`variable`,1,2);
 ```ts
 `variable` = variable::average([1, 2]);
 
-#Or dry
+#Or dry by positionals
 
-variable::average(`variable`,[1, 2]);
+variable::average(`variable`, [1, 2]);
+
+#Or dry by keywords
+
+variable::average(variable=`variable`, value=[1, 2]);
 ```
 
 **Arguments:**
@@ -1124,11 +1332,15 @@ variable::average(`variable`,[1, 2]);
 
 **Usage example:** 
 ```ts
-`variable` = variable::bitwise_operation(1,2,"AND");
+`variable` = variable::bitwise_operation(1, 2, "AND");
 
-#Or dry
+#Or dry by positionals
 
-variable::bitwise_operation(`variable`,1,2,"AND");
+variable::bitwise_operation(`variable`, 1, 2, "AND");
+
+#Or dry by keywords
+
+variable::bitwise_operation(variable=`variable`, operand1=1, operand2=2, operator="AND");
 ```
 
 **Arguments:**
@@ -1152,9 +1364,13 @@ variable::bitwise_operation(`variable`,1,2,"AND");
 ```ts
 `variable` = variable::center_location([location(0,0,0,0,0), location(0,0,0,0,0)]);
 
-#Or dry
+#Or dry by positionals
 
-variable::center_location(`variable`,[location(0,0,0,0,0), location(0,0,0,0,0)]);
+variable::center_location(`variable`, [location(0,0,0,0,0), location(0,0,0,0,0)]);
+
+#Or dry by keywords
+
+variable::center_location(variable=`variable`, locations=[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
 
 **Arguments:**
@@ -1174,15 +1390,19 @@ variable::center_location(`variable`,[location(0,0,0,0,0), location(0,0,0,0,0)])
 
 **Usage example:** 
 ```ts
-`variable` = variable::change_component_parsing("component","JSON");
+`variable` = variable::change_component_parsing("component", "JSON");
 
 #Or from the object
 
 `variable` = "component".change_component_parsing("JSON");
 
-#Or dry
+#Or dry by positionals
 
-variable::change_component_parsing(`variable`,"component","JSON");
+variable::change_component_parsing(`variable`, "component", "JSON");
+
+#Or dry by keywords
+
+variable::change_component_parsing(variable=`variable`, component="component", parsing="JSON");
 ```
 
 **Arguments:**
@@ -1209,9 +1429,13 @@ variable::change_component_parsing(`variable`,"component","JSON");
 
 `variable` = "char".char_to_number();
 
-#Or dry
+#Or dry by positionals
 
-variable::char_to_number(`variable`,"char");
+variable::char_to_number(`variable`, "char");
+
+#Or dry by keywords
+
+variable::char_to_number(variable=`variable`, char="char");
 ```
 
 **Arguments:**
@@ -1231,15 +1455,19 @@ variable::char_to_number(`variable`,"char");
 
 **Usage example:** 
 ```ts
-`variable` = variable::clamp(1,2,3);
+`variable` = variable::clamp(1, 2, 3);
 
 #Or from the object
 
-`variable` = (1).clamp(2,3);
+`variable` = (1).clamp(2, 3);
 
-#Or dry
+#Or dry by positionals
 
-variable::clamp(`variable`,1,2,3);
+variable::clamp(`variable`, 1, 2, 3);
+
+#Or dry by keywords
+
+variable::clamp(variable=`variable`, number=1, min=2, max=3);
 ```
 
 **Arguments:**
@@ -1267,9 +1495,13 @@ variable::clamp(`variable`,1,2,3);
 
 `variable` = "text".clear_color_codes();
 
-#Or dry
+#Or dry by positionals
 
-variable::clear_color_codes(`variable`,"text");
+variable::clear_color_codes(`variable`, "text");
+
+#Or dry by keywords
+
+variable::clear_color_codes(variable=`variable`, text="text");
 ```
 
 **Arguments:**
@@ -1294,6 +1526,10 @@ variable::clear_map(`map`);
 #Or from the object
 
 `map`.clear_map();
+
+#Or dry by keywords
+
+variable::clear_map(map=`map`);
 ```
 
 **Arguments:**
@@ -1318,9 +1554,13 @@ variable::clear_map(`map`);
 
 `variable` = "component".compact_component();
 
-#Or dry
+#Or dry by positionals
 
-variable::compact_component(`variable`,"component");
+variable::compact_component(`variable`, "component");
+
+#Or dry by keywords
+
+variable::compact_component(variable=`variable`, component="component");
 ```
 
 **Arguments:**
@@ -1342,9 +1582,13 @@ variable::compact_component(`variable`,"component");
 ```ts
 `variable` = variable::component_of_children(["components", "components"]);
 
-#Or dry
+#Or dry by positionals
 
-variable::component_of_children(`variable`,["components", "components"]);
+variable::component_of_children(`variable`, ["components", "components"]);
+
+#Or dry by keywords
+
+variable::component_of_children(variable=`variable`, components=["components", "components"]);
 ```
 
 **Arguments:**
@@ -1367,15 +1611,19 @@ variable::component_of_children(`variable`,["components", "components"]);
 
 **Usage example:** 
 ```ts
-`variable` = variable::convert_number_to_text(1,2);
+`variable` = variable::convert_number_to_text(1, 2);
 
 #Or from the object
 
 `variable` = (1).convert_number_to_text(2);
 
-#Or dry
+#Or dry by positionals
 
-variable::convert_number_to_text(`variable`,1,2);
+variable::convert_number_to_text(`variable`, 1, 2);
+
+#Or dry by keywords
+
+variable::convert_number_to_text(variable=`variable`, number=1, radix=2);
 ```
 
 **Arguments:**
@@ -1396,15 +1644,19 @@ variable::convert_number_to_text(`variable`,1,2);
 
 **Usage example:** 
 ```ts
-`variable` = variable::convert_text_to_number("text",1);
+`variable` = variable::convert_text_to_number("text", 1);
 
 #Or from the object
 
 `variable` = "text".convert_text_to_number(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::convert_text_to_number(`variable`,"text",1);
+variable::convert_text_to_number(`variable`, "text", 1);
+
+#Or dry by keywords
+
+variable::convert_text_to_number(variable=`variable`, text="text", radix=1);
 ```
 
 **Arguments:**
@@ -1425,15 +1677,19 @@ variable::convert_text_to_number(`variable`,"text",1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::cosine(1,"ARCCOSINE","DEGREES");
+`variable` = variable::cosine(1, "ARCCOSINE", "DEGREES");
 
 #Or from the object
 
-`variable` = (1).cosine("ARCCOSINE","DEGREES");
+`variable` = (1).cosine("ARCCOSINE", "DEGREES");
 
-#Or dry
+#Or dry by positionals
 
-variable::cosine(`variable`,1,"ARCCOSINE","DEGREES");
+variable::cosine(`variable`, 1, "ARCCOSINE", "DEGREES");
+
+#Or dry by keywords
+
+variable::cosine(variable=`variable`, number=1, variant="ARCCOSINE", input="DEGREES");
 ```
 
 **Arguments:**
@@ -1455,15 +1711,19 @@ variable::cosine(`variable`,1,"ARCCOSINE","DEGREES");
 
 **Usage example:** 
 ```ts
-`variable` = variable::cotangent(1,"ARCCOTANGENT","DEGREES");
+`variable` = variable::cotangent(1, "ARCCOTANGENT", "DEGREES");
 
 #Or from the object
 
-`variable` = (1).cotangent("ARCCOTANGENT","DEGREES");
+`variable` = (1).cotangent("ARCCOTANGENT", "DEGREES");
 
-#Or dry
+#Or dry by positionals
 
-variable::cotangent(`variable`,1,"ARCCOTANGENT","DEGREES");
+variable::cotangent(`variable`, 1, "ARCCOTANGENT", "DEGREES");
+
+#Or dry by keywords
+
+variable::cotangent(variable=`variable`, number=1, variant="ARCCOTANGENT", input="DEGREES");
 ```
 
 **Arguments:**
@@ -1487,9 +1747,13 @@ variable::cotangent(`variable`,1,"ARCCOTANGENT","DEGREES");
 ```ts
 `variable` = variable::create_keybind_component("key");
 
-#Or dry
+#Or dry by positionals
 
-variable::create_keybind_component(`variable`,"key");
+variable::create_keybind_component(`variable`, "key");
+
+#Or dry by keywords
+
+variable::create_keybind_component(variable=`variable`, key="key");
 ```
 
 **Arguments:**
@@ -1513,9 +1777,13 @@ variable::create_keybind_component(`variable`,"key");
 ```ts
 `variable` = variable::create_list(["any value", "any value"]);
 
-#Or dry
+#Or dry by positionals
 
-variable::create_list(`variable`,["any value", "any value"]);
+variable::create_list(`variable`, ["any value", "any value"]);
+
+#Or dry by keywords
+
+variable::create_list(variable=`variable`, values=["any value", "any value"]);
 ```
 
 **Arguments:**
@@ -1537,11 +1805,15 @@ variable::create_list(`variable`,["any value", "any value"]);
 
 **Usage example:** 
 ```ts
-`variable` = variable::create_map(`keys`,`values`);
+`variable` = variable::create_map(`keys`, `values`);
 
-#Or dry
+#Or dry by positionals
 
-variable::create_map(`variable`,`keys`,`values`);
+variable::create_map(`variable`, `keys`, `values`);
+
+#Or dry by keywords
+
+variable::create_map(variable=`variable`, keys=`keys`, values=`values`);
 ```
 
 **Arguments:**
@@ -1564,11 +1836,15 @@ variable::create_map(`variable`,`keys`,`values`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::create_map_from_values(["any value", "any value"],["any value", "any value"]);
+`variable` = variable::create_map_from_values(["any value", "any value"], ["any value", "any value"]);
 
-#Or dry
+#Or dry by positionals
 
-variable::create_map_from_values(`variable`,["any value", "any value"],["any value", "any value"]);
+variable::create_map_from_values(`variable`, ["any value", "any value"], ["any value", "any value"]);
+
+#Or dry by keywords
+
+variable::create_map_from_values(variable=`variable`, keys=["any value", "any value"], values=["any value", "any value"]);
 ```
 
 **Arguments:**
@@ -1589,11 +1865,15 @@ variable::create_map_from_values(`variable`,["any value", "any value"],["any val
 
 **Usage example:** 
 ```ts
-`variable` = variable::create_translatable_component("key",["args", "args"]);
+`variable` = variable::create_translatable_component("key", ["args", "args"]);
 
-#Or dry
+#Or dry by positionals
 
-variable::create_translatable_component(`variable`,"key",["args", "args"]);
+variable::create_translatable_component(`variable`, "key", ["args", "args"]);
+
+#Or dry by keywords
+
+variable::create_translatable_component(variable=`variable`, key="key", args=["args", "args"]);
 ```
 
 **Arguments:**
@@ -1620,9 +1900,13 @@ variable::create_translatable_component(`variable`,"key",["args", "args"]);
 
 `variable`.decrement(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::decrement(`variable`,1);
+variable::decrement(`variable`, 1);
+
+#Or dry by keywords
+
+variable::decrement(variable=`variable`, number=1);
 ```
 
 **Arguments:**
@@ -1642,11 +1926,15 @@ variable::decrement(`variable`,1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::divide([1, 2],"CEIL");
+`variable` = variable::divide([1, 2], "CEIL");
 
-#Or dry
+#Or dry by positionals
 
-variable::divide(`variable`,[1, 2],"CEIL");
+variable::divide(`variable`, [1, 2], "CEIL");
+
+#Or dry by keywords
+
+variable::divide(variable=`variable`, value=[1, 2], division_mode="CEIL");
 ```
 
 **Arguments:**
@@ -1667,11 +1955,15 @@ variable::divide(`variable`,[1, 2],"CEIL");
 
 **Usage example:** 
 ```ts
-`variable` = variable::divide_vector(vector(0,0,0),vector(0,0,0));
+`variable` = variable::divide_vector(vector(0,0,0), vector(0,0,0));
 
-#Or dry
+#Or dry by positionals
 
-variable::divide_vector(`variable`,vector(0,0,0),vector(0,0,0));
+variable::divide_vector(`variable`, vector(0,0,0), vector(0,0,0));
+
+#Or dry by keywords
+
+variable::divide_vector(variable=`variable`, vector=vector(0,0,0), divider=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -1706,15 +1998,19 @@ variable::dummy();
 
 **Usage example:** 
 ```ts
-`variable` = variable::face_location(location(0,0,0,0,0),location(0,0,0,0,0));
+`variable` = variable::face_location(location(0,0,0,0,0), location(0,0,0,0,0));
 
 #Or from the object
 
 `variable` = location(0,0,0,0,0).face_location(location(0,0,0,0,0));
 
-#Or dry
+#Or dry by positionals
 
-variable::face_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0));
+variable::face_location(`variable`, location(0,0,0,0,0), location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::face_location(variable=`variable`, location=location(0,0,0,0,0), target=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -1741,9 +2037,13 @@ variable::face_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0));
 
 `variable` = `list`.flatten_list();
 
-#Or dry
+#Or dry by positionals
 
-variable::flatten_list(`variable`,`list`);
+variable::flatten_list(`variable`, `list`);
+
+#Or dry by keywords
+
+variable::flatten_list(variable=`variable`, list=`list`);
 ```
 
 **Arguments:**
@@ -1763,15 +2063,19 @@ variable::flatten_list(`variable`,`list`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::format_timestamp(1,"pattern","zone_id","locale","CUSTOM");
+`variable` = variable::format_timestamp(1, "pattern", "zone_id", "locale", "CUSTOM");
 
 #Or from the object
 
-`variable` = (1).format_timestamp("pattern","zone_id","locale","CUSTOM");
+`variable` = (1).format_timestamp("pattern", "zone_id", "locale", "CUSTOM");
 
-#Or dry
+#Or dry by positionals
 
-variable::format_timestamp(`variable`,1,"pattern","zone_id","locale","CUSTOM");
+variable::format_timestamp(`variable`, 1, "pattern", "zone_id", "locale", "CUSTOM");
+
+#Or dry by keywords
+
+variable::format_timestamp(variable=`variable`, time=1, pattern="pattern", zone_id="zone_id", locale="locale", format="CUSTOM");
 ```
 
 **Arguments:**
@@ -1804,9 +2108,13 @@ variable::format_timestamp(`variable`,1,"pattern","zone_id","locale","CUSTOM");
 
 `variable` = (1).gamma_function();
 
-#Or dry
+#Or dry by positionals
 
-variable::gamma_function(`variable`,1);
+variable::gamma_function(`variable`, 1);
+
+#Or dry by keywords
+
+variable::gamma_function(variable=`variable`, number=1);
 ```
 
 **Arguments:**
@@ -1826,11 +2134,15 @@ variable::gamma_function(`variable`,1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::gaussian_distribution(1,2,"FOLDER_NORMAL");
+`variable` = variable::gaussian_distribution(1, 2, "FOLDER_NORMAL");
 
-#Or dry
+#Or dry by positionals
 
-variable::gaussian_distribution(`variable`,1,2,"FOLDER_NORMAL");
+variable::gaussian_distribution(`variable`, 1, 2, "FOLDER_NORMAL");
+
+#Or dry by keywords
+
+variable::gaussian_distribution(variable=`variable`, deviant=1, mean=2, distribution="FOLDER_NORMAL");
 ```
 
 **Arguments:**
@@ -1852,15 +2164,19 @@ variable::gaussian_distribution(`variable`,1,2,"FOLDER_NORMAL");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_all_block_data(location(0,0,0,0,0),"FALSE");
+`variable` = variable::get_all_block_data(location(0,0,0,0,0), "FALSE");
 
 #Or from the object
 
 `variable` = location(0,0,0,0,0).get_all_block_data("FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_all_block_data(`variable`,location(0,0,0,0,0),"FALSE");
+variable::get_all_block_data(`variable`, location(0,0,0,0,0), "FALSE");
+
+#Or dry by keywords
+
+variable::get_all_block_data(variable=`variable`, location=location(0,0,0,0,0), hide_unspecified="FALSE");
 ```
 
 **Arguments:**
@@ -1887,9 +2203,13 @@ variable::get_all_block_data(`variable`,location(0,0,0,0,0),"FALSE");
 
 `x`, `y`, `z`, `yaw`, `pitch` = location(0,0,0,0,0).get_all_coordinates();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_all_coordinates(`x`,`y`,`z`,`yaw`,`pitch`,location(0,0,0,0,0));
+variable::get_all_coordinates(`x`, `y`, `z`, `yaw`, `pitch`, location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::get_all_coordinates(x=`x`, y=`y`, z=`z`, yaw=`yaw`, pitch=`pitch`, location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -1913,11 +2233,15 @@ variable::get_all_coordinates(`x`,`y`,`z`,`yaw`,`pitch`,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_angle_between_vectors(vector(0,0,0),vector(0,0,0),"DEGREES");
+`variable` = variable::get_angle_between_vectors(vector(0,0,0), vector(0,0,0), "DEGREES");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_angle_between_vectors(`variable`,vector(0,0,0),vector(0,0,0),"DEGREES");
+variable::get_angle_between_vectors(`variable`, vector(0,0,0), vector(0,0,0), "DEGREES");
+
+#Or dry by keywords
+
+variable::get_angle_between_vectors(variable=`variable`, vector_1=vector(0,0,0), vector_2=vector(0,0,0), angle_units="DEGREES");
 ```
 
 **Arguments:**
@@ -1939,11 +2263,15 @@ variable::get_angle_between_vectors(`variable`,vector(0,0,0),vector(0,0,0),"DEGR
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_block_custom_tag(location(0,0,0,0,0),"tag_name","tag_value","any value");
+`variable` = variable::get_block_custom_tag(location(0,0,0,0,0), "tag_name", "tag_value", "any value");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_block_custom_tag(`variable`,location(0,0,0,0,0),"tag_name","tag_value","any value");
+variable::get_block_custom_tag(`variable`, location(0,0,0,0,0), "tag_name", "tag_value", "any value");
+
+#Or dry by keywords
+
+variable::get_block_custom_tag(variable=`variable`, location=location(0,0,0,0,0), tag_name="tag_name", tag_value="tag_value", default_value="any value");
 ```
 
 **Arguments:**
@@ -1966,15 +2294,19 @@ variable::get_block_custom_tag(`variable`,location(0,0,0,0,0),"tag_name","tag_va
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_block_data(location(0,0,0,0,0),"tag_name");
+`variable` = variable::get_block_data(location(0,0,0,0,0), "tag_name");
 
 #Or from the object
 
 `variable` = location(0,0,0,0,0).get_block_data("tag_name");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_block_data(`variable`,location(0,0,0,0,0),"tag_name");
+variable::get_block_data(`variable`, location(0,0,0,0,0), "tag_name");
+
+#Or dry by keywords
+
+variable::get_block_data(variable=`variable`, location=location(0,0,0,0,0), tag_name="tag_name");
 ```
 
 **Arguments:**
@@ -1995,15 +2327,19 @@ variable::get_block_data(`variable`,location(0,0,0,0,0),"tag_name");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_block_growth(location(0,0,0,0,0),"GROWTH_PERCENTAGE");
+`variable` = variable::get_block_growth(location(0,0,0,0,0), "GROWTH_PERCENTAGE");
 
 #Or from the object
 
 `variable` = location(0,0,0,0,0).get_block_growth("GROWTH_PERCENTAGE");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_block_growth(`variable`,location(0,0,0,0,0),"GROWTH_PERCENTAGE");
+variable::get_block_growth(`variable`, location(0,0,0,0,0), "GROWTH_PERCENTAGE");
+
+#Or dry by keywords
+
+variable::get_block_growth(variable=`variable`, location=location(0,0,0,0,0), growth_unit="GROWTH_PERCENTAGE");
 ```
 
 **Arguments:**
@@ -2024,15 +2360,19 @@ variable::get_block_growth(`variable`,location(0,0,0,0,0),"GROWTH_PERCENTAGE");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_block_material(location(0,0,0,0,0),"ID");
+`variable` = variable::get_block_material(location(0,0,0,0,0), "ID");
 
 #Or from the object
 
 `variable` = location(0,0,0,0,0).get_block_material("ID");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_block_material(`variable`,location(0,0,0,0,0),"ID");
+variable::get_block_material(`variable`, location(0,0,0,0,0), "ID");
+
+#Or dry by keywords
+
+variable::get_block_material(variable=`variable`, location=location(0,0,0,0,0), value_type="ID");
 ```
 
 **Arguments:**
@@ -2053,15 +2393,19 @@ variable::get_block_material(`variable`,location(0,0,0,0,0),"ID");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_block_material_property(item("stone"),"BLAST_RESISTANCE");
+`variable` = variable::get_block_material_property(item("stone"), "BLAST_RESISTANCE");
 
 #Or from the object
 
 `variable` = item("stone").get_block_material_property("BLAST_RESISTANCE");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_block_material_property(`variable`,item("stone"),"BLAST_RESISTANCE");
+variable::get_block_material_property(`variable`, item("stone"), "BLAST_RESISTANCE");
+
+#Or dry by keywords
+
+variable::get_block_material_property(variable=`variable`, block=item("stone"), property="BLAST_RESISTANCE");
 ```
 
 **Arguments:**
@@ -2088,9 +2432,13 @@ variable::get_block_material_property(`variable`,item("stone"),"BLAST_RESISTANCE
 
 `variable` = location(0,0,0,0,0).get_block_power();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_block_power(`variable`,location(0,0,0,0,0));
+variable::get_block_power(`variable`, location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::get_block_power(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -2110,15 +2458,19 @@ variable::get_block_power(`variable`,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_block_sound(item("stone"),"BREAK");
+`variable` = variable::get_block_sound(item("stone"), "BREAK");
 
 #Or from the object
 
 `variable` = item("stone").get_block_sound("BREAK");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_block_sound(`variable`,item("stone"),"BREAK");
+variable::get_block_sound(`variable`, item("stone"), "BREAK");
+
+#Or dry by keywords
+
+variable::get_block_sound(variable=`variable`, block=item("stone"), source="BREAK");
 ```
 
 **Arguments:**
@@ -2139,15 +2491,19 @@ variable::get_block_sound(`variable`,item("stone"),"BREAK");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_book_text(item("stick"),1);
+`variable` = variable::get_book_text(item("stick"), 1);
 
 #Or from the object
 
 `variable` = item("stick").get_book_text(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::get_book_text(`variable`,item("stick"),1);
+variable::get_book_text(`variable`, item("stick"), 1);
+
+#Or dry by keywords
+
+variable::get_book_text(variable=`variable`, book=item("stick"), page=1);
 ```
 
 **Arguments:**
@@ -2174,9 +2530,13 @@ variable::get_book_text(`variable`,item("stick"),1);
 
 `variable` = location(0,0,0,0,0).get_brushable_block_item();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_brushable_block_item(`variable`,location(0,0,0,0,0));
+variable::get_brushable_block_item(`variable`, location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::get_brushable_block_item(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -2196,11 +2556,15 @@ variable::get_brushable_block_item(`variable`,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-variable::get_bundle_items(`variable`,item("stick"));
+variable::get_bundle_items(`variable`, item("stick"));
 
 #Or from the object
 
 item("stick").get_bundle_items(`variable`);
+
+#Or dry by keywords
+
+variable::get_bundle_items(variable=`variable`, bundle=item("stick"));
 ```
 
 **Arguments:**
@@ -2220,15 +2584,19 @@ item("stick").get_bundle_items(`variable`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_char_at("text",1);
+`variable` = variable::get_char_at("text", 1);
 
 #Or from the object
 
 `variable` = "text".get_char_at(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::get_char_at(`variable`,"text",1);
+variable::get_char_at(`variable`, "text", 1);
+
+#Or dry by keywords
+
+variable::get_char_at(variable=`variable`, text="text", index=1);
 ```
 
 **Arguments:**
@@ -2249,15 +2617,19 @@ variable::get_char_at(`variable`,"text",1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_color_channels("color","HSB");
+`variable` = variable::get_color_channels("color", "HSB");
 
 #Or from the object
 
 `variable` = "color".get_color_channels("HSB");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_color_channels(`variable`,"color","HSB");
+variable::get_color_channels(`variable`, "color", "HSB");
+
+#Or dry by keywords
+
+variable::get_color_channels(variable=`variable`, color="color", color_channels="HSB");
 ```
 
 **Arguments:**
@@ -2284,9 +2656,13 @@ variable::get_color_channels(`variable`,"color","HSB");
 
 `variable` = item("stick").get_compass_lodestone();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_compass_lodestone(`variable`,item("stick"));
+variable::get_compass_lodestone(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_compass_lodestone(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -2312,9 +2688,13 @@ variable::get_compass_lodestone(`variable`,item("stick"));
 
 `variable` = "component".get_component_children();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_component_children(`variable`,"component");
+variable::get_component_children(`variable`, "component");
+
+#Or dry by keywords
+
+variable::get_component_children(variable=`variable`, component="component");
 ```
 
 **Arguments:**
@@ -2340,9 +2720,13 @@ variable::get_component_children(`variable`,"component");
 
 `variable` = "component".get_component_decorations();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_component_decorations(`variable`,"component");
+variable::get_component_decorations(`variable`, "component");
+
+#Or dry by keywords
+
+variable::get_component_decorations(variable=`variable`, component="component");
 ```
 
 **Arguments:**
@@ -2368,9 +2752,13 @@ variable::get_component_decorations(`variable`,"component");
 
 `variable` = "component".get_component_hex_color();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_component_hex_color(`variable`,"component");
+variable::get_component_hex_color(`variable`, "component");
+
+#Or dry by keywords
+
+variable::get_component_hex_color(variable=`variable`, component="component");
 ```
 
 **Arguments:**
@@ -2396,9 +2784,13 @@ variable::get_component_hex_color(`variable`,"component");
 
 `variable` = "component".get_component_parsing();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_component_parsing(`variable`,"component");
+variable::get_component_parsing(`variable`, "component");
+
+#Or dry by keywords
+
+variable::get_component_parsing(variable=`variable`, component="component");
 ```
 
 **Arguments:**
@@ -2418,15 +2810,19 @@ variable::get_component_parsing(`variable`,"component");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_container_contents(location(0,0,0,0,0),"FALSE");
+`variable` = variable::get_container_contents(location(0,0,0,0,0), "FALSE");
 
 #Or from the object
 
 `variable` = location(0,0,0,0,0).get_container_contents("FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_container_contents(`variable`,location(0,0,0,0,0),"FALSE");
+variable::get_container_contents(`variable`, location(0,0,0,0,0), "FALSE");
+
+#Or dry by keywords
+
+variable::get_container_contents(variable=`variable`, location=location(0,0,0,0,0), ignore_empty_slots="FALSE");
 ```
 
 **Arguments:**
@@ -2453,9 +2849,13 @@ variable::get_container_contents(`variable`,location(0,0,0,0,0),"FALSE");
 
 `variable` = location(0,0,0,0,0).get_container_lock();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_container_lock(`variable`,location(0,0,0,0,0));
+variable::get_container_lock(`variable`, location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::get_container_lock(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -2481,9 +2881,13 @@ variable::get_container_lock(`variable`,location(0,0,0,0,0));
 
 `variable` = location(0,0,0,0,0).get_container_name();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_container_name(`variable`,location(0,0,0,0,0));
+variable::get_container_name(`variable`, location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::get_container_name(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -2503,15 +2907,19 @@ variable::get_container_name(`variable`,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_coordinate(location(0,0,0,0,0),"PITCH");
+`variable` = variable::get_coordinate(location(0,0,0,0,0), "PITCH");
 
 #Or from the object
 
 `variable` = location(0,0,0,0,0).get_coordinate("PITCH");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_coordinate(`variable`,location(0,0,0,0,0),"PITCH");
+variable::get_coordinate(`variable`, location(0,0,0,0,0), "PITCH");
+
+#Or dry by keywords
+
+variable::get_coordinate(variable=`variable`, location=location(0,0,0,0,0), type="PITCH");
 ```
 
 **Arguments:**
@@ -2532,15 +2940,19 @@ variable::get_coordinate(`variable`,location(0,0,0,0,0),"PITCH");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_decorate_pot_sherd(location(0,0,0,0,0),"BACK");
+`variable` = variable::get_decorate_pot_sherd(location(0,0,0,0,0), "BACK");
 
 #Or from the object
 
 `variable` = location(0,0,0,0,0).get_decorate_pot_sherd("BACK");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_decorate_pot_sherd(`variable`,location(0,0,0,0,0),"BACK");
+variable::get_decorate_pot_sherd(`variable`, location(0,0,0,0,0), "BACK");
+
+#Or dry by keywords
+
+variable::get_decorate_pot_sherd(variable=`variable`, location=location(0,0,0,0,0), side="BACK");
 ```
 
 **Arguments:**
@@ -2561,15 +2973,19 @@ variable::get_decorate_pot_sherd(`variable`,location(0,0,0,0,0),"BACK");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_index_of_subtext("text","subtext",1,"FIRST");
+`variable` = variable::get_index_of_subtext("text", "subtext", 1, "FIRST");
 
 #Or from the object
 
-`variable` = "text".get_index_of_subtext("subtext",1,"FIRST");
+`variable` = "text".get_index_of_subtext("subtext", 1, "FIRST");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_index_of_subtext(`variable`,"text","subtext",1,"FIRST");
+variable::get_index_of_subtext(`variable`, "text", "subtext", 1, "FIRST");
+
+#Or dry by keywords
+
+variable::get_index_of_subtext(variable=`variable`, text="text", subtext="subtext", start_index=1, search_mode="FIRST");
 ```
 
 **Arguments:**
@@ -2598,9 +3014,13 @@ variable::get_index_of_subtext(`variable`,"text","subtext",1,"FIRST");
 
 `variable` = item("stick").get_item_amount();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_amount(`variable`,item("stick"));
+variable::get_item_amount(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_item_amount(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -2620,15 +3040,19 @@ variable::get_item_amount(`variable`,item("stick"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_item_attribute(item("stick"),"name","ARMOR","ALL","ADD_NUMBER");
+`variable` = variable::get_item_attribute(item("stick"), "name", "ARMOR", "ALL", "ADD_NUMBER");
 
 #Or from the object
 
-`variable` = item("stick").get_item_attribute("name","ARMOR","ALL","ADD_NUMBER");
+`variable` = item("stick").get_item_attribute("name", "ARMOR", "ALL", "ADD_NUMBER");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_attribute(`variable`,item("stick"),"name","ARMOR","ALL","ADD_NUMBER");
+variable::get_item_attribute(`variable`, item("stick"), "name", "ARMOR", "ALL", "ADD_NUMBER");
+
+#Or dry by keywords
+
+variable::get_item_attribute(variable=`variable`, item=item("stick"), name="name", attribute="ARMOR", slot="ALL", operation="ADD_NUMBER");
 ```
 
 **Arguments:**
@@ -2663,9 +3087,13 @@ variable::get_item_attribute(`variable`,item("stick"),"name","ARMOR","ALL","ADD_
 
 `variable` = item("stick").get_item_color();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_color(`variable`,item("stick"));
+variable::get_item_color(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_item_color(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -2691,9 +3119,13 @@ variable::get_item_color(`variable`,item("stick"));
 
 `variable` = item("stick").get_item_custom_model_data();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_custom_model_data(`variable`,item("stick"));
+variable::get_item_custom_model_data(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_item_custom_model_data(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -2713,15 +3145,19 @@ variable::get_item_custom_model_data(`variable`,item("stick"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_item_custom_tag(item("stick"),"tag_name","any value");
+`variable` = variable::get_item_custom_tag(item("stick"), "tag_name", "any value");
 
 #Or from the object
 
-`variable` = item("stick").get_item_custom_tag("tag_name","any value");
+`variable` = item("stick").get_item_custom_tag("tag_name", "any value");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_custom_tag(`variable`,item("stick"),"tag_name","any value");
+variable::get_item_custom_tag(`variable`, item("stick"), "tag_name", "any value");
+
+#Or dry by keywords
+
+variable::get_item_custom_tag(variable=`variable`, item=item("stick"), tag_name="tag_name", default_value="any value");
 ```
 
 **Arguments:**
@@ -2749,9 +3185,13 @@ variable::get_item_custom_tag(`variable`,item("stick"),"tag_name","any value");
 
 `variable` = item("stick").get_item_custom_tags();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_custom_tags(`variable`,item("stick"));
+variable::get_item_custom_tags(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_item_custom_tags(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -2771,11 +3211,15 @@ variable::get_item_custom_tags(`variable`,item("stick"));
 
 **Usage example:** 
 ```ts
-variable::get_item_destroyable_blocks(`variable`,item("stick"));
+variable::get_item_destroyable_blocks(`variable`, item("stick"));
 
 #Or from the object
 
 item("stick").get_item_destroyable_blocks(`variable`);
+
+#Or dry by keywords
+
+variable::get_item_destroyable_blocks(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -2795,15 +3239,19 @@ item("stick").get_item_destroyable_blocks(`variable`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_item_durability(item("stick"),"DAMAGE");
+`variable` = variable::get_item_durability(item("stick"), "DAMAGE");
 
 #Or from the object
 
 `variable` = item("stick").get_item_durability("DAMAGE");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_durability(`variable`,item("stick"),"DAMAGE");
+variable::get_item_durability(`variable`, item("stick"), "DAMAGE");
+
+#Or dry by keywords
+
+variable::get_item_durability(variable=`variable`, item=item("stick"), durability_type="DAMAGE");
 ```
 
 **Arguments:**
@@ -2830,9 +3278,13 @@ variable::get_item_durability(`variable`,item("stick"),"DAMAGE");
 
 `variable` = item("stick").get_item_enchantments();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_enchantments(`variable`,item("stick"));
+variable::get_item_enchantments(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_item_enchantments(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -2858,9 +3310,13 @@ variable::get_item_enchantments(`variable`,item("stick"));
 
 `variable` = item("stick").get_item_lore();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_lore(`variable`,item("stick"));
+variable::get_item_lore(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_item_lore(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -2880,15 +3336,19 @@ variable::get_item_lore(`variable`,item("stick"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_item_lore_line(item("stick"),1);
+`variable` = variable::get_item_lore_line(item("stick"), 1);
 
 #Or from the object
 
 `variable` = item("stick").get_item_lore_line(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_lore_line(`variable`,item("stick"),1);
+variable::get_item_lore_line(`variable`, item("stick"), 1);
+
+#Or dry by keywords
+
+variable::get_item_lore_line(variable=`variable`, item=item("stick"), line=1);
 ```
 
 **Arguments:**
@@ -2915,9 +3375,13 @@ variable::get_item_lore_line(`variable`,item("stick"),1);
 
 `variable` = item("stick").get_item_max_stack_size();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_max_stack_size(`variable`,item("stick"));
+variable::get_item_max_stack_size(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_item_max_stack_size(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -2943,9 +3407,13 @@ variable::get_item_max_stack_size(`variable`,item("stick"));
 
 `variable` = item("stick").get_item_name();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_name(`variable`,item("stick"));
+variable::get_item_name(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_item_name(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -2965,15 +3433,19 @@ variable::get_item_name(`variable`,item("stick"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_item_nbt_tags(item("stick"),"ALL");
+`variable` = variable::get_item_nbt_tags(item("stick"), "ALL");
 
 #Or from the object
 
 `variable` = item("stick").get_item_nbt_tags("ALL");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_nbt_tags(`variable`,item("stick"),"ALL");
+variable::get_item_nbt_tags(`variable`, item("stick"), "ALL");
+
+#Or dry by keywords
+
+variable::get_item_nbt_tags(variable=`variable`, item=item("stick"), fetch_mode="ALL");
 ```
 
 **Arguments:**
@@ -2994,11 +3466,15 @@ variable::get_item_nbt_tags(`variable`,item("stick"),"ALL");
 
 **Usage example:** 
 ```ts
-variable::get_item_placeable_blocks(`variable`,item("stick"));
+variable::get_item_placeable_blocks(`variable`, item("stick"));
 
 #Or from the object
 
 item("stick").get_item_placeable_blocks(`variable`);
+
+#Or dry by keywords
+
+variable::get_item_placeable_blocks(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -3024,9 +3500,13 @@ item("stick").get_item_placeable_blocks(`variable`);
 
 `variable` = item("stick").get_item_potion_effects();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_potion_effects(`variable`,item("stick"));
+variable::get_item_potion_effects(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_item_potion_effects(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -3052,9 +3532,13 @@ variable::get_item_potion_effects(`variable`,item("stick"));
 
 `variable` = item("stick").get_item_rarity();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_rarity(`variable`,item("stick"));
+variable::get_item_rarity(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_item_rarity(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -3074,15 +3558,19 @@ variable::get_item_rarity(`variable`,item("stick"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_item_type(item("stick"),"ID");
+`variable` = variable::get_item_type(item("stick"), "ID");
 
 #Or from the object
 
 `variable` = item("stick").get_item_type("ID");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_item_type(`variable`,item("stick"),"ID");
+variable::get_item_type(`variable`, item("stick"), "ID");
+
+#Or dry by keywords
+
+variable::get_item_type(variable=`variable`, type=item("stick"), value="ID");
 ```
 
 **Arguments:**
@@ -3109,9 +3597,13 @@ variable::get_item_type(`variable`,item("stick"),"ID");
 
 `variable` = location(0,0,0,0,0).get_lectern_book();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_lectern_book(`variable`,location(0,0,0,0,0));
+variable::get_lectern_book(`variable`, location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::get_lectern_book(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -3137,9 +3629,13 @@ variable::get_lectern_book(`variable`,location(0,0,0,0,0));
 
 `variable` = location(0,0,0,0,0).get_lectern_page();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_lectern_page(`variable`,location(0,0,0,0,0));
+variable::get_lectern_page(`variable`, location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::get_lectern_page(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -3159,15 +3655,19 @@ variable::get_lectern_page(`variable`,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_light_level(location(0,0,0,0,0),"BLOCKS");
+`variable` = variable::get_light_level(location(0,0,0,0,0), "BLOCKS");
 
 #Or from the object
 
 `variable` = location(0,0,0,0,0).get_light_level("BLOCKS");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_light_level(`variable`,location(0,0,0,0,0),"BLOCKS");
+variable::get_light_level(`variable`, location(0,0,0,0,0), "BLOCKS");
+
+#Or dry by keywords
+
+variable::get_light_level(variable=`variable`, location=location(0,0,0,0,0), value_type="BLOCKS");
 ```
 
 **Arguments:**
@@ -3188,15 +3688,19 @@ variable::get_light_level(`variable`,location(0,0,0,0,0),"BLOCKS");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_list_index_of_value(`list`,"any value","FIRST");
+`variable` = variable::get_list_index_of_value(`list`, "any value", "FIRST");
 
 #Or from the object
 
-`variable` = `list`.get_list_index_of_value("any value","FIRST");
+`variable` = `list`.get_list_index_of_value("any value", "FIRST");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_list_index_of_value(`variable`,`list`,"any value","FIRST");
+variable::get_list_index_of_value(`variable`, `list`, "any value", "FIRST");
+
+#Or dry by keywords
+
+variable::get_list_index_of_value(variable=`variable`, list=`list`, value="any value", search_mode="FIRST");
 ```
 
 **Arguments:**
@@ -3224,9 +3728,13 @@ variable::get_list_index_of_value(`variable`,`list`,"any value","FIRST");
 
 `variable` = `list`.get_list_length();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_list_length(`variable`,`list`);
+variable::get_list_length(`variable`, `list`);
+
+#Or dry by keywords
+
+variable::get_list_length(variable=`variable`, list=`list`);
 ```
 
 **Arguments:**
@@ -3252,9 +3760,13 @@ variable::get_list_length(`variable`,`list`);
 
 `variable` = `list`.get_list_random_value();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_list_random_value(`variable`,`list`);
+variable::get_list_random_value(`variable`, `list`);
+
+#Or dry by keywords
+
+variable::get_list_random_value(variable=`variable`, list=`list`);
 ```
 
 **Arguments:**
@@ -3274,15 +3786,19 @@ variable::get_list_random_value(`variable`,`list`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_list_value(`list`,1,"any value");
+`variable` = variable::get_list_value(`list`, 1, "any value");
 
 #Or from the object
 
-`variable` = `list`.get_list_value(1,"any value");
+`variable` = `list`.get_list_value(1, "any value");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_list_value(`variable`,`list`,1,"any value");
+variable::get_list_value(`variable`, `list`, 1, "any value");
+
+#Or dry by keywords
+
+variable::get_list_value(variable=`variable`, list=`list`, number=1, default_value="any value");
 ```
 
 **Arguments:**
@@ -3306,9 +3822,13 @@ variable::get_list_value(`variable`,`list`,1,"any value");
 ```ts
 `variable` = variable::get_list_variables("GAME");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_list_variables(`variable`,"GAME");
+variable::get_list_variables(`variable`, "GAME");
+
+#Or dry by keywords
+
+variable::get_list_variables(variable=`variable`, scope="GAME");
 ```
 
 **Arguments:**
@@ -3334,9 +3854,13 @@ variable::get_list_variables(`variable`,"GAME");
 
 `variable` = location(0,0,0,0,0).get_location_direction();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_location_direction(`variable`,location(0,0,0,0,0));
+variable::get_location_direction(`variable`, location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::get_location_direction(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -3356,15 +3880,19 @@ variable::get_location_direction(`variable`,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_map_key_by_index(`map`,1,"any value");
+`variable` = variable::get_map_key_by_index(`map`, 1, "any value");
 
 #Or from the object
 
-`variable` = `map`.get_map_key_by_index(1,"any value");
+`variable` = `map`.get_map_key_by_index(1, "any value");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_map_key_by_index(`variable`,`map`,1,"any value");
+variable::get_map_key_by_index(`variable`, `map`, 1, "any value");
+
+#Or dry by keywords
+
+variable::get_map_key_by_index(variable=`variable`, map=`map`, index=1, default_value="any value");
 ```
 
 **Arguments:**
@@ -3392,9 +3920,13 @@ variable::get_map_key_by_index(`variable`,`map`,1,"any value");
 
 `variable` = `map`.get_map_keys();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_map_keys(`variable`,`map`);
+variable::get_map_keys(`variable`, `map`);
+
+#Or dry by keywords
+
+variable::get_map_keys(variable=`variable`, map=`map`);
 ```
 
 **Arguments:**
@@ -3414,15 +3946,19 @@ variable::get_map_keys(`variable`,`map`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_map_keys_by_value(`map`,"any value","any value","ALL");
+`variable` = variable::get_map_keys_by_value(`map`, "any value", "any value", "ALL");
 
 #Or from the object
 
-`variable` = `map`.get_map_keys_by_value("any value","any value","ALL");
+`variable` = `map`.get_map_keys_by_value("any value", "any value", "ALL");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_map_keys_by_value(`variable`,`map`,"any value","any value","ALL");
+variable::get_map_keys_by_value(`variable`, `map`, "any value", "any value", "ALL");
+
+#Or dry by keywords
+
+variable::get_map_keys_by_value(variable=`variable`, map=`map`, value="any value", default_value="any value", find_mode="ALL");
 ```
 
 **Arguments:**
@@ -3451,9 +3987,13 @@ variable::get_map_keys_by_value(`variable`,`map`,"any value","any value","ALL");
 
 `variable` = `map`.get_map_size();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_map_size(`variable`,`map`);
+variable::get_map_size(`variable`, `map`);
+
+#Or dry by keywords
+
+variable::get_map_size(variable=`variable`, map=`map`);
 ```
 
 **Arguments:**
@@ -3473,15 +4013,19 @@ variable::get_map_size(`variable`,`map`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_map_value(`map`,"any value","any value");
+`variable` = variable::get_map_value(`map`, "any value", "any value");
 
 #Or from the object
 
-`variable` = `map`.get_map_value("any value","any value");
+`variable` = `map`.get_map_value("any value", "any value");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_map_value(`variable`,`map`,"any value","any value");
+variable::get_map_value(`variable`, `map`, "any value", "any value");
+
+#Or dry by keywords
+
+variable::get_map_value(variable=`variable`, map=`map`, key="any value", default_value="any value");
 ```
 
 **Arguments:**
@@ -3503,15 +4047,19 @@ variable::get_map_value(`variable`,`map`,"any value","any value");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_map_value_by_index(`map`,1,"any value");
+`variable` = variable::get_map_value_by_index(`map`, 1, "any value");
 
 #Or from the object
 
-`variable` = `map`.get_map_value_by_index(1,"any value");
+`variable` = `map`.get_map_value_by_index(1, "any value");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_map_value_by_index(`variable`,`map`,1,"any value");
+variable::get_map_value_by_index(`variable`, `map`, 1, "any value");
+
+#Or dry by keywords
+
+variable::get_map_value_by_index(variable=`variable`, map=`map`, index=1, default_value="any value");
 ```
 
 **Arguments:**
@@ -3539,9 +4087,13 @@ variable::get_map_value_by_index(`variable`,`map`,1,"any value");
 
 `variable` = `map`.get_map_values();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_map_values(`variable`,`map`);
+variable::get_map_values(`variable`, `map`);
+
+#Or dry by keywords
+
+variable::get_map_values(variable=`variable`, map=`map`);
 ```
 
 **Arguments:**
@@ -3561,11 +4113,15 @@ variable::get_map_values(`variable`,`map`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_midpoint_between_vectors(vector(0,0,0),vector(0,0,0));
+`variable` = variable::get_midpoint_between_vectors(vector(0,0,0), vector(0,0,0));
 
-#Or dry
+#Or dry by positionals
 
-variable::get_midpoint_between_vectors(`variable`,vector(0,0,0),vector(0,0,0));
+variable::get_midpoint_between_vectors(`variable`, vector(0,0,0), vector(0,0,0));
+
+#Or dry by keywords
+
+variable::get_midpoint_between_vectors(variable=`variable`, vector_1=vector(0,0,0), vector_2=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -3592,9 +4148,13 @@ variable::get_midpoint_between_vectors(`variable`,vector(0,0,0),vector(0,0,0));
 
 `variable` = particle("fire").get_particle_amount();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_particle_amount(`variable`,particle("fire"));
+variable::get_particle_amount(`variable`, particle("fire"));
+
+#Or dry by keywords
+
+variable::get_particle_amount(variable=`variable`, particle=particle("fire"));
 ```
 
 **Arguments:**
@@ -3614,15 +4174,19 @@ variable::get_particle_amount(`variable`,particle("fire"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_particle_color(particle("fire"),"COLOR");
+`variable` = variable::get_particle_color(particle("fire"), "COLOR");
 
 #Or from the object
 
 `variable` = particle("fire").get_particle_color("COLOR");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_particle_color(`variable`,particle("fire"),"COLOR");
+variable::get_particle_color(`variable`, particle("fire"), "COLOR");
+
+#Or dry by keywords
+
+variable::get_particle_color(variable=`variable`, particle=particle("fire"), color_type="COLOR");
 ```
 
 **Arguments:**
@@ -3649,9 +4213,13 @@ variable::get_particle_color(`variable`,particle("fire"),"COLOR");
 
 `variable` = particle("fire").get_particle_material();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_particle_material(`variable`,particle("fire"));
+variable::get_particle_material(`variable`, particle("fire"));
+
+#Or dry by keywords
+
+variable::get_particle_material(variable=`variable`, particle=particle("fire"));
 ```
 
 **Arguments:**
@@ -3677,9 +4245,13 @@ variable::get_particle_material(`variable`,particle("fire"));
 
 `variable` = particle("fire").get_particle_offset();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_particle_offset(`variable`,particle("fire"));
+variable::get_particle_offset(`variable`, particle("fire"));
+
+#Or dry by keywords
+
+variable::get_particle_offset(variable=`variable`, particle=particle("fire"));
 ```
 
 **Arguments:**
@@ -3705,9 +4277,13 @@ variable::get_particle_offset(`variable`,particle("fire"));
 
 `variable` = particle("fire").get_particle_size();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_particle_size(`variable`,particle("fire"));
+variable::get_particle_size(`variable`, particle("fire"));
+
+#Or dry by keywords
+
+variable::get_particle_size(variable=`variable`, particle=particle("fire"));
 ```
 
 **Arguments:**
@@ -3727,15 +4303,19 @@ variable::get_particle_size(`variable`,particle("fire"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_particle_spread(particle("fire"),"HORIZONTAL");
+`variable` = variable::get_particle_spread(particle("fire"), "HORIZONTAL");
 
 #Or from the object
 
 `variable` = particle("fire").get_particle_spread("HORIZONTAL");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_particle_spread(`variable`,particle("fire"),"HORIZONTAL");
+variable::get_particle_spread(`variable`, particle("fire"), "HORIZONTAL");
+
+#Or dry by keywords
+
+variable::get_particle_spread(variable=`variable`, particle=particle("fire"), type="HORIZONTAL");
 ```
 
 **Arguments:**
@@ -3762,9 +4342,13 @@ variable::get_particle_spread(`variable`,particle("fire"),"HORIZONTAL");
 
 `variable` = particle("fire").get_particle_type();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_particle_type(`variable`,particle("fire"));
+variable::get_particle_type(`variable`, particle("fire"));
+
+#Or dry by keywords
+
+variable::get_particle_type(variable=`variable`, particle=particle("fire"));
 ```
 
 **Arguments:**
@@ -3784,11 +4368,15 @@ variable::get_particle_type(`variable`,particle("fire"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_player_head("name_or_uuid","NAME_OR_UUID");
+`variable` = variable::get_player_head("name_or_uuid", "NAME_OR_UUID");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_player_head(`variable`,"name_or_uuid","NAME_OR_UUID");
+variable::get_player_head(`variable`, "name_or_uuid", "NAME_OR_UUID");
+
+#Or dry by keywords
+
+variable::get_player_head(variable=`variable`, name_or_uuid="name_or_uuid", receive_type="NAME_OR_UUID");
 ```
 
 **Arguments:**
@@ -3809,15 +4397,19 @@ variable::get_player_head(`variable`,"name_or_uuid","NAME_OR_UUID");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_player_head_owner(item("stick"),"NAME");
+`variable` = variable::get_player_head_owner(item("stick"), "NAME");
 
 #Or from the object
 
 `variable` = item("stick").get_player_head_owner("NAME");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_player_head_owner(`variable`,item("stick"),"NAME");
+variable::get_player_head_owner(`variable`, item("stick"), "NAME");
+
+#Or dry by keywords
+
+variable::get_player_head_owner(variable=`variable`, head=item("stick"), return_value="NAME");
 ```
 
 **Arguments:**
@@ -3838,15 +4430,19 @@ variable::get_player_head_owner(`variable`,item("stick"),"NAME");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_player_head_value(location(0,0,0,0,0),"NAME");
+`variable` = variable::get_player_head_value(location(0,0,0,0,0), "NAME");
 
 #Or from the object
 
 `variable` = location(0,0,0,0,0).get_player_head_value("NAME");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_player_head_value(`variable`,location(0,0,0,0,0),"NAME");
+variable::get_player_head_value(`variable`, location(0,0,0,0,0), "NAME");
+
+#Or dry by keywords
+
+variable::get_player_head_value(variable=`variable`, location=location(0,0,0,0,0), return_value="NAME");
 ```
 
 **Arguments:**
@@ -3873,9 +4469,13 @@ variable::get_player_head_value(`variable`,location(0,0,0,0,0),"NAME");
 
 `variable` = potion("slow_falling").get_potion_effect_amplifier();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_potion_effect_amplifier(`variable`,potion("slow_falling"));
+variable::get_potion_effect_amplifier(`variable`, potion("slow_falling"));
+
+#Or dry by keywords
+
+variable::get_potion_effect_amplifier(variable=`variable`, potion=potion("slow_falling"));
 ```
 
 **Arguments:**
@@ -3901,9 +4501,13 @@ variable::get_potion_effect_amplifier(`variable`,potion("slow_falling"));
 
 `variable` = potion("slow_falling").get_potion_effect_duration();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_potion_effect_duration(`variable`,potion("slow_falling"));
+variable::get_potion_effect_duration(`variable`, potion("slow_falling"));
+
+#Or dry by keywords
+
+variable::get_potion_effect_duration(variable=`variable`, potion=potion("slow_falling"));
 ```
 
 **Arguments:**
@@ -3929,9 +4533,13 @@ variable::get_potion_effect_duration(`variable`,potion("slow_falling"));
 
 `variable` = potion("slow_falling").get_potion_effect_type();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_potion_effect_type(`variable`,potion("slow_falling"));
+variable::get_potion_effect_type(`variable`, potion("slow_falling"));
+
+#Or dry by keywords
+
+variable::get_potion_effect_type(variable=`variable`, potion=potion("slow_falling"));
 ```
 
 **Arguments:**
@@ -3957,9 +4565,13 @@ variable::get_potion_effect_type(`variable`,potion("slow_falling"));
 
 `variable` = location(0,0,0,0,0).get_sculk_shrieker_warning_level();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_sculk_shrieker_warning_level(`variable`,location(0,0,0,0,0));
+variable::get_sculk_shrieker_warning_level(`variable`, location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::get_sculk_shrieker_warning_level(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -3979,15 +4591,19 @@ variable::get_sculk_shrieker_warning_level(`variable`,location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_sign_text(location(0,0,0,0,0),"ALL","ALL");
+`variable` = variable::get_sign_text(location(0,0,0,0,0), "ALL", "ALL");
 
 #Or from the object
 
-`variable` = location(0,0,0,0,0).get_sign_text("ALL","ALL");
+`variable` = location(0,0,0,0,0).get_sign_text("ALL", "ALL");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_sign_text(`variable`,location(0,0,0,0,0),"ALL","ALL");
+variable::get_sign_text(`variable`, location(0,0,0,0,0), "ALL", "ALL");
+
+#Or dry by keywords
+
+variable::get_sign_text(variable=`variable`, location=location(0,0,0,0,0), check_side="ALL", sign_line="ALL");
 ```
 
 **Arguments:**
@@ -4015,9 +4631,13 @@ variable::get_sign_text(`variable`,location(0,0,0,0,0),"ALL","ALL");
 
 `variable` = sound("entity.zombie.hurt").get_sound_pitch();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_sound_pitch(`variable`,sound("entity.zombie.hurt"));
+variable::get_sound_pitch(`variable`, sound("entity.zombie.hurt"));
+
+#Or dry by keywords
+
+variable::get_sound_pitch(variable=`variable`, sound=sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -4043,9 +4663,13 @@ variable::get_sound_pitch(`variable`,sound("entity.zombie.hurt"));
 
 `variable` = sound("entity.zombie.hurt").get_sound_source();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_sound_source(`variable`,sound("entity.zombie.hurt"));
+variable::get_sound_source(`variable`, sound("entity.zombie.hurt"));
+
+#Or dry by keywords
+
+variable::get_sound_source(variable=`variable`, sound=sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -4071,9 +4695,13 @@ variable::get_sound_source(`variable`,sound("entity.zombie.hurt"));
 
 `variable` = sound("entity.zombie.hurt").get_sound_type();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_sound_type(`variable`,sound("entity.zombie.hurt"));
+variable::get_sound_type(`variable`, sound("entity.zombie.hurt"));
+
+#Or dry by keywords
+
+variable::get_sound_type(variable=`variable`, sound=sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -4101,9 +4729,13 @@ variable::get_sound_type(`variable`,sound("entity.zombie.hurt"));
 
 `variable` = sound("entity.zombie.hurt").get_sound_variation();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_sound_variation(`variable`,sound("entity.zombie.hurt"));
+variable::get_sound_variation(`variable`, sound("entity.zombie.hurt"));
+
+#Or dry by keywords
+
+variable::get_sound_variation(variable=`variable`, sound=sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -4129,9 +4761,13 @@ variable::get_sound_variation(`variable`,sound("entity.zombie.hurt"));
 
 `variable` = sound("entity.zombie.hurt").get_sound_variations();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_sound_variations(`variable`,sound("entity.zombie.hurt"));
+variable::get_sound_variations(`variable`, sound("entity.zombie.hurt"));
+
+#Or dry by keywords
+
+variable::get_sound_variations(variable=`variable`, sound=sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -4157,9 +4793,13 @@ variable::get_sound_variations(`variable`,sound("entity.zombie.hurt"));
 
 `variable` = sound("entity.zombie.hurt").get_sound_volume_action();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_sound_volume_action(`variable`,sound("entity.zombie.hurt"));
+variable::get_sound_volume_action(`variable`, sound("entity.zombie.hurt"));
+
+#Or dry by keywords
+
+variable::get_sound_volume_action(variable=`variable`, sound=sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -4179,15 +4819,19 @@ variable::get_sound_volume_action(`variable`,sound("entity.zombie.hurt"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_template_code(item("stick"),"MAP");
+`variable` = variable::get_template_code(item("stick"), "MAP");
 
 #Or from the object
 
 `variable` = item("stick").get_template_code("MAP");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_template_code(`variable`,item("stick"),"MAP");
+variable::get_template_code(`variable`, item("stick"), "MAP");
+
+#Or dry by keywords
+
+variable::get_template_code(variable=`variable`, template=item("stick"), return_type="MAP");
 ```
 
 **Arguments:**
@@ -4216,9 +4860,13 @@ variable::get_template_code(`variable`,item("stick"),"MAP");
 
 `variable` = "text".get_text_width();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_text_width(`variable`,"text");
+variable::get_text_width(`variable`, "text");
+
+#Or dry by keywords
+
+variable::get_text_width(variable=`variable`, text="text");
 ```
 
 **Arguments:**
@@ -4244,9 +4892,13 @@ variable::get_text_width(`variable`,"text");
 
 `x`, `y`, `z` = vector(0,0,0).get_vector_all_components();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_vector_all_components(`x`,`y`,`z`,vector(0,0,0));
+variable::get_vector_all_components(`x`, `y`, `z`, vector(0,0,0));
+
+#Or dry by keywords
+
+variable::get_vector_all_components(x=`x`, y=`y`, z=`z`, vector=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -4268,11 +4920,15 @@ variable::get_vector_all_components(`x`,`y`,`z`,vector(0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_vector_between_locations(location(0,0,0,0,0),location(0,0,0,0,0));
+`variable` = variable::get_vector_between_locations(location(0,0,0,0,0), location(0,0,0,0,0));
 
-#Or dry
+#Or dry by positionals
 
-variable::get_vector_between_locations(`variable`,location(0,0,0,0,0),location(0,0,0,0,0));
+variable::get_vector_between_locations(`variable`, location(0,0,0,0,0), location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::get_vector_between_locations(variable=`variable`, end_location=location(0,0,0,0,0), start_location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -4293,15 +4949,19 @@ variable::get_vector_between_locations(`variable`,location(0,0,0,0,0),location(0
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_vector_component(vector(0,0,0),"X");
+`variable` = variable::get_vector_component(vector(0,0,0), "X");
 
 #Or from the object
 
 `variable` = vector(0,0,0).get_vector_component("X");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_vector_component(`variable`,vector(0,0,0),"X");
+variable::get_vector_component(`variable`, vector(0,0,0), "X");
+
+#Or dry by keywords
+
+variable::get_vector_component(variable=`variable`, vector=vector(0,0,0), vector_component="X");
 ```
 
 **Arguments:**
@@ -4324,9 +4984,13 @@ variable::get_vector_component(`variable`,vector(0,0,0),"X");
 ```ts
 `variable` = variable::get_vector_from_block_face("block_face");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_vector_from_block_face(`variable`,"block_face");
+variable::get_vector_from_block_face(`variable`, "block_face");
+
+#Or dry by keywords
+
+variable::get_vector_from_block_face(variable=`variable`, block_face="block_face");
 ```
 
 **Arguments:**
@@ -4346,15 +5010,19 @@ variable::get_vector_from_block_face(`variable`,"block_face");
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_vector_length(vector(0,0,0),"LENGTH");
+`variable` = variable::get_vector_length(vector(0,0,0), "LENGTH");
 
 #Or from the object
 
 `variable` = vector(0,0,0).get_vector_length("LENGTH");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_vector_length(`variable`,vector(0,0,0),"LENGTH");
+variable::get_vector_length(`variable`, vector(0,0,0), "LENGTH");
+
+#Or dry by keywords
+
+variable::get_vector_length(variable=`variable`, vector=vector(0,0,0), length_type="LENGTH");
 ```
 
 **Arguments:**
@@ -4375,15 +5043,19 @@ variable::get_vector_length(`variable`,vector(0,0,0),"LENGTH");
 
 **Usage example:** 
 ```ts
-`variable` = variable::hadamard_vector_product(vector(0,0,0),vector(0,0,0));
+`variable` = variable::hadamard_vector_product(vector(0,0,0), vector(0,0,0));
 
 #Or from the object
 
 `variable` = vector(0,0,0).hadamard_vector_product(vector(0,0,0));
 
-#Or dry
+#Or dry by positionals
 
-variable::hadamard_vector_product(`variable`,vector(0,0,0),vector(0,0,0));
+variable::hadamard_vector_product(`variable`, vector(0,0,0), vector(0,0,0));
+
+#Or dry by keywords
+
+variable::hadamard_vector_product(variable=`variable`, vector_1=vector(0,0,0), vector_2=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -4404,15 +5076,19 @@ variable::hadamard_vector_product(`variable`,vector(0,0,0),vector(0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_text_hash("text","MD5");
+`variable` = variable::get_text_hash("text", "MD5");
 
 #Or from the object
 
 `variable` = "text".get_text_hash("MD5");
 
-#Or dry
+#Or dry by positionals
 
-variable::get_text_hash(`variable`,"text","MD5");
+variable::get_text_hash(`variable`, "text", "MD5");
+
+#Or dry by keywords
+
+variable::get_text_hash(variable=`variable`, text="text", algorithm="MD5");
 ```
 
 **Arguments:**
@@ -4439,9 +5115,13 @@ variable::get_text_hash(`variable`,"text","MD5");
 
 `variable`.increment(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::increment(`variable`,1);
+variable::increment(`variable`, 1);
+
+#Or dry by keywords
+
+variable::increment(variable=`variable`, number=1);
 ```
 
 **Arguments:**
@@ -4461,15 +5141,19 @@ variable::increment(`variable`,1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::insert_list_value(`list`,1,"any value");
+`variable` = variable::insert_list_value(`list`, 1, "any value");
 
 #Or from the object
 
-`variable` = `list`.insert_list_value(1,"any value");
+`variable` = `list`.insert_list_value(1, "any value");
 
-#Or dry
+#Or dry by positionals
 
-variable::insert_list_value(`variable`,`list`,1,"any value");
+variable::insert_list_value(`variable`, `list`, 1, "any value");
+
+#Or dry by keywords
+
+variable::insert_list_value(variable=`variable`, list=`list`, number=1, value="any value");
 ```
 
 **Arguments:**
@@ -4491,15 +5175,19 @@ variable::insert_list_value(`variable`,`list`,1,"any value");
 
 **Usage example:** 
 ```ts
-`variable` = variable::join_text(`list`,"separator","prefix","postfix",1,"truncated");
+`variable` = variable::join_text(`list`, "separator", "prefix", "postfix", 1, "truncated");
 
 #Or from the object
 
-`variable` = `list`.join_text("separator","prefix","postfix",1,"truncated");
+`variable` = `list`.join_text("separator", "prefix", "postfix", 1, "truncated");
 
-#Or dry
+#Or dry by positionals
 
-variable::join_text(`variable`,`list`,"separator","prefix","postfix",1,"truncated");
+variable::join_text(`variable`, `list`, "separator", "prefix", "postfix", 1, "truncated");
+
+#Or dry by keywords
+
+variable::join_text(variable=`variable`, list=`list`, separator="separator", prefix="prefix", postfix="postfix", limit=1, truncated="truncated");
 ```
 
 **Arguments:**
@@ -4524,15 +5212,19 @@ variable::join_text(`variable`,`list`,"separator","prefix","postfix",1,"truncate
 
 **Usage example:** 
 ```ts
-`variable` = variable::lerp_number(1,2,3);
+`variable` = variable::lerp_number(1, 2, 3);
 
 #Or from the object
 
-`variable` = (3).lerp_number(1,2);
+`variable` = (3).lerp_number(1, 2);
 
-#Or dry
+#Or dry by positionals
 
-variable::lerp_number(`variable`,1,2,3);
+variable::lerp_number(`variable`, 1, 2, 3);
+
+#Or dry by keywords
+
+variable::lerp_number(variable=`variable`, start=1, stop=2, amount=3);
 ```
 
 **Arguments:**
@@ -4554,15 +5246,19 @@ variable::lerp_number(`variable`,1,2,3);
 
 **Usage example:** 
 ```ts
-`variable` = variable::location_relative(location(0,0,0,0,0),1,"DOWN");
+`variable` = variable::location_relative(location(0,0,0,0,0), 1, "DOWN");
 
 #Or from the object
 
-`variable` = location(0,0,0,0,0).location_relative(1,"DOWN");
+`variable` = location(0,0,0,0,0).location_relative(1, "DOWN");
 
-#Or dry
+#Or dry by positionals
 
-variable::location_relative(`variable`,location(0,0,0,0,0),1,"DOWN");
+variable::location_relative(`variable`, location(0,0,0,0,0), 1, "DOWN");
+
+#Or dry by keywords
+
+variable::location_relative(variable=`variable`, location=location(0,0,0,0,0), distance=1, block_face="DOWN");
 ```
 
 **Arguments:**
@@ -4584,11 +5280,15 @@ variable::location_relative(`variable`,location(0,0,0,0,0),1,"DOWN");
 
 **Usage example:** 
 ```ts
-`variable` = variable::locations_distance(location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUDE");
+`variable` = variable::locations_distance(location(0,0,0,0,0), location(0,0,0,0,0), "ALTITUDE");
 
-#Or dry
+#Or dry by positionals
 
-variable::locations_distance(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUDE");
+variable::locations_distance(`variable`, location(0,0,0,0,0), location(0,0,0,0,0), "ALTITUDE");
+
+#Or dry by keywords
+
+variable::locations_distance(variable=`variable`, location_1=location(0,0,0,0,0), location_2=location(0,0,0,0,0), type="ALTITUDE");
 ```
 
 **Arguments:**
@@ -4610,15 +5310,19 @@ variable::locations_distance(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),
 
 **Usage example:** 
 ```ts
-`variable` = variable::log(1,2);
+`variable` = variable::log(1, 2);
 
 #Or from the object
 
 `variable` = (1).log(2);
 
-#Or dry
+#Or dry by positionals
 
-variable::log(`variable`,1,2);
+variable::log(`variable`, 1, 2);
+
+#Or dry by keywords
+
+variable::log(variable=`variable`, number=1, base=2);
 ```
 
 **Arguments:**
@@ -4639,15 +5343,19 @@ variable::log(`variable`,1,2);
 
 **Usage example:** 
 ```ts
-`variable` = variable::map_range(1,2,3,4,5);
+`variable` = variable::map_range(1, 2, 3, 4, 5);
 
 #Or from the object
 
-`variable` = (1).map_range(2,3,4,5);
+`variable` = (1).map_range(2, 3, 4, 5);
 
-#Or dry
+#Or dry by positionals
 
-variable::map_range(`variable`,1,2,3,4,5);
+variable::map_range(`variable`, 1, 2, 3, 4, 5);
+
+#Or dry by keywords
+
+variable::map_range(variable=`variable`, number=1, from_start=2, from_stop=3, to_start=4, to_stop=5);
 ```
 
 **Arguments:**
@@ -4673,9 +5381,13 @@ variable::map_range(`variable`,1,2,3,4,5);
 ```ts
 `variable` = variable::max([1, 2]);
 
-#Or dry
+#Or dry by positionals
 
-variable::max(`variable`,[1, 2]);
+variable::max(`variable`, [1, 2]);
+
+#Or dry by keywords
+
+variable::max(variable=`variable`, value=[1, 2]);
 ```
 
 **Arguments:**
@@ -4697,9 +5409,13 @@ variable::max(`variable`,[1, 2]);
 ```ts
 `variable` = variable::min([1, 2]);
 
-#Or dry
+#Or dry by positionals
 
-variable::min(`variable`,[1, 2]);
+variable::min(`variable`, [1, 2]);
+
+#Or dry by keywords
+
+variable::min(variable=`variable`, value=[1, 2]);
 ```
 
 **Arguments:**
@@ -4721,9 +5437,13 @@ variable::min(`variable`,[1, 2]);
 ```ts
 `variable` = variable::multiply([1, 2]);
 
-#Or dry
+#Or dry by positionals
 
-variable::multiply(`variable`,[1, 2]);
+variable::multiply(`variable`, [1, 2]);
+
+#Or dry by keywords
+
+variable::multiply(variable=`variable`, value=[1, 2]);
 ```
 
 **Arguments:**
@@ -4743,11 +5463,15 @@ variable::multiply(`variable`,[1, 2]);
 
 **Usage example:** 
 ```ts
-`variable` = variable::multiply_vector(vector(0,0,0),1);
+`variable` = variable::multiply_vector(vector(0,0,0), 1);
 
-#Or dry
+#Or dry by positionals
 
-variable::multiply_vector(`variable`,vector(0,0,0),1);
+variable::multiply_vector(`variable`, vector(0,0,0), 1);
+
+#Or dry by keywords
+
+variable::multiply_vector(variable=`variable`, vector=vector(0,0,0), multiplier=1);
 ```
 
 **Arguments:**
@@ -4770,9 +5494,13 @@ variable::multiply_vector(`variable`,vector(0,0,0),1);
 ```ts
 `variable` = variable::parse_json("json");
 
-#Or dry
+#Or dry by positionals
 
-variable::parse_json(`variable`,"json");
+variable::parse_json(`variable`, "json");
+
+#Or dry by keywords
+
+variable::parse_json(variable=`variable`, json="json");
 ```
 
 **Arguments:**
@@ -4792,15 +5520,19 @@ variable::parse_json(`variable`,"json");
 
 **Usage example:** 
 ```ts
-`variable` = variable::parse_to_component("text","JSON");
+`variable` = variable::parse_to_component("text", "JSON");
 
 #Or from the object
 
 `variable` = "text".parse_to_component("JSON");
 
-#Or dry
+#Or dry by positionals
 
-variable::parse_to_component(`variable`,"text","JSON");
+variable::parse_to_component(`variable`, "text", "JSON");
+
+#Or dry by keywords
+
+variable::parse_to_component(variable=`variable`, text="text", parsing="JSON");
 ```
 
 **Arguments:**
@@ -4821,11 +5553,15 @@ variable::parse_to_component(`variable`,"text","JSON");
 
 **Usage example:** 
 ```ts
-`variable` = variable::perlin_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
+`variable` = variable::perlin_noise_3d(location(0,0,0,0,0), 1, 2, 3, 4, 5, "FULL_RANGE", "FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::perlin_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
+variable::perlin_noise_3d(`variable`, location(0,0,0,0,0), 1, 2, 3, 4, 5, "FULL_RANGE", "FALSE");
+
+#Or dry by keywords
+
+variable::perlin_noise_3d(variable=`variable`, location=location(0,0,0,0,0), seed=1, loc_frequency=2, octaves=3, frequency=4, amplitude=5, range_mode="FULL_RANGE", normalized="FALSE");
 ```
 
 **Arguments:**
@@ -4852,15 +5588,19 @@ variable::perlin_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE",
 
 **Usage example:** 
 ```ts
-`variable` = variable::pow(1,2);
+`variable` = variable::pow(1, 2);
 
 #Or from the object
 
 `variable` = (1).pow(2);
 
-#Or dry
+#Or dry by positionals
 
-variable::pow(`variable`,1,2);
+variable::pow(`variable`, 1, 2);
+
+#Or dry by keywords
+
+variable::pow(variable=`variable`, base=1, power=2);
 ```
 
 **Arguments:**
@@ -4881,7 +5621,11 @@ variable::pow(`variable`,1,2);
 
 **Usage example:** 
 ```ts
-variable::purge(["names", "names"],"GAME","ENDS_WITH","FALSE");
+variable::purge(["names", "names"], "GAME", "ENDS_WITH", "FALSE");
+
+#Or dry by keywords
+
+variable::purge(names=["names", "names"], scope="GAME", match="ENDS_WITH", ignore_case="FALSE");
 ```
 
 **Arguments:**
@@ -4905,9 +5649,13 @@ variable::purge(["names", "names"],"GAME","ENDS_WITH","FALSE");
 ```ts
 `variable` = variable::random(["any value", "any value"]);
 
-#Or dry
+#Or dry by positionals
 
-variable::random(`variable`,["any value", "any value"]);
+variable::random(`variable`, ["any value", "any value"]);
+
+#Or dry by keywords
+
+variable::random(variable=`variable`, values=["any value", "any value"]);
 ```
 
 **Arguments:**
@@ -4927,11 +5675,15 @@ variable::random(`variable`,["any value", "any value"]);
 
 **Usage example:** 
 ```ts
-`variable` = variable::random_location(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
+`variable` = variable::random_location(location(0,0,0,0,0), location(0,0,0,0,0), "FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::random_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
+variable::random_location(`variable`, location(0,0,0,0,0), location(0,0,0,0,0), "FALSE");
+
+#Or dry by keywords
+
+variable::random_location(variable=`variable`, location_1=location(0,0,0,0,0), location_2=location(0,0,0,0,0), integer="FALSE");
 ```
 
 **Arguments:**
@@ -4953,11 +5705,15 @@ variable::random_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),"FA
 
 **Usage example:** 
 ```ts
-`variable` = variable::random_number(1,2,"FALSE");
+`variable` = variable::random_number(1, 2, "FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::random_number(`variable`,1,2,"FALSE");
+variable::random_number(`variable`, 1, 2, "FALSE");
+
+#Or dry by keywords
+
+variable::random_number(variable=`variable`, min=1, max=2, integer="FALSE");
 ```
 
 **Arguments:**
@@ -4985,9 +5741,13 @@ variable::random_number(`variable`,1,2,"FALSE");
 
 `variable` = `list`.randomize_list_order();
 
-#Or dry
+#Or dry by positionals
 
-variable::randomize_list_order(`variable`,`list`);
+variable::randomize_list_order(`variable`, `list`);
+
+#Or dry by keywords
+
+variable::randomize_list_order(variable=`variable`, list=`list`);
 ```
 
 **Arguments:**
@@ -5007,11 +5767,15 @@ variable::randomize_list_order(`variable`,`list`);
 
 **Usage example:** 
 ```ts
-`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid` = variable::ray_trace_result(location(0,0,0,0,0),1,2,`entities`,"BLOCKS_AND_ENTITIES","FALSE","ALWAYS");
+`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid` = variable::ray_trace_result(location(0,0,0,0,0), 1, 2, `entities`, "BLOCKS_AND_ENTITIES", "FALSE", "ALWAYS");
 
-#Or dry
+#Or dry by positionals
 
-variable::ray_trace_result(`variable_for_hit_location`,`variable_for_hit_block_location`,`variable_for_hit_block_face`,`variable_for_hit_entity_uuid`,location(0,0,0,0,0),1,2,`entities`,"BLOCKS_AND_ENTITIES","FALSE","ALWAYS");
+variable::ray_trace_result(`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid`, location(0,0,0,0,0), 1, 2, `entities`, "BLOCKS_AND_ENTITIES", "FALSE", "ALWAYS");
+
+#Or dry by keywords
+
+variable::ray_trace_result(variable_for_hit_location=`variable_for_hit_location`, variable_for_hit_block_location=`variable_for_hit_block_location`, variable_for_hit_block_face=`variable_for_hit_block_face`, variable_for_hit_entity_uuid=`variable_for_hit_entity_uuid`, start=location(0,0,0,0,0), ray_size=1, max_distance=2, entities=`entities`, ray_collision_mode="BLOCKS_AND_ENTITIES", ignore_passable_blocks="FALSE", fluid_collision_mode="ALWAYS");
 ```
 
 **Arguments:**
@@ -5040,11 +5804,15 @@ variable::ray_trace_result(`variable_for_hit_location`,`variable_for_hit_block_l
 
 **Usage example:** 
 ```ts
-`variable` = variable::reflect_vector_product(vector(0,0,0),vector(0,0,0),1);
+`variable` = variable::reflect_vector_product(vector(0,0,0), vector(0,0,0), 1);
 
-#Or dry
+#Or dry by positionals
 
-variable::reflect_vector_product(`variable`,vector(0,0,0),vector(0,0,0),1);
+variable::reflect_vector_product(`variable`, vector(0,0,0), vector(0,0,0), 1);
+
+#Or dry by keywords
+
+variable::reflect_vector_product(variable=`variable`, vector_1=vector(0,0,0), vector_2=vector(0,0,0), bounce=1);
 ```
 
 **Arguments:**
@@ -5066,15 +5834,19 @@ variable::reflect_vector_product(`variable`,vector(0,0,0),vector(0,0,0),1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::regex_replace_text("text","regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
+`variable` = variable::regex_replace_text("text", "regex", "replacement", "ANY", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
 
 #Or from the object
 
-`variable` = "text".regex_replace_text("regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
+`variable` = "text".regex_replace_text("regex", "replacement", "ANY", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::regex_replace_text(`variable`,"text","regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
+variable::regex_replace_text(`variable`, "text", "regex", "replacement", "ANY", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
+
+#Or dry by keywords
+
+variable::regex_replace_text(variable=`variable`, text="text", regex="regex", replacement="replacement", first="ANY", ignore_case="FALSE", multiline="FALSE", literal="FALSE", unix_lines="FALSE", comments="FALSE", dot_matches_all="FALSE", cannon_eq="FALSE");
 ```
 
 **Arguments:**
@@ -5104,15 +5876,19 @@ variable::regex_replace_text(`variable`,"text","regex","replacement","ANY","FALS
 
 **Usage example:** 
 ```ts
-`variable` = variable::remainder(1,2,"MODULO");
+`variable` = variable::remainder(1, 2, "MODULO");
 
 #Or from the object
 
-`variable` = (1).remainder(2,"MODULO");
+`variable` = (1).remainder(2, "MODULO");
 
-#Or dry
+#Or dry by positionals
 
-variable::remainder(`variable`,1,2,"MODULO");
+variable::remainder(`variable`, 1, 2, "MODULO");
+
+#Or dry by keywords
+
+variable::remainder(variable=`variable`, dividend=1, divisor=2, remainder_mode="MODULO");
 ```
 
 **Arguments:**
@@ -5140,9 +5916,13 @@ variable::remainder(`variable`,1,2,"MODULO");
 
 `variable` = item("stick").remove_compass_lodestone();
 
-#Or dry
+#Or dry by positionals
 
-variable::remove_compass_lodestone(`variable`,item("stick"));
+variable::remove_compass_lodestone(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::remove_compass_lodestone(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -5162,15 +5942,19 @@ variable::remove_compass_lodestone(`variable`,item("stick"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::remove_enchantment(item("stick"),"enchantment");
+`variable` = variable::remove_enchantment(item("stick"), "enchantment");
 
 #Or from the object
 
 `variable` = item("stick").remove_enchantment("enchantment");
 
-#Or dry
+#Or dry by positionals
 
-variable::remove_enchantment(`variable`,item("stick"),"enchantment");
+variable::remove_enchantment(`variable`, item("stick"), "enchantment");
+
+#Or dry by keywords
+
+variable::remove_enchantment(variable=`variable`, item=item("stick"), enchantment="enchantment");
 ```
 
 **Arguments:**
@@ -5191,11 +5975,15 @@ variable::remove_enchantment(`variable`,item("stick"),"enchantment");
 
 **Usage example:** 
 ```ts
-variable::remove_item_attribute(`variable`,item("stick"),"name_or_uuid","ARMOR");
+variable::remove_item_attribute(`variable`, item("stick"), "name_or_uuid", "ARMOR");
 
 #Or from the object
 
-item("stick").remove_item_attribute(`variable`,"name_or_uuid","ARMOR");
+item("stick").remove_item_attribute(`variable`, "name_or_uuid", "ARMOR");
+
+#Or dry by keywords
+
+variable::remove_item_attribute(variable=`variable`, item=item("stick"), name_or_uuid="name_or_uuid", attribute="ARMOR");
 ```
 
 **Arguments:**
@@ -5223,9 +6011,13 @@ item("stick").remove_item_attribute(`variable`,"name_or_uuid","ARMOR");
 
 `variable` = item("stick").remove_item_custom_model_data();
 
-#Or dry
+#Or dry by positionals
 
-variable::remove_item_custom_model_data(`variable`,item("stick"));
+variable::remove_item_custom_model_data(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::remove_item_custom_model_data(variable=`variable`, item=item("stick"));
 ```
 
 **Arguments:**
@@ -5245,15 +6037,19 @@ variable::remove_item_custom_model_data(`variable`,item("stick"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::remove_item_custom_tag(item("stick"),"tag_name");
+`variable` = variable::remove_item_custom_tag(item("stick"), "tag_name");
 
 #Or from the object
 
 `variable` = item("stick").remove_item_custom_tag("tag_name");
 
-#Or dry
+#Or dry by positionals
 
-variable::remove_item_custom_tag(`variable`,item("stick"),"tag_name");
+variable::remove_item_custom_tag(`variable`, item("stick"), "tag_name");
+
+#Or dry by keywords
+
+variable::remove_item_custom_tag(variable=`variable`, item=item("stick"), tag_name="tag_name");
 ```
 
 **Arguments:**
@@ -5274,15 +6070,19 @@ variable::remove_item_custom_tag(`variable`,item("stick"),"tag_name");
 
 **Usage example:** 
 ```ts
-`variable` = variable::remove_item_lore_line(item("stick"),1);
+`variable` = variable::remove_item_lore_line(item("stick"), 1);
 
 #Or from the object
 
 `variable` = item("stick").remove_item_lore_line(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::remove_item_lore_line(`variable`,item("stick"),1);
+variable::remove_item_lore_line(`variable`, item("stick"), 1);
+
+#Or dry by keywords
+
+variable::remove_item_lore_line(variable=`variable`, item=item("stick"), line=1);
 ```
 
 **Arguments:**
@@ -5303,15 +6103,19 @@ variable::remove_item_lore_line(`variable`,item("stick"),1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::remove_item_potion_effects([potion("slow_falling"), potion("slow_falling")],item("stick"));
+`variable` = variable::remove_item_potion_effects([potion("slow_falling"), potion("slow_falling")], item("stick"));
 
 #Or from the object
 
 `variable` = item("stick").remove_item_potion_effects([potion("slow_falling"), potion("slow_falling")]);
 
-#Or dry
+#Or dry by positionals
 
-variable::remove_item_potion_effects(`variable`,[potion("slow_falling"), potion("slow_falling")],item("stick"));
+variable::remove_item_potion_effects(`variable`, [potion("slow_falling"), potion("slow_falling")], item("stick"));
+
+#Or dry by keywords
+
+variable::remove_item_potion_effects(variable=`variable`, effects=[potion("slow_falling"), potion("slow_falling")], item=item("stick"));
 ```
 
 **Arguments:**
@@ -5338,9 +6142,13 @@ variable::remove_item_potion_effects(`variable`,[potion("slow_falling"), potion(
 
 `variable` = `list`.remove_list_duplicates();
 
-#Or dry
+#Or dry by positionals
 
-variable::remove_list_duplicates(`variable`,`list`);
+variable::remove_list_duplicates(`variable`, `list`);
+
+#Or dry by keywords
+
+variable::remove_list_duplicates(variable=`variable`, list=`list`);
 ```
 
 **Arguments:**
@@ -5360,15 +6168,19 @@ variable::remove_list_duplicates(`variable`,`list`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::remove_list_value(`list`,"any value","ALL");
+`variable` = variable::remove_list_value(`list`, "any value", "ALL");
 
 #Or from the object
 
-`variable` = `list`.remove_list_value("any value","ALL");
+`variable` = `list`.remove_list_value("any value", "ALL");
 
-#Or dry
+#Or dry by positionals
 
-variable::remove_list_value(`variable`,`list`,"any value","ALL");
+variable::remove_list_value(`variable`, `list`, "any value", "ALL");
+
+#Or dry by keywords
+
+variable::remove_list_value(variable=`variable`, list=`list`, value="any value", remove_mode="ALL");
 ```
 
 **Arguments:**
@@ -5390,15 +6202,19 @@ variable::remove_list_value(`variable`,`list`,"any value","ALL");
 
 **Usage example:** 
 ```ts
-`variable`, `removed_value` = variable::remove_list_value_at_index(`list`,1);
+`variable`, `removed_value` = variable::remove_list_value_at_index(`list`, 1);
 
 #Or from the object
 
 `variable`, `removed_value` = `list`.remove_list_value_at_index(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::remove_list_value_at_index(`removed_value`,`variable`,`list`,1);
+variable::remove_list_value_at_index(`removed_value`, `variable`, `list`, 1);
+
+#Or dry by keywords
+
+variable::remove_list_value_at_index(removed_value=`removed_value`, variable=`variable`, list=`list`, index=1);
 ```
 
 **Arguments:**
@@ -5420,15 +6236,19 @@ variable::remove_list_value_at_index(`removed_value`,`variable`,`list`,1);
 
 **Usage example:** 
 ```ts
-`variable`, `removed_value` = variable::remove_map_entry(`map`,["any value", "any value"],"any value");
+`variable`, `removed_value` = variable::remove_map_entry(`map`, "any value", ["any value", "any value"]);
 
 #Or from the object
 
-`variable`, `removed_value` = `map`.remove_map_entry(["any value", "any value"],"any value");
+`variable`, `removed_value` = `map`.remove_map_entry("any value", ["any value", "any value"]);
 
-#Or dry
+#Or dry by positionals
 
-variable::remove_map_entry(`removed_value`,`variable`,`map`,["any value", "any value"],"any value");
+variable::remove_map_entry(`removed_value`, `variable`, `map`, "any value", ["any value", "any value"]);
+
+#Or dry by keywords
+
+variable::remove_map_entry(removed_value=`removed_value`, variable=`variable`, map=`map`, key="any value", values=["any value", "any value"]);
 ```
 
 **Arguments:**
@@ -5438,8 +6258,8 @@ variable::remove_map_entry(`removed_value`,`variable`,`map`,["any value", "any v
 | `removed_value` | Variable        | Removed Value        |
 | `variable`      | Variable        | Variable to assign   |
 | `map`           | Dictionary      | Dictionary to change |
-| `values`        | list[Any Value] | Values               |
 | `key`           | Any Value       | Key                  |
+| `values`        | list[Any Value] | Values               |
 <h3 id=set_variable_remove_text>
   <code>variable::remove_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5451,15 +6271,19 @@ variable::remove_map_entry(`removed_value`,`variable`,`map`,["any value", "any v
 
 **Usage example:** 
 ```ts
-`variable` = variable::remove_text(["remove", "remove"],"text","FALSE");
+`variable` = variable::remove_text(["remove", "remove"], "text", "FALSE");
 
 #Or from the object
 
-`variable` = "text".remove_text(["remove", "remove"],"FALSE");
+`variable` = "text".remove_text(["remove", "remove"], "FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::remove_text(`variable`,["remove", "remove"],"text","FALSE");
+variable::remove_text(`variable`, ["remove", "remove"], "text", "FALSE");
+
+#Or dry by keywords
+
+variable::remove_text(variable=`variable`, remove=["remove", "remove"], text="text", regex="FALSE");
 ```
 
 **Arguments:**
@@ -5481,15 +6305,19 @@ variable::remove_text(`variable`,["remove", "remove"],"text","FALSE");
 
 **Usage example:** 
 ```ts
-`variable` = variable::repeat_text("text",1);
+`variable` = variable::repeat_text("text", 1);
 
 #Or from the object
 
 `variable` = "text".repeat_text(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::repeat_text(`variable`,"text",1);
+variable::repeat_text(`variable`, "text", 1);
+
+#Or dry by keywords
+
+variable::repeat_text(variable=`variable`, text="text", repeat=1);
 ```
 
 **Arguments:**
@@ -5510,15 +6338,19 @@ variable::repeat_text(`variable`,"text",1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::replace_text("text","replace","replacement","ANY","FALSE");
+`variable` = variable::replace_text("text", "replace", "replacement", "ANY", "FALSE");
 
 #Or from the object
 
-`variable` = "text".replace_text("replace","replacement","ANY","FALSE");
+`variable` = "text".replace_text("replace", "replacement", "ANY", "FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::replace_text(`variable`,"text","replace","replacement","ANY","FALSE");
+variable::replace_text(`variable`, "text", "replace", "replacement", "ANY", "FALSE");
+
+#Or dry by keywords
+
+variable::replace_text(variable=`variable`, text="text", replace="replace", replacement="replacement", first="ANY", ignore_case="FALSE");
 ```
 
 **Arguments:**
@@ -5548,9 +6380,13 @@ variable::replace_text(`variable`,"text","replace","replacement","ANY","FALSE");
 
 `variable` = `list`.reverse_list();
 
-#Or dry
+#Or dry by positionals
 
-variable::reverse_list(`variable`,`list`);
+variable::reverse_list(`variable`, `list`);
+
+#Or dry by keywords
+
+variable::reverse_list(variable=`variable`, list=`list`);
 ```
 
 **Arguments:**
@@ -5570,11 +6406,15 @@ variable::reverse_list(`variable`,`list`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::root(1,2);
+`variable` = variable::root(1, 2);
 
-#Or dry
+#Or dry by positionals
 
-variable::root(`variable`,1,2);
+variable::root(`variable`, 1, 2);
+
+#Or dry by keywords
+
+variable::root(variable=`variable`, base=1, root=2);
 ```
 
 **Arguments:**
@@ -5595,15 +6435,19 @@ variable::root(`variable`,1,2);
 
 **Usage example:** 
 ```ts
-`variable` = variable::rotate_vector_around_axis(vector(0,0,0),1,"X","DEGREES");
+`variable` = variable::rotate_vector_around_axis(vector(0,0,0), 1, "X", "DEGREES");
 
 #Or from the object
 
-`variable` = vector(0,0,0).rotate_vector_around_axis(1,"X","DEGREES");
+`variable` = vector(0,0,0).rotate_vector_around_axis(1, "X", "DEGREES");
 
-#Or dry
+#Or dry by positionals
 
-variable::rotate_vector_around_axis(`variable`,vector(0,0,0),1,"X","DEGREES");
+variable::rotate_vector_around_axis(`variable`, vector(0,0,0), 1, "X", "DEGREES");
+
+#Or dry by keywords
+
+variable::rotate_vector_around_axis(variable=`variable`, vector=vector(0,0,0), angle=1, axis="X", angle_units="DEGREES");
 ```
 
 **Arguments:**
@@ -5626,15 +6470,19 @@ variable::rotate_vector_around_axis(`variable`,vector(0,0,0),1,"X","DEGREES");
 
 **Usage example:** 
 ```ts
-`variable` = variable::rotate_vector_around_vector(vector(0,0,0),vector(0,0,0),1,"DEGREES");
+`variable` = variable::rotate_vector_around_vector(vector(0,0,0), vector(0,0,0), 1, "DEGREES");
 
 #Or from the object
 
-`variable` = vector(0,0,0).rotate_vector_around_vector(vector(0,0,0),1,"DEGREES");
+`variable` = vector(0,0,0).rotate_vector_around_vector(vector(0,0,0), 1, "DEGREES");
 
-#Or dry
+#Or dry by positionals
 
-variable::rotate_vector_around_vector(`variable`,vector(0,0,0),vector(0,0,0),1,"DEGREES");
+variable::rotate_vector_around_vector(`variable`, vector(0,0,0), vector(0,0,0), 1, "DEGREES");
+
+#Or dry by keywords
+
+variable::rotate_vector_around_vector(variable=`variable`, rotating_vector=vector(0,0,0), axis_vector=vector(0,0,0), angle=1, angle_units="DEGREES");
 ```
 
 **Arguments:**
@@ -5657,15 +6505,19 @@ variable::rotate_vector_around_vector(`variable`,vector(0,0,0),vector(0,0,0),1,"
 
 **Usage example:** 
 ```ts
-`variable` = variable::round(1,2,"CEIL");
+`variable` = variable::round(1, 2, "CEIL");
 
 #Or from the object
 
-`variable` = (1).round(2,"CEIL");
+`variable` = (1).round(2, "CEIL");
 
-#Or dry
+#Or dry by positionals
 
-variable::round(`variable`,1,2,"CEIL");
+variable::round(`variable`, 1, 2, "CEIL");
+
+#Or dry by keywords
+
+variable::round(variable=`variable`, number=1, precision=2, round_type="CEIL");
 ```
 
 **Arguments:**
@@ -5687,11 +6539,15 @@ variable::round(`variable`,1,2,"CEIL");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_all_coordinates(1,2,3,4,5);
+`variable` = variable::set_all_coordinates(1, 2, 3, 4, 5);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_all_coordinates(`variable`,1,2,3,4,5);
+variable::set_all_coordinates(`variable`, 1, 2, 3, 4, 5);
+
+#Or dry by keywords
+
+variable::set_all_coordinates(variable=`variable`, x=1, y=2, z=3, yaw=4, pitch=5);
 ```
 
 **Arguments:**
@@ -5715,11 +6571,15 @@ variable::set_all_coordinates(`variable`,1,2,3,4,5);
 
 **Usage example:** 
 ```ts
-variable::set_armor_trim(`variable`,item("stick"),item("stick"),item("stick"));
+variable::set_armor_trim(`variable`, item("stick"), item("stick"), item("stick"));
 
 #Or from the object
 
-item("stick").set_armor_trim(`variable`,item("stick"),item("stick"));
+item("stick").set_armor_trim(`variable`, item("stick"), item("stick"));
+
+#Or dry by keywords
+
+variable::set_armor_trim(variable=`variable`, armor=item("stick"), material=item("stick"), pattern=item("stick"));
 ```
 
 **Arguments:**
@@ -5741,15 +6601,19 @@ item("stick").set_armor_trim(`variable`,item("stick"),item("stick"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_book_page(item("stick"),"text",1,"APPEND");
+`variable` = variable::set_book_page(item("stick"), "text", 1, "APPEND");
 
 #Or from the object
 
-`variable` = item("stick").set_book_page("text",1,"APPEND");
+`variable` = item("stick").set_book_page("text", 1, "APPEND");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_book_page(`variable`,item("stick"),"text",1,"APPEND");
+variable::set_book_page(`variable`, item("stick"), "text", 1, "APPEND");
+
+#Or dry by keywords
+
+variable::set_book_page(variable=`variable`, book=item("stick"), text="text", page=1, mode="APPEND");
 ```
 
 **Arguments:**
@@ -5772,15 +6636,19 @@ variable::set_book_page(`variable`,item("stick"),"text",1,"APPEND");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_book_pages(item("stick"),["text", "text"]);
+`variable` = variable::set_book_pages(item("stick"), ["text", "text"]);
 
 #Or from the object
 
 `variable` = item("stick").set_book_pages(["text", "text"]);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_book_pages(`variable`,item("stick"),["text", "text"]);
+variable::set_book_pages(`variable`, item("stick"), ["text", "text"]);
+
+#Or dry by keywords
+
+variable::set_book_pages(variable=`variable`, book=item("stick"), text=["text", "text"]);
 ```
 
 **Arguments:**
@@ -5801,11 +6669,15 @@ variable::set_book_pages(`variable`,item("stick"),["text", "text"]);
 
 **Usage example:** 
 ```ts
-variable::set_bundle_items(`variable`,[item("stick"), item("stick")],item("stick"),"ADD");
+variable::set_bundle_items(`variable`, item("stick"), [item("stick"), item("stick")], "ADD");
 
 #Or from the object
 
-item("stick").set_bundle_items(`variable`,[item("stick"), item("stick")],"ADD");
+item("stick").set_bundle_items(`variable`, [item("stick"), item("stick")], "ADD");
+
+#Or dry by keywords
+
+variable::set_bundle_items(variable=`variable`, bundle=item("stick"), items=[item("stick"), item("stick")], setting_mode="ADD");
 ```
 
 **Arguments:**
@@ -5813,8 +6685,8 @@ item("stick").set_bundle_items(`variable`,[item("stick"), item("stick")],"ADD");
 | **Name**       | **Type**                                                           | **Description** |
 | -------------- | ------------------------------------------------------------------ | --------------- |
 | `variable`     | Variable                                                           | Variable to set |
-| `items`        | list[Item]                                                         | Items           |
 | `bundle`       | Item                                                               | Bundle          |
+| `items`        | list[Item]                                                         | Items           |
 | `setting_mode` | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove<br/>**SET** - Set | Set mode        |
 <h3 id=set_variable_set_compass_lodestone>
   <code>variable::set_compass_lodestone</code>
@@ -5827,15 +6699,19 @@ item("stick").set_bundle_items(`variable`,[item("stick"), item("stick")],"ADD");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_compass_lodestone(item("stick"),location(0,0,0,0,0),"FALSE");
+`variable` = variable::set_compass_lodestone(item("stick"), location(0,0,0,0,0), "FALSE");
 
 #Or from the object
 
-`variable` = item("stick").set_compass_lodestone(location(0,0,0,0,0),"FALSE");
+`variable` = item("stick").set_compass_lodestone(location(0,0,0,0,0), "FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_compass_lodestone(`variable`,item("stick"),location(0,0,0,0,0),"FALSE");
+variable::set_compass_lodestone(`variable`, item("stick"), location(0,0,0,0,0), "FALSE");
+
+#Or dry by keywords
+
+variable::set_compass_lodestone(variable=`variable`, item=item("stick"), location=location(0,0,0,0,0), tracked="FALSE");
 ```
 
 **Arguments:**
@@ -5857,15 +6733,19 @@ variable::set_compass_lodestone(`variable`,item("stick"),location(0,0,0,0,0),"FA
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_component_children("component",["children", "children"]);
+`variable` = variable::set_component_children("component", ["children", "children"]);
 
 #Or from the object
 
 `variable` = "component".set_component_children(["children", "children"]);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_component_children(`variable`,"component",["children", "children"]);
+variable::set_component_children(`variable`, "component", ["children", "children"]);
+
+#Or dry by keywords
+
+variable::set_component_children(variable=`variable`, component="component", children=["children", "children"]);
 ```
 
 **Arguments:**
@@ -5886,15 +6766,19 @@ variable::set_component_children(`variable`,"component",["children", "children"]
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_component_click("component","value","CHANGE_PAGE");
+`variable` = variable::set_component_click("component", "value", "CHANGE_PAGE");
 
 #Or from the object
 
-`variable` = "component".set_component_click("value","CHANGE_PAGE");
+`variable` = "component".set_component_click("value", "CHANGE_PAGE");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_component_click(`variable`,"component","value","CHANGE_PAGE");
+variable::set_component_click(`variable`, "component", "value", "CHANGE_PAGE");
+
+#Or dry by keywords
+
+variable::set_component_click(variable=`variable`, component="component", value="value", click_action="CHANGE_PAGE");
 ```
 
 **Arguments:**
@@ -5916,15 +6800,19 @@ variable::set_component_click(`variable`,"component","value","CHANGE_PAGE");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_component_decorations("component","FALSE","FALSE","FALSE","FALSE","FALSE");
+`variable` = variable::set_component_decorations("component", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
 
 #Or from the object
 
-`variable` = "component".set_component_decorations("FALSE","FALSE","FALSE","FALSE","FALSE");
+`variable` = "component".set_component_decorations("FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_component_decorations(`variable`,"component","FALSE","FALSE","FALSE","FALSE","FALSE");
+variable::set_component_decorations(`variable`, "component", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
+
+#Or dry by keywords
+
+variable::set_component_decorations(variable=`variable`, component="component", bold="FALSE", italic="FALSE", underlined="FALSE", strikethrough="FALSE", obfuscated="FALSE");
 ```
 
 **Arguments:**
@@ -5949,15 +6837,19 @@ variable::set_component_decorations(`variable`,"component","FALSE","FALSE","FALS
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_component_entity_hover("component","name_or_uuid");
+`variable` = variable::set_component_entity_hover("component", "name_or_uuid");
 
 #Or from the object
 
 `variable` = "component".set_component_entity_hover("name_or_uuid");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_component_entity_hover(`variable`,"component","name_or_uuid");
+variable::set_component_entity_hover(`variable`, "component", "name_or_uuid");
+
+#Or dry by keywords
+
+variable::set_component_entity_hover(variable=`variable`, component="component", name_or_uuid="name_or_uuid");
 ```
 
 **Arguments:**
@@ -5978,15 +6870,19 @@ variable::set_component_entity_hover(`variable`,"component","name_or_uuid");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_component_font("component","namespace","value");
+`variable` = variable::set_component_font("component", "namespace", "value");
 
 #Or from the object
 
-`variable` = "component".set_component_font("namespace","value");
+`variable` = "component".set_component_font("namespace", "value");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_component_font(`variable`,"component","namespace","value");
+variable::set_component_font(`variable`, "component", "namespace", "value");
+
+#Or dry by keywords
+
+variable::set_component_font(variable=`variable`, component="component", namespace="namespace", value="value");
 ```
 
 **Arguments:**
@@ -6008,15 +6904,19 @@ variable::set_component_font(`variable`,"component","namespace","value");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_component_hex_color("component","color");
+`variable` = variable::set_component_hex_color("component", "color");
 
 #Or from the object
 
 `variable` = "component".set_component_hex_color("color");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_component_hex_color(`variable`,"component","color");
+variable::set_component_hex_color(`variable`, "component", "color");
+
+#Or dry by keywords
+
+variable::set_component_hex_color(variable=`variable`, component="component", color="color");
 ```
 
 **Arguments:**
@@ -6037,15 +6937,19 @@ variable::set_component_hex_color(`variable`,"component","color");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_component_hover("component","hover");
+`variable` = variable::set_component_hover("component", "hover");
 
 #Or from the object
 
 `variable` = "component".set_component_hover("hover");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_component_hover(`variable`,"component","hover");
+variable::set_component_hover(`variable`, "component", "hover");
+
+#Or dry by keywords
+
+variable::set_component_hover(variable=`variable`, component="component", hover="hover");
 ```
 
 **Arguments:**
@@ -6066,15 +6970,19 @@ variable::set_component_hover(`variable`,"component","hover");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_component_insertion("component","insertion");
+`variable` = variable::set_component_insertion("component", "insertion");
 
 #Or from the object
 
 `variable` = "component".set_component_insertion("insertion");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_component_insertion(`variable`,"component","insertion");
+variable::set_component_insertion(`variable`, "component", "insertion");
+
+#Or dry by keywords
+
+variable::set_component_insertion(variable=`variable`, component="component", insertion="insertion");
 ```
 
 **Arguments:**
@@ -6095,15 +7003,19 @@ variable::set_component_insertion(`variable`,"component","insertion");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_component_item_hover("component",item("stick"));
+`variable` = variable::set_component_item_hover("component", item("stick"));
 
 #Or from the object
 
 `variable` = "component".set_component_item_hover(item("stick"));
 
-#Or dry
+#Or dry by positionals
 
-variable::set_component_item_hover(`variable`,"component",item("stick"));
+variable::set_component_item_hover(`variable`, "component", item("stick"));
+
+#Or dry by keywords
+
+variable::set_component_item_hover(variable=`variable`, component="component", hover=item("stick"));
 ```
 
 **Arguments:**
@@ -6124,15 +7036,19 @@ variable::set_component_item_hover(`variable`,"component",item("stick"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_coordinate(location(0,0,0,0,0),1,"PITCH");
+`variable` = variable::set_coordinate(location(0,0,0,0,0), 1, "PITCH");
 
 #Or from the object
 
-`variable` = location(0,0,0,0,0).set_coordinate(1,"PITCH");
+`variable` = location(0,0,0,0,0).set_coordinate(1, "PITCH");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_coordinate(`variable`,location(0,0,0,0,0),1,"PITCH");
+variable::set_coordinate(`variable`, location(0,0,0,0,0), 1, "PITCH");
+
+#Or dry by keywords
+
+variable::set_coordinate(variable=`variable`, location=location(0,0,0,0,0), coordinate=1, type="PITCH");
 ```
 
 **Arguments:**
@@ -6154,15 +7070,19 @@ variable::set_coordinate(`variable`,location(0,0,0,0,0),1,"PITCH");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_amount(item("stick"),1);
+`variable` = variable::set_item_amount(item("stick"), 1);
 
 #Or from the object
 
 `variable` = item("stick").set_item_amount(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_amount(`variable`,item("stick"),1);
+variable::set_item_amount(`variable`, item("stick"), 1);
+
+#Or dry by keywords
+
+variable::set_item_amount(variable=`variable`, item=item("stick"), amount=1);
 ```
 
 **Arguments:**
@@ -6183,15 +7103,19 @@ variable::set_item_amount(`variable`,item("stick"),1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_attribute(item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER");
+`variable` = variable::set_item_attribute(item("stick"), 1, "name", "ARMOR", "ALL", "ADD_NUMBER");
 
 #Or from the object
 
-`variable` = item("stick").set_item_attribute(1,"name","ARMOR","ALL","ADD_NUMBER");
+`variable` = item("stick").set_item_attribute(1, "name", "ARMOR", "ALL", "ADD_NUMBER");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_attribute(`variable`,item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER");
+variable::set_item_attribute(`variable`, item("stick"), 1, "name", "ARMOR", "ALL", "ADD_NUMBER");
+
+#Or dry by keywords
+
+variable::set_item_attribute(variable=`variable`, item=item("stick"), amount=1, name="name", attribute="ARMOR", slot="ALL", operation="ADD_NUMBER");
 ```
 
 **Arguments:**
@@ -6222,15 +7146,19 @@ variable::set_item_attribute(`variable`,item("stick"),1,"name","ARMOR","ALL","AD
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_color(item("stick"),"color");
+`variable` = variable::set_item_color(item("stick"), "color");
 
 #Or from the object
 
 `variable` = item("stick").set_item_color("color");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_color(`variable`,item("stick"),"color");
+variable::set_item_color(`variable`, item("stick"), "color");
+
+#Or dry by keywords
+
+variable::set_item_color(variable=`variable`, item=item("stick"), color="color");
 ```
 
 **Arguments:**
@@ -6251,15 +7179,19 @@ variable::set_item_color(`variable`,item("stick"),"color");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_component(item("stick"),"component","any value");
+`variable` = variable::set_item_component(item("stick"), "component", "any value");
 
 #Or from the object
 
-`variable` = item("stick").set_item_component("component","any value");
+`variable` = item("stick").set_item_component("component", "any value");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_component(`variable`,item("stick"),"component","any value");
+variable::set_item_component(`variable`, item("stick"), "component", "any value");
+
+#Or dry by keywords
+
+variable::set_item_component(variable=`variable`, item=item("stick"), component="component", value="any value");
 ```
 
 **Arguments:**
@@ -6281,15 +7213,19 @@ variable::set_item_component(`variable`,item("stick"),"component","any value");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_custom_model_data(item("stick"),1);
+`variable` = variable::set_item_custom_model_data(item("stick"), 1);
 
 #Or from the object
 
 `variable` = item("stick").set_item_custom_model_data(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_custom_model_data(`variable`,item("stick"),1);
+variable::set_item_custom_model_data(`variable`, item("stick"), 1);
+
+#Or dry by keywords
+
+variable::set_item_custom_model_data(variable=`variable`, item=item("stick"), model=1);
 ```
 
 **Arguments:**
@@ -6310,15 +7246,19 @@ variable::set_item_custom_model_data(`variable`,item("stick"),1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_custom_tag(item("stick"),"tag_name","tag_value");
+`variable` = variable::set_item_custom_tag(item("stick"), "tag_name", "tag_value");
 
 #Or from the object
 
-`variable` = item("stick").set_item_custom_tag("tag_name","tag_value");
+`variable` = item("stick").set_item_custom_tag("tag_name", "tag_value");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_custom_tag(`variable`,item("stick"),"tag_name","tag_value");
+variable::set_item_custom_tag(`variable`, item("stick"), "tag_name", "tag_value");
+
+#Or dry by keywords
+
+variable::set_item_custom_tag(variable=`variable`, item=item("stick"), tag_name="tag_name", tag_value="tag_value");
 ```
 
 **Arguments:**
@@ -6340,15 +7280,19 @@ variable::set_item_custom_tag(`variable`,item("stick"),"tag_name","tag_value");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_destroyable_blocks([item("stick"), item("stick")],item("stick"));
+`variable` = variable::set_item_destroyable_blocks([item("stick"), item("stick")], item("stick"));
 
 #Or from the object
 
 `variable` = item("stick").set_item_destroyable_blocks([item("stick"), item("stick")]);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_destroyable_blocks(`variable`,[item("stick"), item("stick")],item("stick"));
+variable::set_item_destroyable_blocks(`variable`, [item("stick"), item("stick")], item("stick"));
+
+#Or dry by keywords
+
+variable::set_item_destroyable_blocks(variable=`variable`, destroyable=[item("stick"), item("stick")], item=item("stick"));
 ```
 
 **Arguments:**
@@ -6369,15 +7313,19 @@ variable::set_item_destroyable_blocks(`variable`,[item("stick"), item("stick")],
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_durability(item("stick"),1,"DAMAGE");
+`variable` = variable::set_item_durability(item("stick"), 1, "DAMAGE");
 
 #Or from the object
 
-`variable` = item("stick").set_item_durability(1,"DAMAGE");
+`variable` = item("stick").set_item_durability(1, "DAMAGE");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_durability(`variable`,item("stick"),1,"DAMAGE");
+variable::set_item_durability(`variable`, item("stick"), 1, "DAMAGE");
+
+#Or dry by keywords
+
+variable::set_item_durability(variable=`variable`, item=item("stick"), durability=1, durability_type="DAMAGE");
 ```
 
 **Arguments:**
@@ -6399,15 +7347,19 @@ variable::set_item_durability(`variable`,item("stick"),1,"DAMAGE");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_enchantments(item("stick"),`enchantments`);
+`variable` = variable::set_item_enchantments(item("stick"), `enchantments`);
 
 #Or from the object
 
 `variable` = item("stick").set_item_enchantments(`enchantments`);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_enchantments(`variable`,item("stick"),`enchantments`);
+variable::set_item_enchantments(`variable`, item("stick"), `enchantments`);
+
+#Or dry by keywords
+
+variable::set_item_enchantments(variable=`variable`, item=item("stick"), enchantments=`enchantments`);
 ```
 
 **Arguments:**
@@ -6430,15 +7382,19 @@ variable::set_item_enchantments(`variable`,item("stick"),`enchantments`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_lore(["lore", "lore"],item("stick"));
+`variable` = variable::set_item_lore(item("stick"), ["lore", "lore"]);
 
 #Or from the object
 
 `variable` = item("stick").set_item_lore(["lore", "lore"]);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_lore(`variable`,["lore", "lore"],item("stick"));
+variable::set_item_lore(`variable`, item("stick"), ["lore", "lore"]);
+
+#Or dry by keywords
+
+variable::set_item_lore(variable=`variable`, item=item("stick"), lore=["lore", "lore"]);
 ```
 
 **Arguments:**
@@ -6446,8 +7402,8 @@ variable::set_item_lore(`variable`,["lore", "lore"],item("stick"));
 | **Name**   | **Type**   | **Description**    |
 | ---------- | ---------- | ------------------ |
 | `variable` | Variable   | Variable to assign |
-| `lore`     | list[Text] | New Description    |
 | `item`     | Item       | Item               |
+| `lore`     | list[Text] | New Description    |
 <h3 id=set_variable_set_item_lore_line>
   <code>variable::set_item_lore_line</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6459,15 +7415,19 @@ variable::set_item_lore(`variable`,["lore", "lore"],item("stick"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_lore_line(item("stick"),"text",1,"APPEND");
+`variable` = variable::set_item_lore_line(item("stick"), "text", 1, "APPEND");
 
 #Or from the object
 
-`variable` = item("stick").set_item_lore_line("text",1,"APPEND");
+`variable` = item("stick").set_item_lore_line("text", 1, "APPEND");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_lore_line(`variable`,item("stick"),"text",1,"APPEND");
+variable::set_item_lore_line(`variable`, item("stick"), "text", 1, "APPEND");
+
+#Or dry by keywords
+
+variable::set_item_lore_line(variable=`variable`, item=item("stick"), text="text", line=1, mode="APPEND");
 ```
 
 **Arguments:**
@@ -6493,7 +7453,11 @@ variable::set_item_lore_line(`variable`,item("stick"),"text",1,"APPEND");
 
 **Usage example:** 
 ```ts
-variable::set_item_max_stack_size(`variable`,item("stick"),1);
+variable::set_item_max_stack_size(`variable`, item("stick"), 1);
+
+#Or dry by keywords
+
+variable::set_item_max_stack_size(variable=`variable`, item=item("stick"), size=1);
 ```
 
 **Arguments:**
@@ -6514,15 +7478,19 @@ variable::set_item_max_stack_size(`variable`,item("stick"),1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_name(item("stick"),"text");
+`variable` = variable::set_item_name(item("stick"), "text");
 
 #Or from the object
 
 `variable` = item("stick").set_item_name("text");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_name(`variable`,item("stick"),"text");
+variable::set_item_name(`variable`, item("stick"), "text");
+
+#Or dry by keywords
+
+variable::set_item_name(variable=`variable`, item=item("stick"), text="text");
 ```
 
 **Arguments:**
@@ -6543,15 +7511,19 @@ variable::set_item_name(`variable`,item("stick"),"text");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_placeable_blocks([item("stick"), item("stick")],item("stick"));
+`variable` = variable::set_item_placeable_blocks([item("stick"), item("stick")], item("stick"));
 
 #Or from the object
 
 `variable` = item("stick").set_item_placeable_blocks([item("stick"), item("stick")]);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_placeable_blocks(`variable`,[item("stick"), item("stick")],item("stick"));
+variable::set_item_placeable_blocks(`variable`, [item("stick"), item("stick")], item("stick"));
+
+#Or dry by keywords
+
+variable::set_item_placeable_blocks(variable=`variable`, placeable=[item("stick"), item("stick")], item=item("stick"));
 ```
 
 **Arguments:**
@@ -6572,15 +7544,19 @@ variable::set_item_placeable_blocks(`variable`,[item("stick"), item("stick")],it
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_type(item("stick"),"type");
+`variable` = variable::set_item_type(item("stick"), "type");
 
 #Or from the object
 
 `variable` = item("stick").set_item_type("type");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_type(`variable`,item("stick"),"type");
+variable::set_item_type(`variable`, item("stick"), "type");
+
+#Or dry by keywords
+
+variable::set_item_type(variable=`variable`, item=item("stick"), type="type");
 ```
 
 **Arguments:**
@@ -6601,15 +7577,19 @@ variable::set_item_type(`variable`,item("stick"),"type");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_unbreakable(item("stick"),"FALSE");
+`variable` = variable::set_item_unbreakable(item("stick"), "FALSE");
 
 #Or from the object
 
 `variable` = item("stick").set_item_unbreakable("FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_unbreakable(`variable`,item("stick"),"FALSE");
+variable::set_item_unbreakable(`variable`, item("stick"), "FALSE");
+
+#Or dry by keywords
+
+variable::set_item_unbreakable(variable=`variable`, item=item("stick"), unbreakable="FALSE");
 ```
 
 **Arguments:**
@@ -6630,15 +7610,19 @@ variable::set_item_unbreakable(`variable`,item("stick"),"FALSE");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_visibility_flags(item("stick"),"NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
+`variable` = variable::set_item_visibility_flags(item("stick"), "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE");
 
 #Or from the object
 
-`variable` = item("stick").set_item_visibility_flags("NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
+`variable` = item("stick").set_item_visibility_flags("NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_item_visibility_flags(`variable`,item("stick"),"NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
+variable::set_item_visibility_flags(`variable`, item("stick"), "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE");
+
+#Or dry by keywords
+
+variable::set_item_visibility_flags(variable=`variable`, item=item("stick"), hide_dye="NO_CHANGE", hide_enchantments="NO_CHANGE", hide_attributes="NO_CHANGE", hide_unbreakable="NO_CHANGE", hide_place_on="NO_CHANGE", hide_destroys="NO_CHANGE", hide_potion_effects="NO_CHANGE", hide_armor_trim="NO_CHANGE");
 ```
 
 **Arguments:**
@@ -6666,15 +7650,19 @@ variable::set_item_visibility_flags(`variable`,item("stick"),"NO_CHANGE","NO_CHA
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_list_value(`list`,1,"any value");
+`variable` = variable::set_list_value(`list`, 1, "any value");
 
 #Or from the object
 
-`variable` = `list`.set_list_value(1,"any value");
+`variable` = `list`.set_list_value(1, "any value");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_list_value(`variable`,`list`,1,"any value");
+variable::set_list_value(`variable`, `list`, 1, "any value");
+
+#Or dry by keywords
+
+variable::set_list_value(variable=`variable`, list=`list`, number=1, value="any value");
 ```
 
 **Arguments:**
@@ -6696,15 +7684,19 @@ variable::set_list_value(`variable`,`list`,1,"any value");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_location_direction(location(0,0,0,0,0),vector(0,0,0));
+`variable` = variable::set_location_direction(location(0,0,0,0,0), vector(0,0,0));
 
 #Or from the object
 
 `variable` = location(0,0,0,0,0).set_location_direction(vector(0,0,0));
 
-#Or dry
+#Or dry by positionals
 
-variable::set_location_direction(`variable`,location(0,0,0,0,0),vector(0,0,0));
+variable::set_location_direction(`variable`, location(0,0,0,0,0), vector(0,0,0));
+
+#Or dry by keywords
+
+variable::set_location_direction(variable=`variable`, location=location(0,0,0,0,0), vector=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -6725,15 +7717,19 @@ variable::set_location_direction(`variable`,location(0,0,0,0,0),vector(0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_map_value(`map`,"any value","any value");
+`variable` = variable::set_map_value(`map`, "any value", "any value");
 
 #Or from the object
 
-`variable` = `map`.set_map_value("any value","any value");
+`variable` = `map`.set_map_value("any value", "any value");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_map_value(`variable`,`map`,"any value","any value");
+variable::set_map_value(`variable`, `map`, "any value", "any value");
+
+#Or dry by keywords
+
+variable::set_map_value(variable=`variable`, map=`map`, key="any value", value="any value");
 ```
 
 **Arguments:**
@@ -6755,15 +7751,19 @@ variable::set_map_value(`variable`,`map`,"any value","any value");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_particle_amount(particle("fire"),1);
+`variable` = variable::set_particle_amount(particle("fire"), 1);
 
 #Or from the object
 
 `variable` = particle("fire").set_particle_amount(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_particle_amount(`variable`,particle("fire"),1);
+variable::set_particle_amount(`variable`, particle("fire"), 1);
+
+#Or dry by keywords
+
+variable::set_particle_amount(variable=`variable`, particle=particle("fire"), amount=1);
 ```
 
 **Arguments:**
@@ -6784,15 +7784,19 @@ variable::set_particle_amount(`variable`,particle("fire"),1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_particle_color(particle("fire"),"hex_color","COLOR");
+`variable` = variable::set_particle_color(particle("fire"), "hex_color", "COLOR");
 
 #Or from the object
 
-`variable` = particle("fire").set_particle_color("hex_color","COLOR");
+`variable` = particle("fire").set_particle_color("hex_color", "COLOR");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_particle_color(`variable`,particle("fire"),"hex_color","COLOR");
+variable::set_particle_color(`variable`, particle("fire"), "hex_color", "COLOR");
+
+#Or dry by keywords
+
+variable::set_particle_color(variable=`variable`, particle=particle("fire"), hex_color="hex_color", color_type="COLOR");
 ```
 
 **Arguments:**
@@ -6814,15 +7818,19 @@ variable::set_particle_color(`variable`,particle("fire"),"hex_color","COLOR");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_particle_material(particle("fire"),item("stick"));
+`variable` = variable::set_particle_material(particle("fire"), item("stick"));
 
 #Or from the object
 
 `variable` = particle("fire").set_particle_material(item("stick"));
 
-#Or dry
+#Or dry by positionals
 
-variable::set_particle_material(`variable`,particle("fire"),item("stick"));
+variable::set_particle_material(`variable`, particle("fire"), item("stick"));
+
+#Or dry by keywords
+
+variable::set_particle_material(variable=`variable`, particle=particle("fire"), material=item("stick"));
 ```
 
 **Arguments:**
@@ -6843,15 +7851,19 @@ variable::set_particle_material(`variable`,particle("fire"),item("stick"));
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_particle_offset(particle("fire"),vector(0,0,0));
+`variable` = variable::set_particle_offset(particle("fire"), vector(0,0,0));
 
 #Or from the object
 
 `variable` = particle("fire").set_particle_offset(vector(0,0,0));
 
-#Or dry
+#Or dry by positionals
 
-variable::set_particle_offset(`variable`,particle("fire"),vector(0,0,0));
+variable::set_particle_offset(`variable`, particle("fire"), vector(0,0,0));
+
+#Or dry by keywords
+
+variable::set_particle_offset(variable=`variable`, particle=particle("fire"), offset=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -6872,15 +7884,19 @@ variable::set_particle_offset(`variable`,particle("fire"),vector(0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_particle_size(particle("fire"),1);
+`variable` = variable::set_particle_size(particle("fire"), 1);
 
 #Or from the object
 
 `variable` = particle("fire").set_particle_size(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_particle_size(`variable`,particle("fire"),1);
+variable::set_particle_size(`variable`, particle("fire"), 1);
+
+#Or dry by keywords
+
+variable::set_particle_size(variable=`variable`, particle=particle("fire"), size=1);
 ```
 
 **Arguments:**
@@ -6901,15 +7917,19 @@ variable::set_particle_size(`variable`,particle("fire"),1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_particle_spread(particle("fire"),1,2);
+`variable` = variable::set_particle_spread(particle("fire"), 1, 2);
 
 #Or from the object
 
-`variable` = particle("fire").set_particle_spread(1,2);
+`variable` = particle("fire").set_particle_spread(1, 2);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_particle_spread(`variable`,particle("fire"),1,2);
+variable::set_particle_spread(`variable`, particle("fire"), 1, 2);
+
+#Or dry by keywords
+
+variable::set_particle_spread(variable=`variable`, particle=particle("fire"), horizontal=1, vertical=2);
 ```
 
 **Arguments:**
@@ -6931,15 +7951,19 @@ variable::set_particle_spread(`variable`,particle("fire"),1,2);
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_particle_type(particle("fire"),"type");
+`variable` = variable::set_particle_type(particle("fire"), "type");
 
 #Or from the object
 
 `variable` = particle("fire").set_particle_type("type");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_particle_type(`variable`,particle("fire"),"type");
+variable::set_particle_type(`variable`, particle("fire"), "type");
+
+#Or dry by keywords
+
+variable::set_particle_type(variable=`variable`, particle=particle("fire"), type="type");
 ```
 
 **Arguments:**
@@ -6960,15 +7984,19 @@ variable::set_particle_type(`variable`,particle("fire"),"type");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_potion_effect_amplifier(potion("slow_falling"),1);
+`variable` = variable::set_potion_effect_amplifier(potion("slow_falling"), 1);
 
 #Or from the object
 
 `variable` = potion("slow_falling").set_potion_effect_amplifier(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_potion_effect_amplifier(`variable`,potion("slow_falling"),1);
+variable::set_potion_effect_amplifier(`variable`, potion("slow_falling"), 1);
+
+#Or dry by keywords
+
+variable::set_potion_effect_amplifier(variable=`variable`, potion=potion("slow_falling"), amplifier=1);
 ```
 
 **Arguments:**
@@ -6989,15 +8017,19 @@ variable::set_potion_effect_amplifier(`variable`,potion("slow_falling"),1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_potion_effect_duration(potion("slow_falling"),1);
+`variable` = variable::set_potion_effect_duration(potion("slow_falling"), 1);
 
 #Or from the object
 
 `variable` = potion("slow_falling").set_potion_effect_duration(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_potion_effect_duration(`variable`,potion("slow_falling"),1);
+variable::set_potion_effect_duration(`variable`, potion("slow_falling"), 1);
+
+#Or dry by keywords
+
+variable::set_potion_effect_duration(variable=`variable`, potion=potion("slow_falling"), duration=1);
 ```
 
 **Arguments:**
@@ -7018,15 +8050,19 @@ variable::set_potion_effect_duration(`variable`,potion("slow_falling"),1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_potion_effect_type(potion("slow_falling"),"effect_type");
+`variable` = variable::set_potion_effect_type(potion("slow_falling"), "effect_type");
 
 #Or from the object
 
 `variable` = potion("slow_falling").set_potion_effect_type("effect_type");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_potion_effect_type(`variable`,potion("slow_falling"),"effect_type");
+variable::set_potion_effect_type(`variable`, potion("slow_falling"), "effect_type");
+
+#Or dry by keywords
+
+variable::set_potion_effect_type(variable=`variable`, potion=potion("slow_falling"), effect_type="effect_type");
 ```
 
 **Arguments:**
@@ -7047,15 +8083,19 @@ variable::set_potion_effect_type(`variable`,potion("slow_falling"),"effect_type"
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_sound_pitch(sound("entity.zombie.hurt"),1);
+`variable` = variable::set_sound_pitch(sound("entity.zombie.hurt"), 1);
 
 #Or from the object
 
 `variable` = sound("entity.zombie.hurt").set_sound_pitch(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_sound_pitch(`variable`,sound("entity.zombie.hurt"),1);
+variable::set_sound_pitch(`variable`, sound("entity.zombie.hurt"), 1);
+
+#Or dry by keywords
+
+variable::set_sound_pitch(variable=`variable`, sound=sound("entity.zombie.hurt"), pitch=1);
 ```
 
 **Arguments:**
@@ -7076,15 +8116,19 @@ variable::set_sound_pitch(`variable`,sound("entity.zombie.hurt"),1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_sound_source(sound("entity.zombie.hurt"),"AMBIENT");
+`variable` = variable::set_sound_source(sound("entity.zombie.hurt"), "AMBIENT");
 
 #Or from the object
 
 `variable` = sound("entity.zombie.hurt").set_sound_source("AMBIENT");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_sound_source(`variable`,sound("entity.zombie.hurt"),"AMBIENT");
+variable::set_sound_source(`variable`, sound("entity.zombie.hurt"), "AMBIENT");
+
+#Or dry by keywords
+
+variable::set_sound_source(variable=`variable`, sound=sound("entity.zombie.hurt"), source="AMBIENT");
 ```
 
 **Arguments:**
@@ -7105,15 +8149,19 @@ variable::set_sound_source(`variable`,sound("entity.zombie.hurt"),"AMBIENT");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_sound_type(sound("entity.zombie.hurt"),"namespace","value");
+`variable` = variable::set_sound_type(sound("entity.zombie.hurt"), "namespace", "value");
 
 #Or from the object
 
-`variable` = sound("entity.zombie.hurt").set_sound_type("namespace","value");
+`variable` = sound("entity.zombie.hurt").set_sound_type("namespace", "value");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_sound_type(`variable`,sound("entity.zombie.hurt"),"namespace","value");
+variable::set_sound_type(`variable`, sound("entity.zombie.hurt"), "namespace", "value");
+
+#Or dry by keywords
+
+variable::set_sound_type(variable=`variable`, sound=sound("entity.zombie.hurt"), namespace="namespace", value="value");
 ```
 
 **Arguments:**
@@ -7138,15 +8186,19 @@ variable::set_sound_type(`variable`,sound("entity.zombie.hurt"),"namespace","val
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_sound_variation(sound("entity.zombie.hurt"),"variation");
+`variable` = variable::set_sound_variation(sound("entity.zombie.hurt"), "variation");
 
 #Or from the object
 
 `variable` = sound("entity.zombie.hurt").set_sound_variation("variation");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_sound_variation(`variable`,sound("entity.zombie.hurt"),"variation");
+variable::set_sound_variation(`variable`, sound("entity.zombie.hurt"), "variation");
+
+#Or dry by keywords
+
+variable::set_sound_variation(variable=`variable`, sound=sound("entity.zombie.hurt"), variation="variation");
 ```
 
 **Arguments:**
@@ -7167,15 +8219,19 @@ variable::set_sound_variation(`variable`,sound("entity.zombie.hurt"),"variation"
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_sound_volume_action(sound("entity.zombie.hurt"),1);
+`variable` = variable::set_sound_volume_action(sound("entity.zombie.hurt"), 1);
 
 #Or from the object
 
 `variable` = sound("entity.zombie.hurt").set_sound_volume_action(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_sound_volume_action(`variable`,sound("entity.zombie.hurt"),1);
+variable::set_sound_volume_action(`variable`, sound("entity.zombie.hurt"), 1);
+
+#Or dry by keywords
+
+variable::set_sound_volume_action(variable=`variable`, sound=sound("entity.zombie.hurt"), volume=1);
 ```
 
 **Arguments:**
@@ -7196,15 +8252,19 @@ variable::set_sound_volume_action(`variable`,sound("entity.zombie.hurt"),1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_template_code(item("stick"),"any value");
+`variable` = variable::set_template_code(item("stick"), "any value");
 
 #Or from the object
 
 `variable` = item("stick").set_template_code("any value");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_template_code(`variable`,item("stick"),"any value");
+variable::set_template_code(`variable`, item("stick"), "any value");
+
+#Or dry by keywords
+
+variable::set_template_code(variable=`variable`, template=item("stick"), code="any value");
 ```
 
 **Arguments:**
@@ -7225,15 +8285,19 @@ variable::set_template_code(`variable`,item("stick"),"any value");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_texture_to_map(item("stick"),"url");
+`variable` = variable::set_texture_to_map(item("stick"), "url");
 
 #Or from the object
 
 `variable` = item("stick").set_texture_to_map("url");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_texture_to_map(`variable`,item("stick"),"url");
+variable::set_texture_to_map(`variable`, item("stick"), "url");
+
+#Or dry by keywords
+
+variable::set_texture_to_map(variable=`variable`, map=item("stick"), url="url");
 ```
 
 **Arguments:**
@@ -7254,15 +8318,19 @@ variable::set_texture_to_map(`variable`,item("stick"),"url");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_vector_component(vector(0,0,0),1,"X");
+`variable` = variable::set_vector_component(vector(0,0,0), 1, "X");
 
 #Or from the object
 
-`variable` = vector(0,0,0).set_vector_component(1,"X");
+`variable` = vector(0,0,0).set_vector_component(1, "X");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_vector_component(`variable`,vector(0,0,0),1,"X");
+variable::set_vector_component(`variable`, vector(0,0,0), 1, "X");
+
+#Or dry by keywords
+
+variable::set_vector_component(variable=`variable`, vector=vector(0,0,0), value=1, vector_component="X");
 ```
 
 **Arguments:**
@@ -7284,15 +8352,19 @@ variable::set_vector_component(`variable`,vector(0,0,0),1,"X");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_vector_length(vector(0,0,0),1);
+`variable` = variable::set_vector_length(vector(0,0,0), 1);
 
 #Or from the object
 
 `variable` = vector(0,0,0).set_vector_length(1);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_vector_length(`variable`,vector(0,0,0),1);
+variable::set_vector_length(`variable`, vector(0,0,0), 1);
+
+#Or dry by keywords
+
+variable::set_vector_length(variable=`variable`, vector=vector(0,0,0), length=1);
 ```
 
 **Arguments:**
@@ -7313,15 +8385,19 @@ variable::set_vector_length(`variable`,vector(0,0,0),1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::shift_all_coordinates(location(0,0,0,0,0),1,2,3,4,5);
+`variable` = variable::shift_all_coordinates(location(0,0,0,0,0), 1, 2, 3, 4, 5);
 
 #Or from the object
 
-`variable` = location(0,0,0,0,0).shift_all_coordinates(1,2,3,4,5);
+`variable` = location(0,0,0,0,0).shift_all_coordinates(1, 2, 3, 4, 5);
 
-#Or dry
+#Or dry by positionals
 
-variable::shift_all_coordinates(`variable`,location(0,0,0,0,0),1,2,3,4,5);
+variable::shift_all_coordinates(`variable`, location(0,0,0,0,0), 1, 2, 3, 4, 5);
+
+#Or dry by keywords
+
+variable::shift_all_coordinates(variable=`variable`, location=location(0,0,0,0,0), x=1, y=2, z=3, yaw=4, pitch=5);
 ```
 
 **Arguments:**
@@ -7346,15 +8422,19 @@ variable::shift_all_coordinates(`variable`,location(0,0,0,0,0),1,2,3,4,5);
 
 **Usage example:** 
 ```ts
-`variable` = variable::shift_coordinate(location(0,0,0,0,0),1,"PITCH");
+`variable` = variable::shift_coordinate(location(0,0,0,0,0), 1, "PITCH");
 
 #Or from the object
 
-`variable` = location(0,0,0,0,0).shift_coordinate(1,"PITCH");
+`variable` = location(0,0,0,0,0).shift_coordinate(1, "PITCH");
 
-#Or dry
+#Or dry by positionals
 
-variable::shift_coordinate(`variable`,location(0,0,0,0,0),1,"PITCH");
+variable::shift_coordinate(`variable`, location(0,0,0,0,0), 1, "PITCH");
+
+#Or dry by keywords
+
+variable::shift_coordinate(variable=`variable`, location=location(0,0,0,0,0), distance=1, type="PITCH");
 ```
 
 **Arguments:**
@@ -7376,15 +8456,19 @@ variable::shift_coordinate(`variable`,location(0,0,0,0,0),1,"PITCH");
 
 **Usage example:** 
 ```ts
-`variable` = variable::shift_location_in_direction(location(0,0,0,0,0),1,"FORWARD");
+`variable` = variable::shift_location_in_direction(location(0,0,0,0,0), 1, "FORWARD");
 
 #Or from the object
 
-`variable` = location(0,0,0,0,0).shift_location_in_direction(1,"FORWARD");
+`variable` = location(0,0,0,0,0).shift_location_in_direction(1, "FORWARD");
 
-#Or dry
+#Or dry by positionals
 
-variable::shift_location_in_direction(`variable`,location(0,0,0,0,0),1,"FORWARD");
+variable::shift_location_in_direction(`variable`, location(0,0,0,0,0), 1, "FORWARD");
+
+#Or dry by keywords
+
+variable::shift_location_in_direction(variable=`variable`, location=location(0,0,0,0,0), shift=1, direction="FORWARD");
 ```
 
 **Arguments:**
@@ -7406,15 +8490,19 @@ variable::shift_location_in_direction(`variable`,location(0,0,0,0,0),1,"FORWARD"
 
 **Usage example:** 
 ```ts
-`variable` = variable::shift_location_on_vector(location(0,0,0,0,0),vector(0,0,0),1);
+`variable` = variable::shift_location_on_vector(location(0,0,0,0,0), vector(0,0,0), 1);
 
 #Or from the object
 
-`variable` = location(0,0,0,0,0).shift_location_on_vector(vector(0,0,0),1);
+`variable` = location(0,0,0,0,0).shift_location_on_vector(vector(0,0,0), 1);
 
-#Or dry
+#Or dry by positionals
 
-variable::shift_location_on_vector(`variable`,location(0,0,0,0,0),vector(0,0,0),1);
+variable::shift_location_on_vector(`variable`, location(0,0,0,0,0), vector(0,0,0), 1);
+
+#Or dry by keywords
+
+variable::shift_location_on_vector(variable=`variable`, location=location(0,0,0,0,0), vector=vector(0,0,0), length=1);
 ```
 
 **Arguments:**
@@ -7436,15 +8524,19 @@ variable::shift_location_on_vector(`variable`,location(0,0,0,0,0),vector(0,0,0),
 
 **Usage example:** 
 ```ts
-`variable` = variable::shift_location_towards_location(location(0,0,0,0,0),location(0,0,0,0,0),1);
+`variable` = variable::shift_location_towards_location(location(0,0,0,0,0), location(0,0,0,0,0), 1);
 
 #Or from the object
 
-`variable` = location(0,0,0,0,0).shift_location_towards_location(location(0,0,0,0,0),1);
+`variable` = location(0,0,0,0,0).shift_location_towards_location(location(0,0,0,0,0), 1);
 
-#Or dry
+#Or dry by positionals
 
-variable::shift_location_towards_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),1);
+variable::shift_location_towards_location(`variable`, location(0,0,0,0,0), location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+variable::shift_location_towards_location(variable=`variable`, location_from=location(0,0,0,0,0), location_to=location(0,0,0,0,0), distance=1);
 ```
 
 **Arguments:**
@@ -7466,15 +8558,19 @@ variable::shift_location_towards_location(`variable`,location(0,0,0,0,0),locatio
 
 **Usage example:** 
 ```ts
-`variable` = variable::simplex_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
+`variable` = variable::simplex_noise_3d(location(0,0,0,0,0), 1, 2, 3, 4, 5, "FULL_RANGE", "FALSE");
 
 #Or from the object
 
-`variable` = location(0,0,0,0,0).simplex_noise_3d(1,2,3,4,5,"FULL_RANGE","FALSE");
+`variable` = location(0,0,0,0,0).simplex_noise_3d(1, 2, 3, 4, 5, "FULL_RANGE", "FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::simplex_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
+variable::simplex_noise_3d(`variable`, location(0,0,0,0,0), 1, 2, 3, 4, 5, "FULL_RANGE", "FALSE");
+
+#Or dry by keywords
+
+variable::simplex_noise_3d(variable=`variable`, location=location(0,0,0,0,0), seed=1, loc_frequency=2, octaves=3, frequency=4, amplitude=5, range_mode="FULL_RANGE", normalized="FALSE");
 ```
 
 **Arguments:**
@@ -7501,15 +8597,19 @@ variable::simplex_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE"
 
 **Usage example:** 
 ```ts
-`variable` = variable::sine(1,"ARCSINE","DEGREES");
+`variable` = variable::sine(1, "ARCSINE", "DEGREES");
 
 #Or from the object
 
-`variable` = (1).sine("ARCSINE","DEGREES");
+`variable` = (1).sine("ARCSINE", "DEGREES");
 
-#Or dry
+#Or dry by positionals
 
-variable::sine(`variable`,1,"ARCSINE","DEGREES");
+variable::sine(`variable`, 1, "ARCSINE", "DEGREES");
+
+#Or dry by keywords
+
+variable::sine(variable=`variable`, number=1, variant="ARCSINE", input="DEGREES");
 ```
 
 **Arguments:**
@@ -7535,15 +8635,19 @@ variable::sine(`variable`,1,"ARCSINE","DEGREES");
 
 **Usage example:** 
 ```ts
-`variable` = variable::sort_list(`list`,"ASCENDING");
+`variable` = variable::sort_list(`list`, "ASCENDING");
 
 #Or from the object
 
 `variable` = `list`.sort_list("ASCENDING");
 
-#Or dry
+#Or dry by positionals
 
-variable::sort_list(`variable`,`list`,"ASCENDING");
+variable::sort_list(`variable`, `list`, "ASCENDING");
+
+#Or dry by keywords
+
+variable::sort_list(variable=`variable`, list=`list`, sort_mode="ASCENDING");
 ```
 
 **Arguments:**
@@ -7564,15 +8668,19 @@ variable::sort_list(`variable`,`list`,"ASCENDING");
 
 **Usage example:** 
 ```ts
-`variable` = variable::sort_map(`map`,"ASCENDING","KEYS");
+`variable` = variable::sort_map(`map`, "ASCENDING", "KEYS");
 
 #Or from the object
 
-`variable` = `map`.sort_map("ASCENDING","KEYS");
+`variable` = `map`.sort_map("ASCENDING", "KEYS");
 
-#Or dry
+#Or dry by positionals
 
-variable::sort_map(`variable`,`map`,"ASCENDING","KEYS");
+variable::sort_map(`variable`, `map`, "ASCENDING", "KEYS");
+
+#Or dry by keywords
+
+variable::sort_map(variable=`variable`, map=`map`, sort_order="ASCENDING", sort_type="KEYS");
 ```
 
 **Arguments:**
@@ -7594,15 +8702,19 @@ variable::sort_map(`variable`,`map`,"ASCENDING","KEYS");
 
 **Usage example:** 
 ```ts
-`variable` = variable::split_text("text","delimiter");
+`variable` = variable::split_text("text", "delimiter");
 
 #Or from the object
 
 `variable` = "text".split_text("delimiter");
 
-#Or dry
+#Or dry by positionals
 
-variable::split_text(`variable`,"text","delimiter");
+variable::split_text(`variable`, "text", "delimiter");
+
+#Or dry by keywords
+
+variable::split_text(variable=`variable`, text="text", delimiter="delimiter");
 ```
 
 **Arguments:**
@@ -7623,15 +8735,19 @@ variable::split_text(`variable`,"text","delimiter");
 
 **Usage example:** 
 ```ts
-`variable` = variable::strip_text("text","ALL");
+`variable` = variable::strip_text("text", "ALL");
 
 #Or from the object
 
 `variable` = "text".strip_text("ALL");
 
-#Or dry
+#Or dry by positionals
 
-variable::strip_text(`variable`,"text","ALL");
+variable::strip_text(`variable`, "text", "ALL");
+
+#Or dry by keywords
+
+variable::strip_text(variable=`variable`, text="text", strip_type="ALL");
 ```
 
 **Arguments:**
@@ -7654,9 +8770,13 @@ variable::strip_text(`variable`,"text","ALL");
 ```ts
 `variable` = variable::subtract([1, 2]);
 
-#Or dry
+#Or dry by positionals
 
-variable::subtract(`variable`,[1, 2]);
+variable::subtract(`variable`, [1, 2]);
+
+#Or dry by keywords
+
+variable::subtract(variable=`variable`, value=[1, 2]);
 ```
 
 **Arguments:**
@@ -7678,9 +8798,13 @@ variable::subtract(`variable`,[1, 2]);
 ```ts
 `variable` = variable::subtract_vectors([vector(0,0,0), vector(0,0,0)]);
 
-#Or dry
+#Or dry by positionals
 
-variable::subtract_vectors(`variable`,[vector(0,0,0), vector(0,0,0)]);
+variable::subtract_vectors(`variable`, [vector(0,0,0), vector(0,0,0)]);
+
+#Or dry by keywords
+
+variable::subtract_vectors(variable=`variable`, vectors=[vector(0,0,0), vector(0,0,0)]);
 ```
 
 **Arguments:**
@@ -7700,15 +8824,19 @@ variable::subtract_vectors(`variable`,[vector(0,0,0), vector(0,0,0)]);
 
 **Usage example:** 
 ```ts
-`variable` = variable::tangent(1,"ARCTANGENT","DEGREES");
+`variable` = variable::tangent(1, "ARCTANGENT", "DEGREES");
 
 #Or from the object
 
-`variable` = (1).tangent("ARCTANGENT","DEGREES");
+`variable` = (1).tangent("ARCTANGENT", "DEGREES");
 
-#Or dry
+#Or dry by positionals
 
-variable::tangent(`variable`,1,"ARCTANGENT","DEGREES");
+variable::tangent(`variable`, 1, "ARCTANGENT", "DEGREES");
+
+#Or dry by keywords
+
+variable::tangent(variable=`variable`, number=1, variant="ARCTANGENT", input="DEGREES");
 ```
 
 **Arguments:**
@@ -7730,11 +8858,15 @@ variable::tangent(`variable`,1,"ARCTANGENT","DEGREES");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_text(["text", "text"],"CONCATENATION");
+`variable` = variable::set_text(["text", "text"], "CONCATENATION");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_text(`variable`,["text", "text"],"CONCATENATION");
+variable::set_text(`variable`, ["text", "text"], "CONCATENATION");
+
+#Or dry by keywords
+
+variable::set_text(variable=`variable`, text=["text", "text"], merging="CONCATENATION");
 ```
 
 **Arguments:**
@@ -7755,15 +8887,19 @@ variable::set_text(`variable`,["text", "text"],"CONCATENATION");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_text_case("text","INVERT");
+`variable` = variable::set_text_case("text", "INVERT");
 
 #Or from the object
 
 `variable` = "text".set_text_case("INVERT");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_text_case(`variable`,"text","INVERT");
+variable::set_text_case(`variable`, "text", "INVERT");
+
+#Or dry by keywords
+
+variable::set_text_case(variable=`variable`, text="text", case_type="INVERT");
 ```
 
 **Arguments:**
@@ -7790,9 +8926,13 @@ variable::set_text_case(`variable`,"text","INVERT");
 
 `variable` = "text".get_text_length();
 
-#Or dry
+#Or dry by positionals
 
-variable::get_text_length(`variable`,"text");
+variable::get_text_length(`variable`, "text");
+
+#Or dry by keywords
+
+variable::get_text_length(variable=`variable`, text="text");
 ```
 
 **Arguments:**
@@ -7818,9 +8958,13 @@ variable::get_text_length(`variable`,"text");
 
 `variable` = (1).to_char();
 
-#Or dry
+#Or dry by positionals
 
-variable::to_char(`variable`,1);
+variable::to_char(`variable`, 1);
+
+#Or dry by keywords
+
+variable::to_char(variable=`variable`, number=1);
 ```
 
 **Arguments:**
@@ -7840,11 +8984,15 @@ variable::to_char(`variable`,1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::to_hsb(1,2,3);
+`variable` = variable::to_hsb(1, 2, 3);
 
-#Or dry
+#Or dry by positionals
 
-variable::to_hsb(`variable`,1,2,3);
+variable::to_hsb(`variable`, 1, 2, 3);
+
+#Or dry by keywords
+
+variable::to_hsb(variable=`variable`, hue=1, saturation=2, brightness=3);
 ```
 
 **Arguments:**
@@ -7866,11 +9014,15 @@ variable::to_hsb(`variable`,1,2,3);
 
 **Usage example:** 
 ```ts
-`variable` = variable::to_hsl(1,2,3);
+`variable` = variable::to_hsl(1, 2, 3);
 
-#Or dry
+#Or dry by positionals
 
-variable::to_hsl(`variable`,1,2,3);
+variable::to_hsl(`variable`, 1, 2, 3);
+
+#Or dry by keywords
+
+variable::to_hsl(variable=`variable`, hue=1, saturation=2, lightness=3);
 ```
 
 **Arguments:**
@@ -7892,11 +9044,15 @@ variable::to_hsl(`variable`,1,2,3);
 
 **Usage example:** 
 ```ts
-`variable` = variable::to_json("any value","FALSE");
+`variable` = variable::to_json("any value", "FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::to_json(`variable`,"any value","FALSE");
+variable::to_json(`variable`, "any value", "FALSE");
+
+#Or dry by keywords
+
+variable::to_json(variable=`variable`, value="any value", pretty_print="FALSE");
 ```
 
 **Arguments:**
@@ -7917,11 +9073,15 @@ variable::to_json(`variable`,"any value","FALSE");
 
 **Usage example:** 
 ```ts
-`variable` = variable::to_rgb(1,2,3);
+`variable` = variable::to_rgb(1, 2, 3);
 
-#Or dry
+#Or dry by positionals
 
-variable::to_rgb(`variable`,1,2,3);
+variable::to_rgb(`variable`, 1, 2, 3);
+
+#Or dry by keywords
+
+variable::to_rgb(variable=`variable`, red=1, green=2, blue=3);
 ```
 
 **Arguments:**
@@ -7943,15 +9103,19 @@ variable::to_rgb(`variable`,1,2,3);
 
 **Usage example:** 
 ```ts
-`variable` = variable::trim_list(`list`,1,2);
+`variable` = variable::trim_list(`list`, 1, 2);
 
 #Or from the object
 
-`variable` = `list`.trim_list(1,2);
+`variable` = `list`.trim_list(1, 2);
 
-#Or dry
+#Or dry by positionals
 
-variable::trim_list(`variable`,`list`,1,2);
+variable::trim_list(`variable`, `list`, 1, 2);
+
+#Or dry by keywords
+
+variable::trim_list(variable=`variable`, list=`list`, start=1, end=2);
 ```
 
 **Arguments:**
@@ -7973,15 +9137,19 @@ variable::trim_list(`variable`,`list`,1,2);
 
 **Usage example:** 
 ```ts
-`variable` = variable::trim_text("text",1,2);
+`variable` = variable::trim_text("text", 1, 2);
 
 #Or from the object
 
-`variable` = "text".trim_text(1,2);
+`variable` = "text".trim_text(1, 2);
 
-#Or dry
+#Or dry by positionals
 
-variable::trim_text(`variable`,"text",1,2);
+variable::trim_text(`variable`, "text", 1, 2);
+
+#Or dry by keywords
+
+variable::trim_text(variable=`variable`, text="text", start=1, end=2);
 ```
 
 **Arguments:**
@@ -8005,9 +9173,13 @@ variable::trim_text(`variable`,"text",1,2);
 ```ts
 `variable` = variable::set_value("any value");
 
-#Or dry
+#Or dry by positionals
 
-variable::set_value(`variable`,"any value");
+variable::set_value(`variable`, "any value");
+
+#Or dry by keywords
+
+variable::set_value(variable=`variable`, value="any value");
 ```
 
 **Arguments:**
@@ -8027,11 +9199,15 @@ variable::set_value(`variable`,"any value");
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_vector(1,2,3);
+`variable` = variable::set_vector(1, 2, 3);
 
-#Or dry
+#Or dry by positionals
 
-variable::set_vector(`variable`,1,2,3);
+variable::set_vector(`variable`, 1, 2, 3);
+
+#Or dry by keywords
+
+variable::set_vector(variable=`variable`, x=1, y=2, z=3);
 ```
 
 **Arguments:**
@@ -8053,11 +9229,15 @@ variable::set_vector(`variable`,1,2,3);
 
 **Usage example:** 
 ```ts
-`variable` = variable::vector_cross_product(vector(0,0,0),vector(0,0,0));
+`variable` = variable::vector_cross_product(vector(0,0,0), vector(0,0,0));
 
-#Or dry
+#Or dry by positionals
 
-variable::vector_cross_product(`variable`,vector(0,0,0),vector(0,0,0));
+variable::vector_cross_product(`variable`, vector(0,0,0), vector(0,0,0));
+
+#Or dry by keywords
+
+variable::vector_cross_product(variable=`variable`, vector_1=vector(0,0,0), vector_2=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -8078,11 +9258,15 @@ variable::vector_cross_product(`variable`,vector(0,0,0),vector(0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::vector_dot_product(vector(0,0,0),vector(0,0,0));
+`variable` = variable::vector_dot_product(vector(0,0,0), vector(0,0,0));
 
-#Or dry
+#Or dry by positionals
 
-variable::vector_dot_product(`variable`,vector(0,0,0),vector(0,0,0));
+variable::vector_dot_product(`variable`, vector(0,0,0), vector(0,0,0));
+
+#Or dry by keywords
+
+variable::vector_dot_product(variable=`variable`, vector_1=vector(0,0,0), vector_2=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -8109,9 +9293,13 @@ variable::vector_dot_product(`variable`,vector(0,0,0),vector(0,0,0));
 
 `variable` = vector(0,0,0).vector_to_direction_name();
 
-#Or dry
+#Or dry by positionals
 
-variable::vector_to_direction_name(`variable`,vector(0,0,0));
+variable::vector_to_direction_name(`variable`, vector(0,0,0));
+
+#Or dry by keywords
+
+variable::vector_to_direction_name(variable=`variable`, vector=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -8131,15 +9319,19 @@ variable::vector_to_direction_name(`variable`,vector(0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::voronoi_noise_3d(location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
+`variable` = variable::voronoi_noise_3d(location(0,0,0,0,0), 1, 2, 3, "FULL_RANGE", "FALSE");
 
 #Or from the object
 
-`variable` = location(0,0,0,0,0).voronoi_noise_3d(1,2,3,"FULL_RANGE","FALSE");
+`variable` = location(0,0,0,0,0).voronoi_noise_3d(1, 2, 3, "FULL_RANGE", "FALSE");
 
-#Or dry
+#Or dry by positionals
 
-variable::voronoi_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
+variable::voronoi_noise_3d(`variable`, location(0,0,0,0,0), 1, 2, 3, "FULL_RANGE", "FALSE");
+
+#Or dry by keywords
+
+variable::voronoi_noise_3d(variable=`variable`, location=location(0,0,0,0,0), seed=1, frequency=2, displacement=3, range_mode="FULL_RANGE", enable_distance="FALSE");
 ```
 
 **Arguments:**
@@ -8164,15 +9356,19 @@ variable::voronoi_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,"FULL_RANGE","FA
 
 **Usage example:** 
 ```ts
-`variable` = variable::warp(1,2,3);
+`variable` = variable::warp(1, 2, 3);
 
 #Or from the object
 
-`variable` = (1).warp(2,3);
+`variable` = (1).warp(2, 3);
 
-#Or dry
+#Or dry by positionals
 
-variable::warp(`variable`,1,2,3);
+variable::warp(`variable`, 1, 2, 3);
+
+#Or dry by keywords
+
+variable::warp(variable=`variable`, number=1, min=2, max=3);
 ```
 
 **Arguments:**

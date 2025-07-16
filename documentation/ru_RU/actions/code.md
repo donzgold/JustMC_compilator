@@ -10,6 +10,10 @@
 **Пример использования:** 
 ```ts
 code::call_function("function_name");
+
+#Или в сухую по ключам
+
+code::call_function(function_name="function_name");
 ```
 
 **Аргументы:**
@@ -30,7 +34,11 @@ code::call_function("function_name");
 
 **Пример использования:** 
 ```ts
-code::call_exception("id","message","ERROR");
+code::call_exception("id", "message", "ERROR");
+
+#Или в сухую по ключам
+
+code::call_exception(id="id", message="message", type="ERROR");
 ```
 
 **Аргументы:**
@@ -117,7 +125,11 @@ code::stop_repeat();
 
 **Пример использования:** 
 ```ts
-code::wait(1,"MINUTES");
+code::wait(1, "MINUTES");
+
+#Или в сухую по ключам
+
+code::wait(duration=1, time_unit="MINUTES");
 ```
 
 **Аргументы:**
@@ -153,7 +165,11 @@ code::else(){
 
 **Пример использования:** 
 ```ts
-code::start_process("process_name","COPY","CURRENT_SELECTION");
+code::start_process("process_name", "COPY", "CURRENT_SELECTION");
+
+#Или в сухую по ключам
+
+code::start_process(process_name="process_name", local_variables_mode="COPY", target_mode="CURRENT_SELECTION");
 ```
 
 **Аргументы:**

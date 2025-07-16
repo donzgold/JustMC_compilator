@@ -46,6 +46,12 @@ if(player::chat_colors_enabled()){
 if(player::chat_message_equals(["chat_messages", "chat_messages"])){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+player::chat_message_equals(chat_messages=["chat_messages", "chat_messages"]){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -67,6 +73,12 @@ if(player::chat_message_equals(["chat_messages", "chat_messages"])){
 if(player::collides_at_location(location(0,0,0,0,0))){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+player::collides_at_location(location=location(0,0,0,0,0)){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -85,7 +97,13 @@ if(player::collides_at_location(location(0,0,0,0,0))){
 
 **Usage example:** 
 ```ts
-if(player::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0))){
+if(player::collides_using_hitbox(location(0,0,0,0,0), location(0,0,0,0,0))){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::collides_using_hitbox(min=location(0,0,0,0,0), max=location(0,0,0,0,0)){
     player::message("Condition is true");
 }
 ```
@@ -107,7 +125,13 @@ if(player::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0))){
 
 **Usage example:** 
 ```ts
-if(player::collides_with_entity("name_or_uuid","CONTAINS")){
+if(player::collides_with_entity("name_or_uuid", "CONTAINS")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::collides_with_entity(name_or_uuid="name_or_uuid", check_type="CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -129,7 +153,13 @@ if(player::collides_with_entity("name_or_uuid","CONTAINS")){
 
 **Usage example:** 
 ```ts
-if(player::cursor_item_equals([item("stick"), item("stick")],"EXACTLY")){
+if(player::cursor_item_equals([item("stick"), item("stick")], "EXACTLY")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::cursor_item_equals(items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -170,6 +200,12 @@ if(player::is_dummy()){
 if(player::gamemode_equals("ADVENTURE")){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+player::gamemode_equals(gamemode="ADVENTURE"){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -177,6 +213,33 @@ if(player::gamemode_equals("ADVENTURE")){
 | **Name**   | **Type**                                                                                                                   | **Description** |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | `gamemode` | Marker<br/>**ADVENTURE** - Adventure<br/>**CREATIVE** - Creative<br/>**SPECTATOR** - Spectator<br/>**SURVIVAL** - Survival | Game Mode       |
+<h3 id=if_player_has_input>
+  <code>player::has_input</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action that checks the conditions\
+**Description:** None
+
+**Usage example:** 
+```ts
+if(player::has_input("FORWARD")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::has_input(input_type="FORWARD"){
+    player::message("Condition is true");
+}
+```
+
+**Arguments:**
+
+| **Name**     | **Type**                                                                                                                                                       | **Description** |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `input_type` | Marker<br/>**FORWARD** - None<br/>**BACKWARDS** - None<br/>**LEFT** - None<br/>**RIGHT** - None<br/>**JUMP** - None<br/>**SNEAK** - None<br/>**SPRINT** - None | None            |
 <h3 id=if_player_has_item>
   <code>player::has_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -188,7 +251,13 @@ if(player::gamemode_equals("ADVENTURE")){
 
 **Usage example:** 
 ```ts
-if(player::has_item([item("stick"), item("stick")],"ALL","EXACTLY")){
+if(player::has_item([item("stick"), item("stick")], "ALL", "EXACTLY")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::has_item(items=[item("stick"), item("stick")], check_mode="ALL", comparison_mode="EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -211,7 +280,13 @@ if(player::has_item([item("stick"), item("stick")],"ALL","EXACTLY")){
 
 **Usage example:** 
 ```ts
-if(player::has_item_at_least(item("stick"),1,"EXACTLY")){
+if(player::has_item_at_least(item("stick"), 1, "EXACTLY")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::has_item_at_least(item=item("stick"), count=1, comparison_mode="EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -234,7 +309,13 @@ if(player::has_item_at_least(item("stick"),1,"EXACTLY")){
 
 **Usage example:** 
 ```ts
-if(player::has_item_in_slot([1, 2],[item("stick"), item("stick")],"EXACTLY")){
+if(player::has_item_in_slot([1, 2], [item("stick"), item("stick")], "EXACTLY")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::has_item_in_slot(slots=[1, 2], items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -257,7 +338,13 @@ if(player::has_item_in_slot([1, 2],[item("stick"), item("stick")],"EXACTLY")){
 
 **Usage example:** 
 ```ts
-if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ALL")){
+if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")], "ALL")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::has_potion_effect(potions=[potion("slow_falling"), potion("slow_falling")], check_mode="ALL"){
     player::message("Condition is true");
 }
 ```
@@ -281,7 +368,13 @@ if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 
 **Usage example:** 
 ```ts
-if(player::has_privilege("BUILDER","FALSE")){
+if(player::has_privilege("BUILDER", "FALSE")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::has_privilege(privilege="BUILDER", exact="FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -303,7 +396,13 @@ if(player::has_privilege("BUILDER","FALSE")){
 
 **Usage example:** 
 ```ts
-if(player::has_room_for_item([item("stick"), item("stick")],"ARMOR","ALL")){
+if(player::has_room_for_item([item("stick"), item("stick")], "ARMOR", "ALL")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::has_room_for_item(items=[item("stick"), item("stick")], checked_slots="ARMOR", check_mode="ALL"){
     player::message("Condition is true");
 }
 ```
@@ -329,6 +428,12 @@ if(player::has_room_for_item([item("stick"), item("stick")],"ARMOR","ALL")){
 if(player::hotbar_slot_equals(1)){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+player::hotbar_slot_equals(slot=1){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -347,7 +452,13 @@ if(player::hotbar_slot_equals(1)){
 
 **Usage example:** 
 ```ts
-if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CONTAINS")){
+if(player::in_area(location(0,0,0,0,0), location(0,0,0,0,0), "FALSE", "HITBOX", "CONTAINS")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::in_area(location_1=location(0,0,0,0,0), location_2=location(0,0,0,0,0), ignore_y_axis="FALSE", intersect_type="HITBOX", check_type="CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -372,7 +483,13 @@ if(player::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CON
 
 **Usage example:** 
 ```ts
-if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"EXACTLY")){
+if(player::inventory_menu_slot_equals([1, 2], [item("stick"), item("stick")], "EXACTLY")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::inventory_menu_slot_equals(slots=[1, 2], items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -396,6 +513,12 @@ if(player::inventory_menu_slot_equals([1, 2],[item("stick"), item("stick")],"EXA
 **Usage example:** 
 ```ts
 if(player::inventory_type_open("ANVIL")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::inventory_type_open(inventory_type="ANVIL"){
     player::message("Condition is true");
 }
 ```
@@ -496,7 +619,13 @@ if(player::is_gliding()){
 
 **Usage example:** 
 ```ts
-if(player::holding([item("stick"), item("stick")],"EITHER_HAND","EXACTLY")){
+if(player::holding([item("stick"), item("stick")], "EITHER_HAND", "EXACTLY")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::holding(items=[item("stick"), item("stick")], hand_slot="EITHER_HAND", comparison_mode="EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -519,7 +648,13 @@ if(player::holding([item("stick"), item("stick")],"EITHER_HAND","EXACTLY")){
 
 **Usage example:** 
 ```ts
-if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],1,"ALWAYS")){
+if(player::is_looking_at_block([item("stone"), item("stone")], [location(0,0,0,0,0), location(0,0,0,0,0)], 1, "ALWAYS")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::is_looking_at_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], distance=1, fluid_mode="ALWAYS"){
     player::message("Condition is true");
 }
 ```
@@ -543,7 +678,13 @@ if(player::is_looking_at_block([item("stone"), item("stone")],[location(0,0,0,0,
 
 **Usage example:** 
 ```ts
-if(player::is_near(1,location(0,0,0,0,0),"FALSE")){
+if(player::is_near(1, location(0,0,0,0,0), "FALSE")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::is_near(range=1, location=location(0,0,0,0,0), ignore_y_axis="FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -598,7 +739,13 @@ if(player::is_online_mode()){
 
 **Usage example:** 
 ```ts
-if(player::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST")){
+if(player::is_riding_entity(["entity_ids", "entity_ids"], "FARTHEST")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mode="FARTHEST"){
     player::message("Condition is true");
 }
 ```
@@ -684,7 +831,13 @@ if(player::is_sprinting()){
 
 **Usage example:** 
 ```ts
-if(player::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE")){
+if(player::is_standing_on_block([item("stone"), item("stone")], [location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::is_standing_on_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -723,7 +876,13 @@ if(player::is_swimming()){
 
 **Usage example:** 
 ```ts
-if(player::is_using_item([item("stick"), item("stick")],"EXACTLY")){
+if(player::is_using_item([item("stick"), item("stick")], "EXACTLY")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::is_using_item(items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -745,7 +904,13 @@ if(player::is_using_item([item("stick"), item("stick")],"EXACTLY")){
 
 **Usage example:** 
 ```ts
-if(player::is_wearing_item([item("stick"), item("stick")],"ALL","EXACTLY")){
+if(player::is_wearing_item([item("stick"), item("stick")], "ALL", "EXACTLY")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::is_wearing_item(items=[item("stick"), item("stick")], check_mode="ALL", comparison_mode="EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -771,6 +936,12 @@ if(player::is_wearing_item([item("stick"), item("stick")],"ALL","EXACTLY")){
 if(player::item_is_not_on_cooldown([item("stick"), item("stick")])){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+player::item_is_not_on_cooldown(items=[item("stick"), item("stick")]){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -790,6 +961,12 @@ if(player::item_is_not_on_cooldown([item("stick"), item("stick")])){
 **Usage example:** 
 ```ts
 if(player::name_equals(["names_or_uuids", "names_or_uuids"])){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+player::name_equals(names_or_uuids=["names_or_uuids", "names_or_uuids"]){
     player::message("Condition is true");
 }
 ```
@@ -826,7 +1003,11 @@ if(player::text_filtering_enabled()){
 
 **Usage example:** 
 ```ts
-player::add_inventory_menu_row([item("stick"), item("stick")],"BUTTON");
+player::add_inventory_menu_row([item("stick"), item("stick")], "BUTTON");
+
+#Or dry by keywords
+
+player::add_inventory_menu_row(items=[item("stick"), item("stick")], position="BUTTON");
 ```
 
 **Arguments:**
@@ -846,7 +1027,11 @@ player::add_inventory_menu_row([item("stick"), item("stick")],"BUTTON");
 
 **Usage example:** 
 ```ts
-player::allow_placing_breaking_blocks([item("stone"), item("stone")],"FALSE");
+player::allow_placing_breaking_blocks([item("stone"), item("stone")], "FALSE");
+
+#Or dry by keywords
+
+player::allow_placing_breaking_blocks(blocks=[item("stone"), item("stone")], allow="FALSE");
 ```
 
 **Arguments:**
@@ -867,6 +1052,10 @@ player::allow_placing_breaking_blocks([item("stone"), item("stone")],"FALSE");
 **Usage example:** 
 ```ts
 player::boost_elytra(item("stick"));
+
+#Or dry by keywords
+
+player::boost_elytra(firework=item("stick"));
 ```
 
 **Arguments:**
@@ -928,6 +1117,10 @@ player::clear_ender_chest_contents();
 **Usage example:** 
 ```ts
 player::clear_inventory("ARMOR");
+
+#Or dry by keywords
+
+player::clear_inventory(clear_mode="ARMOR");
 ```
 
 **Arguments:**
@@ -947,6 +1140,10 @@ player::clear_inventory("ARMOR");
 **Usage example:** 
 ```ts
 player::clear_items([item("stick"), item("stick")]);
+
+#Or dry by keywords
+
+player::clear_items(items=[item("stick"), item("stick")]);
 ```
 
 **Arguments:**
@@ -993,7 +1190,11 @@ player::close_inventory();
 
 **Usage example:** 
 ```ts
-player::damage(1,"source");
+player::damage(1, "source");
+
+#Or dry by keywords
+
+player::damage(damage=1, source="source");
 ```
 
 **Arguments:**
@@ -1013,7 +1214,11 @@ player::damage(1,"source");
 
 **Usage example:** 
 ```ts
-player::disguise_as_block(item("stone"),"FALSE");
+player::disguise_as_block(item("stone"), "FALSE");
+
+#Or dry by keywords
+
+player::disguise_as_block(block=item("stone"), visible_to_self="FALSE");
 ```
 
 **Arguments:**
@@ -1033,7 +1238,11 @@ player::disguise_as_block(item("stone"),"FALSE");
 
 **Usage example:** 
 ```ts
-player::disguise_as_entity(item("stick"),"FALSE");
+player::disguise_as_entity(item("stick"), "FALSE");
+
+#Or dry by keywords
+
+player::disguise_as_entity(entity_type=item("stick"), visible_to_self="FALSE");
 ```
 
 **Arguments:**
@@ -1053,7 +1262,11 @@ player::disguise_as_entity(item("stick"),"FALSE");
 
 **Usage example:** 
 ```ts
-player::disguise_as_item(item("stick"),"FALSE");
+player::disguise_as_item(item("stick"), "FALSE");
+
+#Or dry by keywords
+
+player::disguise_as_item(item=item("stick"), visible_to_self="FALSE");
 ```
 
 **Arguments:**
@@ -1077,11 +1290,15 @@ player::disguise_as_item(item("stick"),"FALSE");
 
 **Usage example:** 
 ```ts
-player::display_bell_ring(location(0,0,0,0,0),"DOWN");
+player::display_bell_ring(location(0,0,0,0,0), "DOWN");
 
 #Or from the object
 
 location(0,0,0,0,0).display_bell_ring("DOWN");
+
+#Or dry by keywords
+
+player::display_bell_ring(location=location(0,0,0,0,0), direction="DOWN");
 ```
 
 **Arguments:**
@@ -1101,7 +1318,11 @@ location(0,0,0,0,0).display_bell_ring("DOWN");
 
 **Usage example:** 
 ```ts
-player::display_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stone"));
+player::display_block([location(0,0,0,0,0), location(0,0,0,0,0)], item("stone"));
+
+#Or dry by keywords
+
+player::display_block(location=[location(0,0,0,0,0), location(0,0,0,0,0)], block=item("stone"));
 ```
 
 **Arguments:**
@@ -1121,7 +1342,11 @@ player::display_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stone"));
 
 **Usage example:** 
 ```ts
-player::display_end_gateway_beam(location(0,0,0,0,0),"DARK_PURPLE");
+player::display_end_gateway_beam(location(0,0,0,0,0), "DARK_PURPLE");
+
+#Or dry by keywords
+
+player::display_end_gateway_beam(location=location(0,0,0,0,0), color="DARK_PURPLE");
 ```
 
 **Arguments:**
@@ -1143,7 +1368,11 @@ player::display_end_gateway_beam(location(0,0,0,0,0),"DARK_PURPLE");
 
 **Usage example:** 
 ```ts
-player::display_hologram(location(0,0,0,0,0),"text");
+player::display_hologram(location(0,0,0,0,0), "text");
+
+#Or dry by keywords
+
+player::display_hologram(location=location(0,0,0,0,0), text="text");
 ```
 
 **Arguments:**
@@ -1164,6 +1393,10 @@ player::display_hologram(location(0,0,0,0,0),"text");
 **Usage example:** 
 ```ts
 player::display_lightning(location(0,0,0,0,0));
+
+#Or dry by keywords
+
+player::display_lightning(location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -1182,7 +1415,11 @@ player::display_lightning(location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-player::display_particle([particle("fire"), particle("fire")],[location(0,0,0,0,0), location(0,0,0,0,0)]);
+player::display_particle([particle("fire"), particle("fire")], [location(0,0,0,0,0), location(0,0,0,0,0)]);
+
+#Or dry by keywords
+
+player::display_particle(particle=[particle("fire"), particle("fire")], location=[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
 
 **Arguments:**
@@ -1202,7 +1439,11 @@ player::display_particle([particle("fire"), particle("fire")],[location(0,0,0,0,
 
 **Usage example:** 
 ```ts
-player::display_particle_circle(particle("fire"),location(0,0,0,0,0),1,2,3,vector(0,0,0),"DEGREES");
+player::display_particle_circle(particle("fire"), location(0,0,0,0,0), 1, 2, 3, vector(0,0,0), "DEGREES");
+
+#Or dry by keywords
+
+player::display_particle_circle(particle=particle("fire"), center=location(0,0,0,0,0), radius=1, points=2, start_angle=3, perpendicular=vector(0,0,0), angle_unit="DEGREES");
 ```
 
 **Arguments:**
@@ -1227,7 +1468,11 @@ player::display_particle_circle(particle("fire"),location(0,0,0,0,0),1,2,3,vecto
 
 **Usage example:** 
 ```ts
-player::display_particle_cube(particle("fire"),location(0,0,0,0,0),location(0,0,0,0,0),1,"HOLLOW");
+player::display_particle_cube(particle("fire"), location(0,0,0,0,0), location(0,0,0,0,0), 1, "HOLLOW");
+
+#Or dry by keywords
+
+player::display_particle_cube(particle=particle("fire"), first_corner=location(0,0,0,0,0), second_corner=location(0,0,0,0,0), spacing=1, type="HOLLOW");
 ```
 
 **Arguments:**
@@ -1250,7 +1495,11 @@ player::display_particle_cube(particle("fire"),location(0,0,0,0,0),location(0,0,
 
 **Usage example:** 
 ```ts
-player::display_particle_line(particle("fire"),location(0,0,0,0,0),location(0,0,0,0,0),1,"DISTANCE");
+player::display_particle_line(particle("fire"), location(0,0,0,0,0), location(0,0,0,0,0), 1, "DISTANCE");
+
+#Or dry by keywords
+
+player::display_particle_line(particle=particle("fire"), start=location(0,0,0,0,0), end=location(0,0,0,0,0), divider=1, unit_of_measurement="DISTANCE");
 ```
 
 **Arguments:**
@@ -1273,7 +1522,11 @@ player::display_particle_line(particle("fire"),location(0,0,0,0,0),location(0,0,
 
 **Usage example:** 
 ```ts
-player::display_particle_ray(particle("fire"),location(0,0,0,0,0),vector(0,0,0),1,"DISTANCE");
+player::display_particle_ray(particle("fire"), location(0,0,0,0,0), vector(0,0,0), 1, "DISTANCE");
+
+#Or dry by keywords
+
+player::display_particle_ray(particle=particle("fire"), start=location(0,0,0,0,0), ray=vector(0,0,0), divider=1, unit_of_measurement="DISTANCE");
 ```
 
 **Arguments:**
@@ -1296,7 +1549,11 @@ player::display_particle_ray(particle("fire"),location(0,0,0,0,0),vector(0,0,0),
 
 **Usage example:** 
 ```ts
-player::display_particle_sphere(particle("fire"),location(0,0,0,0,0),1,2);
+player::display_particle_sphere(particle("fire"), location(0,0,0,0,0), 1, 2);
+
+#Or dry by keywords
+
+player::display_particle_sphere(particle=particle("fire"), center=location(0,0,0,0,0), radius=1, points=2);
 ```
 
 **Arguments:**
@@ -1318,7 +1575,11 @@ player::display_particle_sphere(particle("fire"),location(0,0,0,0,0),1,2);
 
 **Usage example:** 
 ```ts
-player::display_particle_spiral(particle("fire"),location(0,0,0,0,0),1,2,3,4,5,"DEGREES");
+player::display_particle_spiral(particle("fire"), location(0,0,0,0,0), 1, 2, 3, 4, 5, "DEGREES");
+
+#Or dry by keywords
+
+player::display_particle_spiral(particle=particle("fire"), center=location(0,0,0,0,0), distance=1, radius=2, points=3, rotations=4, start_angle=5, angle_unit="DEGREES");
 ```
 
 **Arguments:**
@@ -1347,7 +1608,11 @@ player::display_particle_spiral(particle("fire"),location(0,0,0,0,0),1,2,3,4,5,"
 
 **Usage example:** 
 ```ts
-player::display_pick_up_animation("collected_name_or_uuid","collector_name_or_uuid",1);
+player::display_pick_up_animation("collected_name_or_uuid", "collector_name_or_uuid", 1);
+
+#Or dry by keywords
+
+player::display_pick_up_animation(collected_name_or_uuid="collected_name_or_uuid", collector_name_or_uuid="collector_name_or_uuid", amount=1);
 ```
 
 **Arguments:**
@@ -1368,7 +1633,11 @@ player::display_pick_up_animation("collected_name_or_uuid","collector_name_or_uu
 
 **Usage example:** 
 ```ts
-player::display_sign_text(location(0,0,0,0,0),"line_1","line_2","line_3","line_4");
+player::display_sign_text(location(0,0,0,0,0), "line_1", "line_2", "line_3", "line_4");
+
+#Or dry by keywords
+
+player::display_sign_text(location=location(0,0,0,0,0), line_1="line_1", line_2="line_2", line_3="line_3", line_4="line_4");
 ```
 
 **Arguments:**
@@ -1391,7 +1660,11 @@ player::display_sign_text(location(0,0,0,0,0),"line_1","line_2","line_3","line_4
 
 **Usage example:** 
 ```ts
-player::display_vibration(location(0,0,0,0,0),location(0,0,0,0,0),1);
+player::display_vibration(location(0,0,0,0,0), location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+player::display_vibration(from=location(0,0,0,0,0), to=location(0,0,0,0,0), destination_time=1);
 ```
 
 **Arguments:**
@@ -1426,7 +1699,11 @@ player::dummy();
 
 **Usage example:** 
 ```ts
-player::expand_inventory_menu([item("stick"), item("stick")],1);
+player::expand_inventory_menu([item("stick"), item("stick")], 1);
+
+#Or dry by keywords
+
+player::expand_inventory_menu(items=[item("stick"), item("stick")], size=1);
 ```
 
 **Arguments:**
@@ -1447,6 +1724,10 @@ player::expand_inventory_menu([item("stick"), item("stick")],1);
 **Usage example:** 
 ```ts
 player::face_location(location(0,0,0,0,0));
+
+#Or dry by keywords
+
+player::face_location(location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -1466,6 +1747,10 @@ player::face_location(location(0,0,0,0,0));
 **Usage example:** 
 ```ts
 player::force_flight_mode("FALSE");
+
+#Or dry by keywords
+
+player::force_flight_mode(is_flying="FALSE");
 ```
 
 **Arguments:**
@@ -1484,7 +1769,11 @@ player::force_flight_mode("FALSE");
 
 **Usage example:** 
 ```ts
-player::give_experience(1,"LEVEL");
+player::give_experience(1, "LEVEL");
+
+#Or dry by keywords
+
+player::give_experience(experience=1, mode="LEVEL");
 ```
 
 **Arguments:**
@@ -1504,7 +1793,11 @@ player::give_experience(1,"LEVEL");
 
 **Usage example:** 
 ```ts
-player::give_items([item("stick"), item("stick")],1);
+player::give_items([item("stick"), item("stick")], 1);
+
+#Or dry by keywords
+
+player::give_items(items=[item("stick"), item("stick")], amount=1);
 ```
 
 **Arguments:**
@@ -1524,7 +1817,11 @@ player::give_items([item("stick"), item("stick")],1);
 
 **Usage example:** 
 ```ts
-player::give_potion_effect([potion("slow_falling"), potion("slow_falling")],"FALSE","FALSE","AMBIENT");
+player::give_potion_effect([potion("slow_falling"), potion("slow_falling")], "FALSE", "FALSE", "AMBIENT");
+
+#Or dry by keywords
+
+player::give_potion_effect(potions=[potion("slow_falling"), potion("slow_falling")], show_icon="FALSE", overwrite="FALSE", particle_mode="AMBIENT");
 ```
 
 **Arguments:**
@@ -1547,6 +1844,10 @@ player::give_potion_effect([potion("slow_falling"), potion("slow_falling")],"FAL
 **Usage example:** 
 ```ts
 player::give_random_item([item("stick"), item("stick")]);
+
+#Or dry by keywords
+
+player::give_random_item(items=[item("stick"), item("stick")]);
 ```
 
 **Arguments:**
@@ -1566,6 +1867,10 @@ player::give_random_item([item("stick"), item("stick")]);
 **Usage example:** 
 ```ts
 player::heal(1);
+
+#Or dry by keywords
+
+player::heal(heal=1);
 ```
 
 **Arguments:**
@@ -1584,7 +1889,11 @@ player::heal(1);
 
 **Usage example:** 
 ```ts
-player::hide_entity(["name_or_uuid", "name_or_uuid"],"FALSE");
+player::hide_entity(["name_or_uuid", "name_or_uuid"], "FALSE");
+
+#Or dry by keywords
+
+player::hide_entity(name_or_uuid=["name_or_uuid", "name_or_uuid"], hide="FALSE");
 ```
 
 **Arguments:**
@@ -1632,7 +1941,11 @@ player::kick();
 
 **Usage example:** 
 ```ts
-player::launch_forward(1,"FALSE","YAW");
+player::launch_forward(1, "FALSE", "YAW");
+
+#Or dry by keywords
+
+player::launch_forward(power=1, increment="FALSE", launch_axis="YAW");
 ```
 
 **Arguments:**
@@ -1653,7 +1966,11 @@ player::launch_forward(1,"FALSE","YAW");
 
 **Usage example:** 
 ```ts
-player::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle("fire"));
+player::launch_projectile(item("stick"), location(0,0,0,0,0), "name", 1, 2, particle("fire"));
+
+#Or dry by keywords
+
+player::launch_projectile(projectile=item("stick"), location=location(0,0,0,0,0), name="name", speed=1, inaccuracy=2, trail=particle("fire"));
 ```
 
 **Arguments:**
@@ -1677,7 +1994,11 @@ player::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle(
 
 **Usage example:** 
 ```ts
-player::launch_to_location(location(0,0,0,0,0),1,"FALSE");
+player::launch_to_location(location(0,0,0,0,0), 1, "FALSE");
+
+#Or dry by keywords
+
+player::launch_to_location(location=location(0,0,0,0,0), power=1, increment="FALSE");
 ```
 
 **Arguments:**
@@ -1698,7 +2019,11 @@ player::launch_to_location(location(0,0,0,0,0),1,"FALSE");
 
 **Usage example:** 
 ```ts
-player::launch_up(1,"FALSE");
+player::launch_up(1, "FALSE");
+
+#Or dry by keywords
+
+player::launch_up(power=1, increment="FALSE");
 ```
 
 **Arguments:**
@@ -1749,6 +2074,10 @@ player::load_inventory();
 **Usage example:** 
 ```ts
 player::open_book(item("stick"));
+
+#Or dry by keywords
+
+player::open_book(book=item("stick"));
 ```
 
 **Arguments:**
@@ -1768,6 +2097,10 @@ player::open_book(item("stick"));
 **Usage example:** 
 ```ts
 player::open_container_inventory(location(0,0,0,0,0));
+
+#Or dry by keywords
+
+player::open_container_inventory(location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -1787,6 +2120,10 @@ player::open_container_inventory(location(0,0,0,0,0));
 **Usage example:** 
 ```ts
 player::play_animation_action("DAMAGE");
+
+#Or dry by keywords
+
+player::play_animation_action(animation="DAMAGE");
 ```
 
 **Arguments:**
@@ -1806,6 +2143,10 @@ player::play_animation_action("DAMAGE");
 **Usage example:** 
 ```ts
 player::play_hurt_animation(1);
+
+#Or dry by keywords
+
+player::play_hurt_animation(yaw=1);
 ```
 
 **Arguments:**
@@ -1824,7 +2165,11 @@ player::play_hurt_animation(1);
 
 **Usage example:** 
 ```ts
-player::play_sound(sound("entity.zombie.hurt"),location(0,0,0,0,0));
+player::play_sound(sound("entity.zombie.hurt"), location(0,0,0,0,0));
+
+#Or dry by keywords
+
+player::play_sound(sound=sound("entity.zombie.hurt"), location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -1846,7 +2191,11 @@ player::play_sound(sound("entity.zombie.hurt"),location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-player::play_sound_from_entity("name_or_uuid",[sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
+player::play_sound_from_entity("name_or_uuid", [sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
+
+#Or dry by keywords
+
+player::play_sound_from_entity(name_or_uuid="name_or_uuid", sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 ```
 
 **Arguments:**
@@ -1866,7 +2215,11 @@ player::play_sound_from_entity("name_or_uuid",[sound("entity.zombie.hurt"), soun
 
 **Usage example:** 
 ```ts
-player::play_sound_sequence([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")],location(0,0,0,0,0),1);
+player::play_sound_sequence([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")], location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+player::play_sound_sequence(sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hurt")], location=location(0,0,0,0,0), delay=1);
 ```
 
 **Arguments:**
@@ -1887,7 +2240,11 @@ player::play_sound_sequence([sound("entity.zombie.hurt"), sound("entity.zombie.h
 
 **Usage example:** 
 ```ts
-player::randomized_teleport([location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE","FALSE","FALSE");
+player::randomized_teleport([location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE", "FALSE", "FALSE");
+
+#Or dry by keywords
+
+player::randomized_teleport(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], keep_rotation="FALSE", keep_velocity="FALSE", dismount="FALSE");
 ```
 
 **Arguments:**
@@ -1910,6 +2267,10 @@ player::randomized_teleport([location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE","
 **Usage example:** 
 ```ts
 player::redirect_world("world_id");
+
+#Or dry by keywords
+
+player::redirect_world(world_id="world_id");
 ```
 
 **Arguments:**
@@ -1929,6 +2290,10 @@ player::redirect_world("world_id");
 **Usage example:** 
 ```ts
 player::remove_boss_bar("id");
+
+#Or dry by keywords
+
+player::remove_boss_bar(id="id");
 ```
 
 **Arguments:**
@@ -1961,7 +2326,11 @@ player::remove_disguise();
 
 **Usage example:** 
 ```ts
-player::remove_display_blocks(location(0,0,0,0,0),location(0,0,0,0,0));
+player::remove_display_blocks(location(0,0,0,0,0), location(0,0,0,0,0));
+
+#Or dry by keywords
+
+player::remove_display_blocks(pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -1981,7 +2350,11 @@ player::remove_display_blocks(location(0,0,0,0,0),location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-player::remove_inventory_menu_row(1,"BUTTON");
+player::remove_inventory_menu_row(1, "BUTTON");
+
+#Or dry by keywords
+
+player::remove_inventory_menu_row(size=1, position="BUTTON");
 ```
 
 **Arguments:**
@@ -2002,6 +2375,10 @@ player::remove_inventory_menu_row(1,"BUTTON");
 **Usage example:** 
 ```ts
 player::remove_items([item("stick"), item("stick")]);
+
+#Or dry by keywords
+
+player::remove_items(items=[item("stick"), item("stick")]);
 ```
 
 **Arguments:**
@@ -2035,6 +2412,10 @@ player::remove_pose();
 **Usage example:** 
 ```ts
 player::remove_potion_effect([potion("slow_falling"), potion("slow_falling")]);
+
+#Or dry by keywords
+
+player::remove_potion_effect(potions=[potion("slow_falling"), potion("slow_falling")]);
 ```
 
 **Arguments:**
@@ -2095,7 +2476,11 @@ player::remove_world_border();
 
 **Usage example:** 
 ```ts
-player::replace_items([item("stick"), item("stick")],item("stick"),1);
+player::replace_items([item("stick"), item("stick")], item("stick"), 1);
+
+#Or dry by keywords
+
+player::replace_items(items=[item("stick"), item("stick")], replace=item("stick"), count=1);
 ```
 
 **Arguments:**
@@ -2131,6 +2516,10 @@ player::reset_weather();
 **Usage example:** 
 ```ts
 player::ride_entity("name_or_uuid");
+
+#Or dry by keywords
+
+player::ride_entity(name_or_uuid="name_or_uuid");
 ```
 
 **Arguments:**
@@ -2164,6 +2553,10 @@ player::save_inventory();
 **Usage example:** 
 ```ts
 player::self_disguise_as_block(item("stone"));
+
+#Or dry by keywords
+
+player::self_disguise_as_block(block=item("stone"));
 ```
 
 **Arguments:**
@@ -2183,6 +2576,10 @@ player::self_disguise_as_block(item("stone"));
 **Usage example:** 
 ```ts
 player::self_disguise_as_entity(item("stick"));
+
+#Or dry by keywords
+
+player::self_disguise_as_entity(entity_type=item("stick"));
 ```
 
 **Arguments:**
@@ -2202,6 +2599,10 @@ player::self_disguise_as_entity(item("stick"));
 **Usage example:** 
 ```ts
 player::self_disguise_as_item(item("stick"));
+
+#Or dry by keywords
+
+player::self_disguise_as_item(item=item("stick"));
 ```
 
 **Arguments:**
@@ -2220,7 +2621,11 @@ player::self_disguise_as_item(item("stick"));
 
 **Usage example:** 
 ```ts
-player::send_action_bar(["messages", "messages"],"CONCATENATION");
+player::send_action_bar(["messages", "messages"], "CONCATENATION");
+
+#Or dry by keywords
+
+player::send_action_bar(messages=["messages", "messages"], merging="CONCATENATION");
 ```
 
 **Arguments:**
@@ -2240,7 +2645,11 @@ player::send_action_bar(["messages", "messages"],"CONCATENATION");
 
 **Usage example:** 
 ```ts
-player::send_advancement(item("stick"),"name","CHALLENGE");
+player::send_advancement(item("stick"), "name", "CHALLENGE");
+
+#Or dry by keywords
+
+player::send_advancement(icon=item("stick"), name="name", frame="CHALLENGE");
 ```
 
 **Arguments:**
@@ -2261,7 +2670,11 @@ player::send_advancement(item("stick"),"name","CHALLENGE");
 
 **Usage example:** 
 ```ts
-player::send_break_animation([location(0,0,0,0,0), location(0,0,0,0,0)],1);
+player::send_break_animation([location(0,0,0,0,0), location(0,0,0,0,0)], 1);
+
+#Or dry by keywords
+
+player::send_break_animation(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], stage=1);
 ```
 
 **Arguments:**
@@ -2281,7 +2694,11 @@ player::send_break_animation([location(0,0,0,0,0), location(0,0,0,0,0)],1);
 
 **Usage example:** 
 ```ts
-player::send_dialogue(["messages", "messages"],1);
+player::send_dialogue(["messages", "messages"], 1);
+
+#Or dry by keywords
+
+player::send_dialogue(messages=["messages", "messages"], delay=1);
 ```
 
 **Arguments:**
@@ -2301,7 +2718,11 @@ player::send_dialogue(["messages", "messages"],1);
 
 **Usage example:** 
 ```ts
-player::send_hover("message","hover");
+player::send_hover("message", "hover");
+
+#Or dry by keywords
+
+player::send_hover(message="message", hover="hover");
 ```
 
 **Arguments:**
@@ -2321,7 +2742,11 @@ player::send_hover("message","hover");
 
 **Usage example:** 
 ```ts
-player::message(["messages", "messages"],"CONCATENATION");
+player::message(["messages", "messages"], "CONCATENATION");
+
+#Or dry by keywords
+
+player::message(messages=["messages", "messages"], merging="CONCATENATION");
 ```
 
 **Arguments:**
@@ -2342,6 +2767,10 @@ player::message(["messages", "messages"],"CONCATENATION");
 **Usage example:** 
 ```ts
 player::send_minimessage("minimessage");
+
+#Or dry by keywords
+
+player::send_minimessage(minimessage="minimessage");
 ```
 
 **Arguments:**
@@ -2360,7 +2789,11 @@ player::send_minimessage("minimessage");
 
 **Usage example:** 
 ```ts
-player::send_title("title","subtitle",1,2,3);
+player::send_title("title", "subtitle", 1, 2, 3);
+
+#Or dry by keywords
+
+player::send_title(title="title", subtitle="subtitle", fade_in=1, stay=2, fade_out=3);
 ```
 
 **Arguments:**
@@ -2384,6 +2817,10 @@ player::send_title("title","subtitle",1,2,3);
 **Usage example:** 
 ```ts
 player::set_absorption_health(1);
+
+#Or dry by keywords
+
+player::set_absorption_health(health=1);
 ```
 
 **Arguments:**
@@ -2403,6 +2840,10 @@ player::set_absorption_health(1);
 **Usage example:** 
 ```ts
 player::set_air_ticks(1);
+
+#Or dry by keywords
+
+player::set_air_ticks(ticks=1);
 ```
 
 **Arguments:**
@@ -2422,6 +2863,10 @@ player::set_air_ticks(1);
 **Usage example:** 
 ```ts
 player::set_allow_flying("FALSE");
+
+#Or dry by keywords
+
+player::set_allow_flying(allow_flying="FALSE");
 ```
 
 **Arguments:**
@@ -2442,7 +2887,11 @@ player::set_allow_flying("FALSE");
 
 **Usage example:** 
 ```ts
-player::set_armor(item("stick"),item("stick"),item("stick"),item("stick"));
+player::set_armor(item("stick"), item("stick"), item("stick"), item("stick"));
+
+#Or dry by keywords
+
+player::set_armor(helmet=item("stick"), chestplate=item("stick"), leggings=item("stick"), boots=item("stick"));
 ```
 
 **Arguments:**
@@ -2465,6 +2914,10 @@ player::set_armor(item("stick"),item("stick"),item("stick"),item("stick"));
 **Usage example:** 
 ```ts
 player::set_arrows_in_body(1);
+
+#Or dry by keywords
+
+player::set_arrows_in_body(amount=1);
 ```
 
 **Arguments:**
@@ -2484,6 +2937,10 @@ player::set_arrows_in_body(1);
 **Usage example:** 
 ```ts
 player::set_attack_speed(1);
+
+#Or dry by keywords
+
+player::set_attack_speed(speed=1);
 ```
 
 **Arguments:**
@@ -2502,7 +2959,11 @@ player::set_attack_speed(1);
 
 **Usage example:** 
 ```ts
-player::set_attribute(1,"GENERIC_ARMOR");
+player::set_attribute(1, "GENERIC_ARMOR");
+
+#Or dry by keywords
+
+player::set_attribute(value=1, attribute_type="GENERIC_ARMOR");
 ```
 
 **Arguments:**
@@ -2523,6 +2984,10 @@ player::set_attribute(1,"GENERIC_ARMOR");
 **Usage example:** 
 ```ts
 player::set_bee_stingers_in_body(1);
+
+#Or dry by keywords
+
+player::set_bee_stingers_in_body(amount=1);
 ```
 
 **Arguments:**
@@ -2547,7 +3012,11 @@ player::set_bee_stingers_in_body(1);
 
 **Usage example:** 
 ```ts
-player::set_block_opened_state(location(0,0,0,0,0),"FALSE");
+player::set_block_opened_state(location(0,0,0,0,0), "FALSE");
+
+#Or dry by keywords
+
+player::set_block_opened_state(location=location(0,0,0,0,0), is_opened="FALSE");
 ```
 
 **Arguments:**
@@ -2567,7 +3036,11 @@ player::set_block_opened_state(location(0,0,0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-player::set_boss_bar("id","title",1,"DARK_SKY","NOTCHED_10","BLUE");
+player::set_boss_bar("id", "title", 1, "DARK_SKY", "NOTCHED_10", "BLUE");
+
+#Or dry by keywords
+
+player::set_boss_bar(id="id", title="title", progress=1, sky_effect="DARK_SKY", style="NOTCHED_10", color="BLUE");
 ```
 
 **Arguments:**
@@ -2591,7 +3064,11 @@ player::set_boss_bar("id","title",1,"DARK_SKY","NOTCHED_10","BLUE");
 
 **Usage example:** 
 ```ts
-player::set_chat_completions(["completions", "completions"],"ADD");
+player::set_chat_completions(["completions", "completions"], "ADD");
+
+#Or dry by keywords
+
+player::set_chat_completions(completions=["completions", "completions"], setting_mode="ADD");
 ```
 
 **Arguments:**
@@ -2612,6 +3089,10 @@ player::set_chat_completions(["completions", "completions"],"ADD");
 **Usage example:** 
 ```ts
 player::set_collidable("FALSE");
+
+#Or dry by keywords
+
+player::set_collidable(collidable="FALSE");
 ```
 
 **Arguments:**
@@ -2631,6 +3112,10 @@ player::set_collidable("FALSE");
 **Usage example:** 
 ```ts
 player::set_compass_target(location(0,0,0,0,0));
+
+#Or dry by keywords
+
+player::set_compass_target(location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -2650,6 +3135,10 @@ player::set_compass_target(location(0,0,0,0,0));
 **Usage example:** 
 ```ts
 player::set_cursor_item(item("stick"));
+
+#Or dry by keywords
+
+player::set_cursor_item(item=item("stick"));
 ```
 
 **Arguments:**
@@ -2669,6 +3158,10 @@ player::set_cursor_item(item("stick"));
 **Usage example:** 
 ```ts
 player::set_death_drops("FALSE");
+
+#Or dry by keywords
+
+player::set_death_drops(death_drops="FALSE");
 ```
 
 **Arguments:**
@@ -2676,6 +3169,31 @@ player::set_death_drops("FALSE");
 | **Name**      | **Type**                                                 | **Description** |
 | ------------- | -------------------------------------------------------- | --------------- |
 | `death_drops` | Marker<br/>**FALSE** - Does not drop<br/>**TRUE** - Drop | Item Drops      |
+<h3 id=player_set_death_screen_score>
+  <code>player::set_death_screen_score</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+player::set_death_screen_score(1);
+
+#Or dry by keywords
+
+player::set_death_screen_score(score=1);
+```
+
+**Arguments:**
+
+| **Name** | **Type** | **Description** |
+| -------- | -------- | --------------- |
+| `score`  | Number   | None            |
 <h3 id=player_set_default_visible>
   <code>player::set_default_visible</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2690,6 +3208,10 @@ player::set_death_drops("FALSE");
 **Usage example:** 
 ```ts
 player::set_default_visible("TRUE");
+
+#Or dry by keywords
+
+player::set_default_visible(default_visible="TRUE");
 ```
 
 **Arguments:**
@@ -2709,6 +3231,10 @@ player::set_default_visible("TRUE");
 **Usage example:** 
 ```ts
 player::set_ender_chest_contents([item("stick"), item("stick")]);
+
+#Or dry by keywords
+
+player::set_ender_chest_contents(items=[item("stick"), item("stick")]);
 ```
 
 **Arguments:**
@@ -2727,7 +3253,11 @@ player::set_ender_chest_contents([item("stick"), item("stick")]);
 
 **Usage example:** 
 ```ts
-player::set_entity_glowing(["name_or_uuid", "name_or_uuid"],"AQUA","FALSE");
+player::set_entity_glowing(["name_or_uuid", "name_or_uuid"], "AQUA", "FALSE");
+
+#Or dry by keywords
+
+player::set_entity_glowing(name_or_uuid=["name_or_uuid", "name_or_uuid"], color="AQUA", glow="FALSE");
 ```
 
 **Arguments:**
@@ -2748,7 +3278,11 @@ player::set_entity_glowing(["name_or_uuid", "name_or_uuid"],"AQUA","FALSE");
 
 **Usage example:** 
 ```ts
-player::set_equipment(item("stick"),"BODY");
+player::set_equipment(item("stick"), "BODY");
+
+#Or dry by keywords
+
+player::set_equipment(item=item("stick"), slot="BODY");
 ```
 
 **Arguments:**
@@ -2768,7 +3302,11 @@ player::set_equipment(item("stick"),"BODY");
 
 **Usage example:** 
 ```ts
-player::set_exhaustion(1,"ADD");
+player::set_exhaustion(1, "ADD");
+
+#Or dry by keywords
+
+player::set_exhaustion(exhaustion=1, mode="ADD");
 ```
 
 **Arguments:**
@@ -2788,7 +3326,11 @@ player::set_exhaustion(1,"ADD");
 
 **Usage example:** 
 ```ts
-player::set_experience(1,"LEVEL");
+player::set_experience(1, "LEVEL");
+
+#Or dry by keywords
+
+player::set_experience(experience=1, mode="LEVEL");
 ```
 
 **Arguments:**
@@ -2809,6 +3351,10 @@ player::set_experience(1,"LEVEL");
 **Usage example:** 
 ```ts
 player::set_fall_distance(1);
+
+#Or dry by keywords
+
+player::set_fall_distance(distance=1);
 ```
 
 **Arguments:**
@@ -2828,6 +3374,10 @@ player::set_fall_distance(1);
 **Usage example:** 
 ```ts
 player::set_fire_ticks(1);
+
+#Or dry by keywords
+
+player::set_fire_ticks(ticks=1);
 ```
 
 **Arguments:**
@@ -2847,6 +3397,10 @@ player::set_fire_ticks(1);
 **Usage example:** 
 ```ts
 player::set_flying("FALSE");
+
+#Or dry by keywords
+
+player::set_flying(is_flying="FALSE");
 ```
 
 **Arguments:**
@@ -2866,6 +3420,10 @@ player::set_flying("FALSE");
 **Usage example:** 
 ```ts
 player::set_fog_distance(1);
+
+#Or dry by keywords
+
+player::set_fog_distance(distance=1);
 ```
 
 **Arguments:**
@@ -2884,7 +3442,11 @@ player::set_fog_distance(1);
 
 **Usage example:** 
 ```ts
-player::set_food(1,"ADD");
+player::set_food(1, "ADD");
+
+#Or dry by keywords
+
+player::set_food(food=1, mode="ADD");
 ```
 
 **Arguments:**
@@ -2904,7 +3466,11 @@ player::set_food(1,"ADD");
 
 **Usage example:** 
 ```ts
-player::set_freeze_ticks(1,"FALSE");
+player::set_freeze_ticks(1, "FALSE");
+
+#Or dry by keywords
+
+player::set_freeze_ticks(ticks=1, ticking_locked="FALSE");
 ```
 
 **Arguments:**
@@ -2924,7 +3490,11 @@ player::set_freeze_ticks(1,"FALSE");
 
 **Usage example:** 
 ```ts
-player::set_gamemode("ADVENTURE","KEEP_ORIGINAL");
+player::set_gamemode("ADVENTURE", "KEEP_ORIGINAL");
+
+#Or dry by keywords
+
+player::set_gamemode(gamemode="ADVENTURE", flight_mode="KEEP_ORIGINAL");
 ```
 
 **Arguments:**
@@ -2945,6 +3515,10 @@ player::set_gamemode("ADVENTURE","KEEP_ORIGINAL");
 **Usage example:** 
 ```ts
 player::set_gliding("FALSE");
+
+#Or dry by keywords
+
+player::set_gliding(is_gliding="FALSE");
 ```
 
 **Arguments:**
@@ -2964,6 +3538,10 @@ player::set_gliding("FALSE");
 **Usage example:** 
 ```ts
 player::set_health(1);
+
+#Or dry by keywords
+
+player::set_health(health=1);
 ```
 
 **Arguments:**
@@ -2983,6 +3561,10 @@ player::set_health(1);
 **Usage example:** 
 ```ts
 player::set_hotbar_slot(1);
+
+#Or dry by keywords
+
+player::set_hotbar_slot(slot=1);
 ```
 
 **Arguments:**
@@ -3002,6 +3584,10 @@ player::set_hotbar_slot(1);
 **Usage example:** 
 ```ts
 player::set_instant_respawn("FALSE");
+
+#Or dry by keywords
+
+player::set_instant_respawn(instant_respawn="FALSE");
 ```
 
 **Arguments:**
@@ -3021,6 +3607,10 @@ player::set_instant_respawn("FALSE");
 **Usage example:** 
 ```ts
 player::set_inventory_kept("FALSE");
+
+#Or dry by keywords
+
+player::set_inventory_kept(kept="FALSE");
 ```
 
 **Arguments:**
@@ -3039,7 +3629,11 @@ player::set_inventory_kept("FALSE");
 
 **Usage example:** 
 ```ts
-player::set_inventory_menu_item(item("stick"),1);
+player::set_inventory_menu_item(item("stick"), 1);
+
+#Or dry by keywords
+
+player::set_inventory_menu_item(item=item("stick"), slot=1);
 ```
 
 **Arguments:**
@@ -3060,6 +3654,10 @@ player::set_inventory_menu_item(item("stick"),1);
 **Usage example:** 
 ```ts
 player::set_inventory_menu_name("text");
+
+#Or dry by keywords
+
+player::set_inventory_menu_name(text="text");
 ```
 
 **Arguments:**
@@ -3079,6 +3677,10 @@ player::set_inventory_menu_name("text");
 **Usage example:** 
 ```ts
 player::set_invulnerability_ticks(1);
+
+#Or dry by keywords
+
+player::set_invulnerability_ticks(ticks=1);
 ```
 
 **Arguments:**
@@ -3099,7 +3701,11 @@ player::set_invulnerability_ticks(1);
 
 **Usage example:** 
 ```ts
-player::set_item_cooldown(1,item("stick"),sound("entity.zombie.hurt"));
+player::set_item_cooldown(1, item("stick"), sound("entity.zombie.hurt"));
+
+#Or dry by keywords
+
+player::set_item_cooldown(cooldown=1, item=item("stick"), sound=sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -3121,6 +3727,10 @@ player::set_item_cooldown(1,item("stick"),sound("entity.zombie.hurt"));
 **Usage example:** 
 ```ts
 player::set_items([item("stick"), item("stick")]);
+
+#Or dry by keywords
+
+player::set_items(items=[item("stick"), item("stick")]);
 ```
 
 **Arguments:**
@@ -3139,7 +3749,11 @@ player::set_items([item("stick"), item("stick")]);
 
 **Usage example:** 
 ```ts
-player::set_max_health(1,"FALSE");
+player::set_max_health(1, "FALSE");
+
+#Or dry by keywords
+
+player::set_max_health(health=1, heal="FALSE");
 ```
 
 **Arguments:**
@@ -3159,7 +3773,11 @@ player::set_max_health(1,"FALSE");
 
 **Usage example:** 
 ```ts
-player::set_movement_speed(1,"FLY");
+player::set_movement_speed(1, "FLY");
+
+#Or dry by keywords
+
+player::set_movement_speed(distance=1, movement_type="FLY");
 ```
 
 **Arguments:**
@@ -3180,6 +3798,10 @@ player::set_movement_speed(1,"FLY");
 **Usage example:** 
 ```ts
 player::set_nametag_visible("FALSE");
+
+#Or dry by keywords
+
+player::set_nametag_visible(visible="FALSE");
 ```
 
 **Arguments:**
@@ -3198,7 +3820,11 @@ player::set_nametag_visible("FALSE");
 
 **Usage example:** 
 ```ts
-player::set_player_list_info(["text", "text"],"CONCATENATION","FOOTER");
+player::set_player_list_info(["text", "text"], "CONCATENATION", "FOOTER");
+
+#Or dry by keywords
+
+player::set_player_list_info(text=["text", "text"], merging="CONCATENATION", position="FOOTER");
 ```
 
 **Arguments:**
@@ -3219,7 +3845,11 @@ player::set_player_list_info(["text", "text"],"CONCATENATION","FOOTER");
 
 **Usage example:** 
 ```ts
-player::set_pose("CROAKING","FALSE");
+player::set_pose("CROAKING", "FALSE");
+
+#Or dry by keywords
+
+player::set_pose(pose="CROAKING", locked="FALSE");
 ```
 
 **Arguments:**
@@ -3240,6 +3870,10 @@ player::set_pose("CROAKING","FALSE");
 **Usage example:** 
 ```ts
 player::set_pvp("FALSE");
+
+#Or dry by keywords
+
+player::set_pvp(pvp="FALSE");
 ```
 
 **Arguments:**
@@ -3259,6 +3893,10 @@ player::set_pvp("FALSE");
 **Usage example:** 
 ```ts
 player::set_rain_level(1);
+
+#Or dry by keywords
+
+player::set_rain_level(rain_level=1);
 ```
 
 **Arguments:**
@@ -3277,7 +3915,11 @@ player::set_rain_level(1);
 
 **Usage example:** 
 ```ts
-player::set_rotation(1,2);
+player::set_rotation(1, 2);
+
+#Or dry by keywords
+
+player::set_rotation(yaw=1, pitch=2);
 ```
 
 **Arguments:**
@@ -3298,6 +3940,10 @@ player::set_rotation(1,2);
 **Usage example:** 
 ```ts
 player::set_rotation_by_vector(vector(0,0,0));
+
+#Or dry by keywords
+
+player::set_rotation_by_vector(vector=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -3316,7 +3962,11 @@ player::set_rotation_by_vector(vector(0,0,0));
 
 **Usage example:** 
 ```ts
-player::set_saturation(1,"ADD");
+player::set_saturation(1, "ADD");
+
+#Or dry by keywords
+
+player::set_saturation(saturation=1, mode="ADD");
 ```
 
 **Arguments:**
@@ -3337,6 +3987,10 @@ player::set_saturation(1,"ADD");
 **Usage example:** 
 ```ts
 player::set_simulation_distance(1);
+
+#Or dry by keywords
+
+player::set_simulation_distance(distance=1);
 ```
 
 **Arguments:**
@@ -3355,7 +4009,11 @@ player::set_simulation_distance(1);
 
 **Usage example:** 
 ```ts
-player::set_skin("name_or_uuid","MOJANG");
+player::set_skin("name_or_uuid", "MOJANG");
+
+#Or dry by keywords
+
+player::set_skin(name_or_uuid="name_or_uuid", server_type="MOJANG");
 ```
 
 **Arguments:**
@@ -3375,7 +4033,11 @@ player::set_skin("name_or_uuid","MOJANG");
 
 **Usage example:** 
 ```ts
-player::set_slot_item(item("stick"),1);
+player::set_slot_item(item("stick"), 1);
+
+#Or dry by keywords
+
+player::set_slot_item(item=item("stick"), slot=1);
 ```
 
 **Arguments:**
@@ -3396,6 +4058,10 @@ player::set_slot_item(item("stick"),1);
 **Usage example:** 
 ```ts
 player::set_spawn_point(location(0,0,0,0,0));
+
+#Or dry by keywords
+
+player::set_spawn_point(spawn_point=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -3417,6 +4083,10 @@ player::set_spawn_point(location(0,0,0,0,0));
 **Usage example:** 
 ```ts
 player::set_thunder_level(1);
+
+#Or dry by keywords
+
+player::set_thunder_level(thunder_level=1);
 ```
 
 **Arguments:**
@@ -3436,6 +4106,10 @@ player::set_thunder_level(1);
 **Usage example:** 
 ```ts
 player::set_tick_rate(1);
+
+#Or dry by keywords
+
+player::set_tick_rate(tick_rate=1);
 ```
 
 **Arguments:**
@@ -3455,6 +4129,10 @@ player::set_tick_rate(1);
 **Usage example:** 
 ```ts
 player::set_time(1);
+
+#Or dry by keywords
+
+player::set_time(time=1);
 ```
 
 **Arguments:**
@@ -3473,7 +4151,11 @@ player::set_time(1);
 
 **Usage example:** 
 ```ts
-player::set_velocity(vector(0,0,0),"FALSE");
+player::set_velocity(vector(0,0,0), "FALSE");
+
+#Or dry by keywords
+
+player::set_velocity(velocity=vector(0,0,0), increment="FALSE");
 ```
 
 **Arguments:**
@@ -3494,6 +4176,10 @@ player::set_velocity(vector(0,0,0),"FALSE");
 **Usage example:** 
 ```ts
 player::set_visual_fire("FALSE");
+
+#Or dry by keywords
+
+player::set_visual_fire(visual_fire="FALSE");
 ```
 
 **Arguments:**
@@ -3513,6 +4199,10 @@ player::set_visual_fire("FALSE");
 **Usage example:** 
 ```ts
 player::set_weather("CLEAR");
+
+#Or dry by keywords
+
+player::set_weather(weather_type="CLEAR");
 ```
 
 **Arguments:**
@@ -3531,7 +4221,11 @@ player::set_weather("CLEAR");
 
 **Usage example:** 
 ```ts
-player::set_world_border(location(0,0,0,0,0),1,2);
+player::set_world_border(location(0,0,0,0,0), 1, 2);
+
+#Or dry by keywords
+
+player::set_world_border(center=location(0,0,0,0,0), size=1, warning=2);
 ```
 
 **Arguments:**
@@ -3552,7 +4246,11 @@ player::set_world_border(location(0,0,0,0,0),1,2);
 
 **Usage example:** 
 ```ts
-player::shift_world_border(1,2,3);
+player::shift_world_border(1, 2, 3);
+
+#Or dry by keywords
+
+player::shift_world_border(old_size=1, size=2, time=3);
 ```
 
 **Arguments:**
@@ -3575,7 +4273,11 @@ player::shift_world_border(1,2,3);
 
 **Usage example:** 
 ```ts
-player::show_debug_marker(location(0,0,0,0,0),"name",1,2,3,4,5);
+player::show_debug_marker(location(0,0,0,0,0), "name", 1, 2, 3, 4, 5);
+
+#Or dry by keywords
+
+player::show_debug_marker(location=location(0,0,0,0,0), name="name", duration=1, red=2, green=3, blue=4, alpha=5);
 ```
 
 **Arguments:**
@@ -3614,7 +4316,11 @@ player::show_demo_screen();
 
 **Usage example:** 
 ```ts
-player::show_inventory_menu([item("stick"), item("stick")],"name","ANVIL");
+player::show_inventory_menu([item("stick"), item("stick")], "name", "ANVIL");
+
+#Or dry by keywords
+
+player::show_inventory_menu(items=[item("stick"), item("stick")], name="name", inventory_type="ANVIL");
 ```
 
 **Arguments:**
@@ -3636,6 +4342,10 @@ player::show_inventory_menu([item("stick"), item("stick")],"name","ANVIL");
 **Usage example:** 
 ```ts
 player::show_scoreboard("id");
+
+#Or dry by keywords
+
+player::show_scoreboard(id="id");
 ```
 
 **Arguments:**
@@ -3671,6 +4381,10 @@ player::show_win_screen();
 **Usage example:** 
 ```ts
 player::spectate_target("name_or_uuid");
+
+#Or dry by keywords
+
+player::spectate_target(name_or_uuid="name_or_uuid");
 ```
 
 **Arguments:**
@@ -3690,6 +4404,10 @@ player::spectate_target("name_or_uuid");
 **Usage example:** 
 ```ts
 player::stop_sound([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
+
+#Or dry by keywords
+
+player::stop_sound(sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 ```
 
 **Arguments:**
@@ -3709,6 +4427,10 @@ player::stop_sound([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 **Usage example:** 
 ```ts
 player::stop_sounds_by_source("AMBIENT");
+
+#Or dry by keywords
+
+player::stop_sounds_by_source(source="AMBIENT");
 ```
 
 **Arguments:**
@@ -3728,6 +4450,10 @@ player::stop_sounds_by_source("AMBIENT");
 **Usage example:** 
 ```ts
 player::swing_hand("MAIN");
+
+#Or dry by keywords
+
+player::swing_hand(hand_type="MAIN");
 ```
 
 **Arguments:**
@@ -3748,7 +4474,11 @@ player::swing_hand("MAIN");
 
 **Usage example:** 
 ```ts
-player::teleport(location(0,0,0,0,0),"FALSE","FALSE","FALSE");
+player::teleport(location(0,0,0,0,0), "FALSE", "FALSE", "FALSE");
+
+#Or dry by keywords
+
+player::teleport(location=location(0,0,0,0,0), keep_rotation="FALSE", keep_velocity="FALSE", dismount="FALSE");
 ```
 
 **Arguments:**
@@ -3770,7 +4500,11 @@ player::teleport(location(0,0,0,0,0),"FALSE","FALSE","FALSE");
 
 **Usage example:** 
 ```ts
-player::teleport_sequence([location(0,0,0,0,0), location(0,0,0,0,0)],1);
+player::teleport_sequence([location(0,0,0,0,0), location(0,0,0,0,0)], 1);
+
+#Or dry by keywords
+
+player::teleport_sequence(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], delay=1);
 ```
 
 **Arguments:**

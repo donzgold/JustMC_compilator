@@ -10,6 +10,10 @@
 **Usage example:** 
 ```ts
 code::call_function("function_name");
+
+#Or dry by keywords
+
+code::call_function(function_name="function_name");
 ```
 
 **Arguments:**
@@ -30,7 +34,11 @@ code::call_function("function_name");
 
 **Usage example:** 
 ```ts
-code::call_exception("id","message","ERROR");
+code::call_exception("id", "message", "ERROR");
+
+#Or dry by keywords
+
+code::call_exception(id="id", message="message", type="ERROR");
 ```
 
 **Arguments:**
@@ -117,7 +125,11 @@ code::stop_repeat();
 
 **Usage example:** 
 ```ts
-code::wait(1,"MINUTES");
+code::wait(1, "MINUTES");
+
+#Or dry by keywords
+
+code::wait(duration=1, time_unit="MINUTES");
 ```
 
 **Arguments:**
@@ -153,7 +165,11 @@ code::else(){
 
 **Usage example:** 
 ```ts
-code::start_process("process_name","COPY","CURRENT_SELECTION");
+code::start_process("process_name", "COPY", "CURRENT_SELECTION");
+
+#Or dry by keywords
+
+code::start_process(process_name="process_name", local_variables_mode="COPY", target_mode="CURRENT_SELECTION");
 ```
 
 **Arguments:**

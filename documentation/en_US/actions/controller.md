@@ -43,7 +43,13 @@ controller::async_run(){
 
 **Usage example:** 
 ```ts
-controller::catch_exception(`variable`,"ALL"){
+controller::catch_exception(`variable`, "ALL"){
+    player::message("Everything work");
+}
+
+#Or dry by keywords
+
+controller::catch_exception(variable=`variable`, exception_type="ALL"){
     player::message("Everything work");
 }
 ```
@@ -67,7 +73,13 @@ controller::catch_exception(`variable`,"ALL"){
 
 **Usage example:** 
 ```ts
-controller::measure_time(`variable`,"MICROSECONDS"){
+controller::measure_time(`variable`, "MICROSECONDS"){
+    player::message("Everything work");
+}
+
+#Or dry by keywords
+
+controller::measure_time(variable=`variable`, duration="MICROSECONDS"){
     player::message("Everything work");
 }
 ```

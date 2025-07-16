@@ -31,7 +31,11 @@
 
 **Usage example:** 
 ```ts
-entity::attach_lead("name_or_uuid",location(0,0,0,0,0));
+entity::attach_lead("name_or_uuid", location(0,0,0,0,0));
+
+#Or dry by keywords
+
+entity::attach_lead(name_or_uuid="name_or_uuid", location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -82,7 +86,11 @@ entity::clear_merchant_recipes();
 
 **Usage example:** 
 ```ts
-entity::damage(1,"source");
+entity::damage(1, "source");
+
+#Or dry by keywords
+
+entity::damage(damage=1, source="source");
 ```
 
 **Arguments:**
@@ -103,6 +111,10 @@ entity::damage(1,"source");
 **Usage example:** 
 ```ts
 entity::disguise_as_block(item("stone"));
+
+#Or dry by keywords
+
+entity::disguise_as_block(block=item("stone"));
 ```
 
 **Arguments:**
@@ -122,6 +134,10 @@ entity::disguise_as_block(item("stone"));
 **Usage example:** 
 ```ts
 entity::disguise_as_entity(item("stick"));
+
+#Or dry by keywords
+
+entity::disguise_as_entity(entity_type=item("stick"));
 ```
 
 **Arguments:**
@@ -141,6 +157,10 @@ entity::disguise_as_entity(item("stick"));
 **Usage example:** 
 ```ts
 entity::disguise_as_item(item("stick"));
+
+#Or dry by keywords
+
+entity::disguise_as_item(item=item("stick"));
 ```
 
 **Arguments:**
@@ -159,7 +179,11 @@ entity::disguise_as_item(item("stick"));
 
 **Usage example:** 
 ```ts
-entity::disguise_as_player("name_or_uuid","display_name","MOJANG");
+entity::disguise_as_player("name_or_uuid", "display_name", "MOJANG");
+
+#Or dry by keywords
+
+entity::disguise_as_player(name_or_uuid="name_or_uuid", display_name="display_name", server_type="MOJANG");
 ```
 
 **Arguments:**
@@ -213,6 +237,10 @@ entity::eat_grass();
 **Usage example:** 
 ```ts
 entity::eat_target("name_or_uuid");
+
+#Or dry by keywords
+
+entity::eat_target(name_or_uuid="name_or_uuid");
 ```
 
 **Arguments:**
@@ -250,6 +278,10 @@ entity::explode();
 **Usage example:** 
 ```ts
 entity::face_location(location(0,0,0,0,0));
+
+#Or dry by keywords
+
+entity::face_location(location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -268,11 +300,15 @@ entity::face_location(location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = entity::get_custom_tag("name","any value");
+`variable` = entity::get_custom_tag("name", "any value");
 
-#Or dry
+#Or dry by positionals
 
-entity::get_custom_tag(`variable`,"name","any value");
+entity::get_custom_tag(`variable`, "name", "any value");
+
+#Or dry by keywords
+
+entity::get_custom_tag(variable=`variable`, name="name", default="any value");
 ```
 
 **Arguments:**
@@ -293,7 +329,11 @@ entity::get_custom_tag(`variable`,"name","any value");
 
 **Usage example:** 
 ```ts
-entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"FALSE","FALSE","AMBIENT");
+entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")], "FALSE", "FALSE", "AMBIENT");
+
+#Or dry by keywords
+
+entity::give_potion_effects(potions=[potion("slow_falling"), potion("slow_falling")], overwrite="FALSE", show_icon="FALSE", particle_mode="AMBIENT");
 ```
 
 **Arguments:**
@@ -316,6 +356,10 @@ entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")],"FA
 **Usage example:** 
 ```ts
 entity::heal(1);
+
+#Or dry by keywords
+
+entity::heal(heal=1);
 ```
 
 **Arguments:**
@@ -366,7 +410,11 @@ entity::jump();
 
 **Usage example:** 
 ```ts
-entity::launch_forward(1,"FALSE","YAW");
+entity::launch_forward(1, "FALSE", "YAW");
+
+#Or dry by keywords
+
+entity::launch_forward(power=1, increment="FALSE", launch_axis="YAW");
 ```
 
 **Arguments:**
@@ -387,7 +435,11 @@ entity::launch_forward(1,"FALSE","YAW");
 
 **Usage example:** 
 ```ts
-entity::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle("fire"));
+entity::launch_projectile(item("stick"), location(0,0,0,0,0), "name", 1, 2, particle("fire"));
+
+#Or dry by keywords
+
+entity::launch_projectile(projectile=item("stick"), location=location(0,0,0,0,0), name="name", speed=1, inaccuracy=2, trail=particle("fire"));
 ```
 
 **Arguments:**
@@ -411,7 +463,11 @@ entity::launch_projectile(item("stick"),location(0,0,0,0,0),"name",1,2,particle(
 
 **Usage example:** 
 ```ts
-entity::launch_to_location(location(0,0,0,0,0),1,"FALSE");
+entity::launch_to_location(location(0,0,0,0,0), 1, "FALSE");
+
+#Or dry by keywords
+
+entity::launch_to_location(location=location(0,0,0,0,0), power=1, increment="FALSE");
 ```
 
 **Arguments:**
@@ -432,7 +488,11 @@ entity::launch_to_location(location(0,0,0,0,0),1,"FALSE");
 
 **Usage example:** 
 ```ts
-entity::launch_up(1,"FALSE");
+entity::launch_up(1, "FALSE");
+
+#Or dry by keywords
+
+entity::launch_up(power=1, increment="FALSE");
 ```
 
 **Arguments:**
@@ -470,7 +530,11 @@ entity::leave_vehicle();
 
 **Usage example:** 
 ```ts
-entity::modify_piglin_barter_materials([item("stick"), item("stick")],"ADD");
+entity::modify_piglin_barter_materials([item("stick"), item("stick")], "ADD");
+
+#Or dry by keywords
+
+entity::modify_piglin_barter_materials(materials=[item("stick"), item("stick")], modification_mode="ADD");
 ```
 
 **Arguments:**
@@ -494,7 +558,11 @@ entity::modify_piglin_barter_materials([item("stick"), item("stick")],"ADD");
 
 **Usage example:** 
 ```ts
-entity::modify_piglin_interested_materials([item("stick"), item("stick")],"ADD");
+entity::modify_piglin_interested_materials([item("stick"), item("stick")], "ADD");
+
+#Or dry by keywords
+
+entity::modify_piglin_interested_materials(materials=[item("stick"), item("stick")], modification_mode="ADD");
 ```
 
 **Arguments:**
@@ -516,7 +584,11 @@ entity::modify_piglin_interested_materials([item("stick"), item("stick")],"ADD")
 
 **Usage example:** 
 ```ts
-entity::move_to_location(location(0,0,0,0,0),1);
+entity::move_to_location(location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+entity::move_to_location(location=location(0,0,0,0,0), speed=1);
 ```
 
 **Arguments:**
@@ -553,6 +625,10 @@ entity::move_to_location_stop();
 **Usage example:** 
 ```ts
 entity::play_damage_animation("CRITICAL_DAMAGE");
+
+#Or dry by keywords
+
+entity::play_damage_animation(damage_type="CRITICAL_DAMAGE");
 ```
 
 **Arguments:**
@@ -572,6 +648,10 @@ entity::play_damage_animation("CRITICAL_DAMAGE");
 **Usage example:** 
 ```ts
 entity::play_hurt_animation(1);
+
+#Or dry by keywords
+
+entity::play_hurt_animation(yaw=1);
 ```
 
 **Arguments:**
@@ -593,6 +673,10 @@ entity::play_hurt_animation(1);
 **Usage example:** 
 ```ts
 entity::ram_target("name_or_uuid");
+
+#Or dry by keywords
+
+entity::ram_target(name_or_uuid="name_or_uuid");
 ```
 
 **Arguments:**
@@ -626,6 +710,10 @@ entity::remove();
 **Usage example:** 
 ```ts
 entity::remove_custom_tag("name");
+
+#Or dry by keywords
+
+entity::remove_custom_tag(name="name");
 ```
 
 **Arguments:**
@@ -662,6 +750,10 @@ entity::remove_disguise();
 **Usage example:** 
 ```ts
 entity::remove_merchant_recipe(1);
+
+#Or dry by keywords
+
+entity::remove_merchant_recipe(recipe_index=1);
 ```
 
 **Arguments:**
@@ -681,6 +773,10 @@ entity::remove_merchant_recipe(1);
 **Usage example:** 
 ```ts
 entity::remove_potion_effect([potion("slow_falling"), potion("slow_falling")]);
+
+#Or dry by keywords
+
+entity::remove_potion_effect(effects=[potion("slow_falling"), potion("slow_falling")]);
 ```
 
 **Arguments:**
@@ -749,6 +845,10 @@ entity::reset_text_display_background();
 **Usage example:** 
 ```ts
 entity::ride_entity("name_or_uuid");
+
+#Or dry by keywords
+
+entity::ride_entity(name_or_uuid="name_or_uuid");
 ```
 
 **Arguments:**
@@ -768,6 +868,10 @@ entity::ride_entity("name_or_uuid");
 **Usage example:** 
 ```ts
 entity::set_absorption_health(1);
+
+#Or dry by keywords
+
+entity::set_absorption_health(health=1);
 ```
 
 **Arguments:**
@@ -787,6 +891,10 @@ entity::set_absorption_health(1);
 **Usage example:** 
 ```ts
 entity::set_ai("FALSE");
+
+#Or dry by keywords
+
+entity::set_ai(ai="FALSE");
 ```
 
 **Arguments:**
@@ -808,6 +916,10 @@ entity::set_ai("FALSE");
 **Usage example:** 
 ```ts
 entity::set_allay_dancing("FALSE");
+
+#Or dry by keywords
+
+entity::set_allay_dancing(dance="FALSE");
 ```
 
 **Arguments:**
@@ -834,7 +946,11 @@ entity::set_allay_dancing("FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_angry("target","FALSE");
+entity::set_angry("target", "FALSE");
+
+#Or dry by keywords
+
+entity::set_angry(target="target", angry="FALSE");
 ```
 
 **Arguments:**
@@ -854,7 +970,11 @@ entity::set_angry("target","FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_animal_age(1,"DISABLE");
+entity::set_animal_age(1, "DISABLE");
+
+#Or dry by keywords
+
+entity::set_animal_age(age=1, lock="DISABLE");
 ```
 
 **Arguments:**
@@ -876,7 +996,11 @@ entity::set_animal_age(1,"DISABLE");
 
 **Usage example:** 
 ```ts
-entity::set_armor_items(item("stick"),item("stick"),item("stick"),item("stick"));
+entity::set_armor_items(item("stick"), item("stick"), item("stick"), item("stick"));
+
+#Or dry by keywords
+
+entity::set_armor_items(helmet=item("stick"), chestplate=item("stick"), leggings=item("stick"), boots=item("stick"));
 ```
 
 **Arguments:**
@@ -900,7 +1024,11 @@ entity::set_armor_items(item("stick"),item("stick"),item("stick"),item("stick"))
 
 **Usage example:** 
 ```ts
-entity::set_armor_stand_parts("DISABLE","DISABLE");
+entity::set_armor_stand_parts("DISABLE", "DISABLE");
+
+#Or dry by keywords
+
+entity::set_armor_stand_parts(arms="DISABLE", base_plate="DISABLE");
 ```
 
 **Arguments:**
@@ -922,7 +1050,11 @@ entity::set_armor_stand_parts("DISABLE","DISABLE");
 
 **Usage example:** 
 ```ts
-entity::set_armor_stand_pose(1,2,3,"BODY");
+entity::set_armor_stand_pose(1, 2, 3, "BODY");
+
+#Or dry by keywords
+
+entity::set_armor_stand_pose(x_rotation=1, y_rotation=2, z_rotation=3, body_part="BODY");
 ```
 
 **Arguments:**
@@ -948,6 +1080,10 @@ entity::set_armor_stand_pose(1,2,3,"BODY");
 **Usage example:** 
 ```ts
 entity::set_arrow_hit_sound(sound("entity.zombie.hurt"));
+
+#Or dry by keywords
+
+entity::set_arrow_hit_sound(sound=sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -967,6 +1103,10 @@ entity::set_arrow_hit_sound(sound("entity.zombie.hurt"));
 **Usage example:** 
 ```ts
 entity::set_arrow_pierce(1);
+
+#Or dry by keywords
+
+entity::set_arrow_pierce(pierce=1);
 ```
 
 **Arguments:**
@@ -985,7 +1125,11 @@ entity::set_arrow_pierce(1);
 
 **Usage example:** 
 ```ts
-entity::set_attribute(1,"GENERIC_ARMOR");
+entity::set_attribute(1, "GENERIC_ARMOR");
+
+#Or dry by keywords
+
+entity::set_attribute(value=1, attribute_type="GENERIC_ARMOR");
 ```
 
 **Arguments:**
@@ -1008,6 +1152,10 @@ entity::set_attribute(1,"GENERIC_ARMOR");
 **Usage example:** 
 ```ts
 entity::set_aware("FALSE");
+
+#Or dry by keywords
+
+entity::set_aware(aware="FALSE");
 ```
 
 **Arguments:**
@@ -1029,6 +1177,10 @@ entity::set_aware("FALSE");
 **Usage example:** 
 ```ts
 entity::set_axolotl_type("BLUE");
+
+#Or dry by keywords
+
+entity::set_axolotl_type(axolotl_type="BLUE");
 ```
 
 **Arguments:**
@@ -1048,6 +1200,10 @@ entity::set_axolotl_type("BLUE");
 **Usage example:** 
 ```ts
 entity::set_baby("FALSE");
+
+#Or dry by keywords
+
+entity::set_baby(baby="FALSE");
 ```
 
 **Arguments:**
@@ -1073,6 +1229,10 @@ entity::set_baby("FALSE");
 **Usage example:** 
 ```ts
 entity::set_base_arrow_damage(1);
+
+#Or dry by keywords
+
+entity::set_base_arrow_damage(damage=1);
 ```
 
 **Arguments:**
@@ -1094,6 +1254,10 @@ entity::set_base_arrow_damage(1);
 **Usage example:** 
 ```ts
 entity::set_bee_has_stinger("TRUE");
+
+#Or dry by keywords
+
+entity::set_bee_has_stinger(stinger="TRUE");
 ```
 
 **Arguments:**
@@ -1115,6 +1279,10 @@ entity::set_bee_has_stinger("TRUE");
 **Usage example:** 
 ```ts
 entity::set_bee_nectar("FALSE");
+
+#Or dry by keywords
+
+entity::set_bee_nectar(nectar="FALSE");
 ```
 
 **Arguments:**
@@ -1136,6 +1304,10 @@ entity::set_bee_nectar("FALSE");
 **Usage example:** 
 ```ts
 entity::set_block_display_block(item("stone"));
+
+#Or dry by keywords
+
+entity::set_block_display_block(displayed_block=item("stone"));
 ```
 
 **Arguments:**
@@ -1157,6 +1329,10 @@ entity::set_block_display_block(item("stone"));
 **Usage example:** 
 ```ts
 entity::set_camel_dashing("FALSE");
+
+#Or dry by keywords
+
+entity::set_camel_dashing(dashing="FALSE");
 ```
 
 **Arguments:**
@@ -1180,6 +1356,10 @@ entity::set_camel_dashing("FALSE");
 **Usage example:** 
 ```ts
 entity::set_carrying_chest("FALSE");
+
+#Or dry by keywords
+
+entity::set_carrying_chest(carrying="FALSE");
 ```
 
 **Arguments:**
@@ -1201,6 +1381,10 @@ entity::set_carrying_chest("FALSE");
 **Usage example:** 
 ```ts
 entity::set_cat_lying_down("FALSE");
+
+#Or dry by keywords
+
+entity::set_cat_lying_down(lying_down="FALSE");
 ```
 
 **Arguments:**
@@ -1222,6 +1406,10 @@ entity::set_cat_lying_down("FALSE");
 **Usage example:** 
 ```ts
 entity::set_cat_type("ALL_BLACK");
+
+#Or dry by keywords
+
+entity::set_cat_type(cat_type="ALL_BLACK");
 ```
 
 **Arguments:**
@@ -1244,6 +1432,10 @@ entity::set_cat_type("ALL_BLACK");
 **Usage example:** 
 ```ts
 entity::set_celebrating("FALSE");
+
+#Or dry by keywords
+
+entity::set_celebrating(celebrating="FALSE");
 ```
 
 **Arguments:**
@@ -1251,6 +1443,31 @@ entity::set_celebrating("FALSE");
 | **Name**      | **Type**                                             | **Description**  |
 | ------------- | ---------------------------------------------------- | ---------------- |
 | `celebrating` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Celebration Mode |
+<h3 id=entity_set_chicken_type>
+  <code>entity::set_chicken_type</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+entity::set_chicken_type("COLD");
+
+#Or dry by keywords
+
+entity::set_chicken_type(variant="COLD");
+```
+
+**Arguments:**
+
+| **Name**  | **Type**                                                                | **Description** |
+| --------- | ----------------------------------------------------------------------- | --------------- |
+| `variant` | Marker<br/>**COLD** - None<br/>**WARM** - None<br/>**TEMPERATE** - None | None            |
 <h3 id=entity_set_collidable>
   <code>entity::set_collidable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1263,6 +1480,10 @@ entity::set_celebrating("FALSE");
 **Usage example:** 
 ```ts
 entity::set_collidable("FALSE");
+
+#Or dry by keywords
+
+entity::set_collidable(collidable="FALSE");
 ```
 
 **Arguments:**
@@ -1270,6 +1491,31 @@ entity::set_collidable("FALSE");
 | **Name**     | **Type**                                                                                             | **Description** |
 | ------------ | ---------------------------------------------------------------------------------------------------- | --------------- |
 | `collidable` | Marker<br/>**FALSE** - Does not collide with other creatures<br/>**TRUE** - Collides other creatures | Collision Mode  |
+<h3 id=entity_set_cow_type>
+  <code>entity::set_cow_type</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+entity::set_cow_type("COLD");
+
+#Or dry by keywords
+
+entity::set_cow_type(variant="COLD");
+```
+
+**Arguments:**
+
+| **Name**  | **Type**                                                                | **Description** |
+| --------- | ----------------------------------------------------------------------- | --------------- |
+| `variant` | Marker<br/>**COLD** - None<br/>**WARM** - None<br/>**TEMPERATE** - None | None            |
 <h3 id=entity_set_creeper_charge>
   <code>entity::set_creeper_charge</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1284,6 +1530,10 @@ entity::set_collidable("FALSE");
 **Usage example:** 
 ```ts
 entity::set_creeper_charge("FALSE");
+
+#Or dry by keywords
+
+entity::set_creeper_charge(charged="FALSE");
 ```
 
 **Arguments:**
@@ -1305,6 +1555,10 @@ entity::set_creeper_charge("FALSE");
 **Usage example:** 
 ```ts
 entity::set_creeper_fuse(1);
+
+#Or dry by keywords
+
+entity::set_creeper_fuse(fuse_ticks=1);
 ```
 
 **Arguments:**
@@ -1324,6 +1578,10 @@ entity::set_creeper_fuse(1);
 **Usage example:** 
 ```ts
 entity::set_current_health(1);
+
+#Or dry by keywords
+
+entity::set_current_health(health=1);
 ```
 
 **Arguments:**
@@ -1343,6 +1601,10 @@ entity::set_current_health(1);
 **Usage example:** 
 ```ts
 entity::set_custom_name("custom_name");
+
+#Or dry by keywords
+
+entity::set_custom_name(custom_name="custom_name");
 ```
 
 **Arguments:**
@@ -1362,6 +1624,10 @@ entity::set_custom_name("custom_name");
 **Usage example:** 
 ```ts
 entity::set_custom_name_visibility("FALSE");
+
+#Or dry by keywords
+
+entity::set_custom_name_visibility(visibility="FALSE");
 ```
 
 **Arguments:**
@@ -1380,7 +1646,11 @@ entity::set_custom_name_visibility("FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_custom_tag("name","value");
+entity::set_custom_tag("name", "value");
+
+#Or dry by keywords
+
+entity::set_custom_tag(name="name", value="value");
 ```
 
 **Arguments:**
@@ -1401,6 +1671,10 @@ entity::set_custom_tag("name","value");
 **Usage example:** 
 ```ts
 entity::set_death_drops("FALSE");
+
+#Or dry by keywords
+
+entity::set_death_drops(drops="FALSE");
 ```
 
 **Arguments:**
@@ -1420,6 +1694,10 @@ entity::set_death_drops("FALSE");
 **Usage example:** 
 ```ts
 entity::set_death_time(1);
+
+#Or dry by keywords
+
+entity::set_death_time(death_time=1);
 ```
 
 **Arguments:**
@@ -1441,6 +1719,10 @@ entity::set_death_time(1);
 **Usage example:** 
 ```ts
 entity::set_default_visible("TRUE");
+
+#Or dry by keywords
+
+entity::set_default_visible(default_visible="TRUE");
 ```
 
 **Arguments:**
@@ -1460,6 +1742,10 @@ entity::set_default_visible("TRUE");
 **Usage example:** 
 ```ts
 entity::set_despawning("FALSE");
+
+#Or dry by keywords
+
+entity::set_despawning(despawning="FALSE");
 ```
 
 **Arguments:**
@@ -1481,6 +1767,10 @@ entity::set_despawning("FALSE");
 **Usage example:** 
 ```ts
 entity::set_display_billboard("CENTER");
+
+#Or dry by keywords
+
+entity::set_display_billboard(billboard_type="CENTER");
 ```
 
 **Arguments:**
@@ -1501,7 +1791,11 @@ entity::set_display_billboard("CENTER");
 
 **Usage example:** 
 ```ts
-entity::set_display_brightness(1,2);
+entity::set_display_brightness(1, 2);
+
+#Or dry by keywords
+
+entity::set_display_brightness(block_light_level=1, sky_light_level=2);
 ```
 
 **Arguments:**
@@ -1523,7 +1817,11 @@ entity::set_display_brightness(1,2);
 
 **Usage example:** 
 ```ts
-entity::set_display_culling_size(1,2);
+entity::set_display_culling_size(1, 2);
+
+#Or dry by keywords
+
+entity::set_display_culling_size(width=1, height=2);
 ```
 
 **Arguments:**
@@ -1547,6 +1845,10 @@ entity::set_display_culling_size(1,2);
 **Usage example:** 
 ```ts
 entity::set_display_glow_color("color_hexadecimal");
+
+#Or dry by keywords
+
+entity::set_display_glow_color(color_hexadecimal="color_hexadecimal");
 ```
 
 **Arguments:**
@@ -1567,7 +1869,11 @@ entity::set_display_glow_color("color_hexadecimal");
 
 **Usage example:** 
 ```ts
-entity::set_display_interpolation(1,2);
+entity::set_display_interpolation(1, 2);
+
+#Or dry by keywords
+
+entity::set_display_interpolation(interpolation_duration=1, interpolation_delay=2);
 ```
 
 **Arguments:**
@@ -1589,7 +1895,11 @@ entity::set_display_interpolation(1,2);
 
 **Usage example:** 
 ```ts
-entity::set_display_rotation_from_axis_angle(vector(0,0,0),1,"ADD","DEGREES","LEFT_ROTATION");
+entity::set_display_rotation_from_axis_angle(vector(0,0,0), 1, "ADD", "DEGREES", "LEFT_ROTATION");
+
+#Or dry by keywords
+
+entity::set_display_rotation_from_axis_angle(axis_vector=vector(0,0,0), angle=1, mode="ADD", input="DEGREES", rotation="LEFT_ROTATION");
 ```
 
 **Arguments:**
@@ -1614,7 +1924,11 @@ entity::set_display_rotation_from_axis_angle(vector(0,0,0),1,"ADD","DEGREES","LE
 
 **Usage example:** 
 ```ts
-entity::set_display_rotation_from_euler_angles(1,2,3,"ADD","DEGREES","LEFT_ROTATION");
+entity::set_display_rotation_from_euler_angles(1, 2, 3, "ADD", "DEGREES", "LEFT_ROTATION");
+
+#Or dry by keywords
+
+entity::set_display_rotation_from_euler_angles(pitch=1, yaw=2, roll=3, mode="ADD", input="DEGREES", rotation="LEFT_ROTATION");
 ```
 
 **Arguments:**
@@ -1640,7 +1954,11 @@ entity::set_display_rotation_from_euler_angles(1,2,3,"ADD","DEGREES","LEFT_ROTAT
 
 **Usage example:** 
 ```ts
-entity::set_display_scale(vector(0,0,0),"ADD");
+entity::set_display_scale(vector(0,0,0), "ADD");
+
+#Or dry by keywords
+
+entity::set_display_scale(scale_vector=vector(0,0,0), mode="ADD");
 ```
 
 **Arguments:**
@@ -1662,7 +1980,11 @@ entity::set_display_scale(vector(0,0,0),"ADD");
 
 **Usage example:** 
 ```ts
-entity::set_display_shadow(1,2);
+entity::set_display_shadow(1, 2);
+
+#Or dry by keywords
+
+entity::set_display_shadow(shadow_radius=1, shadow_opacity_percentage=2);
 ```
 
 **Arguments:**
@@ -1685,6 +2007,10 @@ entity::set_display_shadow(1,2);
 **Usage example:** 
 ```ts
 entity::set_display_teleport_duration(1);
+
+#Or dry by keywords
+
+entity::set_display_teleport_duration(duration=1);
 ```
 
 **Arguments:**
@@ -1706,6 +2032,10 @@ entity::set_display_teleport_duration(1);
 **Usage example:** 
 ```ts
 entity::set_display_transformation_matrix([1, 2]);
+
+#Or dry by keywords
+
+entity::set_display_transformation_matrix(row_major_matrix=[1, 2]);
 ```
 
 **Arguments:**
@@ -1726,7 +2056,11 @@ entity::set_display_transformation_matrix([1, 2]);
 
 **Usage example:** 
 ```ts
-entity::set_display_translation(vector(0,0,0),"ADD");
+entity::set_display_translation(vector(0,0,0), "ADD");
+
+#Or dry by keywords
+
+entity::set_display_translation(translation_vector=vector(0,0,0), mode="ADD");
 ```
 
 **Arguments:**
@@ -1749,6 +2083,10 @@ entity::set_display_translation(vector(0,0,0),"ADD");
 **Usage example:** 
 ```ts
 entity::set_display_view_range(1);
+
+#Or dry by keywords
+
+entity::set_display_view_range(view_range=1);
 ```
 
 **Arguments:**
@@ -1770,6 +2108,10 @@ entity::set_display_view_range(1);
 **Usage example:** 
 ```ts
 entity::set_dragon_phase("BREATH_ATTACK");
+
+#Or dry by keywords
+
+entity::set_dragon_phase(phase="BREATH_ATTACK");
 ```
 
 **Arguments:**
@@ -1794,6 +2136,10 @@ entity::set_dragon_phase("BREATH_ATTACK");
 **Usage example:** 
 ```ts
 entity::set_dye_color("BLACK");
+
+#Or dry by keywords
+
+entity::set_dye_color(color="BLACK");
 ```
 
 **Arguments:**
@@ -1815,6 +2161,10 @@ entity::set_dye_color("BLACK");
 **Usage example:** 
 ```ts
 entity::set_end_crystal_beam(location(0,0,0,0,0));
+
+#Or dry by keywords
+
+entity::set_end_crystal_beam(beam=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -1836,6 +2186,10 @@ entity::set_end_crystal_beam(location(0,0,0,0,0));
 **Usage example:** 
 ```ts
 entity::set_enderman_block(item("stone"));
+
+#Or dry by keywords
+
+entity::set_enderman_block(block=item("stone"));
 ```
 
 **Arguments:**
@@ -1854,7 +2208,11 @@ entity::set_enderman_block(item("stone"));
 
 **Usage example:** 
 ```ts
-entity::set_equipment_item(item("stick"),"BODY");
+entity::set_equipment_item(item("stick"), "BODY");
+
+#Or dry by keywords
+
+entity::set_equipment_item(item=item("stick"), slot="BODY");
 ```
 
 **Arguments:**
@@ -1879,6 +2237,10 @@ entity::set_equipment_item(item("stick"),"BODY");
 **Usage example:** 
 ```ts
 entity::set_explosive_power(1);
+
+#Or dry by keywords
+
+entity::set_explosive_power(power=1);
 ```
 
 **Arguments:**
@@ -1898,6 +2260,10 @@ entity::set_explosive_power(1);
 **Usage example:** 
 ```ts
 entity::set_fall_distance(1);
+
+#Or dry by keywords
+
+entity::set_fall_distance(fall_distance=1);
 ```
 
 **Arguments:**
@@ -1919,6 +2285,10 @@ entity::set_fall_distance(1);
 **Usage example:** 
 ```ts
 entity::set_falling_block_type(item("stone"));
+
+#Or dry by keywords
+
+entity::set_falling_block_type(block=item("stone"));
 ```
 
 **Arguments:**
@@ -1938,6 +2308,10 @@ entity::set_falling_block_type(item("stone"));
 **Usage example:** 
 ```ts
 entity::set_fire_ticks(1);
+
+#Or dry by keywords
+
+entity::set_fire_ticks(ticks=1);
 ```
 
 **Arguments:**
@@ -1958,7 +2332,11 @@ entity::set_fire_ticks(1);
 
 **Usage example:** 
 ```ts
-entity::set_fishing_wait(1,"MAX_WAIT");
+entity::set_fishing_wait(1, "MAX_WAIT");
+
+#Or dry by keywords
+
+entity::set_fishing_wait(time=1, wait_type="MAX_WAIT");
 ```
 
 **Arguments:**
@@ -1981,6 +2359,10 @@ entity::set_fishing_wait(1,"MAX_WAIT");
 **Usage example:** 
 ```ts
 entity::set_fox_leaping("FALSE");
+
+#Or dry by keywords
+
+entity::set_fox_leaping(leaping="FALSE");
 ```
 
 **Arguments:**
@@ -2002,6 +2384,10 @@ entity::set_fox_leaping("FALSE");
 **Usage example:** 
 ```ts
 entity::set_fox_type("RED");
+
+#Or dry by keywords
+
+entity::set_fox_type(fox_type="RED");
 ```
 
 **Arguments:**
@@ -2020,7 +2406,11 @@ entity::set_fox_type("RED");
 
 **Usage example:** 
 ```ts
-entity::set_freeze_ticks(1,"FALSE");
+entity::set_freeze_ticks(1, "FALSE");
+
+#Or dry by keywords
+
+entity::set_freeze_ticks(ticks=1, ticking_locked="FALSE");
 ```
 
 **Arguments:**
@@ -2041,6 +2431,10 @@ entity::set_freeze_ticks(1,"FALSE");
 **Usage example:** 
 ```ts
 entity::set_friction("NOT_SET");
+
+#Or dry by keywords
+
+entity::set_friction(friction="NOT_SET");
 ```
 
 **Arguments:**
@@ -2062,6 +2456,10 @@ entity::set_friction("NOT_SET");
 **Usage example:** 
 ```ts
 entity::set_frog_type("COLD");
+
+#Or dry by keywords
+
+entity::set_frog_type(frog_variant="COLD");
 ```
 
 **Arguments:**
@@ -2085,6 +2483,10 @@ entity::set_frog_type("COLD");
 **Usage example:** 
 ```ts
 entity::set_fuse_ticks(1);
+
+#Or dry by keywords
+
+entity::set_fuse_ticks(fuse_ticks=1);
 ```
 
 **Arguments:**
@@ -2104,6 +2506,10 @@ entity::set_fuse_ticks(1);
 **Usage example:** 
 ```ts
 entity::set_gliding("FALSE");
+
+#Or dry by keywords
+
+entity::set_gliding(is_gliding="FALSE");
 ```
 
 **Arguments:**
@@ -2125,6 +2531,10 @@ entity::set_gliding("FALSE");
 **Usage example:** 
 ```ts
 entity::set_glow_squid_dark(1);
+
+#Or dry by keywords
+
+entity::set_glow_squid_dark(dark_ticks=1);
 ```
 
 **Arguments:**
@@ -2144,6 +2554,10 @@ entity::set_glow_squid_dark(1);
 **Usage example:** 
 ```ts
 entity::set_glowing("FALSE");
+
+#Or dry by keywords
+
+entity::set_glowing(glowing="FALSE");
 ```
 
 **Arguments:**
@@ -2165,6 +2579,10 @@ entity::set_glowing("FALSE");
 **Usage example:** 
 ```ts
 entity::set_goat_screaming("FALSE");
+
+#Or dry by keywords
+
+entity::set_goat_screaming(screams="FALSE");
 ```
 
 **Arguments:**
@@ -2184,6 +2602,10 @@ entity::set_goat_screaming("FALSE");
 **Usage example:** 
 ```ts
 entity::set_gravity("FALSE");
+
+#Or dry by keywords
+
+entity::set_gravity(gravity="FALSE");
 ```
 
 **Arguments:**
@@ -2208,6 +2630,10 @@ entity::set_gravity("FALSE");
 **Usage example:** 
 ```ts
 entity::set_horse_jump(1);
+
+#Or dry by keywords
+
+entity::set_horse_jump(power=1);
 ```
 
 **Arguments:**
@@ -2228,7 +2654,11 @@ entity::set_horse_jump(1);
 
 **Usage example:** 
 ```ts
-entity::set_horse_pattern("BLACK","BLACK_DOTS");
+entity::set_horse_pattern("BLACK", "BLACK_DOTS");
+
+#Or dry by keywords
+
+entity::set_horse_pattern(horse_color="BLACK", horse_style="BLACK_DOTS");
 ```
 
 **Arguments:**
@@ -2253,6 +2683,10 @@ entity::set_horse_pattern("BLACK","BLACK_DOTS");
 **Usage example:** 
 ```ts
 entity::set_immune_to_zombification("FALSE");
+
+#Or dry by keywords
+
+entity::set_immune_to_zombification(is_immune="FALSE");
 ```
 
 **Arguments:**
@@ -2274,6 +2708,10 @@ entity::set_immune_to_zombification("FALSE");
 **Usage example:** 
 ```ts
 entity::set_interaction_responsive("FALSE");
+
+#Or dry by keywords
+
+entity::set_interaction_responsive(responsive="FALSE");
 ```
 
 **Arguments:**
@@ -2294,7 +2732,11 @@ entity::set_interaction_responsive("FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_interaction_size(1,2);
+entity::set_interaction_size(1, 2);
+
+#Or dry by keywords
+
+entity::set_interaction_size(width=1, height=2);
 ```
 
 **Arguments:**
@@ -2315,6 +2757,10 @@ entity::set_interaction_size(1,2);
 **Usage example:** 
 ```ts
 entity::set_invisible("FALSE");
+
+#Or dry by keywords
+
+entity::set_invisible(invisible="FALSE");
 ```
 
 **Arguments:**
@@ -2334,6 +2780,10 @@ entity::set_invisible("FALSE");
 **Usage example:** 
 ```ts
 entity::set_invulnerability_ticks(1);
+
+#Or dry by keywords
+
+entity::set_invulnerability_ticks(ticks=1);
 ```
 
 **Arguments:**
@@ -2353,6 +2803,10 @@ entity::set_invulnerability_ticks(1);
 **Usage example:** 
 ```ts
 entity::set_invulnerable("FALSE");
+
+#Or dry by keywords
+
+entity::set_invulnerable(invulnerable="FALSE");
 ```
 
 **Arguments:**
@@ -2374,6 +2828,10 @@ entity::set_invulnerable("FALSE");
 **Usage example:** 
 ```ts
 entity::set_item(item("stick"));
+
+#Or dry by keywords
+
+entity::set_item(item=item("stick"));
 ```
 
 **Arguments:**
@@ -2395,6 +2853,10 @@ entity::set_item(item("stick"));
 **Usage example:** 
 ```ts
 entity::set_item_display_item(item("stick"));
+
+#Or dry by keywords
+
+entity::set_item_display_item(displayed_item=item("stick"));
 ```
 
 **Arguments:**
@@ -2416,6 +2878,10 @@ entity::set_item_display_item(item("stick"));
 **Usage example:** 
 ```ts
 entity::set_item_display_model_type("FIRSTPERSON_LEFTHAND");
+
+#Or dry by keywords
+
+entity::set_item_display_model_type(display_model_type="FIRSTPERSON_LEFTHAND");
 ```
 
 **Arguments:**
@@ -2437,6 +2903,10 @@ entity::set_item_display_model_type("FIRSTPERSON_LEFTHAND");
 **Usage example:** 
 ```ts
 entity::set_item_in_frame(item("stick"));
+
+#Or dry by keywords
+
+entity::set_item_in_frame(item=item("stick"));
 ```
 
 **Arguments:**
@@ -2458,6 +2928,10 @@ entity::set_item_in_frame(item("stick"));
 **Usage example:** 
 ```ts
 entity::set_llama_type("BROWN");
+
+#Or dry by keywords
+
+entity::set_llama_type(type="BROWN");
 ```
 
 **Arguments:**
@@ -2476,7 +2950,11 @@ entity::set_llama_type("BROWN");
 
 **Usage example:** 
 ```ts
-entity::set_location(vector(0,0,0),"FALSE");
+entity::set_location(vector(0,0,0), "FALSE");
+
+#Or dry by keywords
+
+entity::set_location(velocity=vector(0,0,0), increment="FALSE");
 ```
 
 **Arguments:**
@@ -2499,6 +2977,10 @@ entity::set_location(vector(0,0,0),"FALSE");
 **Usage example:** 
 ```ts
 entity::set_marker("FALSE");
+
+#Or dry by keywords
+
+entity::set_marker(marker="FALSE");
 ```
 
 **Arguments:**
@@ -2517,7 +2999,11 @@ entity::set_marker("FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_max_health(1,"FALSE");
+entity::set_max_health(1, "FALSE");
+
+#Or dry by keywords
+
+entity::set_max_health(max_health=1, heal_to_max="FALSE");
 ```
 
 **Arguments:**
@@ -2540,7 +3026,11 @@ entity::set_max_health(1,"FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,2,3,4,5,6,7,"APPEND","FALSE","FALSE");
+entity::set_merchant_recipe(item("stick"), 1, 2, item("stick"), 3, item("stick"), 4, 5, 6, 7, "APPEND", "FALSE", "FALSE");
+
+#Or dry by keywords
+
+entity::set_merchant_recipe(result=item("stick"), uses=1, max_uses=2, ingredient_one=item("stick"), villager_experience=3, ingredient_two=item("stick"), price_multiplifier=4, demand=5, index=6, special_price=7, mode="APPEND", experience_reward="FALSE", ignore_discounts="FALSE");
 ```
 
 **Arguments:**
@@ -2548,14 +3038,14 @@ entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,2,3,4,5,
 | **Name**              | **Type**                                             | **Description**     |
 | --------------------- | ---------------------------------------------------- | ------------------- |
 | `result`              | Item                                                 | Purchasable Item    |
-| `ingredient_one`      | Item                                                 | First Item          |
-| `ingredient_two`      | Item                                                 | Second Item         |
 | `uses`                | Number                                               | Number of Uses      |
 | `max_uses`            | Number                                               | Max Uses            |
-| `index`               | Number                                               | Product Index       |
+| `ingredient_one`      | Item                                                 | First Item          |
 | `villager_experience` | Number                                               | Villager Experience |
+| `ingredient_two`      | Item                                                 | Second Item         |
 | `price_multiplifier`  | Number                                               | Price Multiplier    |
 | `demand`              | Number                                               | Product Demand      |
+| `index`               | Number                                               | Product Index       |
 | `special_price`       | Number                                               | Special Price       |
 | `mode`                | Marker<br/>**APPEND** - Add<br/>**MERGE** - Replace  | Set Mode            |
 | `experience_reward`   | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Experience Reward   |
@@ -2573,7 +3063,11 @@ entity::set_merchant_recipe(item("stick"),item("stick"),item("stick"),1,2,3,4,5,
 
 **Usage example:** 
 ```ts
-entity::set_minecart_block(item("stone"),1);
+entity::set_minecart_block(item("stone"), 1);
+
+#Or dry by keywords
+
+entity::set_minecart_block(block=item("stone"), block_offset=1);
 ```
 
 **Arguments:**
@@ -2605,6 +3099,10 @@ entity::set_minecart_block(item("stone"),1);
 **Usage example:** 
 ```ts
 entity::set_mob_aggressive("FALSE");
+
+#Or dry by keywords
+
+entity::set_mob_aggressive(aggressive="FALSE");
 ```
 
 **Arguments:**
@@ -2626,6 +3124,10 @@ entity::set_mob_aggressive("FALSE");
 **Usage example:** 
 ```ts
 entity::set_mushroom_cow_type("BROWN");
+
+#Or dry by keywords
+
+entity::set_mushroom_cow_type(cow_type="BROWN");
 ```
 
 **Arguments:**
@@ -2645,6 +3147,10 @@ entity::set_mushroom_cow_type("BROWN");
 **Usage example:** 
 ```ts
 entity::no_physics("TRUE");
+
+#Or dry by keywords
+
+entity::no_physics(no_physics="TRUE");
 ```
 
 **Arguments:**
@@ -2665,7 +3171,11 @@ entity::no_physics("TRUE");
 
 **Usage example:** 
 ```ts
-entity::set_panda_gene("BOTH","AGGRESSIVE");
+entity::set_panda_gene("BOTH", "AGGRESSIVE");
+
+#Or dry by keywords
+
+entity::set_panda_gene(gene="BOTH", gene_type="AGGRESSIVE");
 ```
 
 **Arguments:**
@@ -2688,6 +3198,10 @@ entity::set_panda_gene("BOTH","AGGRESSIVE");
 **Usage example:** 
 ```ts
 entity::set_panda_on_back("TRUE");
+
+#Or dry by keywords
+
+entity::set_panda_on_back(on_back="TRUE");
 ```
 
 **Arguments:**
@@ -2709,6 +3223,10 @@ entity::set_panda_on_back("TRUE");
 **Usage example:** 
 ```ts
 entity::set_panda_rolling("TRUE");
+
+#Or dry by keywords
+
+entity::set_panda_rolling(rolling="TRUE");
 ```
 
 **Arguments:**
@@ -2730,6 +3248,10 @@ entity::set_panda_rolling("TRUE");
 **Usage example:** 
 ```ts
 entity::set_panda_sad_ticks(1);
+
+#Or dry by keywords
+
+entity::set_panda_sad_ticks(sad_ticks=1);
 ```
 
 **Arguments:**
@@ -2751,6 +3273,10 @@ entity::set_panda_sad_ticks(1);
 **Usage example:** 
 ```ts
 entity::set_parrot_type("BLUE");
+
+#Or dry by keywords
+
+entity::set_parrot_type(parrot_type="BLUE");
 ```
 
 **Arguments:**
@@ -2773,6 +3299,10 @@ entity::set_parrot_type("BLUE");
 **Usage example:** 
 ```ts
 entity::set_persistence("FALSE");
+
+#Or dry by keywords
+
+entity::set_persistence(persistence="FALSE");
 ```
 
 **Arguments:**
@@ -2793,7 +3323,11 @@ entity::set_persistence("FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_pickup("TRUE","TRUE");
+entity::set_pickup("TRUE", "TRUE");
+
+#Or dry by keywords
+
+entity::set_pickup(can_mob_pickup="TRUE", can_player_pickup="TRUE");
 ```
 
 **Arguments:**
@@ -2816,6 +3350,10 @@ entity::set_pickup("TRUE","TRUE");
 **Usage example:** 
 ```ts
 entity::set_pickup_delay(1);
+
+#Or dry by keywords
+
+entity::set_pickup_delay(delay=1);
 ```
 
 **Arguments:**
@@ -2823,6 +3361,31 @@ entity::set_pickup_delay(1);
 | **Name** | **Type** | **Description** |
 | -------- | -------- | --------------- |
 | `delay`  | Number   | Delay           |
+<h3 id=entity_set_pig_type>
+  <code>entity::set_pig_type</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+entity::set_pig_type("COLD");
+
+#Or dry by keywords
+
+entity::set_pig_type(variant="COLD");
+```
+
+**Arguments:**
+
+| **Name**  | **Type**                                                                | **Description** |
+| --------- | ----------------------------------------------------------------------- | --------------- |
+| `variant` | Marker<br/>**COLD** - None<br/>**WARM** - None<br/>**TEMPERATE** - None | None            |
 <h3 id=entity_set_piglin_able_to_hunt>
   <code>entity::set_piglin_able_to_hunt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2837,6 +3400,10 @@ entity::set_pickup_delay(1);
 **Usage example:** 
 ```ts
 entity::set_piglin_able_to_hunt("FALSE");
+
+#Or dry by keywords
+
+entity::set_piglin_able_to_hunt(able="FALSE");
 ```
 
 **Arguments:**
@@ -2858,6 +3425,10 @@ entity::set_piglin_able_to_hunt("FALSE");
 **Usage example:** 
 ```ts
 entity::set_piglin_charging_crossbow("FALSE");
+
+#Or dry by keywords
+
+entity::set_piglin_charging_crossbow(charging="FALSE");
 ```
 
 **Arguments:**
@@ -2881,6 +3452,10 @@ entity::set_piglin_charging_crossbow("FALSE");
 **Usage example:** 
 ```ts
 entity::set_piglin_dancing(1);
+
+#Or dry by keywords
+
+entity::set_piglin_dancing(dancing_time=1);
 ```
 
 **Arguments:**
@@ -2900,6 +3475,10 @@ entity::set_piglin_dancing(1);
 **Usage example:** 
 ```ts
 entity::set_pose("CROAKING");
+
+#Or dry by keywords
+
+entity::set_pose(pose="CROAKING");
 ```
 
 **Arguments:**
@@ -2922,7 +3501,11 @@ entity::set_pose("CROAKING");
 
 **Usage example:** 
 ```ts
-entity::set_potion_cloud_radius(1,2);
+entity::set_potion_cloud_radius(1, 2);
+
+#Or dry by keywords
+
+entity::set_potion_cloud_radius(radius=1, shrinking_speed=2);
 ```
 
 **Arguments:**
@@ -2945,6 +3528,10 @@ entity::set_potion_cloud_radius(1,2);
 **Usage example:** 
 ```ts
 entity::set_primed_tnt_block(item("stone"));
+
+#Or dry by keywords
+
+entity::set_primed_tnt_block(block=item("stone"));
 ```
 
 **Arguments:**
@@ -2973,6 +3560,10 @@ entity::set_primed_tnt_block(item("stone"));
 **Usage example:** 
 ```ts
 entity::set_projectile_display_item(item("stick"));
+
+#Or dry by keywords
+
+entity::set_projectile_display_item(item=item("stick"));
 ```
 
 **Arguments:**
@@ -2996,6 +3587,10 @@ entity::set_projectile_display_item(item("stick"));
 **Usage example:** 
 ```ts
 entity::set_projectile_power(vector(0,0,0));
+
+#Or dry by keywords
+
+entity::set_projectile_power(power=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -3015,6 +3610,10 @@ entity::set_projectile_power(vector(0,0,0));
 **Usage example:** 
 ```ts
 entity::set_projectile_shooter("uuid");
+
+#Or dry by keywords
+
+entity::set_projectile_shooter(uuid="uuid");
 ```
 
 **Arguments:**
@@ -3036,6 +3635,10 @@ entity::set_projectile_shooter("uuid");
 **Usage example:** 
 ```ts
 entity::set_rabbit_type("BLACK");
+
+#Or dry by keywords
+
+entity::set_rabbit_type(rabbit_type="BLACK");
 ```
 
 **Arguments:**
@@ -3057,6 +3660,10 @@ entity::set_rabbit_type("BLACK");
 **Usage example:** 
 ```ts
 entity::set_rearing("FALSE");
+
+#Or dry by keywords
+
+entity::set_rearing(rearing="FALSE");
 ```
 
 **Arguments:**
@@ -3076,6 +3683,10 @@ entity::set_rearing("FALSE");
 **Usage example:** 
 ```ts
 entity::set_riptiding("FALSE");
+
+#Or dry by keywords
+
+entity::set_riptiding(riptiding="FALSE");
 ```
 
 **Arguments:**
@@ -3094,7 +3705,11 @@ entity::set_riptiding("FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_rotation(1,2);
+entity::set_rotation(1, 2);
+
+#Or dry by keywords
+
+entity::set_rotation(yaw=1, pitch=2);
 ```
 
 **Arguments:**
@@ -3115,6 +3730,10 @@ entity::set_rotation(1,2);
 **Usage example:** 
 ```ts
 entity::set_rotation_by_vector(vector(0,0,0));
+
+#Or dry by keywords
+
+entity::set_rotation_by_vector(vector=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -3136,6 +3755,10 @@ entity::set_rotation_by_vector(vector(0,0,0));
 **Usage example:** 
 ```ts
 entity::set_sheep_sheared("FALSE");
+
+#Or dry by keywords
+
+entity::set_sheep_sheared(sheared="FALSE");
 ```
 
 **Arguments:**
@@ -3157,6 +3780,10 @@ entity::set_sheep_sheared("FALSE");
 **Usage example:** 
 ```ts
 entity::set_shulker_bullet_target("target");
+
+#Or dry by keywords
+
+entity::set_shulker_bullet_target(target="target");
 ```
 
 **Arguments:**
@@ -3177,7 +3804,11 @@ entity::set_shulker_bullet_target("target");
 
 **Usage example:** 
 ```ts
-entity::set_shulker_peek(1,"TRUE");
+entity::set_shulker_peek(1, "TRUE");
+
+#Or dry by keywords
+
+entity::set_shulker_peek(rolling=1, silent="TRUE");
 ```
 
 **Arguments:**
@@ -3198,6 +3829,10 @@ entity::set_shulker_peek(1,"TRUE");
 **Usage example:** 
 ```ts
 entity::set_silenced("FALSE");
+
+#Or dry by keywords
+
+entity::set_silenced(silenced="FALSE");
 ```
 
 **Arguments:**
@@ -3223,6 +3858,10 @@ entity::set_silenced("FALSE");
 **Usage example:** 
 ```ts
 entity::set_sitting("FALSE");
+
+#Or dry by keywords
+
+entity::set_sitting(sitting="FALSE");
 ```
 
 **Arguments:**
@@ -3245,6 +3884,10 @@ entity::set_sitting("FALSE");
 **Usage example:** 
 ```ts
 entity::set_size(1);
+
+#Or dry by keywords
+
+entity::set_size(size=1);
 ```
 
 **Arguments:**
@@ -3266,6 +3909,10 @@ entity::set_size(1);
 **Usage example:** 
 ```ts
 entity::set_sniffer_state("DIGGING");
+
+#Or dry by keywords
+
+entity::set_sniffer_state(state="DIGGING");
 ```
 
 **Arguments:**
@@ -3287,6 +3934,10 @@ entity::set_sniffer_state("DIGGING");
 **Usage example:** 
 ```ts
 entity::set_snowman_pumpkin("FALSE");
+
+#Or dry by keywords
+
+entity::set_snowman_pumpkin(pumpkin="FALSE");
 ```
 
 **Arguments:**
@@ -3313,6 +3964,10 @@ entity::set_snowman_pumpkin("FALSE");
 **Usage example:** 
 ```ts
 entity::set_tame("name_or_uuid");
+
+#Or dry by keywords
+
+entity::set_tame(name_or_uuid="name_or_uuid");
 ```
 
 **Arguments:**
@@ -3336,6 +3991,10 @@ entity::set_tame("name_or_uuid");
 **Usage example:** 
 ```ts
 entity::set_target("name_or_uuid");
+
+#Or dry by keywords
+
+entity::set_target(name_or_uuid="name_or_uuid");
 ```
 
 **Arguments:**
@@ -3357,6 +4016,10 @@ entity::set_target("name_or_uuid");
 **Usage example:** 
 ```ts
 entity::set_text_display_alignment("CENTER");
+
+#Or dry by keywords
+
+entity::set_text_display_alignment(text_alignment="CENTER");
 ```
 
 **Arguments:**
@@ -3377,7 +4040,11 @@ entity::set_text_display_alignment("CENTER");
 
 **Usage example:** 
 ```ts
-entity::set_text_display_background("color_hexadecimal",1);
+entity::set_text_display_background("color_hexadecimal", 1);
+
+#Or dry by keywords
+
+entity::set_text_display_background(color_hexadecimal="color_hexadecimal", opacity=1);
 ```
 
 **Arguments:**
@@ -3400,6 +4067,10 @@ entity::set_text_display_background("color_hexadecimal",1);
 **Usage example:** 
 ```ts
 entity::set_text_display_line_width(1);
+
+#Or dry by keywords
+
+entity::set_text_display_line_width(line_width=1);
 ```
 
 **Arguments:**
@@ -3421,6 +4092,10 @@ entity::set_text_display_line_width(1);
 **Usage example:** 
 ```ts
 entity::set_text_display_opacity(1);
+
+#Or dry by keywords
+
+entity::set_text_display_opacity(text_opacity=1);
 ```
 
 **Arguments:**
@@ -3442,6 +4117,10 @@ entity::set_text_display_opacity(1);
 **Usage example:** 
 ```ts
 entity::set_text_display_see_through("FALSE");
+
+#Or dry by keywords
+
+entity::set_text_display_see_through(enable_see_through="FALSE");
 ```
 
 **Arguments:**
@@ -3462,7 +4141,11 @@ entity::set_text_display_see_through("FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_text_display_text(["displayed_text", "displayed_text"],"CONCATENATION");
+entity::set_text_display_text(["displayed_text", "displayed_text"], "CONCATENATION");
+
+#Or dry by keywords
+
+entity::set_text_display_text(displayed_text=["displayed_text", "displayed_text"], merging_mode="CONCATENATION");
 ```
 
 **Arguments:**
@@ -3485,6 +4168,10 @@ entity::set_text_display_text(["displayed_text", "displayed_text"],"CONCATENATIO
 **Usage example:** 
 ```ts
 entity::set_text_display_text_shadow("FALSE");
+
+#Or dry by keywords
+
+entity::set_text_display_text_shadow(enable_text_shadow="FALSE");
 ```
 
 **Arguments:**
@@ -3505,7 +4192,11 @@ entity::set_text_display_text_shadow("FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_tropical_fish_pattern("BLACK","BLACK","BETTY");
+entity::set_tropical_fish_pattern("BLACK", "BLACK", "BETTY");
+
+#Or dry by keywords
+
+entity::set_tropical_fish_pattern(pattern_color="BLACK", body_color="BLACK", pattern="BETTY");
 ```
 
 **Arguments:**
@@ -3529,6 +4220,10 @@ entity::set_tropical_fish_pattern("BLACK","BLACK","BETTY");
 **Usage example:** 
 ```ts
 entity::set_vex_charging("FALSE");
+
+#Or dry by keywords
+
+entity::set_vex_charging(charging="FALSE");
 ```
 
 **Arguments:**
@@ -3550,6 +4245,10 @@ entity::set_vex_charging("FALSE");
 **Usage example:** 
 ```ts
 entity::set_vex_limited_lifetime_ticks(1);
+
+#Or dry by keywords
+
+entity::set_vex_limited_lifetime_ticks(lifetime=1);
 ```
 
 **Arguments:**
@@ -3571,6 +4270,10 @@ entity::set_vex_limited_lifetime_ticks(1);
 **Usage example:** 
 ```ts
 entity::set_villager_biome("DESERT");
+
+#Or dry by keywords
+
+entity::set_villager_biome(biome="DESERT");
 ```
 
 **Arguments:**
@@ -3592,6 +4295,10 @@ entity::set_villager_biome("DESERT");
 **Usage example:** 
 ```ts
 entity::set_villager_experience(1);
+
+#Or dry by keywords
+
+entity::set_villager_experience(experience=1);
 ```
 
 **Arguments:**
@@ -3614,6 +4321,10 @@ entity::set_villager_experience(1);
 **Usage example:** 
 ```ts
 entity::set_villager_profession("ARMORER");
+
+#Or dry by keywords
+
+entity::set_villager_profession(profession="ARMORER");
 ```
 
 **Arguments:**
@@ -3633,6 +4344,10 @@ entity::set_villager_profession("ARMORER");
 **Usage example:** 
 ```ts
 entity::set_visual_fire("FALSE");
+
+#Or dry by keywords
+
+entity::set_visual_fire(visual_fire="FALSE");
 ```
 
 **Arguments:**
@@ -3655,7 +4370,11 @@ entity::set_visual_fire("FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_warden_anger_level("name_or_uuid",1);
+entity::set_warden_anger_level("name_or_uuid", 1);
+
+#Or dry by keywords
+
+entity::set_warden_anger_level(name_or_uuid="name_or_uuid", anger=1);
 ```
 
 **Arguments:**
@@ -3678,6 +4397,10 @@ entity::set_warden_anger_level("name_or_uuid",1);
 **Usage example:** 
 ```ts
 entity::set_warden_digging("DIG_DOWN");
+
+#Or dry by keywords
+
+entity::set_warden_digging(digging="DIG_DOWN");
 ```
 
 **Arguments:**
@@ -3701,6 +4424,10 @@ entity::set_warden_digging("DIG_DOWN");
 **Usage example:** 
 ```ts
 entity::set_wearing_saddle("FALSE");
+
+#Or dry by keywords
+
+entity::set_wearing_saddle(wearing="FALSE");
 ```
 
 **Arguments:**
@@ -3722,6 +4449,10 @@ entity::set_wearing_saddle("FALSE");
 **Usage example:** 
 ```ts
 entity::set_wither_invulnerability_ticks(1);
+
+#Or dry by keywords
+
+entity::set_wither_invulnerability_ticks(ticks=1);
 ```
 
 **Arguments:**
@@ -3729,6 +4460,31 @@ entity::set_wither_invulnerability_ticks(1);
 | **Name** | **Type** | **Description**                  |
 | -------- | -------- | -------------------------------- |
 | `ticks`  | Number   | Invulnerability Duration (Ticks) |
+<h3 id=entity_set_wolf_sound_variant>
+  <code>entity::set_wolf_sound_variant</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+entity::set_wolf_sound_variant("ANGRY");
+
+#Or dry by keywords
+
+entity::set_wolf_sound_variant(sound_variant="ANGRY");
+```
+
+**Arguments:**
+
+| **Name**        | **Type**                                                                                                                                                 | **Description** |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `sound_variant` | Marker<br/>**ANGRY** - None<br/>**BIG** - None<br/>**CLASSIC** - None<br/>**CUTE** - None<br/>**GRUMPY** - None<br/>**PUGLIN** - None<br/>**SAD** - None | None            |
 <h3 id=entity_set_wolf_type>
   <code>entity::set_wolf_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3743,6 +4499,10 @@ entity::set_wither_invulnerability_ticks(1);
 **Usage example:** 
 ```ts
 entity::set_wolf_type("ASHEN");
+
+#Or dry by keywords
+
+entity::set_wolf_type(wolf_type="ASHEN");
 ```
 
 **Arguments:**
@@ -3764,6 +4524,10 @@ entity::set_wolf_type("ASHEN");
 **Usage example:** 
 ```ts
 entity::set_zombie_arms_raised("FALSE");
+
+#Or dry by keywords
+
+entity::set_zombie_arms_raised(arms_raised="FALSE");
 ```
 
 **Arguments:**
@@ -3820,6 +4584,10 @@ entity::shear_sheep();
 **Usage example:** 
 ```ts
 entity::sleep("FALSE");
+
+#Or dry by keywords
+
+entity::sleep(sleep="FALSE");
 ```
 
 **Arguments:**
@@ -3839,6 +4607,10 @@ entity::sleep("FALSE");
 **Usage example:** 
 ```ts
 entity::swing_hand("MAIN");
+
+#Or dry by keywords
+
+entity::swing_hand(hand_type="MAIN");
 ```
 
 **Arguments:**
@@ -3857,7 +4629,11 @@ entity::swing_hand("MAIN");
 
 **Usage example:** 
 ```ts
-entity::teleport(location(0,0,0,0,0),"FALSE");
+entity::teleport(location(0,0,0,0,0), "FALSE");
+
+#Or dry by keywords
+
+entity::teleport(location=location(0,0,0,0,0), keep_rotation="FALSE");
 ```
 
 **Arguments:**
@@ -3879,7 +4655,11 @@ entity::teleport(location(0,0,0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-entity::use_item("MAIN_HAND","FALSE");
+entity::use_item("MAIN_HAND", "FALSE");
+
+#Or dry by keywords
+
+entity::use_item(hand="MAIN_HAND", enable="FALSE");
 ```
 
 **Arguments:**
@@ -3902,6 +4682,12 @@ entity::use_item("MAIN_HAND","FALSE");
 if(entity::collides_at_location(location(0,0,0,0,0))){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+entity::collides_at_location(location=location(0,0,0,0,0)){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -3920,7 +4706,13 @@ if(entity::collides_at_location(location(0,0,0,0,0))){
 
 **Usage example:** 
 ```ts
-if(entity::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0))){
+if(entity::collides_using_hitbox(location(0,0,0,0,0), location(0,0,0,0,0))){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+entity::collides_using_hitbox(min=location(0,0,0,0,0), max=location(0,0,0,0,0)){
     player::message("Condition is true");
 }
 ```
@@ -3942,7 +4734,13 @@ if(entity::collides_using_hitbox(location(0,0,0,0,0),location(0,0,0,0,0))){
 
 **Usage example:** 
 ```ts
-if(entity::collides_with_entity("name_or_uuid","CONTAINS")){
+if(entity::collides_with_entity("name_or_uuid", "CONTAINS")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+entity::collides_with_entity(name_or_uuid="name_or_uuid", check_type="CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -3996,7 +4794,13 @@ if(entity::exists()){
 
 **Usage example:** 
 ```ts
-if(entity::has_custom_tag("tag","tag_value","CONTAINS")){
+if(entity::has_custom_tag("tag", "tag_value", "CONTAINS")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+entity::has_custom_tag(tag="tag", tag_value="tag_value", compare_type="CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -4019,7 +4823,13 @@ if(entity::has_custom_tag("tag","tag_value","CONTAINS")){
 
 **Usage example:** 
 ```ts
-if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"ALL")){
+if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")], "ALL")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+entity::has_potion_effect(potions=[potion("slow_falling"), potion("slow_falling")], check_mode="ALL"){
     player::message("Condition is true");
 }
 ```
@@ -4041,7 +4851,13 @@ if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")],"A
 
 **Usage example:** 
 ```ts
-if(entity::in_area(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","HITBOX","CONTAINS")){
+if(entity::in_area(location(0,0,0,0,0), location(0,0,0,0,0), "FALSE", "HITBOX", "CONTAINS")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+entity::in_area(location_1=location(0,0,0,0,0), location_2=location(0,0,0,0,0), ignore_y_axis="FALSE", intersect_type="HITBOX", check_type="CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -4130,7 +4946,13 @@ if(entity::is_mob()){
 
 **Usage example:** 
 ```ts
-if(entity::is_near_location(1,location(0,0,0,0,0),"FALSE")){
+if(entity::is_near_location(1, location(0,0,0,0,0), "FALSE")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+entity::is_near_location(range=1, location=location(0,0,0,0,0), ignore_y_axis="FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -4169,7 +4991,13 @@ if(entity::is_projectile()){
 
 **Usage example:** 
 ```ts
-if(entity::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST")){
+if(entity::is_riding_entity(["entity_ids", "entity_ids"], "FARTHEST")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+entity::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mode="FARTHEST"){
     player::message("Condition is true");
 }
 ```
@@ -4191,7 +5019,13 @@ if(entity::is_riding_entity(["entity_ids", "entity_ids"],"FARTHEST")){
 
 **Usage example:** 
 ```ts
-if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE")){
+if(entity::is_standing_on_block([item("stone"), item("stone")], [location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+entity::is_standing_on_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -4215,6 +5049,12 @@ if(entity::is_standing_on_block([item("stone"), item("stone")],[location(0,0,0,0
 **Usage example:** 
 ```ts
 if(entity::is_type([item("stick"), item("stick")])){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+entity::is_type(entity_types=[item("stick"), item("stick")]){
     player::message("Condition is true");
 }
 ```
@@ -4270,6 +5110,12 @@ if(entity::is_vehicle()){
 if(entity::name_equals(["names_or_uuids", "names_or_uuids"])){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+entity::name_equals(names_or_uuids=["names_or_uuids", "names_or_uuids"]){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -4289,6 +5135,12 @@ if(entity::name_equals(["names_or_uuids", "names_or_uuids"])){
 **Usage example:** 
 ```ts
 if(entity::spawn_reason_equals("BEEHIVE")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+entity::spawn_reason_equals(reason="BEEHIVE"){
     player::message("Condition is true");
 }
 ```

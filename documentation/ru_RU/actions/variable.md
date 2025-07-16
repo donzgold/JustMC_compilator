@@ -18,6 +18,12 @@ if(variable::block_is_solid(item("stone"))){
 if(item("stone").block_is_solid(){
     player::message("Условие верно");
 }
+
+#Или в сухую по ключам
+
+variable::block_is_solid(block=item("stone")){
+    player::message("Условие верно");
+}
 ```
 
 **Аргументы:**
@@ -52,13 +58,19 @@ if(variable::is_dummy()){
 
 **Пример использования:** 
 ```ts
-if(variable::equals("any value",["any value", "any value"])){
+if(variable::equals("any value", ["any value", "any value"])){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
 if("any value".equals(["any value", "any value"]){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::equals(value="any value", compare=["any value", "any value"]){
     player::message("Условие верно");
 }
 ```
@@ -89,6 +101,12 @@ if(variable::exists(`variable`)){
 if(`variable`.exists(){
     player::message("Условие верно");
 }
+
+#Или в сухую по ключам
+
+variable::exists(variable=`variable`){
+    player::message("Условие верно");
+}
 ```
 
 **Аргументы:**
@@ -107,13 +125,19 @@ if(`variable`.exists(){
 
 **Пример использования:** 
 ```ts
-if(variable::greater(1,2)){
+if(variable::greater(1, 2)){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
 if((1).greater(2){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::greater(value=1, compare=2){
     player::message("Условие верно");
 }
 ```
@@ -135,13 +159,19 @@ if((1).greater(2){
 
 **Пример использования:** 
 ```ts
-if(variable::greater_or_equals(1,2)){
+if(variable::greater_or_equals(1, 2)){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
 if((1).greater_or_equals(2){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::greater_or_equals(value=1, compare=2){
     player::message("Условие верно");
 }
 ```
@@ -166,13 +196,19 @@ if((1).greater_or_equals(2){
 
 **Пример использования:** 
 ```ts
-if(variable::in_range("any value","any value","any value")){
+if(variable::in_range("any value", "any value", "any value")){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if("any value".in_range("any value","any value"){
+if("any value".in_range("any value", "any value"){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::in_range(value="any value", min="any value", max="any value"){
     player::message("Условие верно");
 }
 ```
@@ -195,13 +231,19 @@ if("any value".in_range("any value","any value"){
 
 **Пример использования:** 
 ```ts
-if(variable::is_type("any value","ARRAY")){
+if(variable::is_type("any value", "ARRAY")){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
 if("any value".is_type("ARRAY"){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::is_type(value="any value", variable_type="ARRAY"){
     player::message("Условие верно");
 }
 ```
@@ -223,13 +265,19 @@ if("any value".is_type("ARRAY"){
 
 **Пример использования:** 
 ```ts
-if(variable::item_equals(item("stick"),[item("stick"), item("stick")],"EXACTLY")){
+if(variable::item_equals(item("stick"), [item("stick"), item("stick")], "EXACTLY")){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(item("stick").item_equals([item("stick"), item("stick")],"EXACTLY"){
+if(item("stick").item_equals([item("stick"), item("stick")], "EXACTLY"){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::item_equals(value=item("stick"), compare=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Условие верно");
 }
 ```
@@ -252,13 +300,19 @@ if(item("stick").item_equals([item("stick"), item("stick")],"EXACTLY"){
 
 **Пример использования:** 
 ```ts
-if(variable::item_has_enchantment(item("stick"),"enchant",1)){
+if(variable::item_has_enchantment(item("stick"), "enchant", 1)){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(item("stick").item_has_enchantment("enchant",1){
+if(item("stick").item_has_enchantment("enchant", 1){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::item_has_enchantment(item=item("stick"), enchant="enchant", level=1){
     player::message("Условие верно");
 }
 ```
@@ -281,13 +335,19 @@ if(item("stick").item_has_enchantment("enchant",1){
 
 **Пример использования:** 
 ```ts
-if(variable::item_has_tag(item("stick"),"tag","value","CONTAINS")){
+if(variable::item_has_tag(item("stick"), "tag", "value", "CONTAINS")){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(item("stick").item_has_tag("tag","value","CONTAINS"){
+if(item("stick").item_has_tag("tag", "value", "CONTAINS"){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::item_has_tag(item=item("stick"), tag="tag", value="value", compare_type="CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -320,6 +380,12 @@ if(variable::item_is_block(item("stick"))){
 if(item("stick").item_is_block(){
     player::message("Условие верно");
 }
+
+#Или в сухую по ключам
+
+variable::item_is_block(item=item("stick")){
+    player::message("Условие верно");
+}
 ```
 
 **Аргументы:**
@@ -338,13 +404,19 @@ if(item("stick").item_is_block(){
 
 **Пример использования:** 
 ```ts
-if(variable::less(1,2)){
+if(variable::less(1, 2)){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
 if((1).less(2){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::less(value=1, compare=2){
     player::message("Условие верно");
 }
 ```
@@ -366,13 +438,19 @@ if((1).less(2){
 
 **Пример использования:** 
 ```ts
-if(variable::less_or_equals(1,2)){
+if(variable::less_or_equals(1, 2)){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
 if((1).less_or_equals(2){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::less_or_equals(value=1, compare=2){
     player::message("Условие верно");
 }
 ```
@@ -394,13 +472,19 @@ if((1).less_or_equals(2){
 
 **Пример использования:** 
 ```ts
-if(variable::list_contains_value(`list`,["any value", "any value"],"ALL")){
+if(variable::list_contains_value(`list`, ["any value", "any value"], "ALL")){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(`list`.list_contains_value(["any value", "any value"],"ALL"){
+if(`list`.list_contains_value(["any value", "any value"], "ALL"){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::list_contains_value(list=`list`, values=["any value", "any value"], check_mode="ALL"){
     player::message("Условие верно");
 }
 ```
@@ -436,6 +520,12 @@ if(variable::list_is_empty("any value")){
 if("any value".list_is_empty(){
     player::message("Условие верно");
 }
+
+#Или в сухую по ключам
+
+variable::list_is_empty(list="any value"){
+    player::message("Условие верно");
+}
 ```
 
 **Аргументы:**
@@ -454,13 +544,19 @@ if("any value".list_is_empty(){
 
 **Пример использования:** 
 ```ts
-if(variable::list_value_equals(`list`,1,["any value", "any value"])){
+if(variable::list_value_equals(`list`, 1, ["any value", "any value"])){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(`list`.list_value_equals(1,["any value", "any value"]){
+if(`list`.list_value_equals(1, ["any value", "any value"]){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::list_value_equals(list=`list`, index=1, values=["any value", "any value"]){
     player::message("Условие верно");
 }
 ```
@@ -483,13 +579,19 @@ if(`list`.list_value_equals(1,["any value", "any value"]){
 
 **Пример использования:** 
 ```ts
-if(variable::location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"BLOCK")){
+if(variable::location_in_range(location(0,0,0,0,0), location(0,0,0,0,0), location(0,0,0,0,0), "BLOCK")){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0),"BLOCK"){
+if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0), location(0,0,0,0,0), "BLOCK"){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::location_in_range(value=location(0,0,0,0,0), min=location(0,0,0,0,0), max=location(0,0,0,0,0), border_handling="BLOCK"){
     player::message("Условие верно");
 }
 ```
@@ -513,13 +615,19 @@ if(location(0,0,0,0,0).location_in_range(location(0,0,0,0,0),location(0,0,0,0,0)
 
 **Пример использования:** 
 ```ts
-if(variable::location_is_near(location(0,0,0,0,0),1,[location(0,0,0,0,0), location(0,0,0,0,0)],"CIRCLE")){
+if(variable::location_is_near(location(0,0,0,0,0), 1, [location(0,0,0,0,0), location(0,0,0,0,0)], "CIRCLE")){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(location(0,0,0,0,0).location_is_near(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"CIRCLE"){
+if(location(0,0,0,0,0).location_is_near(1, [location(0,0,0,0,0), location(0,0,0,0,0)], "CIRCLE"){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::location_is_near(location=location(0,0,0,0,0), radius=1, check=[location(0,0,0,0,0), location(0,0,0,0,0)], shape="CIRCLE"){
     player::message("Условие верно");
 }
 ```
@@ -543,13 +651,19 @@ if(location(0,0,0,0,0).location_is_near(1,[location(0,0,0,0,0), location(0,0,0,0
 
 **Пример использования:** 
 ```ts
-if(variable::map_has_key(`map`,"any value")){
+if(variable::map_has_key(`map`, "any value")){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
 if(`map`.map_has_key("any value"){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::map_has_key(map=`map`, key="any value"){
     player::message("Условие верно");
 }
 ```
@@ -571,13 +685,19 @@ if(`map`.map_has_key("any value"){
 
 **Пример использования:** 
 ```ts
-if(variable::map_value_equals(`map`,"any value",["any value", "any value"])){
+if(variable::map_value_equals(`map`, "any value", ["any value", "any value"])){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if(`map`.map_value_equals("any value",["any value", "any value"]){
+if(`map`.map_value_equals("any value", ["any value", "any value"]){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::map_value_equals(map=`map`, key="any value", values=["any value", "any value"]){
     player::message("Условие верно");
 }
 ```
@@ -600,13 +720,19 @@ if(`map`.map_value_equals("any value",["any value", "any value"]){
 
 **Пример использования:** 
 ```ts
-if(variable::not_equals("any value",["any value", "any value"])){
+if(variable::not_equals("any value", ["any value", "any value"])){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
 if("any value".not_equals(["any value", "any value"]){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::not_equals(value="any value", compare=["any value", "any value"]){
     player::message("Условие верно");
 }
 ```
@@ -628,7 +754,13 @@ if("any value".not_equals(["any value", "any value"]){
 
 **Пример использования:** 
 ```ts
-if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"CONTAINS")){
+if(variable::range_intersects_range(location(0,0,0,0,0), location(0,0,0,0,0), location(0,0,0,0,0), location(0,0,0,0,0), "CONTAINS")){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::range_intersects_range(min1=location(0,0,0,0,0), max1=location(0,0,0,0,0), min2=location(0,0,0,0,0), max2=location(0,0,0,0,0), check_type="CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -653,13 +785,19 @@ if(variable::range_intersects_range(location(0,0,0,0,0),location(0,0,0,0,0),loca
 
 **Пример использования:** 
 ```ts
-if(variable::text_contains("value",["compare", "compare"],"FALSE")){
+if(variable::text_contains("value", ["compare", "compare"], "FALSE")){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if("value".text_contains(["compare", "compare"],"FALSE"){
+if("value".text_contains(["compare", "compare"], "FALSE"){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::text_contains(value="value", compare=["compare", "compare"], ignore_case="FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -682,13 +820,19 @@ if("value".text_contains(["compare", "compare"],"FALSE"){
 
 **Пример использования:** 
 ```ts
-if(variable::text_ends_with("value",["compare", "compare"],"FALSE")){
+if(variable::text_ends_with("value", ["compare", "compare"], "FALSE")){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if("value".text_ends_with(["compare", "compare"],"FALSE"){
+if("value".text_ends_with(["compare", "compare"], "FALSE"){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::text_ends_with(value="value", compare=["compare", "compare"], ignore_case="FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -711,13 +855,19 @@ if("value".text_ends_with(["compare", "compare"],"FALSE"){
 
 **Пример использования:** 
 ```ts
-if(variable::text_matches("match",["values", "values"],"FALSE","FALSE")){
+if(variable::text_matches("match", ["values", "values"], "FALSE", "FALSE")){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if("match".text_matches(["values", "values"],"FALSE","FALSE"){
+if("match".text_matches(["values", "values"], "FALSE", "FALSE"){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::text_matches(match="match", values=["values", "values"], regular_expressions="FALSE", ignore_case="FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -741,13 +891,19 @@ if("match".text_matches(["values", "values"],"FALSE","FALSE"){
 
 **Пример использования:** 
 ```ts
-if(variable::text_starts_with("value",["compare", "compare"],"FALSE")){
+if(variable::text_starts_with("value", ["compare", "compare"], "FALSE")){
     player::message("Условие верно");
 }
 
 #Или от объекта
 
-if("value".text_starts_with(["compare", "compare"],"FALSE"){
+if("value".text_starts_with(["compare", "compare"], "FALSE"){
+    player::message("Условие верно");
+}
+
+#Или в сухую по ключам
+
+variable::text_starts_with(value="value", compare=["compare", "compare"], ignore_case="FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -776,9 +932,13 @@ if("value".text_starts_with(["compare", "compare"],"FALSE"){
 
 `variable` = (1).absolute();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::absolute(`variable`,1);
+variable::absolute(`variable`, 1);
+
+#Или в сухую по ключам
+
+variable::absolute(variable=`variable`, number=1);
 ```
 
 **Аргументы:**
@@ -800,9 +960,13 @@ variable::absolute(`variable`,1);
 ```ts
 `variable` = variable::add([1, 2]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::add(`variable`,[1, 2]);
+variable::add(`variable`, [1, 2]);
+
+#Или в сухую по ключам
+
+variable::add(variable=`variable`, value=[1, 2]);
 ```
 
 **Аргументы:**
@@ -822,15 +986,19 @@ variable::add(`variable`,[1, 2]);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::add_item_enchantment(item("stick"),"enchantment",1);
+`variable` = variable::add_item_enchantment(item("stick"), "enchantment", 1);
 
 #Или от объекта
 
-`variable` = item("stick").add_item_enchantment("enchantment",1);
+`variable` = item("stick").add_item_enchantment("enchantment", 1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::add_item_enchantment(`variable`,item("stick"),"enchantment",1);
+variable::add_item_enchantment(`variable`, item("stick"), "enchantment", 1);
+
+#Или в сухую по ключам
+
+variable::add_item_enchantment(variable=`variable`, item=item("stick"), enchantment="enchantment", level=1);
 ```
 
 **Аргументы:**
@@ -852,15 +1020,19 @@ variable::add_item_enchantment(`variable`,item("stick"),"enchantment",1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],item("stick"),"FALSE","FALSE","AMBIENT");
+`variable` = variable::add_item_potion_effects([potion("slow_falling"), potion("slow_falling")], item("stick"), "FALSE", "FALSE", "AMBIENT");
 
 #Или от объекта
 
-`variable` = item("stick").add_item_potion_effects([potion("slow_falling"), potion("slow_falling")],"FALSE","FALSE","AMBIENT");
+`variable` = item("stick").add_item_potion_effects([potion("slow_falling"), potion("slow_falling")], "FALSE", "FALSE", "AMBIENT");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::add_item_potion_effects(`variable`,[potion("slow_falling"), potion("slow_falling")],item("stick"),"FALSE","FALSE","AMBIENT");
+variable::add_item_potion_effects(`variable`, [potion("slow_falling"), potion("slow_falling")], item("stick"), "FALSE", "FALSE", "AMBIENT");
+
+#Или в сухую по ключам
+
+variable::add_item_potion_effects(variable=`variable`, potions=[potion("slow_falling"), potion("slow_falling")], item=item("stick"), overwrite="FALSE", show_icon="FALSE", particle_mode="AMBIENT");
 ```
 
 **Аргументы:**
@@ -886,9 +1058,13 @@ variable::add_item_potion_effects(`variable`,[potion("slow_falling"), potion("sl
 ```ts
 `variable` = variable::add_vectors([vector(0,0,0), vector(0,0,0)]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::add_vectors(`variable`,[vector(0,0,0), vector(0,0,0)]);
+variable::add_vectors(`variable`, [vector(0,0,0), vector(0,0,0)]);
+
+#Или в сухую по ключам
+
+variable::add_vectors(variable=`variable`, vectors=[vector(0,0,0), vector(0,0,0)]);
 ```
 
 **Аргументы:**
@@ -908,15 +1084,19 @@ variable::add_vectors(`variable`,[vector(0,0,0), vector(0,0,0)]);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::align_location(location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENTER");
+`variable` = variable::align_location(location(0,0,0,0,0), "KEEP", "ALL", "BLOCK_CENTER");
 
 #Или от объекта
 
-`variable` = location(0,0,0,0,0).align_location("KEEP","ALL","BLOCK_CENTER");
+`variable` = location(0,0,0,0,0).align_location("KEEP", "ALL", "BLOCK_CENTER");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::align_location(`variable`,location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENTER");
+variable::align_location(`variable`, location(0,0,0,0,0), "KEEP", "ALL", "BLOCK_CENTER");
+
+#Или в сухую по ключам
+
+variable::align_location(variable=`variable`, location=location(0,0,0,0,0), rotation_mode="KEEP", coordinates_mode="ALL", align_mode="BLOCK_CENTER");
 ```
 
 **Аргументы:**
@@ -939,15 +1119,19 @@ variable::align_location(`variable`,location(0,0,0,0,0),"KEEP","ALL","BLOCK_CENT
 
 **Пример использования:** 
 ```ts
-`variable` = variable::align_to_axis_vector(vector(0,0,0),"FALSE");
+`variable` = variable::align_to_axis_vector(vector(0,0,0), "FALSE");
 
 #Или от объекта
 
 `variable` = vector(0,0,0).align_to_axis_vector("FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::align_to_axis_vector(`variable`,vector(0,0,0),"FALSE");
+variable::align_to_axis_vector(`variable`, vector(0,0,0), "FALSE");
+
+#Или в сухую по ключам
+
+variable::align_to_axis_vector(variable=`variable`, vector=vector(0,0,0), normalize="FALSE");
 ```
 
 **Аргументы:**
@@ -968,11 +1152,15 @@ variable::align_to_axis_vector(`variable`,vector(0,0,0),"FALSE");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::append_component(["components", "components"],"CONCATENATION");
+`variable` = variable::append_component(["components", "components"], "CONCATENATION");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::append_component(`variable`,["components", "components"],"CONCATENATION");
+variable::append_component(`variable`, ["components", "components"], "CONCATENATION");
+
+#Или в сухую по ключам
+
+variable::append_component(variable=`variable`, components=["components", "components"], merging="CONCATENATION");
 ```
 
 **Аргументы:**
@@ -993,15 +1181,19 @@ variable::append_component(`variable`,["components", "components"],"CONCATENATIO
 
 **Пример использования:** 
 ```ts
-`variable` = variable::append_list(`list_1`,`list_2`);
+`variable` = variable::append_list(`list_1`, `list_2`);
 
 #Или от объекта
 
 `variable` = `list_1`.append_list(`list_2`);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::append_list(`variable`,`list_1`,`list_2`);
+variable::append_list(`variable`, `list_1`, `list_2`);
+
+#Или в сухую по ключам
+
+variable::append_list(variable=`variable`, list_1=`list_1`, list_2=`list_2`);
 ```
 
 **Аргументы:**
@@ -1022,15 +1214,19 @@ variable::append_list(`variable`,`list_1`,`list_2`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::append_map(`map`,`other_map`);
+`variable` = variable::append_map(`map`, `other_map`);
 
 #Или от объекта
 
 `variable` = `map`.append_map(`other_map`);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::append_map(`variable`,`map`,`other_map`);
+variable::append_map(`variable`, `map`, `other_map`);
+
+#Или в сухую по ключам
+
+variable::append_map(variable=`variable`, map=`map`, other_map=`other_map`);
 ```
 
 **Аргументы:**
@@ -1051,11 +1247,15 @@ variable::append_map(`variable`,`map`,`other_map`);
 
 **Пример использования:** 
 ```ts
-variable::append_value(`variable`,["any value", "any value"]);
+variable::append_value(`variable`, ["any value", "any value"]);
 
 #Или от объекта
 
 `variable`.append_value(["any value", "any value"]);
+
+#Или в сухую по ключам
+
+variable::append_value(variable=`variable`, values=["any value", "any value"]);
 ```
 
 **Аргументы:**
@@ -1075,11 +1275,15 @@ variable::append_value(`variable`,["any value", "any value"]);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::atan2(1,2);
+`variable` = variable::atan2(1, 2);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::atan2(`variable`,1,2);
+variable::atan2(`variable`, 1, 2);
+
+#Или в сухую по ключам
+
+variable::atan2(variable=`variable`, y=1, x=2);
 ```
 
 **Аргументы:**
@@ -1102,9 +1306,13 @@ variable::atan2(`variable`,1,2);
 ```ts
 `variable` = variable::average([1, 2]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::average(`variable`,[1, 2]);
+variable::average(`variable`, [1, 2]);
+
+#Или в сухую по ключам
+
+variable::average(variable=`variable`, value=[1, 2]);
 ```
 
 **Аргументы:**
@@ -1124,11 +1332,15 @@ variable::average(`variable`,[1, 2]);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::bitwise_operation(1,2,"AND");
+`variable` = variable::bitwise_operation(1, 2, "AND");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::bitwise_operation(`variable`,1,2,"AND");
+variable::bitwise_operation(`variable`, 1, 2, "AND");
+
+#Или в сухую по ключам
+
+variable::bitwise_operation(variable=`variable`, operand1=1, operand2=2, operator="AND");
 ```
 
 **Аргументы:**
@@ -1152,9 +1364,13 @@ variable::bitwise_operation(`variable`,1,2,"AND");
 ```ts
 `variable` = variable::center_location([location(0,0,0,0,0), location(0,0,0,0,0)]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::center_location(`variable`,[location(0,0,0,0,0), location(0,0,0,0,0)]);
+variable::center_location(`variable`, [location(0,0,0,0,0), location(0,0,0,0,0)]);
+
+#Или в сухую по ключам
+
+variable::center_location(variable=`variable`, locations=[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
 
 **Аргументы:**
@@ -1174,15 +1390,19 @@ variable::center_location(`variable`,[location(0,0,0,0,0), location(0,0,0,0,0)])
 
 **Пример использования:** 
 ```ts
-`variable` = variable::change_component_parsing("component","JSON");
+`variable` = variable::change_component_parsing("component", "JSON");
 
 #Или от объекта
 
 `variable` = "component".change_component_parsing("JSON");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::change_component_parsing(`variable`,"component","JSON");
+variable::change_component_parsing(`variable`, "component", "JSON");
+
+#Или в сухую по ключам
+
+variable::change_component_parsing(variable=`variable`, component="component", parsing="JSON");
 ```
 
 **Аргументы:**
@@ -1209,9 +1429,13 @@ variable::change_component_parsing(`variable`,"component","JSON");
 
 `variable` = "char".char_to_number();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::char_to_number(`variable`,"char");
+variable::char_to_number(`variable`, "char");
+
+#Или в сухую по ключам
+
+variable::char_to_number(variable=`variable`, char="char");
 ```
 
 **Аргументы:**
@@ -1231,15 +1455,19 @@ variable::char_to_number(`variable`,"char");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::clamp(1,2,3);
+`variable` = variable::clamp(1, 2, 3);
 
 #Или от объекта
 
-`variable` = (1).clamp(2,3);
+`variable` = (1).clamp(2, 3);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::clamp(`variable`,1,2,3);
+variable::clamp(`variable`, 1, 2, 3);
+
+#Или в сухую по ключам
+
+variable::clamp(variable=`variable`, number=1, min=2, max=3);
 ```
 
 **Аргументы:**
@@ -1267,9 +1495,13 @@ variable::clamp(`variable`,1,2,3);
 
 `variable` = "text".clear_color_codes();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::clear_color_codes(`variable`,"text");
+variable::clear_color_codes(`variable`, "text");
+
+#Или в сухую по ключам
+
+variable::clear_color_codes(variable=`variable`, text="text");
 ```
 
 **Аргументы:**
@@ -1294,6 +1526,10 @@ variable::clear_map(`map`);
 #Или от объекта
 
 `map`.clear_map();
+
+#Или в сухую по ключам
+
+variable::clear_map(map=`map`);
 ```
 
 **Аргументы:**
@@ -1318,9 +1554,13 @@ variable::clear_map(`map`);
 
 `variable` = "component".compact_component();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::compact_component(`variable`,"component");
+variable::compact_component(`variable`, "component");
+
+#Или в сухую по ключам
+
+variable::compact_component(variable=`variable`, component="component");
 ```
 
 **Аргументы:**
@@ -1342,9 +1582,13 @@ variable::compact_component(`variable`,"component");
 ```ts
 `variable` = variable::component_of_children(["components", "components"]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::component_of_children(`variable`,["components", "components"]);
+variable::component_of_children(`variable`, ["components", "components"]);
+
+#Или в сухую по ключам
+
+variable::component_of_children(variable=`variable`, components=["components", "components"]);
 ```
 
 **Аргументы:**
@@ -1367,15 +1611,19 @@ variable::component_of_children(`variable`,["components", "components"]);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::convert_number_to_text(1,2);
+`variable` = variable::convert_number_to_text(1, 2);
 
 #Или от объекта
 
 `variable` = (1).convert_number_to_text(2);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::convert_number_to_text(`variable`,1,2);
+variable::convert_number_to_text(`variable`, 1, 2);
+
+#Или в сухую по ключам
+
+variable::convert_number_to_text(variable=`variable`, number=1, radix=2);
 ```
 
 **Аргументы:**
@@ -1396,15 +1644,19 @@ variable::convert_number_to_text(`variable`,1,2);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::convert_text_to_number("text",1);
+`variable` = variable::convert_text_to_number("text", 1);
 
 #Или от объекта
 
 `variable` = "text".convert_text_to_number(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::convert_text_to_number(`variable`,"text",1);
+variable::convert_text_to_number(`variable`, "text", 1);
+
+#Или в сухую по ключам
+
+variable::convert_text_to_number(variable=`variable`, text="text", radix=1);
 ```
 
 **Аргументы:**
@@ -1425,15 +1677,19 @@ variable::convert_text_to_number(`variable`,"text",1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::cosine(1,"ARCCOSINE","DEGREES");
+`variable` = variable::cosine(1, "ARCCOSINE", "DEGREES");
 
 #Или от объекта
 
-`variable` = (1).cosine("ARCCOSINE","DEGREES");
+`variable` = (1).cosine("ARCCOSINE", "DEGREES");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::cosine(`variable`,1,"ARCCOSINE","DEGREES");
+variable::cosine(`variable`, 1, "ARCCOSINE", "DEGREES");
+
+#Или в сухую по ключам
+
+variable::cosine(variable=`variable`, number=1, variant="ARCCOSINE", input="DEGREES");
 ```
 
 **Аргументы:**
@@ -1455,15 +1711,19 @@ variable::cosine(`variable`,1,"ARCCOSINE","DEGREES");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::cotangent(1,"ARCCOTANGENT","DEGREES");
+`variable` = variable::cotangent(1, "ARCCOTANGENT", "DEGREES");
 
 #Или от объекта
 
-`variable` = (1).cotangent("ARCCOTANGENT","DEGREES");
+`variable` = (1).cotangent("ARCCOTANGENT", "DEGREES");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::cotangent(`variable`,1,"ARCCOTANGENT","DEGREES");
+variable::cotangent(`variable`, 1, "ARCCOTANGENT", "DEGREES");
+
+#Или в сухую по ключам
+
+variable::cotangent(variable=`variable`, number=1, variant="ARCCOTANGENT", input="DEGREES");
 ```
 
 **Аргументы:**
@@ -1487,9 +1747,13 @@ variable::cotangent(`variable`,1,"ARCCOTANGENT","DEGREES");
 ```ts
 `variable` = variable::create_keybind_component("key");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::create_keybind_component(`variable`,"key");
+variable::create_keybind_component(`variable`, "key");
+
+#Или в сухую по ключам
+
+variable::create_keybind_component(variable=`variable`, key="key");
 ```
 
 **Аргументы:**
@@ -1513,9 +1777,13 @@ variable::create_keybind_component(`variable`,"key");
 ```ts
 `variable` = variable::create_list(["any value", "any value"]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::create_list(`variable`,["any value", "any value"]);
+variable::create_list(`variable`, ["any value", "any value"]);
+
+#Или в сухую по ключам
+
+variable::create_list(variable=`variable`, values=["any value", "any value"]);
 ```
 
 **Аргументы:**
@@ -1537,11 +1805,15 @@ variable::create_list(`variable`,["any value", "any value"]);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::create_map(`keys`,`values`);
+`variable` = variable::create_map(`keys`, `values`);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::create_map(`variable`,`keys`,`values`);
+variable::create_map(`variable`, `keys`, `values`);
+
+#Или в сухую по ключам
+
+variable::create_map(variable=`variable`, keys=`keys`, values=`values`);
 ```
 
 **Аргументы:**
@@ -1564,11 +1836,15 @@ variable::create_map(`variable`,`keys`,`values`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::create_map_from_values(["any value", "any value"],["any value", "any value"]);
+`variable` = variable::create_map_from_values(["any value", "any value"], ["any value", "any value"]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::create_map_from_values(`variable`,["any value", "any value"],["any value", "any value"]);
+variable::create_map_from_values(`variable`, ["any value", "any value"], ["any value", "any value"]);
+
+#Или в сухую по ключам
+
+variable::create_map_from_values(variable=`variable`, keys=["any value", "any value"], values=["any value", "any value"]);
 ```
 
 **Аргументы:**
@@ -1589,11 +1865,15 @@ variable::create_map_from_values(`variable`,["any value", "any value"],["any val
 
 **Пример использования:** 
 ```ts
-`variable` = variable::create_translatable_component("key",["args", "args"]);
+`variable` = variable::create_translatable_component("key", ["args", "args"]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::create_translatable_component(`variable`,"key",["args", "args"]);
+variable::create_translatable_component(`variable`, "key", ["args", "args"]);
+
+#Или в сухую по ключам
+
+variable::create_translatable_component(variable=`variable`, key="key", args=["args", "args"]);
 ```
 
 **Аргументы:**
@@ -1620,9 +1900,13 @@ variable::create_translatable_component(`variable`,"key",["args", "args"]);
 
 `variable`.decrement(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::decrement(`variable`,1);
+variable::decrement(`variable`, 1);
+
+#Или в сухую по ключам
+
+variable::decrement(variable=`variable`, number=1);
 ```
 
 **Аргументы:**
@@ -1642,11 +1926,15 @@ variable::decrement(`variable`,1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::divide([1, 2],"CEIL");
+`variable` = variable::divide([1, 2], "CEIL");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::divide(`variable`,[1, 2],"CEIL");
+variable::divide(`variable`, [1, 2], "CEIL");
+
+#Или в сухую по ключам
+
+variable::divide(variable=`variable`, value=[1, 2], division_mode="CEIL");
 ```
 
 **Аргументы:**
@@ -1667,11 +1955,15 @@ variable::divide(`variable`,[1, 2],"CEIL");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::divide_vector(vector(0,0,0),vector(0,0,0));
+`variable` = variable::divide_vector(vector(0,0,0), vector(0,0,0));
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::divide_vector(`variable`,vector(0,0,0),vector(0,0,0));
+variable::divide_vector(`variable`, vector(0,0,0), vector(0,0,0));
+
+#Или в сухую по ключам
+
+variable::divide_vector(variable=`variable`, vector=vector(0,0,0), divider=vector(0,0,0));
 ```
 
 **Аргументы:**
@@ -1706,15 +1998,19 @@ variable::dummy();
 
 **Пример использования:** 
 ```ts
-`variable` = variable::face_location(location(0,0,0,0,0),location(0,0,0,0,0));
+`variable` = variable::face_location(location(0,0,0,0,0), location(0,0,0,0,0));
 
 #Или от объекта
 
 `variable` = location(0,0,0,0,0).face_location(location(0,0,0,0,0));
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::face_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0));
+variable::face_location(`variable`, location(0,0,0,0,0), location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::face_location(variable=`variable`, location=location(0,0,0,0,0), target=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -1741,9 +2037,13 @@ variable::face_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0));
 
 `variable` = `list`.flatten_list();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::flatten_list(`variable`,`list`);
+variable::flatten_list(`variable`, `list`);
+
+#Или в сухую по ключам
+
+variable::flatten_list(variable=`variable`, list=`list`);
 ```
 
 **Аргументы:**
@@ -1763,15 +2063,19 @@ variable::flatten_list(`variable`,`list`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::format_timestamp(1,"pattern","zone_id","locale","CUSTOM");
+`variable` = variable::format_timestamp(1, "pattern", "zone_id", "locale", "CUSTOM");
 
 #Или от объекта
 
-`variable` = (1).format_timestamp("pattern","zone_id","locale","CUSTOM");
+`variable` = (1).format_timestamp("pattern", "zone_id", "locale", "CUSTOM");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::format_timestamp(`variable`,1,"pattern","zone_id","locale","CUSTOM");
+variable::format_timestamp(`variable`, 1, "pattern", "zone_id", "locale", "CUSTOM");
+
+#Или в сухую по ключам
+
+variable::format_timestamp(variable=`variable`, time=1, pattern="pattern", zone_id="zone_id", locale="locale", format="CUSTOM");
 ```
 
 **Аргументы:**
@@ -1804,9 +2108,13 @@ variable::format_timestamp(`variable`,1,"pattern","zone_id","locale","CUSTOM");
 
 `variable` = (1).gamma_function();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::gamma_function(`variable`,1);
+variable::gamma_function(`variable`, 1);
+
+#Или в сухую по ключам
+
+variable::gamma_function(variable=`variable`, number=1);
 ```
 
 **Аргументы:**
@@ -1826,11 +2134,15 @@ variable::gamma_function(`variable`,1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::gaussian_distribution(1,2,"FOLDER_NORMAL");
+`variable` = variable::gaussian_distribution(1, 2, "FOLDER_NORMAL");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::gaussian_distribution(`variable`,1,2,"FOLDER_NORMAL");
+variable::gaussian_distribution(`variable`, 1, 2, "FOLDER_NORMAL");
+
+#Или в сухую по ключам
+
+variable::gaussian_distribution(variable=`variable`, deviant=1, mean=2, distribution="FOLDER_NORMAL");
 ```
 
 **Аргументы:**
@@ -1852,15 +2164,19 @@ variable::gaussian_distribution(`variable`,1,2,"FOLDER_NORMAL");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_all_block_data(location(0,0,0,0,0),"FALSE");
+`variable` = variable::get_all_block_data(location(0,0,0,0,0), "FALSE");
 
 #Или от объекта
 
 `variable` = location(0,0,0,0,0).get_all_block_data("FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_all_block_data(`variable`,location(0,0,0,0,0),"FALSE");
+variable::get_all_block_data(`variable`, location(0,0,0,0,0), "FALSE");
+
+#Или в сухую по ключам
+
+variable::get_all_block_data(variable=`variable`, location=location(0,0,0,0,0), hide_unspecified="FALSE");
 ```
 
 **Аргументы:**
@@ -1887,9 +2203,13 @@ variable::get_all_block_data(`variable`,location(0,0,0,0,0),"FALSE");
 
 `x`, `y`, `z`, `yaw`, `pitch` = location(0,0,0,0,0).get_all_coordinates();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_all_coordinates(`x`,`y`,`z`,`yaw`,`pitch`,location(0,0,0,0,0));
+variable::get_all_coordinates(`x`, `y`, `z`, `yaw`, `pitch`, location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_all_coordinates(x=`x`, y=`y`, z=`z`, yaw=`yaw`, pitch=`pitch`, location=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -1913,11 +2233,15 @@ variable::get_all_coordinates(`x`,`y`,`z`,`yaw`,`pitch`,location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_angle_between_vectors(vector(0,0,0),vector(0,0,0),"DEGREES");
+`variable` = variable::get_angle_between_vectors(vector(0,0,0), vector(0,0,0), "DEGREES");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_angle_between_vectors(`variable`,vector(0,0,0),vector(0,0,0),"DEGREES");
+variable::get_angle_between_vectors(`variable`, vector(0,0,0), vector(0,0,0), "DEGREES");
+
+#Или в сухую по ключам
+
+variable::get_angle_between_vectors(variable=`variable`, vector_1=vector(0,0,0), vector_2=vector(0,0,0), angle_units="DEGREES");
 ```
 
 **Аргументы:**
@@ -1939,11 +2263,15 @@ variable::get_angle_between_vectors(`variable`,vector(0,0,0),vector(0,0,0),"DEGR
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_block_custom_tag(location(0,0,0,0,0),"tag_name","tag_value","any value");
+`variable` = variable::get_block_custom_tag(location(0,0,0,0,0), "tag_name", "tag_value", "any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_block_custom_tag(`variable`,location(0,0,0,0,0),"tag_name","tag_value","any value");
+variable::get_block_custom_tag(`variable`, location(0,0,0,0,0), "tag_name", "tag_value", "any value");
+
+#Или в сухую по ключам
+
+variable::get_block_custom_tag(variable=`variable`, location=location(0,0,0,0,0), tag_name="tag_name", tag_value="tag_value", default_value="any value");
 ```
 
 **Аргументы:**
@@ -1966,15 +2294,19 @@ variable::get_block_custom_tag(`variable`,location(0,0,0,0,0),"tag_name","tag_va
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_block_data(location(0,0,0,0,0),"tag_name");
+`variable` = variable::get_block_data(location(0,0,0,0,0), "tag_name");
 
 #Или от объекта
 
 `variable` = location(0,0,0,0,0).get_block_data("tag_name");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_block_data(`variable`,location(0,0,0,0,0),"tag_name");
+variable::get_block_data(`variable`, location(0,0,0,0,0), "tag_name");
+
+#Или в сухую по ключам
+
+variable::get_block_data(variable=`variable`, location=location(0,0,0,0,0), tag_name="tag_name");
 ```
 
 **Аргументы:**
@@ -1995,15 +2327,19 @@ variable::get_block_data(`variable`,location(0,0,0,0,0),"tag_name");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_block_growth(location(0,0,0,0,0),"GROWTH_PERCENTAGE");
+`variable` = variable::get_block_growth(location(0,0,0,0,0), "GROWTH_PERCENTAGE");
 
 #Или от объекта
 
 `variable` = location(0,0,0,0,0).get_block_growth("GROWTH_PERCENTAGE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_block_growth(`variable`,location(0,0,0,0,0),"GROWTH_PERCENTAGE");
+variable::get_block_growth(`variable`, location(0,0,0,0,0), "GROWTH_PERCENTAGE");
+
+#Или в сухую по ключам
+
+variable::get_block_growth(variable=`variable`, location=location(0,0,0,0,0), growth_unit="GROWTH_PERCENTAGE");
 ```
 
 **Аргументы:**
@@ -2024,15 +2360,19 @@ variable::get_block_growth(`variable`,location(0,0,0,0,0),"GROWTH_PERCENTAGE");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_block_material(location(0,0,0,0,0),"ID");
+`variable` = variable::get_block_material(location(0,0,0,0,0), "ID");
 
 #Или от объекта
 
 `variable` = location(0,0,0,0,0).get_block_material("ID");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_block_material(`variable`,location(0,0,0,0,0),"ID");
+variable::get_block_material(`variable`, location(0,0,0,0,0), "ID");
+
+#Или в сухую по ключам
+
+variable::get_block_material(variable=`variable`, location=location(0,0,0,0,0), value_type="ID");
 ```
 
 **Аргументы:**
@@ -2053,15 +2393,19 @@ variable::get_block_material(`variable`,location(0,0,0,0,0),"ID");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_block_material_property(item("stone"),"BLAST_RESISTANCE");
+`variable` = variable::get_block_material_property(item("stone"), "BLAST_RESISTANCE");
 
 #Или от объекта
 
 `variable` = item("stone").get_block_material_property("BLAST_RESISTANCE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_block_material_property(`variable`,item("stone"),"BLAST_RESISTANCE");
+variable::get_block_material_property(`variable`, item("stone"), "BLAST_RESISTANCE");
+
+#Или в сухую по ключам
+
+variable::get_block_material_property(variable=`variable`, block=item("stone"), property="BLAST_RESISTANCE");
 ```
 
 **Аргументы:**
@@ -2088,9 +2432,13 @@ variable::get_block_material_property(`variable`,item("stone"),"BLAST_RESISTANCE
 
 `variable` = location(0,0,0,0,0).get_block_power();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_block_power(`variable`,location(0,0,0,0,0));
+variable::get_block_power(`variable`, location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_block_power(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -2110,15 +2458,19 @@ variable::get_block_power(`variable`,location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_block_sound(item("stone"),"BREAK");
+`variable` = variable::get_block_sound(item("stone"), "BREAK");
 
 #Или от объекта
 
 `variable` = item("stone").get_block_sound("BREAK");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_block_sound(`variable`,item("stone"),"BREAK");
+variable::get_block_sound(`variable`, item("stone"), "BREAK");
+
+#Или в сухую по ключам
+
+variable::get_block_sound(variable=`variable`, block=item("stone"), source="BREAK");
 ```
 
 **Аргументы:**
@@ -2139,15 +2491,19 @@ variable::get_block_sound(`variable`,item("stone"),"BREAK");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_book_text(item("stick"),1);
+`variable` = variable::get_book_text(item("stick"), 1);
 
 #Или от объекта
 
 `variable` = item("stick").get_book_text(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_book_text(`variable`,item("stick"),1);
+variable::get_book_text(`variable`, item("stick"), 1);
+
+#Или в сухую по ключам
+
+variable::get_book_text(variable=`variable`, book=item("stick"), page=1);
 ```
 
 **Аргументы:**
@@ -2174,9 +2530,13 @@ variable::get_book_text(`variable`,item("stick"),1);
 
 `variable` = location(0,0,0,0,0).get_brushable_block_item();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_brushable_block_item(`variable`,location(0,0,0,0,0));
+variable::get_brushable_block_item(`variable`, location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_brushable_block_item(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -2196,11 +2556,15 @@ variable::get_brushable_block_item(`variable`,location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-variable::get_bundle_items(`variable`,item("stick"));
+variable::get_bundle_items(`variable`, item("stick"));
 
 #Или от объекта
 
 item("stick").get_bundle_items(`variable`);
+
+#Или в сухую по ключам
+
+variable::get_bundle_items(variable=`variable`, bundle=item("stick"));
 ```
 
 **Аргументы:**
@@ -2220,15 +2584,19 @@ item("stick").get_bundle_items(`variable`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_char_at("text",1);
+`variable` = variable::get_char_at("text", 1);
 
 #Или от объекта
 
 `variable` = "text".get_char_at(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_char_at(`variable`,"text",1);
+variable::get_char_at(`variable`, "text", 1);
+
+#Или в сухую по ключам
+
+variable::get_char_at(variable=`variable`, text="text", index=1);
 ```
 
 **Аргументы:**
@@ -2249,15 +2617,19 @@ variable::get_char_at(`variable`,"text",1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_color_channels("color","HSB");
+`variable` = variable::get_color_channels("color", "HSB");
 
 #Или от объекта
 
 `variable` = "color".get_color_channels("HSB");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_color_channels(`variable`,"color","HSB");
+variable::get_color_channels(`variable`, "color", "HSB");
+
+#Или в сухую по ключам
+
+variable::get_color_channels(variable=`variable`, color="color", color_channels="HSB");
 ```
 
 **Аргументы:**
@@ -2284,9 +2656,13 @@ variable::get_color_channels(`variable`,"color","HSB");
 
 `variable` = item("stick").get_compass_lodestone();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_compass_lodestone(`variable`,item("stick"));
+variable::get_compass_lodestone(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_compass_lodestone(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2312,9 +2688,13 @@ variable::get_compass_lodestone(`variable`,item("stick"));
 
 `variable` = "component".get_component_children();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_component_children(`variable`,"component");
+variable::get_component_children(`variable`, "component");
+
+#Или в сухую по ключам
+
+variable::get_component_children(variable=`variable`, component="component");
 ```
 
 **Аргументы:**
@@ -2340,9 +2720,13 @@ variable::get_component_children(`variable`,"component");
 
 `variable` = "component".get_component_decorations();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_component_decorations(`variable`,"component");
+variable::get_component_decorations(`variable`, "component");
+
+#Или в сухую по ключам
+
+variable::get_component_decorations(variable=`variable`, component="component");
 ```
 
 **Аргументы:**
@@ -2368,9 +2752,13 @@ variable::get_component_decorations(`variable`,"component");
 
 `variable` = "component".get_component_hex_color();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_component_hex_color(`variable`,"component");
+variable::get_component_hex_color(`variable`, "component");
+
+#Или в сухую по ключам
+
+variable::get_component_hex_color(variable=`variable`, component="component");
 ```
 
 **Аргументы:**
@@ -2396,9 +2784,13 @@ variable::get_component_hex_color(`variable`,"component");
 
 `variable` = "component".get_component_parsing();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_component_parsing(`variable`,"component");
+variable::get_component_parsing(`variable`, "component");
+
+#Или в сухую по ключам
+
+variable::get_component_parsing(variable=`variable`, component="component");
 ```
 
 **Аргументы:**
@@ -2418,15 +2810,19 @@ variable::get_component_parsing(`variable`,"component");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_container_contents(location(0,0,0,0,0),"FALSE");
+`variable` = variable::get_container_contents(location(0,0,0,0,0), "FALSE");
 
 #Или от объекта
 
 `variable` = location(0,0,0,0,0).get_container_contents("FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_container_contents(`variable`,location(0,0,0,0,0),"FALSE");
+variable::get_container_contents(`variable`, location(0,0,0,0,0), "FALSE");
+
+#Или в сухую по ключам
+
+variable::get_container_contents(variable=`variable`, location=location(0,0,0,0,0), ignore_empty_slots="FALSE");
 ```
 
 **Аргументы:**
@@ -2453,9 +2849,13 @@ variable::get_container_contents(`variable`,location(0,0,0,0,0),"FALSE");
 
 `variable` = location(0,0,0,0,0).get_container_lock();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_container_lock(`variable`,location(0,0,0,0,0));
+variable::get_container_lock(`variable`, location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_container_lock(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -2481,9 +2881,13 @@ variable::get_container_lock(`variable`,location(0,0,0,0,0));
 
 `variable` = location(0,0,0,0,0).get_container_name();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_container_name(`variable`,location(0,0,0,0,0));
+variable::get_container_name(`variable`, location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_container_name(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -2503,15 +2907,19 @@ variable::get_container_name(`variable`,location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_coordinate(location(0,0,0,0,0),"PITCH");
+`variable` = variable::get_coordinate(location(0,0,0,0,0), "PITCH");
 
 #Или от объекта
 
 `variable` = location(0,0,0,0,0).get_coordinate("PITCH");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_coordinate(`variable`,location(0,0,0,0,0),"PITCH");
+variable::get_coordinate(`variable`, location(0,0,0,0,0), "PITCH");
+
+#Или в сухую по ключам
+
+variable::get_coordinate(variable=`variable`, location=location(0,0,0,0,0), type="PITCH");
 ```
 
 **Аргументы:**
@@ -2532,15 +2940,19 @@ variable::get_coordinate(`variable`,location(0,0,0,0,0),"PITCH");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_decorate_pot_sherd(location(0,0,0,0,0),"BACK");
+`variable` = variable::get_decorate_pot_sherd(location(0,0,0,0,0), "BACK");
 
 #Или от объекта
 
 `variable` = location(0,0,0,0,0).get_decorate_pot_sherd("BACK");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_decorate_pot_sherd(`variable`,location(0,0,0,0,0),"BACK");
+variable::get_decorate_pot_sherd(`variable`, location(0,0,0,0,0), "BACK");
+
+#Или в сухую по ключам
+
+variable::get_decorate_pot_sherd(variable=`variable`, location=location(0,0,0,0,0), side="BACK");
 ```
 
 **Аргументы:**
@@ -2561,15 +2973,19 @@ variable::get_decorate_pot_sherd(`variable`,location(0,0,0,0,0),"BACK");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_index_of_subtext("text","subtext",1,"FIRST");
+`variable` = variable::get_index_of_subtext("text", "subtext", 1, "FIRST");
 
 #Или от объекта
 
-`variable` = "text".get_index_of_subtext("subtext",1,"FIRST");
+`variable` = "text".get_index_of_subtext("subtext", 1, "FIRST");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_index_of_subtext(`variable`,"text","subtext",1,"FIRST");
+variable::get_index_of_subtext(`variable`, "text", "subtext", 1, "FIRST");
+
+#Или в сухую по ключам
+
+variable::get_index_of_subtext(variable=`variable`, text="text", subtext="subtext", start_index=1, search_mode="FIRST");
 ```
 
 **Аргументы:**
@@ -2598,9 +3014,13 @@ variable::get_index_of_subtext(`variable`,"text","subtext",1,"FIRST");
 
 `variable` = item("stick").get_item_amount();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_amount(`variable`,item("stick"));
+variable::get_item_amount(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_item_amount(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2620,15 +3040,19 @@ variable::get_item_amount(`variable`,item("stick"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_item_attribute(item("stick"),"name","ARMOR","ALL","ADD_NUMBER");
+`variable` = variable::get_item_attribute(item("stick"), "name", "ARMOR", "ALL", "ADD_NUMBER");
 
 #Или от объекта
 
-`variable` = item("stick").get_item_attribute("name","ARMOR","ALL","ADD_NUMBER");
+`variable` = item("stick").get_item_attribute("name", "ARMOR", "ALL", "ADD_NUMBER");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_attribute(`variable`,item("stick"),"name","ARMOR","ALL","ADD_NUMBER");
+variable::get_item_attribute(`variable`, item("stick"), "name", "ARMOR", "ALL", "ADD_NUMBER");
+
+#Или в сухую по ключам
+
+variable::get_item_attribute(variable=`variable`, item=item("stick"), name="name", attribute="ARMOR", slot="ALL", operation="ADD_NUMBER");
 ```
 
 **Аргументы:**
@@ -2663,9 +3087,13 @@ variable::get_item_attribute(`variable`,item("stick"),"name","ARMOR","ALL","ADD_
 
 `variable` = item("stick").get_item_color();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_color(`variable`,item("stick"));
+variable::get_item_color(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_item_color(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2691,9 +3119,13 @@ variable::get_item_color(`variable`,item("stick"));
 
 `variable` = item("stick").get_item_custom_model_data();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_custom_model_data(`variable`,item("stick"));
+variable::get_item_custom_model_data(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_item_custom_model_data(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2713,15 +3145,19 @@ variable::get_item_custom_model_data(`variable`,item("stick"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_item_custom_tag(item("stick"),"tag_name","any value");
+`variable` = variable::get_item_custom_tag(item("stick"), "tag_name", "any value");
 
 #Или от объекта
 
-`variable` = item("stick").get_item_custom_tag("tag_name","any value");
+`variable` = item("stick").get_item_custom_tag("tag_name", "any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_custom_tag(`variable`,item("stick"),"tag_name","any value");
+variable::get_item_custom_tag(`variable`, item("stick"), "tag_name", "any value");
+
+#Или в сухую по ключам
+
+variable::get_item_custom_tag(variable=`variable`, item=item("stick"), tag_name="tag_name", default_value="any value");
 ```
 
 **Аргументы:**
@@ -2749,9 +3185,13 @@ variable::get_item_custom_tag(`variable`,item("stick"),"tag_name","any value");
 
 `variable` = item("stick").get_item_custom_tags();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_custom_tags(`variable`,item("stick"));
+variable::get_item_custom_tags(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_item_custom_tags(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2771,11 +3211,15 @@ variable::get_item_custom_tags(`variable`,item("stick"));
 
 **Пример использования:** 
 ```ts
-variable::get_item_destroyable_blocks(`variable`,item("stick"));
+variable::get_item_destroyable_blocks(`variable`, item("stick"));
 
 #Или от объекта
 
 item("stick").get_item_destroyable_blocks(`variable`);
+
+#Или в сухую по ключам
+
+variable::get_item_destroyable_blocks(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2795,15 +3239,19 @@ item("stick").get_item_destroyable_blocks(`variable`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_item_durability(item("stick"),"DAMAGE");
+`variable` = variable::get_item_durability(item("stick"), "DAMAGE");
 
 #Или от объекта
 
 `variable` = item("stick").get_item_durability("DAMAGE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_durability(`variable`,item("stick"),"DAMAGE");
+variable::get_item_durability(`variable`, item("stick"), "DAMAGE");
+
+#Или в сухую по ключам
+
+variable::get_item_durability(variable=`variable`, item=item("stick"), durability_type="DAMAGE");
 ```
 
 **Аргументы:**
@@ -2830,9 +3278,13 @@ variable::get_item_durability(`variable`,item("stick"),"DAMAGE");
 
 `variable` = item("stick").get_item_enchantments();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_enchantments(`variable`,item("stick"));
+variable::get_item_enchantments(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_item_enchantments(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2858,9 +3310,13 @@ variable::get_item_enchantments(`variable`,item("stick"));
 
 `variable` = item("stick").get_item_lore();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_lore(`variable`,item("stick"));
+variable::get_item_lore(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_item_lore(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2880,15 +3336,19 @@ variable::get_item_lore(`variable`,item("stick"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_item_lore_line(item("stick"),1);
+`variable` = variable::get_item_lore_line(item("stick"), 1);
 
 #Или от объекта
 
 `variable` = item("stick").get_item_lore_line(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_lore_line(`variable`,item("stick"),1);
+variable::get_item_lore_line(`variable`, item("stick"), 1);
+
+#Или в сухую по ключам
+
+variable::get_item_lore_line(variable=`variable`, item=item("stick"), line=1);
 ```
 
 **Аргументы:**
@@ -2915,9 +3375,13 @@ variable::get_item_lore_line(`variable`,item("stick"),1);
 
 `variable` = item("stick").get_item_max_stack_size();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_max_stack_size(`variable`,item("stick"));
+variable::get_item_max_stack_size(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_item_max_stack_size(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2943,9 +3407,13 @@ variable::get_item_max_stack_size(`variable`,item("stick"));
 
 `variable` = item("stick").get_item_name();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_name(`variable`,item("stick"));
+variable::get_item_name(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_item_name(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -2965,15 +3433,19 @@ variable::get_item_name(`variable`,item("stick"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_item_nbt_tags(item("stick"),"ALL");
+`variable` = variable::get_item_nbt_tags(item("stick"), "ALL");
 
 #Или от объекта
 
 `variable` = item("stick").get_item_nbt_tags("ALL");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_nbt_tags(`variable`,item("stick"),"ALL");
+variable::get_item_nbt_tags(`variable`, item("stick"), "ALL");
+
+#Или в сухую по ключам
+
+variable::get_item_nbt_tags(variable=`variable`, item=item("stick"), fetch_mode="ALL");
 ```
 
 **Аргументы:**
@@ -2994,11 +3466,15 @@ variable::get_item_nbt_tags(`variable`,item("stick"),"ALL");
 
 **Пример использования:** 
 ```ts
-variable::get_item_placeable_blocks(`variable`,item("stick"));
+variable::get_item_placeable_blocks(`variable`, item("stick"));
 
 #Или от объекта
 
 item("stick").get_item_placeable_blocks(`variable`);
+
+#Или в сухую по ключам
+
+variable::get_item_placeable_blocks(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -3024,9 +3500,13 @@ item("stick").get_item_placeable_blocks(`variable`);
 
 `variable` = item("stick").get_item_potion_effects();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_potion_effects(`variable`,item("stick"));
+variable::get_item_potion_effects(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_item_potion_effects(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -3052,9 +3532,13 @@ variable::get_item_potion_effects(`variable`,item("stick"));
 
 `variable` = item("stick").get_item_rarity();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_rarity(`variable`,item("stick"));
+variable::get_item_rarity(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_item_rarity(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -3074,15 +3558,19 @@ variable::get_item_rarity(`variable`,item("stick"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_item_type(item("stick"),"ID");
+`variable` = variable::get_item_type(item("stick"), "ID");
 
 #Или от объекта
 
 `variable` = item("stick").get_item_type("ID");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_item_type(`variable`,item("stick"),"ID");
+variable::get_item_type(`variable`, item("stick"), "ID");
+
+#Или в сухую по ключам
+
+variable::get_item_type(variable=`variable`, type=item("stick"), value="ID");
 ```
 
 **Аргументы:**
@@ -3109,9 +3597,13 @@ variable::get_item_type(`variable`,item("stick"),"ID");
 
 `variable` = location(0,0,0,0,0).get_lectern_book();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_lectern_book(`variable`,location(0,0,0,0,0));
+variable::get_lectern_book(`variable`, location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_lectern_book(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -3137,9 +3629,13 @@ variable::get_lectern_book(`variable`,location(0,0,0,0,0));
 
 `variable` = location(0,0,0,0,0).get_lectern_page();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_lectern_page(`variable`,location(0,0,0,0,0));
+variable::get_lectern_page(`variable`, location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_lectern_page(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -3159,15 +3655,19 @@ variable::get_lectern_page(`variable`,location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_light_level(location(0,0,0,0,0),"BLOCKS");
+`variable` = variable::get_light_level(location(0,0,0,0,0), "BLOCKS");
 
 #Или от объекта
 
 `variable` = location(0,0,0,0,0).get_light_level("BLOCKS");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_light_level(`variable`,location(0,0,0,0,0),"BLOCKS");
+variable::get_light_level(`variable`, location(0,0,0,0,0), "BLOCKS");
+
+#Или в сухую по ключам
+
+variable::get_light_level(variable=`variable`, location=location(0,0,0,0,0), value_type="BLOCKS");
 ```
 
 **Аргументы:**
@@ -3188,15 +3688,19 @@ variable::get_light_level(`variable`,location(0,0,0,0,0),"BLOCKS");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_list_index_of_value(`list`,"any value","FIRST");
+`variable` = variable::get_list_index_of_value(`list`, "any value", "FIRST");
 
 #Или от объекта
 
-`variable` = `list`.get_list_index_of_value("any value","FIRST");
+`variable` = `list`.get_list_index_of_value("any value", "FIRST");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_list_index_of_value(`variable`,`list`,"any value","FIRST");
+variable::get_list_index_of_value(`variable`, `list`, "any value", "FIRST");
+
+#Или в сухую по ключам
+
+variable::get_list_index_of_value(variable=`variable`, list=`list`, value="any value", search_mode="FIRST");
 ```
 
 **Аргументы:**
@@ -3224,9 +3728,13 @@ variable::get_list_index_of_value(`variable`,`list`,"any value","FIRST");
 
 `variable` = `list`.get_list_length();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_list_length(`variable`,`list`);
+variable::get_list_length(`variable`, `list`);
+
+#Или в сухую по ключам
+
+variable::get_list_length(variable=`variable`, list=`list`);
 ```
 
 **Аргументы:**
@@ -3252,9 +3760,13 @@ variable::get_list_length(`variable`,`list`);
 
 `variable` = `list`.get_list_random_value();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_list_random_value(`variable`,`list`);
+variable::get_list_random_value(`variable`, `list`);
+
+#Или в сухую по ключам
+
+variable::get_list_random_value(variable=`variable`, list=`list`);
 ```
 
 **Аргументы:**
@@ -3274,15 +3786,19 @@ variable::get_list_random_value(`variable`,`list`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_list_value(`list`,1,"any value");
+`variable` = variable::get_list_value(`list`, 1, "any value");
 
 #Или от объекта
 
-`variable` = `list`.get_list_value(1,"any value");
+`variable` = `list`.get_list_value(1, "any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_list_value(`variable`,`list`,1,"any value");
+variable::get_list_value(`variable`, `list`, 1, "any value");
+
+#Или в сухую по ключам
+
+variable::get_list_value(variable=`variable`, list=`list`, number=1, default_value="any value");
 ```
 
 **Аргументы:**
@@ -3306,9 +3822,13 @@ variable::get_list_value(`variable`,`list`,1,"any value");
 ```ts
 `variable` = variable::get_list_variables("GAME");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_list_variables(`variable`,"GAME");
+variable::get_list_variables(`variable`, "GAME");
+
+#Или в сухую по ключам
+
+variable::get_list_variables(variable=`variable`, scope="GAME");
 ```
 
 **Аргументы:**
@@ -3334,9 +3854,13 @@ variable::get_list_variables(`variable`,"GAME");
 
 `variable` = location(0,0,0,0,0).get_location_direction();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_location_direction(`variable`,location(0,0,0,0,0));
+variable::get_location_direction(`variable`, location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_location_direction(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -3356,15 +3880,19 @@ variable::get_location_direction(`variable`,location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_map_key_by_index(`map`,1,"any value");
+`variable` = variable::get_map_key_by_index(`map`, 1, "any value");
 
 #Или от объекта
 
-`variable` = `map`.get_map_key_by_index(1,"any value");
+`variable` = `map`.get_map_key_by_index(1, "any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_map_key_by_index(`variable`,`map`,1,"any value");
+variable::get_map_key_by_index(`variable`, `map`, 1, "any value");
+
+#Или в сухую по ключам
+
+variable::get_map_key_by_index(variable=`variable`, map=`map`, index=1, default_value="any value");
 ```
 
 **Аргументы:**
@@ -3392,9 +3920,13 @@ variable::get_map_key_by_index(`variable`,`map`,1,"any value");
 
 `variable` = `map`.get_map_keys();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_map_keys(`variable`,`map`);
+variable::get_map_keys(`variable`, `map`);
+
+#Или в сухую по ключам
+
+variable::get_map_keys(variable=`variable`, map=`map`);
 ```
 
 **Аргументы:**
@@ -3414,15 +3946,19 @@ variable::get_map_keys(`variable`,`map`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_map_keys_by_value(`map`,"any value","any value","ALL");
+`variable` = variable::get_map_keys_by_value(`map`, "any value", "any value", "ALL");
 
 #Или от объекта
 
-`variable` = `map`.get_map_keys_by_value("any value","any value","ALL");
+`variable` = `map`.get_map_keys_by_value("any value", "any value", "ALL");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_map_keys_by_value(`variable`,`map`,"any value","any value","ALL");
+variable::get_map_keys_by_value(`variable`, `map`, "any value", "any value", "ALL");
+
+#Или в сухую по ключам
+
+variable::get_map_keys_by_value(variable=`variable`, map=`map`, value="any value", default_value="any value", find_mode="ALL");
 ```
 
 **Аргументы:**
@@ -3451,9 +3987,13 @@ variable::get_map_keys_by_value(`variable`,`map`,"any value","any value","ALL");
 
 `variable` = `map`.get_map_size();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_map_size(`variable`,`map`);
+variable::get_map_size(`variable`, `map`);
+
+#Или в сухую по ключам
+
+variable::get_map_size(variable=`variable`, map=`map`);
 ```
 
 **Аргументы:**
@@ -3473,15 +4013,19 @@ variable::get_map_size(`variable`,`map`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_map_value(`map`,"any value","any value");
+`variable` = variable::get_map_value(`map`, "any value", "any value");
 
 #Или от объекта
 
-`variable` = `map`.get_map_value("any value","any value");
+`variable` = `map`.get_map_value("any value", "any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_map_value(`variable`,`map`,"any value","any value");
+variable::get_map_value(`variable`, `map`, "any value", "any value");
+
+#Или в сухую по ключам
+
+variable::get_map_value(variable=`variable`, map=`map`, key="any value", default_value="any value");
 ```
 
 **Аргументы:**
@@ -3503,15 +4047,19 @@ variable::get_map_value(`variable`,`map`,"any value","any value");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_map_value_by_index(`map`,1,"any value");
+`variable` = variable::get_map_value_by_index(`map`, 1, "any value");
 
 #Или от объекта
 
-`variable` = `map`.get_map_value_by_index(1,"any value");
+`variable` = `map`.get_map_value_by_index(1, "any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_map_value_by_index(`variable`,`map`,1,"any value");
+variable::get_map_value_by_index(`variable`, `map`, 1, "any value");
+
+#Или в сухую по ключам
+
+variable::get_map_value_by_index(variable=`variable`, map=`map`, index=1, default_value="any value");
 ```
 
 **Аргументы:**
@@ -3539,9 +4087,13 @@ variable::get_map_value_by_index(`variable`,`map`,1,"any value");
 
 `variable` = `map`.get_map_values();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_map_values(`variable`,`map`);
+variable::get_map_values(`variable`, `map`);
+
+#Или в сухую по ключам
+
+variable::get_map_values(variable=`variable`, map=`map`);
 ```
 
 **Аргументы:**
@@ -3561,11 +4113,15 @@ variable::get_map_values(`variable`,`map`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_midpoint_between_vectors(vector(0,0,0),vector(0,0,0));
+`variable` = variable::get_midpoint_between_vectors(vector(0,0,0), vector(0,0,0));
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_midpoint_between_vectors(`variable`,vector(0,0,0),vector(0,0,0));
+variable::get_midpoint_between_vectors(`variable`, vector(0,0,0), vector(0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_midpoint_between_vectors(variable=`variable`, vector_1=vector(0,0,0), vector_2=vector(0,0,0));
 ```
 
 **Аргументы:**
@@ -3592,9 +4148,13 @@ variable::get_midpoint_between_vectors(`variable`,vector(0,0,0),vector(0,0,0));
 
 `variable` = particle("fire").get_particle_amount();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_particle_amount(`variable`,particle("fire"));
+variable::get_particle_amount(`variable`, particle("fire"));
+
+#Или в сухую по ключам
+
+variable::get_particle_amount(variable=`variable`, particle=particle("fire"));
 ```
 
 **Аргументы:**
@@ -3614,15 +4174,19 @@ variable::get_particle_amount(`variable`,particle("fire"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_particle_color(particle("fire"),"COLOR");
+`variable` = variable::get_particle_color(particle("fire"), "COLOR");
 
 #Или от объекта
 
 `variable` = particle("fire").get_particle_color("COLOR");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_particle_color(`variable`,particle("fire"),"COLOR");
+variable::get_particle_color(`variable`, particle("fire"), "COLOR");
+
+#Или в сухую по ключам
+
+variable::get_particle_color(variable=`variable`, particle=particle("fire"), color_type="COLOR");
 ```
 
 **Аргументы:**
@@ -3649,9 +4213,13 @@ variable::get_particle_color(`variable`,particle("fire"),"COLOR");
 
 `variable` = particle("fire").get_particle_material();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_particle_material(`variable`,particle("fire"));
+variable::get_particle_material(`variable`, particle("fire"));
+
+#Или в сухую по ключам
+
+variable::get_particle_material(variable=`variable`, particle=particle("fire"));
 ```
 
 **Аргументы:**
@@ -3677,9 +4245,13 @@ variable::get_particle_material(`variable`,particle("fire"));
 
 `variable` = particle("fire").get_particle_offset();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_particle_offset(`variable`,particle("fire"));
+variable::get_particle_offset(`variable`, particle("fire"));
+
+#Или в сухую по ключам
+
+variable::get_particle_offset(variable=`variable`, particle=particle("fire"));
 ```
 
 **Аргументы:**
@@ -3705,9 +4277,13 @@ variable::get_particle_offset(`variable`,particle("fire"));
 
 `variable` = particle("fire").get_particle_size();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_particle_size(`variable`,particle("fire"));
+variable::get_particle_size(`variable`, particle("fire"));
+
+#Или в сухую по ключам
+
+variable::get_particle_size(variable=`variable`, particle=particle("fire"));
 ```
 
 **Аргументы:**
@@ -3727,15 +4303,19 @@ variable::get_particle_size(`variable`,particle("fire"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_particle_spread(particle("fire"),"HORIZONTAL");
+`variable` = variable::get_particle_spread(particle("fire"), "HORIZONTAL");
 
 #Или от объекта
 
 `variable` = particle("fire").get_particle_spread("HORIZONTAL");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_particle_spread(`variable`,particle("fire"),"HORIZONTAL");
+variable::get_particle_spread(`variable`, particle("fire"), "HORIZONTAL");
+
+#Или в сухую по ключам
+
+variable::get_particle_spread(variable=`variable`, particle=particle("fire"), type="HORIZONTAL");
 ```
 
 **Аргументы:**
@@ -3762,9 +4342,13 @@ variable::get_particle_spread(`variable`,particle("fire"),"HORIZONTAL");
 
 `variable` = particle("fire").get_particle_type();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_particle_type(`variable`,particle("fire"));
+variable::get_particle_type(`variable`, particle("fire"));
+
+#Или в сухую по ключам
+
+variable::get_particle_type(variable=`variable`, particle=particle("fire"));
 ```
 
 **Аргументы:**
@@ -3784,11 +4368,15 @@ variable::get_particle_type(`variable`,particle("fire"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_player_head("name_or_uuid","NAME_OR_UUID");
+`variable` = variable::get_player_head("name_or_uuid", "NAME_OR_UUID");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_player_head(`variable`,"name_or_uuid","NAME_OR_UUID");
+variable::get_player_head(`variable`, "name_or_uuid", "NAME_OR_UUID");
+
+#Или в сухую по ключам
+
+variable::get_player_head(variable=`variable`, name_or_uuid="name_or_uuid", receive_type="NAME_OR_UUID");
 ```
 
 **Аргументы:**
@@ -3809,15 +4397,19 @@ variable::get_player_head(`variable`,"name_or_uuid","NAME_OR_UUID");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_player_head_owner(item("stick"),"NAME");
+`variable` = variable::get_player_head_owner(item("stick"), "NAME");
 
 #Или от объекта
 
 `variable` = item("stick").get_player_head_owner("NAME");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_player_head_owner(`variable`,item("stick"),"NAME");
+variable::get_player_head_owner(`variable`, item("stick"), "NAME");
+
+#Или в сухую по ключам
+
+variable::get_player_head_owner(variable=`variable`, head=item("stick"), return_value="NAME");
 ```
 
 **Аргументы:**
@@ -3838,15 +4430,19 @@ variable::get_player_head_owner(`variable`,item("stick"),"NAME");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_player_head_value(location(0,0,0,0,0),"NAME");
+`variable` = variable::get_player_head_value(location(0,0,0,0,0), "NAME");
 
 #Или от объекта
 
 `variable` = location(0,0,0,0,0).get_player_head_value("NAME");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_player_head_value(`variable`,location(0,0,0,0,0),"NAME");
+variable::get_player_head_value(`variable`, location(0,0,0,0,0), "NAME");
+
+#Или в сухую по ключам
+
+variable::get_player_head_value(variable=`variable`, location=location(0,0,0,0,0), return_value="NAME");
 ```
 
 **Аргументы:**
@@ -3873,9 +4469,13 @@ variable::get_player_head_value(`variable`,location(0,0,0,0,0),"NAME");
 
 `variable` = potion("slow_falling").get_potion_effect_amplifier();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_potion_effect_amplifier(`variable`,potion("slow_falling"));
+variable::get_potion_effect_amplifier(`variable`, potion("slow_falling"));
+
+#Или в сухую по ключам
+
+variable::get_potion_effect_amplifier(variable=`variable`, potion=potion("slow_falling"));
 ```
 
 **Аргументы:**
@@ -3901,9 +4501,13 @@ variable::get_potion_effect_amplifier(`variable`,potion("slow_falling"));
 
 `variable` = potion("slow_falling").get_potion_effect_duration();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_potion_effect_duration(`variable`,potion("slow_falling"));
+variable::get_potion_effect_duration(`variable`, potion("slow_falling"));
+
+#Или в сухую по ключам
+
+variable::get_potion_effect_duration(variable=`variable`, potion=potion("slow_falling"));
 ```
 
 **Аргументы:**
@@ -3929,9 +4533,13 @@ variable::get_potion_effect_duration(`variable`,potion("slow_falling"));
 
 `variable` = potion("slow_falling").get_potion_effect_type();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_potion_effect_type(`variable`,potion("slow_falling"));
+variable::get_potion_effect_type(`variable`, potion("slow_falling"));
+
+#Или в сухую по ключам
+
+variable::get_potion_effect_type(variable=`variable`, potion=potion("slow_falling"));
 ```
 
 **Аргументы:**
@@ -3957,9 +4565,13 @@ variable::get_potion_effect_type(`variable`,potion("slow_falling"));
 
 `variable` = location(0,0,0,0,0).get_sculk_shrieker_warning_level();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_sculk_shrieker_warning_level(`variable`,location(0,0,0,0,0));
+variable::get_sculk_shrieker_warning_level(`variable`, location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_sculk_shrieker_warning_level(variable=`variable`, location=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -3979,15 +4591,19 @@ variable::get_sculk_shrieker_warning_level(`variable`,location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_sign_text(location(0,0,0,0,0),"ALL","ALL");
+`variable` = variable::get_sign_text(location(0,0,0,0,0), "ALL", "ALL");
 
 #Или от объекта
 
-`variable` = location(0,0,0,0,0).get_sign_text("ALL","ALL");
+`variable` = location(0,0,0,0,0).get_sign_text("ALL", "ALL");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_sign_text(`variable`,location(0,0,0,0,0),"ALL","ALL");
+variable::get_sign_text(`variable`, location(0,0,0,0,0), "ALL", "ALL");
+
+#Или в сухую по ключам
+
+variable::get_sign_text(variable=`variable`, location=location(0,0,0,0,0), check_side="ALL", sign_line="ALL");
 ```
 
 **Аргументы:**
@@ -4015,9 +4631,13 @@ variable::get_sign_text(`variable`,location(0,0,0,0,0),"ALL","ALL");
 
 `variable` = sound("entity.zombie.hurt").get_sound_pitch();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_sound_pitch(`variable`,sound("entity.zombie.hurt"));
+variable::get_sound_pitch(`variable`, sound("entity.zombie.hurt"));
+
+#Или в сухую по ключам
+
+variable::get_sound_pitch(variable=`variable`, sound=sound("entity.zombie.hurt"));
 ```
 
 **Аргументы:**
@@ -4043,9 +4663,13 @@ variable::get_sound_pitch(`variable`,sound("entity.zombie.hurt"));
 
 `variable` = sound("entity.zombie.hurt").get_sound_source();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_sound_source(`variable`,sound("entity.zombie.hurt"));
+variable::get_sound_source(`variable`, sound("entity.zombie.hurt"));
+
+#Или в сухую по ключам
+
+variable::get_sound_source(variable=`variable`, sound=sound("entity.zombie.hurt"));
 ```
 
 **Аргументы:**
@@ -4071,9 +4695,13 @@ variable::get_sound_source(`variable`,sound("entity.zombie.hurt"));
 
 `variable` = sound("entity.zombie.hurt").get_sound_type();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_sound_type(`variable`,sound("entity.zombie.hurt"));
+variable::get_sound_type(`variable`, sound("entity.zombie.hurt"));
+
+#Или в сухую по ключам
+
+variable::get_sound_type(variable=`variable`, sound=sound("entity.zombie.hurt"));
 ```
 
 **Аргументы:**
@@ -4101,9 +4729,13 @@ variable::get_sound_type(`variable`,sound("entity.zombie.hurt"));
 
 `variable` = sound("entity.zombie.hurt").get_sound_variation();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_sound_variation(`variable`,sound("entity.zombie.hurt"));
+variable::get_sound_variation(`variable`, sound("entity.zombie.hurt"));
+
+#Или в сухую по ключам
+
+variable::get_sound_variation(variable=`variable`, sound=sound("entity.zombie.hurt"));
 ```
 
 **Аргументы:**
@@ -4129,9 +4761,13 @@ variable::get_sound_variation(`variable`,sound("entity.zombie.hurt"));
 
 `variable` = sound("entity.zombie.hurt").get_sound_variations();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_sound_variations(`variable`,sound("entity.zombie.hurt"));
+variable::get_sound_variations(`variable`, sound("entity.zombie.hurt"));
+
+#Или в сухую по ключам
+
+variable::get_sound_variations(variable=`variable`, sound=sound("entity.zombie.hurt"));
 ```
 
 **Аргументы:**
@@ -4157,9 +4793,13 @@ variable::get_sound_variations(`variable`,sound("entity.zombie.hurt"));
 
 `variable` = sound("entity.zombie.hurt").get_sound_volume_action();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_sound_volume_action(`variable`,sound("entity.zombie.hurt"));
+variable::get_sound_volume_action(`variable`, sound("entity.zombie.hurt"));
+
+#Или в сухую по ключам
+
+variable::get_sound_volume_action(variable=`variable`, sound=sound("entity.zombie.hurt"));
 ```
 
 **Аргументы:**
@@ -4179,15 +4819,19 @@ variable::get_sound_volume_action(`variable`,sound("entity.zombie.hurt"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_template_code(item("stick"),"MAP");
+`variable` = variable::get_template_code(item("stick"), "MAP");
 
 #Или от объекта
 
 `variable` = item("stick").get_template_code("MAP");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_template_code(`variable`,item("stick"),"MAP");
+variable::get_template_code(`variable`, item("stick"), "MAP");
+
+#Или в сухую по ключам
+
+variable::get_template_code(variable=`variable`, template=item("stick"), return_type="MAP");
 ```
 
 **Аргументы:**
@@ -4216,9 +4860,13 @@ variable::get_template_code(`variable`,item("stick"),"MAP");
 
 `variable` = "text".get_text_width();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_text_width(`variable`,"text");
+variable::get_text_width(`variable`, "text");
+
+#Или в сухую по ключам
+
+variable::get_text_width(variable=`variable`, text="text");
 ```
 
 **Аргументы:**
@@ -4244,9 +4892,13 @@ variable::get_text_width(`variable`,"text");
 
 `x`, `y`, `z` = vector(0,0,0).get_vector_all_components();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_vector_all_components(`x`,`y`,`z`,vector(0,0,0));
+variable::get_vector_all_components(`x`, `y`, `z`, vector(0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_vector_all_components(x=`x`, y=`y`, z=`z`, vector=vector(0,0,0));
 ```
 
 **Аргументы:**
@@ -4268,11 +4920,15 @@ variable::get_vector_all_components(`x`,`y`,`z`,vector(0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_vector_between_locations(location(0,0,0,0,0),location(0,0,0,0,0));
+`variable` = variable::get_vector_between_locations(location(0,0,0,0,0), location(0,0,0,0,0));
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_vector_between_locations(`variable`,location(0,0,0,0,0),location(0,0,0,0,0));
+variable::get_vector_between_locations(`variable`, location(0,0,0,0,0), location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_vector_between_locations(variable=`variable`, end_location=location(0,0,0,0,0), start_location=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -4293,15 +4949,19 @@ variable::get_vector_between_locations(`variable`,location(0,0,0,0,0),location(0
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_vector_component(vector(0,0,0),"X");
+`variable` = variable::get_vector_component(vector(0,0,0), "X");
 
 #Или от объекта
 
 `variable` = vector(0,0,0).get_vector_component("X");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_vector_component(`variable`,vector(0,0,0),"X");
+variable::get_vector_component(`variable`, vector(0,0,0), "X");
+
+#Или в сухую по ключам
+
+variable::get_vector_component(variable=`variable`, vector=vector(0,0,0), vector_component="X");
 ```
 
 **Аргументы:**
@@ -4324,9 +4984,13 @@ variable::get_vector_component(`variable`,vector(0,0,0),"X");
 ```ts
 `variable` = variable::get_vector_from_block_face("block_face");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_vector_from_block_face(`variable`,"block_face");
+variable::get_vector_from_block_face(`variable`, "block_face");
+
+#Или в сухую по ключам
+
+variable::get_vector_from_block_face(variable=`variable`, block_face="block_face");
 ```
 
 **Аргументы:**
@@ -4346,15 +5010,19 @@ variable::get_vector_from_block_face(`variable`,"block_face");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_vector_length(vector(0,0,0),"LENGTH");
+`variable` = variable::get_vector_length(vector(0,0,0), "LENGTH");
 
 #Или от объекта
 
 `variable` = vector(0,0,0).get_vector_length("LENGTH");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_vector_length(`variable`,vector(0,0,0),"LENGTH");
+variable::get_vector_length(`variable`, vector(0,0,0), "LENGTH");
+
+#Или в сухую по ключам
+
+variable::get_vector_length(variable=`variable`, vector=vector(0,0,0), length_type="LENGTH");
 ```
 
 **Аргументы:**
@@ -4375,15 +5043,19 @@ variable::get_vector_length(`variable`,vector(0,0,0),"LENGTH");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::hadamard_vector_product(vector(0,0,0),vector(0,0,0));
+`variable` = variable::hadamard_vector_product(vector(0,0,0), vector(0,0,0));
 
 #Или от объекта
 
 `variable` = vector(0,0,0).hadamard_vector_product(vector(0,0,0));
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::hadamard_vector_product(`variable`,vector(0,0,0),vector(0,0,0));
+variable::hadamard_vector_product(`variable`, vector(0,0,0), vector(0,0,0));
+
+#Или в сухую по ключам
+
+variable::hadamard_vector_product(variable=`variable`, vector_1=vector(0,0,0), vector_2=vector(0,0,0));
 ```
 
 **Аргументы:**
@@ -4404,15 +5076,19 @@ variable::hadamard_vector_product(`variable`,vector(0,0,0),vector(0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_text_hash("text","MD5");
+`variable` = variable::get_text_hash("text", "MD5");
 
 #Или от объекта
 
 `variable` = "text".get_text_hash("MD5");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_text_hash(`variable`,"text","MD5");
+variable::get_text_hash(`variable`, "text", "MD5");
+
+#Или в сухую по ключам
+
+variable::get_text_hash(variable=`variable`, text="text", algorithm="MD5");
 ```
 
 **Аргументы:**
@@ -4439,9 +5115,13 @@ variable::get_text_hash(`variable`,"text","MD5");
 
 `variable`.increment(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::increment(`variable`,1);
+variable::increment(`variable`, 1);
+
+#Или в сухую по ключам
+
+variable::increment(variable=`variable`, number=1);
 ```
 
 **Аргументы:**
@@ -4461,15 +5141,19 @@ variable::increment(`variable`,1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::insert_list_value(`list`,1,"any value");
+`variable` = variable::insert_list_value(`list`, 1, "any value");
 
 #Или от объекта
 
-`variable` = `list`.insert_list_value(1,"any value");
+`variable` = `list`.insert_list_value(1, "any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::insert_list_value(`variable`,`list`,1,"any value");
+variable::insert_list_value(`variable`, `list`, 1, "any value");
+
+#Или в сухую по ключам
+
+variable::insert_list_value(variable=`variable`, list=`list`, number=1, value="any value");
 ```
 
 **Аргументы:**
@@ -4491,15 +5175,19 @@ variable::insert_list_value(`variable`,`list`,1,"any value");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::join_text(`list`,"separator","prefix","postfix",1,"truncated");
+`variable` = variable::join_text(`list`, "separator", "prefix", "postfix", 1, "truncated");
 
 #Или от объекта
 
-`variable` = `list`.join_text("separator","prefix","postfix",1,"truncated");
+`variable` = `list`.join_text("separator", "prefix", "postfix", 1, "truncated");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::join_text(`variable`,`list`,"separator","prefix","postfix",1,"truncated");
+variable::join_text(`variable`, `list`, "separator", "prefix", "postfix", 1, "truncated");
+
+#Или в сухую по ключам
+
+variable::join_text(variable=`variable`, list=`list`, separator="separator", prefix="prefix", postfix="postfix", limit=1, truncated="truncated");
 ```
 
 **Аргументы:**
@@ -4524,15 +5212,19 @@ variable::join_text(`variable`,`list`,"separator","prefix","postfix",1,"truncate
 
 **Пример использования:** 
 ```ts
-`variable` = variable::lerp_number(1,2,3);
+`variable` = variable::lerp_number(1, 2, 3);
 
 #Или от объекта
 
-`variable` = (3).lerp_number(1,2);
+`variable` = (3).lerp_number(1, 2);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::lerp_number(`variable`,1,2,3);
+variable::lerp_number(`variable`, 1, 2, 3);
+
+#Или в сухую по ключам
+
+variable::lerp_number(variable=`variable`, start=1, stop=2, amount=3);
 ```
 
 **Аргументы:**
@@ -4554,15 +5246,19 @@ variable::lerp_number(`variable`,1,2,3);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::location_relative(location(0,0,0,0,0),1,"DOWN");
+`variable` = variable::location_relative(location(0,0,0,0,0), 1, "DOWN");
 
 #Или от объекта
 
-`variable` = location(0,0,0,0,0).location_relative(1,"DOWN");
+`variable` = location(0,0,0,0,0).location_relative(1, "DOWN");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::location_relative(`variable`,location(0,0,0,0,0),1,"DOWN");
+variable::location_relative(`variable`, location(0,0,0,0,0), 1, "DOWN");
+
+#Или в сухую по ключам
+
+variable::location_relative(variable=`variable`, location=location(0,0,0,0,0), distance=1, block_face="DOWN");
 ```
 
 **Аргументы:**
@@ -4584,11 +5280,15 @@ variable::location_relative(`variable`,location(0,0,0,0,0),1,"DOWN");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::locations_distance(location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUDE");
+`variable` = variable::locations_distance(location(0,0,0,0,0), location(0,0,0,0,0), "ALTITUDE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::locations_distance(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),"ALTITUDE");
+variable::locations_distance(`variable`, location(0,0,0,0,0), location(0,0,0,0,0), "ALTITUDE");
+
+#Или в сухую по ключам
+
+variable::locations_distance(variable=`variable`, location_1=location(0,0,0,0,0), location_2=location(0,0,0,0,0), type="ALTITUDE");
 ```
 
 **Аргументы:**
@@ -4610,15 +5310,19 @@ variable::locations_distance(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),
 
 **Пример использования:** 
 ```ts
-`variable` = variable::log(1,2);
+`variable` = variable::log(1, 2);
 
 #Или от объекта
 
 `variable` = (1).log(2);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::log(`variable`,1,2);
+variable::log(`variable`, 1, 2);
+
+#Или в сухую по ключам
+
+variable::log(variable=`variable`, number=1, base=2);
 ```
 
 **Аргументы:**
@@ -4639,15 +5343,19 @@ variable::log(`variable`,1,2);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::map_range(1,2,3,4,5);
+`variable` = variable::map_range(1, 2, 3, 4, 5);
 
 #Или от объекта
 
-`variable` = (1).map_range(2,3,4,5);
+`variable` = (1).map_range(2, 3, 4, 5);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::map_range(`variable`,1,2,3,4,5);
+variable::map_range(`variable`, 1, 2, 3, 4, 5);
+
+#Или в сухую по ключам
+
+variable::map_range(variable=`variable`, number=1, from_start=2, from_stop=3, to_start=4, to_stop=5);
 ```
 
 **Аргументы:**
@@ -4673,9 +5381,13 @@ variable::map_range(`variable`,1,2,3,4,5);
 ```ts
 `variable` = variable::max([1, 2]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::max(`variable`,[1, 2]);
+variable::max(`variable`, [1, 2]);
+
+#Или в сухую по ключам
+
+variable::max(variable=`variable`, value=[1, 2]);
 ```
 
 **Аргументы:**
@@ -4697,9 +5409,13 @@ variable::max(`variable`,[1, 2]);
 ```ts
 `variable` = variable::min([1, 2]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::min(`variable`,[1, 2]);
+variable::min(`variable`, [1, 2]);
+
+#Или в сухую по ключам
+
+variable::min(variable=`variable`, value=[1, 2]);
 ```
 
 **Аргументы:**
@@ -4721,9 +5437,13 @@ variable::min(`variable`,[1, 2]);
 ```ts
 `variable` = variable::multiply([1, 2]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::multiply(`variable`,[1, 2]);
+variable::multiply(`variable`, [1, 2]);
+
+#Или в сухую по ключам
+
+variable::multiply(variable=`variable`, value=[1, 2]);
 ```
 
 **Аргументы:**
@@ -4743,11 +5463,15 @@ variable::multiply(`variable`,[1, 2]);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::multiply_vector(vector(0,0,0),1);
+`variable` = variable::multiply_vector(vector(0,0,0), 1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::multiply_vector(`variable`,vector(0,0,0),1);
+variable::multiply_vector(`variable`, vector(0,0,0), 1);
+
+#Или в сухую по ключам
+
+variable::multiply_vector(variable=`variable`, vector=vector(0,0,0), multiplier=1);
 ```
 
 **Аргументы:**
@@ -4770,9 +5494,13 @@ variable::multiply_vector(`variable`,vector(0,0,0),1);
 ```ts
 `variable` = variable::parse_json("json");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::parse_json(`variable`,"json");
+variable::parse_json(`variable`, "json");
+
+#Или в сухую по ключам
+
+variable::parse_json(variable=`variable`, json="json");
 ```
 
 **Аргументы:**
@@ -4792,15 +5520,19 @@ variable::parse_json(`variable`,"json");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::parse_to_component("text","JSON");
+`variable` = variable::parse_to_component("text", "JSON");
 
 #Или от объекта
 
 `variable` = "text".parse_to_component("JSON");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::parse_to_component(`variable`,"text","JSON");
+variable::parse_to_component(`variable`, "text", "JSON");
+
+#Или в сухую по ключам
+
+variable::parse_to_component(variable=`variable`, text="text", parsing="JSON");
 ```
 
 **Аргументы:**
@@ -4821,11 +5553,15 @@ variable::parse_to_component(`variable`,"text","JSON");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::perlin_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
+`variable` = variable::perlin_noise_3d(location(0,0,0,0,0), 1, 2, 3, 4, 5, "FULL_RANGE", "FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::perlin_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
+variable::perlin_noise_3d(`variable`, location(0,0,0,0,0), 1, 2, 3, 4, 5, "FULL_RANGE", "FALSE");
+
+#Или в сухую по ключам
+
+variable::perlin_noise_3d(variable=`variable`, location=location(0,0,0,0,0), seed=1, loc_frequency=2, octaves=3, frequency=4, amplitude=5, range_mode="FULL_RANGE", normalized="FALSE");
 ```
 
 **Аргументы:**
@@ -4852,15 +5588,19 @@ variable::perlin_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE",
 
 **Пример использования:** 
 ```ts
-`variable` = variable::pow(1,2);
+`variable` = variable::pow(1, 2);
 
 #Или от объекта
 
 `variable` = (1).pow(2);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::pow(`variable`,1,2);
+variable::pow(`variable`, 1, 2);
+
+#Или в сухую по ключам
+
+variable::pow(variable=`variable`, base=1, power=2);
 ```
 
 **Аргументы:**
@@ -4881,7 +5621,11 @@ variable::pow(`variable`,1,2);
 
 **Пример использования:** 
 ```ts
-variable::purge(["names", "names"],"GAME","ENDS_WITH","FALSE");
+variable::purge(["names", "names"], "GAME", "ENDS_WITH", "FALSE");
+
+#Или в сухую по ключам
+
+variable::purge(names=["names", "names"], scope="GAME", match="ENDS_WITH", ignore_case="FALSE");
 ```
 
 **Аргументы:**
@@ -4905,9 +5649,13 @@ variable::purge(["names", "names"],"GAME","ENDS_WITH","FALSE");
 ```ts
 `variable` = variable::random(["any value", "any value"]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::random(`variable`,["any value", "any value"]);
+variable::random(`variable`, ["any value", "any value"]);
+
+#Или в сухую по ключам
+
+variable::random(variable=`variable`, values=["any value", "any value"]);
 ```
 
 **Аргументы:**
@@ -4927,11 +5675,15 @@ variable::random(`variable`,["any value", "any value"]);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::random_location(location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
+`variable` = variable::random_location(location(0,0,0,0,0), location(0,0,0,0,0), "FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::random_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),"FALSE");
+variable::random_location(`variable`, location(0,0,0,0,0), location(0,0,0,0,0), "FALSE");
+
+#Или в сухую по ключам
+
+variable::random_location(variable=`variable`, location_1=location(0,0,0,0,0), location_2=location(0,0,0,0,0), integer="FALSE");
 ```
 
 **Аргументы:**
@@ -4953,11 +5705,15 @@ variable::random_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),"FA
 
 **Пример использования:** 
 ```ts
-`variable` = variable::random_number(1,2,"FALSE");
+`variable` = variable::random_number(1, 2, "FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::random_number(`variable`,1,2,"FALSE");
+variable::random_number(`variable`, 1, 2, "FALSE");
+
+#Или в сухую по ключам
+
+variable::random_number(variable=`variable`, min=1, max=2, integer="FALSE");
 ```
 
 **Аргументы:**
@@ -4985,9 +5741,13 @@ variable::random_number(`variable`,1,2,"FALSE");
 
 `variable` = `list`.randomize_list_order();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::randomize_list_order(`variable`,`list`);
+variable::randomize_list_order(`variable`, `list`);
+
+#Или в сухую по ключам
+
+variable::randomize_list_order(variable=`variable`, list=`list`);
 ```
 
 **Аргументы:**
@@ -5007,11 +5767,15 @@ variable::randomize_list_order(`variable`,`list`);
 
 **Пример использования:** 
 ```ts
-`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid` = variable::ray_trace_result(location(0,0,0,0,0),1,2,`entities`,"BLOCKS_AND_ENTITIES","FALSE","ALWAYS");
+`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid` = variable::ray_trace_result(location(0,0,0,0,0), 1, 2, `entities`, "BLOCKS_AND_ENTITIES", "FALSE", "ALWAYS");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::ray_trace_result(`variable_for_hit_location`,`variable_for_hit_block_location`,`variable_for_hit_block_face`,`variable_for_hit_entity_uuid`,location(0,0,0,0,0),1,2,`entities`,"BLOCKS_AND_ENTITIES","FALSE","ALWAYS");
+variable::ray_trace_result(`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid`, location(0,0,0,0,0), 1, 2, `entities`, "BLOCKS_AND_ENTITIES", "FALSE", "ALWAYS");
+
+#Или в сухую по ключам
+
+variable::ray_trace_result(variable_for_hit_location=`variable_for_hit_location`, variable_for_hit_block_location=`variable_for_hit_block_location`, variable_for_hit_block_face=`variable_for_hit_block_face`, variable_for_hit_entity_uuid=`variable_for_hit_entity_uuid`, start=location(0,0,0,0,0), ray_size=1, max_distance=2, entities=`entities`, ray_collision_mode="BLOCKS_AND_ENTITIES", ignore_passable_blocks="FALSE", fluid_collision_mode="ALWAYS");
 ```
 
 **Аргументы:**
@@ -5040,11 +5804,15 @@ variable::ray_trace_result(`variable_for_hit_location`,`variable_for_hit_block_l
 
 **Пример использования:** 
 ```ts
-`variable` = variable::reflect_vector_product(vector(0,0,0),vector(0,0,0),1);
+`variable` = variable::reflect_vector_product(vector(0,0,0), vector(0,0,0), 1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::reflect_vector_product(`variable`,vector(0,0,0),vector(0,0,0),1);
+variable::reflect_vector_product(`variable`, vector(0,0,0), vector(0,0,0), 1);
+
+#Или в сухую по ключам
+
+variable::reflect_vector_product(variable=`variable`, vector_1=vector(0,0,0), vector_2=vector(0,0,0), bounce=1);
 ```
 
 **Аргументы:**
@@ -5066,15 +5834,19 @@ variable::reflect_vector_product(`variable`,vector(0,0,0),vector(0,0,0),1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::regex_replace_text("text","regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
+`variable` = variable::regex_replace_text("text", "regex", "replacement", "ANY", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
 
 #Или от объекта
 
-`variable` = "text".regex_replace_text("regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
+`variable` = "text".regex_replace_text("regex", "replacement", "ANY", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::regex_replace_text(`variable`,"text","regex","replacement","ANY","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
+variable::regex_replace_text(`variable`, "text", "regex", "replacement", "ANY", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
+
+#Или в сухую по ключам
+
+variable::regex_replace_text(variable=`variable`, text="text", regex="regex", replacement="replacement", first="ANY", ignore_case="FALSE", multiline="FALSE", literal="FALSE", unix_lines="FALSE", comments="FALSE", dot_matches_all="FALSE", cannon_eq="FALSE");
 ```
 
 **Аргументы:**
@@ -5104,15 +5876,19 @@ variable::regex_replace_text(`variable`,"text","regex","replacement","ANY","FALS
 
 **Пример использования:** 
 ```ts
-`variable` = variable::remainder(1,2,"MODULO");
+`variable` = variable::remainder(1, 2, "MODULO");
 
 #Или от объекта
 
-`variable` = (1).remainder(2,"MODULO");
+`variable` = (1).remainder(2, "MODULO");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::remainder(`variable`,1,2,"MODULO");
+variable::remainder(`variable`, 1, 2, "MODULO");
+
+#Или в сухую по ключам
+
+variable::remainder(variable=`variable`, dividend=1, divisor=2, remainder_mode="MODULO");
 ```
 
 **Аргументы:**
@@ -5140,9 +5916,13 @@ variable::remainder(`variable`,1,2,"MODULO");
 
 `variable` = item("stick").remove_compass_lodestone();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::remove_compass_lodestone(`variable`,item("stick"));
+variable::remove_compass_lodestone(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::remove_compass_lodestone(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -5162,15 +5942,19 @@ variable::remove_compass_lodestone(`variable`,item("stick"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::remove_enchantment(item("stick"),"enchantment");
+`variable` = variable::remove_enchantment(item("stick"), "enchantment");
 
 #Или от объекта
 
 `variable` = item("stick").remove_enchantment("enchantment");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::remove_enchantment(`variable`,item("stick"),"enchantment");
+variable::remove_enchantment(`variable`, item("stick"), "enchantment");
+
+#Или в сухую по ключам
+
+variable::remove_enchantment(variable=`variable`, item=item("stick"), enchantment="enchantment");
 ```
 
 **Аргументы:**
@@ -5191,11 +5975,15 @@ variable::remove_enchantment(`variable`,item("stick"),"enchantment");
 
 **Пример использования:** 
 ```ts
-variable::remove_item_attribute(`variable`,item("stick"),"name_or_uuid","ARMOR");
+variable::remove_item_attribute(`variable`, item("stick"), "name_or_uuid", "ARMOR");
 
 #Или от объекта
 
-item("stick").remove_item_attribute(`variable`,"name_or_uuid","ARMOR");
+item("stick").remove_item_attribute(`variable`, "name_or_uuid", "ARMOR");
+
+#Или в сухую по ключам
+
+variable::remove_item_attribute(variable=`variable`, item=item("stick"), name_or_uuid="name_or_uuid", attribute="ARMOR");
 ```
 
 **Аргументы:**
@@ -5223,9 +6011,13 @@ item("stick").remove_item_attribute(`variable`,"name_or_uuid","ARMOR");
 
 `variable` = item("stick").remove_item_custom_model_data();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::remove_item_custom_model_data(`variable`,item("stick"));
+variable::remove_item_custom_model_data(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::remove_item_custom_model_data(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -5245,15 +6037,19 @@ variable::remove_item_custom_model_data(`variable`,item("stick"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::remove_item_custom_tag(item("stick"),"tag_name");
+`variable` = variable::remove_item_custom_tag(item("stick"), "tag_name");
 
 #Или от объекта
 
 `variable` = item("stick").remove_item_custom_tag("tag_name");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::remove_item_custom_tag(`variable`,item("stick"),"tag_name");
+variable::remove_item_custom_tag(`variable`, item("stick"), "tag_name");
+
+#Или в сухую по ключам
+
+variable::remove_item_custom_tag(variable=`variable`, item=item("stick"), tag_name="tag_name");
 ```
 
 **Аргументы:**
@@ -5274,15 +6070,19 @@ variable::remove_item_custom_tag(`variable`,item("stick"),"tag_name");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::remove_item_lore_line(item("stick"),1);
+`variable` = variable::remove_item_lore_line(item("stick"), 1);
 
 #Или от объекта
 
 `variable` = item("stick").remove_item_lore_line(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::remove_item_lore_line(`variable`,item("stick"),1);
+variable::remove_item_lore_line(`variable`, item("stick"), 1);
+
+#Или в сухую по ключам
+
+variable::remove_item_lore_line(variable=`variable`, item=item("stick"), line=1);
 ```
 
 **Аргументы:**
@@ -5303,15 +6103,19 @@ variable::remove_item_lore_line(`variable`,item("stick"),1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::remove_item_potion_effects([potion("slow_falling"), potion("slow_falling")],item("stick"));
+`variable` = variable::remove_item_potion_effects([potion("slow_falling"), potion("slow_falling")], item("stick"));
 
 #Или от объекта
 
 `variable` = item("stick").remove_item_potion_effects([potion("slow_falling"), potion("slow_falling")]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::remove_item_potion_effects(`variable`,[potion("slow_falling"), potion("slow_falling")],item("stick"));
+variable::remove_item_potion_effects(`variable`, [potion("slow_falling"), potion("slow_falling")], item("stick"));
+
+#Или в сухую по ключам
+
+variable::remove_item_potion_effects(variable=`variable`, effects=[potion("slow_falling"), potion("slow_falling")], item=item("stick"));
 ```
 
 **Аргументы:**
@@ -5338,9 +6142,13 @@ variable::remove_item_potion_effects(`variable`,[potion("slow_falling"), potion(
 
 `variable` = `list`.remove_list_duplicates();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::remove_list_duplicates(`variable`,`list`);
+variable::remove_list_duplicates(`variable`, `list`);
+
+#Или в сухую по ключам
+
+variable::remove_list_duplicates(variable=`variable`, list=`list`);
 ```
 
 **Аргументы:**
@@ -5360,15 +6168,19 @@ variable::remove_list_duplicates(`variable`,`list`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::remove_list_value(`list`,"any value","ALL");
+`variable` = variable::remove_list_value(`list`, "any value", "ALL");
 
 #Или от объекта
 
-`variable` = `list`.remove_list_value("any value","ALL");
+`variable` = `list`.remove_list_value("any value", "ALL");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::remove_list_value(`variable`,`list`,"any value","ALL");
+variable::remove_list_value(`variable`, `list`, "any value", "ALL");
+
+#Или в сухую по ключам
+
+variable::remove_list_value(variable=`variable`, list=`list`, value="any value", remove_mode="ALL");
 ```
 
 **Аргументы:**
@@ -5390,15 +6202,19 @@ variable::remove_list_value(`variable`,`list`,"any value","ALL");
 
 **Пример использования:** 
 ```ts
-`variable`, `removed_value` = variable::remove_list_value_at_index(`list`,1);
+`variable`, `removed_value` = variable::remove_list_value_at_index(`list`, 1);
 
 #Или от объекта
 
 `variable`, `removed_value` = `list`.remove_list_value_at_index(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::remove_list_value_at_index(`removed_value`,`variable`,`list`,1);
+variable::remove_list_value_at_index(`removed_value`, `variable`, `list`, 1);
+
+#Или в сухую по ключам
+
+variable::remove_list_value_at_index(removed_value=`removed_value`, variable=`variable`, list=`list`, index=1);
 ```
 
 **Аргументы:**
@@ -5420,15 +6236,19 @@ variable::remove_list_value_at_index(`removed_value`,`variable`,`list`,1);
 
 **Пример использования:** 
 ```ts
-`variable`, `removed_value` = variable::remove_map_entry(`map`,["any value", "any value"],"any value");
+`variable`, `removed_value` = variable::remove_map_entry(`map`, "any value", ["any value", "any value"]);
 
 #Или от объекта
 
-`variable`, `removed_value` = `map`.remove_map_entry(["any value", "any value"],"any value");
+`variable`, `removed_value` = `map`.remove_map_entry("any value", ["any value", "any value"]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::remove_map_entry(`removed_value`,`variable`,`map`,["any value", "any value"],"any value");
+variable::remove_map_entry(`removed_value`, `variable`, `map`, "any value", ["any value", "any value"]);
+
+#Или в сухую по ключам
+
+variable::remove_map_entry(removed_value=`removed_value`, variable=`variable`, map=`map`, key="any value", values=["any value", "any value"]);
 ```
 
 **Аргументы:**
@@ -5438,8 +6258,8 @@ variable::remove_map_entry(`removed_value`,`variable`,`map`,["any value", "any v
 | `removed_value` | Переменная             | Удалённое значение        |
 | `variable`      | Переменная             | Переменная для присвоения |
 | `map`           | Словарь                | Словарь для изменения     |
-| `values`        | список[Любое значение] | Значения                  |
 | `key`           | Любое значение         | Ключ                      |
+| `values`        | список[Любое значение] | Значения                  |
 <h3 id=set_variable_remove_text>
   <code>variable::remove_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5451,15 +6271,19 @@ variable::remove_map_entry(`removed_value`,`variable`,`map`,["any value", "any v
 
 **Пример использования:** 
 ```ts
-`variable` = variable::remove_text(["remove", "remove"],"text","FALSE");
+`variable` = variable::remove_text(["remove", "remove"], "text", "FALSE");
 
 #Или от объекта
 
-`variable` = "text".remove_text(["remove", "remove"],"FALSE");
+`variable` = "text".remove_text(["remove", "remove"], "FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::remove_text(`variable`,["remove", "remove"],"text","FALSE");
+variable::remove_text(`variable`, ["remove", "remove"], "text", "FALSE");
+
+#Или в сухую по ключам
+
+variable::remove_text(variable=`variable`, remove=["remove", "remove"], text="text", regex="FALSE");
 ```
 
 **Аргументы:**
@@ -5481,15 +6305,19 @@ variable::remove_text(`variable`,["remove", "remove"],"text","FALSE");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::repeat_text("text",1);
+`variable` = variable::repeat_text("text", 1);
 
 #Или от объекта
 
 `variable` = "text".repeat_text(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::repeat_text(`variable`,"text",1);
+variable::repeat_text(`variable`, "text", 1);
+
+#Или в сухую по ключам
+
+variable::repeat_text(variable=`variable`, text="text", repeat=1);
 ```
 
 **Аргументы:**
@@ -5510,15 +6338,19 @@ variable::repeat_text(`variable`,"text",1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::replace_text("text","replace","replacement","ANY","FALSE");
+`variable` = variable::replace_text("text", "replace", "replacement", "ANY", "FALSE");
 
 #Или от объекта
 
-`variable` = "text".replace_text("replace","replacement","ANY","FALSE");
+`variable` = "text".replace_text("replace", "replacement", "ANY", "FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::replace_text(`variable`,"text","replace","replacement","ANY","FALSE");
+variable::replace_text(`variable`, "text", "replace", "replacement", "ANY", "FALSE");
+
+#Или в сухую по ключам
+
+variable::replace_text(variable=`variable`, text="text", replace="replace", replacement="replacement", first="ANY", ignore_case="FALSE");
 ```
 
 **Аргументы:**
@@ -5548,9 +6380,13 @@ variable::replace_text(`variable`,"text","replace","replacement","ANY","FALSE");
 
 `variable` = `list`.reverse_list();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::reverse_list(`variable`,`list`);
+variable::reverse_list(`variable`, `list`);
+
+#Или в сухую по ключам
+
+variable::reverse_list(variable=`variable`, list=`list`);
 ```
 
 **Аргументы:**
@@ -5570,11 +6406,15 @@ variable::reverse_list(`variable`,`list`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::root(1,2);
+`variable` = variable::root(1, 2);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::root(`variable`,1,2);
+variable::root(`variable`, 1, 2);
+
+#Или в сухую по ключам
+
+variable::root(variable=`variable`, base=1, root=2);
 ```
 
 **Аргументы:**
@@ -5595,15 +6435,19 @@ variable::root(`variable`,1,2);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::rotate_vector_around_axis(vector(0,0,0),1,"X","DEGREES");
+`variable` = variable::rotate_vector_around_axis(vector(0,0,0), 1, "X", "DEGREES");
 
 #Или от объекта
 
-`variable` = vector(0,0,0).rotate_vector_around_axis(1,"X","DEGREES");
+`variable` = vector(0,0,0).rotate_vector_around_axis(1, "X", "DEGREES");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::rotate_vector_around_axis(`variable`,vector(0,0,0),1,"X","DEGREES");
+variable::rotate_vector_around_axis(`variable`, vector(0,0,0), 1, "X", "DEGREES");
+
+#Или в сухую по ключам
+
+variable::rotate_vector_around_axis(variable=`variable`, vector=vector(0,0,0), angle=1, axis="X", angle_units="DEGREES");
 ```
 
 **Аргументы:**
@@ -5626,15 +6470,19 @@ variable::rotate_vector_around_axis(`variable`,vector(0,0,0),1,"X","DEGREES");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::rotate_vector_around_vector(vector(0,0,0),vector(0,0,0),1,"DEGREES");
+`variable` = variable::rotate_vector_around_vector(vector(0,0,0), vector(0,0,0), 1, "DEGREES");
 
 #Или от объекта
 
-`variable` = vector(0,0,0).rotate_vector_around_vector(vector(0,0,0),1,"DEGREES");
+`variable` = vector(0,0,0).rotate_vector_around_vector(vector(0,0,0), 1, "DEGREES");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::rotate_vector_around_vector(`variable`,vector(0,0,0),vector(0,0,0),1,"DEGREES");
+variable::rotate_vector_around_vector(`variable`, vector(0,0,0), vector(0,0,0), 1, "DEGREES");
+
+#Или в сухую по ключам
+
+variable::rotate_vector_around_vector(variable=`variable`, rotating_vector=vector(0,0,0), axis_vector=vector(0,0,0), angle=1, angle_units="DEGREES");
 ```
 
 **Аргументы:**
@@ -5657,15 +6505,19 @@ variable::rotate_vector_around_vector(`variable`,vector(0,0,0),vector(0,0,0),1,"
 
 **Пример использования:** 
 ```ts
-`variable` = variable::round(1,2,"CEIL");
+`variable` = variable::round(1, 2, "CEIL");
 
 #Или от объекта
 
-`variable` = (1).round(2,"CEIL");
+`variable` = (1).round(2, "CEIL");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::round(`variable`,1,2,"CEIL");
+variable::round(`variable`, 1, 2, "CEIL");
+
+#Или в сухую по ключам
+
+variable::round(variable=`variable`, number=1, precision=2, round_type="CEIL");
 ```
 
 **Аргументы:**
@@ -5687,11 +6539,15 @@ variable::round(`variable`,1,2,"CEIL");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_all_coordinates(1,2,3,4,5);
+`variable` = variable::set_all_coordinates(1, 2, 3, 4, 5);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_all_coordinates(`variable`,1,2,3,4,5);
+variable::set_all_coordinates(`variable`, 1, 2, 3, 4, 5);
+
+#Или в сухую по ключам
+
+variable::set_all_coordinates(variable=`variable`, x=1, y=2, z=3, yaw=4, pitch=5);
 ```
 
 **Аргументы:**
@@ -5715,11 +6571,15 @@ variable::set_all_coordinates(`variable`,1,2,3,4,5);
 
 **Пример использования:** 
 ```ts
-variable::set_armor_trim(`variable`,item("stick"),item("stick"),item("stick"));
+variable::set_armor_trim(`variable`, item("stick"), item("stick"), item("stick"));
 
 #Или от объекта
 
-item("stick").set_armor_trim(`variable`,item("stick"),item("stick"));
+item("stick").set_armor_trim(`variable`, item("stick"), item("stick"));
+
+#Или в сухую по ключам
+
+variable::set_armor_trim(variable=`variable`, armor=item("stick"), material=item("stick"), pattern=item("stick"));
 ```
 
 **Аргументы:**
@@ -5741,15 +6601,19 @@ item("stick").set_armor_trim(`variable`,item("stick"),item("stick"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_book_page(item("stick"),"text",1,"APPEND");
+`variable` = variable::set_book_page(item("stick"), "text", 1, "APPEND");
 
 #Или от объекта
 
-`variable` = item("stick").set_book_page("text",1,"APPEND");
+`variable` = item("stick").set_book_page("text", 1, "APPEND");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_book_page(`variable`,item("stick"),"text",1,"APPEND");
+variable::set_book_page(`variable`, item("stick"), "text", 1, "APPEND");
+
+#Или в сухую по ключам
+
+variable::set_book_page(variable=`variable`, book=item("stick"), text="text", page=1, mode="APPEND");
 ```
 
 **Аргументы:**
@@ -5772,15 +6636,19 @@ variable::set_book_page(`variable`,item("stick"),"text",1,"APPEND");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_book_pages(item("stick"),["text", "text"]);
+`variable` = variable::set_book_pages(item("stick"), ["text", "text"]);
 
 #Или от объекта
 
 `variable` = item("stick").set_book_pages(["text", "text"]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_book_pages(`variable`,item("stick"),["text", "text"]);
+variable::set_book_pages(`variable`, item("stick"), ["text", "text"]);
+
+#Или в сухую по ключам
+
+variable::set_book_pages(variable=`variable`, book=item("stick"), text=["text", "text"]);
 ```
 
 **Аргументы:**
@@ -5801,11 +6669,15 @@ variable::set_book_pages(`variable`,item("stick"),["text", "text"]);
 
 **Пример использования:** 
 ```ts
-variable::set_bundle_items(`variable`,[item("stick"), item("stick")],item("stick"),"ADD");
+variable::set_bundle_items(`variable`, item("stick"), [item("stick"), item("stick")], "ADD");
 
 #Или от объекта
 
-item("stick").set_bundle_items(`variable`,[item("stick"), item("stick")],"ADD");
+item("stick").set_bundle_items(`variable`, [item("stick"), item("stick")], "ADD");
+
+#Или в сухую по ключам
+
+variable::set_bundle_items(variable=`variable`, bundle=item("stick"), items=[item("stick"), item("stick")], setting_mode="ADD");
 ```
 
 **Аргументы:**
@@ -5813,8 +6685,8 @@ item("stick").set_bundle_items(`variable`,[item("stick"), item("stick")],"ADD");
 | **Имя**        | **Тип**                                                                         | **Описание**              |
 | -------------- | ------------------------------------------------------------------------------- | ------------------------- |
 | `variable`     | Переменная                                                                      | Переменная для присвоения |
-| `items`        | список[Предмет]                                                                 | Предметы для изменения    |
 | `bundle`       | Предмет                                                                         | Мешок                     |
+| `items`        | список[Предмет]                                                                 | Предметы для изменения    |
 | `setting_mode` | Маркер<br/>**ADD** - Добавить<br/>**REMOVE** - Удалить<br/>**SET** - Установить | Тип изменения             |
 <h3 id=set_variable_set_compass_lodestone>
   <code>variable::set_compass_lodestone</code>
@@ -5827,15 +6699,19 @@ item("stick").set_bundle_items(`variable`,[item("stick"), item("stick")],"ADD");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_compass_lodestone(item("stick"),location(0,0,0,0,0),"FALSE");
+`variable` = variable::set_compass_lodestone(item("stick"), location(0,0,0,0,0), "FALSE");
 
 #Или от объекта
 
-`variable` = item("stick").set_compass_lodestone(location(0,0,0,0,0),"FALSE");
+`variable` = item("stick").set_compass_lodestone(location(0,0,0,0,0), "FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_compass_lodestone(`variable`,item("stick"),location(0,0,0,0,0),"FALSE");
+variable::set_compass_lodestone(`variable`, item("stick"), location(0,0,0,0,0), "FALSE");
+
+#Или в сухую по ключам
+
+variable::set_compass_lodestone(variable=`variable`, item=item("stick"), location=location(0,0,0,0,0), tracked="FALSE");
 ```
 
 **Аргументы:**
@@ -5857,15 +6733,19 @@ variable::set_compass_lodestone(`variable`,item("stick"),location(0,0,0,0,0),"FA
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_component_children("component",["children", "children"]);
+`variable` = variable::set_component_children("component", ["children", "children"]);
 
 #Или от объекта
 
 `variable` = "component".set_component_children(["children", "children"]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_component_children(`variable`,"component",["children", "children"]);
+variable::set_component_children(`variable`, "component", ["children", "children"]);
+
+#Или в сухую по ключам
+
+variable::set_component_children(variable=`variable`, component="component", children=["children", "children"]);
 ```
 
 **Аргументы:**
@@ -5886,15 +6766,19 @@ variable::set_component_children(`variable`,"component",["children", "children"]
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_component_click("component","value","CHANGE_PAGE");
+`variable` = variable::set_component_click("component", "value", "CHANGE_PAGE");
 
 #Или от объекта
 
-`variable` = "component".set_component_click("value","CHANGE_PAGE");
+`variable` = "component".set_component_click("value", "CHANGE_PAGE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_component_click(`variable`,"component","value","CHANGE_PAGE");
+variable::set_component_click(`variable`, "component", "value", "CHANGE_PAGE");
+
+#Или в сухую по ключам
+
+variable::set_component_click(variable=`variable`, component="component", value="value", click_action="CHANGE_PAGE");
 ```
 
 **Аргументы:**
@@ -5916,15 +6800,19 @@ variable::set_component_click(`variable`,"component","value","CHANGE_PAGE");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_component_decorations("component","FALSE","FALSE","FALSE","FALSE","FALSE");
+`variable` = variable::set_component_decorations("component", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
 
 #Или от объекта
 
-`variable` = "component".set_component_decorations("FALSE","FALSE","FALSE","FALSE","FALSE");
+`variable` = "component".set_component_decorations("FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_component_decorations(`variable`,"component","FALSE","FALSE","FALSE","FALSE","FALSE");
+variable::set_component_decorations(`variable`, "component", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
+
+#Или в сухую по ключам
+
+variable::set_component_decorations(variable=`variable`, component="component", bold="FALSE", italic="FALSE", underlined="FALSE", strikethrough="FALSE", obfuscated="FALSE");
 ```
 
 **Аргументы:**
@@ -5949,15 +6837,19 @@ variable::set_component_decorations(`variable`,"component","FALSE","FALSE","FALS
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_component_entity_hover("component","name_or_uuid");
+`variable` = variable::set_component_entity_hover("component", "name_or_uuid");
 
 #Или от объекта
 
 `variable` = "component".set_component_entity_hover("name_or_uuid");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_component_entity_hover(`variable`,"component","name_or_uuid");
+variable::set_component_entity_hover(`variable`, "component", "name_or_uuid");
+
+#Или в сухую по ключам
+
+variable::set_component_entity_hover(variable=`variable`, component="component", name_or_uuid="name_or_uuid");
 ```
 
 **Аргументы:**
@@ -5978,15 +6870,19 @@ variable::set_component_entity_hover(`variable`,"component","name_or_uuid");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_component_font("component","namespace","value");
+`variable` = variable::set_component_font("component", "namespace", "value");
 
 #Или от объекта
 
-`variable` = "component".set_component_font("namespace","value");
+`variable` = "component".set_component_font("namespace", "value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_component_font(`variable`,"component","namespace","value");
+variable::set_component_font(`variable`, "component", "namespace", "value");
+
+#Или в сухую по ключам
+
+variable::set_component_font(variable=`variable`, component="component", namespace="namespace", value="value");
 ```
 
 **Аргументы:**
@@ -6008,15 +6904,19 @@ variable::set_component_font(`variable`,"component","namespace","value");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_component_hex_color("component","color");
+`variable` = variable::set_component_hex_color("component", "color");
 
 #Или от объекта
 
 `variable` = "component".set_component_hex_color("color");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_component_hex_color(`variable`,"component","color");
+variable::set_component_hex_color(`variable`, "component", "color");
+
+#Или в сухую по ключам
+
+variable::set_component_hex_color(variable=`variable`, component="component", color="color");
 ```
 
 **Аргументы:**
@@ -6037,15 +6937,19 @@ variable::set_component_hex_color(`variable`,"component","color");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_component_hover("component","hover");
+`variable` = variable::set_component_hover("component", "hover");
 
 #Или от объекта
 
 `variable` = "component".set_component_hover("hover");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_component_hover(`variable`,"component","hover");
+variable::set_component_hover(`variable`, "component", "hover");
+
+#Или в сухую по ключам
+
+variable::set_component_hover(variable=`variable`, component="component", hover="hover");
 ```
 
 **Аргументы:**
@@ -6066,15 +6970,19 @@ variable::set_component_hover(`variable`,"component","hover");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_component_insertion("component","insertion");
+`variable` = variable::set_component_insertion("component", "insertion");
 
 #Или от объекта
 
 `variable` = "component".set_component_insertion("insertion");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_component_insertion(`variable`,"component","insertion");
+variable::set_component_insertion(`variable`, "component", "insertion");
+
+#Или в сухую по ключам
+
+variable::set_component_insertion(variable=`variable`, component="component", insertion="insertion");
 ```
 
 **Аргументы:**
@@ -6095,15 +7003,19 @@ variable::set_component_insertion(`variable`,"component","insertion");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_component_item_hover("component",item("stick"));
+`variable` = variable::set_component_item_hover("component", item("stick"));
 
 #Или от объекта
 
 `variable` = "component".set_component_item_hover(item("stick"));
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_component_item_hover(`variable`,"component",item("stick"));
+variable::set_component_item_hover(`variable`, "component", item("stick"));
+
+#Или в сухую по ключам
+
+variable::set_component_item_hover(variable=`variable`, component="component", hover=item("stick"));
 ```
 
 **Аргументы:**
@@ -6124,15 +7036,19 @@ variable::set_component_item_hover(`variable`,"component",item("stick"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_coordinate(location(0,0,0,0,0),1,"PITCH");
+`variable` = variable::set_coordinate(location(0,0,0,0,0), 1, "PITCH");
 
 #Или от объекта
 
-`variable` = location(0,0,0,0,0).set_coordinate(1,"PITCH");
+`variable` = location(0,0,0,0,0).set_coordinate(1, "PITCH");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_coordinate(`variable`,location(0,0,0,0,0),1,"PITCH");
+variable::set_coordinate(`variable`, location(0,0,0,0,0), 1, "PITCH");
+
+#Или в сухую по ключам
+
+variable::set_coordinate(variable=`variable`, location=location(0,0,0,0,0), coordinate=1, type="PITCH");
 ```
 
 **Аргументы:**
@@ -6154,15 +7070,19 @@ variable::set_coordinate(`variable`,location(0,0,0,0,0),1,"PITCH");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_amount(item("stick"),1);
+`variable` = variable::set_item_amount(item("stick"), 1);
 
 #Или от объекта
 
 `variable` = item("stick").set_item_amount(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_amount(`variable`,item("stick"),1);
+variable::set_item_amount(`variable`, item("stick"), 1);
+
+#Или в сухую по ключам
+
+variable::set_item_amount(variable=`variable`, item=item("stick"), amount=1);
 ```
 
 **Аргументы:**
@@ -6183,15 +7103,19 @@ variable::set_item_amount(`variable`,item("stick"),1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_attribute(item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER");
+`variable` = variable::set_item_attribute(item("stick"), 1, "name", "ARMOR", "ALL", "ADD_NUMBER");
 
 #Или от объекта
 
-`variable` = item("stick").set_item_attribute(1,"name","ARMOR","ALL","ADD_NUMBER");
+`variable` = item("stick").set_item_attribute(1, "name", "ARMOR", "ALL", "ADD_NUMBER");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_attribute(`variable`,item("stick"),1,"name","ARMOR","ALL","ADD_NUMBER");
+variable::set_item_attribute(`variable`, item("stick"), 1, "name", "ARMOR", "ALL", "ADD_NUMBER");
+
+#Или в сухую по ключам
+
+variable::set_item_attribute(variable=`variable`, item=item("stick"), amount=1, name="name", attribute="ARMOR", slot="ALL", operation="ADD_NUMBER");
 ```
 
 **Аргументы:**
@@ -6222,15 +7146,19 @@ variable::set_item_attribute(`variable`,item("stick"),1,"name","ARMOR","ALL","AD
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_color(item("stick"),"color");
+`variable` = variable::set_item_color(item("stick"), "color");
 
 #Или от объекта
 
 `variable` = item("stick").set_item_color("color");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_color(`variable`,item("stick"),"color");
+variable::set_item_color(`variable`, item("stick"), "color");
+
+#Или в сухую по ключам
+
+variable::set_item_color(variable=`variable`, item=item("stick"), color="color");
 ```
 
 **Аргументы:**
@@ -6251,15 +7179,19 @@ variable::set_item_color(`variable`,item("stick"),"color");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_component(item("stick"),"component","any value");
+`variable` = variable::set_item_component(item("stick"), "component", "any value");
 
 #Или от объекта
 
-`variable` = item("stick").set_item_component("component","any value");
+`variable` = item("stick").set_item_component("component", "any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_component(`variable`,item("stick"),"component","any value");
+variable::set_item_component(`variable`, item("stick"), "component", "any value");
+
+#Или в сухую по ключам
+
+variable::set_item_component(variable=`variable`, item=item("stick"), component="component", value="any value");
 ```
 
 **Аргументы:**
@@ -6281,15 +7213,19 @@ variable::set_item_component(`variable`,item("stick"),"component","any value");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_custom_model_data(item("stick"),1);
+`variable` = variable::set_item_custom_model_data(item("stick"), 1);
 
 #Или от объекта
 
 `variable` = item("stick").set_item_custom_model_data(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_custom_model_data(`variable`,item("stick"),1);
+variable::set_item_custom_model_data(`variable`, item("stick"), 1);
+
+#Или в сухую по ключам
+
+variable::set_item_custom_model_data(variable=`variable`, item=item("stick"), model=1);
 ```
 
 **Аргументы:**
@@ -6310,15 +7246,19 @@ variable::set_item_custom_model_data(`variable`,item("stick"),1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_custom_tag(item("stick"),"tag_name","tag_value");
+`variable` = variable::set_item_custom_tag(item("stick"), "tag_name", "tag_value");
 
 #Или от объекта
 
-`variable` = item("stick").set_item_custom_tag("tag_name","tag_value");
+`variable` = item("stick").set_item_custom_tag("tag_name", "tag_value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_custom_tag(`variable`,item("stick"),"tag_name","tag_value");
+variable::set_item_custom_tag(`variable`, item("stick"), "tag_name", "tag_value");
+
+#Или в сухую по ключам
+
+variable::set_item_custom_tag(variable=`variable`, item=item("stick"), tag_name="tag_name", tag_value="tag_value");
 ```
 
 **Аргументы:**
@@ -6340,15 +7280,19 @@ variable::set_item_custom_tag(`variable`,item("stick"),"tag_name","tag_value");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_destroyable_blocks([item("stick"), item("stick")],item("stick"));
+`variable` = variable::set_item_destroyable_blocks([item("stick"), item("stick")], item("stick"));
 
 #Или от объекта
 
 `variable` = item("stick").set_item_destroyable_blocks([item("stick"), item("stick")]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_destroyable_blocks(`variable`,[item("stick"), item("stick")],item("stick"));
+variable::set_item_destroyable_blocks(`variable`, [item("stick"), item("stick")], item("stick"));
+
+#Или в сухую по ключам
+
+variable::set_item_destroyable_blocks(variable=`variable`, destroyable=[item("stick"), item("stick")], item=item("stick"));
 ```
 
 **Аргументы:**
@@ -6369,15 +7313,19 @@ variable::set_item_destroyable_blocks(`variable`,[item("stick"), item("stick")],
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_durability(item("stick"),1,"DAMAGE");
+`variable` = variable::set_item_durability(item("stick"), 1, "DAMAGE");
 
 #Или от объекта
 
-`variable` = item("stick").set_item_durability(1,"DAMAGE");
+`variable` = item("stick").set_item_durability(1, "DAMAGE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_durability(`variable`,item("stick"),1,"DAMAGE");
+variable::set_item_durability(`variable`, item("stick"), 1, "DAMAGE");
+
+#Или в сухую по ключам
+
+variable::set_item_durability(variable=`variable`, item=item("stick"), durability=1, durability_type="DAMAGE");
 ```
 
 **Аргументы:**
@@ -6399,15 +7347,19 @@ variable::set_item_durability(`variable`,item("stick"),1,"DAMAGE");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_enchantments(item("stick"),`enchantments`);
+`variable` = variable::set_item_enchantments(item("stick"), `enchantments`);
 
 #Или от объекта
 
 `variable` = item("stick").set_item_enchantments(`enchantments`);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_enchantments(`variable`,item("stick"),`enchantments`);
+variable::set_item_enchantments(`variable`, item("stick"), `enchantments`);
+
+#Или в сухую по ключам
+
+variable::set_item_enchantments(variable=`variable`, item=item("stick"), enchantments=`enchantments`);
 ```
 
 **Аргументы:**
@@ -6430,15 +7382,19 @@ variable::set_item_enchantments(`variable`,item("stick"),`enchantments`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_lore(["lore", "lore"],item("stick"));
+`variable` = variable::set_item_lore(item("stick"), ["lore", "lore"]);
 
 #Или от объекта
 
 `variable` = item("stick").set_item_lore(["lore", "lore"]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_lore(`variable`,["lore", "lore"],item("stick"));
+variable::set_item_lore(`variable`, item("stick"), ["lore", "lore"]);
+
+#Или в сухую по ключам
+
+variable::set_item_lore(variable=`variable`, item=item("stick"), lore=["lore", "lore"]);
 ```
 
 **Аргументы:**
@@ -6446,8 +7402,8 @@ variable::set_item_lore(`variable`,["lore", "lore"],item("stick"));
 | **Имя**    | **Тип**       | **Описание**              |
 | ---------- | ------------- | ------------------------- |
 | `variable` | Переменная    | Переменная для присвоения |
-| `lore`     | список[Текст] | Новое описание            |
 | `item`     | Предмет       | Предмет                   |
+| `lore`     | список[Текст] | Новое описание            |
 <h3 id=set_variable_set_item_lore_line>
   <code>variable::set_item_lore_line</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6459,15 +7415,19 @@ variable::set_item_lore(`variable`,["lore", "lore"],item("stick"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_lore_line(item("stick"),"text",1,"APPEND");
+`variable` = variable::set_item_lore_line(item("stick"), "text", 1, "APPEND");
 
 #Или от объекта
 
-`variable` = item("stick").set_item_lore_line("text",1,"APPEND");
+`variable` = item("stick").set_item_lore_line("text", 1, "APPEND");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_lore_line(`variable`,item("stick"),"text",1,"APPEND");
+variable::set_item_lore_line(`variable`, item("stick"), "text", 1, "APPEND");
+
+#Или в сухую по ключам
+
+variable::set_item_lore_line(variable=`variable`, item=item("stick"), text="text", line=1, mode="APPEND");
 ```
 
 **Аргументы:**
@@ -6493,7 +7453,11 @@ variable::set_item_lore_line(`variable`,item("stick"),"text",1,"APPEND");
 
 **Пример использования:** 
 ```ts
-variable::set_item_max_stack_size(`variable`,item("stick"),1);
+variable::set_item_max_stack_size(`variable`, item("stick"), 1);
+
+#Или в сухую по ключам
+
+variable::set_item_max_stack_size(variable=`variable`, item=item("stick"), size=1);
 ```
 
 **Аргументы:**
@@ -6514,15 +7478,19 @@ variable::set_item_max_stack_size(`variable`,item("stick"),1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_name(item("stick"),"text");
+`variable` = variable::set_item_name(item("stick"), "text");
 
 #Или от объекта
 
 `variable` = item("stick").set_item_name("text");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_name(`variable`,item("stick"),"text");
+variable::set_item_name(`variable`, item("stick"), "text");
+
+#Или в сухую по ключам
+
+variable::set_item_name(variable=`variable`, item=item("stick"), text="text");
 ```
 
 **Аргументы:**
@@ -6543,15 +7511,19 @@ variable::set_item_name(`variable`,item("stick"),"text");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_placeable_blocks([item("stick"), item("stick")],item("stick"));
+`variable` = variable::set_item_placeable_blocks([item("stick"), item("stick")], item("stick"));
 
 #Или от объекта
 
 `variable` = item("stick").set_item_placeable_blocks([item("stick"), item("stick")]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_placeable_blocks(`variable`,[item("stick"), item("stick")],item("stick"));
+variable::set_item_placeable_blocks(`variable`, [item("stick"), item("stick")], item("stick"));
+
+#Или в сухую по ключам
+
+variable::set_item_placeable_blocks(variable=`variable`, placeable=[item("stick"), item("stick")], item=item("stick"));
 ```
 
 **Аргументы:**
@@ -6572,15 +7544,19 @@ variable::set_item_placeable_blocks(`variable`,[item("stick"), item("stick")],it
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_type(item("stick"),"type");
+`variable` = variable::set_item_type(item("stick"), "type");
 
 #Или от объекта
 
 `variable` = item("stick").set_item_type("type");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_type(`variable`,item("stick"),"type");
+variable::set_item_type(`variable`, item("stick"), "type");
+
+#Или в сухую по ключам
+
+variable::set_item_type(variable=`variable`, item=item("stick"), type="type");
 ```
 
 **Аргументы:**
@@ -6601,15 +7577,19 @@ variable::set_item_type(`variable`,item("stick"),"type");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_unbreakable(item("stick"),"FALSE");
+`variable` = variable::set_item_unbreakable(item("stick"), "FALSE");
 
 #Или от объекта
 
 `variable` = item("stick").set_item_unbreakable("FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_unbreakable(`variable`,item("stick"),"FALSE");
+variable::set_item_unbreakable(`variable`, item("stick"), "FALSE");
+
+#Или в сухую по ключам
+
+variable::set_item_unbreakable(variable=`variable`, item=item("stick"), unbreakable="FALSE");
 ```
 
 **Аргументы:**
@@ -6630,15 +7610,19 @@ variable::set_item_unbreakable(`variable`,item("stick"),"FALSE");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_visibility_flags(item("stick"),"NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
+`variable` = variable::set_item_visibility_flags(item("stick"), "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE");
 
 #Или от объекта
 
-`variable` = item("stick").set_item_visibility_flags("NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
+`variable` = item("stick").set_item_visibility_flags("NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_item_visibility_flags(`variable`,item("stick"),"NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE","NO_CHANGE");
+variable::set_item_visibility_flags(`variable`, item("stick"), "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE", "NO_CHANGE");
+
+#Или в сухую по ключам
+
+variable::set_item_visibility_flags(variable=`variable`, item=item("stick"), hide_dye="NO_CHANGE", hide_enchantments="NO_CHANGE", hide_attributes="NO_CHANGE", hide_unbreakable="NO_CHANGE", hide_place_on="NO_CHANGE", hide_destroys="NO_CHANGE", hide_potion_effects="NO_CHANGE", hide_armor_trim="NO_CHANGE");
 ```
 
 **Аргументы:**
@@ -6666,15 +7650,19 @@ variable::set_item_visibility_flags(`variable`,item("stick"),"NO_CHANGE","NO_CHA
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_list_value(`list`,1,"any value");
+`variable` = variable::set_list_value(`list`, 1, "any value");
 
 #Или от объекта
 
-`variable` = `list`.set_list_value(1,"any value");
+`variable` = `list`.set_list_value(1, "any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_list_value(`variable`,`list`,1,"any value");
+variable::set_list_value(`variable`, `list`, 1, "any value");
+
+#Или в сухую по ключам
+
+variable::set_list_value(variable=`variable`, list=`list`, number=1, value="any value");
 ```
 
 **Аргументы:**
@@ -6696,15 +7684,19 @@ variable::set_list_value(`variable`,`list`,1,"any value");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_location_direction(location(0,0,0,0,0),vector(0,0,0));
+`variable` = variable::set_location_direction(location(0,0,0,0,0), vector(0,0,0));
 
 #Или от объекта
 
 `variable` = location(0,0,0,0,0).set_location_direction(vector(0,0,0));
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_location_direction(`variable`,location(0,0,0,0,0),vector(0,0,0));
+variable::set_location_direction(`variable`, location(0,0,0,0,0), vector(0,0,0));
+
+#Или в сухую по ключам
+
+variable::set_location_direction(variable=`variable`, location=location(0,0,0,0,0), vector=vector(0,0,0));
 ```
 
 **Аргументы:**
@@ -6725,15 +7717,19 @@ variable::set_location_direction(`variable`,location(0,0,0,0,0),vector(0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_map_value(`map`,"any value","any value");
+`variable` = variable::set_map_value(`map`, "any value", "any value");
 
 #Или от объекта
 
-`variable` = `map`.set_map_value("any value","any value");
+`variable` = `map`.set_map_value("any value", "any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_map_value(`variable`,`map`,"any value","any value");
+variable::set_map_value(`variable`, `map`, "any value", "any value");
+
+#Или в сухую по ключам
+
+variable::set_map_value(variable=`variable`, map=`map`, key="any value", value="any value");
 ```
 
 **Аргументы:**
@@ -6755,15 +7751,19 @@ variable::set_map_value(`variable`,`map`,"any value","any value");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_particle_amount(particle("fire"),1);
+`variable` = variable::set_particle_amount(particle("fire"), 1);
 
 #Или от объекта
 
 `variable` = particle("fire").set_particle_amount(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_particle_amount(`variable`,particle("fire"),1);
+variable::set_particle_amount(`variable`, particle("fire"), 1);
+
+#Или в сухую по ключам
+
+variable::set_particle_amount(variable=`variable`, particle=particle("fire"), amount=1);
 ```
 
 **Аргументы:**
@@ -6784,15 +7784,19 @@ variable::set_particle_amount(`variable`,particle("fire"),1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_particle_color(particle("fire"),"hex_color","COLOR");
+`variable` = variable::set_particle_color(particle("fire"), "hex_color", "COLOR");
 
 #Или от объекта
 
-`variable` = particle("fire").set_particle_color("hex_color","COLOR");
+`variable` = particle("fire").set_particle_color("hex_color", "COLOR");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_particle_color(`variable`,particle("fire"),"hex_color","COLOR");
+variable::set_particle_color(`variable`, particle("fire"), "hex_color", "COLOR");
+
+#Или в сухую по ключам
+
+variable::set_particle_color(variable=`variable`, particle=particle("fire"), hex_color="hex_color", color_type="COLOR");
 ```
 
 **Аргументы:**
@@ -6814,15 +7818,19 @@ variable::set_particle_color(`variable`,particle("fire"),"hex_color","COLOR");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_particle_material(particle("fire"),item("stick"));
+`variable` = variable::set_particle_material(particle("fire"), item("stick"));
 
 #Или от объекта
 
 `variable` = particle("fire").set_particle_material(item("stick"));
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_particle_material(`variable`,particle("fire"),item("stick"));
+variable::set_particle_material(`variable`, particle("fire"), item("stick"));
+
+#Или в сухую по ключам
+
+variable::set_particle_material(variable=`variable`, particle=particle("fire"), material=item("stick"));
 ```
 
 **Аргументы:**
@@ -6843,15 +7851,19 @@ variable::set_particle_material(`variable`,particle("fire"),item("stick"));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_particle_offset(particle("fire"),vector(0,0,0));
+`variable` = variable::set_particle_offset(particle("fire"), vector(0,0,0));
 
 #Или от объекта
 
 `variable` = particle("fire").set_particle_offset(vector(0,0,0));
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_particle_offset(`variable`,particle("fire"),vector(0,0,0));
+variable::set_particle_offset(`variable`, particle("fire"), vector(0,0,0));
+
+#Или в сухую по ключам
+
+variable::set_particle_offset(variable=`variable`, particle=particle("fire"), offset=vector(0,0,0));
 ```
 
 **Аргументы:**
@@ -6872,15 +7884,19 @@ variable::set_particle_offset(`variable`,particle("fire"),vector(0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_particle_size(particle("fire"),1);
+`variable` = variable::set_particle_size(particle("fire"), 1);
 
 #Или от объекта
 
 `variable` = particle("fire").set_particle_size(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_particle_size(`variable`,particle("fire"),1);
+variable::set_particle_size(`variable`, particle("fire"), 1);
+
+#Или в сухую по ключам
+
+variable::set_particle_size(variable=`variable`, particle=particle("fire"), size=1);
 ```
 
 **Аргументы:**
@@ -6901,15 +7917,19 @@ variable::set_particle_size(`variable`,particle("fire"),1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_particle_spread(particle("fire"),1,2);
+`variable` = variable::set_particle_spread(particle("fire"), 1, 2);
 
 #Или от объекта
 
-`variable` = particle("fire").set_particle_spread(1,2);
+`variable` = particle("fire").set_particle_spread(1, 2);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_particle_spread(`variable`,particle("fire"),1,2);
+variable::set_particle_spread(`variable`, particle("fire"), 1, 2);
+
+#Или в сухую по ключам
+
+variable::set_particle_spread(variable=`variable`, particle=particle("fire"), horizontal=1, vertical=2);
 ```
 
 **Аргументы:**
@@ -6931,15 +7951,19 @@ variable::set_particle_spread(`variable`,particle("fire"),1,2);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_particle_type(particle("fire"),"type");
+`variable` = variable::set_particle_type(particle("fire"), "type");
 
 #Или от объекта
 
 `variable` = particle("fire").set_particle_type("type");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_particle_type(`variable`,particle("fire"),"type");
+variable::set_particle_type(`variable`, particle("fire"), "type");
+
+#Или в сухую по ключам
+
+variable::set_particle_type(variable=`variable`, particle=particle("fire"), type="type");
 ```
 
 **Аргументы:**
@@ -6960,15 +7984,19 @@ variable::set_particle_type(`variable`,particle("fire"),"type");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_potion_effect_amplifier(potion("slow_falling"),1);
+`variable` = variable::set_potion_effect_amplifier(potion("slow_falling"), 1);
 
 #Или от объекта
 
 `variable` = potion("slow_falling").set_potion_effect_amplifier(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_potion_effect_amplifier(`variable`,potion("slow_falling"),1);
+variable::set_potion_effect_amplifier(`variable`, potion("slow_falling"), 1);
+
+#Или в сухую по ключам
+
+variable::set_potion_effect_amplifier(variable=`variable`, potion=potion("slow_falling"), amplifier=1);
 ```
 
 **Аргументы:**
@@ -6989,15 +8017,19 @@ variable::set_potion_effect_amplifier(`variable`,potion("slow_falling"),1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_potion_effect_duration(potion("slow_falling"),1);
+`variable` = variable::set_potion_effect_duration(potion("slow_falling"), 1);
 
 #Или от объекта
 
 `variable` = potion("slow_falling").set_potion_effect_duration(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_potion_effect_duration(`variable`,potion("slow_falling"),1);
+variable::set_potion_effect_duration(`variable`, potion("slow_falling"), 1);
+
+#Или в сухую по ключам
+
+variable::set_potion_effect_duration(variable=`variable`, potion=potion("slow_falling"), duration=1);
 ```
 
 **Аргументы:**
@@ -7018,15 +8050,19 @@ variable::set_potion_effect_duration(`variable`,potion("slow_falling"),1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_potion_effect_type(potion("slow_falling"),"effect_type");
+`variable` = variable::set_potion_effect_type(potion("slow_falling"), "effect_type");
 
 #Или от объекта
 
 `variable` = potion("slow_falling").set_potion_effect_type("effect_type");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_potion_effect_type(`variable`,potion("slow_falling"),"effect_type");
+variable::set_potion_effect_type(`variable`, potion("slow_falling"), "effect_type");
+
+#Или в сухую по ключам
+
+variable::set_potion_effect_type(variable=`variable`, potion=potion("slow_falling"), effect_type="effect_type");
 ```
 
 **Аргументы:**
@@ -7047,15 +8083,19 @@ variable::set_potion_effect_type(`variable`,potion("slow_falling"),"effect_type"
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_sound_pitch(sound("entity.zombie.hurt"),1);
+`variable` = variable::set_sound_pitch(sound("entity.zombie.hurt"), 1);
 
 #Или от объекта
 
 `variable` = sound("entity.zombie.hurt").set_sound_pitch(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_sound_pitch(`variable`,sound("entity.zombie.hurt"),1);
+variable::set_sound_pitch(`variable`, sound("entity.zombie.hurt"), 1);
+
+#Или в сухую по ключам
+
+variable::set_sound_pitch(variable=`variable`, sound=sound("entity.zombie.hurt"), pitch=1);
 ```
 
 **Аргументы:**
@@ -7076,15 +8116,19 @@ variable::set_sound_pitch(`variable`,sound("entity.zombie.hurt"),1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_sound_source(sound("entity.zombie.hurt"),"AMBIENT");
+`variable` = variable::set_sound_source(sound("entity.zombie.hurt"), "AMBIENT");
 
 #Или от объекта
 
 `variable` = sound("entity.zombie.hurt").set_sound_source("AMBIENT");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_sound_source(`variable`,sound("entity.zombie.hurt"),"AMBIENT");
+variable::set_sound_source(`variable`, sound("entity.zombie.hurt"), "AMBIENT");
+
+#Или в сухую по ключам
+
+variable::set_sound_source(variable=`variable`, sound=sound("entity.zombie.hurt"), source="AMBIENT");
 ```
 
 **Аргументы:**
@@ -7105,15 +8149,19 @@ variable::set_sound_source(`variable`,sound("entity.zombie.hurt"),"AMBIENT");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_sound_type(sound("entity.zombie.hurt"),"namespace","value");
+`variable` = variable::set_sound_type(sound("entity.zombie.hurt"), "namespace", "value");
 
 #Или от объекта
 
-`variable` = sound("entity.zombie.hurt").set_sound_type("namespace","value");
+`variable` = sound("entity.zombie.hurt").set_sound_type("namespace", "value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_sound_type(`variable`,sound("entity.zombie.hurt"),"namespace","value");
+variable::set_sound_type(`variable`, sound("entity.zombie.hurt"), "namespace", "value");
+
+#Или в сухую по ключам
+
+variable::set_sound_type(variable=`variable`, sound=sound("entity.zombie.hurt"), namespace="namespace", value="value");
 ```
 
 **Аргументы:**
@@ -7138,15 +8186,19 @@ variable::set_sound_type(`variable`,sound("entity.zombie.hurt"),"namespace","val
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_sound_variation(sound("entity.zombie.hurt"),"variation");
+`variable` = variable::set_sound_variation(sound("entity.zombie.hurt"), "variation");
 
 #Или от объекта
 
 `variable` = sound("entity.zombie.hurt").set_sound_variation("variation");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_sound_variation(`variable`,sound("entity.zombie.hurt"),"variation");
+variable::set_sound_variation(`variable`, sound("entity.zombie.hurt"), "variation");
+
+#Или в сухую по ключам
+
+variable::set_sound_variation(variable=`variable`, sound=sound("entity.zombie.hurt"), variation="variation");
 ```
 
 **Аргументы:**
@@ -7167,15 +8219,19 @@ variable::set_sound_variation(`variable`,sound("entity.zombie.hurt"),"variation"
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_sound_volume_action(sound("entity.zombie.hurt"),1);
+`variable` = variable::set_sound_volume_action(sound("entity.zombie.hurt"), 1);
 
 #Или от объекта
 
 `variable` = sound("entity.zombie.hurt").set_sound_volume_action(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_sound_volume_action(`variable`,sound("entity.zombie.hurt"),1);
+variable::set_sound_volume_action(`variable`, sound("entity.zombie.hurt"), 1);
+
+#Или в сухую по ключам
+
+variable::set_sound_volume_action(variable=`variable`, sound=sound("entity.zombie.hurt"), volume=1);
 ```
 
 **Аргументы:**
@@ -7196,15 +8252,19 @@ variable::set_sound_volume_action(`variable`,sound("entity.zombie.hurt"),1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_template_code(item("stick"),"any value");
+`variable` = variable::set_template_code(item("stick"), "any value");
 
 #Или от объекта
 
 `variable` = item("stick").set_template_code("any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_template_code(`variable`,item("stick"),"any value");
+variable::set_template_code(`variable`, item("stick"), "any value");
+
+#Или в сухую по ключам
+
+variable::set_template_code(variable=`variable`, template=item("stick"), code="any value");
 ```
 
 **Аргументы:**
@@ -7225,15 +8285,19 @@ variable::set_template_code(`variable`,item("stick"),"any value");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_texture_to_map(item("stick"),"url");
+`variable` = variable::set_texture_to_map(item("stick"), "url");
 
 #Или от объекта
 
 `variable` = item("stick").set_texture_to_map("url");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_texture_to_map(`variable`,item("stick"),"url");
+variable::set_texture_to_map(`variable`, item("stick"), "url");
+
+#Или в сухую по ключам
+
+variable::set_texture_to_map(variable=`variable`, map=item("stick"), url="url");
 ```
 
 **Аргументы:**
@@ -7254,15 +8318,19 @@ variable::set_texture_to_map(`variable`,item("stick"),"url");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_vector_component(vector(0,0,0),1,"X");
+`variable` = variable::set_vector_component(vector(0,0,0), 1, "X");
 
 #Или от объекта
 
-`variable` = vector(0,0,0).set_vector_component(1,"X");
+`variable` = vector(0,0,0).set_vector_component(1, "X");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_vector_component(`variable`,vector(0,0,0),1,"X");
+variable::set_vector_component(`variable`, vector(0,0,0), 1, "X");
+
+#Или в сухую по ключам
+
+variable::set_vector_component(variable=`variable`, vector=vector(0,0,0), value=1, vector_component="X");
 ```
 
 **Аргументы:**
@@ -7284,15 +8352,19 @@ variable::set_vector_component(`variable`,vector(0,0,0),1,"X");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_vector_length(vector(0,0,0),1);
+`variable` = variable::set_vector_length(vector(0,0,0), 1);
 
 #Или от объекта
 
 `variable` = vector(0,0,0).set_vector_length(1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_vector_length(`variable`,vector(0,0,0),1);
+variable::set_vector_length(`variable`, vector(0,0,0), 1);
+
+#Или в сухую по ключам
+
+variable::set_vector_length(variable=`variable`, vector=vector(0,0,0), length=1);
 ```
 
 **Аргументы:**
@@ -7313,15 +8385,19 @@ variable::set_vector_length(`variable`,vector(0,0,0),1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::shift_all_coordinates(location(0,0,0,0,0),1,2,3,4,5);
+`variable` = variable::shift_all_coordinates(location(0,0,0,0,0), 1, 2, 3, 4, 5);
 
 #Или от объекта
 
-`variable` = location(0,0,0,0,0).shift_all_coordinates(1,2,3,4,5);
+`variable` = location(0,0,0,0,0).shift_all_coordinates(1, 2, 3, 4, 5);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::shift_all_coordinates(`variable`,location(0,0,0,0,0),1,2,3,4,5);
+variable::shift_all_coordinates(`variable`, location(0,0,0,0,0), 1, 2, 3, 4, 5);
+
+#Или в сухую по ключам
+
+variable::shift_all_coordinates(variable=`variable`, location=location(0,0,0,0,0), x=1, y=2, z=3, yaw=4, pitch=5);
 ```
 
 **Аргументы:**
@@ -7346,15 +8422,19 @@ variable::shift_all_coordinates(`variable`,location(0,0,0,0,0),1,2,3,4,5);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::shift_coordinate(location(0,0,0,0,0),1,"PITCH");
+`variable` = variable::shift_coordinate(location(0,0,0,0,0), 1, "PITCH");
 
 #Или от объекта
 
-`variable` = location(0,0,0,0,0).shift_coordinate(1,"PITCH");
+`variable` = location(0,0,0,0,0).shift_coordinate(1, "PITCH");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::shift_coordinate(`variable`,location(0,0,0,0,0),1,"PITCH");
+variable::shift_coordinate(`variable`, location(0,0,0,0,0), 1, "PITCH");
+
+#Или в сухую по ключам
+
+variable::shift_coordinate(variable=`variable`, location=location(0,0,0,0,0), distance=1, type="PITCH");
 ```
 
 **Аргументы:**
@@ -7376,15 +8456,19 @@ variable::shift_coordinate(`variable`,location(0,0,0,0,0),1,"PITCH");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::shift_location_in_direction(location(0,0,0,0,0),1,"FORWARD");
+`variable` = variable::shift_location_in_direction(location(0,0,0,0,0), 1, "FORWARD");
 
 #Или от объекта
 
-`variable` = location(0,0,0,0,0).shift_location_in_direction(1,"FORWARD");
+`variable` = location(0,0,0,0,0).shift_location_in_direction(1, "FORWARD");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::shift_location_in_direction(`variable`,location(0,0,0,0,0),1,"FORWARD");
+variable::shift_location_in_direction(`variable`, location(0,0,0,0,0), 1, "FORWARD");
+
+#Или в сухую по ключам
+
+variable::shift_location_in_direction(variable=`variable`, location=location(0,0,0,0,0), shift=1, direction="FORWARD");
 ```
 
 **Аргументы:**
@@ -7406,15 +8490,19 @@ variable::shift_location_in_direction(`variable`,location(0,0,0,0,0),1,"FORWARD"
 
 **Пример использования:** 
 ```ts
-`variable` = variable::shift_location_on_vector(location(0,0,0,0,0),vector(0,0,0),1);
+`variable` = variable::shift_location_on_vector(location(0,0,0,0,0), vector(0,0,0), 1);
 
 #Или от объекта
 
-`variable` = location(0,0,0,0,0).shift_location_on_vector(vector(0,0,0),1);
+`variable` = location(0,0,0,0,0).shift_location_on_vector(vector(0,0,0), 1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::shift_location_on_vector(`variable`,location(0,0,0,0,0),vector(0,0,0),1);
+variable::shift_location_on_vector(`variable`, location(0,0,0,0,0), vector(0,0,0), 1);
+
+#Или в сухую по ключам
+
+variable::shift_location_on_vector(variable=`variable`, location=location(0,0,0,0,0), vector=vector(0,0,0), length=1);
 ```
 
 **Аргументы:**
@@ -7436,15 +8524,19 @@ variable::shift_location_on_vector(`variable`,location(0,0,0,0,0),vector(0,0,0),
 
 **Пример использования:** 
 ```ts
-`variable` = variable::shift_location_towards_location(location(0,0,0,0,0),location(0,0,0,0,0),1);
+`variable` = variable::shift_location_towards_location(location(0,0,0,0,0), location(0,0,0,0,0), 1);
 
 #Или от объекта
 
-`variable` = location(0,0,0,0,0).shift_location_towards_location(location(0,0,0,0,0),1);
+`variable` = location(0,0,0,0,0).shift_location_towards_location(location(0,0,0,0,0), 1);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::shift_location_towards_location(`variable`,location(0,0,0,0,0),location(0,0,0,0,0),1);
+variable::shift_location_towards_location(`variable`, location(0,0,0,0,0), location(0,0,0,0,0), 1);
+
+#Или в сухую по ключам
+
+variable::shift_location_towards_location(variable=`variable`, location_from=location(0,0,0,0,0), location_to=location(0,0,0,0,0), distance=1);
 ```
 
 **Аргументы:**
@@ -7466,15 +8558,19 @@ variable::shift_location_towards_location(`variable`,location(0,0,0,0,0),locatio
 
 **Пример использования:** 
 ```ts
-`variable` = variable::simplex_noise_3d(location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
+`variable` = variable::simplex_noise_3d(location(0,0,0,0,0), 1, 2, 3, 4, 5, "FULL_RANGE", "FALSE");
 
 #Или от объекта
 
-`variable` = location(0,0,0,0,0).simplex_noise_3d(1,2,3,4,5,"FULL_RANGE","FALSE");
+`variable` = location(0,0,0,0,0).simplex_noise_3d(1, 2, 3, 4, 5, "FULL_RANGE", "FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::simplex_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE","FALSE");
+variable::simplex_noise_3d(`variable`, location(0,0,0,0,0), 1, 2, 3, 4, 5, "FULL_RANGE", "FALSE");
+
+#Или в сухую по ключам
+
+variable::simplex_noise_3d(variable=`variable`, location=location(0,0,0,0,0), seed=1, loc_frequency=2, octaves=3, frequency=4, amplitude=5, range_mode="FULL_RANGE", normalized="FALSE");
 ```
 
 **Аргументы:**
@@ -7501,15 +8597,19 @@ variable::simplex_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,4,5,"FULL_RANGE"
 
 **Пример использования:** 
 ```ts
-`variable` = variable::sine(1,"ARCSINE","DEGREES");
+`variable` = variable::sine(1, "ARCSINE", "DEGREES");
 
 #Или от объекта
 
-`variable` = (1).sine("ARCSINE","DEGREES");
+`variable` = (1).sine("ARCSINE", "DEGREES");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::sine(`variable`,1,"ARCSINE","DEGREES");
+variable::sine(`variable`, 1, "ARCSINE", "DEGREES");
+
+#Или в сухую по ключам
+
+variable::sine(variable=`variable`, number=1, variant="ARCSINE", input="DEGREES");
 ```
 
 **Аргументы:**
@@ -7535,15 +8635,19 @@ variable::sine(`variable`,1,"ARCSINE","DEGREES");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::sort_list(`list`,"ASCENDING");
+`variable` = variable::sort_list(`list`, "ASCENDING");
 
 #Или от объекта
 
 `variable` = `list`.sort_list("ASCENDING");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::sort_list(`variable`,`list`,"ASCENDING");
+variable::sort_list(`variable`, `list`, "ASCENDING");
+
+#Или в сухую по ключам
+
+variable::sort_list(variable=`variable`, list=`list`, sort_mode="ASCENDING");
 ```
 
 **Аргументы:**
@@ -7564,15 +8668,19 @@ variable::sort_list(`variable`,`list`,"ASCENDING");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::sort_map(`map`,"ASCENDING","KEYS");
+`variable` = variable::sort_map(`map`, "ASCENDING", "KEYS");
 
 #Или от объекта
 
-`variable` = `map`.sort_map("ASCENDING","KEYS");
+`variable` = `map`.sort_map("ASCENDING", "KEYS");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::sort_map(`variable`,`map`,"ASCENDING","KEYS");
+variable::sort_map(`variable`, `map`, "ASCENDING", "KEYS");
+
+#Или в сухую по ключам
+
+variable::sort_map(variable=`variable`, map=`map`, sort_order="ASCENDING", sort_type="KEYS");
 ```
 
 **Аргументы:**
@@ -7594,15 +8702,19 @@ variable::sort_map(`variable`,`map`,"ASCENDING","KEYS");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::split_text("text","delimiter");
+`variable` = variable::split_text("text", "delimiter");
 
 #Или от объекта
 
 `variable` = "text".split_text("delimiter");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::split_text(`variable`,"text","delimiter");
+variable::split_text(`variable`, "text", "delimiter");
+
+#Или в сухую по ключам
+
+variable::split_text(variable=`variable`, text="text", delimiter="delimiter");
 ```
 
 **Аргументы:**
@@ -7623,15 +8735,19 @@ variable::split_text(`variable`,"text","delimiter");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::strip_text("text","ALL");
+`variable` = variable::strip_text("text", "ALL");
 
 #Или от объекта
 
 `variable` = "text".strip_text("ALL");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::strip_text(`variable`,"text","ALL");
+variable::strip_text(`variable`, "text", "ALL");
+
+#Или в сухую по ключам
+
+variable::strip_text(variable=`variable`, text="text", strip_type="ALL");
 ```
 
 **Аргументы:**
@@ -7654,9 +8770,13 @@ variable::strip_text(`variable`,"text","ALL");
 ```ts
 `variable` = variable::subtract([1, 2]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::subtract(`variable`,[1, 2]);
+variable::subtract(`variable`, [1, 2]);
+
+#Или в сухую по ключам
+
+variable::subtract(variable=`variable`, value=[1, 2]);
 ```
 
 **Аргументы:**
@@ -7678,9 +8798,13 @@ variable::subtract(`variable`,[1, 2]);
 ```ts
 `variable` = variable::subtract_vectors([vector(0,0,0), vector(0,0,0)]);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::subtract_vectors(`variable`,[vector(0,0,0), vector(0,0,0)]);
+variable::subtract_vectors(`variable`, [vector(0,0,0), vector(0,0,0)]);
+
+#Или в сухую по ключам
+
+variable::subtract_vectors(variable=`variable`, vectors=[vector(0,0,0), vector(0,0,0)]);
 ```
 
 **Аргументы:**
@@ -7700,15 +8824,19 @@ variable::subtract_vectors(`variable`,[vector(0,0,0), vector(0,0,0)]);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::tangent(1,"ARCTANGENT","DEGREES");
+`variable` = variable::tangent(1, "ARCTANGENT", "DEGREES");
 
 #Или от объекта
 
-`variable` = (1).tangent("ARCTANGENT","DEGREES");
+`variable` = (1).tangent("ARCTANGENT", "DEGREES");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::tangent(`variable`,1,"ARCTANGENT","DEGREES");
+variable::tangent(`variable`, 1, "ARCTANGENT", "DEGREES");
+
+#Или в сухую по ключам
+
+variable::tangent(variable=`variable`, number=1, variant="ARCTANGENT", input="DEGREES");
 ```
 
 **Аргументы:**
@@ -7730,11 +8858,15 @@ variable::tangent(`variable`,1,"ARCTANGENT","DEGREES");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_text(["text", "text"],"CONCATENATION");
+`variable` = variable::set_text(["text", "text"], "CONCATENATION");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_text(`variable`,["text", "text"],"CONCATENATION");
+variable::set_text(`variable`, ["text", "text"], "CONCATENATION");
+
+#Или в сухую по ключам
+
+variable::set_text(variable=`variable`, text=["text", "text"], merging="CONCATENATION");
 ```
 
 **Аргументы:**
@@ -7755,15 +8887,19 @@ variable::set_text(`variable`,["text", "text"],"CONCATENATION");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_text_case("text","INVERT");
+`variable` = variable::set_text_case("text", "INVERT");
 
 #Или от объекта
 
 `variable` = "text".set_text_case("INVERT");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_text_case(`variable`,"text","INVERT");
+variable::set_text_case(`variable`, "text", "INVERT");
+
+#Или в сухую по ключам
+
+variable::set_text_case(variable=`variable`, text="text", case_type="INVERT");
 ```
 
 **Аргументы:**
@@ -7790,9 +8926,13 @@ variable::set_text_case(`variable`,"text","INVERT");
 
 `variable` = "text".get_text_length();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::get_text_length(`variable`,"text");
+variable::get_text_length(`variable`, "text");
+
+#Или в сухую по ключам
+
+variable::get_text_length(variable=`variable`, text="text");
 ```
 
 **Аргументы:**
@@ -7818,9 +8958,13 @@ variable::get_text_length(`variable`,"text");
 
 `variable` = (1).to_char();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::to_char(`variable`,1);
+variable::to_char(`variable`, 1);
+
+#Или в сухую по ключам
+
+variable::to_char(variable=`variable`, number=1);
 ```
 
 **Аргументы:**
@@ -7840,11 +8984,15 @@ variable::to_char(`variable`,1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::to_hsb(1,2,3);
+`variable` = variable::to_hsb(1, 2, 3);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::to_hsb(`variable`,1,2,3);
+variable::to_hsb(`variable`, 1, 2, 3);
+
+#Или в сухую по ключам
+
+variable::to_hsb(variable=`variable`, hue=1, saturation=2, brightness=3);
 ```
 
 **Аргументы:**
@@ -7866,11 +9014,15 @@ variable::to_hsb(`variable`,1,2,3);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::to_hsl(1,2,3);
+`variable` = variable::to_hsl(1, 2, 3);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::to_hsl(`variable`,1,2,3);
+variable::to_hsl(`variable`, 1, 2, 3);
+
+#Или в сухую по ключам
+
+variable::to_hsl(variable=`variable`, hue=1, saturation=2, lightness=3);
 ```
 
 **Аргументы:**
@@ -7892,11 +9044,15 @@ variable::to_hsl(`variable`,1,2,3);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::to_json("any value","FALSE");
+`variable` = variable::to_json("any value", "FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::to_json(`variable`,"any value","FALSE");
+variable::to_json(`variable`, "any value", "FALSE");
+
+#Или в сухую по ключам
+
+variable::to_json(variable=`variable`, value="any value", pretty_print="FALSE");
 ```
 
 **Аргументы:**
@@ -7917,11 +9073,15 @@ variable::to_json(`variable`,"any value","FALSE");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::to_rgb(1,2,3);
+`variable` = variable::to_rgb(1, 2, 3);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::to_rgb(`variable`,1,2,3);
+variable::to_rgb(`variable`, 1, 2, 3);
+
+#Или в сухую по ключам
+
+variable::to_rgb(variable=`variable`, red=1, green=2, blue=3);
 ```
 
 **Аргументы:**
@@ -7943,15 +9103,19 @@ variable::to_rgb(`variable`,1,2,3);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::trim_list(`list`,1,2);
+`variable` = variable::trim_list(`list`, 1, 2);
 
 #Или от объекта
 
-`variable` = `list`.trim_list(1,2);
+`variable` = `list`.trim_list(1, 2);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::trim_list(`variable`,`list`,1,2);
+variable::trim_list(`variable`, `list`, 1, 2);
+
+#Или в сухую по ключам
+
+variable::trim_list(variable=`variable`, list=`list`, start=1, end=2);
 ```
 
 **Аргументы:**
@@ -7973,15 +9137,19 @@ variable::trim_list(`variable`,`list`,1,2);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::trim_text("text",1,2);
+`variable` = variable::trim_text("text", 1, 2);
 
 #Или от объекта
 
-`variable` = "text".trim_text(1,2);
+`variable` = "text".trim_text(1, 2);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::trim_text(`variable`,"text",1,2);
+variable::trim_text(`variable`, "text", 1, 2);
+
+#Или в сухую по ключам
+
+variable::trim_text(variable=`variable`, text="text", start=1, end=2);
 ```
 
 **Аргументы:**
@@ -8005,9 +9173,13 @@ variable::trim_text(`variable`,"text",1,2);
 ```ts
 `variable` = variable::set_value("any value");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_value(`variable`,"any value");
+variable::set_value(`variable`, "any value");
+
+#Или в сухую по ключам
+
+variable::set_value(variable=`variable`, value="any value");
 ```
 
 **Аргументы:**
@@ -8027,11 +9199,15 @@ variable::set_value(`variable`,"any value");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_vector(1,2,3);
+`variable` = variable::set_vector(1, 2, 3);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::set_vector(`variable`,1,2,3);
+variable::set_vector(`variable`, 1, 2, 3);
+
+#Или в сухую по ключам
+
+variable::set_vector(variable=`variable`, x=1, y=2, z=3);
 ```
 
 **Аргументы:**
@@ -8053,11 +9229,15 @@ variable::set_vector(`variable`,1,2,3);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::vector_cross_product(vector(0,0,0),vector(0,0,0));
+`variable` = variable::vector_cross_product(vector(0,0,0), vector(0,0,0));
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::vector_cross_product(`variable`,vector(0,0,0),vector(0,0,0));
+variable::vector_cross_product(`variable`, vector(0,0,0), vector(0,0,0));
+
+#Или в сухую по ключам
+
+variable::vector_cross_product(variable=`variable`, vector_1=vector(0,0,0), vector_2=vector(0,0,0));
 ```
 
 **Аргументы:**
@@ -8078,11 +9258,15 @@ variable::vector_cross_product(`variable`,vector(0,0,0),vector(0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::vector_dot_product(vector(0,0,0),vector(0,0,0));
+`variable` = variable::vector_dot_product(vector(0,0,0), vector(0,0,0));
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::vector_dot_product(`variable`,vector(0,0,0),vector(0,0,0));
+variable::vector_dot_product(`variable`, vector(0,0,0), vector(0,0,0));
+
+#Или в сухую по ключам
+
+variable::vector_dot_product(variable=`variable`, vector_1=vector(0,0,0), vector_2=vector(0,0,0));
 ```
 
 **Аргументы:**
@@ -8109,9 +9293,13 @@ variable::vector_dot_product(`variable`,vector(0,0,0),vector(0,0,0));
 
 `variable` = vector(0,0,0).vector_to_direction_name();
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::vector_to_direction_name(`variable`,vector(0,0,0));
+variable::vector_to_direction_name(`variable`, vector(0,0,0));
+
+#Или в сухую по ключам
+
+variable::vector_to_direction_name(variable=`variable`, vector=vector(0,0,0));
 ```
 
 **Аргументы:**
@@ -8131,15 +9319,19 @@ variable::vector_to_direction_name(`variable`,vector(0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::voronoi_noise_3d(location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
+`variable` = variable::voronoi_noise_3d(location(0,0,0,0,0), 1, 2, 3, "FULL_RANGE", "FALSE");
 
 #Или от объекта
 
-`variable` = location(0,0,0,0,0).voronoi_noise_3d(1,2,3,"FULL_RANGE","FALSE");
+`variable` = location(0,0,0,0,0).voronoi_noise_3d(1, 2, 3, "FULL_RANGE", "FALSE");
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::voronoi_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,"FULL_RANGE","FALSE");
+variable::voronoi_noise_3d(`variable`, location(0,0,0,0,0), 1, 2, 3, "FULL_RANGE", "FALSE");
+
+#Или в сухую по ключам
+
+variable::voronoi_noise_3d(variable=`variable`, location=location(0,0,0,0,0), seed=1, frequency=2, displacement=3, range_mode="FULL_RANGE", enable_distance="FALSE");
 ```
 
 **Аргументы:**
@@ -8164,15 +9356,19 @@ variable::voronoi_noise_3d(`variable`,location(0,0,0,0,0),1,2,3,"FULL_RANGE","FA
 
 **Пример использования:** 
 ```ts
-`variable` = variable::warp(1,2,3);
+`variable` = variable::warp(1, 2, 3);
 
 #Или от объекта
 
-`variable` = (1).warp(2,3);
+`variable` = (1).warp(2, 3);
 
-#Или в сухую
+#Или в сухую позиционно
 
-variable::warp(`variable`,1,2,3);
+variable::warp(`variable`, 1, 2, 3);
+
+#Или в сухую по ключам
+
+variable::warp(variable=`variable`, number=1, min=2, max=3);
 ```
 
 **Аргументы:**

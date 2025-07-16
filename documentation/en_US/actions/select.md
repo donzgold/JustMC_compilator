@@ -66,6 +66,10 @@ select::add_entity_by_conditional();
 **Usage example:** 
 ```ts
 select::add_entity_by_name(["name_or_uuid", "name_or_uuid"]);
+
+#Or dry by keywords
+
+select::add_entity_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 ```
 
 **Arguments:**
@@ -85,6 +89,10 @@ select::add_entity_by_name(["name_or_uuid", "name_or_uuid"]);
 **Usage example:** 
 ```ts
 select::add_event_target("DAMAGER");
+
+#Or dry by keywords
+
+select::add_event_target(selection_type="DAMAGER");
 ```
 
 **Arguments:**
@@ -132,6 +140,10 @@ select::add_last_mob();
 **Usage example:** 
 ```ts
 select::add_mob_by_name(["name_or_uuid", "name_or_uuid"]);
+
+#Or dry by keywords
+
+select::add_mob_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 ```
 
 **Arguments:**
@@ -165,6 +177,10 @@ select::add_player_by_conditional();
 **Usage example:** 
 ```ts
 select::add_player_by_name(["name_or_uuid", "name_or_uuid"]);
+
+#Or dry by keywords
+
+select::add_player_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 ```
 
 **Arguments:**
@@ -296,6 +312,10 @@ select::entity_by_conditional(a1.exists());
 **Usage example:** 
 ```ts
 select::entity_by_name(["name_or_uuid", "name_or_uuid"]);
+
+#Or dry by keywords
+
+select::entity_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 ```
 
 **Arguments:**
@@ -315,6 +335,10 @@ select::entity_by_name(["name_or_uuid", "name_or_uuid"]);
 **Usage example:** 
 ```ts
 select::event_target("DAMAGER");
+
+#Or dry by keywords
+
+select::event_target(selection_type="DAMAGER");
 ```
 
 **Arguments:**
@@ -347,7 +371,11 @@ select::filter_by_conditional(a1.exists());
 
 **Usage example:** 
 ```ts
-select::filter_by_distance(location(0,0,0,0,0),1,"FALSE","FARTHEST");
+select::filter_by_distance(location(0,0,0,0,0), 1, "FALSE", "FARTHEST");
+
+#Or dry by keywords
+
+select::filter_by_distance(location=location(0,0,0,0,0), selection_size=1, ignore_y_axis="FALSE", compare_mode="FARTHEST");
 ```
 
 **Arguments:**
@@ -369,7 +397,11 @@ select::filter_by_distance(location(0,0,0,0,0),1,"FALSE","FARTHEST");
 
 **Usage example:** 
 ```ts
-select::filter_by_raycast(`variable`,location(0,0,0,0,0),1,2,3,"FALSE","FALSE","ALWAYS");
+select::filter_by_raycast(`variable`, location(0,0,0,0,0), 1, 2, 3, "FALSE", "FALSE", "ALWAYS");
+
+#Or dry by keywords
+
+select::filter_by_raycast(variable=`variable`, origin=location(0,0,0,0,0), max_distance=1, ray_size=2, selection_size=3, consider_blocks="FALSE", ignore_passable_blocks="FALSE", fluid_collision_mode="ALWAYS");
 ```
 
 **Arguments:**
@@ -396,6 +428,10 @@ select::filter_by_raycast(`variable`,location(0,0,0,0,0),1,2,3,"FALSE","FALSE","
 **Usage example:** 
 ```ts
 select::filter_randomly(1);
+
+#Or dry by keywords
+
+select::filter_randomly(size=1);
 ```
 
 **Arguments:**
@@ -457,6 +493,10 @@ select::last_mob();
 **Usage example:** 
 ```ts
 select::mob_by_name(["name_or_uuid", "name_or_uuid"]);
+
+#Or dry by keywords
+
+select::mob_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 ```
 
 **Arguments:**
@@ -490,6 +530,10 @@ select::player_by_conditional(a1.exists());
 **Usage example:** 
 ```ts
 select::player_by_name(["name_or_uuid", "name_or_uuid"]);
+
+#Or dry by keywords
+
+select::player_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 ```
 
 **Arguments:**

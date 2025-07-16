@@ -9,8 +9,14 @@
 
 **Пример использования:** 
 ```ts
-repeat::adjacently(location(0,0,0,0,0),"FALSE","FALSE","ADJACENT"){`variable`->
-    player::message("Код в цикле")
+repeat::adjacently(location(0,0,0,0,0), "FALSE", "FALSE", "ADJACENT"){`variable`->
+    player::message("Код в цикле");
+}
+
+#Или в сухую по ключам
+
+repeat::adjacently(variable=`variable`, origin=location(0,0,0,0,0), change_rotation="FALSE", include_self="FALSE", pattern="ADJACENT"){
+    player::message("Код в цикле");
 }
 ```
 
@@ -51,7 +57,13 @@ repeat::dummy(){
 **Пример использования:** 
 ```ts
 repeat::for_each_in_list(`list`){`index_variable`, `value_variable`->
-    player::message("Код в цикле")
+    player::message("Код в цикле");
+}
+
+#Или в сухую по ключам
+
+repeat::for_each_in_list(index_variable=`index_variable`, value_variable=`value_variable`, list=`list`){
+    player::message("Код в цикле");
 }
 ```
 
@@ -74,7 +86,13 @@ repeat::for_each_in_list(`list`){`index_variable`, `value_variable`->
 **Пример использования:** 
 ```ts
 repeat::for_each_map_entry(`map`){`key_variable`, `value_variable`->
-    player::message("Код в цикле")
+    player::message("Код в цикле");
+}
+
+#Или в сухую по ключам
+
+repeat::for_each_map_entry(key_variable=`key_variable`, value_variable=`value_variable`, map=`map`){
+    player::message("Код в цикле");
 }
 ```
 
@@ -113,7 +131,13 @@ repeat::forever(){
 **Пример использования:** 
 ```ts
 repeat::multi_times(1){`variable`->
-    player::message("Код в цикле")
+    player::message("Код в цикле");
+}
+
+#Или в сухую по ключам
+
+repeat::multi_times(variable=`variable`, amount=1){
+    player::message("Код в цикле");
 }
 ```
 
@@ -134,8 +158,14 @@ repeat::multi_times(1){`variable`->
 
 **Пример использования:** 
 ```ts
-repeat::on_circle(location(0,0,0,0,0),1,2,vector(0,0,0),3,"DEGREES"){`variable`->
-    player::message("Код в цикле")
+repeat::on_circle(location(0,0,0,0,0), 1, 2, vector(0,0,0), 3, "DEGREES"){`variable`->
+    player::message("Код в цикле");
+}
+
+#Или в сухую по ключам
+
+repeat::on_circle(variable=`variable`, center=location(0,0,0,0,0), radius=1, circle_points=2, perpendicular_to_plane=vector(0,0,0), start_angle=3, angle_unit="DEGREES"){
+    player::message("Код в цикле");
 }
 ```
 
@@ -161,8 +191,14 @@ repeat::on_circle(location(0,0,0,0,0),1,2,vector(0,0,0),3,"DEGREES"){`variable`-
 
 **Пример использования:** 
 ```ts
-repeat::on_grid(location(0,0,0,0,0),location(0,0,0,0,0)){`variable`->
-    player::message("Код в цикле")
+repeat::on_grid(location(0,0,0,0,0), location(0,0,0,0,0)){`variable`->
+    player::message("Код в цикле");
+}
+
+#Или в сухую по ключам
+
+repeat::on_grid(variable=`variable`, start=location(0,0,0,0,0), end=location(0,0,0,0,0)){
+    player::message("Код в цикле");
 }
 ```
 
@@ -184,8 +220,14 @@ repeat::on_grid(location(0,0,0,0,0),location(0,0,0,0,0)){`variable`->
 
 **Пример использования:** 
 ```ts
-repeat::on_path(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){`variable`->
-    player::message("Код в цикле")
+repeat::on_path(1, [location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE"){`variable`->
+    player::message("Код в цикле");
+}
+
+#Или в сухую по ключам
+
+repeat::on_path(variable=`variable`, step=1, locations=[location(0,0,0,0,0), location(0,0,0,0,0)], rotation="FALSE"){
+    player::message("Код в цикле");
 }
 ```
 
@@ -208,8 +250,14 @@ repeat::on_path(1,[location(0,0,0,0,0), location(0,0,0,0,0)],"FALSE"){`variable`
 
 **Пример использования:** 
 ```ts
-repeat::on_range(1,2,3){`variable`->
-    player::message("Код в цикле")
+repeat::on_range(1, 2, 3){`variable`->
+    player::message("Код в цикле");
+}
+
+#Или в сухую по ключам
+
+repeat::on_range(variable=`variable`, start=1, end=2, interval=3){
+    player::message("Код в цикле");
 }
 ```
 
@@ -232,8 +280,14 @@ repeat::on_range(1,2,3){`variable`->
 
 **Пример использования:** 
 ```ts
-repeat::on_sphere(location(0,0,0,0,0),1,2,"INWARDS"){`variable`->
-    player::message("Код в цикле")
+repeat::on_sphere(location(0,0,0,0,0), 1, 2, "INWARDS"){`variable`->
+    player::message("Код в цикле");
+}
+
+#Или в сухую по ключам
+
+repeat::on_sphere(variable=`variable`, center=location(0,0,0,0,0), radius=1, points=2, rotate_location="INWARDS"){
+    player::message("Код в цикле");
 }
 ```
 

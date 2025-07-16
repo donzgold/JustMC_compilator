@@ -9,7 +9,11 @@
 
 **Usage example:** 
 ```ts
-world::block_growth(location(0,0,0,0,0),1,"PERCENTAGE");
+world::block_growth(location(0,0,0,0,0), 1, "PERCENTAGE");
+
+#Or dry by keywords
+
+world::block_growth(location=location(0,0,0,0,0), growth_stage=1, growth_type="PERCENTAGE");
 ```
 
 **Arguments:**
@@ -32,7 +36,11 @@ world::block_growth(location(0,0,0,0,0),1,"PERCENTAGE");
 
 **Usage example:** 
 ```ts
-world::bloom_skulk_catalyst(location(0,0,0,0,0),location(0,0,0,0,0),1);
+world::bloom_skulk_catalyst(location(0,0,0,0,0), location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+world::bloom_skulk_catalyst(location=location(0,0,0,0,0), bloom_location=location(0,0,0,0,0), charge=1);
 ```
 
 **Arguments:**
@@ -53,7 +61,11 @@ world::bloom_skulk_catalyst(location(0,0,0,0,0),location(0,0,0,0,0),1);
 
 **Usage example:** 
 ```ts
-world::bone_meal_block(location(0,0,0,0,0),1);
+world::bone_meal_block(location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+world::bone_meal_block(location=location(0,0,0,0,0), count=1);
 ```
 
 **Arguments:**
@@ -73,7 +85,11 @@ world::bone_meal_block(location(0,0,0,0,0),1);
 
 **Usage example:** 
 ```ts
-world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stick"),"FALSE");
+world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)], item("stick"), "FALSE");
+
+#Or dry by keywords
+
+world::break_block(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], tool=item("stick"), drop_exp="FALSE");
 ```
 
 **Arguments:**
@@ -111,6 +127,10 @@ world::cancel_event();
 **Usage example:** 
 ```ts
 world::clear_container(location(0,0,0,0,0));
+
+#Or dry by keywords
+
+world::clear_container(location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -131,7 +151,11 @@ world::clear_container(location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-world::clear_container_items([item("stick"), item("stick")],location(0,0,0,0,0));
+world::clear_container_items([item("stick"), item("stick")], location(0,0,0,0,0));
+
+#Or dry by keywords
+
+world::clear_container_items(items=[item("stick"), item("stick")], location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -155,6 +179,10 @@ world::clear_container_items([item("stick"), item("stick")],location(0,0,0,0,0))
 **Usage example:** 
 ```ts
 world::clear_exploded_blocks([location(0,0,0,0,0), location(0,0,0,0,0)]);
+
+#Or dry by keywords
+
+world::clear_exploded_blocks(location=[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
 
 **Arguments:**
@@ -173,7 +201,11 @@ world::clear_exploded_blocks([location(0,0,0,0,0), location(0,0,0,0,0)]);
 
 **Usage example:** 
 ```ts
-world::clear_region(location(0,0,0,0,0),location(0,0,0,0,0));
+world::clear_region(location(0,0,0,0,0), location(0,0,0,0,0));
+
+#Or dry by keywords
+
+world::clear_region(pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -194,6 +226,10 @@ world::clear_region(location(0,0,0,0,0),location(0,0,0,0,0));
 **Usage example:** 
 ```ts
 world::clear_scoreboard_scores("id");
+
+#Or dry by keywords
+
+world::clear_scoreboard_scores(id="id");
 ```
 
 **Arguments:**
@@ -212,7 +248,11 @@ world::clear_scoreboard_scores("id");
 
 **Usage example:** 
 ```ts
-world::clone_region(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),"FALSE","FALSE");
+world::clone_region(location(0,0,0,0,0), location(0,0,0,0,0), location(0,0,0,0,0), location(0,0,0,0,0), "FALSE", "FALSE");
+
+#Or dry by keywords
+
+world::clone_region(pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0), target_pos=location(0,0,0,0,0), paste_pos=location(0,0,0,0,0), ignore_air="FALSE", copy_entity="FALSE");
 ```
 
 **Arguments:**
@@ -236,7 +276,11 @@ world::clone_region(location(0,0,0,0,0),location(0,0,0,0,0),location(0,0,0,0,0),
 
 **Usage example:** 
 ```ts
-world::create_explosion(location(0,0,0,0,0),1,"FALSE","FALSE");
+world::create_explosion(location(0,0,0,0,0), 1, "name_or_uuid", "FALSE", "FALSE");
+
+#Or dry by keywords
+
+world::create_explosion(location=location(0,0,0,0,0), power=1, name_or_uuid="name_or_uuid", fire="FALSE", break_blocks="FALSE");
 ```
 
 **Arguments:**
@@ -245,6 +289,7 @@ world::create_explosion(location(0,0,0,0,0),1,"FALSE","FALSE");
 | -------------- | ------------------------------------------------ | ------------------------ |
 | `location`     | Location                                         | Creation Location        |
 | `power`        | Number                                           | Explosion Power (0 to 4) |
+| `name_or_uuid` | Text                                             | None                     |
 | `fire`         | Marker<br/>**FALSE** - False<br/>**TRUE** - True | Create fire              |
 | `break_blocks` | Marker<br/>**FALSE** - False<br/>**TRUE** - True | Break blocks             |
 <h3 id=game_create_scoreboard>
@@ -258,7 +303,11 @@ world::create_explosion(location(0,0,0,0,0),1,"FALSE","FALSE");
 
 **Usage example:** 
 ```ts
-world::create_scoreboard("id","display_name");
+world::create_scoreboard("id", "display_name");
+
+#Or dry by keywords
+
+world::create_scoreboard(id="id", display_name="display_name");
 ```
 
 **Arguments:**
@@ -294,7 +343,11 @@ world::dummy();
 
 **Usage example:** 
 ```ts
-world::fill_container([item("stick"), item("stick")],location(0,0,0,0,0));
+world::fill_container([item("stick"), item("stick")], location(0,0,0,0,0));
+
+#Or dry by keywords
+
+world::fill_container(items=[item("stick"), item("stick")], location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -314,7 +367,11 @@ world::fill_container([item("stick"), item("stick")],location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-world::generate_tree(location(0,0,0,0,0),"ACACIA");
+world::generate_tree(location(0,0,0,0,0), "ACACIA");
+
+#Or dry by keywords
+
+world::generate_tree(location=location(0,0,0,0,0), tree_type="ACACIA");
 ```
 
 **Arguments:**
@@ -339,6 +396,10 @@ world::generate_tree(location(0,0,0,0,0),"ACACIA");
 **Usage example:** 
 ```ts
 world::hide_event_message("FALSE");
+
+#Or dry by keywords
+
+world::hide_event_message(hide="FALSE");
 ```
 
 **Arguments:**
@@ -357,7 +418,11 @@ world::hide_event_message("FALSE");
 
 **Usage example:** 
 ```ts
-world::launch_firework(item("stick"),location(0,0,0,0,0),"DIRECTIONAL","FALSE");
+world::launch_firework(item("stick"), location(0,0,0,0,0), "DIRECTIONAL", "FALSE");
+
+#Or dry by keywords
+
+world::launch_firework(firework=item("stick"), location=location(0,0,0,0,0), movement="DIRECTIONAL", instant="FALSE");
 ```
 
 **Arguments:**
@@ -379,7 +444,11 @@ world::launch_firework(item("stick"),location(0,0,0,0,0),"DIRECTIONAL","FALSE");
 
 **Usage example:** 
 ```ts
-world::launch_projectile(item("stick"),location(0,0,0,0,0),1,2,"custom_name",particle("fire"));
+world::launch_projectile(item("stick"), location(0,0,0,0,0), 1, 2, "custom_name", particle("fire"));
+
+#Or dry by keywords
+
+world::launch_projectile(projectile=item("stick"), location=location(0,0,0,0,0), speed=1, inaccuracy=2, custom_name="custom_name", trail=particle("fire"));
 ```
 
 **Arguments:**
@@ -403,7 +472,11 @@ world::launch_projectile(item("stick"),location(0,0,0,0,0),1,2,"custom_name",par
 
 **Usage example:** 
 ```ts
-world::random_tick_block(location(0,0,0,0,0),1);
+world::random_tick_block(location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+world::random_tick_block(location=location(0,0,0,0,0), times=1);
 ```
 
 **Arguments:**
@@ -425,7 +498,11 @@ world::random_tick_block(location(0,0,0,0,0),1);
 
 **Usage example:** 
 ```ts
-world::remove_container_items([item("stick"), item("stick")],location(0,0,0,0,0));
+world::remove_container_items([item("stick"), item("stick")], location(0,0,0,0,0));
+
+#Or dry by keywords
+
+world::remove_container_items(items=[item("stick"), item("stick")], location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -446,6 +523,10 @@ world::remove_container_items([item("stick"), item("stick")],location(0,0,0,0,0)
 **Usage example:** 
 ```ts
 world::remove_scoreboard("id");
+
+#Or dry by keywords
+
+world::remove_scoreboard(id="id");
 ```
 
 **Arguments:**
@@ -464,7 +545,11 @@ world::remove_scoreboard("id");
 
 **Usage example:** 
 ```ts
-world::remove_scoreboard_score_by_name("id","text");
+world::remove_scoreboard_score_by_name("id", "text");
+
+#Or dry by keywords
+
+world::remove_scoreboard_score_by_name(id="id", text="text");
 ```
 
 **Arguments:**
@@ -484,7 +569,11 @@ world::remove_scoreboard_score_by_name("id","text");
 
 **Usage example:** 
 ```ts
-world::remove_scoreboard_score_by_score("id",1);
+world::remove_scoreboard_score_by_score("id", 1);
+
+#Or dry by keywords
+
+world::remove_scoreboard_score_by_score(id="id", score=1);
 ```
 
 **Arguments:**
@@ -504,7 +593,11 @@ world::remove_scoreboard_score_by_score("id",1);
 
 **Usage example:** 
 ```ts
-world::replace_blocks_in_region([item("stone"), item("stone")],location(0,0,0,0,0),location(0,0,0,0,0),item("stone"));
+world::replace_blocks_in_region([item("stone"), item("stone")], location(0,0,0,0,0), location(0,0,0,0,0), item("stone"));
+
+#Or dry by keywords
+
+world::replace_blocks_in_region(old_block=[item("stone"), item("stone")], pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0), new_block=item("stone"));
 ```
 
 **Arguments:**
@@ -528,7 +621,11 @@ world::replace_blocks_in_region([item("stone"), item("stone")],location(0,0,0,0,
 
 **Usage example:** 
 ```ts
-world::replace_container_items([item("stick"), item("stick")],location(0,0,0,0,0),item("stick"),1);
+world::replace_container_items([item("stick"), item("stick")], location(0,0,0,0,0), item("stick"), 1);
+
+#Or dry by keywords
+
+world::replace_container_items(items=[item("stick"), item("stick")], location=location(0,0,0,0,0), replace=item("stick"), count=1);
 ```
 
 **Arguments:**
@@ -550,7 +647,11 @@ world::replace_container_items([item("stick"), item("stick")],location(0,0,0,0,0
 
 **Usage example:** 
 ```ts
-world::send_web_request("url","content_body",`headers`,"DELETE","APPLICATION_JSON");
+world::send_web_request("url", "content_body", `headers`, "DELETE", "APPLICATION_JSON");
+
+#Or dry by keywords
+
+world::send_web_request(url="url", content_body="content_body", headers=`headers`, request_type="DELETE", content_type="APPLICATION_JSON");
 ```
 
 **Arguments:**
@@ -575,7 +676,11 @@ world::send_web_request("url","content_body",`headers`,"DELETE","APPLICATION_JSO
 
 **Usage example:** 
 ```ts
-world::set_age(location(0,0,0,0,0),1);
+world::set_age(location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+world::set_age(location=location(0,0,0,0,0), tick=1);
 ```
 
 **Arguments:**
@@ -595,7 +700,11 @@ world::set_age(location(0,0,0,0,0),1);
 
 **Usage example:** 
 ```ts
-world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stone"),"FALSE");
+world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)], item("stone"), "FALSE");
+
+#Or dry by keywords
+
+world::set_block(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], block=item("stone"), update_blocks="FALSE");
 ```
 
 **Arguments:**
@@ -618,7 +727,11 @@ world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)],item("stone"),"FALSE
 
 **Usage example:** 
 ```ts
-world::set_block_analogue_power(location(0,0,0,0,0),1);
+world::set_block_analogue_power(location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+world::set_block_analogue_power(location=location(0,0,0,0,0), power_level=1);
 ```
 
 **Arguments:**
@@ -638,7 +751,11 @@ world::set_block_analogue_power(location(0,0,0,0,0),1);
 
 **Usage example:** 
 ```ts
-world::set_block_custom_tag(location(0,0,0,0,0),"tag_name","tag_value");
+world::set_block_custom_tag(location(0,0,0,0,0), "tag_name", "tag_value");
+
+#Or dry by keywords
+
+world::set_block_custom_tag(location=location(0,0,0,0,0), tag_name="tag_name", tag_value="tag_value");
 ```
 
 **Arguments:**
@@ -659,7 +776,11 @@ world::set_block_custom_tag(location(0,0,0,0,0),"tag_name","tag_value");
 
 **Usage example:** 
 ```ts
-world::set_block_data(location(0,0,0,0,0),"block_data");
+world::set_block_data(location(0,0,0,0,0), "block_data");
+
+#Or dry by keywords
+
+world::set_block_data(location=location(0,0,0,0,0), block_data="block_data");
 ```
 
 **Arguments:**
@@ -680,6 +801,10 @@ world::set_block_data(location(0,0,0,0,0),"block_data");
 **Usage example:** 
 ```ts
 world::set_block_drops_enabled("FALSE");
+
+#Or dry by keywords
+
+world::set_block_drops_enabled(enable="FALSE");
 ```
 
 **Arguments:**
@@ -700,7 +825,11 @@ world::set_block_drops_enabled("FALSE");
 
 **Usage example:** 
 ```ts
-world::set_block_powered(location(0,0,0,0,0),"FALSE");
+world::set_block_powered(location(0,0,0,0,0), "FALSE");
+
+#Or dry by keywords
+
+world::set_block_powered(location=location(0,0,0,0,0), powered="FALSE");
 ```
 
 **Arguments:**
@@ -720,7 +849,11 @@ world::set_block_powered(location(0,0,0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-world::set_block_single_data(location(0,0,0,0,0),"data","value");
+world::set_block_single_data(location(0,0,0,0,0), "data", "value");
+
+#Or dry by keywords
+
+world::set_block_single_data(location=location(0,0,0,0,0), data="data", value="value");
 ```
 
 **Arguments:**
@@ -744,7 +877,11 @@ world::set_block_single_data(location(0,0,0,0,0),"data","value");
 
 **Usage example:** 
 ```ts
-world::set_brushable_block_item(location(0,0,0,0,0),item("stick"));
+world::set_brushable_block_item(location(0,0,0,0,0), item("stick"));
+
+#Or dry by keywords
+
+world::set_brushable_block_item(location=location(0,0,0,0,0), item=item("stick"));
 ```
 
 **Arguments:**
@@ -766,7 +903,11 @@ world::set_brushable_block_item(location(0,0,0,0,0),item("stick"));
 
 **Usage example:** 
 ```ts
-world::set_campfire_item(location(0,0,0,0,0),item("stick"),1,"FIRST");
+world::set_campfire_item(location(0,0,0,0,0), item("stick"), 1, "FIRST");
+
+#Or dry by keywords
+
+world::set_campfire_item(location=location(0,0,0,0,0), item=item("stick"), cooking_time=1, slot="FIRST");
 ```
 
 **Arguments:**
@@ -790,7 +931,11 @@ world::set_campfire_item(location(0,0,0,0,0),item("stick"),1,"FIRST");
 
 **Usage example:** 
 ```ts
-world::set_container([item("stick"), item("stick")],[location(0,0,0,0,0), location(0,0,0,0,0)]);
+world::set_container([item("stick"), item("stick")], [location(0,0,0,0,0), location(0,0,0,0,0)]);
+
+#Or dry by keywords
+
+world::set_container(items=[item("stick"), item("stick")], location=[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
 
 **Arguments:**
@@ -812,7 +957,11 @@ world::set_container([item("stick"), item("stick")],[location(0,0,0,0,0), locati
 
 **Usage example:** 
 ```ts
-world::set_container_lock(location(0,0,0,0,0),"container_key");
+world::set_container_lock(location(0,0,0,0,0), "container_key");
+
+#Or dry by keywords
+
+world::set_container_lock(location=location(0,0,0,0,0), container_key="container_key");
 ```
 
 **Arguments:**
@@ -834,7 +983,11 @@ world::set_container_lock(location(0,0,0,0,0),"container_key");
 
 **Usage example:** 
 ```ts
-world::set_container_name(location(0,0,0,0,0),"name");
+world::set_container_name(location(0,0,0,0,0), "name");
+
+#Or dry by keywords
+
+world::set_container_name(location=location(0,0,0,0,0), name="name");
 ```
 
 **Arguments:**
@@ -843,6 +996,60 @@ world::set_container_name(location(0,0,0,0,0),"name");
 | ---------- | -------- | --------------------- |
 | `location` | Location | Location of container |
 | `name`     | Text     | Container Name        |
+<h3 id=game_set_creaking_heart_natural>
+  <code>world::set_creaking_heart_natural</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None\
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+world::set_creaking_heart_natural(location(0,0,0,0,0), "TRUE");
+
+#Or dry by keywords
+
+world::set_creaking_heart_natural(location=location(0,0,0,0,0), natural="TRUE");
+```
+
+**Arguments:**
+
+| **Name**   | **Type**                                        | **Description** |
+| ---------- | ----------------------------------------------- | --------------- |
+| `location` | Location                                        | None            |
+| `natural`  | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
+<h3 id=game_set_creaking_heart_state>
+  <code>world::set_creaking_heart_state</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+world::set_creaking_heart_state(location(0,0,0,0,0), "UPROOTED");
+
+#Or dry by keywords
+
+world::set_creaking_heart_state(location=location(0,0,0,0,0), heart_state="UPROOTED");
+```
+
+**Arguments:**
+
+| **Name**      | **Type**                                                                   | **Description** |
+| ------------- | -------------------------------------------------------------------------- | --------------- |
+| `location`    | Location                                                                   | None            |
+| `heart_state` | Marker<br/>**UPROOTED** - None<br/>**DORMANT** - None<br/>**AWAKE** - None | None            |
 <h3 id=game_set_decorate_pot_sherd>
   <code>world::set_decorate_pot_sherd</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -856,7 +1063,11 @@ world::set_container_name(location(0,0,0,0,0),"name");
 
 **Usage example:** 
 ```ts
-world::set_decorate_pot_sherd(location(0,0,0,0,0),item("stick"),"BACK");
+world::set_decorate_pot_sherd(location(0,0,0,0,0), item("stick"), "BACK");
+
+#Or dry by keywords
+
+world::set_decorate_pot_sherd(location=location(0,0,0,0,0), item=item("stick"), side="BACK");
 ```
 
 **Arguments:**
@@ -866,6 +1077,58 @@ world::set_decorate_pot_sherd(location(0,0,0,0,0),item("stick"),"BACK");
 | `location` | Location                                                                                                       | Decorated pot location |
 | `item`     | Item                                                                                                           | Sherd item             |
 | `side`     | Marker<br/>**BACK** - Back side<br/>**FRONT** - Front side<br/>**LEFT** - Left side<br/>**RIGHT** - Right side | Decorated pot side     |
+<h3 id=game_set_dried_ghast_hydration>
+  <code>world::set_dried_ghast_hydration</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+world::set_dried_ghast_hydration(location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+world::set_dried_ghast_hydration(location=location(0,0,0,0,0), hydration=1);
+```
+
+**Arguments:**
+
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `location`  | Location | None            |
+| `hydration` | Number   | None            |
+<h3 id=game_set_event_combust_duration>
+  <code>world::set_event_combust_duration</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+world::set_event_combust_duration(1);
+
+#Or dry by keywords
+
+world::set_event_combust_duration(duration=1);
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `duration` | Number   | None            |
 <h3 id=game_set_event_damage>
   <code>world::set_event_damage</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -880,6 +1143,10 @@ world::set_decorate_pot_sherd(location(0,0,0,0,0),item("stick"),"BACK");
 **Usage example:** 
 ```ts
 world::set_event_damage(1);
+
+#Or dry by keywords
+
+world::set_event_damage(damage=1);
 ```
 
 **Arguments:**
@@ -887,6 +1154,34 @@ world::set_event_damage(1);
 | **Name** | **Type** | **Description** |
 | -------- | -------- | --------------- |
 | `damage` | Number   | Damage Amount   |
+<h3 id=game_set_event_death_screen_message>
+  <code>world::set_event_death_screen_message</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None\
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+world::set_event_death_screen_message("message");
+
+#Or dry by keywords
+
+world::set_event_death_screen_message(message="message");
+```
+
+**Arguments:**
+
+| **Name**  | **Type** | **Description** |
+| --------- | -------- | --------------- |
+| `message` | Text     | None            |
 <h3 id=game_set_event_exhaustion>
   <code>world::set_event_exhaustion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -901,6 +1196,10 @@ world::set_event_damage(1);
 **Usage example:** 
 ```ts
 world::set_event_exhaustion(1);
+
+#Or dry by keywords
+
+world::set_event_exhaustion(exhaustion=1);
 ```
 
 **Arguments:**
@@ -924,6 +1223,10 @@ world::set_event_exhaustion(1);
 **Usage example:** 
 ```ts
 world::set_event_experience(1);
+
+#Or dry by keywords
+
+world::set_event_experience(experience=1);
 ```
 
 **Arguments:**
@@ -946,6 +1249,10 @@ world::set_event_experience(1);
 **Usage example:** 
 ```ts
 world::set_event_heal(1);
+
+#Or dry by keywords
+
+world::set_event_heal(heal=1);
 ```
 
 **Arguments:**
@@ -978,6 +1285,10 @@ world::set_event_heal(1);
 **Usage example:** 
 ```ts
 world::set_event_item(item("stick"));
+
+#Or dry by keywords
+
+world::set_event_item(item=item("stick"));
 ```
 
 **Arguments:**
@@ -985,6 +1296,32 @@ world::set_event_item(item("stick"));
 | **Name** | **Type** | **Description** |
 | -------- | -------- | --------------- |
 | `item`   | Item     | New Event Item  |
+<h3 id=game_set_event_item_cooldown>
+  <code>world::set_event_item_cooldown</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+world::set_event_item_cooldown(1);
+
+#Or dry by keywords
+
+world::set_event_item_cooldown(cooldown=1);
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `cooldown` | Number   | None            |
 <h3 id=game_set_event_items>
   <code>world::set_event_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -999,6 +1336,10 @@ world::set_event_item(item("stick"));
 **Usage example:** 
 ```ts
 world::set_event_items([item("stick"), item("stick")]);
+
+#Or dry by keywords
+
+world::set_event_items(items=[item("stick"), item("stick")]);
 ```
 
 **Arguments:**
@@ -1021,6 +1362,10 @@ world::set_event_items([item("stick"), item("stick")]);
 **Usage example:** 
 ```ts
 world::set_event_knockback_vector(vector(0,0,0));
+
+#Or dry by keywords
+
+world::set_event_knockback_vector(knockback=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -1042,6 +1387,10 @@ world::set_event_knockback_vector(vector(0,0,0));
 **Usage example:** 
 ```ts
 world::set_event_move_allowed("FALSE");
+
+#Or dry by keywords
+
+world::set_event_move_allowed(allowed="FALSE");
 ```
 
 **Arguments:**
@@ -1060,7 +1409,11 @@ world::set_event_move_allowed("FALSE");
 
 **Usage example:** 
 ```ts
-world::set_event_projectile(item("stick"),"name");
+world::set_event_projectile(item("stick"), "name");
+
+#Or dry by keywords
+
+world::set_event_projectile(projectile=item("stick"), name="name");
 ```
 
 **Arguments:**
@@ -1081,6 +1434,10 @@ world::set_event_projectile(item("stick"),"name");
 **Usage example:** 
 ```ts
 world::set_event_sound(sound("entity.zombie.hurt"));
+
+#Or dry by keywords
+
+world::set_event_sound(sound=sound("entity.zombie.hurt"));
 ```
 
 **Arguments:**
@@ -1102,6 +1459,10 @@ world::set_event_sound(sound("entity.zombie.hurt"));
 **Usage example:** 
 ```ts
 world::set_event_source_slot(1);
+
+#Or dry by keywords
+
+world::set_event_source_slot(source_slot=1);
 ```
 
 **Arguments:**
@@ -1123,6 +1484,10 @@ world::set_event_source_slot(1);
 **Usage example:** 
 ```ts
 world::set_event_target_slot(1);
+
+#Or dry by keywords
+
+world::set_event_target_slot(target=1);
 ```
 
 **Arguments:**
@@ -1147,6 +1512,10 @@ world::set_event_target_slot(1);
 **Usage example:** 
 ```ts
 world::set_event_uery_info("information");
+
+#Or dry by keywords
+
+world::set_event_uery_info(information="information");
 ```
 
 **Arguments:**
@@ -1168,6 +1537,10 @@ world::set_event_uery_info("information");
 **Usage example:** 
 ```ts
 world::set_event_velocity(vector(0,0,0));
+
+#Or dry by keywords
+
+world::set_event_velocity(velocity=vector(0,0,0));
 ```
 
 **Arguments:**
@@ -1190,7 +1563,11 @@ world::set_event_velocity(vector(0,0,0));
 
 **Usage example:** 
 ```ts
-world::set_furnace_cook_time(location(0,0,0,0,0),1);
+world::set_furnace_cook_time(location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+world::set_furnace_cook_time(location=location(0,0,0,0,0), time=1);
 ```
 
 **Arguments:**
@@ -1212,7 +1589,11 @@ world::set_furnace_cook_time(location(0,0,0,0,0),1);
 
 **Usage example:** 
 ```ts
-world::set_item_in_container_slot(location(0,0,0,0,0),item("stick"),1);
+world::set_item_in_container_slot(location(0,0,0,0,0), item("stick"), 1);
+
+#Or dry by keywords
+
+world::set_item_in_container_slot(location=location(0,0,0,0,0), item=item("stick"), slot=1);
 ```
 
 **Arguments:**
@@ -1235,7 +1616,11 @@ world::set_item_in_container_slot(location(0,0,0,0,0),item("stick"),1);
 
 **Usage example:** 
 ```ts
-world::set_lectern_book(location(0,0,0,0,0),item("stick"),1);
+world::set_lectern_book(location(0,0,0,0,0), item("stick"), 1);
+
+#Or dry by keywords
+
+world::set_lectern_book(location=location(0,0,0,0,0), item=item("stick"), page=1);
 ```
 
 **Arguments:**
@@ -1258,7 +1643,11 @@ world::set_lectern_book(location(0,0,0,0,0),item("stick"),1);
 
 **Usage example:** 
 ```ts
-world::set_player_head(location(0,0,0,0,0),"name_or_uuid","NAME_OR_UUID");
+world::set_player_head(location(0,0,0,0,0), "name_or_uuid", "NAME_OR_UUID");
+
+#Or dry by keywords
+
+world::set_player_head(location=location(0,0,0,0,0), name_or_uuid="name_or_uuid", receive_type="NAME_OR_UUID");
 ```
 
 **Arguments:**
@@ -1279,7 +1668,11 @@ world::set_player_head(location(0,0,0,0,0),"name_or_uuid","NAME_OR_UUID");
 
 **Usage example:** 
 ```ts
-world::set_region(item("stone"),location(0,0,0,0,0),location(0,0,0,0,0));
+world::set_region(item("stone"), location(0,0,0,0,0), location(0,0,0,0,0));
+
+#Or dry by keywords
+
+world::set_region(block=item("stone"), pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -1300,11 +1693,15 @@ world::set_region(item("stone"),location(0,0,0,0,0),location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-world::set_scoreboard_line("id","line","display",1,"format_content","BLANK");
+world::set_scoreboard_line("id", "line", "display", 1, "format_content", "BLANK");
 
 #Or from the object
 
-"id".set_scoreboard_line("line","display",1,"format_content","BLANK");
+"id".set_scoreboard_line("line", "display", 1, "format_content", "BLANK");
+
+#Or dry by keywords
+
+world::set_scoreboard_line(id="id", line="line", display="display", score=1, format_content="format_content", format="BLANK");
 ```
 
 **Arguments:**
@@ -1328,11 +1725,15 @@ world::set_scoreboard_line("id","line","display",1,"format_content","BLANK");
 
 **Usage example:** 
 ```ts
-world::set_scoreboard_line_display("id","line","display");
+world::set_scoreboard_line_display("id", "line", "display");
 
 #Or from the object
 
-"id".set_scoreboard_line_display("line","display");
+"id".set_scoreboard_line_display("line", "display");
+
+#Or dry by keywords
+
+world::set_scoreboard_line_display(id="id", line="line", display="display");
 ```
 
 **Arguments:**
@@ -1353,11 +1754,15 @@ world::set_scoreboard_line_display("id","line","display");
 
 **Usage example:** 
 ```ts
-world::set_scoreboard_line_format("id","line","format_content","BLANK");
+world::set_scoreboard_line_format("id", "line", "format_content", "BLANK");
 
 #Or from the object
 
-"id".set_scoreboard_line_format("line","format_content","BLANK");
+"id".set_scoreboard_line_format("line", "format_content", "BLANK");
+
+#Or dry by keywords
+
+world::set_scoreboard_line_format(id="id", line="line", format_content="format_content", format="BLANK");
 ```
 
 **Arguments:**
@@ -1379,11 +1784,15 @@ world::set_scoreboard_line_format("id","line","format_content","BLANK");
 
 **Usage example:** 
 ```ts
-world::set_scoreboard_number_format("id","format_content","BLANK");
+world::set_scoreboard_number_format("id", "format_content", "BLANK");
 
 #Or from the object
 
-"id".set_scoreboard_number_format("format_content","BLANK");
+"id".set_scoreboard_number_format("format_content", "BLANK");
+
+#Or dry by keywords
+
+world::set_scoreboard_number_format(id="id", format_content="format_content", format="BLANK");
 ```
 
 **Arguments:**
@@ -1404,7 +1813,11 @@ world::set_scoreboard_number_format("id","format_content","BLANK");
 
 **Usage example:** 
 ```ts
-world::set_scoreboard_score("id","text",1);
+world::set_scoreboard_score("id", "text", 1);
+
+#Or dry by keywords
+
+world::set_scoreboard_score(id="id", text="text", score=1);
 ```
 
 **Arguments:**
@@ -1425,7 +1838,11 @@ world::set_scoreboard_score("id","text",1);
 
 **Usage example:** 
 ```ts
-world::set_scoreboard_title("id","title");
+world::set_scoreboard_title("id", "title");
+
+#Or dry by keywords
+
+world::set_scoreboard_title(id="id", title="title");
 ```
 
 **Arguments:**
@@ -1447,7 +1864,11 @@ world::set_scoreboard_title("id","title");
 
 **Usage example:** 
 ```ts
-world::set_sculk_shrieker_can_summon(location(0,0,0,0,0),"FALSE");
+world::set_sculk_shrieker_can_summon(location(0,0,0,0,0), "FALSE");
+
+#Or dry by keywords
+
+world::set_sculk_shrieker_can_summon(location=location(0,0,0,0,0), can_summon="FALSE");
 ```
 
 **Arguments:**
@@ -1469,7 +1890,11 @@ world::set_sculk_shrieker_can_summon(location(0,0,0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-world::set_sculk_shrieker_shrieking(location(0,0,0,0,0),"FALSE");
+world::set_sculk_shrieker_shrieking(location(0,0,0,0,0), "FALSE");
+
+#Or dry by keywords
+
+world::set_sculk_shrieker_shrieking(location=location(0,0,0,0,0), shrieking="FALSE");
 ```
 
 **Arguments:**
@@ -1491,7 +1916,11 @@ world::set_sculk_shrieker_shrieking(location(0,0,0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-world::set_sculk_shrieker_warning_level(location(0,0,0,0,0),1);
+world::set_sculk_shrieker_warning_level(location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+world::set_sculk_shrieker_warning_level(location=location(0,0,0,0,0), warning_level=1);
 ```
 
 **Arguments:**
@@ -1513,7 +1942,11 @@ world::set_sculk_shrieker_warning_level(location(0,0,0,0,0),1);
 
 **Usage example:** 
 ```ts
-world::set_sign_text(location(0,0,0,0,0),"text",1,"ALL");
+world::set_sign_text(location(0,0,0,0,0), "text", 1, "ALL");
+
+#Or dry by keywords
+
+world::set_sign_text(location=location(0,0,0,0,0), text="text", line=1, side="ALL");
 ```
 
 **Arguments:**
@@ -1537,7 +1970,11 @@ world::set_sign_text(location(0,0,0,0,0),"text",1,"ALL");
 
 **Usage example:** 
 ```ts
-world::set_sign_text_color(location(0,0,0,0,0),"ALL","BLACK","FALSE");
+world::set_sign_text_color(location(0,0,0,0,0), "ALL", "BLACK", "FALSE");
+
+#Or dry by keywords
+
+world::set_sign_text_color(location=location(0,0,0,0,0), side="ALL", sign_text_color="BLACK", glowing="FALSE");
 ```
 
 **Arguments:**
@@ -1561,7 +1998,11 @@ world::set_sign_text_color(location(0,0,0,0,0),"ALL","BLACK","FALSE");
 
 **Usage example:** 
 ```ts
-world::set_sign_waxed(location(0,0,0,0,0),"FALSE");
+world::set_sign_waxed(location(0,0,0,0,0), "FALSE");
+
+#Or dry by keywords
+
+world::set_sign_waxed(location=location(0,0,0,0,0), waxed="FALSE");
 ```
 
 **Arguments:**
@@ -1583,11 +2024,15 @@ world::set_sign_waxed(location(0,0,0,0,0),"FALSE");
 
 **Usage example:** 
 ```ts
-world::set_spawner_entity(location(0,0,0,0,0),item("stick"));
+world::set_spawner_entity(location(0,0,0,0,0), item("stick"));
 
 #Or from the object
 
 location(0,0,0,0,0).set_spawner_entity(item("stick"));
+
+#Or dry by keywords
+
+world::set_spawner_entity(location=location(0,0,0,0,0), entity=item("stick"));
 ```
 
 **Arguments:**
@@ -1596,6 +2041,62 @@ location(0,0,0,0,0).set_spawner_entity(item("stick"));
 | ---------- | -------- | ---------------- |
 | `location` | Location | Spawner location |
 | `entity`   | Item     | Entity           |
+<h3 id=game_set_vault_displayed_item>
+  <code>world::set_vault_displayed_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None\
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+world::set_vault_displayed_item(location(0,0,0,0,0), item("stick"));
+
+#Or dry by keywords
+
+world::set_vault_displayed_item(location=location(0,0,0,0,0), item=item("stick"));
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `location` | Location | None            |
+| `item`     | Item     | None            |
+<h3 id=game_set_vault_next_state_update_time>
+  <code>world::set_vault_next_state_update_time</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None\
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+world::set_vault_next_state_update_time(location(0,0,0,0,0), 1);
+
+#Or dry by keywords
+
+world::set_vault_next_state_update_time(location=location(0,0,0,0,0), time=1);
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `location` | Location | None            |
+| `time`     | Number   | None            |
 <h3 id=game_set_world_difficulty>
   <code>world::set_world_difficulty</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1608,6 +2109,10 @@ location(0,0,0,0,0).set_spawner_entity(item("stick"));
 **Usage example:** 
 ```ts
 world::set_world_difficulty("EASY");
+
+#Or dry by keywords
+
+world::set_world_difficulty(difficulty="EASY");
 ```
 
 **Arguments:**
@@ -1628,7 +2133,11 @@ world::set_world_difficulty("EASY");
 
 **Usage example:** 
 ```ts
-world::set_gamerule("DISABLE_RAIDS","value");
+world::set_gamerule("DISABLE_RAIDS", "value");
+
+#Or dry by keywords
+
+world::set_gamerule(gamerule="DISABLE_RAIDS", value="value");
 ```
 
 **Arguments:**
@@ -1649,6 +2158,10 @@ world::set_gamerule("DISABLE_RAIDS","value");
 **Usage example:** 
 ```ts
 world::set_world_simulation_distance(1);
+
+#Or dry by keywords
+
+world::set_world_simulation_distance(distance=1);
 ```
 
 **Arguments:**
@@ -1668,6 +2181,10 @@ world::set_world_simulation_distance(1);
 **Usage example:** 
 ```ts
 world::set_world_time(1);
+
+#Or dry by keywords
+
+world::set_world_time(time=1);
 ```
 
 **Arguments:**
@@ -1688,7 +2205,11 @@ world::set_world_time(1);
 
 **Usage example:** 
 ```ts
-world::set_world_weather(1,"CLEAR");
+world::set_world_weather(1, "CLEAR");
+
+#Or dry by keywords
+
+world::set_world_weather(weather_duration=1, weather_type="CLEAR");
 ```
 
 **Arguments:**
@@ -1708,7 +2229,11 @@ world::set_world_weather(1,"CLEAR");
 
 **Usage example:** 
 ```ts
-world::spawn_armor_stand(item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),location(0,0,0,0,0),"custom_name","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE");
+world::spawn_armor_stand(item("stick"), item("stick"), item("stick"), item("stick"), item("stick"), item("stick"), location(0,0,0,0,0), "custom_name", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
+
+#Or dry by keywords
+
+world::spawn_armor_stand(helmet=item("stick"), chestplate=item("stick"), leggings=item("stick"), boots=item("stick"), right_hand=item("stick"), left_hand=item("stick"), location=location(0,0,0,0,0), custom_name="custom_name", gravity="FALSE", marker="FALSE", small="FALSE", show_arms="FALSE", base_plate="FALSE", invisible="FALSE");
 ```
 
 **Arguments:**
@@ -1717,8 +2242,8 @@ world::spawn_armor_stand(item("stick"),item("stick"),item("stick"),item("stick")
 | ------------- | ------------------------------------------------------ | --------------- |
 | `helmet`      | Item                                                   | Headgear        |
 | `chestplate`  | Item                                                   | Chestplate      |
-| `boots`       | Item                                                   | Boots           |
 | `leggings`    | Item                                                   | Leggings        |
+| `boots`       | Item                                                   | Boots           |
 | `right_hand`  | Item                                                   | Right Hand Item |
 | `left_hand`   | Item                                                   | Left Hand Item  |
 | `location`    | Location                                               | Spawn Location  |
@@ -1740,7 +2265,11 @@ world::spawn_armor_stand(item("stick"),item("stick"),item("stick"),item("stick")
 
 **Usage example:** 
 ```ts
-world::spawn_block_display(location(0,0,0,0,0),"custom_name",item("stone"));
+world::spawn_block_display(location(0,0,0,0,0), "custom_name", item("stone"));
+
+#Or dry by keywords
+
+world::spawn_block_display(spawn_location=location(0,0,0,0,0), custom_name="custom_name", block=item("stone"));
 ```
 
 **Arguments:**
@@ -1761,7 +2290,11 @@ world::spawn_block_display(location(0,0,0,0,0),"custom_name",item("stone"));
 
 **Usage example:** 
 ```ts
-world::spawn_effect_cloud(location(0,0,0,0,0),1,2,[potion("slow_falling"), potion("slow_falling")],particle("fire"),"custom_name");
+world::spawn_effect_cloud(location(0,0,0,0,0), 1, 2, [potion("slow_falling"), potion("slow_falling")], particle("fire"), "custom_name");
+
+#Or dry by keywords
+
+world::spawn_effect_cloud(location=location(0,0,0,0,0), duration=1, radius=2, effects=[potion("slow_falling"), potion("slow_falling")], particle=particle("fire"), custom_name="custom_name");
 ```
 
 **Arguments:**
@@ -1785,7 +2318,11 @@ world::spawn_effect_cloud(location(0,0,0,0,0),1,2,[potion("slow_falling"), potio
 
 **Usage example:** 
 ```ts
-world::spawn_end_crystal(location(0,0,0,0,0),"custom_name","FALSE");
+world::spawn_end_crystal(location(0,0,0,0,0), "custom_name", "FALSE");
+
+#Or dry by keywords
+
+world::spawn_end_crystal(location=location(0,0,0,0,0), custom_name="custom_name", show_bottom="FALSE");
 ```
 
 **Arguments:**
@@ -1806,7 +2343,11 @@ world::spawn_end_crystal(location(0,0,0,0,0),"custom_name","FALSE");
 
 **Usage example:** 
 ```ts
-world::spawn_evoker_fangs(location(0,0,0,0,0),"custom_name");
+world::spawn_evoker_fangs(location(0,0,0,0,0), "custom_name");
+
+#Or dry by keywords
+
+world::spawn_evoker_fangs(location=location(0,0,0,0,0), custom_name="custom_name");
 ```
 
 **Arguments:**
@@ -1826,7 +2367,11 @@ world::spawn_evoker_fangs(location(0,0,0,0,0),"custom_name");
 
 **Usage example:** 
 ```ts
-world::spawn_experience_orb(location(0,0,0,0,0),1,"custom_name");
+world::spawn_experience_orb(location(0,0,0,0,0), 1, "custom_name");
+
+#Or dry by keywords
+
+world::spawn_experience_orb(location=location(0,0,0,0,0), experience_amount=1, custom_name="custom_name");
 ```
 
 **Arguments:**
@@ -1847,7 +2392,11 @@ world::spawn_experience_orb(location(0,0,0,0,0),1,"custom_name");
 
 **Usage example:** 
 ```ts
-world::spawn_eye_of_ender(location(0,0,0,0,0),location(0,0,0,0,0),1,"custom_name","DROP");
+world::spawn_eye_of_ender(location(0,0,0,0,0), location(0,0,0,0,0), 1, "custom_name", "DROP");
+
+#Or dry by keywords
+
+world::spawn_eye_of_ender(location=location(0,0,0,0,0), destination=location(0,0,0,0,0), lifespan=1, custom_name="custom_name", end_of_lifespan="DROP");
 ```
 
 **Arguments:**
@@ -1870,7 +2419,11 @@ world::spawn_eye_of_ender(location(0,0,0,0,0),location(0,0,0,0,0),1,"custom_name
 
 **Usage example:** 
 ```ts
-world::spawn_falling_block(item("stone"),location(0,0,0,0,0),"name","FALSE");
+world::spawn_falling_block(item("stone"), location(0,0,0,0,0), "name", "FALSE");
+
+#Or dry by keywords
+
+world::spawn_falling_block(block=item("stone"), location=location(0,0,0,0,0), name="name", should_expire="FALSE");
 ```
 
 **Arguments:**
@@ -1894,7 +2447,11 @@ world::spawn_falling_block(item("stone"),location(0,0,0,0,0),"name","FALSE");
 
 **Usage example:** 
 ```ts
-world::spawn_interaction_entity(location(0,0,0,0,0),"custom_name",1,2,"FALSE");
+world::spawn_interaction_entity(location(0,0,0,0,0), "custom_name", 1, 2, "FALSE");
+
+#Or dry by keywords
+
+world::spawn_interaction_entity(location=location(0,0,0,0,0), custom_name="custom_name", width=1, height=2, responsive="FALSE");
 ```
 
 **Arguments:**
@@ -1917,7 +2474,11 @@ world::spawn_interaction_entity(location(0,0,0,0,0),"custom_name",1,2,"FALSE");
 
 **Usage example:** 
 ```ts
-world::spawn_item(location(0,0,0,0,0),item("stick"),"custom_name","FALSE","FALSE","FALSE");
+world::spawn_item(location(0,0,0,0,0), item("stick"), "custom_name", "FALSE", "FALSE", "FALSE");
+
+#Or dry by keywords
+
+world::spawn_item(location=location(0,0,0,0,0), item=item("stick"), custom_name="custom_name", can_mob_pickup="FALSE", can_player_pickup="FALSE", apply_motion="FALSE");
 ```
 
 **Arguments:**
@@ -1941,7 +2502,11 @@ world::spawn_item(location(0,0,0,0,0),item("stick"),"custom_name","FALSE","FALSE
 
 **Usage example:** 
 ```ts
-world::spawn_item_display(location(0,0,0,0,0),"custom_name",item("stick"));
+world::spawn_item_display(location(0,0,0,0,0), "custom_name", item("stick"));
+
+#Or dry by keywords
+
+world::spawn_item_display(spawn_location=location(0,0,0,0,0), custom_name="custom_name", displayed_item=item("stick"));
 ```
 
 **Arguments:**
@@ -1951,6 +2516,35 @@ world::spawn_item_display(location(0,0,0,0,0),"custom_name",item("stick"));
 | `spawn_location` | Location | Spawn Location  |
 | `custom_name`    | Text     | Name            |
 | `displayed_item` | Item     | Displayed Item  |
+<h3 id=game_spawn_item_frame>
+  <code>world::spawn_item_frame</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+world::spawn_item_frame(location(0,0,0,0,0), item("stick"), "NONE", "NORTH", "TRUE", "TRUE", "TRUE");
+
+#Or dry by keywords
+
+world::spawn_item_frame(location=location(0,0,0,0,0), item=item("stick"), rotation="NONE", block_face="NORTH", glowing="TRUE", visible="TRUE", fixed="TRUE");
+```
+
+**Arguments:**
+
+| **Name**     | **Type**                                                                                                                                                                                                                           | **Description** |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `location`   | Location                                                                                                                                                                                                                           | None            |
+| `item`       | Item                                                                                                                                                                                                                               | None            |
+| `rotation`   | Marker<br/>**NONE** - None<br/>**CLOCKWISE_45** - None<br/>**CLOCKWISE** - None<br/>**CLOCKWISE_135** - None<br/>**FLIPPED** - None<br/>**FLIPPED_45** - None<br/>**COUNTER_CLOCKWISE** - None<br/>**COUNTER_CLOCKWISE_45** - None | None            |
+| `block_face` | Marker<br/>**NORTH** - None<br/>**EAST** - None<br/>**SOUTH** - None<br/>**WEST** - None<br/>**UP** - None<br/>**DOWN** - None                                                                                                     | None            |
+| `glowing`    | Marker<br/>**TRUE** - None<br/>**FALSE** - None                                                                                                                                                                                    | None            |
+| `visible`    | Marker<br/>**TRUE** - None<br/>**FALSE** - None                                                                                                                                                                                    | None            |
+| `fixed`      | Marker<br/>**TRUE** - None<br/>**FALSE** - None                                                                                                                                                                                    | None            |
 <h3 id=game_spawn_lightning_bolt>
   <code>world::spawn_lightning_bolt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1963,6 +2557,10 @@ world::spawn_item_display(location(0,0,0,0,0),"custom_name",item("stick"));
 **Usage example:** 
 ```ts
 world::spawn_lightning_bolt(location(0,0,0,0,0));
+
+#Or dry by keywords
+
+world::spawn_lightning_bolt(location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -1981,7 +2579,11 @@ world::spawn_lightning_bolt(location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-world::spawn_mob(item("stick"),location(0,0,0,0,0),1,[potion("slow_falling"), potion("slow_falling")],"custom_name",item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),item("stick"),"FALSE");
+world::spawn_mob(item("stick"), location(0,0,0,0,0), 1, "custom_name", [potion("slow_falling"), potion("slow_falling")], item("stick"), item("stick"), item("stick"), item("stick"), item("stick"), item("stick"), "FALSE");
+
+#Or dry by keywords
+
+world::spawn_mob(mob=item("stick"), location=location(0,0,0,0,0), health=1, custom_name="custom_name", potion_effects=[potion("slow_falling"), potion("slow_falling")], main_hand=item("stick"), helmet=item("stick"), chestplate=item("stick"), leggings=item("stick"), boots=item("stick"), off_hand=item("stick"), natural_equipment="FALSE");
 ```
 
 **Arguments:**
@@ -1991,8 +2593,8 @@ world::spawn_mob(item("stick"),location(0,0,0,0,0),1,[potion("slow_falling"), po
 | `mob`               | Item                                                 | Mob Type           |
 | `location`          | Location                                             | Spawn Location     |
 | `health`            | Number                                               | Amount of Health   |
-| `potion_effects`    | list[Potion]                                         | Effects            |
 | `custom_name`       | Text                                                 | Name               |
+| `potion_effects`    | list[Potion]                                         | Effects            |
 | `main_hand`         | Item                                                 | Main Hand Item     |
 | `helmet`            | Item                                                 | Headgear           |
 | `chestplate`        | Item                                                 | Chestplate         |
@@ -2000,6 +2602,31 @@ world::spawn_mob(item("stick"),location(0,0,0,0,0),1,[potion("slow_falling"), po
 | `boots`             | Item                                                 | Boots              |
 | `off_hand`          | Item                                                 | Offhand Item       |
 | `natural_equipment` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Standard Equipment |
+<h3 id=game_spawn_painting>
+  <code>world::spawn_painting</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+world::spawn_painting(location(0,0,0,0,0), "art", "NORTH");
+
+#Or dry by keywords
+
+world::spawn_painting(spawn_location=location(0,0,0,0,0), art="art", block_face="NORTH");
+```
+
+**Arguments:**
+
+| **Name**         | **Type**                                                                                 | **Description** |
+| ---------------- | ---------------------------------------------------------------------------------------- | --------------- |
+| `spawn_location` | Location                                                                                 | None            |
+| `art`            | Text                                                                                     | None            |
+| `block_face`     | Marker<br/>**NORTH** - None<br/>**EAST** - None<br/>**SOUTH** - None<br/>**WEST** - None | None            |
 <h3 id=game_spawn_primed_tnt>
   <code>world::spawn_primed_tnt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2011,7 +2638,11 @@ world::spawn_mob(item("stick"),location(0,0,0,0,0),1,[potion("slow_falling"), po
 
 **Usage example:** 
 ```ts
-world::spawn_primed_tnt(location(0,0,0,0,0),1,2,"custom_name",item("stone"));
+world::spawn_primed_tnt(location(0,0,0,0,0), 1, 2, "custom_name", item("stone"));
+
+#Or dry by keywords
+
+world::spawn_primed_tnt(location=location(0,0,0,0,0), tnt_power=1, fuse_duration=2, custom_name="custom_name", block=item("stone"));
 ```
 
 **Arguments:**
@@ -2034,7 +2665,11 @@ world::spawn_primed_tnt(location(0,0,0,0,0),1,2,"custom_name",item("stone"));
 
 **Usage example:** 
 ```ts
-world::spawn_shulker_bullet(location(0,0,0,0,0),"custom_name");
+world::spawn_shulker_bullet(location(0,0,0,0,0), "custom_name");
+
+#Or dry by keywords
+
+world::spawn_shulker_bullet(location=location(0,0,0,0,0), custom_name="custom_name");
 ```
 
 **Arguments:**
@@ -2054,7 +2689,11 @@ world::spawn_shulker_bullet(location(0,0,0,0,0),"custom_name");
 
 **Usage example:** 
 ```ts
-world::spawn_text_display(location(0,0,0,0,0),["displayed_text", "displayed_text"],"custom_name","CONCATENATION");
+world::spawn_text_display(location(0,0,0,0,0), "custom_name", ["displayed_text", "displayed_text"], "CONCATENATION");
+
+#Or dry by keywords
+
+world::spawn_text_display(spawn_location=location(0,0,0,0,0), custom_name="custom_name", displayed_text=["displayed_text", "displayed_text"], merging_mode="CONCATENATION");
 ```
 
 **Arguments:**
@@ -2062,8 +2701,8 @@ world::spawn_text_display(location(0,0,0,0,0),["displayed_text", "displayed_text
 | **Name**         | **Type**                                                                                                       | **Description** |
 | ---------------- | -------------------------------------------------------------------------------------------------------------- | --------------- |
 | `spawn_location` | Location                                                                                                       | Spawn Location  |
-| `displayed_text` | list[Text]                                                                                                     | Displayed Text  |
 | `custom_name`    | Text                                                                                                           | Name            |
+| `displayed_text` | list[Text]                                                                                                     | Displayed Text  |
 | `merging_mode`   | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text      |
 <h3 id=game_spawn_vehicle>
   <code>world::spawn_vehicle</code>
@@ -2076,7 +2715,11 @@ world::spawn_text_display(location(0,0,0,0,0),["displayed_text", "displayed_text
 
 **Usage example:** 
 ```ts
-world::spawn_vehicle(item("stick"),location(0,0,0,0,0),"custom_name");
+world::spawn_vehicle(item("stick"), location(0,0,0,0,0), "custom_name");
+
+#Or dry by keywords
+
+world::spawn_vehicle(vehicle=item("stick"), location=location(0,0,0,0,0), custom_name="custom_name");
 ```
 
 **Arguments:**
@@ -2112,6 +2755,10 @@ world::uncancel_event();
 **Usage example:** 
 ```ts
 world::update_block(location(0,0,0,0,0));
+
+#Or dry by keywords
+
+world::update_block(location=location(0,0,0,0,0));
 ```
 
 **Arguments:**
@@ -2130,7 +2777,13 @@ world::update_block(location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-if(world::block_equals([item("stone"), item("stone")],location(0,0,0,0,0))){
+if(world::block_equals([item("stone"), item("stone")], location(0,0,0,0,0))){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+world::block_equals(blocks=[item("stone"), item("stone")], location=location(0,0,0,0,0)){
     player::message("Condition is true");
 }
 ```
@@ -2152,7 +2805,13 @@ if(world::block_equals([item("stone"), item("stone")],location(0,0,0,0,0))){
 
 **Usage example:** 
 ```ts
-if(world::block_powered([location(0,0,0,0,0), location(0,0,0,0,0)],"DIRECT")){
+if(world::block_powered([location(0,0,0,0,0), location(0,0,0,0,0)], "DIRECT")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+world::block_powered(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], power_mode="DIRECT"){
     player::message("Condition is true");
 }
 ```
@@ -2177,6 +2836,12 @@ if(world::block_powered([location(0,0,0,0,0), location(0,0,0,0,0)],"DIRECT")){
 if(world::chunk_is_loaded(location(0,0,0,0,0))){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+world::chunk_is_loaded(location=location(0,0,0,0,0)){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -2195,7 +2860,13 @@ if(world::chunk_is_loaded(location(0,0,0,0,0))){
 
 **Usage example:** 
 ```ts
-if(world::container_has([item("stick"), item("stick")],location(0,0,0,0,0),"ALL","EXACTLY")){
+if(world::container_has([item("stick"), item("stick")], location(0,0,0,0,0), "ALL", "EXACTLY")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+world::container_has(items=[item("stick"), item("stick")], location=location(0,0,0,0,0), check_mode="ALL", comparison_mode="EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -2219,7 +2890,13 @@ if(world::container_has([item("stick"), item("stick")],location(0,0,0,0,0),"ALL"
 
 **Usage example:** 
 ```ts
-if(world::container_has_room_for_item([item("stick"), item("stick")],location(0,0,0,0,0),"ALL")){
+if(world::container_has_room_for_item([item("stick"), item("stick")], location(0,0,0,0,0), "ALL")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+world::container_has_room_for_item(items=[item("stick"), item("stick")], location=location(0,0,0,0,0), check_mode="ALL"){
     player::message("Condition is true");
 }
 ```
@@ -2243,6 +2920,12 @@ if(world::container_has_room_for_item([item("stick"), item("stick")],location(0,
 **Usage example:** 
 ```ts
 if(world::damage_cause_equals("BLOCK_EXPLOSION")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+world::damage_cause_equals(cause="BLOCK_EXPLOSION"){
     player::message("Condition is true");
 }
 ```
@@ -2295,7 +2978,13 @@ if(world::event_attack_is_critical()){
 
 **Usage example:** 
 ```ts
-if(world::event_block_equals([item("stone"), item("stone")],[location(0,0,0,0,0), location(0,0,0,0,0)])){
+if(world::event_block_equals([item("stone"), item("stone")], [location(0,0,0,0,0), location(0,0,0,0,0)])){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+world::event_block_equals(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)]){
     player::message("Condition is true");
 }
 ```
@@ -2306,6 +2995,37 @@ if(world::event_block_equals([item("stone"), item("stone")],[location(0,0,0,0,0)
 | ----------- | -------------- | ------------------------ |
 | `blocks`    | list[Block]    | Block Types to Check     |
 | `locations` | list[Location] | Block Locations to Check |
+<h3 id=if_game_event_has_input>
+  <code>world::event_has_input</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action that checks the conditions\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+if(world::event_has_input("FORWARD")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+world::event_has_input(input_type="FORWARD"){
+    player::message("Condition is true");
+}
+```
+
+**Arguments:**
+
+| **Name**     | **Type**                                                                                                                                                       | **Description** |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `input_type` | Marker<br/>**FORWARD** - None<br/>**BACKWARDS** - None<br/>**LEFT** - None<br/>**RIGHT** - None<br/>**JUMP** - None<br/>**SNEAK** - None<br/>**SPRINT** - None | None            |
 <h3 id=if_game_event_is_canceled>
   <code>world::event_is_canceled</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2333,7 +3053,13 @@ if(world::event_is_canceled()){
 
 **Usage example:** 
 ```ts
-if(world::event_item_equals([item("stick"), item("stick")],"EXACTLY")){
+if(world::event_item_equals([item("stick"), item("stick")], "EXACTLY")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+world::event_item_equals(items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Condition is true");
 }
 ```
@@ -2358,6 +3084,12 @@ if(world::event_item_equals([item("stick"), item("stick")],"EXACTLY")){
 if(world::has_player(["names_or_uuids", "names_or_uuids"])){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+world::has_player(names_or_uuids=["names_or_uuids", "names_or_uuids"]){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -2377,6 +3109,12 @@ if(world::has_player(["names_or_uuids", "names_or_uuids"])){
 **Usage example:** 
 ```ts
 if(world::heal_cause_equals("CUSTOM")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+world::heal_cause_equals(heal_cause="CUSTOM"){
     player::message("Condition is true");
 }
 ```
@@ -2400,6 +3138,12 @@ if(world::heal_cause_equals("CUSTOM")){
 if(world::ignite_cause_equals("ARROW")){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+world::ignite_cause_equals(cause="ARROW"){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -2419,6 +3163,12 @@ if(world::ignite_cause_equals("ARROW")){
 **Usage example:** 
 ```ts
 if(world::instrument_equals("BANJO")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+world::instrument_equals(instrument="BANJO"){
     player::message("Condition is true");
 }
 ```
@@ -2442,6 +3192,12 @@ if(world::instrument_equals("BANJO")){
 if(world::location_in_block(location(0,0,0,0,0))){
     player::message("Condition is true");
 }
+
+#Or dry by keywords
+
+world::location_in_block(location=location(0,0,0,0,0)){
+    player::message("Condition is true");
+}
 ```
 
 **Arguments:**
@@ -2460,7 +3216,13 @@ if(world::location_in_block(location(0,0,0,0,0))){
 
 **Usage example:** 
 ```ts
-if(world::sign_contains(location(0,0,0,0,0),["texts", "texts"],"ANY","ALL","ALL")){
+if(world::sign_contains(location(0,0,0,0,0), ["texts", "texts"], "ANY", "ALL", "ALL")){
+    player::message("Condition is true");
+}
+
+#Or dry by keywords
+
+world::sign_contains(location=location(0,0,0,0,0), texts=["texts", "texts"], check_side="ANY", check_mode="ALL", lines="ALL"){
     player::message("Condition is true");
 }
 ```

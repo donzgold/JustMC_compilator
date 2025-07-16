@@ -66,6 +66,10 @@ select::add_entity_by_conditional();
 **Пример использования:** 
 ```ts
 select::add_entity_by_name(["name_or_uuid", "name_or_uuid"]);
+
+#Или в сухую по ключам
+
+select::add_entity_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 ```
 
 **Аргументы:**
@@ -85,6 +89,10 @@ select::add_entity_by_name(["name_or_uuid", "name_or_uuid"]);
 **Пример использования:** 
 ```ts
 select::add_event_target("DAMAGER");
+
+#Или в сухую по ключам
+
+select::add_event_target(selection_type="DAMAGER");
 ```
 
 **Аргументы:**
@@ -132,6 +140,10 @@ select::add_last_mob();
 **Пример использования:** 
 ```ts
 select::add_mob_by_name(["name_or_uuid", "name_or_uuid"]);
+
+#Или в сухую по ключам
+
+select::add_mob_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 ```
 
 **Аргументы:**
@@ -165,6 +177,10 @@ select::add_player_by_conditional();
 **Пример использования:** 
 ```ts
 select::add_player_by_name(["name_or_uuid", "name_or_uuid"]);
+
+#Или в сухую по ключам
+
+select::add_player_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 ```
 
 **Аргументы:**
@@ -296,6 +312,10 @@ select::entity_by_conditional(a1.exists());
 **Пример использования:** 
 ```ts
 select::entity_by_name(["name_or_uuid", "name_or_uuid"]);
+
+#Или в сухую по ключам
+
+select::entity_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 ```
 
 **Аргументы:**
@@ -315,6 +335,10 @@ select::entity_by_name(["name_or_uuid", "name_or_uuid"]);
 **Пример использования:** 
 ```ts
 select::event_target("DAMAGER");
+
+#Или в сухую по ключам
+
+select::event_target(selection_type="DAMAGER");
 ```
 
 **Аргументы:**
@@ -347,7 +371,11 @@ select::filter_by_conditional(a1.exists());
 
 **Пример использования:** 
 ```ts
-select::filter_by_distance(location(0,0,0,0,0),1,"FALSE","FARTHEST");
+select::filter_by_distance(location(0,0,0,0,0), 1, "FALSE", "FARTHEST");
+
+#Или в сухую по ключам
+
+select::filter_by_distance(location=location(0,0,0,0,0), selection_size=1, ignore_y_axis="FALSE", compare_mode="FARTHEST");
 ```
 
 **Аргументы:**
@@ -369,7 +397,11 @@ select::filter_by_distance(location(0,0,0,0,0),1,"FALSE","FARTHEST");
 
 **Пример использования:** 
 ```ts
-select::filter_by_raycast(`variable`,location(0,0,0,0,0),1,2,3,"FALSE","FALSE","ALWAYS");
+select::filter_by_raycast(`variable`, location(0,0,0,0,0), 1, 2, 3, "FALSE", "FALSE", "ALWAYS");
+
+#Или в сухую по ключам
+
+select::filter_by_raycast(variable=`variable`, origin=location(0,0,0,0,0), max_distance=1, ray_size=2, selection_size=3, consider_blocks="FALSE", ignore_passable_blocks="FALSE", fluid_collision_mode="ALWAYS");
 ```
 
 **Аргументы:**
@@ -396,6 +428,10 @@ select::filter_by_raycast(`variable`,location(0,0,0,0,0),1,2,3,"FALSE","FALSE","
 **Пример использования:** 
 ```ts
 select::filter_randomly(1);
+
+#Или в сухую по ключам
+
+select::filter_randomly(size=1);
 ```
 
 **Аргументы:**
@@ -457,6 +493,10 @@ select::last_mob();
 **Пример использования:** 
 ```ts
 select::mob_by_name(["name_or_uuid", "name_or_uuid"]);
+
+#Или в сухую по ключам
+
+select::mob_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 ```
 
 **Аргументы:**
@@ -490,6 +530,10 @@ select::player_by_conditional(a1.exists());
 **Пример использования:** 
 ```ts
 select::player_by_name(["name_or_uuid", "name_or_uuid"]);
+
+#Или в сухую по ключам
+
+select::player_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 ```
 
 **Аргументы:**
