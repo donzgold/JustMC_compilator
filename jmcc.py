@@ -1,5 +1,7 @@
 from time import time
-
+import sys
+sys.stdin.reconfigure(encoding="utf-8")
+sys.stdout.reconfigure(encoding="utf-8")
 start_time = time()
 import shutil
 import sys
@@ -70,7 +72,8 @@ class Properties:
                 if a1[i][1].startswith("#"):
                     file.write(str(a1[i][1]).replace("\n", "\\n") + "\n")
                     continue
-            file.write(a1[i][1].replace("\n", "\\n") + " = " + str(self.properties[a1[i][1]]).replace("\n", "\\n") + "\n")
+            file.write(
+                a1[i][1].replace("\n", "\\n") + " = " + str(self.properties[a1[i][1]]).replace("\n", "\\n") + "\n")
         if isinstance(a1[-1][1], str):
             if a1[-1][1].startswith("#"):
                 file.write(str(a1[-1][1]).replace("\n", "\\n"))
@@ -305,7 +308,7 @@ else:
     data = Properties(text=open("jmcc.properties", "r", encoding="UTF-8").read())
     lang = Properties(text=open("data/lang/" + data["lang"] + ".properties", "r", encoding="UTF-8").read())
 end_time = time()
-print(minecraft_based_text(translate("jmcc.prepare_data_time",{0:round(end_time - start_time, 3)})))
+print(minecraft_based_text(translate("jmcc.prepare_data_time", {0: round(end_time - start_time, 3)})))
 if __name__ == "__main__":
     if data["check_updates"]:
         a = is_connected()
@@ -339,7 +342,8 @@ if __name__ == "__main__":
             else:
                 print(minecraft_based_text("&c" + translate("error.unknown_command", {0: "&4help"})))
         elif additional[0] == "help":
-            command_list = ["help", "about", "compile", "decompile", "fix_items", "update.data", "update.to_release", "update.to_version"]
+            command_list = ["help", "about", "compile", "decompile", "fix_items", "update.data", "update.to_release",
+                            "update.to_version"]
             print(minecraft_based_text("&f" + translate("jmcc.command.help")))
             for command in command_list:
                 print(minecraft_based_text("&f " + translate(f"jmcc.command.{command}.description")))

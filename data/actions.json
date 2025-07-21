@@ -10939,7 +10939,7 @@
     "name": "add_entity_by_conditional",
     "object": "select",
     "args": [],
-    "type": "basic"
+    "type": "basic_with_conditional"
   },
   {
     "id": "select_add_entity_by_name",
@@ -11006,7 +11006,7 @@
     "name": "add_player_by_conditional",
     "object": "select",
     "args": [],
-    "type": "basic"
+    "type": "basic_with_conditional"
   },
   {
     "id": "select_add_player_by_name",

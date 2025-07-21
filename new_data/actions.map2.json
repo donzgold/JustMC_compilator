@@ -168,5 +168,7 @@
   "entity_set_pig_type": {"id": "entity_set_pig_type", "type": "basic", "exists": false, "args": [
     {"id": "variant", "plural": false, "type": "enum", "valueSlots": [0], "values": ["COLD", "WARM", "TEMPERATE"]}]},
   "entity_set_wolf_sound_variant": {"id": "entity_set_wolf_sound_variant", "type": "basic", "exists": false, "args": [
-    {"id": "sound_variant", "plural": false, "type": "enum", "valueSlots": [0], "values": ["ANGRY", "BIG", "CLASSIC", "CUTE", "GRUMPY", "PUGLIN", "SAD"]}]}
+    {"id": "sound_variant", "plural": false, "type": "enum", "valueSlots": [0], "values": ["ANGRY", "BIG", "CLASSIC", "CUTE", "GRUMPY", "PUGLIN", "SAD"]}]},
+  "select_add_player_by_conditional": {"id": "select_add_player_by_conditional", "type": "basic_with_conditional", "args": []},
+  "select_add_entity_by_conditional": {"id": "select_add_entity_by_conditional", "type": "basic_with_conditional", "args": []}
 }
