@@ -76,7 +76,8 @@
     {"id": "location", "plural": false, "type": "location", "valueSlots": [12]},
     {"id": "power", "plural": false, "type": "number", "valueSlots": [14]},
     {"id": "fire", "plural": false, "type": "enum", "values": ["TRUE", "FALSE"], "valueSlots": [25]},
-    {"id": "break_blocks", "plural": false, "type": "enum", "values": ["TRUE", "FALSE"], "valueSlots": [26]}]},
+    {"id": "break_blocks", "plural": false, "type": "enum", "values": ["TRUE", "FALSE"], "valueSlots": [26]},
+    {"id": "name_or_uuid", "plural": false, "type": "text", "valueSlots": [16]}]},
   "set_variable_get_item_nbt_tags": {"id": "set_variable_get_item_nbt_tags", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [12]},
     {"id": "item", "plural": false, "type": "item", "valueSlots": [14]},
@@ -120,5 +121,52 @@
   "set_variable_hadamard_vector_product": {"id": "set_variable_hadamard_vector_product", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "vector_1", "plural": false, "type": "vector", "valueSlots": [1]},
-    {"id": "vector_2", "plural": false, "type": "vector", "valueSlots": [2]}]}
+    {"id": "vector_2", "plural": false, "type": "vector", "valueSlots": [2]}]},
+  "game_spawn_item_frame": {"id": "game_spawn_item_frame", "type": "basic", "exists": false, "args": [
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "rotation", "plural": false, "type": "enum", "valueSlots": [2], "values": ["NONE", "CLOCKWISE_45", "CLOCKWISE", "CLOCKWISE_135", "FLIPPED", "FLIPPED_45", "COUNTER_CLOCKWISE", "COUNTER_CLOCKWISE_45"]},
+    {"id": "block_face", "plural": false, "type": "enum", "valueSlots": [3], "values": ["NORTH", "EAST", "SOUTH", "WEST", "UP", "DOWN"]},
+    {"id": "glowing", "plural": false, "type": "enum", "valueSlots": [4], "values": ["TRUE", "FALSE"]},
+    {"id": "visible", "plural": false, "type": "enum", "valueSlots": [5], "values": ["TRUE", "FALSE"]},
+    {"id": "fixed", "plural": false, "type": "enum", "valueSlots": [6], "values": ["TRUE", "FALSE"]}]},
+  "game_spawn_painting" : {"id": "game_spawn_painting", "type": "basic", "exists": false, "args": [
+    {"id": "spawn_location", "plural": false, "type": "location", "valueSlots": [0]},
+    {"id": "art", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "block_face", "plural": false, "type": "enum", "valueSlots": [2], "values": ["NORTH", "EAST", "SOUTH", "WEST"]}]},
+  "game_set_vault_displayed_item": {"id": "game_set_vault_displayed_item", "type": "basic", "exists": false, "args": [
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]}]},
+  "game_set_vault_next_state_update_time": {"id": "game_set_vault_next_state_update_time", "type": "basic", "exists": false, "args": [
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
+    {"id": "time", "plural": false, "type": "number", "valueSlots": [1]}]},
+  "game_set_dried_ghast_hydration": {"id": "game_set_dried_ghast_hydration", "type": "basic", "exists": false, "args": [
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
+    {"id": "hydration", "plural": false, "type": "number", "valueSlots": [1]}]},
+  "game_set_creaking_heart_state": {"id": "game_set_creaking_heart_state", "type": "basic", "exists": false, "args": [
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
+    {"id": "heart_state", "plural": false, "type": "enum", "valueSlots": [1], "values": ["UPROOTED", "DORMANT", "AWAKE"]}]},
+  "game_set_creaking_heart_natural": {"id": "game_set_creaking_heart_natural", "type": "basic", "exists": false, "args": [
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
+    {"id": "natural", "plural": false, "type": "enum", "valueSlots": [1], "values": ["TRUE", "FALSE"]}]},
+  "game_set_event_combust_duration": {"id": "game_set_event_combust_duration", "type": "basic", "exists": false, "args": [
+    {"id": "duration", "plural": false, "type": "number", "valueSlots": [0]}]},
+  "game_set_event_item_cooldown": {"id": "game_set_event_item_cooldown", "type": "basic", "exists": false, "args": [
+    {"id": "cooldown", "plural": false, "type": "number", "valueSlots": [0]}]},
+  "game_set_event_death_screen_message": {"id": "game_set_event_death_screen_message", "type": "basic", "exists": false, "args": [
+    {"id": "message", "plural": false, "type": "text", "valueSlots": [0]}]},
+  "player_set_death_screen_score": {"id": "player_set_death_screen_score", "type": "basic", "exists": false, "args": [
+    {"id": "score", "plural": false, "type": "number", "valueSlots": [0]}]},
+  "if_player_has_input": {"id": "if_player_has_input", "type": "basic", "exists": false, "args": [
+    {"id": "input_type", "plural": false, "type": "enum", "valueSlots": [0], "values": ["FORWARD", "BACKWARDS", "LEFT", "RIGHT", "JUMP", "SNEAK", "SPRINT"]}]},
+  "if_game_event_has_input": {"id": "if_game_event_has_input", "type": "basic", "exists": false, "args": [
+    {"id": "input_type", "plural": false, "type": "enum", "valueSlots": [0], "values": ["FORWARD", "BACKWARDS", "LEFT", "RIGHT", "JUMP", "SNEAK", "SPRINT"]}]},
+  "entity_set_chicken_type": {"id": "entity_set_chicken_type", "type": "basic", "exists": false, "args": [
+    {"id": "variant", "plural": false, "type": "enum", "valueSlots": [0], "values": ["COLD", "WARM", "TEMPERATE"]}]},
+  "entity_set_cow_type": {"id": "entity_set_cow_type", "type": "basic", "exists": false, "args": [
+    {"id": "variant", "plural": false, "type": "enum", "valueSlots": [0], "values": ["COLD", "WARM", "TEMPERATE"]}]},
+  "entity_set_pig_type": {"id": "entity_set_pig_type", "type": "basic", "exists": false, "args": [
+    {"id": "variant", "plural": false, "type": "enum", "valueSlots": [0], "values": ["COLD", "WARM", "TEMPERATE"]}]},
+  "entity_set_wolf_sound_variant": {"id": "entity_set_wolf_sound_variant", "type": "basic", "exists": false, "args": [
+    {"id": "sound_variant", "plural": false, "type": "enum", "valueSlots": [0], "values": ["ANGRY", "BIG", "CLASSIC", "CUTE", "GRUMPY", "PUGLIN", "SAD"]}]}
 }

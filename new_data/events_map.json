@@ -1,5 +1,4 @@
 {"player_dummy": {"cancellable": false},
-  "player_command": {"cancellable": true},
   "entity_dummy": {"cancellable": false},
   "world_dummy": {"cancellable": false},
   "player_open_advancements_tab": {"cancellable": true},
@@ -18,5 +17,21 @@
   "moisture_change": {"cancellable": true},
   "vault_display_item": {"cancellable": true},
   "crafter_craft": {"cancellable": true},
-  "player_enchant_item": {"cancellable": true}
+  "player_enchant_item": {"cancellable": true},
+  "player_combust": {"cancellable": true, "exists": false},
+  "player_pick_block": {"cancellable": true, "exists": false},
+  "player_vault_change_state": {"cancellable": true, "exists": false},
+  "player_pick_entity": {"cancellable": true, "exists": false},
+  "player_equipment_changed": {"cancellable": false, "exists": false},
+  "player_item_cooldown": {"cancellable": true, "exists": false},
+  "player_item_group_cooldown": {"cancellable": true, "exists": false},
+  "player_input_event": {"cancellable": true, "exists": false},
+  "entity_start_gliding": {"cancellable": true, "exists": false},
+  "entity_stop_gliding": {"cancellable": true, "exists": false},
+  "vault_change_state": {"cancellable": true, "exists": false},
+  "entity_combust": {"cancellable": true, "exists": false},
+  "entity_equipment_changed": {"cancellable": true, "exists": false},
+  "player_start_gliding": {"cancellable": true, "exists": false},
+  "player_stop_gliding": {"cancellable": true, "exists": false},
+  "fishing_hook_state_change": {"cancellable": true, "exists": false}
 }

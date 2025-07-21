@@ -1127,6 +1127,23 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_chicken_type",
+    "name": "set_chicken_type",
+    "object": "entity",
+    "args": [
+      {
+        "id": "variant",
+        "type": "enum",
+        "values": [
+          "COLD",
+          "WARM",
+          "TEMPERATE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_collidable",
     "name": "set_collidable",
     "object": "entity",
@@ -1137,6 +1154,23 @@
         "values": [
           "FALSE",
           "TRUE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_cow_type",
+    "name": "set_cow_type",
+    "object": "entity",
+    "args": [
+      {
+        "id": "variant",
+        "type": "enum",
+        "values": [
+          "COLD",
+          "WARM",
+          "TEMPERATE"
         ]
       }
     ],
@@ -2170,14 +2204,6 @@
         "type": "item"
       },
       {
-        "id": "ingredient_one",
-        "type": "item"
-      },
-      {
-        "id": "ingredient_two",
-        "type": "item"
-      },
-      {
         "id": "uses",
         "type": "number"
       },
@@ -2186,12 +2212,16 @@
         "type": "number"
       },
       {
-        "id": "index",
-        "type": "number"
+        "id": "ingredient_one",
+        "type": "item"
       },
       {
         "id": "villager_experience",
         "type": "number"
+      },
+      {
+        "id": "ingredient_two",
+        "type": "item"
       },
       {
         "id": "price_multiplifier",
@@ -2199,6 +2229,10 @@
       },
       {
         "id": "demand",
+        "type": "number"
+      },
+      {
+        "id": "index",
         "type": "number"
       },
       {
@@ -2437,6 +2471,23 @@
       {
         "id": "delay",
         "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_pig_type",
+    "name": "set_pig_type",
+    "object": "entity",
+    "args": [
+      {
+        "id": "variant",
+        "type": "enum",
+        "values": [
+          "COLD",
+          "WARM",
+          "TEMPERATE"
+        ]
       }
     ],
     "type": "basic"
@@ -3167,6 +3218,27 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_wolf_sound_variant",
+    "name": "set_wolf_sound_variant",
+    "object": "entity",
+    "args": [
+      {
+        "id": "sound_variant",
+        "type": "enum",
+        "values": [
+          "ANGRY",
+          "BIG",
+          "CLASSIC",
+          "CUTE",
+          "GRUMPY",
+          "PUGLIN",
+          "SAD"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_wolf_type",
     "name": "set_wolf_type",
     "object": "entity",
@@ -3508,6 +3580,10 @@
       {
         "id": "power",
         "type": "number"
+      },
+      {
+        "id": "name_or_uuid",
+        "type": "text"
       },
       {
         "id": "fire",
@@ -4103,6 +4179,47 @@
     "type": "basic"
   },
   {
+    "id": "game_set_creaking_heart_natural",
+    "name": "set_creaking_heart_natural",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "natural",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "game_set_creaking_heart_state",
+    "name": "set_creaking_heart_state",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "heart_state",
+        "type": "enum",
+        "values": [
+          "UPROOTED",
+          "DORMANT",
+          "AWAKE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "game_set_decorate_pot_sherd",
     "name": "set_decorate_pot_sherd",
     "object": "world",
@@ -4129,6 +4246,34 @@
     "type": "basic"
   },
   {
+    "id": "game_set_dried_ghast_hydration",
+    "name": "set_dried_ghast_hydration",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "hydration",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "game_set_event_combust_duration",
+    "name": "set_event_combust_duration",
+    "object": "world",
+    "args": [
+      {
+        "id": "duration",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "game_set_event_damage",
     "name": "set_event_damage",
     "object": "world",
@@ -4136,6 +4281,18 @@
       {
         "id": "damage",
         "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "game_set_event_death_screen_message",
+    "name": "set_event_death_screen_message",
+    "object": "world",
+    "args": [
+      {
+        "id": "message",
+        "type": "text"
       }
     ],
     "type": "basic"
@@ -4184,6 +4341,18 @@
       {
         "id": "item",
         "type": "item"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "game_set_event_item_cooldown",
+    "name": "set_event_item_cooldown",
+    "object": "world",
+    "args": [
+      {
+        "id": "cooldown",
+        "type": "number"
       }
     ],
     "type": "basic"
@@ -4733,6 +4902,38 @@
     "type": "basic"
   },
   {
+    "id": "game_set_vault_displayed_item",
+    "name": "set_vault_displayed_item",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "game_set_vault_next_state_update_time",
+    "name": "set_vault_next_state_update_time",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "time",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "game_set_world_difficulty",
     "name": "set_world_difficulty",
     "object": "world",
@@ -4868,11 +5069,11 @@
         "type": "item"
       },
       {
-        "id": "boots",
+        "id": "leggings",
         "type": "item"
       },
       {
-        "id": "leggings",
+        "id": "boots",
         "type": "item"
       },
       {
@@ -5213,6 +5414,72 @@
     "type": "basic"
   },
   {
+    "id": "game_spawn_item_frame",
+    "name": "spawn_item_frame",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "rotation",
+        "type": "enum",
+        "values": [
+          "NONE",
+          "CLOCKWISE_45",
+          "CLOCKWISE",
+          "CLOCKWISE_135",
+          "FLIPPED",
+          "FLIPPED_45",
+          "COUNTER_CLOCKWISE",
+          "COUNTER_CLOCKWISE_45"
+        ]
+      },
+      {
+        "id": "block_face",
+        "type": "enum",
+        "values": [
+          "NORTH",
+          "EAST",
+          "SOUTH",
+          "WEST",
+          "UP",
+          "DOWN"
+        ]
+      },
+      {
+        "id": "glowing",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "visible",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "fixed",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "game_spawn_lightning_bolt",
     "name": "spawn_lightning_bolt",
     "object": "world",
@@ -5242,13 +5509,13 @@
         "type": "number"
       },
       {
+        "id": "custom_name",
+        "type": "text"
+      },
+      {
         "id": "potion_effects",
         "type": "potion",
         "array": 15
-      },
-      {
-        "id": "custom_name",
-        "type": "text"
       },
       {
         "id": "main_hand",
@@ -5280,6 +5547,32 @@
         "values": [
           "FALSE",
           "TRUE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "game_spawn_painting",
+    "name": "spawn_painting",
+    "object": "world",
+    "args": [
+      {
+        "id": "spawn_location",
+        "type": "location"
+      },
+      {
+        "id": "art",
+        "type": "text"
+      },
+      {
+        "id": "block_face",
+        "type": "enum",
+        "values": [
+          "NORTH",
+          "EAST",
+          "SOUTH",
+          "WEST"
         ]
       }
     ],
@@ -5339,13 +5632,13 @@
         "type": "location"
       },
       {
+        "id": "custom_name",
+        "type": "text"
+      },
+      {
         "id": "displayed_text",
         "type": "text",
         "array": 28
-      },
-      {
-        "id": "custom_name",
-        "type": "text"
       },
       {
         "id": "merging_mode",
@@ -5964,6 +6257,28 @@
     "type": "container"
   },
   {
+    "id": "if_game_event_has_input",
+    "name": "event_has_input",
+    "object": "world",
+    "args": [
+      {
+        "id": "input_type",
+        "type": "enum",
+        "values": [
+          "FORWARD",
+          "BACKWARDS",
+          "LEFT",
+          "RIGHT",
+          "JUMP",
+          "SNEAK",
+          "SPRINT"
+        ]
+      }
+    ],
+    "boolean": true,
+    "type": "basic"
+  },
+  {
     "id": "if_game_event_is_canceled",
     "name": "event_is_canceled",
     "object": "world",
@@ -6281,6 +6596,28 @@
     ],
     "boolean": true,
     "type": "container"
+  },
+  {
+    "id": "if_player_has_input",
+    "name": "has_input",
+    "object": "player",
+    "args": [
+      {
+        "id": "input_type",
+        "type": "enum",
+        "values": [
+          "FORWARD",
+          "BACKWARDS",
+          "LEFT",
+          "RIGHT",
+          "JUMP",
+          "SNEAK",
+          "SPRINT"
+        ]
+      }
+    ],
+    "boolean": true,
+    "type": "basic"
   },
   {
     "id": "if_player_has_item",
@@ -9211,6 +9548,18 @@
           "FALSE",
           "TRUE"
         ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "player_set_death_screen_score",
+    "name": "set_death_screen_score",
+    "object": "player",
+    "args": [
+      {
+        "id": "score",
+        "type": "number"
       }
     ],
     "type": "basic"
@@ -15881,13 +16230,13 @@
         "type": "map"
       },
       {
+        "id": "key",
+        "type": "any"
+      },
+      {
         "id": "values",
         "type": "any",
         "array": 18
-      },
-      {
-        "id": "key",
-        "type": "any"
       }
     ],
     "assign": [
@@ -16321,13 +16670,13 @@
         "type": "variable"
       },
       {
+        "id": "bundle",
+        "type": "item"
+      },
+      {
         "id": "items",
         "type": "item",
         "array": 35
-      },
-      {
-        "id": "bundle",
-        "type": "item"
       },
       {
         "id": "setting_mode",
@@ -17067,13 +17416,13 @@
         "type": "variable"
       },
       {
+        "id": "item",
+        "type": "item"
+      },
+      {
         "id": "lore",
         "type": "text",
         "array": 21
-      },
-      {
-        "id": "item",
-        "type": "item"
       }
     ],
     "assign": [

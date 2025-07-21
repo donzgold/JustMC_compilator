@@ -1,3 +1,6 @@
+from time import time
+
+start_time = time()
 import shutil
 import sys
 import zipfile
@@ -75,11 +78,15 @@ class Properties:
         file.write(a1[-1][1].replace("\n", "\\n") + " = " + str(self.properties[a1[-1][1]]).replace("\n", "\\n"))
 
 
-def translate(message: str, insert: dict = None):
+def translate(message: str, insert: dict = None, fallback: str = None):
     global lang
     if message not in lang:
-        return message
-    message = lang[message]
+        if fallback is None:
+            return f"&fMessage '{message}' not found, inserts={insert}&r"
+        else:
+            message = fallback
+    else:
+        message = lang[message]
     if insert is not None:
         for k1, v1 in insert.items():
             message = message.replace("{" + str(k1) + "}", str(v1))
@@ -297,6 +304,8 @@ if not os.path.isfile("jmcc.properties"):
 else:
     data = Properties(text=open("jmcc.properties", "r", encoding="UTF-8").read())
     lang = Properties(text=open("data/lang/" + data["lang"] + ".properties", "r", encoding="UTF-8").read())
+end_time = time()
+print(minecraft_based_text(translate("jmcc.prepare_data_time",{0:round(end_time - start_time, 3)})))
 if __name__ == "__main__":
     if data["check_updates"]:
         a = is_connected()
@@ -310,10 +319,6 @@ if __name__ == "__main__":
             from compilator import compile_file
 
             compile_file(additional[1], upload=(additional[-1] == "-u"), properties=data.properties)
-        elif additional[0] == "build" and len(additional) > 1:
-            from compilator import build_directory
-
-            build_directory(additional[1], upload=(additional[-1] == "-u"), properties=data.properties)
         elif additional[0] == "decompile" and len(additional) > 1:
             from decompilator import decompile_file
 

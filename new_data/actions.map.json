@@ -860,5 +860,22 @@
   "game_set_event_knockback_vector": {"name": "set_event_knockback_vector","object": "world"},
   "game_set_event_velocity": {"name": "set_event_velocity","object": "world"},
   "set_variable_gamma_function": {"name": "gamma_function","object": "variable","origin": "number","assign": [{"variable": "number"}]},
-  "set_variable_hadamard_vector_product": {"name": "hadamard_vector_product","object": "variable","origin": "vector_1","assign": [{"variable": "vector"}]}
+  "set_variable_hadamard_vector_product": {"name": "hadamard_vector_product","object": "variable","origin": "vector_1","assign": [{"variable": "vector"}]},
+  "entity_set_chicken_type": {"name": "set_chicken_type","object": "entity"},
+  "entity_set_cow_type": {"name": "set_cow_type","object": "entity"},
+  "entity_set_pig_type": {"name": "set_pig_type","object": "entity"},
+  "entity_set_wolf_sound_variant": {"name": "set_wolf_sound_variant","object": "entity"},
+  "game_set_creaking_heart_natural" : {"name": "set_creaking_heart_natural","object": "world"},
+  "game_set_creaking_heart_state" : {"name": "set_creaking_heart_state","object": "world"},
+  "game_set_dried_ghast_hydration" : {"name": "set_dried_ghast_hydration","object": "world"},
+  "game_set_event_combust_duration" : {"name": "set_event_combust_duration","object": "world"},
+  "game_set_event_death_screen_message" : {"name": "set_event_death_screen_message","object": "world"},
+  "game_set_event_item_cooldown" : {"name": "set_event_item_cooldown","object": "world"},
+  "game_set_vault_displayed_item" : {"name": "set_vault_displayed_item","object": "world"},
+  "game_set_vault_next_state_update_time" : {"name": "set_vault_next_state_update_time","object": "world"},
+  "game_spawn_item_frame" : {"name": "spawn_item_frame","object": "world"},
+  "game_spawn_painting" : {"name": "spawn_painting","object": "world"},
+  "if_game_event_has_input" : {"name": "event_has_input","object": "world","boolean": true},
+  "if_player_has_input" : {"name": "has_input","object": "player","boolean": true},
+  "player_set_death_screen_score" : {"name": "set_death_screen_score","object": "player"}
 }

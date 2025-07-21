@@ -100,6 +100,10 @@
     "cancellable": true
   },
   {
+    "id": "entity_combust",
+    "cancellable": true
+  },
+  {
     "id": "entity_damage_entity",
     "cancellable": true
   },
@@ -118,6 +122,10 @@
   {
     "id": "entity_dummy",
     "cancellable": false
+  },
+  {
+    "id": "entity_equipment_changed",
+    "cancellable": true
   },
   {
     "id": "entity_explode",
@@ -172,6 +180,14 @@
     "cancellable": true
   },
   {
+    "id": "entity_start_gliding",
+    "cancellable": true
+  },
+  {
+    "id": "entity_stop_gliding",
+    "cancellable": true
+  },
+  {
     "id": "entity_take_damage",
     "cancellable": true
   },
@@ -189,6 +205,10 @@
   },
   {
     "id": "firework_explode",
+    "cancellable": true
+  },
+  {
+    "id": "fishing_hook_state_change",
     "cancellable": true
   },
   {
@@ -292,7 +312,7 @@
     "cancellable": false
   },
   {
-    "id": "player_command",
+    "id": "player_combust",
     "cancellable": true
   },
   {
@@ -340,6 +360,10 @@
     "cancellable": true
   },
   {
+    "id": "player_equipment_changed",
+    "cancellable": false
+  },
+  {
     "id": "player_exhaustion",
     "cancellable": true
   },
@@ -372,7 +396,19 @@
     "cancellable": true
   },
   {
+    "id": "player_input_event",
+    "cancellable": true
+  },
+  {
     "id": "player_interact",
+    "cancellable": true
+  },
+  {
+    "id": "player_item_cooldown",
+    "cancellable": true
+  },
+  {
+    "id": "player_item_group_cooldown",
     "cancellable": true
   },
   {
@@ -429,6 +465,14 @@
   },
   {
     "id": "player_open_inventory",
+    "cancellable": true
+  },
+  {
+    "id": "player_pick_block",
+    "cancellable": true
+  },
+  {
+    "id": "player_pick_entity",
     "cancellable": true
   },
   {
@@ -520,6 +564,10 @@
     "cancellable": true
   },
   {
+    "id": "player_start_gliding",
+    "cancellable": true
+  },
+  {
     "id": "player_start_spectating_entity",
     "cancellable": true
   },
@@ -529,6 +577,10 @@
   },
   {
     "id": "player_stop_flight",
+    "cancellable": true
+  },
+  {
+    "id": "player_stop_gliding",
     "cancellable": true
   },
   {
@@ -565,6 +617,10 @@
   },
   {
     "id": "player_unsneak",
+    "cancellable": true
+  },
+  {
+    "id": "player_vault_change_state",
     "cancellable": true
   },
   {
@@ -633,6 +689,10 @@
   },
   {
     "id": "tnt_prime",
+    "cancellable": true
+  },
+  {
+    "id": "vault_change_state",
     "cancellable": true
   },
   {

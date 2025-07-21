@@ -92,12 +92,20 @@
     "type": "number"
   },
   {
+    "id": "current_input_list",
+    "type": "array"
+  },
+  {
     "id": "cursor_item",
     "type": "item"
   },
   {
     "id": "custom_inventory_items",
     "type": "array"
+  },
+  {
+    "id": "death_screen_score",
+    "type": "number"
   },
   {
     "id": "direction_of_view",
@@ -133,6 +141,10 @@
   },
   {
     "id": "entity_item",
+    "type": "item"
+  },
+  {
+    "id": "entity_pick_item_stack",
     "type": "item"
   },
   {
@@ -184,11 +196,23 @@
     "type": "text"
   },
   {
+    "id": "event_combust_duration",
+    "type": "number"
+  },
+  {
+    "id": "event_combust_reason",
+    "type": "text"
+  },
+  {
     "id": "event_damage",
     "type": "number"
   },
   {
     "id": "event_damage_cause",
+    "type": "text"
+  },
+  {
+    "id": "event_death_screen_message",
     "type": "text"
   },
   {
@@ -260,6 +284,10 @@
     "type": "number"
   },
   {
+    "id": "event_input_list",
+    "type": "array"
+  },
+  {
     "id": "event_interaction",
     "type": "text"
   },
@@ -274,6 +302,14 @@
   {
     "id": "event_item",
     "type": "item"
+  },
+  {
+    "id": "event_item_cooldown",
+    "type": "number"
+  },
+  {
+    "id": "event_item_cooldown_group",
+    "type": "text"
   },
   {
     "id": "event_items",
@@ -296,12 +332,32 @@
     "type": "text"
   },
   {
+    "id": "event_new_equipments",
+    "type": "map"
+  },
+  {
+    "id": "event_new_fishing_hook_state",
+    "type": "text"
+  },
+  {
     "id": "event_new_location",
     "type": "location"
   },
   {
     "id": "event_new_potion_effect",
     "type": "potion"
+  },
+  {
+    "id": "event_new_vault_state",
+    "type": "text"
+  },
+  {
+    "id": "event_old_equipments",
+    "type": "map"
+  },
+  {
+    "id": "event_old_vault_state",
+    "type": "text"
   },
   {
     "id": "event_power",
@@ -502,6 +558,10 @@
   {
     "id": "particle_cpu_usage",
     "type": "number"
+  },
+  {
+    "id": "particle_visibility",
+    "type": "text"
   },
   {
     "id": "passengers",

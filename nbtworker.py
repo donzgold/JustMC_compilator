@@ -17,7 +17,7 @@ class SnbtReader:
 
     @property
     def next_token(self):
-        while (self.current_char == " "):
+        while self.current_char in {" ", "\n"}:
             self.advance()
         if self.current_char is None:
             return None
