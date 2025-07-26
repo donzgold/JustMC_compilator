@@ -1165,6 +1165,20 @@ player::clear_items(items=[item("stick"), item("stick")]);
 player::clear_potion_effects();
 ```
 
+<h3 id=player_close_dialog_menu>
+  <code>player::close_dialog_menu</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+player::close_dialog_menu();
+```
+
 <h3 id=player_close_inventory>
   <code>player::close_inventory</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4305,6 +4319,29 @@ player::show_debug_marker(location=location(0,0,0,0,0), name="name", duration=1,
 player::show_demo_screen();
 ```
 
+<h3 id=player_show_dialog_menu_from_nbt>
+  <code>player::show_dialog_menu_from_nbt</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+player::show_dialog_menu_from_nbt("dialog_nbt");
+
+#Or dry by keywords
+
+player::show_dialog_menu_from_nbt(dialog_nbt="dialog_nbt");
+```
+
+**Arguments:**
+
+| **Name**     | **Type** | **Description** |
+| ------------ | -------- | --------------- |
+| `dialog_nbt` | Text     | None            |
 <h3 id=player_show_inventory_menu>
   <code>player::show_inventory_menu</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

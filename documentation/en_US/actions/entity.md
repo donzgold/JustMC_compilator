@@ -856,6 +856,31 @@ entity::ride_entity(name_or_uuid="name_or_uuid");
 | **Name**       | **Type** | **Description**            |
 | -------------- | -------- | -------------------------- |
 | `name_or_uuid` | Text     | Name or UUID of the target |
+<h3 id=entity_roll_armadillo>
+  <code>entity::roll_armadillo</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+entity::roll_armadillo("ROLL_OUT");
+
+#Or dry by keywords
+
+entity::roll_armadillo(roll="ROLL_OUT");
+```
+
+**Arguments:**
+
+| **Name** | **Type**                                              | **Description** |
+| -------- | ----------------------------------------------------- | --------------- |
+| `roll`   | Marker<br/>**ROLL_OUT** - None<br/>**ROLL_UP** - None | None            |
 <h3 id=entity_set_absorption_health>
   <code>entity::set_absorption_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2613,6 +2638,34 @@ entity::set_gravity(gravity="FALSE");
 | **Name**  | **Type**                                             | **Description** |
 | --------- | ---------------------------------------------------- | --------------- |
 | `gravity` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Gravity         |
+<h3 id=entity_set_hanging_facing_location>
+  <code>entity::set_hanging_facing_location</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+entity::set_hanging_facing_location("NORTH", "TRUE");
+
+#Or dry by keywords
+
+entity::set_hanging_facing_location(facing="NORTH", force="TRUE");
+```
+
+**Arguments:**
+
+| **Name** | **Type**                                                                                                                       | **Description** |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| `facing` | Marker<br/>**NORTH** - None<br/>**EAST** - None<br/>**SOUTH** - None<br/>**WEST** - None<br/>**UP** - None<br/>**DOWN** - None | None            |
+| `force`  | Marker<br/>**TRUE** - None<br/>**FALSE** - None                                                                                | None            |
 <h3 id=entity_set_horse_jump>
   <code>entity::set_horse_jump</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2889,6 +2942,32 @@ entity::set_item_display_model_type(display_model_type="FIRSTPERSON_LEFTHAND");
 | **Name**             | **Type**                                                                                                                                                                                                                                                                                                                                                    | **Description** |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | `display_model_type` | Marker<br/>**FIRSTPERSON_LEFTHAND** - First Person Left Hand<br/>**FIRSTPERSON_RIGHTHAND** - First Person Right Hand<br/>**FIXED** - Fixed<br/>**GROUND** - On the ground<br/>**GUI** - Inventory<br/>**HEAD** - Head<br/>**NONE** - Standard<br/>**THIRDPERSON_LEFTHAND** - Third Person Left Hand<br/>**THIRDPERSON_RIGHTHAND** - Third Person Right Hand | Model Type      |
+<h3 id=entity_set_item_frame_item_drop_chance>
+  <code>entity::set_item_frame_item_drop_chance</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+entity::set_item_frame_item_drop_chance(1);
+
+#Or dry by keywords
+
+entity::set_item_frame_item_drop_chance(drop_chance=1);
+```
+
+**Arguments:**
+
+| **Name**      | **Type** | **Description** |
+| ------------- | -------- | --------------- |
+| `drop_chance` | Number   | None            |
 <h3 id=entity_set_item_in_frame>
   <code>entity::set_item_in_frame</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3158,6 +3237,32 @@ entity::no_physics(no_physics="TRUE");
 | **Name**     | **Type**                                         | **Description** |
 | ------------ | ------------------------------------------------ | --------------- |
 | `no_physics` | Marker<br/>**TRUE** - False<br/>**FALSE** - True | Physics         |
+<h3 id=entity_set_painting_art>
+  <code>entity::set_painting_art</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+entity::set_painting_art("art", "TRUE");
+
+#Or dry by keywords
+
+entity::set_painting_art(art="art", force="TRUE");
+```
+
+**Arguments:**
+
+| **Name** | **Type**                                        | **Description** |
+| -------- | ----------------------------------------------- | --------------- |
+| `art`    | Text                                            | None            |
+| `force`  | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=entity_set_panda_gene>
   <code>entity::set_panda_gene</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

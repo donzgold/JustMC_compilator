@@ -330,7 +330,7 @@ var b = value::current_health<default_entity>\n\
 \n\
 ### Доступные селекторы\n\
 \n\
-**Важно:** эти селекторы доступны только для игровых значений.Действия имеют свои собственные селекторы, которые вы должны смотреть на их страницах.\n\
+**Важно:** эти селекторы доступны только для игровых значений. Действия имеют свои собственные селекторы, которые вы должны смотреть на их страницах.\n\
 \n\
 | **Имя**            | **Описание**          |\n\
 | ------------------ | --------------------- |\n\
@@ -354,7 +354,7 @@ var b = value::health<default_entity>\n\
 \n\
 ### Selectors\n\
 \n\
-**Important:** These selectors are only available for game values.Actions have their own selectors that you should look at on their pages.\n\
+**Important:** These selectors are only available for game values. Actions have their own selectors that you should look at on their pages.\n\
 \n\
 | **Name**           | **Description**   |\n\
 | ------------------ | ----------------- |\n\
@@ -507,6 +507,7 @@ for i in another_actions:
         for i1 in another_actions[i]["args"]:
             if not i1["id"] in arges:
                 if i not in load_actions_map:
+                    print("Не существующий аргумент:",  json.dumps(i1))
                     print("Действие", json.dumps(another_actions[i]), "не найдено в actions.map2")
                     exit()
                 else:
@@ -514,7 +515,7 @@ for i in another_actions:
                         true_arges = 1
                         arges = {i2["id"]: i2 for i2 in load_actions_map[i]["args"]}
                     if i1["id"] not in arges:
-                        print("Не существующий аргумент:", i1["id"])
+                        print("Не существующий аргумент:", json.dumps(i1))
                         print("Действие", json.dumps(another_actions[i]), "необходимо обновить в actions.map2")
                         exit()
             i1["plural"] = arges[i1["id"]]["plural"]
@@ -914,14 +915,14 @@ var c = item(\"stone\");\n\
 \n\
 Те аргументы, которые заканчиваются на `*` указывать обязательно.\n\
 \n\
-| **Имя**      | **Название**   | **Аргументы**                                                                                                                                                                                            |\n\
-| ------------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n\
-| `location()` | Местоположение | (`x`: число*, `y`: число*, `z`: число*, `yaw`: число, `pitch`: число)                                                                                                                                    |\n\
-| `item()`     | Предмет        | (`id`: текст*, `name`: текст, `count`: число, `lore`: список[текст], `nbt`: майнкрафт_нбт(данные components), `custom_tags`: словарь)                                                                    |\n\
-| `sound()`    | Звук           | (`sound`: текст*, `volume`: число, `pitch`: число, `variation`: текст, `source`: текст)                                                                                                                  |\n\
-| `vector()`   | Вектор         | (`x`: число*, `y`: число*, `z`: число*)                                                                                                                                                                  |\n\
-| `particle()` | Эффект частиц  | (`particle`: текст*, `count`: число, `spread_x`: число, `spread_y`: число, `motion_x`: число, `motion_y`: число, `motion_z`: число, `material`: текст, `color`: число, `size`: число, `to_color`: число) |\n\
-| `potion()`   | Зелье          | (`potion`: текст*, `amplifier`: число, `duration`: число)                                                                                                                                                |")
+| **Имя**      | **Название**   | **Аргументы**                                                                                                                                                                                                     |\n\
+| ------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n\
+| `location()` | Местоположение | (`x`: число*, `y`: число*, `z`: число*, `yaw`: число, `pitch`: число)                                                                                                                                             |\n\
+| `item()`     | Предмет        | (`id`: текст*, `name`: текст, `count`: число, `lore`: список[текст], `nbt`: майнкрафт_нбт(данные components), `custom_tags`: словарь)                                                                             |\n\
+| `sound()`    | Звук           | (`sound`: текст*, `volume`: число, `pitch`: число, `variation`: текст, `source`: маркер(**RECORD**, **BLOCK**, **MASTER**, **VOICE**, **WEATHER**, **AMBIENT**, **NEUTRAL**, **HOSTILE**, **PLAYER**, **MUSIC**)) |\n\
+| `vector()`   | Вектор         | (`x`: число*, `y`: число*, `z`: число*)                                                                                                                                                                           |\n\
+| `particle()` | Эффект частиц  | (`particle`: текст*, `count`: число, `spread_x`: число, `spread_y`: число, `motion_x`: число, `motion_y`: число, `motion_z`: число, `material`: текст, `color`: число, `size`: число, `to_color`: число)          |\n\
+| `potion()`   | Зелье          | (`potion`: текст*, `amplifier`: число, `duration`: число)                                                                                                                                                         |")
 open("documentation/en_US/factories.md", "a+", encoding="UTF-8").write("\
 ## Factories\n\
 \n\
@@ -938,14 +939,14 @@ The arguments indicate the types of values that you must pass to the factory to 
 \n\
 Those arguments ending in `*` must be specified.\n\
 \n\
-| **Name**     | **Description**   | **Arguments**                                                                                                                                                                                                    |\n\
-| ------------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n\
-| `location()` | Location          | (`x`: number*, `y`: number*, `z`: number*, `yaw`: number, `pitch`: number)                                                                                                                                       |\n\
-| `item()`     | Item              | (`id`: text*, `name`: text, `count`: number, `lore`: list[text], `nbt`: minecraft_nbt(components data), `custom_tags`: dictionary)                                                                               |\n\
-| `sound()`    | Sound             | (`sound`: text*, `volume`: number, `pitch`: number, `variation`: text, `source`: text)                                                                                                                           |\n\
-| `vector()`   | Vector            | (`x`: number*, `y`: number*, `z`: number*)                                                                                                                                                                       |\n\
-| `particle()` | Particle effect   | (`particle`: text*, `count`: number, `spread_x`: number, `spread_y`: number, `motion_x`: number, `motion_y`: number, `motion_z`: number, `material`: текст, `color`: number, `size`: number, `to_color`: number) |\n\
-| `potion()`   | Potion            | (`potion`: text*, `amplifier`: number, `duration`: number)                                                                                                                                                       |")
+| **Name**     | **Description**   | **Arguments**                                                                                                                                                                                                     |\n\
+| ------------ | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n\
+| `location()` | Location          | (`x`: number*, `y`: number*, `z`: number*, `yaw`: number, `pitch`: number)                                                                                                                                        |\n\
+| `item()`     | Item              | (`id`: text*, `name`: text, `count`: number, `lore`: list[text], `nbt`: minecraft_nbt(components data), `custom_tags`: dictionary)                                                                                |\n\
+| `sound()`    | Sound             | (`sound`: text*, `volume`: number, `pitch`: number, `variation`: text, `source`: marker(**RECORD**, **BLOCK**, **MASTER**, **VOICE**, **WEATHER**, **AMBIENT**, **NEUTRAL**, **HOSTILE**, **PLAYER**, **MUSIC**)) |\n\
+| `vector()`   | Vector            | (`x`: number*, `y`: number*, `z`: number*)                                                                                                                                                                        |\n\
+| `particle()` | Particle effect   | (`particle`: text*, `count`: number, `spread_x`: number, `spread_y`: number, `motion_x`: number, `motion_y`: number, `motion_z`: number, `material`: текст, `color`: number, `size`: number, `to_color`: number)  |\n\
+| `potion()`   | Potion            | (`potion`: text*, `amplifier`: number, `duration`: number)                                                                                                                                                        |")
 
 particles_data = []
 for i in sorted(another_particles):

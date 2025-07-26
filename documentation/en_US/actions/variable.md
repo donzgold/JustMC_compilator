@@ -1861,19 +1861,21 @@ variable::create_map_from_values(variable=`variable`, keys=["any value", "any va
 
 **Name:** Create Translatable Stylized Text\
 **Type:** An action that returns a value\
-**Description:** Creates a translated Styled Text.
+**Description:** Creates a translated Styled Text.\
+**Additional info:**\
+&nbsp;&nbsp;None
 
 **Usage example:** 
 ```ts
-`variable` = variable::create_translatable_component("key", ["args", "args"]);
+`variable` = variable::create_translatable_component("key", "fallback", ["args", "args"]);
 
 #Or dry by positionals
 
-variable::create_translatable_component(`variable`, "key", ["args", "args"]);
+variable::create_translatable_component(`variable`, "key", "fallback", ["args", "args"]);
 
 #Or dry by keywords
 
-variable::create_translatable_component(variable=`variable`, key="key", args=["args", "args"]);
+variable::create_translatable_component(variable=`variable`, key="key", fallback="fallback", args=["args", "args"]);
 ```
 
 **Arguments:**
@@ -1882,6 +1884,7 @@ variable::create_translatable_component(variable=`variable`, key="key", args=["a
 | ---------- | ---------- | ------------------ |
 | `variable` | Variable   | Variable to assign |
 | `key`      | Text       | Key                |
+| `fallback` | Text       | None               |
 | `args`     | list[Text] | Arguments to add   |
 <h3 id=set_variable_decrement>
   <code>variable::decrement</code>
@@ -1987,6 +1990,41 @@ variable::divide_vector(variable=`variable`, vector=vector(0,0,0), divider=vecto
 variable::dummy();
 ```
 
+<h3 id=set_variable_edit_item_custom_nodel_data>
+  <code>variable::edit_item_custom_nodel_data</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::edit_item_custom_nodel_data(item("stick"), ["any value", "any value"], "FLOATS", "SET");
+
+#Or from the object
+
+`variable` = item("stick").edit_item_custom_nodel_data(["any value", "any value"], "FLOATS", "SET");
+
+#Or dry by positionals
+
+variable::edit_item_custom_nodel_data(`variable`, item("stick"), ["any value", "any value"], "FLOATS", "SET");
+
+#Or dry by keywords
+
+variable::edit_item_custom_nodel_data(variable=`variable`, item=item("stick"), data=["any value", "any value"], value_type="FLOATS", setup_mode="SET");
+```
+
+**Arguments:**
+
+| **Name**     | **Type**                                                                                                                      | **Description** |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `variable`   | Variable                                                                                                                      | None            |
+| `item`       | Item                                                                                                                          | None            |
+| `data`       | list[Any Value]                                                                                                               | None            |
+| `value_type` | Marker<br/>**FLOATS** - None<br/>**BOOLEANS** - None<br/>**STRINGS** - None<br/>**COLORS** - None                             | None            |
+| `setup_mode` | Marker<br/>**SET** - None<br/>**ADD** - None<br/>**REMOVE_ALL** - None<br/>**REMOVE_FIRST** - None<br/>**REMOVE_LAST** - None | None            |
 <h3 id=set_variable_face_location>
   <code>variable::face_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3261,6 +3299,40 @@ variable::get_item_durability(variable=`variable`, item=item("stick"), durabilit
 | `variable`        | Variable                                                                                                                                                                                                                                      | Variable to assign |
 | `item`            | Item                                                                                                                                                                                                                                          | Item               |
 | `durability_type` | Marker<br/>**DAMAGE** - Current Durability<br/>**DAMAGE_PERCENTAGE** - Current Durability Percentage<br/>**MAXIMUM** - Max Durability<br/>**REMAINING** - Remaining Durability<br/>**REMAINING_PERCENTAGE** - Remaining Durability Percentage | Durability Type    |
+<h3 id=set_variable_get_item_effective_name>
+  <code>variable::get_item_effective_name</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+`variable` = variable::get_item_effective_name(item("stick"));
+
+#Or from the object
+
+`variable` = item("stick").get_item_effective_name();
+
+#Or dry by positionals
+
+variable::get_item_effective_name(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_item_effective_name(variable=`variable`, item=item("stick"));
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | None            |
+| `item`     | Item     | None            |
 <h3 id=set_variable_get_item_enchantments>
   <code>variable::get_item_enchantments</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3547,6 +3619,38 @@ variable::get_item_rarity(variable=`variable`, item=item("stick"));
 | ---------- | -------- | ------------------ |
 | `variable` | Variable | Variable to assign |
 | `item`     | Item     | Item               |
+<h3 id=set_variable_get_item_tooltip_style>
+  <code>variable::get_item_tooltip_style</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::get_item_tooltip_style(item("stick"));
+
+#Or from the object
+
+`variable` = item("stick").get_item_tooltip_style();
+
+#Or dry by positionals
+
+variable::get_item_tooltip_style(`variable`, item("stick"));
+
+#Or dry by keywords
+
+variable::get_item_tooltip_style(variable=`variable`, item=item("stick"));
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | None            |
+| `item`     | Item     | None            |
 <h3 id=set_variable_get_item_type>
   <code>variable::get_item_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4875,6 +4979,66 @@ variable::get_text_width(variable=`variable`, text="text");
 | ---------- | -------- | ------------------ |
 | `variable` | Variable | Variable to assign |
 | `text`     | Text     | Original Text      |
+<h3 id=set_variable_get_vault_displayed_item>
+  <code>variable::get_vault_displayed_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+`variable` = variable::get_vault_displayed_item(location(0,0,0,0,0));
+
+#Or dry by positionals
+
+variable::get_vault_displayed_item(`variable`, location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::get_vault_displayed_item(variable=`variable`, location=location(0,0,0,0,0));
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | None            |
+| `location` | Location | None            |
+<h3 id=set_variable_get_vault_next_state_update_time>
+  <code>variable::get_vault_next_state_update_time</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+`variable` = variable::get_vault_next_state_update_time(location(0,0,0,0,0));
+
+#Or dry by positionals
+
+variable::get_vault_next_state_update_time(`variable`, location(0,0,0,0,0));
+
+#Or dry by keywords
+
+variable::get_vault_next_state_update_time(variable=`variable`, location=location(0,0,0,0,0));
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | None            |
+| `location` | Location | None            |
 <h3 id=set_variable_get_vector_all_components>
   <code>variable::get_vector_all_components</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5481,6 +5645,39 @@ variable::multiply_vector(variable=`variable`, vector=vector(0,0,0), multiplier=
 | `variable`   | Variable | Variable to assign |
 | `vector`     | Vector   | Vector to change   |
 | `multiplier` | Number   | Number to Multiply |
+<h3 id=set_variable_obtain_item_custom_model_data>
+  <code>variable::obtain_item_custom_model_data</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::obtain_item_custom_model_data(item("stick"), "FLOATS");
+
+#Or from the object
+
+`variable` = item("stick").obtain_item_custom_model_data("FLOATS");
+
+#Or dry by positionals
+
+variable::obtain_item_custom_model_data(`variable`, item("stick"), "FLOATS");
+
+#Or dry by keywords
+
+variable::obtain_item_custom_model_data(variable=`variable`, item=item("stick"), value_type="FLOATS");
+```
+
+**Arguments:**
+
+| **Name**     | **Type**                                                                                          | **Description** |
+| ------------ | ------------------------------------------------------------------------------------------------- | --------------- |
+| `variable`   | Variable                                                                                          | None            |
+| `item`       | Item                                                                                              | None            |
+| `value_type` | Marker<br/>**FLOATS** - None<br/>**BOOLEANS** - None<br/>**STRINGS** - None<br/>**COLORS** - None | None            |
 <h3 id=set_variable_parse_json>
   <code>variable::parse_json</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7369,6 +7566,39 @@ variable::set_item_enchantments(variable=`variable`, item=item("stick"), enchant
 | `variable`     | Variable   | Variable to assign            |
 | `item`         | Item       | Item                          |
 | `enchantments` | Dictionary | Enchantments and their levels |
+<h3 id=set_variable_set_item_hidden_tooltip>
+  <code>variable::set_item_hidden_tooltip</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::set_item_hidden_tooltip(item("stick"), "TRUE");
+
+#Or from the object
+
+`variable` = item("stick").set_item_hidden_tooltip("TRUE");
+
+#Or dry by positionals
+
+variable::set_item_hidden_tooltip(`variable`, item("stick"), "TRUE");
+
+#Or dry by keywords
+
+variable::set_item_hidden_tooltip(variable=`variable`, item=item("stick"), tooltip_hidden="TRUE");
+```
+
+**Arguments:**
+
+| **Name**         | **Type**                                        | **Description** |
+| ---------------- | ----------------------------------------------- | --------------- |
+| `variable`       | Variable                                        | None            |
+| `item`           | Item                                            | None            |
+| `tooltip_hidden` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=set_variable_set_item_lore>
   <code>variable::set_item_lore</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7533,6 +7763,39 @@ variable::set_item_placeable_blocks(variable=`variable`, placeable=[item("stick"
 | `variable`  | Variable   | Variable to assign |
 | `placeable` | list[Item] | Placeable Blocks   |
 | `item`      | Item       | Item               |
+<h3 id=set_variable_set_item_tooltip_style>
+  <code>variable::set_item_tooltip_style</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::set_item_tooltip_style(item("stick"), "style");
+
+#Or from the object
+
+`variable` = item("stick").set_item_tooltip_style("style");
+
+#Or dry by positionals
+
+variable::set_item_tooltip_style(`variable`, item("stick"), "style");
+
+#Or dry by keywords
+
+variable::set_item_tooltip_style(variable=`variable`, item=item("stick"), style="style");
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | None            |
+| `item`     | Item     | None            |
+| `style`    | Text     | None            |
 <h3 id=set_variable_set_item_type>
   <code>variable::set_item_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

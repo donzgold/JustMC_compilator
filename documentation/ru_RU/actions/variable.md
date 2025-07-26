@@ -1861,19 +1861,21 @@ variable::create_map_from_values(variable=`variable`, keys=["any value", "any va
 
 **Имя:** Создать переводимый стилизуемый текст\
 **Тип:** Действие, возращающее значение\
-**Описание:** Присваивает к переменной переводимый стилизуемый текст с указанными аргументами.
+**Описание:** Присваивает к переменной переводимый стилизуемый текст с указанными аргументами.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Если запасное сообщение не задано и указанный ключ не имеет перевода, конечное сообщение будет равно указанному ключу.
 
 **Пример использования:** 
 ```ts
-`variable` = variable::create_translatable_component("key", ["args", "args"]);
+`variable` = variable::create_translatable_component("key", "fallback", ["args", "args"]);
 
 #Или в сухую позиционно
 
-variable::create_translatable_component(`variable`, "key", ["args", "args"]);
+variable::create_translatable_component(`variable`, "key", "fallback", ["args", "args"]);
 
 #Или в сухую по ключам
 
-variable::create_translatable_component(variable=`variable`, key="key", args=["args", "args"]);
+variable::create_translatable_component(variable=`variable`, key="key", fallback="fallback", args=["args", "args"]);
 ```
 
 **Аргументы:**
@@ -1882,6 +1884,7 @@ variable::create_translatable_component(variable=`variable`, key="key", args=["a
 | ---------- | ------------- | ------------------------- |
 | `variable` | Переменная    | Переменная для присвоения |
 | `key`      | Текст         | Ключ                      |
+| `fallback` | Текст         | Запасное сообщение        |
 | `args`     | список[Текст] | Аргументы для вставки     |
 <h3 id=set_variable_decrement>
   <code>variable::decrement</code>
@@ -1987,6 +1990,41 @@ variable::divide_vector(variable=`variable`, vector=vector(0,0,0), divider=vecto
 variable::dummy();
 ```
 
+<h3 id=set_variable_edit_item_custom_nodel_data>
+  <code>variable::edit_item_custom_nodel_data</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Изменить данные о модели предмета\
+**Тип:** Действие, возращающее значение\
+**Описание:** Изменяет данные о модели предмета (CustomModelData) и присваивает результат к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::edit_item_custom_nodel_data(item("stick"), ["any value", "any value"], "FLOATS", "SET");
+
+#Или от объекта
+
+`variable` = item("stick").edit_item_custom_nodel_data(["any value", "any value"], "FLOATS", "SET");
+
+#Или в сухую позиционно
+
+variable::edit_item_custom_nodel_data(`variable`, item("stick"), ["any value", "any value"], "FLOATS", "SET");
+
+#Или в сухую по ключам
+
+variable::edit_item_custom_nodel_data(variable=`variable`, item=item("stick"), data=["any value", "any value"], value_type="FLOATS", setup_mode="SET");
+```
+
+**Аргументы:**
+
+| **Имя**      | **Тип**                                                                                                                                                                                  | **Описание**              |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `variable`   | Переменная                                                                                                                                                                               | Переменная для присвоения |
+| `item`       | Предмет                                                                                                                                                                                  | Предмет                   |
+| `data`       | список[Любое значение]                                                                                                                                                                   | Данные                    |
+| `value_type` | Маркер<br/>**FLOATS** - Плавающие значения (floats)<br/>**BOOLEANS** - Булевые значения (booleans)<br/>**STRINGS** - Строчные значения (strings)<br/>**COLORS** - Список цветов (colors) | Тип данных                |
+| `setup_mode` | Маркер<br/>**SET** - Установка<br/>**ADD** - Добавление<br/>**REMOVE_ALL** - Удалить все<br/>**REMOVE_FIRST** - Удалить первую запись<br/>**REMOVE_LAST** - Удалить последнюю запись     | Действие                  |
 <h3 id=set_variable_face_location>
   <code>variable::face_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3261,6 +3299,40 @@ variable::get_item_durability(variable=`variable`, item=item("stick"), durabilit
 | `variable`        | Переменная                                                                                                                                                                                                                                    | Переменная для присвоения |
 | `item`            | Предмет                                                                                                                                                                                                                                       | Предмет                   |
 | `durability_type` | Маркер<br/>**DAMAGE** - Текущая прочность<br/>**DAMAGE_PERCENTAGE** - Текущий процент прочности<br/>**MAXIMUM** - Максимальная прочность<br/>**REMAINING** - Остаточная прочность<br/>**REMAINING_PERCENTAGE** - Остаточный процент прочности | Тип прочности             |
+<h3 id=set_variable_get_item_effective_name>
+  <code>variable::get_item_effective_name</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить отображаемое в инвентаре имя предмета\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает имя предмета, в том виде, в котором оно отображается в инвентаре, и присваивает его к переменной.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Возвращаемый текст создается из нескольких частей, которые влияют на отображаемое имя, в том числе из редкости и переводимого имени предмета.
+
+**Пример использования:** 
+```ts
+`variable` = variable::get_item_effective_name(item("stick"));
+
+#Или от объекта
+
+`variable` = item("stick").get_item_effective_name();
+
+#Или в сухую позиционно
+
+variable::get_item_effective_name(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_item_effective_name(variable=`variable`, item=item("stick"));
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**    | **Описание**              |
+| ---------- | ---------- | ------------------------- |
+| `variable` | Переменная | Переменная для присвоения |
+| `item`     | Предмет    | Предмет                   |
 <h3 id=set_variable_get_item_enchantments>
   <code>variable::get_item_enchantments</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3539,6 +3611,38 @@ variable::get_item_rarity(`variable`, item("stick"));
 #Или в сухую по ключам
 
 variable::get_item_rarity(variable=`variable`, item=item("stick"));
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**    | **Описание**              |
+| ---------- | ---------- | ------------------------- |
+| `variable` | Переменная | Переменная для присвоения |
+| `item`     | Предмет    | Предмет                   |
+<h3 id=set_variable_get_item_tooltip_style>
+  <code>variable::get_item_tooltip_style</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить стиль всплывающей подсказки предмета\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает стиль всплывающей подсказки предмета и присваивает результат к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::get_item_tooltip_style(item("stick"));
+
+#Или от объекта
+
+`variable` = item("stick").get_item_tooltip_style();
+
+#Или в сухую позиционно
+
+variable::get_item_tooltip_style(`variable`, item("stick"));
+
+#Или в сухую по ключам
+
+variable::get_item_tooltip_style(variable=`variable`, item=item("stick"));
 ```
 
 **Аргументы:**
@@ -4875,6 +4979,66 @@ variable::get_text_width(variable=`variable`, text="text");
 | ---------- | ---------- | ------------------------- |
 | `variable` | Переменная | Переменная для присвоения |
 | `text`     | Текст      | Исходный текст            |
+<h3 id=set_variable_get_vault_displayed_item>
+  <code>variable::get_vault_displayed_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить отображаемый предмет сокровищницы\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает отображаемый предмет сокровищницы и присваивает его к переменной.
+**Работает с:**\
+&nbsp;&nbsp;Сокровищницами
+
+**Пример использования:** 
+```ts
+`variable` = variable::get_vault_displayed_item(location(0,0,0,0,0));
+
+#Или в сухую позиционно
+
+variable::get_vault_displayed_item(`variable`, location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_vault_displayed_item(variable=`variable`, location=location(0,0,0,0,0));
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**                |
+| ---------- | -------------- | --------------------------- |
+| `variable` | Переменная     | Переменная для присвоения   |
+| `location` | Местоположение | Местоположение сокровищницы |
+<h3 id=set_variable_get_vault_next_state_update_time>
+  <code>variable::get_vault_next_state_update_time</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить время следующего обновления состояния сокровищницы\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает время следующего обновления состояния сокровищницы и присваивает его к переменной.
+**Работает с:**\
+&nbsp;&nbsp;Сокровищницами
+
+**Пример использования:** 
+```ts
+`variable` = variable::get_vault_next_state_update_time(location(0,0,0,0,0));
+
+#Или в сухую позиционно
+
+variable::get_vault_next_state_update_time(`variable`, location(0,0,0,0,0));
+
+#Или в сухую по ключам
+
+variable::get_vault_next_state_update_time(variable=`variable`, location=location(0,0,0,0,0));
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**        | **Описание**                |
+| ---------- | -------------- | --------------------------- |
+| `variable` | Переменная     | Переменная для присвоения   |
+| `location` | Местоположение | Местоположение сокровищницы |
 <h3 id=set_variable_get_vector_all_components>
   <code>variable::get_vector_all_components</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5481,6 +5645,39 @@ variable::multiply_vector(variable=`variable`, vector=vector(0,0,0), multiplier=
 | `variable`   | Переменная | Переменная для присвоения |
 | `vector`     | Вектор     | Вектор для изменения      |
 | `multiplier` | Число      | Число для умножения       |
+<h3 id=set_variable_obtain_item_custom_model_data>
+  <code>variable::obtain_item_custom_model_data</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить данные о модели предмета\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает список данных о модели предмета (CustomModelData) и присваивает его к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::obtain_item_custom_model_data(item("stick"), "FLOATS");
+
+#Или от объекта
+
+`variable` = item("stick").obtain_item_custom_model_data("FLOATS");
+
+#Или в сухую позиционно
+
+variable::obtain_item_custom_model_data(`variable`, item("stick"), "FLOATS");
+
+#Или в сухую по ключам
+
+variable::obtain_item_custom_model_data(variable=`variable`, item=item("stick"), value_type="FLOATS");
+```
+
+**Аргументы:**
+
+| **Имя**      | **Тип**                                                                                                                                                                                  | **Описание**              |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `variable`   | Переменная                                                                                                                                                                               | Переменная для присвоения |
+| `item`       | Предмет                                                                                                                                                                                  | Предмет                   |
+| `value_type` | Маркер<br/>**FLOATS** - Плавающие значения (floats)<br/>**BOOLEANS** - Булевые значения (booleans)<br/>**STRINGS** - Строчные значения (strings)<br/>**COLORS** - Список цветов (colors) | Тип данных                |
 <h3 id=set_variable_parse_json>
   <code>variable::parse_json</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7369,6 +7566,39 @@ variable::set_item_enchantments(variable=`variable`, item=item("stick"), enchant
 | `variable`     | Переменная | Переменная для присвоения |
 | `item`         | Предмет    | Предмет                   |
 | `enchantments` | Словарь    | Зачарования и их уровни   |
+<h3 id=set_variable_set_item_hidden_tooltip>
+  <code>variable::set_item_hidden_tooltip</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Скрыть всплывающую подсказку предмета\
+**Тип:** Действие, возращающее значение\
+**Описание:** Скрывает всплывающую подсказку предмета и присваивает результат к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::set_item_hidden_tooltip(item("stick"), "TRUE");
+
+#Или от объекта
+
+`variable` = item("stick").set_item_hidden_tooltip("TRUE");
+
+#Или в сухую позиционно
+
+variable::set_item_hidden_tooltip(`variable`, item("stick"), "TRUE");
+
+#Или в сухую по ключам
+
+variable::set_item_hidden_tooltip(variable=`variable`, item=item("stick"), tooltip_hidden="TRUE");
+```
+
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                  | **Описание**                  |
+| ---------------- | -------------------------------------------------------- | ----------------------------- |
+| `variable`       | Переменная                                               | Переменная для присвоения     |
+| `item`           | Предмет                                                  | Предмет                       |
+| `tooltip_hidden` | Маркер<br/>**TRUE** - Включено<br/>**FALSE** - Выключено | Скрытие всплывающей подсказки |
 <h3 id=set_variable_set_item_lore>
   <code>variable::set_item_lore</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7533,6 +7763,39 @@ variable::set_item_placeable_blocks(variable=`variable`, placeable=[item("stick"
 | `variable`  | Переменная      | Переменная для присвоения                 |
 | `placeable` | список[Предмет] | Блоки, на которые можно поставить предмет |
 | `item`      | Предмет         | Предмет                                   |
+<h3 id=set_variable_set_item_tooltip_style>
+  <code>variable::set_item_tooltip_style</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить стиль всплывающей подсказки предмета\
+**Тип:** Действие, возращающее значение\
+**Описание:** Устанавливает стиль всплывающей подсказки предмета и присваивает результат к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::set_item_tooltip_style(item("stick"), "style");
+
+#Или от объекта
+
+`variable` = item("stick").set_item_tooltip_style("style");
+
+#Или в сухую позиционно
+
+variable::set_item_tooltip_style(`variable`, item("stick"), "style");
+
+#Или в сухую по ключам
+
+variable::set_item_tooltip_style(variable=`variable`, item=item("stick"), style="style");
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**    | **Описание**              |
+| ---------- | ---------- | ------------------------- |
+| `variable` | Переменная | Переменная для присвоения |
+| `item`     | Предмет    | Предмет                   |
+| `style`    | Текст      | Ключ стиля подсказки      |
 <h3 id=set_variable_set_item_type>
   <code>variable::set_item_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

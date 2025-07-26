@@ -125,7 +125,7 @@
   },
   {
     "id": "entity_equipment_changed",
-    "cancellable": true
+    "cancellable": false
   },
   {
     "id": "entity_explode",
@@ -324,6 +324,10 @@
     "cancellable": true
   },
   {
+    "id": "player_custom_click",
+    "cancellable": false
+  },
+  {
     "id": "player_damage_entity",
     "cancellable": true
   },
@@ -397,7 +401,7 @@
   },
   {
     "id": "player_input_event",
-    "cancellable": true
+    "cancellable": false
   },
   {
     "id": "player_interact",

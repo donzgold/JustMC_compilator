@@ -122,7 +122,7 @@
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "vector_1", "plural": false, "type": "vector", "valueSlots": [1]},
     {"id": "vector_2", "plural": false, "type": "vector", "valueSlots": [2]}]},
-  "game_spawn_item_frame": {"id": "game_spawn_item_frame", "type": "basic", "exists": false, "args": [
+  "game_spawn_item_frame": {"id": "game_spawn_item_frame", "type": "basic", "args": [
     {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
     {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
     {"id": "rotation", "plural": false, "type": "enum", "valueSlots": [2], "values": ["NONE", "CLOCKWISE_45", "CLOCKWISE", "CLOCKWISE_135", "FLIPPED", "FLIPPED_45", "COUNTER_CLOCKWISE", "COUNTER_CLOCKWISE_45"]},
@@ -130,45 +130,93 @@
     {"id": "glowing", "plural": false, "type": "enum", "valueSlots": [4], "values": ["TRUE", "FALSE"]},
     {"id": "visible", "plural": false, "type": "enum", "valueSlots": [5], "values": ["TRUE", "FALSE"]},
     {"id": "fixed", "plural": false, "type": "enum", "valueSlots": [6], "values": ["TRUE", "FALSE"]}]},
-  "game_spawn_painting" : {"id": "game_spawn_painting", "type": "basic", "exists": false, "args": [
+  "game_spawn_painting" : {"id": "game_spawn_painting", "type": "basic", "args": [
     {"id": "spawn_location", "plural": false, "type": "location", "valueSlots": [0]},
     {"id": "art", "plural": false, "type": "text", "valueSlots": [1]},
     {"id": "block_face", "plural": false, "type": "enum", "valueSlots": [2], "values": ["NORTH", "EAST", "SOUTH", "WEST"]}]},
-  "game_set_vault_displayed_item": {"id": "game_set_vault_displayed_item", "type": "basic", "exists": false, "args": [
+  "game_set_vault_displayed_item": {"id": "game_set_vault_displayed_item", "type": "basic", "args": [
     {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
     {"id": "item", "plural": false, "type": "item", "valueSlots": [1]}]},
-  "game_set_vault_next_state_update_time": {"id": "game_set_vault_next_state_update_time", "type": "basic", "exists": false, "args": [
+  "game_set_vault_next_state_update_time": {"id": "game_set_vault_next_state_update_time", "type": "basic", "args": [
     {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
     {"id": "time", "plural": false, "type": "number", "valueSlots": [1]}]},
-  "game_set_dried_ghast_hydration": {"id": "game_set_dried_ghast_hydration", "type": "basic", "exists": false, "args": [
+  "game_set_dried_ghast_hydration": {"id": "game_set_dried_ghast_hydration", "type": "basic", "args": [
     {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
     {"id": "hydration", "plural": false, "type": "number", "valueSlots": [1]}]},
-  "game_set_creaking_heart_state": {"id": "game_set_creaking_heart_state", "type": "basic", "exists": false, "args": [
+  "game_set_creaking_heart_state": {"id": "game_set_creaking_heart_state", "type": "basic", "args": [
     {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
     {"id": "heart_state", "plural": false, "type": "enum", "valueSlots": [1], "values": ["UPROOTED", "DORMANT", "AWAKE"]}]},
-  "game_set_creaking_heart_natural": {"id": "game_set_creaking_heart_natural", "type": "basic", "exists": false, "args": [
+  "game_set_creaking_heart_natural": {"id": "game_set_creaking_heart_natural", "type": "basic", "args": [
     {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
     {"id": "natural", "plural": false, "type": "enum", "valueSlots": [1], "values": ["TRUE", "FALSE"]}]},
-  "game_set_event_combust_duration": {"id": "game_set_event_combust_duration", "type": "basic", "exists": false, "args": [
+  "game_set_event_combust_duration": {"id": "game_set_event_combust_duration", "type": "basic", "args": [
     {"id": "duration", "plural": false, "type": "number", "valueSlots": [0]}]},
-  "game_set_event_item_cooldown": {"id": "game_set_event_item_cooldown", "type": "basic", "exists": false, "args": [
+  "game_set_event_item_cooldown": {"id": "game_set_event_item_cooldown", "type": "basic", "args": [
     {"id": "cooldown", "plural": false, "type": "number", "valueSlots": [0]}]},
-  "game_set_event_death_screen_message": {"id": "game_set_event_death_screen_message", "type": "basic", "exists": false, "args": [
+  "game_set_event_death_screen_message": {"id": "game_set_event_death_screen_message", "type": "basic", "args": [
     {"id": "message", "plural": false, "type": "text", "valueSlots": [0]}]},
-  "player_set_death_screen_score": {"id": "player_set_death_screen_score", "type": "basic", "exists": false, "args": [
+  "player_set_death_screen_score": {"id": "player_set_death_screen_score", "type": "basic", "args": [
     {"id": "score", "plural": false, "type": "number", "valueSlots": [0]}]},
-  "if_player_has_input": {"id": "if_player_has_input", "type": "basic", "exists": false, "args": [
+  "if_player_has_input": {"id": "if_player_has_input", "type": "basic", "args": [
     {"id": "input_type", "plural": false, "type": "enum", "valueSlots": [0], "values": ["FORWARD", "BACKWARDS", "LEFT", "RIGHT", "JUMP", "SNEAK", "SPRINT"]}]},
-  "if_game_event_has_input": {"id": "if_game_event_has_input", "type": "basic", "exists": false, "args": [
+  "if_game_event_has_input": {"id": "if_game_event_has_input", "type": "basic", "args": [
     {"id": "input_type", "plural": false, "type": "enum", "valueSlots": [0], "values": ["FORWARD", "BACKWARDS", "LEFT", "RIGHT", "JUMP", "SNEAK", "SPRINT"]}]},
-  "entity_set_chicken_type": {"id": "entity_set_chicken_type", "type": "basic", "exists": false, "args": [
+  "entity_set_chicken_type": {"id": "entity_set_chicken_type", "type": "basic", "args": [
     {"id": "variant", "plural": false, "type": "enum", "valueSlots": [0], "values": ["COLD", "WARM", "TEMPERATE"]}]},
-  "entity_set_cow_type": {"id": "entity_set_cow_type", "type": "basic", "exists": false, "args": [
+  "entity_set_cow_type": {"id": "entity_set_cow_type", "type": "basic", "args": [
     {"id": "variant", "plural": false, "type": "enum", "valueSlots": [0], "values": ["COLD", "WARM", "TEMPERATE"]}]},
-  "entity_set_pig_type": {"id": "entity_set_pig_type", "type": "basic", "exists": false, "args": [
+  "entity_set_pig_type": {"id": "entity_set_pig_type", "type": "basic", "args": [
     {"id": "variant", "plural": false, "type": "enum", "valueSlots": [0], "values": ["COLD", "WARM", "TEMPERATE"]}]},
-  "entity_set_wolf_sound_variant": {"id": "entity_set_wolf_sound_variant", "type": "basic", "exists": false, "args": [
+  "entity_set_wolf_sound_variant": {"id": "entity_set_wolf_sound_variant", "type": "basic", "args": [
     {"id": "sound_variant", "plural": false, "type": "enum", "valueSlots": [0], "values": ["ANGRY", "BIG", "CLASSIC", "CUTE", "GRUMPY", "PUGLIN", "SAD"]}]},
   "select_add_player_by_conditional": {"id": "select_add_player_by_conditional", "type": "basic_with_conditional", "args": []},
-  "select_add_entity_by_conditional": {"id": "select_add_entity_by_conditional", "type": "basic_with_conditional", "args": []}
+  "select_add_entity_by_conditional": {"id": "select_add_entity_by_conditional", "type": "basic_with_conditional", "args": []},
+  "set_variable_create_translatable_component": {"id": "set_variable_create_translatable_component", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "key", "plural": false, "type": "text", "valueSlots": [18]},
+    {"id": "args", "plural": true, "type": "text", "valueSlots": [2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26, 29, 30, 31, 32, 33, 34, 35, 38, 39, 40, 41, 42, 43, 44]},
+    {"id": "fallback", "plural": false, "type": "text", "valueSlots": [36]}]},
+  "entity_set_hanging_facing_location": {"id": "entity_set_hanging_facing_location", "type": "basic", "args": [
+    {"id": "facing", "plural": false, "type": "enum", "valueSlots": [0], "values": ["NORTH", "EAST", "SOUTH", "WEST", "UP", "DOWN"]},
+    {"id": "force", "plural": false, "type": "enum", "valueSlots": [1], "values": ["TRUE", "FALSE"]}]},
+  "entity_roll_armadillo": {"id": "entity_roll_armadillo", "type": "basic", "args": [
+    {"id": "roll", "plural": false, "type": "enum", "valueSlots": [0], "values": ["ROLL_OUT", "ROLL_UP"]}]},
+  "entity_set_item_frame_item_drop_chance": {"id": "entity_set_item_frame_item_drop_chance", "type": "basic", "args": [
+    {"id": "drop_chance", "plural": false, "type": "number", "valueSlots": [0]}]},
+  "entity_set_painting_art": {"id": "entity_set_painting_art", "type": "basic", "args": [
+    {"id": "art", "plural": false, "type": "text", "valueSlots": [0]},
+    {"id": "force", "plural": false, "type": "enum", "valueSlots": [1], "values": ["TRUE", "FALSE"]}]},
+  "set_variable_get_vault_displayed_item": {"id": "set_variable_get_vault_displayed_item", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [1]}]},
+  "set_variable_get_vault_next_state_update_time": {"id": "set_variable_get_vault_next_state_update_time", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [1]}]},
+  "set_variable_get_item_effective_name": {"id": "set_variable_get_item_effective_name", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]}]},
+  "set_variable_obtain_item_custom_model_data": {"id": "set_variable_obtain_item_custom_model_data", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "value_type", "plural": false, "type": "enum", "valueSlots": [2], "values": ["FLOATS", "BOOLEANS", "STRINGS", "COLORS"]}]},
+  "set_variable_edit_item_custom_nodel_data": {"id": "set_variable_edit_item_custom_nodel_data", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "data", "plural": true, "type": "any", "valueSlots": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]},
+    {"id": "value_type", "plural": false, "type": "enum", "valueSlots": [25], "values": ["FLOATS", "BOOLEANS", "STRINGS", "COLORS"]},
+    {"id": "setup_mode", "plural": false, "type": "enum", "valueSlots": [26], "values": ["SET", "ADD", "REMOVE_ALL", "REMOVE_FIRST", "REMOVE_LAST"]}]},
+  "set_variable_get_item_tooltip_style": {"id": "set_variable_get_item_tooltip_style", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]}]},
+  "set_variable_set_item_tooltip_style": {"id": "set_variable_set_item_tooltip_style", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "style", "plural": false, "type": "text", "valueSlots": [2]}]},
+  "set_variable_set_item_hidden_tooltip": {"id": "set_variable_set_item_hidden_tooltip", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "tooltip_hidden", "plural": false, "type": "enum", "valueSlots": [2], "values": ["TRUE", "FALSE"]}]},
+  "player_show_dialog_menu_from_nbt": {"id": "player_show_dialog_menu_from_nbt", "type": "basic", "args": [
+    {"id": "dialog_nbt", "plural": false, "type": "text", "valueSlots": [0]}]},
+  "player_close_dialog_menu": {"id": "player_close_dialog_menu", "type": "basic", "args": []}
 }

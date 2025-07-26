@@ -204,6 +204,14 @@
     "type": "text"
   },
   {
+    "id": "event_custom_click_dialog_view_data",
+    "type": "any"
+  },
+  {
+    "id": "event_custom_click_key",
+    "type": "text"
+  },
+  {
     "id": "event_damage",
     "type": "number"
   },

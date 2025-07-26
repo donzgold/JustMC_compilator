@@ -1165,6 +1165,20 @@ player::clear_items(items=[item("stick"), item("stick")]);
 player::clear_potion_effects();
 ```
 
+<h3 id=player_close_dialog_menu>
+  <code>player::close_dialog_menu</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Закрыть диалоговое окно\
+**Тип:** Действие без значения\
+**Описание:** Закрывает текущее диалоговое окно игроку.
+
+**Пример использования:** 
+```ts
+player::close_dialog_menu();
+```
+
 <h3 id=player_close_inventory>
   <code>player::close_inventory</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4018,10 +4032,10 @@ player::set_skin(name_or_uuid="name_or_uuid", server_type="MOJANG");
 
 **Аргументы:**
 
-| **Имя**        | **Тип**                                                          | **Описание**       |
-| -------------- | ---------------------------------------------------------------- | ------------------ |
-| `name_or_uuid` | Текст                                                            | Имя или UUID скина |
-| `server_type`  | Маркер<br/>**MOJANG** - Скин Mojang<br/>**SERVER** - Скин JustMC | Тип сервера скинов |
+| **Имя**        | **Тип**                                                          | **Описание**                        |
+| -------------- | ---------------------------------------------------------------- | ----------------------------------- |
+| `name_or_uuid` | Текст                                                            | Имя, UUID или ссылка на изображение |
+| `server_type`  | Маркер<br/>**MOJANG** - Скин Mojang<br/>**SERVER** - Скин JustMC | Тип сервера скинов                  |
 <h3 id=player_set_slot_item>
   <code>player::set_slot_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4305,6 +4319,29 @@ player::show_debug_marker(location=location(0,0,0,0,0), name="name", duration=1,
 player::show_demo_screen();
 ```
 
+<h3 id=player_show_dialog_menu_from_nbt>
+  <code>player::show_dialog_menu_from_nbt</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Показать диалоговое окно\
+**Тип:** Действие без значения\
+**Описание:** Показывет игроку диалоговое окно из NBT-тегов.
+
+**Пример использования:** 
+```ts
+player::show_dialog_menu_from_nbt("dialog_nbt");
+
+#Или в сухую по ключам
+
+player::show_dialog_menu_from_nbt(dialog_nbt="dialog_nbt");
+```
+
+**Аргументы:**
+
+| **Имя**      | **Тип** | **Описание**              |
+| ------------ | ------- | ------------------------- |
+| `dialog_nbt` | Текст   | NBT-теги диалогового окна |
 <h3 id=player_show_inventory_menu>
   <code>player::show_inventory_menu</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

@@ -877,5 +877,19 @@
   "game_spawn_painting" : {"name": "spawn_painting","object": "world"},
   "if_game_event_has_input" : {"name": "event_has_input","object": "world","boolean": true},
   "if_player_has_input" : {"name": "has_input","object": "player","boolean": true},
-  "player_set_death_screen_score" : {"name": "set_death_screen_score","object": "player"}
+  "player_set_death_screen_score" : {"name": "set_death_screen_score","object": "player"},
+  "entity_roll_armadillo" : {"name": "roll_armadillo","object": "entity"},
+  "entity_set_hanging_facing_location" : {"name": "set_hanging_facing_location","object": "entity"},
+  "entity_set_item_frame_item_drop_chance" : {"name": "set_item_frame_item_drop_chance","object": "entity"},
+  "entity_set_painting_art" : {"name": "set_painting_art","object": "entity"},
+  "player_close_dialog_menu" : {"name": "close_dialog_menu","object": "player"},
+  "player_show_dialog_menu_from_nbt" : {"name": "show_dialog_menu_from_nbt","object": "player"},
+  "set_variable_edit_item_custom_nodel_data" : {"name": "edit_item_custom_nodel_data","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "set_variable_get_item_effective_name" : {"name": "get_item_effective_name","object": "variable","origin": "item","assign": [{"variable": "text"}]},
+  "set_variable_get_item_tooltip_style" : {"name": "get_item_tooltip_style","object": "variable","origin": "item","assign": [{"variable": "text"}]},
+  "set_variable_get_vault_displayed_item" : {"name": "get_vault_displayed_item","object": "variable","assign": [{"variable": "item"}]},
+  "set_variable_get_vault_next_state_update_time" : {"name": "get_vault_next_state_update_time","object": "variable","assign": [{"variable": "number"}]},
+  "set_variable_obtain_item_custom_model_data" : {"name": "obtain_item_custom_model_data","object": "variable","origin": "item","assign": [{"variable": "array"}]},
+  "set_variable_set_item_hidden_tooltip" : {"name": "set_item_hidden_tooltip","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "set_variable_set_item_tooltip_style" : {"name": "set_item_tooltip_style","object": "variable","origin": "item","assign": [{"variable": "item"}]}
 }

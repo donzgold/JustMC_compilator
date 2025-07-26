@@ -691,6 +691,22 @@
     "type": "basic"
   },
   {
+    "id": "entity_roll_armadillo",
+    "name": "roll_armadillo",
+    "object": "entity",
+    "args": [
+      {
+        "id": "roll",
+        "type": "enum",
+        "values": [
+          "ROLL_OUT",
+          "ROLL_UP"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_absorption_health",
     "name": "set_absorption_health",
     "object": "entity",
@@ -1924,6 +1940,34 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_hanging_facing_location",
+    "name": "set_hanging_facing_location",
+    "object": "entity",
+    "args": [
+      {
+        "id": "facing",
+        "type": "enum",
+        "values": [
+          "NORTH",
+          "EAST",
+          "SOUTH",
+          "WEST",
+          "UP",
+          "DOWN"
+        ]
+      },
+      {
+        "id": "force",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_horse_jump",
     "name": "set_horse_jump",
     "object": "entity",
@@ -2104,6 +2148,18 @@
           "THIRDPERSON_LEFTHAND",
           "THIRDPERSON_RIGHTHAND"
         ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_item_frame_item_drop_chance",
+    "name": "set_item_frame_item_drop_chance",
+    "object": "entity",
+    "args": [
+      {
+        "id": "drop_chance",
+        "type": "number"
       }
     ],
     "type": "basic"
@@ -2321,6 +2377,26 @@
     "args": [
       {
         "id": "no_physics",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_painting_art",
+    "name": "set_painting_art",
+    "object": "entity",
+    "args": [
+      {
+        "id": "art",
+        "type": "text"
+      },
+      {
+        "id": "force",
         "type": "enum",
         "values": [
           "TRUE",
@@ -7976,6 +8052,13 @@
     "type": "basic"
   },
   {
+    "id": "player_close_dialog_menu",
+    "name": "close_dialog_menu",
+    "object": "player",
+    "args": [],
+    "type": "basic"
+  },
+  {
     "id": "player_close_inventory",
     "name": "close_inventory",
     "object": "player",
@@ -10400,6 +10483,18 @@
     "type": "basic"
   },
   {
+    "id": "player_show_dialog_menu_from_nbt",
+    "name": "show_dialog_menu_from_nbt",
+    "object": "player",
+    "args": [
+      {
+        "id": "dialog_nbt",
+        "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "player_show_inventory_menu",
     "name": "show_inventory_menu",
     "object": "player",
@@ -12161,9 +12256,13 @@
         "type": "text"
       },
       {
+        "id": "fallback",
+        "type": "text"
+      },
+      {
         "id": "args",
         "type": "text",
-        "array": 21
+        "array": 35
       }
     ],
     "assign": [
@@ -12261,6 +12360,55 @@
     "name": "dummy",
     "object": "variable",
     "args": [],
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_edit_item_custom_nodel_data",
+    "name": "edit_item_custom_nodel_data",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "data",
+        "type": "any",
+        "array": 19
+      },
+      {
+        "id": "value_type",
+        "type": "enum",
+        "values": [
+          "FLOATS",
+          "BOOLEANS",
+          "STRINGS",
+          "COLORS"
+        ]
+      },
+      {
+        "id": "setup_mode",
+        "type": "enum",
+        "values": [
+          "SET",
+          "ADD",
+          "REMOVE_ALL",
+          "REMOVE_FIRST",
+          "REMOVE_LAST"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
     "type": "basic"
   },
   {
@@ -13458,6 +13606,29 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_get_item_effective_name",
+    "name": "get_item_effective_name",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "text"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_get_item_enchantments",
     "name": "get_item_enchantments",
     "object": "variable",
@@ -13650,6 +13821,29 @@
   {
     "id": "set_variable_get_item_rarity",
     "name": "get_item_rarity",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "text"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_get_item_tooltip_style",
+    "name": "get_item_tooltip_style",
     "object": "variable",
     "args": [
       {
@@ -14769,6 +14963,50 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_get_vault_displayed_item",
+    "name": "get_vault_displayed_item",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "location",
+        "type": "location"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_get_vault_next_state_update_time",
+    "name": "get_vault_next_state_update_time",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "location",
+        "type": "location"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "set_variable_get_vector_all_components",
     "name": "get_vector_all_components",
     "object": "variable",
@@ -15351,6 +15589,39 @@
         "type": "vector"
       }
     ],
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_obtain_item_custom_model_data",
+    "name": "obtain_item_custom_model_data",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "value_type",
+        "type": "enum",
+        "values": [
+          "FLOATS",
+          "BOOLEANS",
+          "STRINGS",
+          "COLORS"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
+    "origin": "item",
     "type": "basic"
   },
   {
@@ -17407,6 +17678,37 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_set_item_hidden_tooltip",
+    "name": "set_item_hidden_tooltip",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "tooltip_hidden",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_set_item_lore",
     "name": "set_item_lore",
     "object": "variable",
@@ -17537,6 +17839,33 @@
       {
         "id": "item",
         "type": "item"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_set_item_tooltip_style",
+    "name": "set_item_tooltip_style",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "style",
+        "type": "text"
       }
     ],
     "assign": [
