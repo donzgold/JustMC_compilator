@@ -871,7 +871,7 @@
   - [*variable::vector_dot_product [ Скалярное произведение двух векторов ]*](./variable.md#set_variable_vector_dot_product)
   - [*variable::vector_to_direction_name [ Получить сторону света вектора ]*](./variable.md#set_variable_vector_to_direction_name)
   - [*variable::voronoi_noise_3d [ Шум Вороного ]*](./variable.md#set_variable_voronoi_noise_3d)
-  - [*variable::warp [ Обернуть число ]*](./variable.md#set_variable_warp)
+  - [*variable::wrap [ Обернуть число ]*](./variable.md#set_variable_warp)
 - **[repeat](./repeat.md)**
   - [*repeat::adjacently [ Проход по смежным блокам ]*](./repeat.md#repeat_adjacently)
   - [*repeat::dummy [ ... ]*](./repeat.md#repeat_dummy)

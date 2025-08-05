@@ -787,7 +787,7 @@
   "set_variable_vector": {"name": "set_vector","object": "variable","assign": [{"variable": "vector"}]},
   "set_variable_vector_to_direction_name": {"name": "vector_to_direction_name","object": "variable","assign": [{"variable": "text"}],"origin": "vector"},
   "set_variable_voronoi_noise_3d": {"name": "voronoi_noise_3d","object": "variable","assign": [{"variable": "number"}],"origin": "location"},
-  "set_variable_warp": {"name": "warp","object": "variable","assign": [{"variable": "number"}],"origin": "number"},
+  "set_variable_warp": {"name": "wrap","object": "variable","assign": [{"variable": "number"}],"origin": "number"},
   "start_process": {"name": "start_process","object": "code"},
   "entity_set_mob_aggressive": {"name": "set_mob_aggressive","object": "entity"},
   "entity_set_primed_tnt_block": {"name": "set_primed_tnt_block","object": "entity"},

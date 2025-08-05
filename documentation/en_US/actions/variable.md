@@ -9609,7 +9609,7 @@ variable::voronoi_noise_3d(variable=`variable`, location=location(0,0,0,0,0), se
 | `range_mode`      | Marker<br/>**FULL_RANGE** - -1 to 1<br/>**ZERO_TO_ONE** - 0 to 1 | Value Range           |
 | `enable_distance` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable             | Distance Mode         |
 <h3 id=set_variable_warp>
-  <code>variable::warp</code>
+  <code>variable::wrap</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
@@ -9619,19 +9619,19 @@ variable::voronoi_noise_3d(variable=`variable`, location=location(0,0,0,0,0), se
 
 **Usage example:** 
 ```ts
-`variable` = variable::warp(1, 2, 3);
+`variable` = variable::wrap(1, 2, 3);
 
 #Or from the object
 
-`variable` = (1).warp(2, 3);
+`variable` = (1).wrap(2, 3);
 
 #Or dry by positionals
 
-variable::warp(`variable`, 1, 2, 3);
+variable::wrap(`variable`, 1, 2, 3);
 
 #Or dry by keywords
 
-variable::warp(variable=`variable`, number=1, min=2, max=3);
+variable::wrap(variable=`variable`, number=1, min=2, max=3);
 ```
 
 **Arguments:**

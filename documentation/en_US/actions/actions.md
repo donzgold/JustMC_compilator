@@ -871,7 +871,7 @@
   - [*variable::vector_dot_product [ Dot Product Of Two Vectors ]*](./variable.md#set_variable_vector_dot_product)
   - [*variable::vector_to_direction_name [ Get Direction By Vector ]*](./variable.md#set_variable_vector_to_direction_name)
   - [*variable::voronoi_noise_3d [ Voronoi Noise ]*](./variable.md#set_variable_voronoi_noise_3d)
-  - [*variable::warp [ Wrap Number ]*](./variable.md#set_variable_warp)
+  - [*variable::wrap [ Wrap Number ]*](./variable.md#set_variable_warp)
 - **[repeat](./repeat.md)**
   - [*repeat::adjacently [ Repeat Adjacently ]*](./repeat.md#repeat_adjacently)
   - [*repeat::dummy [ ... ]*](./repeat.md#repeat_dummy)

@@ -89,6 +89,12 @@
           "swamp"
         ],
         "color": 6975545
+      },
+      {
+        "keys": [
+          "pale_garden"
+        ],
+        "color": 7832178
       }
     ]
   },
@@ -176,6 +182,12 @@
           "mangrove_swamp"
         ],
         "color": 9285927
+      },
+      {
+        "keys": [
+          "pale_garden"
+        ],
+        "color": 8883574
       },
       {
         "keys": [
@@ -283,6 +295,12 @@
           "meadow"
         ],
         "color": 937679
+      },
+      {
+        "keys": [
+          "pale_garden"
+        ],
+        "color": 7768221
       },
       {
         "keys": [
