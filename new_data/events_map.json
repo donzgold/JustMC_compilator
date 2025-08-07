@@ -34,5 +34,7 @@
   "player_start_gliding": {"cancellable": true},
   "player_stop_gliding": {"cancellable": true},
   "fishing_hook_state_change": {"cancellable": true},
-  "player_custom_click": {"cancellable": false}
+  "player_custom_click": {"cancellable": false},
+  "player_ask_gamemode_change": {"cancellable": true},
+  "player_prepare_result": {"cancellable": true}
 }

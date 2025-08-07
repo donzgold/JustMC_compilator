@@ -910,6 +910,7 @@
         "id": "attribute_type",
         "type": "enum",
         "values": [
+          "CAMERA_DISTANCE",
           "GENERIC_ARMOR",
           "GENERIC_ARMOR_TOUGHNESS",
           "GENERIC_ATTACK_DAMAGE",
@@ -940,6 +941,9 @@
           "PLAYER_SNEAKING_SPEED",
           "PLAYER_SUBMERGED_MINING_SPEED",
           "PLAYER_SWEEPING_DAMAGE_RATIO",
+          "TEMP_RANGE",
+          "WAYPOINT_RECEIVE_RANGE",
+          "WAYPOINT_TRANSMIT_RANGE",
           "ZOMBIE_SPAWN_REINFORCEMENTS"
         ]
       }
@@ -2177,6 +2181,18 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_item_owner",
+    "name": "set_item_owner",
+    "object": "entity",
+    "args": [
+      {
+        "id": "name_or_uuid",
+        "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_llama_type",
     "name": "set_llama_type",
     "object": "entity",
@@ -3227,6 +3243,7 @@
         "type": "enum",
         "values": [
           "FALSE",
+          "NOT_SET",
           "TRUE"
         ]
       }
@@ -4398,6 +4415,24 @@
     "type": "basic"
   },
   {
+    "id": "game_set_event_gamemode",
+    "name": "set_event_gamemode",
+    "object": "world",
+    "args": [
+      {
+        "id": "gamemode",
+        "type": "enum",
+        "values": [
+          "CREATIVE",
+          "SURVIVAL",
+          "ADVENTURE",
+          "SPECTATOR"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "game_set_event_heal",
     "name": "set_event_heal",
     "object": "world",
@@ -5076,7 +5111,10 @@
           "SPAWN_CHUNK_RADIUS",
           "DO_WARDEN_SPAWNING",
           "ENDER_PEARLS_VANISH_ON_DEATH",
-          "DO_VINES_SPREAD"
+          "DO_VINES_SPREAD",
+          "ALLOW_FIRE_TICKS_AWAY_FROM_PLAYER",
+          "TNT_EXPLODER",
+          "LOCATOR_BAR"
         ]
       },
       {
@@ -8852,6 +8890,32 @@
     "type": "basic"
   },
   {
+    "id": "player_open_working_menu",
+    "name": "open_working_menu",
+    "object": "player",
+    "args": [
+      {
+        "id": "title",
+        "type": "text"
+      },
+      {
+        "id": "menu_type",
+        "type": "enum",
+        "values": [
+          "CRAFTING",
+          "ANVIL",
+          "SMITHING",
+          "CARTOGRAPHY_TABLE",
+          "LOOM",
+          "GRINDSTONE",
+          "STONECUTTER",
+          "ENCHANTMENT"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "player_play_animation_action",
     "name": "play_animation_action",
     "object": "player",
@@ -9435,6 +9499,7 @@
         "id": "attribute_type",
         "type": "enum",
         "values": [
+          "CAMERA_DISTANCE",
           "GENERIC_ARMOR",
           "GENERIC_ARMOR_TOUGHNESS",
           "GENERIC_ATTACK_DAMAGE",
@@ -9465,6 +9530,9 @@
           "PLAYER_SNEAKING_SPEED",
           "PLAYER_SUBMERGED_MINING_SPEED",
           "PLAYER_SWEEPING_DAMAGE_RATIO",
+          "TEMP_RANGE",
+          "WAYPOINT_RECEIVE_RANGE",
+          "WAYPOINT_TRANSMIT_RANGE",
           "ZOMBIE_SPAWN_REINFORCEMENTS"
         ]
       }
@@ -10036,6 +10104,22 @@
     "type": "basic"
   },
   {
+    "id": "player_set_item_group_cooldown",
+    "name": "set_item_group_cooldown",
+    "object": "player",
+    "args": [
+      {
+        "id": "key",
+        "type": "text"
+      },
+      {
+        "id": "cooldown",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "player_set_items",
     "name": "set_items",
     "object": "player",
@@ -10377,6 +10461,7 @@
         "type": "enum",
         "values": [
           "FALSE",
+          "NOT_SET",
           "TRUE"
         ]
       }
@@ -10506,6 +10591,10 @@
       },
       {
         "id": "name",
+        "type": "text"
+      },
+      {
+        "id": "custom_id",
         "type": "text"
       },
       {
@@ -12363,8 +12452,8 @@
     "type": "basic"
   },
   {
-    "id": "set_variable_edit_item_custom_nodel_data",
-    "name": "edit_item_custom_nodel_data",
+    "id": "set_variable_edit_item_custom_model_data",
+    "name": "edit_item_custom_model_data",
     "object": "variable",
     "args": [
       {
@@ -13652,6 +13741,36 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_get_item_food_properties",
+    "name": "get_item_food_properties",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "property",
+        "type": "enum",
+        "values": [
+          ""
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_get_item_lore",
     "name": "get_item_lore",
     "object": "variable",
@@ -13719,6 +13838,29 @@
       {
         "id": "variable",
         "type": "number"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_get_item_model_data",
+    "name": "get_item_model_data",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "text"
       }
     ],
     "origin": "item",
@@ -13894,6 +14036,60 @@
       }
     ],
     "origin": "type",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_get_item_use_remainder",
+    "name": "get_item_use_remainder",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_get_item_weapon",
+    "name": "get_item_weapon",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "property",
+        "type": "enum",
+        "values": [
+          "ITEM_DAMAGE_PER_ATTACK",
+          "DISABLE_BLOCKING"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
+      }
+    ],
+    "origin": "item",
     "type": "basic"
   },
   {
@@ -17636,6 +17832,7 @@
           "DAMAGE",
           "DAMAGE_PERCENTAGE",
           "MAXIMUM",
+          "MAX_DAMAGE",
           "REMAINING",
           "REMAINING_PERCENTAGE"
         ]
@@ -17666,6 +17863,108 @@
       {
         "id": "enchantments",
         "type": "map"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_set_item_food_properties",
+    "name": "set_item_food_properties",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "nutrition",
+        "type": "number"
+      },
+      {
+        "id": "saturation",
+        "type": "number"
+      },
+      {
+        "id": "can_always_eat",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_set_item_glider",
+    "name": "set_item_glider",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "glider",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_set_item_glint_override",
+    "name": "set_item_glint_override",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "glowing",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE",
+          "NOT_SET"
+        ]
       }
     ],
     "assign": [
@@ -17796,6 +18095,33 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_set_item_model_data",
+    "name": "set_item_model_data",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "model",
+        "type": "text"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_set_item_name",
     "name": "set_item_name",
     "object": "variable",
@@ -17839,6 +18165,40 @@
       {
         "id": "item",
         "type": "item"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_set_item_rarity",
+    "name": "set_item_rarity",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "rarity",
+        "type": "enum",
+        "values": [
+          "NONE",
+          "COMMON",
+          "UNCOMMON",
+          "RARE",
+          "EPIC"
+        ]
       }
     ],
     "assign": [
@@ -17936,6 +18296,33 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_set_item_use_remainder",
+    "name": "set_item_use_remainder",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "remainder",
+        "type": "item"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_set_item_visibility_flags",
     "name": "set_item_visibility_flags",
     "object": "variable",
@@ -18019,6 +18406,37 @@
           "OFF",
           "ON"
         ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_set_item_weapon",
+    "name": "set_item_weapon",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "item_damage_per_attack",
+        "type": "number"
+      },
+      {
+        "id": "disable_blocking",
+        "type": "number"
       }
     ],
     "assign": [

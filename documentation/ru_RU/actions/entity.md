@@ -33,7 +33,7 @@
 ```ts
 entity::attach_lead("name_or_uuid", location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::attach_lead(name_or_uuid="name_or_uuid", location=location(0,0,0,0,0));
 ```
@@ -88,7 +88,7 @@ entity::clear_merchant_recipes();
 ```ts
 entity::damage(1, "source");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::damage(damage=1, source="source");
 ```
@@ -112,7 +112,7 @@ entity::damage(damage=1, source="source");
 ```ts
 entity::disguise_as_block(item("stone"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::disguise_as_block(block=item("stone"));
 ```
@@ -135,7 +135,7 @@ entity::disguise_as_block(block=item("stone"));
 ```ts
 entity::disguise_as_entity(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::disguise_as_entity(entity_type=item("stick"));
 ```
@@ -158,7 +158,7 @@ entity::disguise_as_entity(entity_type=item("stick"));
 ```ts
 entity::disguise_as_item(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::disguise_as_item(item=item("stick"));
 ```
@@ -181,7 +181,7 @@ entity::disguise_as_item(item=item("stick"));
 ```ts
 entity::disguise_as_player("name_or_uuid", "display_name", "MOJANG");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::disguise_as_player(name_or_uuid="name_or_uuid", display_name="display_name", server_type="MOJANG");
 ```
@@ -238,7 +238,7 @@ entity::eat_grass();
 ```ts
 entity::eat_target("name_or_uuid");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::eat_target(name_or_uuid="name_or_uuid");
 ```
@@ -279,7 +279,7 @@ entity::explode();
 ```ts
 entity::face_location(location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::face_location(location=location(0,0,0,0,0));
 ```
@@ -302,11 +302,11 @@ entity::face_location(location=location(0,0,0,0,0));
 ```ts
 `variable` = entity::get_custom_tag("name", "any value");
 
-#Или в сухую позиционно
+//Или в сухую позиционно
 
 entity::get_custom_tag(`variable`, "name", "any value");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::get_custom_tag(variable=`variable`, name="name", default="any value");
 ```
@@ -331,7 +331,7 @@ entity::get_custom_tag(variable=`variable`, name="name", default="any value");
 ```ts
 entity::give_potion_effects([potion("slow_falling"), potion("slow_falling")], "FALSE", "FALSE", "AMBIENT");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::give_potion_effects(potions=[potion("slow_falling"), potion("slow_falling")], overwrite="FALSE", show_icon="FALSE", particle_mode="AMBIENT");
 ```
@@ -357,7 +357,7 @@ entity::give_potion_effects(potions=[potion("slow_falling"), potion("slow_fallin
 ```ts
 entity::heal(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::heal(heal=1);
 ```
@@ -412,7 +412,7 @@ entity::jump();
 ```ts
 entity::launch_forward(1, "FALSE", "YAW");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::launch_forward(power=1, increment="FALSE", launch_axis="YAW");
 ```
@@ -437,7 +437,7 @@ entity::launch_forward(power=1, increment="FALSE", launch_axis="YAW");
 ```ts
 entity::launch_projectile(item("stick"), location(0,0,0,0,0), "name", 1, 2, particle("fire"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::launch_projectile(projectile=item("stick"), location=location(0,0,0,0,0), name="name", speed=1, inaccuracy=2, trail=particle("fire"));
 ```
@@ -465,7 +465,7 @@ entity::launch_projectile(projectile=item("stick"), location=location(0,0,0,0,0)
 ```ts
 entity::launch_to_location(location(0,0,0,0,0), 1, "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::launch_to_location(location=location(0,0,0,0,0), power=1, increment="FALSE");
 ```
@@ -490,7 +490,7 @@ entity::launch_to_location(location=location(0,0,0,0,0), power=1, increment="FAL
 ```ts
 entity::launch_up(1, "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::launch_up(power=1, increment="FALSE");
 ```
@@ -532,7 +532,7 @@ entity::leave_vehicle();
 ```ts
 entity::modify_piglin_barter_materials([item("stick"), item("stick")], "ADD");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::modify_piglin_barter_materials(materials=[item("stick"), item("stick")], modification_mode="ADD");
 ```
@@ -560,7 +560,7 @@ entity::modify_piglin_barter_materials(materials=[item("stick"), item("stick")],
 ```ts
 entity::modify_piglin_interested_materials([item("stick"), item("stick")], "ADD");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::modify_piglin_interested_materials(materials=[item("stick"), item("stick")], modification_mode="ADD");
 ```
@@ -586,7 +586,7 @@ entity::modify_piglin_interested_materials(materials=[item("stick"), item("stick
 ```ts
 entity::move_to_location(location(0,0,0,0,0), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::move_to_location(location=location(0,0,0,0,0), speed=1);
 ```
@@ -626,7 +626,7 @@ entity::move_to_location_stop();
 ```ts
 entity::play_damage_animation("CRITICAL_DAMAGE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::play_damage_animation(damage_type="CRITICAL_DAMAGE");
 ```
@@ -649,7 +649,7 @@ entity::play_damage_animation(damage_type="CRITICAL_DAMAGE");
 ```ts
 entity::play_hurt_animation(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::play_hurt_animation(yaw=1);
 ```
@@ -674,7 +674,7 @@ entity::play_hurt_animation(yaw=1);
 ```ts
 entity::ram_target("name_or_uuid");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::ram_target(name_or_uuid="name_or_uuid");
 ```
@@ -711,7 +711,7 @@ entity::remove();
 ```ts
 entity::remove_custom_tag("name");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::remove_custom_tag(name="name");
 ```
@@ -751,7 +751,7 @@ entity::remove_disguise();
 ```ts
 entity::remove_merchant_recipe(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::remove_merchant_recipe(recipe_index=1);
 ```
@@ -774,7 +774,7 @@ entity::remove_merchant_recipe(recipe_index=1);
 ```ts
 entity::remove_potion_effect([potion("slow_falling"), potion("slow_falling")]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::remove_potion_effect(effects=[potion("slow_falling"), potion("slow_falling")]);
 ```
@@ -846,7 +846,7 @@ entity::reset_text_display_background();
 ```ts
 entity::ride_entity("name_or_uuid");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::ride_entity(name_or_uuid="name_or_uuid");
 ```
@@ -871,7 +871,7 @@ entity::ride_entity(name_or_uuid="name_or_uuid");
 ```ts
 entity::roll_armadillo("ROLL_OUT");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::roll_armadillo(roll="ROLL_OUT");
 ```
@@ -894,7 +894,7 @@ entity::roll_armadillo(roll="ROLL_OUT");
 ```ts
 entity::set_absorption_health(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_absorption_health(health=1);
 ```
@@ -917,7 +917,7 @@ entity::set_absorption_health(health=1);
 ```ts
 entity::set_ai("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_ai(ai="FALSE");
 ```
@@ -942,7 +942,7 @@ entity::set_ai(ai="FALSE");
 ```ts
 entity::set_allay_dancing("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_allay_dancing(dance="FALSE");
 ```
@@ -973,7 +973,7 @@ entity::set_allay_dancing(dance="FALSE");
 ```ts
 entity::set_angry("target", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_angry(target="target", angry="FALSE");
 ```
@@ -997,7 +997,7 @@ entity::set_angry(target="target", angry="FALSE");
 ```ts
 entity::set_animal_age(1, "DISABLE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_animal_age(age=1, lock="DISABLE");
 ```
@@ -1023,7 +1023,7 @@ entity::set_animal_age(age=1, lock="DISABLE");
 ```ts
 entity::set_armor_items(item("stick"), item("stick"), item("stick"), item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_armor_items(helmet=item("stick"), chestplate=item("stick"), leggings=item("stick"), boots=item("stick"));
 ```
@@ -1051,7 +1051,7 @@ entity::set_armor_items(helmet=item("stick"), chestplate=item("stick"), leggings
 ```ts
 entity::set_armor_stand_parts("DISABLE", "DISABLE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_armor_stand_parts(arms="DISABLE", base_plate="DISABLE");
 ```
@@ -1077,7 +1077,7 @@ entity::set_armor_stand_parts(arms="DISABLE", base_plate="DISABLE");
 ```ts
 entity::set_armor_stand_pose(1, 2, 3, "BODY");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_armor_stand_pose(x_rotation=1, y_rotation=2, z_rotation=3, body_part="BODY");
 ```
@@ -1106,7 +1106,7 @@ entity::set_armor_stand_pose(x_rotation=1, y_rotation=2, z_rotation=3, body_part
 ```ts
 entity::set_arrow_hit_sound(sound("entity.zombie.hurt"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_arrow_hit_sound(sound=sound("entity.zombie.hurt"));
 ```
@@ -1129,7 +1129,7 @@ entity::set_arrow_hit_sound(sound=sound("entity.zombie.hurt"));
 ```ts
 entity::set_arrow_pierce(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_arrow_pierce(pierce=1);
 ```
@@ -1150,19 +1150,19 @@ entity::set_arrow_pierce(pierce=1);
 
 **Пример использования:** 
 ```ts
-entity::set_attribute(1, "GENERIC_ARMOR");
+entity::set_attribute(1, "CAMERA_DISTANCE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
-entity::set_attribute(value=1, attribute_type="GENERIC_ARMOR");
+entity::set_attribute(value=1, attribute_type="CAMERA_DISTANCE");
 ```
 
 **Аргументы:**
 
-| **Имя**          | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Описание**      |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| `value`          | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Значение атрибута |
-| `attribute_type` | Маркер<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_GRAVITY** - Гравитация<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби | Тип атрибута      |
+| **Имя**          | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | **Описание**      |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| `value`          | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Значение атрибута |
+| `attribute_type` | Маркер<br/>**CAMERA_DISTANCE** - Расстояние камеры при виде от третьего лица<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_GRAVITY** - Гравитация<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**TEMP_RANGE** - Расстояние приманивания<br/>**WAYPOINT_RECEIVE_RANGE** - Расстояние улавливания локатора (waypoint_receive_range)<br/>**WAYPOINT_TRANSMIT_RANGE** - Расстояние улавливания локатором (waypoint_transmit_range)<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби | Тип атрибута      |
 <h3 id=entity_set_aware>
   <code>entity::set_aware</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1178,7 +1178,7 @@ entity::set_attribute(value=1, attribute_type="GENERIC_ARMOR");
 ```ts
 entity::set_aware("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_aware(aware="FALSE");
 ```
@@ -1203,7 +1203,7 @@ entity::set_aware(aware="FALSE");
 ```ts
 entity::set_axolotl_type("BLUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_axolotl_type(axolotl_type="BLUE");
 ```
@@ -1226,7 +1226,7 @@ entity::set_axolotl_type(axolotl_type="BLUE");
 ```ts
 entity::set_baby("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_baby(baby="FALSE");
 ```
@@ -1255,7 +1255,7 @@ entity::set_baby(baby="FALSE");
 ```ts
 entity::set_base_arrow_damage(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_base_arrow_damage(damage=1);
 ```
@@ -1280,7 +1280,7 @@ entity::set_base_arrow_damage(damage=1);
 ```ts
 entity::set_bee_has_stinger("TRUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_bee_has_stinger(stinger="TRUE");
 ```
@@ -1305,7 +1305,7 @@ entity::set_bee_has_stinger(stinger="TRUE");
 ```ts
 entity::set_bee_nectar("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_bee_nectar(nectar="FALSE");
 ```
@@ -1330,7 +1330,7 @@ entity::set_bee_nectar(nectar="FALSE");
 ```ts
 entity::set_block_display_block(item("stone"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_block_display_block(displayed_block=item("stone"));
 ```
@@ -1355,7 +1355,7 @@ entity::set_block_display_block(displayed_block=item("stone"));
 ```ts
 entity::set_camel_dashing("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_camel_dashing(dashing="FALSE");
 ```
@@ -1382,7 +1382,7 @@ entity::set_camel_dashing(dashing="FALSE");
 ```ts
 entity::set_carrying_chest("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_carrying_chest(carrying="FALSE");
 ```
@@ -1407,7 +1407,7 @@ entity::set_carrying_chest(carrying="FALSE");
 ```ts
 entity::set_cat_lying_down("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_cat_lying_down(lying_down="FALSE");
 ```
@@ -1432,7 +1432,7 @@ entity::set_cat_lying_down(lying_down="FALSE");
 ```ts
 entity::set_cat_type("ALL_BLACK");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_cat_type(cat_type="ALL_BLACK");
 ```
@@ -1458,7 +1458,7 @@ entity::set_cat_type(cat_type="ALL_BLACK");
 ```ts
 entity::set_celebrating("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_celebrating(celebrating="FALSE");
 ```
@@ -1483,7 +1483,7 @@ entity::set_celebrating(celebrating="FALSE");
 ```ts
 entity::set_chicken_type("COLD");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_chicken_type(variant="COLD");
 ```
@@ -1506,7 +1506,7 @@ entity::set_chicken_type(variant="COLD");
 ```ts
 entity::set_collidable("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_collidable(collidable="FALSE");
 ```
@@ -1531,7 +1531,7 @@ entity::set_collidable(collidable="FALSE");
 ```ts
 entity::set_cow_type("COLD");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_cow_type(variant="COLD");
 ```
@@ -1556,7 +1556,7 @@ entity::set_cow_type(variant="COLD");
 ```ts
 entity::set_creeper_charge("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_creeper_charge(charged="FALSE");
 ```
@@ -1581,7 +1581,7 @@ entity::set_creeper_charge(charged="FALSE");
 ```ts
 entity::set_creeper_fuse(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_creeper_fuse(fuse_ticks=1);
 ```
@@ -1604,7 +1604,7 @@ entity::set_creeper_fuse(fuse_ticks=1);
 ```ts
 entity::set_current_health(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_current_health(health=1);
 ```
@@ -1627,7 +1627,7 @@ entity::set_current_health(health=1);
 ```ts
 entity::set_custom_name("custom_name");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_custom_name(custom_name="custom_name");
 ```
@@ -1650,7 +1650,7 @@ entity::set_custom_name(custom_name="custom_name");
 ```ts
 entity::set_custom_name_visibility("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_custom_name_visibility(visibility="FALSE");
 ```
@@ -1673,7 +1673,7 @@ entity::set_custom_name_visibility(visibility="FALSE");
 ```ts
 entity::set_custom_tag("name", "value");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_custom_tag(name="name", value="value");
 ```
@@ -1697,7 +1697,7 @@ entity::set_custom_tag(name="name", value="value");
 ```ts
 entity::set_death_drops("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_death_drops(drops="FALSE");
 ```
@@ -1720,7 +1720,7 @@ entity::set_death_drops(drops="FALSE");
 ```ts
 entity::set_death_time(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_death_time(death_time=1);
 ```
@@ -1745,7 +1745,7 @@ entity::set_death_time(death_time=1);
 ```ts
 entity::set_default_visible("TRUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_default_visible(default_visible="TRUE");
 ```
@@ -1768,7 +1768,7 @@ entity::set_default_visible(default_visible="TRUE");
 ```ts
 entity::set_despawning("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_despawning(despawning="FALSE");
 ```
@@ -1793,7 +1793,7 @@ entity::set_despawning(despawning="FALSE");
 ```ts
 entity::set_display_billboard("CENTER");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_billboard(billboard_type="CENTER");
 ```
@@ -1818,7 +1818,7 @@ entity::set_display_billboard(billboard_type="CENTER");
 ```ts
 entity::set_display_brightness(1, 2);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_brightness(block_light_level=1, sky_light_level=2);
 ```
@@ -1844,7 +1844,7 @@ entity::set_display_brightness(block_light_level=1, sky_light_level=2);
 ```ts
 entity::set_display_culling_size(1, 2);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_culling_size(width=1, height=2);
 ```
@@ -1871,7 +1871,7 @@ entity::set_display_culling_size(width=1, height=2);
 ```ts
 entity::set_display_glow_color("color_hexadecimal");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_glow_color(color_hexadecimal="color_hexadecimal");
 ```
@@ -1896,7 +1896,7 @@ entity::set_display_glow_color(color_hexadecimal="color_hexadecimal");
 ```ts
 entity::set_display_interpolation(1, 2);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_interpolation(interpolation_duration=1, interpolation_delay=2);
 ```
@@ -1922,7 +1922,7 @@ entity::set_display_interpolation(interpolation_duration=1, interpolation_delay=
 ```ts
 entity::set_display_rotation_from_axis_angle(vector(0,0,0), 1, "ADD", "DEGREES", "LEFT_ROTATION");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_rotation_from_axis_angle(axis_vector=vector(0,0,0), angle=1, mode="ADD", input="DEGREES", rotation="LEFT_ROTATION");
 ```
@@ -1951,7 +1951,7 @@ entity::set_display_rotation_from_axis_angle(axis_vector=vector(0,0,0), angle=1,
 ```ts
 entity::set_display_rotation_from_euler_angles(1, 2, 3, "ADD", "DEGREES", "LEFT_ROTATION");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_rotation_from_euler_angles(pitch=1, yaw=2, roll=3, mode="ADD", input="DEGREES", rotation="LEFT_ROTATION");
 ```
@@ -1981,7 +1981,7 @@ entity::set_display_rotation_from_euler_angles(pitch=1, yaw=2, roll=3, mode="ADD
 ```ts
 entity::set_display_scale(vector(0,0,0), "ADD");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_scale(scale_vector=vector(0,0,0), mode="ADD");
 ```
@@ -2007,7 +2007,7 @@ entity::set_display_scale(scale_vector=vector(0,0,0), mode="ADD");
 ```ts
 entity::set_display_shadow(1, 2);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_shadow(shadow_radius=1, shadow_opacity_percentage=2);
 ```
@@ -2033,7 +2033,7 @@ entity::set_display_shadow(shadow_radius=1, shadow_opacity_percentage=2);
 ```ts
 entity::set_display_teleport_duration(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_teleport_duration(duration=1);
 ```
@@ -2058,7 +2058,7 @@ entity::set_display_teleport_duration(duration=1);
 ```ts
 entity::set_display_transformation_matrix([1, 2]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_transformation_matrix(row_major_matrix=[1, 2]);
 ```
@@ -2083,7 +2083,7 @@ entity::set_display_transformation_matrix(row_major_matrix=[1, 2]);
 ```ts
 entity::set_display_translation(vector(0,0,0), "ADD");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_translation(translation_vector=vector(0,0,0), mode="ADD");
 ```
@@ -2109,7 +2109,7 @@ entity::set_display_translation(translation_vector=vector(0,0,0), mode="ADD");
 ```ts
 entity::set_display_view_range(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_display_view_range(view_range=1);
 ```
@@ -2134,7 +2134,7 @@ entity::set_display_view_range(view_range=1);
 ```ts
 entity::set_dragon_phase("BREATH_ATTACK");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_dragon_phase(phase="BREATH_ATTACK");
 ```
@@ -2162,7 +2162,7 @@ entity::set_dragon_phase(phase="BREATH_ATTACK");
 ```ts
 entity::set_dye_color("BLACK");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_dye_color(color="BLACK");
 ```
@@ -2187,7 +2187,7 @@ entity::set_dye_color(color="BLACK");
 ```ts
 entity::set_end_crystal_beam(location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_end_crystal_beam(beam=location(0,0,0,0,0));
 ```
@@ -2212,7 +2212,7 @@ entity::set_end_crystal_beam(beam=location(0,0,0,0,0));
 ```ts
 entity::set_enderman_block(item("stone"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_enderman_block(block=item("stone"));
 ```
@@ -2235,7 +2235,7 @@ entity::set_enderman_block(block=item("stone"));
 ```ts
 entity::set_equipment_item(item("stick"), "BODY");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_equipment_item(item=item("stick"), slot="BODY");
 ```
@@ -2263,7 +2263,7 @@ entity::set_equipment_item(item=item("stick"), slot="BODY");
 ```ts
 entity::set_explosive_power(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_explosive_power(power=1);
 ```
@@ -2286,7 +2286,7 @@ entity::set_explosive_power(power=1);
 ```ts
 entity::set_fall_distance(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_fall_distance(fall_distance=1);
 ```
@@ -2311,7 +2311,7 @@ entity::set_fall_distance(fall_distance=1);
 ```ts
 entity::set_falling_block_type(item("stone"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_falling_block_type(block=item("stone"));
 ```
@@ -2334,7 +2334,7 @@ entity::set_falling_block_type(block=item("stone"));
 ```ts
 entity::set_fire_ticks(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_fire_ticks(ticks=1);
 ```
@@ -2359,7 +2359,7 @@ entity::set_fire_ticks(ticks=1);
 ```ts
 entity::set_fishing_wait(1, "MAX_WAIT");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_fishing_wait(time=1, wait_type="MAX_WAIT");
 ```
@@ -2385,7 +2385,7 @@ entity::set_fishing_wait(time=1, wait_type="MAX_WAIT");
 ```ts
 entity::set_fox_leaping("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_fox_leaping(leaping="FALSE");
 ```
@@ -2410,7 +2410,7 @@ entity::set_fox_leaping(leaping="FALSE");
 ```ts
 entity::set_fox_type("RED");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_fox_type(fox_type="RED");
 ```
@@ -2433,7 +2433,7 @@ entity::set_fox_type(fox_type="RED");
 ```ts
 entity::set_freeze_ticks(1, "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_freeze_ticks(ticks=1, ticking_locked="FALSE");
 ```
@@ -2457,7 +2457,7 @@ entity::set_freeze_ticks(ticks=1, ticking_locked="FALSE");
 ```ts
 entity::set_friction("NOT_SET");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_friction(friction="NOT_SET");
 ```
@@ -2482,7 +2482,7 @@ entity::set_friction(friction="NOT_SET");
 ```ts
 entity::set_frog_type("COLD");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_frog_type(frog_variant="COLD");
 ```
@@ -2509,7 +2509,7 @@ entity::set_frog_type(frog_variant="COLD");
 ```ts
 entity::set_fuse_ticks(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_fuse_ticks(fuse_ticks=1);
 ```
@@ -2532,7 +2532,7 @@ entity::set_fuse_ticks(fuse_ticks=1);
 ```ts
 entity::set_gliding("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_gliding(is_gliding="FALSE");
 ```
@@ -2557,7 +2557,7 @@ entity::set_gliding(is_gliding="FALSE");
 ```ts
 entity::set_glow_squid_dark(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_glow_squid_dark(dark_ticks=1);
 ```
@@ -2580,7 +2580,7 @@ entity::set_glow_squid_dark(dark_ticks=1);
 ```ts
 entity::set_glowing("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_glowing(glowing="FALSE");
 ```
@@ -2605,7 +2605,7 @@ entity::set_glowing(glowing="FALSE");
 ```ts
 entity::set_goat_screaming("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_goat_screaming(screams="FALSE");
 ```
@@ -2628,7 +2628,7 @@ entity::set_goat_screaming(screams="FALSE");
 ```ts
 entity::set_gravity("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_gravity(gravity="FALSE");
 ```
@@ -2645,7 +2645,9 @@ entity::set_gravity(gravity="FALSE");
 
 **Имя:** Установить сторону блока для висящей сущности\
 **Тип:** Действие без значения\
-**Описание:** Устанавливает висящей сущности сторону блока, на которой она находится.
+**Описание:** Устанавливает висящей сущности сторону блока, на которой она находится.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Картины не могут быть размещены сверху или снизу блока.\
 **Работает с:**\
 &nbsp;&nbsp;Рамками\
 &nbsp;&nbsp;Светящимеся рамками\
@@ -2655,7 +2657,7 @@ entity::set_gravity(gravity="FALSE");
 ```ts
 entity::set_hanging_facing_location("NORTH", "TRUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_hanging_facing_location(facing="NORTH", force="TRUE");
 ```
@@ -2684,7 +2686,7 @@ entity::set_hanging_facing_location(facing="NORTH", force="TRUE");
 ```ts
 entity::set_horse_jump(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_horse_jump(power=1);
 ```
@@ -2709,7 +2711,7 @@ entity::set_horse_jump(power=1);
 ```ts
 entity::set_horse_pattern("BLACK", "BLACK_DOTS");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_horse_pattern(horse_color="BLACK", horse_style="BLACK_DOTS");
 ```
@@ -2737,7 +2739,7 @@ entity::set_horse_pattern(horse_color="BLACK", horse_style="BLACK_DOTS");
 ```ts
 entity::set_immune_to_zombification("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_immune_to_zombification(is_immune="FALSE");
 ```
@@ -2762,7 +2764,7 @@ entity::set_immune_to_zombification(is_immune="FALSE");
 ```ts
 entity::set_interaction_responsive("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_interaction_responsive(responsive="FALSE");
 ```
@@ -2787,7 +2789,7 @@ entity::set_interaction_responsive(responsive="FALSE");
 ```ts
 entity::set_interaction_size(1, 2);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_interaction_size(width=1, height=2);
 ```
@@ -2811,7 +2813,7 @@ entity::set_interaction_size(width=1, height=2);
 ```ts
 entity::set_invisible("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_invisible(invisible="FALSE");
 ```
@@ -2834,7 +2836,7 @@ entity::set_invisible(invisible="FALSE");
 ```ts
 entity::set_invulnerability_ticks(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_invulnerability_ticks(ticks=1);
 ```
@@ -2857,7 +2859,7 @@ entity::set_invulnerability_ticks(ticks=1);
 ```ts
 entity::set_invulnerable("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_invulnerable(invulnerable="FALSE");
 ```
@@ -2882,7 +2884,7 @@ entity::set_invulnerable(invulnerable="FALSE");
 ```ts
 entity::set_item(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_item(item=item("stick"));
 ```
@@ -2907,7 +2909,7 @@ entity::set_item(item=item("stick"));
 ```ts
 entity::set_item_display_item(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_item_display_item(displayed_item=item("stick"));
 ```
@@ -2932,7 +2934,7 @@ entity::set_item_display_item(displayed_item=item("stick"));
 ```ts
 entity::set_item_display_model_type("FIRSTPERSON_LEFTHAND");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_item_display_model_type(display_model_type="FIRSTPERSON_LEFTHAND");
 ```
@@ -2958,7 +2960,7 @@ entity::set_item_display_model_type(display_model_type="FIRSTPERSON_LEFTHAND");
 ```ts
 entity::set_item_frame_item_drop_chance(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_item_frame_item_drop_chance(drop_chance=1);
 ```
@@ -2983,7 +2985,7 @@ entity::set_item_frame_item_drop_chance(drop_chance=1);
 ```ts
 entity::set_item_in_frame(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_item_in_frame(item=item("stick"));
 ```
@@ -2993,6 +2995,31 @@ entity::set_item_in_frame(item=item("stick"));
 | **Имя** | **Тип** | **Описание** |
 | ------- | ------- | ------------ |
 | `item`  | Предмет | Предмет      |
+<h3 id=entity_set_item_owner>
+  <code>entity::set_item_owner</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить владельца предмета\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает сущности предмета владельца.
+**Работает с:**\
+&nbsp;&nbsp;Предметами
+
+**Пример использования:** 
+```ts
+entity::set_item_owner("name_or_uuid");
+
+//Или в сухую по ключам
+
+entity::set_item_owner(name_or_uuid="name_or_uuid");
+```
+
+**Аргументы:**
+
+| **Имя**        | **Тип** | **Описание**           |
+| -------------- | ------- | ---------------------- |
+| `name_or_uuid` | Текст   | Имя или UUID владельца |
 <h3 id=entity_set_llama_type>
   <code>entity::set_llama_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3008,7 +3035,7 @@ entity::set_item_in_frame(item=item("stick"));
 ```ts
 entity::set_llama_type("BROWN");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_llama_type(type="BROWN");
 ```
@@ -3031,7 +3058,7 @@ entity::set_llama_type(type="BROWN");
 ```ts
 entity::set_location(vector(0,0,0), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_location(velocity=vector(0,0,0), increment="FALSE");
 ```
@@ -3057,7 +3084,7 @@ entity::set_location(velocity=vector(0,0,0), increment="FALSE");
 ```ts
 entity::set_marker("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_marker(marker="FALSE");
 ```
@@ -3080,7 +3107,7 @@ entity::set_marker(marker="FALSE");
 ```ts
 entity::set_max_health(1, "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_max_health(max_health=1, heal_to_max="FALSE");
 ```
@@ -3107,7 +3134,7 @@ entity::set_max_health(max_health=1, heal_to_max="FALSE");
 ```ts
 entity::set_merchant_recipe(item("stick"), 1, 2, item("stick"), 3, item("stick"), 4, 5, 6, 7, "APPEND", "FALSE", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_merchant_recipe(result=item("stick"), uses=1, max_uses=2, ingredient_one=item("stick"), villager_experience=3, ingredient_two=item("stick"), price_multiplifier=4, demand=5, index=6, special_price=7, mode="APPEND", experience_reward="FALSE", ignore_discounts="FALSE");
 ```
@@ -3144,7 +3171,7 @@ entity::set_merchant_recipe(result=item("stick"), uses=1, max_uses=2, ingredient
 ```ts
 entity::set_minecart_block(item("stone"), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_minecart_block(block=item("stone"), block_offset=1);
 ```
@@ -3179,7 +3206,7 @@ entity::set_minecart_block(block=item("stone"), block_offset=1);
 ```ts
 entity::set_mob_aggressive("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_mob_aggressive(aggressive="FALSE");
 ```
@@ -3204,7 +3231,7 @@ entity::set_mob_aggressive(aggressive="FALSE");
 ```ts
 entity::set_mushroom_cow_type("BROWN");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_mushroom_cow_type(cow_type="BROWN");
 ```
@@ -3227,7 +3254,7 @@ entity::set_mushroom_cow_type(cow_type="BROWN");
 ```ts
 entity::no_physics("TRUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::no_physics(no_physics="TRUE");
 ```
@@ -3252,7 +3279,7 @@ entity::no_physics(no_physics="TRUE");
 ```ts
 entity::set_painting_art("art", "TRUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_painting_art(art="art", force="TRUE");
 ```
@@ -3278,7 +3305,7 @@ entity::set_painting_art(art="art", force="TRUE");
 ```ts
 entity::set_panda_gene("BOTH", "AGGRESSIVE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_panda_gene(gene="BOTH", gene_type="AGGRESSIVE");
 ```
@@ -3304,7 +3331,7 @@ entity::set_panda_gene(gene="BOTH", gene_type="AGGRESSIVE");
 ```ts
 entity::set_panda_on_back("TRUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_panda_on_back(on_back="TRUE");
 ```
@@ -3329,7 +3356,7 @@ entity::set_panda_on_back(on_back="TRUE");
 ```ts
 entity::set_panda_rolling("TRUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_panda_rolling(rolling="TRUE");
 ```
@@ -3354,7 +3381,7 @@ entity::set_panda_rolling(rolling="TRUE");
 ```ts
 entity::set_panda_sad_ticks(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_panda_sad_ticks(sad_ticks=1);
 ```
@@ -3379,7 +3406,7 @@ entity::set_panda_sad_ticks(sad_ticks=1);
 ```ts
 entity::set_parrot_type("BLUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_parrot_type(parrot_type="BLUE");
 ```
@@ -3405,7 +3432,7 @@ entity::set_parrot_type(parrot_type="BLUE");
 ```ts
 entity::set_persistence("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_persistence(persistence="FALSE");
 ```
@@ -3430,7 +3457,7 @@ entity::set_persistence(persistence="FALSE");
 ```ts
 entity::set_pickup("TRUE", "TRUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_pickup(can_mob_pickup="TRUE", can_player_pickup="TRUE");
 ```
@@ -3456,7 +3483,7 @@ entity::set_pickup(can_mob_pickup="TRUE", can_player_pickup="TRUE");
 ```ts
 entity::set_pickup_delay(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_pickup_delay(delay=1);
 ```
@@ -3481,7 +3508,7 @@ entity::set_pickup_delay(delay=1);
 ```ts
 entity::set_pig_type("COLD");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_pig_type(variant="COLD");
 ```
@@ -3506,7 +3533,7 @@ entity::set_pig_type(variant="COLD");
 ```ts
 entity::set_piglin_able_to_hunt("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_piglin_able_to_hunt(able="FALSE");
 ```
@@ -3531,7 +3558,7 @@ entity::set_piglin_able_to_hunt(able="FALSE");
 ```ts
 entity::set_piglin_charging_crossbow("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_piglin_charging_crossbow(charging="FALSE");
 ```
@@ -3558,7 +3585,7 @@ entity::set_piglin_charging_crossbow(charging="FALSE");
 ```ts
 entity::set_piglin_dancing(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_piglin_dancing(dancing_time=1);
 ```
@@ -3581,7 +3608,7 @@ entity::set_piglin_dancing(dancing_time=1);
 ```ts
 entity::set_pose("CROAKING");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_pose(pose="CROAKING");
 ```
@@ -3608,7 +3635,7 @@ entity::set_pose(pose="CROAKING");
 ```ts
 entity::set_potion_cloud_radius(1, 2);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_potion_cloud_radius(radius=1, shrinking_speed=2);
 ```
@@ -3634,7 +3661,7 @@ entity::set_potion_cloud_radius(radius=1, shrinking_speed=2);
 ```ts
 entity::set_primed_tnt_block(item("stone"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_primed_tnt_block(block=item("stone"));
 ```
@@ -3666,7 +3693,7 @@ entity::set_primed_tnt_block(block=item("stone"));
 ```ts
 entity::set_projectile_display_item(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_projectile_display_item(item=item("stick"));
 ```
@@ -3693,7 +3720,7 @@ entity::set_projectile_display_item(item=item("stick"));
 ```ts
 entity::set_projectile_power(vector(0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_projectile_power(power=vector(0,0,0));
 ```
@@ -3716,7 +3743,7 @@ entity::set_projectile_power(power=vector(0,0,0));
 ```ts
 entity::set_projectile_shooter("uuid");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_projectile_shooter(uuid="uuid");
 ```
@@ -3741,7 +3768,7 @@ entity::set_projectile_shooter(uuid="uuid");
 ```ts
 entity::set_rabbit_type("BLACK");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_rabbit_type(rabbit_type="BLACK");
 ```
@@ -3766,7 +3793,7 @@ entity::set_rabbit_type(rabbit_type="BLACK");
 ```ts
 entity::set_rearing("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_rearing(rearing="FALSE");
 ```
@@ -3789,7 +3816,7 @@ entity::set_rearing(rearing="FALSE");
 ```ts
 entity::set_riptiding("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_riptiding(riptiding="FALSE");
 ```
@@ -3812,7 +3839,7 @@ entity::set_riptiding(riptiding="FALSE");
 ```ts
 entity::set_rotation(1, 2);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_rotation(yaw=1, pitch=2);
 ```
@@ -3836,7 +3863,7 @@ entity::set_rotation(yaw=1, pitch=2);
 ```ts
 entity::set_rotation_by_vector(vector(0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_rotation_by_vector(vector=vector(0,0,0));
 ```
@@ -3861,7 +3888,7 @@ entity::set_rotation_by_vector(vector=vector(0,0,0));
 ```ts
 entity::set_sheep_sheared("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_sheep_sheared(sheared="FALSE");
 ```
@@ -3886,7 +3913,7 @@ entity::set_sheep_sheared(sheared="FALSE");
 ```ts
 entity::set_shulker_bullet_target("target");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_shulker_bullet_target(target="target");
 ```
@@ -3911,7 +3938,7 @@ entity::set_shulker_bullet_target(target="target");
 ```ts
 entity::set_shulker_peek(1, "TRUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_shulker_peek(rolling=1, silent="TRUE");
 ```
@@ -3935,7 +3962,7 @@ entity::set_shulker_peek(rolling=1, silent="TRUE");
 ```ts
 entity::set_silenced("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_silenced(silenced="FALSE");
 ```
@@ -3964,7 +3991,7 @@ entity::set_silenced(silenced="FALSE");
 ```ts
 entity::set_sitting("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_sitting(sitting="FALSE");
 ```
@@ -3990,7 +4017,7 @@ entity::set_sitting(sitting="FALSE");
 ```ts
 entity::set_size(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_size(size=1);
 ```
@@ -4015,7 +4042,7 @@ entity::set_size(size=1);
 ```ts
 entity::set_sniffer_state("DIGGING");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_sniffer_state(state="DIGGING");
 ```
@@ -4040,7 +4067,7 @@ entity::set_sniffer_state(state="DIGGING");
 ```ts
 entity::set_snowman_pumpkin("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_snowman_pumpkin(pumpkin="FALSE");
 ```
@@ -4070,7 +4097,7 @@ entity::set_snowman_pumpkin(pumpkin="FALSE");
 ```ts
 entity::set_tame("name_or_uuid");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_tame(name_or_uuid="name_or_uuid");
 ```
@@ -4097,7 +4124,7 @@ entity::set_tame(name_or_uuid="name_or_uuid");
 ```ts
 entity::set_target("name_or_uuid");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_target(name_or_uuid="name_or_uuid");
 ```
@@ -4122,7 +4149,7 @@ entity::set_target(name_or_uuid="name_or_uuid");
 ```ts
 entity::set_text_display_alignment("CENTER");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_text_display_alignment(text_alignment="CENTER");
 ```
@@ -4147,7 +4174,7 @@ entity::set_text_display_alignment(text_alignment="CENTER");
 ```ts
 entity::set_text_display_background("color_hexadecimal", 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_text_display_background(color_hexadecimal="color_hexadecimal", opacity=1);
 ```
@@ -4173,7 +4200,7 @@ entity::set_text_display_background(color_hexadecimal="color_hexadecimal", opaci
 ```ts
 entity::set_text_display_line_width(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_text_display_line_width(line_width=1);
 ```
@@ -4198,7 +4225,7 @@ entity::set_text_display_line_width(line_width=1);
 ```ts
 entity::set_text_display_opacity(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_text_display_opacity(text_opacity=1);
 ```
@@ -4223,7 +4250,7 @@ entity::set_text_display_opacity(text_opacity=1);
 ```ts
 entity::set_text_display_see_through("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_text_display_see_through(enable_see_through="FALSE");
 ```
@@ -4248,7 +4275,7 @@ entity::set_text_display_see_through(enable_see_through="FALSE");
 ```ts
 entity::set_text_display_text(["displayed_text", "displayed_text"], "CONCATENATION");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_text_display_text(displayed_text=["displayed_text", "displayed_text"], merging_mode="CONCATENATION");
 ```
@@ -4274,7 +4301,7 @@ entity::set_text_display_text(displayed_text=["displayed_text", "displayed_text"
 ```ts
 entity::set_text_display_text_shadow("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_text_display_text_shadow(enable_text_shadow="FALSE");
 ```
@@ -4299,7 +4326,7 @@ entity::set_text_display_text_shadow(enable_text_shadow="FALSE");
 ```ts
 entity::set_tropical_fish_pattern("BLACK", "BLACK", "BETTY");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_tropical_fish_pattern(pattern_color="BLACK", body_color="BLACK", pattern="BETTY");
 ```
@@ -4326,7 +4353,7 @@ entity::set_tropical_fish_pattern(pattern_color="BLACK", body_color="BLACK", pat
 ```ts
 entity::set_vex_charging("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_vex_charging(charging="FALSE");
 ```
@@ -4351,7 +4378,7 @@ entity::set_vex_charging(charging="FALSE");
 ```ts
 entity::set_vex_limited_lifetime_ticks(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_vex_limited_lifetime_ticks(lifetime=1);
 ```
@@ -4376,7 +4403,7 @@ entity::set_vex_limited_lifetime_ticks(lifetime=1);
 ```ts
 entity::set_villager_biome("DESERT");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_villager_biome(biome="DESERT");
 ```
@@ -4401,7 +4428,7 @@ entity::set_villager_biome(biome="DESERT");
 ```ts
 entity::set_villager_experience(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_villager_experience(experience=1);
 ```
@@ -4427,7 +4454,7 @@ entity::set_villager_experience(experience=1);
 ```ts
 entity::set_villager_profession("ARMORER");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_villager_profession(profession="ARMORER");
 ```
@@ -4450,16 +4477,16 @@ entity::set_villager_profession(profession="ARMORER");
 ```ts
 entity::set_visual_fire("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_visual_fire(visual_fire="FALSE");
 ```
 
 **Аргументы:**
 
-| **Имя**       | **Тип**                                                  | **Описание**     |
-| ------------- | -------------------------------------------------------- | ---------------- |
-| `visual_fire` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Отображение огня |
+| **Имя**       | **Тип**                                                                                 | **Описание**     |
+| ------------- | --------------------------------------------------------------------------------------- | ---------------- |
+| `visual_fire` | Маркер<br/>**FALSE** - Выключить<br/>**NOT_SET** - По умолчанию<br/>**TRUE** - Включить | Отображение огня |
 <h3 id=entity_set_warden_anger_level>
   <code>entity::set_warden_anger_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4477,7 +4504,7 @@ entity::set_visual_fire(visual_fire="FALSE");
 ```ts
 entity::set_warden_anger_level("name_or_uuid", 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_warden_anger_level(name_or_uuid="name_or_uuid", anger=1);
 ```
@@ -4503,7 +4530,7 @@ entity::set_warden_anger_level(name_or_uuid="name_or_uuid", anger=1);
 ```ts
 entity::set_warden_digging("DIG_DOWN");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_warden_digging(digging="DIG_DOWN");
 ```
@@ -4530,7 +4557,7 @@ entity::set_warden_digging(digging="DIG_DOWN");
 ```ts
 entity::set_wearing_saddle("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_wearing_saddle(wearing="FALSE");
 ```
@@ -4555,7 +4582,7 @@ entity::set_wearing_saddle(wearing="FALSE");
 ```ts
 entity::set_wither_invulnerability_ticks(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_wither_invulnerability_ticks(ticks=1);
 ```
@@ -4580,7 +4607,7 @@ entity::set_wither_invulnerability_ticks(ticks=1);
 ```ts
 entity::set_wolf_sound_variant("ANGRY");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_wolf_sound_variant(sound_variant="ANGRY");
 ```
@@ -4605,7 +4632,7 @@ entity::set_wolf_sound_variant(sound_variant="ANGRY");
 ```ts
 entity::set_wolf_type("ASHEN");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_wolf_type(wolf_type="ASHEN");
 ```
@@ -4630,7 +4657,7 @@ entity::set_wolf_type(wolf_type="ASHEN");
 ```ts
 entity::set_zombie_arms_raised("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::set_zombie_arms_raised(arms_raised="FALSE");
 ```
@@ -4690,7 +4717,7 @@ entity::shear_sheep();
 ```ts
 entity::sleep("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::sleep(sleep="FALSE");
 ```
@@ -4713,7 +4740,7 @@ entity::sleep(sleep="FALSE");
 ```ts
 entity::swing_hand("MAIN");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::swing_hand(hand_type="MAIN");
 ```
@@ -4736,7 +4763,7 @@ entity::swing_hand(hand_type="MAIN");
 ```ts
 entity::teleport(location(0,0,0,0,0), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::teleport(location=location(0,0,0,0,0), keep_rotation="FALSE");
 ```
@@ -4762,7 +4789,7 @@ entity::teleport(location=location(0,0,0,0,0), keep_rotation="FALSE");
 ```ts
 entity::use_item("MAIN_HAND", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::use_item(hand="MAIN_HAND", enable="FALSE");
 ```
@@ -4788,7 +4815,7 @@ if(entity::collides_at_location(location(0,0,0,0,0))){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::collides_at_location(location=location(0,0,0,0,0)){
     player::message("Условие верно");
@@ -4815,7 +4842,7 @@ if(entity::collides_using_hitbox(location(0,0,0,0,0), location(0,0,0,0,0))){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::collides_using_hitbox(min=location(0,0,0,0,0), max=location(0,0,0,0,0)){
     player::message("Условие верно");
@@ -4843,7 +4870,7 @@ if(entity::collides_with_entity("name_or_uuid", "CONTAINS")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::collides_with_entity(name_or_uuid="name_or_uuid", check_type="CONTAINS"){
     player::message("Условие верно");
@@ -4903,7 +4930,7 @@ if(entity::has_custom_tag("tag", "tag_value", "CONTAINS")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::has_custom_tag(tag="tag", tag_value="tag_value", compare_type="CONTAINS"){
     player::message("Условие верно");
@@ -4932,7 +4959,7 @@ if(entity::has_potion_effect([potion("slow_falling"), potion("slow_falling")], "
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::has_potion_effect(potions=[potion("slow_falling"), potion("slow_falling")], check_mode="ALL"){
     player::message("Условие верно");
@@ -4960,7 +4987,7 @@ if(entity::in_area(location(0,0,0,0,0), location(0,0,0,0,0), "FALSE", "HITBOX", 
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::in_area(location_1=location(0,0,0,0,0), location_2=location(0,0,0,0,0), ignore_y_axis="FALSE", intersect_type="HITBOX", check_type="CONTAINS"){
     player::message("Условие верно");
@@ -5055,7 +5082,7 @@ if(entity::is_near_location(1, location(0,0,0,0,0), "FALSE")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::is_near_location(range=1, location=location(0,0,0,0,0), ignore_y_axis="FALSE"){
     player::message("Условие верно");
@@ -5100,7 +5127,7 @@ if(entity::is_riding_entity(["entity_ids", "entity_ids"], "FARTHEST")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mode="FARTHEST"){
     player::message("Условие верно");
@@ -5128,7 +5155,7 @@ if(entity::is_standing_on_block([item("stone"), item("stone")], [location(0,0,0,
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::is_standing_on_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
     player::message("Условие верно");
@@ -5157,7 +5184,7 @@ if(entity::is_type([item("stick"), item("stick")])){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::is_type(entity_types=[item("stick"), item("stick")]){
     player::message("Условие верно");
@@ -5216,7 +5243,7 @@ if(entity::name_equals(["names_or_uuids", "names_or_uuids"])){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::name_equals(names_or_uuids=["names_or_uuids", "names_or_uuids"]){
     player::message("Условие верно");
@@ -5243,7 +5270,7 @@ if(entity::spawn_reason_equals("BEEHIVE")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 entity::spawn_reason_equals(reason="BEEHIVE"){
     player::message("Условие верно");

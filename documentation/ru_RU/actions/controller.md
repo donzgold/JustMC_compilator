@@ -47,7 +47,7 @@ controller::catch_exception(`variable`, "ALL"){
     player::message("Всё работает");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 controller::catch_exception(variable=`variable`, exception_type="ALL"){
     player::message("Всё работает");
@@ -77,7 +77,7 @@ controller::measure_time(`variable`, "MICROSECONDS"){
     player::message("Всё работает");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 controller::measure_time(variable=`variable`, duration="MICROSECONDS"){
     player::message("Всё работает");

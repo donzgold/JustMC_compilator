@@ -47,7 +47,7 @@ if(player::chat_message_equals(["chat_messages", "chat_messages"])){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::chat_message_equals(chat_messages=["chat_messages", "chat_messages"]){
     player::message("Condition is true");
@@ -74,7 +74,7 @@ if(player::collides_at_location(location(0,0,0,0,0))){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::collides_at_location(location=location(0,0,0,0,0)){
     player::message("Condition is true");
@@ -101,7 +101,7 @@ if(player::collides_using_hitbox(location(0,0,0,0,0), location(0,0,0,0,0))){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::collides_using_hitbox(min=location(0,0,0,0,0), max=location(0,0,0,0,0)){
     player::message("Condition is true");
@@ -129,7 +129,7 @@ if(player::collides_with_entity("name_or_uuid", "CONTAINS")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::collides_with_entity(name_or_uuid="name_or_uuid", check_type="CONTAINS"){
     player::message("Condition is true");
@@ -157,7 +157,7 @@ if(player::cursor_item_equals([item("stick"), item("stick")], "EXACTLY")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::cursor_item_equals(items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Condition is true");
@@ -201,7 +201,7 @@ if(player::gamemode_equals("ADVENTURE")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::gamemode_equals(gamemode="ADVENTURE"){
     player::message("Condition is true");
@@ -228,7 +228,7 @@ if(player::has_input("FORWARD")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::has_input(input_type="FORWARD"){
     player::message("Condition is true");
@@ -255,7 +255,7 @@ if(player::has_item([item("stick"), item("stick")], "ALL", "EXACTLY")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::has_item(items=[item("stick"), item("stick")], check_mode="ALL", comparison_mode="EXACTLY"){
     player::message("Condition is true");
@@ -284,7 +284,7 @@ if(player::has_item_at_least(item("stick"), 1, "EXACTLY")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::has_item_at_least(item=item("stick"), count=1, comparison_mode="EXACTLY"){
     player::message("Condition is true");
@@ -313,7 +313,7 @@ if(player::has_item_in_slot([1, 2], [item("stick"), item("stick")], "EXACTLY")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::has_item_in_slot(slots=[1, 2], items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Condition is true");
@@ -342,7 +342,7 @@ if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")], "
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::has_potion_effect(potions=[potion("slow_falling"), potion("slow_falling")], check_mode="ALL"){
     player::message("Condition is true");
@@ -372,7 +372,7 @@ if(player::has_privilege("BUILDER", "FALSE")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::has_privilege(privilege="BUILDER", exact="FALSE"){
     player::message("Condition is true");
@@ -400,7 +400,7 @@ if(player::has_room_for_item([item("stick"), item("stick")], "ARMOR", "ALL")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::has_room_for_item(items=[item("stick"), item("stick")], checked_slots="ARMOR", check_mode="ALL"){
     player::message("Condition is true");
@@ -429,7 +429,7 @@ if(player::hotbar_slot_equals(1)){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::hotbar_slot_equals(slot=1){
     player::message("Condition is true");
@@ -456,7 +456,7 @@ if(player::in_area(location(0,0,0,0,0), location(0,0,0,0,0), "FALSE", "HITBOX", 
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::in_area(location_1=location(0,0,0,0,0), location_2=location(0,0,0,0,0), ignore_y_axis="FALSE", intersect_type="HITBOX", check_type="CONTAINS"){
     player::message("Condition is true");
@@ -487,7 +487,7 @@ if(player::inventory_menu_slot_equals([1, 2], [item("stick"), item("stick")], "E
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::inventory_menu_slot_equals(slots=[1, 2], items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Condition is true");
@@ -516,7 +516,7 @@ if(player::inventory_type_open("ANVIL")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::inventory_type_open(inventory_type="ANVIL"){
     player::message("Condition is true");
@@ -623,7 +623,7 @@ if(player::holding([item("stick"), item("stick")], "EITHER_HAND", "EXACTLY")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::holding(items=[item("stick"), item("stick")], hand_slot="EITHER_HAND", comparison_mode="EXACTLY"){
     player::message("Condition is true");
@@ -652,7 +652,7 @@ if(player::is_looking_at_block([item("stone"), item("stone")], [location(0,0,0,0
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::is_looking_at_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], distance=1, fluid_mode="ALWAYS"){
     player::message("Condition is true");
@@ -682,7 +682,7 @@ if(player::is_near(1, location(0,0,0,0,0), "FALSE")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::is_near(range=1, location=location(0,0,0,0,0), ignore_y_axis="FALSE"){
     player::message("Condition is true");
@@ -743,7 +743,7 @@ if(player::is_riding_entity(["entity_ids", "entity_ids"], "FARTHEST")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mode="FARTHEST"){
     player::message("Condition is true");
@@ -835,7 +835,7 @@ if(player::is_standing_on_block([item("stone"), item("stone")], [location(0,0,0,
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::is_standing_on_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
     player::message("Condition is true");
@@ -880,7 +880,7 @@ if(player::is_using_item([item("stick"), item("stick")], "EXACTLY")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::is_using_item(items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Condition is true");
@@ -908,7 +908,7 @@ if(player::is_wearing_item([item("stick"), item("stick")], "ALL", "EXACTLY")){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::is_wearing_item(items=[item("stick"), item("stick")], check_mode="ALL", comparison_mode="EXACTLY"){
     player::message("Condition is true");
@@ -937,7 +937,7 @@ if(player::item_is_not_on_cooldown([item("stick"), item("stick")])){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::item_is_not_on_cooldown(items=[item("stick"), item("stick")]){
     player::message("Condition is true");
@@ -964,7 +964,7 @@ if(player::name_equals(["names_or_uuids", "names_or_uuids"])){
     player::message("Condition is true");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::name_equals(names_or_uuids=["names_or_uuids", "names_or_uuids"]){
     player::message("Condition is true");
@@ -1005,7 +1005,7 @@ if(player::text_filtering_enabled()){
 ```ts
 player::add_inventory_menu_row([item("stick"), item("stick")], "BUTTON");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::add_inventory_menu_row(items=[item("stick"), item("stick")], position="BUTTON");
 ```
@@ -1029,7 +1029,7 @@ player::add_inventory_menu_row(items=[item("stick"), item("stick")], position="B
 ```ts
 player::allow_placing_breaking_blocks([item("stone"), item("stone")], "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::allow_placing_breaking_blocks(blocks=[item("stone"), item("stone")], allow="FALSE");
 ```
@@ -1053,7 +1053,7 @@ player::allow_placing_breaking_blocks(blocks=[item("stone"), item("stone")], all
 ```ts
 player::boost_elytra(item("stick"));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::boost_elytra(firework=item("stick"));
 ```
@@ -1118,7 +1118,7 @@ player::clear_ender_chest_contents();
 ```ts
 player::clear_inventory("ARMOR");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::clear_inventory(clear_mode="ARMOR");
 ```
@@ -1141,7 +1141,7 @@ player::clear_inventory(clear_mode="ARMOR");
 ```ts
 player::clear_items([item("stick"), item("stick")]);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::clear_items(items=[item("stick"), item("stick")]);
 ```
@@ -1206,7 +1206,7 @@ player::close_inventory();
 ```ts
 player::damage(1, "source");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::damage(damage=1, source="source");
 ```
@@ -1230,7 +1230,7 @@ player::damage(damage=1, source="source");
 ```ts
 player::disguise_as_block(item("stone"), "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::disguise_as_block(block=item("stone"), visible_to_self="FALSE");
 ```
@@ -1254,7 +1254,7 @@ player::disguise_as_block(block=item("stone"), visible_to_self="FALSE");
 ```ts
 player::disguise_as_entity(item("stick"), "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::disguise_as_entity(entity_type=item("stick"), visible_to_self="FALSE");
 ```
@@ -1278,7 +1278,7 @@ player::disguise_as_entity(entity_type=item("stick"), visible_to_self="FALSE");
 ```ts
 player::disguise_as_item(item("stick"), "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::disguise_as_item(item=item("stick"), visible_to_self="FALSE");
 ```
@@ -1306,11 +1306,11 @@ player::disguise_as_item(item=item("stick"), visible_to_self="FALSE");
 ```ts
 player::display_bell_ring(location(0,0,0,0,0), "DOWN");
 
-#Or from the object
+//Or from the object
 
 location(0,0,0,0,0).display_bell_ring("DOWN");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_bell_ring(location=location(0,0,0,0,0), direction="DOWN");
 ```
@@ -1334,7 +1334,7 @@ player::display_bell_ring(location=location(0,0,0,0,0), direction="DOWN");
 ```ts
 player::display_block([location(0,0,0,0,0), location(0,0,0,0,0)], item("stone"));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_block(location=[location(0,0,0,0,0), location(0,0,0,0,0)], block=item("stone"));
 ```
@@ -1358,7 +1358,7 @@ player::display_block(location=[location(0,0,0,0,0), location(0,0,0,0,0)], block
 ```ts
 player::display_end_gateway_beam(location(0,0,0,0,0), "DARK_PURPLE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_end_gateway_beam(location=location(0,0,0,0,0), color="DARK_PURPLE");
 ```
@@ -1384,7 +1384,7 @@ player::display_end_gateway_beam(location=location(0,0,0,0,0), color="DARK_PURPL
 ```ts
 player::display_hologram(location(0,0,0,0,0), "text");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_hologram(location=location(0,0,0,0,0), text="text");
 ```
@@ -1408,7 +1408,7 @@ player::display_hologram(location=location(0,0,0,0,0), text="text");
 ```ts
 player::display_lightning(location(0,0,0,0,0));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_lightning(location=location(0,0,0,0,0));
 ```
@@ -1431,7 +1431,7 @@ player::display_lightning(location=location(0,0,0,0,0));
 ```ts
 player::display_particle([particle("fire"), particle("fire")], [location(0,0,0,0,0), location(0,0,0,0,0)]);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_particle(particle=[particle("fire"), particle("fire")], location=[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
@@ -1455,7 +1455,7 @@ player::display_particle(particle=[particle("fire"), particle("fire")], location
 ```ts
 player::display_particle_circle(particle("fire"), location(0,0,0,0,0), 1, 2, 3, vector(0,0,0), "DEGREES");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_particle_circle(particle=particle("fire"), center=location(0,0,0,0,0), radius=1, points=2, start_angle=3, perpendicular=vector(0,0,0), angle_unit="DEGREES");
 ```
@@ -1484,7 +1484,7 @@ player::display_particle_circle(particle=particle("fire"), center=location(0,0,0
 ```ts
 player::display_particle_cube(particle("fire"), location(0,0,0,0,0), location(0,0,0,0,0), 1, "HOLLOW");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_particle_cube(particle=particle("fire"), first_corner=location(0,0,0,0,0), second_corner=location(0,0,0,0,0), spacing=1, type="HOLLOW");
 ```
@@ -1511,7 +1511,7 @@ player::display_particle_cube(particle=particle("fire"), first_corner=location(0
 ```ts
 player::display_particle_line(particle("fire"), location(0,0,0,0,0), location(0,0,0,0,0), 1, "DISTANCE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_particle_line(particle=particle("fire"), start=location(0,0,0,0,0), end=location(0,0,0,0,0), divider=1, unit_of_measurement="DISTANCE");
 ```
@@ -1538,7 +1538,7 @@ player::display_particle_line(particle=particle("fire"), start=location(0,0,0,0,
 ```ts
 player::display_particle_ray(particle("fire"), location(0,0,0,0,0), vector(0,0,0), 1, "DISTANCE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_particle_ray(particle=particle("fire"), start=location(0,0,0,0,0), ray=vector(0,0,0), divider=1, unit_of_measurement="DISTANCE");
 ```
@@ -1565,7 +1565,7 @@ player::display_particle_ray(particle=particle("fire"), start=location(0,0,0,0,0
 ```ts
 player::display_particle_sphere(particle("fire"), location(0,0,0,0,0), 1, 2);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_particle_sphere(particle=particle("fire"), center=location(0,0,0,0,0), radius=1, points=2);
 ```
@@ -1591,7 +1591,7 @@ player::display_particle_sphere(particle=particle("fire"), center=location(0,0,0
 ```ts
 player::display_particle_spiral(particle("fire"), location(0,0,0,0,0), 1, 2, 3, 4, 5, "DEGREES");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_particle_spiral(particle=particle("fire"), center=location(0,0,0,0,0), distance=1, radius=2, points=3, rotations=4, start_angle=5, angle_unit="DEGREES");
 ```
@@ -1624,7 +1624,7 @@ player::display_particle_spiral(particle=particle("fire"), center=location(0,0,0
 ```ts
 player::display_pick_up_animation("collected_name_or_uuid", "collector_name_or_uuid", 1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_pick_up_animation(collected_name_or_uuid="collected_name_or_uuid", collector_name_or_uuid="collector_name_or_uuid", amount=1);
 ```
@@ -1649,7 +1649,7 @@ player::display_pick_up_animation(collected_name_or_uuid="collected_name_or_uuid
 ```ts
 player::display_sign_text(location(0,0,0,0,0), "line_1", "line_2", "line_3", "line_4");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_sign_text(location=location(0,0,0,0,0), line_1="line_1", line_2="line_2", line_3="line_3", line_4="line_4");
 ```
@@ -1676,7 +1676,7 @@ player::display_sign_text(location=location(0,0,0,0,0), line_1="line_1", line_2=
 ```ts
 player::display_vibration(location(0,0,0,0,0), location(0,0,0,0,0), 1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::display_vibration(from=location(0,0,0,0,0), to=location(0,0,0,0,0), destination_time=1);
 ```
@@ -1715,7 +1715,7 @@ player::dummy();
 ```ts
 player::expand_inventory_menu([item("stick"), item("stick")], 1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::expand_inventory_menu(items=[item("stick"), item("stick")], size=1);
 ```
@@ -1739,7 +1739,7 @@ player::expand_inventory_menu(items=[item("stick"), item("stick")], size=1);
 ```ts
 player::face_location(location(0,0,0,0,0));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::face_location(location=location(0,0,0,0,0));
 ```
@@ -1762,7 +1762,7 @@ player::face_location(location=location(0,0,0,0,0));
 ```ts
 player::force_flight_mode("FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::force_flight_mode(is_flying="FALSE");
 ```
@@ -1785,7 +1785,7 @@ player::force_flight_mode(is_flying="FALSE");
 ```ts
 player::give_experience(1, "LEVEL");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::give_experience(experience=1, mode="LEVEL");
 ```
@@ -1809,7 +1809,7 @@ player::give_experience(experience=1, mode="LEVEL");
 ```ts
 player::give_items([item("stick"), item("stick")], 1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::give_items(items=[item("stick"), item("stick")], amount=1);
 ```
@@ -1833,7 +1833,7 @@ player::give_items(items=[item("stick"), item("stick")], amount=1);
 ```ts
 player::give_potion_effect([potion("slow_falling"), potion("slow_falling")], "FALSE", "FALSE", "AMBIENT");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::give_potion_effect(potions=[potion("slow_falling"), potion("slow_falling")], show_icon="FALSE", overwrite="FALSE", particle_mode="AMBIENT");
 ```
@@ -1859,7 +1859,7 @@ player::give_potion_effect(potions=[potion("slow_falling"), potion("slow_falling
 ```ts
 player::give_random_item([item("stick"), item("stick")]);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::give_random_item(items=[item("stick"), item("stick")]);
 ```
@@ -1882,7 +1882,7 @@ player::give_random_item(items=[item("stick"), item("stick")]);
 ```ts
 player::heal(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::heal(heal=1);
 ```
@@ -1905,7 +1905,7 @@ player::heal(heal=1);
 ```ts
 player::hide_entity(["name_or_uuid", "name_or_uuid"], "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::hide_entity(name_or_uuid=["name_or_uuid", "name_or_uuid"], hide="FALSE");
 ```
@@ -1957,7 +1957,7 @@ player::kick();
 ```ts
 player::launch_forward(1, "FALSE", "YAW");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::launch_forward(power=1, increment="FALSE", launch_axis="YAW");
 ```
@@ -1982,7 +1982,7 @@ player::launch_forward(power=1, increment="FALSE", launch_axis="YAW");
 ```ts
 player::launch_projectile(item("stick"), location(0,0,0,0,0), "name", 1, 2, particle("fire"));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::launch_projectile(projectile=item("stick"), location=location(0,0,0,0,0), name="name", speed=1, inaccuracy=2, trail=particle("fire"));
 ```
@@ -2010,7 +2010,7 @@ player::launch_projectile(projectile=item("stick"), location=location(0,0,0,0,0)
 ```ts
 player::launch_to_location(location(0,0,0,0,0), 1, "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::launch_to_location(location=location(0,0,0,0,0), power=1, increment="FALSE");
 ```
@@ -2035,7 +2035,7 @@ player::launch_to_location(location=location(0,0,0,0,0), power=1, increment="FAL
 ```ts
 player::launch_up(1, "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::launch_up(power=1, increment="FALSE");
 ```
@@ -2089,7 +2089,7 @@ player::load_inventory();
 ```ts
 player::open_book(item("stick"));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::open_book(book=item("stick"));
 ```
@@ -2112,7 +2112,7 @@ player::open_book(book=item("stick"));
 ```ts
 player::open_container_inventory(location(0,0,0,0,0));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::open_container_inventory(location=location(0,0,0,0,0));
 ```
@@ -2122,6 +2122,30 @@ player::open_container_inventory(location=location(0,0,0,0,0));
 | **Name**   | **Type** | **Description**           |
 | ---------- | -------- | ------------------------- |
 | `location` | Location | Location of block to open |
+<h3 id=player_open_working_menu>
+  <code>player::open_working_menu</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+player::open_working_menu("title", "CRAFTING");
+
+//Or dry by keywords
+
+player::open_working_menu(title="title", menu_type="CRAFTING");
+```
+
+**Arguments:**
+
+| **Name**    | **Type**                                                                                                                                                                                                         | **Description** |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `title`     | Text                                                                                                                                                                                                             | None            |
+| `menu_type` | Marker<br/>**CRAFTING** - None<br/>**ANVIL** - None<br/>**SMITHING** - None<br/>**CARTOGRAPHY_TABLE** - None<br/>**LOOM** - None<br/>**GRINDSTONE** - None<br/>**STONECUTTER** - None<br/>**ENCHANTMENT** - None | None            |
 <h3 id=player_play_animation_action>
   <code>player::play_animation_action</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2135,7 +2159,7 @@ player::open_container_inventory(location=location(0,0,0,0,0));
 ```ts
 player::play_animation_action("DAMAGE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::play_animation_action(animation="DAMAGE");
 ```
@@ -2158,7 +2182,7 @@ player::play_animation_action(animation="DAMAGE");
 ```ts
 player::play_hurt_animation(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::play_hurt_animation(yaw=1);
 ```
@@ -2181,7 +2205,7 @@ player::play_hurt_animation(yaw=1);
 ```ts
 player::play_sound(sound("entity.zombie.hurt"), location(0,0,0,0,0));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::play_sound(sound=sound("entity.zombie.hurt"), location=location(0,0,0,0,0));
 ```
@@ -2207,7 +2231,7 @@ player::play_sound(sound=sound("entity.zombie.hurt"), location=location(0,0,0,0,
 ```ts
 player::play_sound_from_entity("name_or_uuid", [sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::play_sound_from_entity(name_or_uuid="name_or_uuid", sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 ```
@@ -2231,7 +2255,7 @@ player::play_sound_from_entity(name_or_uuid="name_or_uuid", sounds=[sound("entit
 ```ts
 player::play_sound_sequence([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")], location(0,0,0,0,0), 1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::play_sound_sequence(sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hurt")], location=location(0,0,0,0,0), delay=1);
 ```
@@ -2256,7 +2280,7 @@ player::play_sound_sequence(sounds=[sound("entity.zombie.hurt"), sound("entity.z
 ```ts
 player::randomized_teleport([location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE", "FALSE", "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::randomized_teleport(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], keep_rotation="FALSE", keep_velocity="FALSE", dismount="FALSE");
 ```
@@ -2282,7 +2306,7 @@ player::randomized_teleport(locations=[location(0,0,0,0,0), location(0,0,0,0,0)]
 ```ts
 player::redirect_world("world_id");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::redirect_world(world_id="world_id");
 ```
@@ -2305,7 +2329,7 @@ player::redirect_world(world_id="world_id");
 ```ts
 player::remove_boss_bar("id");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::remove_boss_bar(id="id");
 ```
@@ -2342,7 +2366,7 @@ player::remove_disguise();
 ```ts
 player::remove_display_blocks(location(0,0,0,0,0), location(0,0,0,0,0));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::remove_display_blocks(pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0));
 ```
@@ -2366,7 +2390,7 @@ player::remove_display_blocks(pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,
 ```ts
 player::remove_inventory_menu_row(1, "BUTTON");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::remove_inventory_menu_row(size=1, position="BUTTON");
 ```
@@ -2390,7 +2414,7 @@ player::remove_inventory_menu_row(size=1, position="BUTTON");
 ```ts
 player::remove_items([item("stick"), item("stick")]);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::remove_items(items=[item("stick"), item("stick")]);
 ```
@@ -2427,7 +2451,7 @@ player::remove_pose();
 ```ts
 player::remove_potion_effect([potion("slow_falling"), potion("slow_falling")]);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::remove_potion_effect(potions=[potion("slow_falling"), potion("slow_falling")]);
 ```
@@ -2492,7 +2516,7 @@ player::remove_world_border();
 ```ts
 player::replace_items([item("stick"), item("stick")], item("stick"), 1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::replace_items(items=[item("stick"), item("stick")], replace=item("stick"), count=1);
 ```
@@ -2531,7 +2555,7 @@ player::reset_weather();
 ```ts
 player::ride_entity("name_or_uuid");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::ride_entity(name_or_uuid="name_or_uuid");
 ```
@@ -2568,7 +2592,7 @@ player::save_inventory();
 ```ts
 player::self_disguise_as_block(item("stone"));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::self_disguise_as_block(block=item("stone"));
 ```
@@ -2591,7 +2615,7 @@ player::self_disguise_as_block(block=item("stone"));
 ```ts
 player::self_disguise_as_entity(item("stick"));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::self_disguise_as_entity(entity_type=item("stick"));
 ```
@@ -2614,7 +2638,7 @@ player::self_disguise_as_entity(entity_type=item("stick"));
 ```ts
 player::self_disguise_as_item(item("stick"));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::self_disguise_as_item(item=item("stick"));
 ```
@@ -2637,7 +2661,7 @@ player::self_disguise_as_item(item=item("stick"));
 ```ts
 player::send_action_bar(["messages", "messages"], "CONCATENATION");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::send_action_bar(messages=["messages", "messages"], merging="CONCATENATION");
 ```
@@ -2661,7 +2685,7 @@ player::send_action_bar(messages=["messages", "messages"], merging="CONCATENATIO
 ```ts
 player::send_advancement(item("stick"), "name", "CHALLENGE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::send_advancement(icon=item("stick"), name="name", frame="CHALLENGE");
 ```
@@ -2686,7 +2710,7 @@ player::send_advancement(icon=item("stick"), name="name", frame="CHALLENGE");
 ```ts
 player::send_break_animation([location(0,0,0,0,0), location(0,0,0,0,0)], 1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::send_break_animation(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], stage=1);
 ```
@@ -2710,7 +2734,7 @@ player::send_break_animation(locations=[location(0,0,0,0,0), location(0,0,0,0,0)
 ```ts
 player::send_dialogue(["messages", "messages"], 1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::send_dialogue(messages=["messages", "messages"], delay=1);
 ```
@@ -2734,7 +2758,7 @@ player::send_dialogue(messages=["messages", "messages"], delay=1);
 ```ts
 player::send_hover("message", "hover");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::send_hover(message="message", hover="hover");
 ```
@@ -2758,7 +2782,7 @@ player::send_hover(message="message", hover="hover");
 ```ts
 player::message(["messages", "messages"], "CONCATENATION");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::message(messages=["messages", "messages"], merging="CONCATENATION");
 ```
@@ -2782,7 +2806,7 @@ player::message(messages=["messages", "messages"], merging="CONCATENATION");
 ```ts
 player::send_minimessage("minimessage");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::send_minimessage(minimessage="minimessage");
 ```
@@ -2805,7 +2829,7 @@ player::send_minimessage(minimessage="minimessage");
 ```ts
 player::send_title("title", "subtitle", 1, 2, 3);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::send_title(title="title", subtitle="subtitle", fade_in=1, stay=2, fade_out=3);
 ```
@@ -2832,7 +2856,7 @@ player::send_title(title="title", subtitle="subtitle", fade_in=1, stay=2, fade_o
 ```ts
 player::set_absorption_health(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_absorption_health(health=1);
 ```
@@ -2855,7 +2879,7 @@ player::set_absorption_health(health=1);
 ```ts
 player::set_air_ticks(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_air_ticks(ticks=1);
 ```
@@ -2878,7 +2902,7 @@ player::set_air_ticks(ticks=1);
 ```ts
 player::set_allow_flying("FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_allow_flying(allow_flying="FALSE");
 ```
@@ -2903,7 +2927,7 @@ player::set_allow_flying(allow_flying="FALSE");
 ```ts
 player::set_armor(item("stick"), item("stick"), item("stick"), item("stick"));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_armor(helmet=item("stick"), chestplate=item("stick"), leggings=item("stick"), boots=item("stick"));
 ```
@@ -2929,7 +2953,7 @@ player::set_armor(helmet=item("stick"), chestplate=item("stick"), leggings=item(
 ```ts
 player::set_arrows_in_body(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_arrows_in_body(amount=1);
 ```
@@ -2952,7 +2976,7 @@ player::set_arrows_in_body(amount=1);
 ```ts
 player::set_attack_speed(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_attack_speed(speed=1);
 ```
@@ -2973,19 +2997,19 @@ player::set_attack_speed(speed=1);
 
 **Usage example:** 
 ```ts
-player::set_attribute(1, "GENERIC_ARMOR");
+player::set_attribute(1, "CAMERA_DISTANCE");
 
-#Or dry by keywords
+//Or dry by keywords
 
-player::set_attribute(value=1, attribute_type="GENERIC_ARMOR");
+player::set_attribute(value=1, attribute_type="CAMERA_DISTANCE");
 ```
 
 **Arguments:**
 
-| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **Description** |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `value`          | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Attribute Value |
-| `attribute_type` | Marker<br/>**GENERIC_ARMOR** - Armor points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Armor toughness points (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning Time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion Knockback Resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall Damage Multiplier<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow range (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump Strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Fishing luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Max health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement Efficiency<br/>**GENERIC_MOVEMENT_SPEED** - Movement speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Oxygen Bonus<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe Fall Distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step Height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Water Movement Efficiency<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block Breaking Speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Block Interaction Range<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Entity Interaction Range<br/>**PLAYER_MINING_EFFICIENCY** - Mining Efficiency<br/>**PLAYER_SNEAKING_SPEED** - Sneaking Speed<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Submerged Mining Speed<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Sweeping Damage Ratio<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zomie spawn reinforcements | Attribute Type  |
+| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | **Description** |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `value`          | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Attribute Value |
+| `attribute_type` | Marker<br/>**CAMERA_DISTANCE** - None<br/>**GENERIC_ARMOR** - Armor points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Armor toughness points (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning Time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion Knockback Resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall Damage Multiplier<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow range (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump Strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Fishing luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Max health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement Efficiency<br/>**GENERIC_MOVEMENT_SPEED** - Movement speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Oxygen Bonus<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe Fall Distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step Height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Water Movement Efficiency<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block Breaking Speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Block Interaction Range<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Entity Interaction Range<br/>**PLAYER_MINING_EFFICIENCY** - Mining Efficiency<br/>**PLAYER_SNEAKING_SPEED** - Sneaking Speed<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Submerged Mining Speed<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Sweeping Damage Ratio<br/>**TEMP_RANGE** - None<br/>**WAYPOINT_RECEIVE_RANGE** - None<br/>**WAYPOINT_TRANSMIT_RANGE** - None<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zomie spawn reinforcements | Attribute Type  |
 <h3 id=player_set_bee_stingers_in_body>
   <code>player::set_bee_stingers_in_body</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2999,7 +3023,7 @@ player::set_attribute(value=1, attribute_type="GENERIC_ARMOR");
 ```ts
 player::set_bee_stingers_in_body(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_bee_stingers_in_body(amount=1);
 ```
@@ -3028,7 +3052,7 @@ player::set_bee_stingers_in_body(amount=1);
 ```ts
 player::set_block_opened_state(location(0,0,0,0,0), "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_block_opened_state(location=location(0,0,0,0,0), is_opened="FALSE");
 ```
@@ -3052,7 +3076,7 @@ player::set_block_opened_state(location=location(0,0,0,0,0), is_opened="FALSE");
 ```ts
 player::set_boss_bar("id", "title", 1, "DARK_SKY", "NOTCHED_10", "BLUE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_boss_bar(id="id", title="title", progress=1, sky_effect="DARK_SKY", style="NOTCHED_10", color="BLUE");
 ```
@@ -3080,7 +3104,7 @@ player::set_boss_bar(id="id", title="title", progress=1, sky_effect="DARK_SKY", 
 ```ts
 player::set_chat_completions(["completions", "completions"], "ADD");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_chat_completions(completions=["completions", "completions"], setting_mode="ADD");
 ```
@@ -3104,7 +3128,7 @@ player::set_chat_completions(completions=["completions", "completions"], setting
 ```ts
 player::set_collidable("FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_collidable(collidable="FALSE");
 ```
@@ -3127,7 +3151,7 @@ player::set_collidable(collidable="FALSE");
 ```ts
 player::set_compass_target(location(0,0,0,0,0));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_compass_target(location=location(0,0,0,0,0));
 ```
@@ -3150,7 +3174,7 @@ player::set_compass_target(location=location(0,0,0,0,0));
 ```ts
 player::set_cursor_item(item("stick"));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_cursor_item(item=item("stick"));
 ```
@@ -3173,7 +3197,7 @@ player::set_cursor_item(item=item("stick"));
 ```ts
 player::set_death_drops("FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_death_drops(death_drops="FALSE");
 ```
@@ -3198,7 +3222,7 @@ player::set_death_drops(death_drops="FALSE");
 ```ts
 player::set_death_screen_score(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_death_screen_score(score=1);
 ```
@@ -3223,7 +3247,7 @@ player::set_death_screen_score(score=1);
 ```ts
 player::set_default_visible("TRUE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_default_visible(default_visible="TRUE");
 ```
@@ -3246,7 +3270,7 @@ player::set_default_visible(default_visible="TRUE");
 ```ts
 player::set_ender_chest_contents([item("stick"), item("stick")]);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_ender_chest_contents(items=[item("stick"), item("stick")]);
 ```
@@ -3269,7 +3293,7 @@ player::set_ender_chest_contents(items=[item("stick"), item("stick")]);
 ```ts
 player::set_entity_glowing(["name_or_uuid", "name_or_uuid"], "AQUA", "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_entity_glowing(name_or_uuid=["name_or_uuid", "name_or_uuid"], color="AQUA", glow="FALSE");
 ```
@@ -3294,7 +3318,7 @@ player::set_entity_glowing(name_or_uuid=["name_or_uuid", "name_or_uuid"], color=
 ```ts
 player::set_equipment(item("stick"), "BODY");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_equipment(item=item("stick"), slot="BODY");
 ```
@@ -3318,7 +3342,7 @@ player::set_equipment(item=item("stick"), slot="BODY");
 ```ts
 player::set_exhaustion(1, "ADD");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_exhaustion(exhaustion=1, mode="ADD");
 ```
@@ -3342,7 +3366,7 @@ player::set_exhaustion(exhaustion=1, mode="ADD");
 ```ts
 player::set_experience(1, "LEVEL");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_experience(experience=1, mode="LEVEL");
 ```
@@ -3366,7 +3390,7 @@ player::set_experience(experience=1, mode="LEVEL");
 ```ts
 player::set_fall_distance(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_fall_distance(distance=1);
 ```
@@ -3389,7 +3413,7 @@ player::set_fall_distance(distance=1);
 ```ts
 player::set_fire_ticks(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_fire_ticks(ticks=1);
 ```
@@ -3412,7 +3436,7 @@ player::set_fire_ticks(ticks=1);
 ```ts
 player::set_flying("FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_flying(is_flying="FALSE");
 ```
@@ -3435,7 +3459,7 @@ player::set_flying(is_flying="FALSE");
 ```ts
 player::set_fog_distance(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_fog_distance(distance=1);
 ```
@@ -3458,7 +3482,7 @@ player::set_fog_distance(distance=1);
 ```ts
 player::set_food(1, "ADD");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_food(food=1, mode="ADD");
 ```
@@ -3482,7 +3506,7 @@ player::set_food(food=1, mode="ADD");
 ```ts
 player::set_freeze_ticks(1, "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_freeze_ticks(ticks=1, ticking_locked="FALSE");
 ```
@@ -3506,7 +3530,7 @@ player::set_freeze_ticks(ticks=1, ticking_locked="FALSE");
 ```ts
 player::set_gamemode("ADVENTURE", "KEEP_ORIGINAL");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_gamemode(gamemode="ADVENTURE", flight_mode="KEEP_ORIGINAL");
 ```
@@ -3530,7 +3554,7 @@ player::set_gamemode(gamemode="ADVENTURE", flight_mode="KEEP_ORIGINAL");
 ```ts
 player::set_gliding("FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_gliding(is_gliding="FALSE");
 ```
@@ -3553,7 +3577,7 @@ player::set_gliding(is_gliding="FALSE");
 ```ts
 player::set_health(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_health(health=1);
 ```
@@ -3576,7 +3600,7 @@ player::set_health(health=1);
 ```ts
 player::set_hotbar_slot(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_hotbar_slot(slot=1);
 ```
@@ -3599,7 +3623,7 @@ player::set_hotbar_slot(slot=1);
 ```ts
 player::set_instant_respawn("FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_instant_respawn(instant_respawn="FALSE");
 ```
@@ -3622,7 +3646,7 @@ player::set_instant_respawn(instant_respawn="FALSE");
 ```ts
 player::set_inventory_kept("FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_inventory_kept(kept="FALSE");
 ```
@@ -3645,7 +3669,7 @@ player::set_inventory_kept(kept="FALSE");
 ```ts
 player::set_inventory_menu_item(item("stick"), 1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_inventory_menu_item(item=item("stick"), slot=1);
 ```
@@ -3669,7 +3693,7 @@ player::set_inventory_menu_item(item=item("stick"), slot=1);
 ```ts
 player::set_inventory_menu_name("text");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_inventory_menu_name(text="text");
 ```
@@ -3692,7 +3716,7 @@ player::set_inventory_menu_name(text="text");
 ```ts
 player::set_invulnerability_ticks(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_invulnerability_ticks(ticks=1);
 ```
@@ -3717,7 +3741,7 @@ player::set_invulnerability_ticks(ticks=1);
 ```ts
 player::set_item_cooldown(1, item("stick"), sound("entity.zombie.hurt"));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_item_cooldown(cooldown=1, item=item("stick"), sound=sound("entity.zombie.hurt"));
 ```
@@ -3729,6 +3753,32 @@ player::set_item_cooldown(cooldown=1, item=item("stick"), sound=sound("entity.zo
 | `cooldown` | Number   | Delay in ticks    |
 | `item`     | Item     | Delay Item Type   |
 | `sound`    | Sound    | Delay reset sound |
+<h3 id=player_set_item_group_cooldown>
+  <code>player::set_item_group_cooldown</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+player::set_item_group_cooldown("key", 1);
+
+//Or dry by keywords
+
+player::set_item_group_cooldown(key="key", cooldown=1);
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `key`      | Text     | None            |
+| `cooldown` | Number   | None            |
 <h3 id=player_set_items>
   <code>player::set_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3742,7 +3792,7 @@ player::set_item_cooldown(cooldown=1, item=item("stick"), sound=sound("entity.zo
 ```ts
 player::set_items([item("stick"), item("stick")]);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_items(items=[item("stick"), item("stick")]);
 ```
@@ -3765,7 +3815,7 @@ player::set_items(items=[item("stick"), item("stick")]);
 ```ts
 player::set_max_health(1, "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_max_health(health=1, heal="FALSE");
 ```
@@ -3789,7 +3839,7 @@ player::set_max_health(health=1, heal="FALSE");
 ```ts
 player::set_movement_speed(1, "FLY");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_movement_speed(distance=1, movement_type="FLY");
 ```
@@ -3813,7 +3863,7 @@ player::set_movement_speed(distance=1, movement_type="FLY");
 ```ts
 player::set_nametag_visible("FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_nametag_visible(visible="FALSE");
 ```
@@ -3836,7 +3886,7 @@ player::set_nametag_visible(visible="FALSE");
 ```ts
 player::set_player_list_info(["text", "text"], "CONCATENATION", "FOOTER");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_player_list_info(text=["text", "text"], merging="CONCATENATION", position="FOOTER");
 ```
@@ -3861,7 +3911,7 @@ player::set_player_list_info(text=["text", "text"], merging="CONCATENATION", pos
 ```ts
 player::set_pose("CROAKING", "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_pose(pose="CROAKING", locked="FALSE");
 ```
@@ -3885,7 +3935,7 @@ player::set_pose(pose="CROAKING", locked="FALSE");
 ```ts
 player::set_pvp("FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_pvp(pvp="FALSE");
 ```
@@ -3908,7 +3958,7 @@ player::set_pvp(pvp="FALSE");
 ```ts
 player::set_rain_level(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_rain_level(rain_level=1);
 ```
@@ -3931,7 +3981,7 @@ player::set_rain_level(rain_level=1);
 ```ts
 player::set_rotation(1, 2);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_rotation(yaw=1, pitch=2);
 ```
@@ -3955,7 +4005,7 @@ player::set_rotation(yaw=1, pitch=2);
 ```ts
 player::set_rotation_by_vector(vector(0,0,0));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_rotation_by_vector(vector=vector(0,0,0));
 ```
@@ -3978,7 +4028,7 @@ player::set_rotation_by_vector(vector=vector(0,0,0));
 ```ts
 player::set_saturation(1, "ADD");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_saturation(saturation=1, mode="ADD");
 ```
@@ -4002,7 +4052,7 @@ player::set_saturation(saturation=1, mode="ADD");
 ```ts
 player::set_simulation_distance(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_simulation_distance(distance=1);
 ```
@@ -4025,7 +4075,7 @@ player::set_simulation_distance(distance=1);
 ```ts
 player::set_skin("name_or_uuid", "MOJANG");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_skin(name_or_uuid="name_or_uuid", server_type="MOJANG");
 ```
@@ -4049,7 +4099,7 @@ player::set_skin(name_or_uuid="name_or_uuid", server_type="MOJANG");
 ```ts
 player::set_slot_item(item("stick"), 1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_slot_item(item=item("stick"), slot=1);
 ```
@@ -4073,7 +4123,7 @@ player::set_slot_item(item=item("stick"), slot=1);
 ```ts
 player::set_spawn_point(location(0,0,0,0,0));
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_spawn_point(spawn_point=location(0,0,0,0,0));
 ```
@@ -4098,7 +4148,7 @@ player::set_spawn_point(spawn_point=location(0,0,0,0,0));
 ```ts
 player::set_thunder_level(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_thunder_level(thunder_level=1);
 ```
@@ -4121,7 +4171,7 @@ player::set_thunder_level(thunder_level=1);
 ```ts
 player::set_tick_rate(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_tick_rate(tick_rate=1);
 ```
@@ -4144,7 +4194,7 @@ player::set_tick_rate(tick_rate=1);
 ```ts
 player::set_time(1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_time(time=1);
 ```
@@ -4167,7 +4217,7 @@ player::set_time(time=1);
 ```ts
 player::set_velocity(vector(0,0,0), "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_velocity(velocity=vector(0,0,0), increment="FALSE");
 ```
@@ -4191,16 +4241,16 @@ player::set_velocity(velocity=vector(0,0,0), increment="FALSE");
 ```ts
 player::set_visual_fire("FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_visual_fire(visual_fire="FALSE");
 ```
 
 **Arguments:**
 
-| **Name**      | **Type**                                             | **Description** |
-| ------------- | ---------------------------------------------------- | --------------- |
-| `visual_fire` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Visual Fire     |
+| **Name**      | **Type**                                                                    | **Description** |
+| ------------- | --------------------------------------------------------------------------- | --------------- |
+| `visual_fire` | Marker<br/>**FALSE** - Disable<br/>**NOT_SET** - None<br/>**TRUE** - Enable | Visual Fire     |
 <h3 id=player_set_weather>
   <code>player::set_weather</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4214,7 +4264,7 @@ player::set_visual_fire(visual_fire="FALSE");
 ```ts
 player::set_weather("CLEAR");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_weather(weather_type="CLEAR");
 ```
@@ -4237,7 +4287,7 @@ player::set_weather(weather_type="CLEAR");
 ```ts
 player::set_world_border(location(0,0,0,0,0), 1, 2);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::set_world_border(center=location(0,0,0,0,0), size=1, warning=2);
 ```
@@ -4262,7 +4312,7 @@ player::set_world_border(center=location(0,0,0,0,0), size=1, warning=2);
 ```ts
 player::shift_world_border(1, 2, 3);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::shift_world_border(old_size=1, size=2, time=3);
 ```
@@ -4289,7 +4339,7 @@ player::shift_world_border(old_size=1, size=2, time=3);
 ```ts
 player::show_debug_marker(location(0,0,0,0,0), "name", 1, 2, 3, 4, 5);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::show_debug_marker(location=location(0,0,0,0,0), name="name", duration=1, red=2, green=3, blue=4, alpha=5);
 ```
@@ -4332,7 +4382,7 @@ player::show_demo_screen();
 ```ts
 player::show_dialog_menu_from_nbt("dialog_nbt");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::show_dialog_menu_from_nbt(dialog_nbt="dialog_nbt");
 ```
@@ -4353,11 +4403,11 @@ player::show_dialog_menu_from_nbt(dialog_nbt="dialog_nbt");
 
 **Usage example:** 
 ```ts
-player::show_inventory_menu([item("stick"), item("stick")], "name", "ANVIL");
+player::show_inventory_menu([item("stick"), item("stick")], "name", "custom_id", "ANVIL");
 
-#Or dry by keywords
+//Or dry by keywords
 
-player::show_inventory_menu(items=[item("stick"), item("stick")], name="name", inventory_type="ANVIL");
+player::show_inventory_menu(items=[item("stick"), item("stick")], name="name", custom_id="custom_id", inventory_type="ANVIL");
 ```
 
 **Arguments:**
@@ -4366,6 +4416,7 @@ player::show_inventory_menu(items=[item("stick"), item("stick")], name="name", i
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | `items`          | list[Item]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Inventory Items |
 | `name`           | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Inventory name  |
+| `custom_id`      | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | None            |
 | `inventory_type` | Marker<br/>**ANVIL** - Anvil<br/>**BARREL** - Barrel<br/>**BEACON** - Beacon<br/>**BLAST_FURNACE** - Smelter<br/>**BREWING** - Potion Brewing<br/>**CARTOGRAPHY** - Cartographer\'s Desk<br/>**CHEST** - Chest<br/>**COMPOSTER** - Composter<br/>**CRAFTER** - Crafter<br/>**CRAFTING** - Not opened<br/>**CREATIVE** - Creative Inventory<br/>**DISPENSER** - Dispenser<br/>**DROPPER** - Dropper<br/>**ENCHANTING** - Enchanting Table<br/>**ENDER_CHEST** - Ender Chest<br/>**FURNACE** - Furnace<br/>**GRINDSTONE** - Grindstone<br/>**HOPPER** - Hopper<br/>**LECTERN** - Pulpit<br/>**LOOM** - Loom<br/>**MERCHANT** - Merchant<br/>**PLAYER** - Player Inventory<br/>**SHULKER_BOX** - Shulker Box<br/>**SMITHING** - Blacksmith\'s Table<br/>**SMOKER** - Smoker<br/>**STONECUTTER** - Stonecutter<br/>**WORKBENCH** - Workbench | Inventory Type  |
 <h3 id=player_show_scoreboard>
   <code>player::show_scoreboard</code>
@@ -4380,7 +4431,7 @@ player::show_inventory_menu(items=[item("stick"), item("stick")], name="name", i
 ```ts
 player::show_scoreboard("id");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::show_scoreboard(id="id");
 ```
@@ -4419,7 +4470,7 @@ player::show_win_screen();
 ```ts
 player::spectate_target("name_or_uuid");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::spectate_target(name_or_uuid="name_or_uuid");
 ```
@@ -4442,7 +4493,7 @@ player::spectate_target(name_or_uuid="name_or_uuid");
 ```ts
 player::stop_sound([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::stop_sound(sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 ```
@@ -4465,7 +4516,7 @@ player::stop_sound(sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hur
 ```ts
 player::stop_sounds_by_source("AMBIENT");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::stop_sounds_by_source(source="AMBIENT");
 ```
@@ -4488,7 +4539,7 @@ player::stop_sounds_by_source(source="AMBIENT");
 ```ts
 player::swing_hand("MAIN");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::swing_hand(hand_type="MAIN");
 ```
@@ -4513,7 +4564,7 @@ player::swing_hand(hand_type="MAIN");
 ```ts
 player::teleport(location(0,0,0,0,0), "FALSE", "FALSE", "FALSE");
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::teleport(location=location(0,0,0,0,0), keep_rotation="FALSE", keep_velocity="FALSE", dismount="FALSE");
 ```
@@ -4539,7 +4590,7 @@ player::teleport(location=location(0,0,0,0,0), keep_rotation="FALSE", keep_veloc
 ```ts
 player::teleport_sequence([location(0,0,0,0,0), location(0,0,0,0,0)], 1);
 
-#Or dry by keywords
+//Or dry by keywords
 
 player::teleport_sequence(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], delay=1);
 ```

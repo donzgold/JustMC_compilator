@@ -199,7 +199,7 @@
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
     {"id": "value_type", "plural": false, "type": "enum", "valueSlots": [2], "values": ["FLOATS", "BOOLEANS", "STRINGS", "COLORS"]}]},
-  "set_variable_edit_item_custom_nodel_data": {"id": "set_variable_edit_item_custom_nodel_data", "type": "basic", "args": [
+  "set_variable_edit_item_custom_model_data": {"id": "set_variable_edit_item_custom_model_data", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
     {"id": "data", "plural": true, "type": "any", "valueSlots": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]},
@@ -218,5 +218,68 @@
     {"id": "tooltip_hidden", "plural": false, "type": "enum", "valueSlots": [2], "values": ["TRUE", "FALSE"]}]},
   "player_show_dialog_menu_from_nbt": {"id": "player_show_dialog_menu_from_nbt", "type": "basic", "args": [
     {"id": "dialog_nbt", "plural": false, "type": "text", "valueSlots": [0]}]},
-  "player_close_dialog_menu": {"id": "player_close_dialog_menu", "type": "basic", "args": []}
+  "player_close_dialog_menu": {"id": "player_close_dialog_menu", "type": "basic", "args": []},
+  "player_show_inventory_menu": {"id": "player_show_inventory_menu", "type": "basic", "args": [
+    {"id": "items", "plural": true, "type": "item", "valueSlots": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]},
+    {"id": "name", "plural": false, "type": "text", "valueSlots": [34]},
+    {"id": "inventory_type", "values": ["ANVIL", "BARREL", "BEACON", "BLAST_FURNACE", "BREWING", "CARTOGRAPHY", "CHEST", "COMPOSTER", "CRAFTER", "CRAFTING", "CREATIVE", "DISPENSER", "DROPPER", "ENCHANTING", "ENDER_CHEST", "FURNACE", "GRINDSTONE", "HOPPER", "LECTERN", "LOOM", "MERCHANT", "PLAYER", "SHULKER_BOX", "SMITHING", "SMOKER", "STONECUTTER", "WORKBENCH"], "plural": false, "type": "enum", "valueSlots": [36]},
+    {"id": "custom_id", "plural": false, "type": "text", "valueSlots": [35]}]},
+  "set_variable_set_item_glint_override": {"id": "set_variable_set_item_glint_override", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "glowing", "plural": false, "type": "enum", "valueSlots": [2], "values": ["TRUE", "FALSE", "NOT_SET"]}]},
+  "set_variable_set_item_weapon": {"id": "set_variable_set_item_weapon", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "item_damage_per_attack", "plural": false, "type": "number", "valueSlots": [2]},
+    {"id": "disable_blocking", "plural": false, "type": "number", "valueSlots": [3]}]},
+  "set_variable_set_item_glider": {"id": "set_variable_set_item_glider", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "glider", "plural": false, "type": "enum", "valueSlots": [2], "values": ["TRUE", "FALSE"]}]},
+  "set_variable_get_item_weapon": {"id": "set_variable_get_item_weapon", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "property", "plural": false, "type": "enum", "valueSlots": [2], "values": ["ITEM_DAMAGE_PER_ATTACK", "DISABLE_BLOCKING"]}]},
+  "set_variable_set_item_rarity": {"id": "set_variable_set_item_rarity", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "rarity", "plural": false, "type": "enum", "valueSlots": [2], "values": ["NONE", "COMMON", "UNCOMMON", "RARE", "EPIC"]}]},
+  "set_variable_get_item_food_properties": {"id": "set_variable_get_item_food_properties", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "property", "plural": false, "type": "enum", "valueSlots": [2], "values": [""]}]},
+  "set_variable_set_item_food_properties": {"id": "set_variable_set_item_food_properties", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "nutrition", "plural": false, "type": "number", "valueSlots": [2]},
+    {"id": "saturation", "plural": false, "type": "number", "valueSlots": [3]},
+    {"id": "can_always_eat", "plural": false, "type": "enum", "valueSlots": [4], "values": ["TRUE", "FALSE"]}]},
+  "set_variable_get_item_use_remainder": {"id": "set_variable_get_item_use_remainder", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]}]},
+  "set_variable_set_item_use_remainder": {"id": "set_variable_set_item_use_remainder", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "remainder", "plural": false, "type": "item", "valueSlots": [2]}]},
+  "game_set_event_gamemode": {"id": "game_set_event_gamemode", "type": "basic", "args": [
+    {"id": "gamemode", "plural": false, "type": "enum", "valueSlots": [0], "values": ["CREATIVE", "SURVIVAL", "ADVENTURE", "SPECTATOR"]}]},
+  "set_variable_get_item_model_data": {"id": "set_variable_get_item_model_data", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]}]},
+  "set_variable_set_item_model_data": {"id": "set_variable_set_item_model_data", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "model", "plural": false, "type": "text", "valueSlots": [2]}]},
+  "player_set_item_group_cooldown": {"id": "player_set_item_group_cooldown", "type": "basic", "args": [
+    {"id": "key", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "cooldown", "plural": false, "type": "number", "valueSlots": [2]}]},
+  "player_open_working_menu": {"id": "player_open_working_menu", "type": "basic", "args": [
+    {"id": "title", "plural": false, "type": "text", "valueSlots": [0]},
+    {"id": "menu_type", "plural": false, "type": "enum", "valueSlots": [1], "values": ["CRAFTING", "ANVIL", "SMITHING", "CARTOGRAPHY_TABLE", "LOOM", "GRINDSTONE", "STONECUTTER", "ENCHANTMENT"]}]},
+  "entity_set_item_owner": {"id": "entity_set_item_owner", "type": "basic", "args": [
+    {"id": "name_or_uuid", "plural": false, "type": "text", "valueSlots": [0]}]},
+  "set_variable_multiple": {"id": "set_variable_multiple", "type": "basic", "args": [
+    {"id": "variables", "plural": true, "type": "variable", "valueSlots": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]},
+    {"id": "values", "plural": true, "type": "any", "valueSlots": [21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39]}]}
 }

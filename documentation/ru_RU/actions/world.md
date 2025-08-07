@@ -11,7 +11,7 @@
 ```ts
 world::block_growth(location(0,0,0,0,0), 1, "PERCENTAGE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::block_growth(location=location(0,0,0,0,0), growth_stage=1, growth_type="PERCENTAGE");
 ```
@@ -38,7 +38,7 @@ world::block_growth(location=location(0,0,0,0,0), growth_stage=1, growth_type="P
 ```ts
 world::bloom_skulk_catalyst(location(0,0,0,0,0), location(0,0,0,0,0), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::bloom_skulk_catalyst(location=location(0,0,0,0,0), bloom_location=location(0,0,0,0,0), charge=1);
 ```
@@ -63,7 +63,7 @@ world::bloom_skulk_catalyst(location=location(0,0,0,0,0), bloom_location=locatio
 ```ts
 world::bone_meal_block(location(0,0,0,0,0), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::bone_meal_block(location=location(0,0,0,0,0), count=1);
 ```
@@ -87,7 +87,7 @@ world::bone_meal_block(location=location(0,0,0,0,0), count=1);
 ```ts
 world::break_block([location(0,0,0,0,0), location(0,0,0,0,0)], item("stick"), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::break_block(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], tool=item("stick"), drop_exp="FALSE");
 ```
@@ -128,7 +128,7 @@ world::cancel_event();
 ```ts
 world::clear_container(location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::clear_container(location=location(0,0,0,0,0));
 ```
@@ -153,7 +153,7 @@ world::clear_container(location=location(0,0,0,0,0));
 ```ts
 world::clear_container_items([item("stick"), item("stick")], location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::clear_container_items(items=[item("stick"), item("stick")], location=location(0,0,0,0,0));
 ```
@@ -180,7 +180,7 @@ world::clear_container_items(items=[item("stick"), item("stick")], location=loca
 ```ts
 world::clear_exploded_blocks([location(0,0,0,0,0), location(0,0,0,0,0)]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::clear_exploded_blocks(location=[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
@@ -203,7 +203,7 @@ world::clear_exploded_blocks(location=[location(0,0,0,0,0), location(0,0,0,0,0)]
 ```ts
 world::clear_region(location(0,0,0,0,0), location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::clear_region(pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0));
 ```
@@ -227,7 +227,7 @@ world::clear_region(pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0));
 ```ts
 world::clear_scoreboard_scores("id");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::clear_scoreboard_scores(id="id");
 ```
@@ -250,7 +250,7 @@ world::clear_scoreboard_scores(id="id");
 ```ts
 world::clone_region(location(0,0,0,0,0), location(0,0,0,0,0), location(0,0,0,0,0), location(0,0,0,0,0), "FALSE", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::clone_region(pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0), target_pos=location(0,0,0,0,0), paste_pos=location(0,0,0,0,0), ignore_air="FALSE", copy_entity="FALSE");
 ```
@@ -278,7 +278,7 @@ world::clone_region(pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0), target
 ```ts
 world::create_explosion(location(0,0,0,0,0), 1, "name_or_uuid", "FALSE", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::create_explosion(location=location(0,0,0,0,0), power=1, name_or_uuid="name_or_uuid", fire="FALSE", break_blocks="FALSE");
 ```
@@ -305,7 +305,7 @@ world::create_explosion(location=location(0,0,0,0,0), power=1, name_or_uuid="nam
 ```ts
 world::create_scoreboard("id", "display_name");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::create_scoreboard(id="id", display_name="display_name");
 ```
@@ -345,7 +345,7 @@ world::dummy();
 ```ts
 world::fill_container([item("stick"), item("stick")], location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::fill_container(items=[item("stick"), item("stick")], location=location(0,0,0,0,0));
 ```
@@ -369,7 +369,7 @@ world::fill_container(items=[item("stick"), item("stick")], location=location(0,
 ```ts
 world::generate_tree(location(0,0,0,0,0), "ACACIA");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::generate_tree(location=location(0,0,0,0,0), tree_type="ACACIA");
 ```
@@ -397,7 +397,7 @@ world::generate_tree(location=location(0,0,0,0,0), tree_type="ACACIA");
 ```ts
 world::hide_event_message("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::hide_event_message(hide="FALSE");
 ```
@@ -420,7 +420,7 @@ world::hide_event_message(hide="FALSE");
 ```ts
 world::launch_firework(item("stick"), location(0,0,0,0,0), "DIRECTIONAL", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::launch_firework(firework=item("stick"), location=location(0,0,0,0,0), movement="DIRECTIONAL", instant="FALSE");
 ```
@@ -446,7 +446,7 @@ world::launch_firework(firework=item("stick"), location=location(0,0,0,0,0), mov
 ```ts
 world::launch_projectile(item("stick"), location(0,0,0,0,0), 1, 2, "custom_name", particle("fire"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::launch_projectile(projectile=item("stick"), location=location(0,0,0,0,0), speed=1, inaccuracy=2, custom_name="custom_name", trail=particle("fire"));
 ```
@@ -474,7 +474,7 @@ world::launch_projectile(projectile=item("stick"), location=location(0,0,0,0,0),
 ```ts
 world::random_tick_block(location(0,0,0,0,0), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::random_tick_block(location=location(0,0,0,0,0), times=1);
 ```
@@ -500,7 +500,7 @@ world::random_tick_block(location=location(0,0,0,0,0), times=1);
 ```ts
 world::remove_container_items([item("stick"), item("stick")], location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::remove_container_items(items=[item("stick"), item("stick")], location=location(0,0,0,0,0));
 ```
@@ -524,7 +524,7 @@ world::remove_container_items(items=[item("stick"), item("stick")], location=loc
 ```ts
 world::remove_scoreboard("id");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::remove_scoreboard(id="id");
 ```
@@ -547,7 +547,7 @@ world::remove_scoreboard(id="id");
 ```ts
 world::remove_scoreboard_score_by_name("id", "text");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::remove_scoreboard_score_by_name(id="id", text="text");
 ```
@@ -571,7 +571,7 @@ world::remove_scoreboard_score_by_name(id="id", text="text");
 ```ts
 world::remove_scoreboard_score_by_score("id", 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::remove_scoreboard_score_by_score(id="id", score=1);
 ```
@@ -595,7 +595,7 @@ world::remove_scoreboard_score_by_score(id="id", score=1);
 ```ts
 world::replace_blocks_in_region([item("stone"), item("stone")], location(0,0,0,0,0), location(0,0,0,0,0), item("stone"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::replace_blocks_in_region(old_block=[item("stone"), item("stone")], pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0), new_block=item("stone"));
 ```
@@ -623,7 +623,7 @@ world::replace_blocks_in_region(old_block=[item("stone"), item("stone")], pos_1=
 ```ts
 world::replace_container_items([item("stick"), item("stick")], location(0,0,0,0,0), item("stick"), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::replace_container_items(items=[item("stick"), item("stick")], location=location(0,0,0,0,0), replace=item("stick"), count=1);
 ```
@@ -649,7 +649,7 @@ world::replace_container_items(items=[item("stick"), item("stick")], location=lo
 ```ts
 world::send_web_request("url", "content_body", `headers`, "DELETE", "APPLICATION_JSON");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::send_web_request(url="url", content_body="content_body", headers=`headers`, request_type="DELETE", content_type="APPLICATION_JSON");
 ```
@@ -678,7 +678,7 @@ world::send_web_request(url="url", content_body="content_body", headers=`headers
 ```ts
 world::set_age(location(0,0,0,0,0), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_age(location=location(0,0,0,0,0), tick=1);
 ```
@@ -702,7 +702,7 @@ world::set_age(location=location(0,0,0,0,0), tick=1);
 ```ts
 world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)], item("stone"), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_block(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], block=item("stone"), update_blocks="FALSE");
 ```
@@ -729,7 +729,7 @@ world::set_block(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], block=ite
 ```ts
 world::set_block_analogue_power(location(0,0,0,0,0), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_block_analogue_power(location=location(0,0,0,0,0), power_level=1);
 ```
@@ -753,7 +753,7 @@ world::set_block_analogue_power(location=location(0,0,0,0,0), power_level=1);
 ```ts
 world::set_block_custom_tag(location(0,0,0,0,0), "tag_name", "tag_value");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_block_custom_tag(location=location(0,0,0,0,0), tag_name="tag_name", tag_value="tag_value");
 ```
@@ -778,7 +778,7 @@ world::set_block_custom_tag(location=location(0,0,0,0,0), tag_name="tag_name", t
 ```ts
 world::set_block_data(location(0,0,0,0,0), "block_data");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_block_data(location=location(0,0,0,0,0), block_data="block_data");
 ```
@@ -802,7 +802,7 @@ world::set_block_data(location=location(0,0,0,0,0), block_data="block_data");
 ```ts
 world::set_block_drops_enabled("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_block_drops_enabled(enable="FALSE");
 ```
@@ -827,7 +827,7 @@ world::set_block_drops_enabled(enable="FALSE");
 ```ts
 world::set_block_powered(location(0,0,0,0,0), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_block_powered(location=location(0,0,0,0,0), powered="FALSE");
 ```
@@ -851,7 +851,7 @@ world::set_block_powered(location=location(0,0,0,0,0), powered="FALSE");
 ```ts
 world::set_block_single_data(location(0,0,0,0,0), "data", "value");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_block_single_data(location=location(0,0,0,0,0), data="data", value="value");
 ```
@@ -879,7 +879,7 @@ world::set_block_single_data(location=location(0,0,0,0,0), data="data", value="v
 ```ts
 world::set_brushable_block_item(location(0,0,0,0,0), item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_brushable_block_item(location=location(0,0,0,0,0), item=item("stick"));
 ```
@@ -905,7 +905,7 @@ world::set_brushable_block_item(location=location(0,0,0,0,0), item=item("stick")
 ```ts
 world::set_campfire_item(location(0,0,0,0,0), item("stick"), 1, "FIRST");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_campfire_item(location=location(0,0,0,0,0), item=item("stick"), cooking_time=1, slot="FIRST");
 ```
@@ -933,7 +933,7 @@ world::set_campfire_item(location=location(0,0,0,0,0), item=item("stick"), cooki
 ```ts
 world::set_container([item("stick"), item("stick")], [location(0,0,0,0,0), location(0,0,0,0,0)]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_container(items=[item("stick"), item("stick")], location=[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
@@ -959,7 +959,7 @@ world::set_container(items=[item("stick"), item("stick")], location=[location(0,
 ```ts
 world::set_container_lock(location(0,0,0,0,0), "container_key");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_container_lock(location=location(0,0,0,0,0), container_key="container_key");
 ```
@@ -985,7 +985,7 @@ world::set_container_lock(location=location(0,0,0,0,0), container_key="container
 ```ts
 world::set_container_name(location(0,0,0,0,0), "name");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_container_name(location=location(0,0,0,0,0), name="name");
 ```
@@ -1013,7 +1013,7 @@ world::set_container_name(location=location(0,0,0,0,0), name="name");
 ```ts
 world::set_creaking_heart_natural(location(0,0,0,0,0), "TRUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_creaking_heart_natural(location=location(0,0,0,0,0), natural="TRUE");
 ```
@@ -1039,7 +1039,7 @@ world::set_creaking_heart_natural(location=location(0,0,0,0,0), natural="TRUE");
 ```ts
 world::set_creaking_heart_state(location(0,0,0,0,0), "UPROOTED");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_creaking_heart_state(location=location(0,0,0,0,0), heart_state="UPROOTED");
 ```
@@ -1065,7 +1065,7 @@ world::set_creaking_heart_state(location=location(0,0,0,0,0), heart_state="UPROO
 ```ts
 world::set_decorate_pot_sherd(location(0,0,0,0,0), item("stick"), "BACK");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_decorate_pot_sherd(location=location(0,0,0,0,0), item=item("stick"), side="BACK");
 ```
@@ -1092,7 +1092,7 @@ world::set_decorate_pot_sherd(location=location(0,0,0,0,0), item=item("stick"), 
 ```ts
 world::set_dried_ghast_hydration(location(0,0,0,0,0), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_dried_ghast_hydration(location=location(0,0,0,0,0), hydration=1);
 ```
@@ -1119,7 +1119,7 @@ world::set_dried_ghast_hydration(location=location(0,0,0,0,0), hydration=1);
 ```ts
 world::set_event_combust_duration(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_combust_duration(duration=1);
 ```
@@ -1144,7 +1144,7 @@ world::set_event_combust_duration(duration=1);
 ```ts
 world::set_event_damage(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_damage(damage=1);
 ```
@@ -1172,7 +1172,7 @@ world::set_event_damage(damage=1);
 ```ts
 world::set_event_death_screen_message("message");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_death_screen_message(message="message");
 ```
@@ -1197,7 +1197,7 @@ world::set_event_death_screen_message(message="message");
 ```ts
 world::set_event_exhaustion(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_exhaustion(exhaustion=1);
 ```
@@ -1224,7 +1224,7 @@ world::set_event_exhaustion(exhaustion=1);
 ```ts
 world::set_event_experience(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_experience(experience=1);
 ```
@@ -1234,6 +1234,31 @@ world::set_event_experience(experience=1);
 | **Имя**      | **Тип** | **Описание**     |
 | ------------ | ------- | ---------------- |
 | `experience` | Число   | Количество опыта |
+<h3 id=game_set_event_gamemode>
+  <code>world::set_event_gamemode</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить режим игры события\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает режим игры, связанный с событием.
+**Работает с:**\
+&nbsp;&nbsp;Событием "Игрок запросил меню смены режима игры"
+
+**Пример использования:** 
+```ts
+world::set_event_gamemode("CREATIVE");
+
+//Или в сухую по ключам
+
+world::set_event_gamemode(gamemode="CREATIVE");
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**                                                                                                                           | **Описание** |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `gamemode` | Маркер<br/>**CREATIVE** - Творческий<br/>**SURVIVAL** - Выживание<br/>**ADVENTURE** - Приключение<br/>**SPECTATOR** - Наблюдатель | Режим игры   |
 <h3 id=game_set_event_heal>
   <code>world::set_event_heal</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1250,7 +1275,7 @@ world::set_event_experience(experience=1);
 ```ts
 world::set_event_heal(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_heal(heal=1);
 ```
@@ -1286,7 +1311,7 @@ world::set_event_heal(heal=1);
 ```ts
 world::set_event_item(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_item(item=item("stick"));
 ```
@@ -1312,7 +1337,7 @@ world::set_event_item(item=item("stick"));
 ```ts
 world::set_event_item_cooldown(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_item_cooldown(cooldown=1);
 ```
@@ -1337,7 +1362,7 @@ world::set_event_item_cooldown(cooldown=1);
 ```ts
 world::set_event_items([item("stick"), item("stick")]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_items(items=[item("stick"), item("stick")]);
 ```
@@ -1363,7 +1388,7 @@ world::set_event_items(items=[item("stick"), item("stick")]);
 ```ts
 world::set_event_knockback_vector(vector(0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_knockback_vector(knockback=vector(0,0,0));
 ```
@@ -1388,7 +1413,7 @@ world::set_event_knockback_vector(knockback=vector(0,0,0));
 ```ts
 world::set_event_move_allowed("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_move_allowed(allowed="FALSE");
 ```
@@ -1411,7 +1436,7 @@ world::set_event_move_allowed(allowed="FALSE");
 ```ts
 world::set_event_projectile(item("stick"), "name");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_projectile(projectile=item("stick"), name="name");
 ```
@@ -1435,7 +1460,7 @@ world::set_event_projectile(projectile=item("stick"), name="name");
 ```ts
 world::set_event_sound(sound("entity.zombie.hurt"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_sound(sound=sound("entity.zombie.hurt"));
 ```
@@ -1460,7 +1485,7 @@ world::set_event_sound(sound=sound("entity.zombie.hurt"));
 ```ts
 world::set_event_source_slot(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_source_slot(source_slot=1);
 ```
@@ -1485,7 +1510,7 @@ world::set_event_source_slot(source_slot=1);
 ```ts
 world::set_event_target_slot(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_target_slot(target=1);
 ```
@@ -1513,7 +1538,7 @@ world::set_event_target_slot(target=1);
 ```ts
 world::set_event_uery_info("information");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_uery_info(information="information");
 ```
@@ -1538,7 +1563,7 @@ world::set_event_uery_info(information="information");
 ```ts
 world::set_event_velocity(vector(0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_event_velocity(velocity=vector(0,0,0));
 ```
@@ -1565,7 +1590,7 @@ world::set_event_velocity(velocity=vector(0,0,0));
 ```ts
 world::set_furnace_cook_time(location(0,0,0,0,0), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_furnace_cook_time(location=location(0,0,0,0,0), time=1);
 ```
@@ -1591,7 +1616,7 @@ world::set_furnace_cook_time(location=location(0,0,0,0,0), time=1);
 ```ts
 world::set_item_in_container_slot(location(0,0,0,0,0), item("stick"), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_item_in_container_slot(location=location(0,0,0,0,0), item=item("stick"), slot=1);
 ```
@@ -1618,7 +1643,7 @@ world::set_item_in_container_slot(location=location(0,0,0,0,0), item=item("stick
 ```ts
 world::set_lectern_book(location(0,0,0,0,0), item("stick"), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_lectern_book(location=location(0,0,0,0,0), item=item("stick"), page=1);
 ```
@@ -1645,7 +1670,7 @@ world::set_lectern_book(location=location(0,0,0,0,0), item=item("stick"), page=1
 ```ts
 world::set_player_head(location(0,0,0,0,0), "name_or_uuid", "NAME_OR_UUID");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_player_head(location=location(0,0,0,0,0), name_or_uuid="name_or_uuid", receive_type="NAME_OR_UUID");
 ```
@@ -1670,7 +1695,7 @@ world::set_player_head(location=location(0,0,0,0,0), name_or_uuid="name_or_uuid"
 ```ts
 world::set_region(item("stone"), location(0,0,0,0,0), location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_region(block=item("stone"), pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0));
 ```
@@ -1695,11 +1720,11 @@ world::set_region(block=item("stone"), pos_1=location(0,0,0,0,0), pos_2=location
 ```ts
 world::set_scoreboard_line("id", "line", "display", 1, "format_content", "BLANK");
 
-#Или от объекта
+//Или от объекта
 
 "id".set_scoreboard_line("line", "display", 1, "format_content", "BLANK");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_scoreboard_line(id="id", line="line", display="display", score=1, format_content="format_content", format="BLANK");
 ```
@@ -1727,11 +1752,11 @@ world::set_scoreboard_line(id="id", line="line", display="display", score=1, for
 ```ts
 world::set_scoreboard_line_display("id", "line", "display");
 
-#Или от объекта
+//Или от объекта
 
 "id".set_scoreboard_line_display("line", "display");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_scoreboard_line_display(id="id", line="line", display="display");
 ```
@@ -1756,11 +1781,11 @@ world::set_scoreboard_line_display(id="id", line="line", display="display");
 ```ts
 world::set_scoreboard_line_format("id", "line", "format_content", "BLANK");
 
-#Или от объекта
+//Или от объекта
 
 "id".set_scoreboard_line_format("line", "format_content", "BLANK");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_scoreboard_line_format(id="id", line="line", format_content="format_content", format="BLANK");
 ```
@@ -1786,11 +1811,11 @@ world::set_scoreboard_line_format(id="id", line="line", format_content="format_c
 ```ts
 world::set_scoreboard_number_format("id", "format_content", "BLANK");
 
-#Или от объекта
+//Или от объекта
 
 "id".set_scoreboard_number_format("format_content", "BLANK");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_scoreboard_number_format(id="id", format_content="format_content", format="BLANK");
 ```
@@ -1815,7 +1840,7 @@ world::set_scoreboard_number_format(id="id", format_content="format_content", fo
 ```ts
 world::set_scoreboard_score("id", "text", 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_scoreboard_score(id="id", text="text", score=1);
 ```
@@ -1840,7 +1865,7 @@ world::set_scoreboard_score(id="id", text="text", score=1);
 ```ts
 world::set_scoreboard_title("id", "title");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_scoreboard_title(id="id", title="title");
 ```
@@ -1866,7 +1891,7 @@ world::set_scoreboard_title(id="id", title="title");
 ```ts
 world::set_sculk_shrieker_can_summon(location(0,0,0,0,0), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_sculk_shrieker_can_summon(location=location(0,0,0,0,0), can_summon="FALSE");
 ```
@@ -1892,7 +1917,7 @@ world::set_sculk_shrieker_can_summon(location=location(0,0,0,0,0), can_summon="F
 ```ts
 world::set_sculk_shrieker_shrieking(location(0,0,0,0,0), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_sculk_shrieker_shrieking(location=location(0,0,0,0,0), shrieking="FALSE");
 ```
@@ -1918,7 +1943,7 @@ world::set_sculk_shrieker_shrieking(location=location(0,0,0,0,0), shrieking="FAL
 ```ts
 world::set_sculk_shrieker_warning_level(location(0,0,0,0,0), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_sculk_shrieker_warning_level(location=location(0,0,0,0,0), warning_level=1);
 ```
@@ -1944,7 +1969,7 @@ world::set_sculk_shrieker_warning_level(location=location(0,0,0,0,0), warning_le
 ```ts
 world::set_sign_text(location(0,0,0,0,0), "text", 1, "ALL");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_sign_text(location=location(0,0,0,0,0), text="text", line=1, side="ALL");
 ```
@@ -1972,7 +1997,7 @@ world::set_sign_text(location=location(0,0,0,0,0), text="text", line=1, side="AL
 ```ts
 world::set_sign_text_color(location(0,0,0,0,0), "ALL", "BLACK", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_sign_text_color(location=location(0,0,0,0,0), side="ALL", sign_text_color="BLACK", glowing="FALSE");
 ```
@@ -2000,7 +2025,7 @@ world::set_sign_text_color(location=location(0,0,0,0,0), side="ALL", sign_text_c
 ```ts
 world::set_sign_waxed(location(0,0,0,0,0), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_sign_waxed(location=location(0,0,0,0,0), waxed="FALSE");
 ```
@@ -2026,11 +2051,11 @@ world::set_sign_waxed(location=location(0,0,0,0,0), waxed="FALSE");
 ```ts
 world::set_spawner_entity(location(0,0,0,0,0), item("stick"));
 
-#Или от объекта
+//Или от объекта
 
 location(0,0,0,0,0).set_spawner_entity(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_spawner_entity(location=location(0,0,0,0,0), entity=item("stick"));
 ```
@@ -2058,7 +2083,7 @@ world::set_spawner_entity(location=location(0,0,0,0,0), entity=item("stick"));
 ```ts
 world::set_vault_displayed_item(location(0,0,0,0,0), item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_vault_displayed_item(location=location(0,0,0,0,0), item=item("stick"));
 ```
@@ -2086,7 +2111,7 @@ world::set_vault_displayed_item(location=location(0,0,0,0,0), item=item("stick")
 ```ts
 world::set_vault_next_state_update_time(location(0,0,0,0,0), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_vault_next_state_update_time(location=location(0,0,0,0,0), time=1);
 ```
@@ -2110,7 +2135,7 @@ world::set_vault_next_state_update_time(location=location(0,0,0,0,0), time=1);
 ```ts
 world::set_world_difficulty("EASY");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_world_difficulty(difficulty="EASY");
 ```
@@ -2135,17 +2160,17 @@ world::set_world_difficulty(difficulty="EASY");
 ```ts
 world::set_gamerule("DISABLE_RAIDS", "value");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_gamerule(gamerule="DISABLE_RAIDS", value="value");
 ```
 
 **Аргументы:**
 
-| **Имя**    | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | **Описание**    |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `gamerule` | Маркер<br/>**DISABLE_RAIDS** - Отключение рейдов (disableRaids)<br/>**DO_DAYLIGHT_CYCLE** - Смена дня и ночи (doDaylightCycle)<br/>**DO_ENTITY_DROPS** - Выпадение экипировки сущностей (doEntityDrops)<br/>**DO_FIRE_TICK** - Распространение огня (doFireTick)<br/>**DO_IMMEDIATE_RESPAWN** - Мгновенное возрождение (doImmediateRespawn)<br/>**DO_INSOMNIA** - Появление фантомов (doInsomnia)<br/>**DO_MOB_LOOT** - Выпадение добычи с мобов (doMobLoot)<br/>**DO_MOB_SPAWNING** - Появление мобов (doMobSpawning)<br/>**DO_PATROL_SPAWNING** - Патрули Разбойников (doPatrolSpawning)<br/>**DO_TILE_DROPS** - Выпадение блоков (doTileDrops)<br/>**DO_TRADER_SPAWNING** - Странствующие торговцы (doTraderSpawning)<br/>**DO_WEATHER_CYCLE** - Изменения погоды (doWeatherCycle)<br/>**DROWNING_DAMAGE** - Урон от утопления (drowningDamage)<br/>**FALL_DAMAGE** - Урон от падения (fallDamage)<br/>**FIRE_DAMAGE** - Урон от огня (fireDamage)<br/>**FORGIVE_DEAD_PLAYERS** - Прощение умерших игроков (forgiveDeadPlayers)<br/>**KEEP_INVENTORY** - Сохранение инвентаря при смерти (keepInventory)<br/>**MOB_GRIEFING** - Разрушительные действия мобов (mobGriefing)<br/>**PROJECTILES_CAN_BREAK_BLOCKS** - Снаряды могут разрушать блоки (projectilesCanBreakBlocks)<br/>**SHOW_DEATH_MESSAGES** - Сообщения о смерти (showDeathMessages)<br/>**NATURAL_REGENERATION** - Регенерация здоровья (naturalRegeneration)<br/>**UNIVERSAL_ANGER** - Слепая ярость (universalAnger)<br/>**PLAYERS_SLEEPING_PERCENTAGE** - Процент спящих (playersSleepingPercentage)<br/>**REDUCED_DEBUG_INFO** - Малый экран отладки (reducedDebugInfo)<br/>**FREEZE_DAMAGE** - Урон от замерзания (freezeDamage)<br/>**RANDOM_TICK_SPEED** - Частота случайных тиков (randomTickSpeed)<br/>**MAX_ENTITY_CRAMMING** - Предел сущностей в одном блоке (maxEntityCramming)<br/>**SPAWN_RADIUS** - Радиус области возрождения (spawnRadius)<br/>**LAVA_SOURCE_CONVERSION** - Возобновление источников лавы (lavaSourceConversion)<br/>**WATER_SOURCE_CONVERSION** - Возобновление источников воды (waterSourceConversion)<br/>**TNT_EXPLOSION_DROP_DECAY** - Потеря части добычи при взрыве динамита (tntExplosionDropDecay)<br/>**BLOCK_EXPLOSION_DROP_DECAY** - Потеря части добычи при взрыве от взаимодействия с блоком (blockExplosionDropDecay)<br/>**MOB_EXPLOSION_DROP_DECAY** - Потеря части добычи при взрыве моба (mobExplosionDropDecay)<br/>**DO_LIMITED_CRAFTING** - Создание только по рецепту (doLimitedCrafting)<br/>**PLAYERS_NETHER_PORTAL_DEFAULT_DELAY** - Время прохождения портала Незера вне творческого режима (playersNetherPortalDefaultDelay)<br/>**PLAYERS_NETHER_PORTAL_CREATIVE_DELAY** - Время прохождения портала Незера в творческом режиме (playersNetherPortalCreativeDelay)<br/>**SNOW_ACCUMULATION_HEIGHT** - Высота снежного покрова (showAccumulationHeight)<br/>**SPAWN_CHUNK_RADIUS** - Радиус чанков возрождения (shawnChunkRadius)<br/>**DO_WARDEN_SPAWNING** - Появление Хранителей (doWardenSpawning)<br/>**ENDER_PEARLS_VANISH_ON_DEATH** - Исчезновение брошенного эндер-жемчуга при смерти (enderPearlsVanishOnDeath)<br/>**DO_VINES_SPREAD** - Распространение лозы (doVinesSpread) | Игровое правило |
-| `value`    | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Значение        |
+| **Имя**    | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | **Описание**    |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `gamerule` | Маркер<br/>**DISABLE_RAIDS** - Отключение рейдов (disableRaids)<br/>**DO_DAYLIGHT_CYCLE** - Смена дня и ночи (doDaylightCycle)<br/>**DO_ENTITY_DROPS** - Выпадение экипировки сущностей (doEntityDrops)<br/>**DO_FIRE_TICK** - Распространение огня (doFireTick)<br/>**DO_IMMEDIATE_RESPAWN** - Мгновенное возрождение (doImmediateRespawn)<br/>**DO_INSOMNIA** - Появление фантомов (doInsomnia)<br/>**DO_MOB_LOOT** - Выпадение добычи с мобов (doMobLoot)<br/>**DO_MOB_SPAWNING** - Появление мобов (doMobSpawning)<br/>**DO_PATROL_SPAWNING** - Патрули Разбойников (doPatrolSpawning)<br/>**DO_TILE_DROPS** - Выпадение блоков (doTileDrops)<br/>**DO_TRADER_SPAWNING** - Странствующие торговцы (doTraderSpawning)<br/>**DO_WEATHER_CYCLE** - Изменения погоды (doWeatherCycle)<br/>**DROWNING_DAMAGE** - Урон от утопления (drowningDamage)<br/>**FALL_DAMAGE** - Урон от падения (fallDamage)<br/>**FIRE_DAMAGE** - Урон от огня (fireDamage)<br/>**FORGIVE_DEAD_PLAYERS** - Прощение умерших игроков (forgiveDeadPlayers)<br/>**KEEP_INVENTORY** - Сохранение инвентаря при смерти (keepInventory)<br/>**MOB_GRIEFING** - Разрушительные действия мобов (mobGriefing)<br/>**PROJECTILES_CAN_BREAK_BLOCKS** - Снаряды могут разрушать блоки (projectilesCanBreakBlocks)<br/>**SHOW_DEATH_MESSAGES** - Сообщения о смерти (showDeathMessages)<br/>**NATURAL_REGENERATION** - Регенерация здоровья (naturalRegeneration)<br/>**UNIVERSAL_ANGER** - Слепая ярость (universalAnger)<br/>**PLAYERS_SLEEPING_PERCENTAGE** - Процент спящих (playersSleepingPercentage)<br/>**REDUCED_DEBUG_INFO** - Малый экран отладки (reducedDebugInfo)<br/>**FREEZE_DAMAGE** - Урон от замерзания (freezeDamage)<br/>**RANDOM_TICK_SPEED** - Частота случайных тиков (randomTickSpeed)<br/>**MAX_ENTITY_CRAMMING** - Предел сущностей в одном блоке (maxEntityCramming)<br/>**SPAWN_RADIUS** - Радиус области возрождения (spawnRadius)<br/>**LAVA_SOURCE_CONVERSION** - Возобновление источников лавы (lavaSourceConversion)<br/>**WATER_SOURCE_CONVERSION** - Возобновление источников воды (waterSourceConversion)<br/>**TNT_EXPLOSION_DROP_DECAY** - Потеря части добычи при взрыве динамита (tntExplosionDropDecay)<br/>**BLOCK_EXPLOSION_DROP_DECAY** - Потеря части добычи при взрыве от взаимодействия с блоком (blockExplosionDropDecay)<br/>**MOB_EXPLOSION_DROP_DECAY** - Потеря части добычи при взрыве моба (mobExplosionDropDecay)<br/>**DO_LIMITED_CRAFTING** - Создание только по рецепту (doLimitedCrafting)<br/>**PLAYERS_NETHER_PORTAL_DEFAULT_DELAY** - Время прохождения портала Незера вне творческого режима (playersNetherPortalDefaultDelay)<br/>**PLAYERS_NETHER_PORTAL_CREATIVE_DELAY** - Время прохождения портала Незера в творческом режиме (playersNetherPortalCreativeDelay)<br/>**SNOW_ACCUMULATION_HEIGHT** - Высота снежного покрова (showAccumulationHeight)<br/>**SPAWN_CHUNK_RADIUS** - Радиус чанков возрождения (shawnChunkRadius)<br/>**DO_WARDEN_SPAWNING** - Появление Хранителей (doWardenSpawning)<br/>**ENDER_PEARLS_VANISH_ON_DEATH** - Исчезновение брошенного эндер-жемчуга при смерти (enderPearlsVanishOnDeath)<br/>**DO_VINES_SPREAD** - Распространение лозы (doVinesSpread)<br/>**ALLOW_FIRE_TICKS_AWAY_FROM_PLAYER** - Обновление огня вдали от игроков<br/>**TNT_EXPLODER** - Активация и взрыв динамита<br/>**LOCATOR_BAR** - Видимость локатора игроков | Игровое правило |
+| `value`    | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Значение        |
 <h3 id=game_set_world_simulation_distance>
   <code>world::set_world_simulation_distance</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2159,7 +2184,7 @@ world::set_gamerule(gamerule="DISABLE_RAIDS", value="value");
 ```ts
 world::set_world_simulation_distance(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_world_simulation_distance(distance=1);
 ```
@@ -2182,7 +2207,7 @@ world::set_world_simulation_distance(distance=1);
 ```ts
 world::set_world_time(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_world_time(time=1);
 ```
@@ -2207,7 +2232,7 @@ world::set_world_time(time=1);
 ```ts
 world::set_world_weather(1, "CLEAR");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::set_world_weather(weather_duration=1, weather_type="CLEAR");
 ```
@@ -2231,7 +2256,7 @@ world::set_world_weather(weather_duration=1, weather_type="CLEAR");
 ```ts
 world::spawn_armor_stand(item("stick"), item("stick"), item("stick"), item("stick"), item("stick"), item("stick"), location(0,0,0,0,0), "custom_name", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_armor_stand(helmet=item("stick"), chestplate=item("stick"), leggings=item("stick"), boots=item("stick"), right_hand=item("stick"), left_hand=item("stick"), location=location(0,0,0,0,0), custom_name="custom_name", gravity="FALSE", marker="FALSE", small="FALSE", show_arms="FALSE", base_plate="FALSE", invisible="FALSE");
 ```
@@ -2267,7 +2292,7 @@ world::spawn_armor_stand(helmet=item("stick"), chestplate=item("stick"), legging
 ```ts
 world::spawn_block_display(location(0,0,0,0,0), "custom_name", item("stone"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_block_display(spawn_location=location(0,0,0,0,0), custom_name="custom_name", block=item("stone"));
 ```
@@ -2292,7 +2317,7 @@ world::spawn_block_display(spawn_location=location(0,0,0,0,0), custom_name="cust
 ```ts
 world::spawn_effect_cloud(location(0,0,0,0,0), 1, 2, [potion("slow_falling"), potion("slow_falling")], particle("fire"), "custom_name");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_effect_cloud(location=location(0,0,0,0,0), duration=1, radius=2, effects=[potion("slow_falling"), potion("slow_falling")], particle=particle("fire"), custom_name="custom_name");
 ```
@@ -2320,7 +2345,7 @@ world::spawn_effect_cloud(location=location(0,0,0,0,0), duration=1, radius=2, ef
 ```ts
 world::spawn_end_crystal(location(0,0,0,0,0), "custom_name", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_end_crystal(location=location(0,0,0,0,0), custom_name="custom_name", show_bottom="FALSE");
 ```
@@ -2345,7 +2370,7 @@ world::spawn_end_crystal(location=location(0,0,0,0,0), custom_name="custom_name"
 ```ts
 world::spawn_evoker_fangs(location(0,0,0,0,0), "custom_name");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_evoker_fangs(location=location(0,0,0,0,0), custom_name="custom_name");
 ```
@@ -2369,7 +2394,7 @@ world::spawn_evoker_fangs(location=location(0,0,0,0,0), custom_name="custom_name
 ```ts
 world::spawn_experience_orb(location(0,0,0,0,0), 1, "custom_name");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_experience_orb(location=location(0,0,0,0,0), experience_amount=1, custom_name="custom_name");
 ```
@@ -2394,7 +2419,7 @@ world::spawn_experience_orb(location=location(0,0,0,0,0), experience_amount=1, c
 ```ts
 world::spawn_eye_of_ender(location(0,0,0,0,0), location(0,0,0,0,0), 1, "custom_name", "DROP");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_eye_of_ender(location=location(0,0,0,0,0), destination=location(0,0,0,0,0), lifespan=1, custom_name="custom_name", end_of_lifespan="DROP");
 ```
@@ -2421,7 +2446,7 @@ world::spawn_eye_of_ender(location=location(0,0,0,0,0), destination=location(0,0
 ```ts
 world::spawn_falling_block(item("stone"), location(0,0,0,0,0), "name", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_falling_block(block=item("stone"), location=location(0,0,0,0,0), name="name", should_expire="FALSE");
 ```
@@ -2449,7 +2474,7 @@ world::spawn_falling_block(block=item("stone"), location=location(0,0,0,0,0), na
 ```ts
 world::spawn_interaction_entity(location(0,0,0,0,0), "custom_name", 1, 2, "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_interaction_entity(location=location(0,0,0,0,0), custom_name="custom_name", width=1, height=2, responsive="FALSE");
 ```
@@ -2476,7 +2501,7 @@ world::spawn_interaction_entity(location=location(0,0,0,0,0), custom_name="custo
 ```ts
 world::spawn_item(location(0,0,0,0,0), item("stick"), "custom_name", "FALSE", "FALSE", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_item(location=location(0,0,0,0,0), item=item("stick"), custom_name="custom_name", can_mob_pickup="FALSE", can_player_pickup="FALSE", apply_motion="FALSE");
 ```
@@ -2504,7 +2529,7 @@ world::spawn_item(location=location(0,0,0,0,0), item=item("stick"), custom_name=
 ```ts
 world::spawn_item_display(location(0,0,0,0,0), "custom_name", item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_item_display(spawn_location=location(0,0,0,0,0), custom_name="custom_name", displayed_item=item("stick"));
 ```
@@ -2529,7 +2554,7 @@ world::spawn_item_display(spawn_location=location(0,0,0,0,0), custom_name="custo
 ```ts
 world::spawn_item_frame(location(0,0,0,0,0), item("stick"), "NONE", "NORTH", "TRUE", "TRUE", "TRUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_item_frame(location=location(0,0,0,0,0), item=item("stick"), rotation="NONE", block_face="NORTH", glowing="TRUE", visible="TRUE", fixed="TRUE");
 ```
@@ -2558,7 +2583,7 @@ world::spawn_item_frame(location=location(0,0,0,0,0), item=item("stick"), rotati
 ```ts
 world::spawn_lightning_bolt(location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_lightning_bolt(location=location(0,0,0,0,0));
 ```
@@ -2581,7 +2606,7 @@ world::spawn_lightning_bolt(location=location(0,0,0,0,0));
 ```ts
 world::spawn_mob(item("stick"), location(0,0,0,0,0), 1, "custom_name", [potion("slow_falling"), potion("slow_falling")], item("stick"), item("stick"), item("stick"), item("stick"), item("stick"), item("stick"), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_mob(mob=item("stick"), location=location(0,0,0,0,0), health=1, custom_name="custom_name", potion_effects=[potion("slow_falling"), potion("slow_falling")], main_hand=item("stick"), helmet=item("stick"), chestplate=item("stick"), leggings=item("stick"), boots=item("stick"), off_hand=item("stick"), natural_equipment="FALSE");
 ```
@@ -2615,7 +2640,7 @@ world::spawn_mob(mob=item("stick"), location=location(0,0,0,0,0), health=1, cust
 ```ts
 world::spawn_painting(location(0,0,0,0,0), "art", "NORTH");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_painting(spawn_location=location(0,0,0,0,0), art="art", block_face="NORTH");
 ```
@@ -2640,7 +2665,7 @@ world::spawn_painting(spawn_location=location(0,0,0,0,0), art="art", block_face=
 ```ts
 world::spawn_primed_tnt(location(0,0,0,0,0), 1, 2, "custom_name", item("stone"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_primed_tnt(location=location(0,0,0,0,0), tnt_power=1, fuse_duration=2, custom_name="custom_name", block=item("stone"));
 ```
@@ -2667,7 +2692,7 @@ world::spawn_primed_tnt(location=location(0,0,0,0,0), tnt_power=1, fuse_duration
 ```ts
 world::spawn_shulker_bullet(location(0,0,0,0,0), "custom_name");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_shulker_bullet(location=location(0,0,0,0,0), custom_name="custom_name");
 ```
@@ -2691,7 +2716,7 @@ world::spawn_shulker_bullet(location=location(0,0,0,0,0), custom_name="custom_na
 ```ts
 world::spawn_text_display(location(0,0,0,0,0), "custom_name", ["displayed_text", "displayed_text"], "CONCATENATION");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_text_display(spawn_location=location(0,0,0,0,0), custom_name="custom_name", displayed_text=["displayed_text", "displayed_text"], merging_mode="CONCATENATION");
 ```
@@ -2717,7 +2742,7 @@ world::spawn_text_display(spawn_location=location(0,0,0,0,0), custom_name="custo
 ```ts
 world::spawn_vehicle(item("stick"), location(0,0,0,0,0), "custom_name");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::spawn_vehicle(vehicle=item("stick"), location=location(0,0,0,0,0), custom_name="custom_name");
 ```
@@ -2756,7 +2781,7 @@ world::uncancel_event();
 ```ts
 world::update_block(location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::update_block(location=location(0,0,0,0,0));
 ```
@@ -2781,7 +2806,7 @@ if(world::block_equals([item("stone"), item("stone")], location(0,0,0,0,0))){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::block_equals(blocks=[item("stone"), item("stone")], location=location(0,0,0,0,0)){
     player::message("Условие верно");
@@ -2809,7 +2834,7 @@ if(world::block_powered([location(0,0,0,0,0), location(0,0,0,0,0)], "DIRECT")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::block_powered(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], power_mode="DIRECT"){
     player::message("Условие верно");
@@ -2837,7 +2862,7 @@ if(world::chunk_is_loaded(location(0,0,0,0,0))){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::chunk_is_loaded(location=location(0,0,0,0,0)){
     player::message("Условие верно");
@@ -2864,7 +2889,7 @@ if(world::container_has([item("stick"), item("stick")], location(0,0,0,0,0), "AL
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::container_has(items=[item("stick"), item("stick")], location=location(0,0,0,0,0), check_mode="ALL", comparison_mode="EXACTLY"){
     player::message("Условие верно");
@@ -2894,7 +2919,7 @@ if(world::container_has_room_for_item([item("stick"), item("stick")], location(0
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::container_has_room_for_item(items=[item("stick"), item("stick")], location=location(0,0,0,0,0), check_mode="ALL"){
     player::message("Условие верно");
@@ -2923,7 +2948,7 @@ if(world::damage_cause_equals("BLOCK_EXPLOSION")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::damage_cause_equals(cause="BLOCK_EXPLOSION"){
     player::message("Условие верно");
@@ -2982,7 +3007,7 @@ if(world::event_block_equals([item("stone"), item("stone")], [location(0,0,0,0,0
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::event_block_equals(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)]){
     player::message("Условие верно");
@@ -3000,7 +3025,7 @@ world::event_block_equals(blocks=[item("stone"), item("stone")], locations=[loca
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** Клавиша передвижения\
+**Имя:** Клавиша передвижения равна\
 **Тип:** Действие, проверяющее условие\
 **Описание:** Проверяет, является ли клавиша передвижения из события, выбранной клавишей.
 **Работает с:**\
@@ -3014,7 +3039,7 @@ if(world::event_has_input("FORWARD")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::event_has_input(input_type="FORWARD"){
     player::message("Условие верно");
@@ -3057,7 +3082,7 @@ if(world::event_item_equals([item("stick"), item("stick")], "EXACTLY")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::event_item_equals(items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Условие верно");
@@ -3085,7 +3110,7 @@ if(world::has_player(["names_or_uuids", "names_or_uuids"])){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::has_player(names_or_uuids=["names_or_uuids", "names_or_uuids"]){
     player::message("Условие верно");
@@ -3112,7 +3137,7 @@ if(world::heal_cause_equals("CUSTOM")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::heal_cause_equals(heal_cause="CUSTOM"){
     player::message("Условие верно");
@@ -3139,7 +3164,7 @@ if(world::ignite_cause_equals("ARROW")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::ignite_cause_equals(cause="ARROW"){
     player::message("Условие верно");
@@ -3166,7 +3191,7 @@ if(world::instrument_equals("BANJO")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::instrument_equals(instrument="BANJO"){
     player::message("Условие верно");
@@ -3193,7 +3218,7 @@ if(world::location_in_block(location(0,0,0,0,0))){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::location_in_block(location=location(0,0,0,0,0)){
     player::message("Условие верно");
@@ -3220,7 +3245,7 @@ if(world::sign_contains(location(0,0,0,0,0), ["texts", "texts"], "ANY", "ALL", "
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 world::sign_contains(location=location(0,0,0,0,0), texts=["texts", "texts"], check_side="ANY", check_mode="ALL", lines="ALL"){
     player::message("Условие верно");

@@ -276,6 +276,10 @@
     "type": "location"
   },
   {
+    "id": "event_gamemode",
+    "type": "text"
+  },
+  {
     "id": "event_hanging_break_cause",
     "type": "text"
   },

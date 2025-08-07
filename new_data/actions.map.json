@@ -891,5 +891,21 @@
   "set_variable_get_vault_next_state_update_time" : {"name": "get_vault_next_state_update_time","object": "variable","assign": [{"variable": "number"}]},
   "set_variable_obtain_item_custom_model_data" : {"name": "obtain_item_custom_model_data","object": "variable","origin": "item","assign": [{"variable": "array"}]},
   "set_variable_set_item_hidden_tooltip" : {"name": "set_item_hidden_tooltip","object": "variable","origin": "item","assign": [{"variable": "item"}]},
-  "set_variable_set_item_tooltip_style" : {"name": "set_item_tooltip_style","object": "variable","origin": "item","assign": [{"variable": "item"}]}
+  "set_variable_set_item_tooltip_style" : {"name": "set_item_tooltip_style","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "entity_set_item_owner" : {"name": "set_item_owner","object": "entity"},
+  "game_set_event_gamemode" : {"name": "set_event_gamemode","object": "world"},
+  "player_open_working_menu" : {"name": "open_working_menu","object": "player"},
+  "player_set_item_group_cooldown" : {"name": "set_item_group_cooldown","object": "player"},
+  "set_variable_edit_item_custom_model_data" : {"name": "edit_item_custom_model_data","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "set_variable_get_item_food_properties" : {"name": "get_item_food_properties","object": "variable","origin": "item","assign": [{"variable": "number"}]},
+  "set_variable_get_item_model_data" : {"name": "get_item_model_data","object": "variable","origin": "item","assign": [{"variable": "text"}]},
+  "set_variable_get_item_use_remainder" : {"name": "get_item_use_remainder","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "set_variable_get_item_weapon" : {"name": "get_item_weapon","object": "variable","origin": "item","assign": [{"variable": "number"}]},
+  "set_variable_set_item_food_properties" : {"name": "set_item_food_properties","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "set_variable_set_item_glider" : {"name": "set_item_glider","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "set_variable_set_item_glint_override" : {"name": "set_item_glint_override","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "set_variable_set_item_model_data" : {"name": "set_item_model_data","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "set_variable_set_item_rarity" : {"name": "set_item_rarity","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "set_variable_set_item_use_remainder" : {"name": "set_item_use_remainder","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "set_variable_set_item_weapon" : {"name": "set_item_weapon","object": "variable","origin": "item","assign": [{"variable": "item"}]}
 }

@@ -280,6 +280,10 @@
     "cancellable": true
   },
   {
+    "id": "player_ask_gamemode_change",
+    "cancellable": true
+  },
+  {
     "id": "player_break_block",
     "cancellable": true
   },
@@ -501,6 +505,10 @@
   },
   {
     "id": "player_pre_attack_entity",
+    "cancellable": true
+  },
+  {
+    "id": "player_prepare_result",
     "cancellable": true
   },
   {

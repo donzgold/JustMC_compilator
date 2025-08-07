@@ -47,7 +47,7 @@ controller::catch_exception(`variable`, "ALL"){
     player::message("Everything work");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 controller::catch_exception(variable=`variable`, exception_type="ALL"){
     player::message("Everything work");
@@ -77,7 +77,7 @@ controller::measure_time(`variable`, "MICROSECONDS"){
     player::message("Everything work");
 }
 
-#Or dry by keywords
+//Or dry by keywords
 
 controller::measure_time(variable=`variable`, duration="MICROSECONDS"){
     player::message("Everything work");

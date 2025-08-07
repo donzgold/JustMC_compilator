@@ -47,7 +47,7 @@ if(player::chat_message_equals(["chat_messages", "chat_messages"])){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::chat_message_equals(chat_messages=["chat_messages", "chat_messages"]){
     player::message("Условие верно");
@@ -74,7 +74,7 @@ if(player::collides_at_location(location(0,0,0,0,0))){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::collides_at_location(location=location(0,0,0,0,0)){
     player::message("Условие верно");
@@ -101,7 +101,7 @@ if(player::collides_using_hitbox(location(0,0,0,0,0), location(0,0,0,0,0))){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::collides_using_hitbox(min=location(0,0,0,0,0), max=location(0,0,0,0,0)){
     player::message("Условие верно");
@@ -129,7 +129,7 @@ if(player::collides_with_entity("name_or_uuid", "CONTAINS")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::collides_with_entity(name_or_uuid="name_or_uuid", check_type="CONTAINS"){
     player::message("Условие верно");
@@ -157,7 +157,7 @@ if(player::cursor_item_equals([item("stick"), item("stick")], "EXACTLY")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::cursor_item_equals(items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Условие верно");
@@ -201,7 +201,7 @@ if(player::gamemode_equals("ADVENTURE")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::gamemode_equals(gamemode="ADVENTURE"){
     player::message("Условие верно");
@@ -228,7 +228,7 @@ if(player::has_input("FORWARD")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::has_input(input_type="FORWARD"){
     player::message("Условие верно");
@@ -255,7 +255,7 @@ if(player::has_item([item("stick"), item("stick")], "ALL", "EXACTLY")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::has_item(items=[item("stick"), item("stick")], check_mode="ALL", comparison_mode="EXACTLY"){
     player::message("Условие верно");
@@ -284,7 +284,7 @@ if(player::has_item_at_least(item("stick"), 1, "EXACTLY")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::has_item_at_least(item=item("stick"), count=1, comparison_mode="EXACTLY"){
     player::message("Условие верно");
@@ -313,7 +313,7 @@ if(player::has_item_in_slot([1, 2], [item("stick"), item("stick")], "EXACTLY")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::has_item_in_slot(slots=[1, 2], items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Условие верно");
@@ -342,7 +342,7 @@ if(player::has_potion_effect([potion("slow_falling"), potion("slow_falling")], "
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::has_potion_effect(potions=[potion("slow_falling"), potion("slow_falling")], check_mode="ALL"){
     player::message("Условие верно");
@@ -372,7 +372,7 @@ if(player::has_privilege("BUILDER", "FALSE")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::has_privilege(privilege="BUILDER", exact="FALSE"){
     player::message("Условие верно");
@@ -400,7 +400,7 @@ if(player::has_room_for_item([item("stick"), item("stick")], "ARMOR", "ALL")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::has_room_for_item(items=[item("stick"), item("stick")], checked_slots="ARMOR", check_mode="ALL"){
     player::message("Условие верно");
@@ -429,7 +429,7 @@ if(player::hotbar_slot_equals(1)){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::hotbar_slot_equals(slot=1){
     player::message("Условие верно");
@@ -456,7 +456,7 @@ if(player::in_area(location(0,0,0,0,0), location(0,0,0,0,0), "FALSE", "HITBOX", 
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::in_area(location_1=location(0,0,0,0,0), location_2=location(0,0,0,0,0), ignore_y_axis="FALSE", intersect_type="HITBOX", check_type="CONTAINS"){
     player::message("Условие верно");
@@ -487,7 +487,7 @@ if(player::inventory_menu_slot_equals([1, 2], [item("stick"), item("stick")], "E
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::inventory_menu_slot_equals(slots=[1, 2], items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Условие верно");
@@ -516,7 +516,7 @@ if(player::inventory_type_open("ANVIL")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::inventory_type_open(inventory_type="ANVIL"){
     player::message("Условие верно");
@@ -623,7 +623,7 @@ if(player::holding([item("stick"), item("stick")], "EITHER_HAND", "EXACTLY")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::holding(items=[item("stick"), item("stick")], hand_slot="EITHER_HAND", comparison_mode="EXACTLY"){
     player::message("Условие верно");
@@ -652,7 +652,7 @@ if(player::is_looking_at_block([item("stone"), item("stone")], [location(0,0,0,0
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::is_looking_at_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], distance=1, fluid_mode="ALWAYS"){
     player::message("Условие верно");
@@ -682,7 +682,7 @@ if(player::is_near(1, location(0,0,0,0,0), "FALSE")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::is_near(range=1, location=location(0,0,0,0,0), ignore_y_axis="FALSE"){
     player::message("Условие верно");
@@ -743,7 +743,7 @@ if(player::is_riding_entity(["entity_ids", "entity_ids"], "FARTHEST")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mode="FARTHEST"){
     player::message("Условие верно");
@@ -835,7 +835,7 @@ if(player::is_standing_on_block([item("stone"), item("stone")], [location(0,0,0,
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::is_standing_on_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
     player::message("Условие верно");
@@ -880,7 +880,7 @@ if(player::is_using_item([item("stick"), item("stick")], "EXACTLY")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::is_using_item(items=[item("stick"), item("stick")], comparison_mode="EXACTLY"){
     player::message("Условие верно");
@@ -908,7 +908,7 @@ if(player::is_wearing_item([item("stick"), item("stick")], "ALL", "EXACTLY")){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::is_wearing_item(items=[item("stick"), item("stick")], check_mode="ALL", comparison_mode="EXACTLY"){
     player::message("Условие верно");
@@ -937,7 +937,7 @@ if(player::item_is_not_on_cooldown([item("stick"), item("stick")])){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::item_is_not_on_cooldown(items=[item("stick"), item("stick")]){
     player::message("Условие верно");
@@ -964,7 +964,7 @@ if(player::name_equals(["names_or_uuids", "names_or_uuids"])){
     player::message("Условие верно");
 }
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::name_equals(names_or_uuids=["names_or_uuids", "names_or_uuids"]){
     player::message("Условие верно");
@@ -1005,7 +1005,7 @@ if(player::text_filtering_enabled()){
 ```ts
 player::add_inventory_menu_row([item("stick"), item("stick")], "BUTTON");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::add_inventory_menu_row(items=[item("stick"), item("stick")], position="BUTTON");
 ```
@@ -1029,7 +1029,7 @@ player::add_inventory_menu_row(items=[item("stick"), item("stick")], position="B
 ```ts
 player::allow_placing_breaking_blocks([item("stone"), item("stone")], "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::allow_placing_breaking_blocks(blocks=[item("stone"), item("stone")], allow="FALSE");
 ```
@@ -1053,7 +1053,7 @@ player::allow_placing_breaking_blocks(blocks=[item("stone"), item("stone")], all
 ```ts
 player::boost_elytra(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::boost_elytra(firework=item("stick"));
 ```
@@ -1118,7 +1118,7 @@ player::clear_ender_chest_contents();
 ```ts
 player::clear_inventory("ARMOR");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::clear_inventory(clear_mode="ARMOR");
 ```
@@ -1141,7 +1141,7 @@ player::clear_inventory(clear_mode="ARMOR");
 ```ts
 player::clear_items([item("stick"), item("stick")]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::clear_items(items=[item("stick"), item("stick")]);
 ```
@@ -1206,7 +1206,7 @@ player::close_inventory();
 ```ts
 player::damage(1, "source");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::damage(damage=1, source="source");
 ```
@@ -1230,7 +1230,7 @@ player::damage(damage=1, source="source");
 ```ts
 player::disguise_as_block(item("stone"), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::disguise_as_block(block=item("stone"), visible_to_self="FALSE");
 ```
@@ -1254,7 +1254,7 @@ player::disguise_as_block(block=item("stone"), visible_to_self="FALSE");
 ```ts
 player::disguise_as_entity(item("stick"), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::disguise_as_entity(entity_type=item("stick"), visible_to_self="FALSE");
 ```
@@ -1278,7 +1278,7 @@ player::disguise_as_entity(entity_type=item("stick"), visible_to_self="FALSE");
 ```ts
 player::disguise_as_item(item("stick"), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::disguise_as_item(item=item("stick"), visible_to_self="FALSE");
 ```
@@ -1306,11 +1306,11 @@ player::disguise_as_item(item=item("stick"), visible_to_self="FALSE");
 ```ts
 player::display_bell_ring(location(0,0,0,0,0), "DOWN");
 
-#Или от объекта
+//Или от объекта
 
 location(0,0,0,0,0).display_bell_ring("DOWN");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_bell_ring(location=location(0,0,0,0,0), direction="DOWN");
 ```
@@ -1334,7 +1334,7 @@ player::display_bell_ring(location=location(0,0,0,0,0), direction="DOWN");
 ```ts
 player::display_block([location(0,0,0,0,0), location(0,0,0,0,0)], item("stone"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_block(location=[location(0,0,0,0,0), location(0,0,0,0,0)], block=item("stone"));
 ```
@@ -1358,7 +1358,7 @@ player::display_block(location=[location(0,0,0,0,0), location(0,0,0,0,0)], block
 ```ts
 player::display_end_gateway_beam(location(0,0,0,0,0), "DARK_PURPLE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_end_gateway_beam(location=location(0,0,0,0,0), color="DARK_PURPLE");
 ```
@@ -1384,7 +1384,7 @@ player::display_end_gateway_beam(location=location(0,0,0,0,0), color="DARK_PURPL
 ```ts
 player::display_hologram(location(0,0,0,0,0), "text");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_hologram(location=location(0,0,0,0,0), text="text");
 ```
@@ -1408,7 +1408,7 @@ player::display_hologram(location=location(0,0,0,0,0), text="text");
 ```ts
 player::display_lightning(location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_lightning(location=location(0,0,0,0,0));
 ```
@@ -1431,7 +1431,7 @@ player::display_lightning(location=location(0,0,0,0,0));
 ```ts
 player::display_particle([particle("fire"), particle("fire")], [location(0,0,0,0,0), location(0,0,0,0,0)]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_particle(particle=[particle("fire"), particle("fire")], location=[location(0,0,0,0,0), location(0,0,0,0,0)]);
 ```
@@ -1455,7 +1455,7 @@ player::display_particle(particle=[particle("fire"), particle("fire")], location
 ```ts
 player::display_particle_circle(particle("fire"), location(0,0,0,0,0), 1, 2, 3, vector(0,0,0), "DEGREES");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_particle_circle(particle=particle("fire"), center=location(0,0,0,0,0), radius=1, points=2, start_angle=3, perpendicular=vector(0,0,0), angle_unit="DEGREES");
 ```
@@ -1484,7 +1484,7 @@ player::display_particle_circle(particle=particle("fire"), center=location(0,0,0
 ```ts
 player::display_particle_cube(particle("fire"), location(0,0,0,0,0), location(0,0,0,0,0), 1, "HOLLOW");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_particle_cube(particle=particle("fire"), first_corner=location(0,0,0,0,0), second_corner=location(0,0,0,0,0), spacing=1, type="HOLLOW");
 ```
@@ -1511,7 +1511,7 @@ player::display_particle_cube(particle=particle("fire"), first_corner=location(0
 ```ts
 player::display_particle_line(particle("fire"), location(0,0,0,0,0), location(0,0,0,0,0), 1, "DISTANCE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_particle_line(particle=particle("fire"), start=location(0,0,0,0,0), end=location(0,0,0,0,0), divider=1, unit_of_measurement="DISTANCE");
 ```
@@ -1538,7 +1538,7 @@ player::display_particle_line(particle=particle("fire"), start=location(0,0,0,0,
 ```ts
 player::display_particle_ray(particle("fire"), location(0,0,0,0,0), vector(0,0,0), 1, "DISTANCE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_particle_ray(particle=particle("fire"), start=location(0,0,0,0,0), ray=vector(0,0,0), divider=1, unit_of_measurement="DISTANCE");
 ```
@@ -1565,7 +1565,7 @@ player::display_particle_ray(particle=particle("fire"), start=location(0,0,0,0,0
 ```ts
 player::display_particle_sphere(particle("fire"), location(0,0,0,0,0), 1, 2);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_particle_sphere(particle=particle("fire"), center=location(0,0,0,0,0), radius=1, points=2);
 ```
@@ -1591,7 +1591,7 @@ player::display_particle_sphere(particle=particle("fire"), center=location(0,0,0
 ```ts
 player::display_particle_spiral(particle("fire"), location(0,0,0,0,0), 1, 2, 3, 4, 5, "DEGREES");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_particle_spiral(particle=particle("fire"), center=location(0,0,0,0,0), distance=1, radius=2, points=3, rotations=4, start_angle=5, angle_unit="DEGREES");
 ```
@@ -1624,7 +1624,7 @@ player::display_particle_spiral(particle=particle("fire"), center=location(0,0,0
 ```ts
 player::display_pick_up_animation("collected_name_or_uuid", "collector_name_or_uuid", 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_pick_up_animation(collected_name_or_uuid="collected_name_or_uuid", collector_name_or_uuid="collector_name_or_uuid", amount=1);
 ```
@@ -1649,7 +1649,7 @@ player::display_pick_up_animation(collected_name_or_uuid="collected_name_or_uuid
 ```ts
 player::display_sign_text(location(0,0,0,0,0), "line_1", "line_2", "line_3", "line_4");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_sign_text(location=location(0,0,0,0,0), line_1="line_1", line_2="line_2", line_3="line_3", line_4="line_4");
 ```
@@ -1676,7 +1676,7 @@ player::display_sign_text(location=location(0,0,0,0,0), line_1="line_1", line_2=
 ```ts
 player::display_vibration(location(0,0,0,0,0), location(0,0,0,0,0), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::display_vibration(from=location(0,0,0,0,0), to=location(0,0,0,0,0), destination_time=1);
 ```
@@ -1715,7 +1715,7 @@ player::dummy();
 ```ts
 player::expand_inventory_menu([item("stick"), item("stick")], 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::expand_inventory_menu(items=[item("stick"), item("stick")], size=1);
 ```
@@ -1739,7 +1739,7 @@ player::expand_inventory_menu(items=[item("stick"), item("stick")], size=1);
 ```ts
 player::face_location(location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::face_location(location=location(0,0,0,0,0));
 ```
@@ -1762,7 +1762,7 @@ player::face_location(location=location(0,0,0,0,0));
 ```ts
 player::force_flight_mode("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::force_flight_mode(is_flying="FALSE");
 ```
@@ -1785,7 +1785,7 @@ player::force_flight_mode(is_flying="FALSE");
 ```ts
 player::give_experience(1, "LEVEL");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::give_experience(experience=1, mode="LEVEL");
 ```
@@ -1809,7 +1809,7 @@ player::give_experience(experience=1, mode="LEVEL");
 ```ts
 player::give_items([item("stick"), item("stick")], 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::give_items(items=[item("stick"), item("stick")], amount=1);
 ```
@@ -1833,7 +1833,7 @@ player::give_items(items=[item("stick"), item("stick")], amount=1);
 ```ts
 player::give_potion_effect([potion("slow_falling"), potion("slow_falling")], "FALSE", "FALSE", "AMBIENT");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::give_potion_effect(potions=[potion("slow_falling"), potion("slow_falling")], show_icon="FALSE", overwrite="FALSE", particle_mode="AMBIENT");
 ```
@@ -1859,7 +1859,7 @@ player::give_potion_effect(potions=[potion("slow_falling"), potion("slow_falling
 ```ts
 player::give_random_item([item("stick"), item("stick")]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::give_random_item(items=[item("stick"), item("stick")]);
 ```
@@ -1882,7 +1882,7 @@ player::give_random_item(items=[item("stick"), item("stick")]);
 ```ts
 player::heal(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::heal(heal=1);
 ```
@@ -1905,7 +1905,7 @@ player::heal(heal=1);
 ```ts
 player::hide_entity(["name_or_uuid", "name_or_uuid"], "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::hide_entity(name_or_uuid=["name_or_uuid", "name_or_uuid"], hide="FALSE");
 ```
@@ -1957,7 +1957,7 @@ player::kick();
 ```ts
 player::launch_forward(1, "FALSE", "YAW");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::launch_forward(power=1, increment="FALSE", launch_axis="YAW");
 ```
@@ -1982,7 +1982,7 @@ player::launch_forward(power=1, increment="FALSE", launch_axis="YAW");
 ```ts
 player::launch_projectile(item("stick"), location(0,0,0,0,0), "name", 1, 2, particle("fire"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::launch_projectile(projectile=item("stick"), location=location(0,0,0,0,0), name="name", speed=1, inaccuracy=2, trail=particle("fire"));
 ```
@@ -2010,7 +2010,7 @@ player::launch_projectile(projectile=item("stick"), location=location(0,0,0,0,0)
 ```ts
 player::launch_to_location(location(0,0,0,0,0), 1, "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::launch_to_location(location=location(0,0,0,0,0), power=1, increment="FALSE");
 ```
@@ -2035,7 +2035,7 @@ player::launch_to_location(location=location(0,0,0,0,0), power=1, increment="FAL
 ```ts
 player::launch_up(1, "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::launch_up(power=1, increment="FALSE");
 ```
@@ -2089,7 +2089,7 @@ player::load_inventory();
 ```ts
 player::open_book(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::open_book(book=item("stick"));
 ```
@@ -2112,7 +2112,7 @@ player::open_book(book=item("stick"));
 ```ts
 player::open_container_inventory(location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::open_container_inventory(location=location(0,0,0,0,0));
 ```
@@ -2122,6 +2122,30 @@ player::open_container_inventory(location=location(0,0,0,0,0));
 | **Имя**    | **Тип**        | **Описание**                      |
 | ---------- | -------------- | --------------------------------- |
 | `location` | Местоположение | Местоположение блока для открытия |
+<h3 id=player_open_working_menu>
+  <code>player::open_working_menu</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Открыть функциональное меню\
+**Тип:** Действие без значения\
+**Описание:** Открывает для игрока меню, имеющее функционал.
+
+**Пример использования:** 
+```ts
+player::open_working_menu("title", "CRAFTING");
+
+//Или в сухую по ключам
+
+player::open_working_menu(title="title", menu_type="CRAFTING");
+```
+
+**Аргументы:**
+
+| **Имя**     | **Тип**                                                                                                                                                                                                                                                                    | **Описание**       |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `title`     | Текст                                                                                                                                                                                                                                                                      | Название инвентаря |
+| `menu_type` | Маркер<br/>**CRAFTING** - Верстак<br/>**ANVIL** - Наковальня<br/>**SMITHING** - Кузнечный стол<br/>**CARTOGRAPHY_TABLE** - Стол картографа<br/>**LOOM** - Ткацкий станок<br/>**GRINDSTONE** - Точило<br/>**STONECUTTER** - Камнерез<br/>**ENCHANTMENT** - Чародейский стол | Тип функционала    |
 <h3 id=player_play_animation_action>
   <code>player::play_animation_action</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2135,7 +2159,7 @@ player::open_container_inventory(location=location(0,0,0,0,0));
 ```ts
 player::play_animation_action("DAMAGE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::play_animation_action(animation="DAMAGE");
 ```
@@ -2158,7 +2182,7 @@ player::play_animation_action(animation="DAMAGE");
 ```ts
 player::play_hurt_animation(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::play_hurt_animation(yaw=1);
 ```
@@ -2181,7 +2205,7 @@ player::play_hurt_animation(yaw=1);
 ```ts
 player::play_sound(sound("entity.zombie.hurt"), location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::play_sound(sound=sound("entity.zombie.hurt"), location=location(0,0,0,0,0));
 ```
@@ -2207,7 +2231,7 @@ player::play_sound(sound=sound("entity.zombie.hurt"), location=location(0,0,0,0,
 ```ts
 player::play_sound_from_entity("name_or_uuid", [sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::play_sound_from_entity(name_or_uuid="name_or_uuid", sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 ```
@@ -2231,7 +2255,7 @@ player::play_sound_from_entity(name_or_uuid="name_or_uuid", sounds=[sound("entit
 ```ts
 player::play_sound_sequence([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")], location(0,0,0,0,0), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::play_sound_sequence(sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hurt")], location=location(0,0,0,0,0), delay=1);
 ```
@@ -2256,7 +2280,7 @@ player::play_sound_sequence(sounds=[sound("entity.zombie.hurt"), sound("entity.z
 ```ts
 player::randomized_teleport([location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE", "FALSE", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::randomized_teleport(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], keep_rotation="FALSE", keep_velocity="FALSE", dismount="FALSE");
 ```
@@ -2282,7 +2306,7 @@ player::randomized_teleport(locations=[location(0,0,0,0,0), location(0,0,0,0,0)]
 ```ts
 player::redirect_world("world_id");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::redirect_world(world_id="world_id");
 ```
@@ -2305,7 +2329,7 @@ player::redirect_world(world_id="world_id");
 ```ts
 player::remove_boss_bar("id");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::remove_boss_bar(id="id");
 ```
@@ -2342,7 +2366,7 @@ player::remove_disguise();
 ```ts
 player::remove_display_blocks(location(0,0,0,0,0), location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::remove_display_blocks(pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0));
 ```
@@ -2366,7 +2390,7 @@ player::remove_display_blocks(pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,
 ```ts
 player::remove_inventory_menu_row(1, "BUTTON");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::remove_inventory_menu_row(size=1, position="BUTTON");
 ```
@@ -2390,7 +2414,7 @@ player::remove_inventory_menu_row(size=1, position="BUTTON");
 ```ts
 player::remove_items([item("stick"), item("stick")]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::remove_items(items=[item("stick"), item("stick")]);
 ```
@@ -2427,7 +2451,7 @@ player::remove_pose();
 ```ts
 player::remove_potion_effect([potion("slow_falling"), potion("slow_falling")]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::remove_potion_effect(potions=[potion("slow_falling"), potion("slow_falling")]);
 ```
@@ -2492,7 +2516,7 @@ player::remove_world_border();
 ```ts
 player::replace_items([item("stick"), item("stick")], item("stick"), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::replace_items(items=[item("stick"), item("stick")], replace=item("stick"), count=1);
 ```
@@ -2531,7 +2555,7 @@ player::reset_weather();
 ```ts
 player::ride_entity("name_or_uuid");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::ride_entity(name_or_uuid="name_or_uuid");
 ```
@@ -2568,7 +2592,7 @@ player::save_inventory();
 ```ts
 player::self_disguise_as_block(item("stone"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::self_disguise_as_block(block=item("stone"));
 ```
@@ -2591,7 +2615,7 @@ player::self_disguise_as_block(block=item("stone"));
 ```ts
 player::self_disguise_as_entity(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::self_disguise_as_entity(entity_type=item("stick"));
 ```
@@ -2614,7 +2638,7 @@ player::self_disguise_as_entity(entity_type=item("stick"));
 ```ts
 player::self_disguise_as_item(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::self_disguise_as_item(item=item("stick"));
 ```
@@ -2637,7 +2661,7 @@ player::self_disguise_as_item(item=item("stick"));
 ```ts
 player::send_action_bar(["messages", "messages"], "CONCATENATION");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::send_action_bar(messages=["messages", "messages"], merging="CONCATENATION");
 ```
@@ -2661,7 +2685,7 @@ player::send_action_bar(messages=["messages", "messages"], merging="CONCATENATIO
 ```ts
 player::send_advancement(item("stick"), "name", "CHALLENGE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::send_advancement(icon=item("stick"), name="name", frame="CHALLENGE");
 ```
@@ -2686,7 +2710,7 @@ player::send_advancement(icon=item("stick"), name="name", frame="CHALLENGE");
 ```ts
 player::send_break_animation([location(0,0,0,0,0), location(0,0,0,0,0)], 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::send_break_animation(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], stage=1);
 ```
@@ -2710,7 +2734,7 @@ player::send_break_animation(locations=[location(0,0,0,0,0), location(0,0,0,0,0)
 ```ts
 player::send_dialogue(["messages", "messages"], 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::send_dialogue(messages=["messages", "messages"], delay=1);
 ```
@@ -2734,7 +2758,7 @@ player::send_dialogue(messages=["messages", "messages"], delay=1);
 ```ts
 player::send_hover("message", "hover");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::send_hover(message="message", hover="hover");
 ```
@@ -2758,7 +2782,7 @@ player::send_hover(message="message", hover="hover");
 ```ts
 player::message(["messages", "messages"], "CONCATENATION");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::message(messages=["messages", "messages"], merging="CONCATENATION");
 ```
@@ -2782,7 +2806,7 @@ player::message(messages=["messages", "messages"], merging="CONCATENATION");
 ```ts
 player::send_minimessage("minimessage");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::send_minimessage(minimessage="minimessage");
 ```
@@ -2805,7 +2829,7 @@ player::send_minimessage(minimessage="minimessage");
 ```ts
 player::send_title("title", "subtitle", 1, 2, 3);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::send_title(title="title", subtitle="subtitle", fade_in=1, stay=2, fade_out=3);
 ```
@@ -2832,7 +2856,7 @@ player::send_title(title="title", subtitle="subtitle", fade_in=1, stay=2, fade_o
 ```ts
 player::set_absorption_health(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_absorption_health(health=1);
 ```
@@ -2855,7 +2879,7 @@ player::set_absorption_health(health=1);
 ```ts
 player::set_air_ticks(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_air_ticks(ticks=1);
 ```
@@ -2878,7 +2902,7 @@ player::set_air_ticks(ticks=1);
 ```ts
 player::set_allow_flying("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_allow_flying(allow_flying="FALSE");
 ```
@@ -2903,7 +2927,7 @@ player::set_allow_flying(allow_flying="FALSE");
 ```ts
 player::set_armor(item("stick"), item("stick"), item("stick"), item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_armor(helmet=item("stick"), chestplate=item("stick"), leggings=item("stick"), boots=item("stick"));
 ```
@@ -2929,7 +2953,7 @@ player::set_armor(helmet=item("stick"), chestplate=item("stick"), leggings=item(
 ```ts
 player::set_arrows_in_body(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_arrows_in_body(amount=1);
 ```
@@ -2952,7 +2976,7 @@ player::set_arrows_in_body(amount=1);
 ```ts
 player::set_attack_speed(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_attack_speed(speed=1);
 ```
@@ -2973,19 +2997,19 @@ player::set_attack_speed(speed=1);
 
 **Пример использования:** 
 ```ts
-player::set_attribute(1, "GENERIC_ARMOR");
+player::set_attribute(1, "CAMERA_DISTANCE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
-player::set_attribute(value=1, attribute_type="GENERIC_ARMOR");
+player::set_attribute(value=1, attribute_type="CAMERA_DISTANCE");
 ```
 
 **Аргументы:**
 
-| **Имя**          | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Описание**      |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| `value`          | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Значение атрибута |
-| `attribute_type` | Маркер<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_GRAVITY** - Гравитация<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби | Тип атрибута      |
+| **Имя**          | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | **Описание**      |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| `value`          | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Значение атрибута |
+| `attribute_type` | Маркер<br/>**CAMERA_DISTANCE** - Расстояние камеры при виде от третьего лица<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_GRAVITY** - Гравитация<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**TEMP_RANGE** - Расстояние приманивания<br/>**WAYPOINT_RECEIVE_RANGE** - Расстояние улавливания локатора (waypoint_receive_range)<br/>**WAYPOINT_TRANSMIT_RANGE** - Расстояние улавливания локатором (waypoint_transmit_range)<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби | Тип атрибута      |
 <h3 id=player_set_bee_stingers_in_body>
   <code>player::set_bee_stingers_in_body</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2999,7 +3023,7 @@ player::set_attribute(value=1, attribute_type="GENERIC_ARMOR");
 ```ts
 player::set_bee_stingers_in_body(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_bee_stingers_in_body(amount=1);
 ```
@@ -3028,7 +3052,7 @@ player::set_bee_stingers_in_body(amount=1);
 ```ts
 player::set_block_opened_state(location(0,0,0,0,0), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_block_opened_state(location=location(0,0,0,0,0), is_opened="FALSE");
 ```
@@ -3052,7 +3076,7 @@ player::set_block_opened_state(location=location(0,0,0,0,0), is_opened="FALSE");
 ```ts
 player::set_boss_bar("id", "title", 1, "DARK_SKY", "NOTCHED_10", "BLUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_boss_bar(id="id", title="title", progress=1, sky_effect="DARK_SKY", style="NOTCHED_10", color="BLUE");
 ```
@@ -3080,7 +3104,7 @@ player::set_boss_bar(id="id", title="title", progress=1, sky_effect="DARK_SKY", 
 ```ts
 player::set_chat_completions(["completions", "completions"], "ADD");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_chat_completions(completions=["completions", "completions"], setting_mode="ADD");
 ```
@@ -3104,7 +3128,7 @@ player::set_chat_completions(completions=["completions", "completions"], setting
 ```ts
 player::set_collidable("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_collidable(collidable="FALSE");
 ```
@@ -3127,7 +3151,7 @@ player::set_collidable(collidable="FALSE");
 ```ts
 player::set_compass_target(location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_compass_target(location=location(0,0,0,0,0));
 ```
@@ -3150,7 +3174,7 @@ player::set_compass_target(location=location(0,0,0,0,0));
 ```ts
 player::set_cursor_item(item("stick"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_cursor_item(item=item("stick"));
 ```
@@ -3173,7 +3197,7 @@ player::set_cursor_item(item=item("stick"));
 ```ts
 player::set_death_drops("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_death_drops(death_drops="FALSE");
 ```
@@ -3198,7 +3222,7 @@ player::set_death_drops(death_drops="FALSE");
 ```ts
 player::set_death_screen_score(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_death_screen_score(score=1);
 ```
@@ -3223,7 +3247,7 @@ player::set_death_screen_score(score=1);
 ```ts
 player::set_default_visible("TRUE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_default_visible(default_visible="TRUE");
 ```
@@ -3246,7 +3270,7 @@ player::set_default_visible(default_visible="TRUE");
 ```ts
 player::set_ender_chest_contents([item("stick"), item("stick")]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_ender_chest_contents(items=[item("stick"), item("stick")]);
 ```
@@ -3269,7 +3293,7 @@ player::set_ender_chest_contents(items=[item("stick"), item("stick")]);
 ```ts
 player::set_entity_glowing(["name_or_uuid", "name_or_uuid"], "AQUA", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_entity_glowing(name_or_uuid=["name_or_uuid", "name_or_uuid"], color="AQUA", glow="FALSE");
 ```
@@ -3294,7 +3318,7 @@ player::set_entity_glowing(name_or_uuid=["name_or_uuid", "name_or_uuid"], color=
 ```ts
 player::set_equipment(item("stick"), "BODY");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_equipment(item=item("stick"), slot="BODY");
 ```
@@ -3318,7 +3342,7 @@ player::set_equipment(item=item("stick"), slot="BODY");
 ```ts
 player::set_exhaustion(1, "ADD");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_exhaustion(exhaustion=1, mode="ADD");
 ```
@@ -3342,7 +3366,7 @@ player::set_exhaustion(exhaustion=1, mode="ADD");
 ```ts
 player::set_experience(1, "LEVEL");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_experience(experience=1, mode="LEVEL");
 ```
@@ -3366,7 +3390,7 @@ player::set_experience(experience=1, mode="LEVEL");
 ```ts
 player::set_fall_distance(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_fall_distance(distance=1);
 ```
@@ -3389,7 +3413,7 @@ player::set_fall_distance(distance=1);
 ```ts
 player::set_fire_ticks(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_fire_ticks(ticks=1);
 ```
@@ -3412,7 +3436,7 @@ player::set_fire_ticks(ticks=1);
 ```ts
 player::set_flying("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_flying(is_flying="FALSE");
 ```
@@ -3435,7 +3459,7 @@ player::set_flying(is_flying="FALSE");
 ```ts
 player::set_fog_distance(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_fog_distance(distance=1);
 ```
@@ -3458,7 +3482,7 @@ player::set_fog_distance(distance=1);
 ```ts
 player::set_food(1, "ADD");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_food(food=1, mode="ADD");
 ```
@@ -3482,7 +3506,7 @@ player::set_food(food=1, mode="ADD");
 ```ts
 player::set_freeze_ticks(1, "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_freeze_ticks(ticks=1, ticking_locked="FALSE");
 ```
@@ -3506,7 +3530,7 @@ player::set_freeze_ticks(ticks=1, ticking_locked="FALSE");
 ```ts
 player::set_gamemode("ADVENTURE", "KEEP_ORIGINAL");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_gamemode(gamemode="ADVENTURE", flight_mode="KEEP_ORIGINAL");
 ```
@@ -3530,7 +3554,7 @@ player::set_gamemode(gamemode="ADVENTURE", flight_mode="KEEP_ORIGINAL");
 ```ts
 player::set_gliding("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_gliding(is_gliding="FALSE");
 ```
@@ -3553,7 +3577,7 @@ player::set_gliding(is_gliding="FALSE");
 ```ts
 player::set_health(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_health(health=1);
 ```
@@ -3576,7 +3600,7 @@ player::set_health(health=1);
 ```ts
 player::set_hotbar_slot(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_hotbar_slot(slot=1);
 ```
@@ -3599,7 +3623,7 @@ player::set_hotbar_slot(slot=1);
 ```ts
 player::set_instant_respawn("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_instant_respawn(instant_respawn="FALSE");
 ```
@@ -3622,7 +3646,7 @@ player::set_instant_respawn(instant_respawn="FALSE");
 ```ts
 player::set_inventory_kept("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_inventory_kept(kept="FALSE");
 ```
@@ -3645,7 +3669,7 @@ player::set_inventory_kept(kept="FALSE");
 ```ts
 player::set_inventory_menu_item(item("stick"), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_inventory_menu_item(item=item("stick"), slot=1);
 ```
@@ -3669,7 +3693,7 @@ player::set_inventory_menu_item(item=item("stick"), slot=1);
 ```ts
 player::set_inventory_menu_name("text");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_inventory_menu_name(text="text");
 ```
@@ -3692,7 +3716,7 @@ player::set_inventory_menu_name(text="text");
 ```ts
 player::set_invulnerability_ticks(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_invulnerability_ticks(ticks=1);
 ```
@@ -3717,7 +3741,7 @@ player::set_invulnerability_ticks(ticks=1);
 ```ts
 player::set_item_cooldown(1, item("stick"), sound("entity.zombie.hurt"));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_item_cooldown(cooldown=1, item=item("stick"), sound=sound("entity.zombie.hurt"));
 ```
@@ -3729,6 +3753,32 @@ player::set_item_cooldown(cooldown=1, item=item("stick"), sound=sound("entity.zo
 | `cooldown` | Число   | Задержка в тиках          |
 | `item`     | Предмет | Тип предмета для задержки |
 | `sound`    | Звук    | Звук сброса задержки      |
+<h3 id=player_set_item_group_cooldown>
+  <code>player::set_item_group_cooldown</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить задержку для группы предметов\
+**Тип:** Действие без значения\
+**Описание:** Применяет визуальный эффект шкалы задержки для всех предметов указанной группы.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Задержка будет применена ко всем предметам, которые относятся к указанной группе.
+
+**Пример использования:** 
+```ts
+player::set_item_group_cooldown("key", 1);
+
+//Или в сухую по ключам
+
+player::set_item_group_cooldown(key="key", cooldown=1);
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип** | **Описание**     |
+| ---------- | ------- | ---------------- |
+| `key`      | Текст   | Группа предметов |
+| `cooldown` | Число   | Задержка         |
 <h3 id=player_set_items>
   <code>player::set_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3742,7 +3792,7 @@ player::set_item_cooldown(cooldown=1, item=item("stick"), sound=sound("entity.zo
 ```ts
 player::set_items([item("stick"), item("stick")]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_items(items=[item("stick"), item("stick")]);
 ```
@@ -3765,7 +3815,7 @@ player::set_items(items=[item("stick"), item("stick")]);
 ```ts
 player::set_max_health(1, "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_max_health(health=1, heal="FALSE");
 ```
@@ -3789,7 +3839,7 @@ player::set_max_health(health=1, heal="FALSE");
 ```ts
 player::set_movement_speed(1, "FLY");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_movement_speed(distance=1, movement_type="FLY");
 ```
@@ -3813,7 +3863,7 @@ player::set_movement_speed(distance=1, movement_type="FLY");
 ```ts
 player::set_nametag_visible("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_nametag_visible(visible="FALSE");
 ```
@@ -3836,7 +3886,7 @@ player::set_nametag_visible(visible="FALSE");
 ```ts
 player::set_player_list_info(["text", "text"], "CONCATENATION", "FOOTER");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_player_list_info(text=["text", "text"], merging="CONCATENATION", position="FOOTER");
 ```
@@ -3861,7 +3911,7 @@ player::set_player_list_info(text=["text", "text"], merging="CONCATENATION", pos
 ```ts
 player::set_pose("CROAKING", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_pose(pose="CROAKING", locked="FALSE");
 ```
@@ -3885,7 +3935,7 @@ player::set_pose(pose="CROAKING", locked="FALSE");
 ```ts
 player::set_pvp("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_pvp(pvp="FALSE");
 ```
@@ -3908,7 +3958,7 @@ player::set_pvp(pvp="FALSE");
 ```ts
 player::set_rain_level(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_rain_level(rain_level=1);
 ```
@@ -3931,7 +3981,7 @@ player::set_rain_level(rain_level=1);
 ```ts
 player::set_rotation(1, 2);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_rotation(yaw=1, pitch=2);
 ```
@@ -3955,7 +4005,7 @@ player::set_rotation(yaw=1, pitch=2);
 ```ts
 player::set_rotation_by_vector(vector(0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_rotation_by_vector(vector=vector(0,0,0));
 ```
@@ -3978,7 +4028,7 @@ player::set_rotation_by_vector(vector=vector(0,0,0));
 ```ts
 player::set_saturation(1, "ADD");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_saturation(saturation=1, mode="ADD");
 ```
@@ -4002,7 +4052,7 @@ player::set_saturation(saturation=1, mode="ADD");
 ```ts
 player::set_simulation_distance(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_simulation_distance(distance=1);
 ```
@@ -4025,7 +4075,7 @@ player::set_simulation_distance(distance=1);
 ```ts
 player::set_skin("name_or_uuid", "MOJANG");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_skin(name_or_uuid="name_or_uuid", server_type="MOJANG");
 ```
@@ -4049,7 +4099,7 @@ player::set_skin(name_or_uuid="name_or_uuid", server_type="MOJANG");
 ```ts
 player::set_slot_item(item("stick"), 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_slot_item(item=item("stick"), slot=1);
 ```
@@ -4073,7 +4123,7 @@ player::set_slot_item(item=item("stick"), slot=1);
 ```ts
 player::set_spawn_point(location(0,0,0,0,0));
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_spawn_point(spawn_point=location(0,0,0,0,0));
 ```
@@ -4098,7 +4148,7 @@ player::set_spawn_point(spawn_point=location(0,0,0,0,0));
 ```ts
 player::set_thunder_level(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_thunder_level(thunder_level=1);
 ```
@@ -4121,7 +4171,7 @@ player::set_thunder_level(thunder_level=1);
 ```ts
 player::set_tick_rate(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_tick_rate(tick_rate=1);
 ```
@@ -4144,7 +4194,7 @@ player::set_tick_rate(tick_rate=1);
 ```ts
 player::set_time(1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_time(time=1);
 ```
@@ -4167,7 +4217,7 @@ player::set_time(time=1);
 ```ts
 player::set_velocity(vector(0,0,0), "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_velocity(velocity=vector(0,0,0), increment="FALSE");
 ```
@@ -4191,16 +4241,16 @@ player::set_velocity(velocity=vector(0,0,0), increment="FALSE");
 ```ts
 player::set_visual_fire("FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_visual_fire(visual_fire="FALSE");
 ```
 
 **Аргументы:**
 
-| **Имя**       | **Тип**                                                  | **Описание**     |
-| ------------- | -------------------------------------------------------- | ---------------- |
-| `visual_fire` | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Визуальный огонь |
+| **Имя**       | **Тип**                                                                                 | **Описание**     |
+| ------------- | --------------------------------------------------------------------------------------- | ---------------- |
+| `visual_fire` | Маркер<br/>**FALSE** - Выключить<br/>**NOT_SET** - По умолчанию<br/>**TRUE** - Включить | Визуальный огонь |
 <h3 id=player_set_weather>
   <code>player::set_weather</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4214,7 +4264,7 @@ player::set_visual_fire(visual_fire="FALSE");
 ```ts
 player::set_weather("CLEAR");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_weather(weather_type="CLEAR");
 ```
@@ -4237,7 +4287,7 @@ player::set_weather(weather_type="CLEAR");
 ```ts
 player::set_world_border(location(0,0,0,0,0), 1, 2);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::set_world_border(center=location(0,0,0,0,0), size=1, warning=2);
 ```
@@ -4262,7 +4312,7 @@ player::set_world_border(center=location(0,0,0,0,0), size=1, warning=2);
 ```ts
 player::shift_world_border(1, 2, 3);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::shift_world_border(old_size=1, size=2, time=3);
 ```
@@ -4289,7 +4339,7 @@ player::shift_world_border(old_size=1, size=2, time=3);
 ```ts
 player::show_debug_marker(location(0,0,0,0,0), "name", 1, 2, 3, 4, 5);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::show_debug_marker(location=location(0,0,0,0,0), name="name", duration=1, red=2, green=3, blue=4, alpha=5);
 ```
@@ -4326,13 +4376,13 @@ player::show_demo_screen();
 
 **Имя:** Показать диалоговое окно\
 **Тип:** Действие без значения\
-**Описание:** Показывет игроку диалоговое окно из NBT-тегов.
+**Описание:** Показывает игроку диалоговое окно из NBT-тегов.
 
 **Пример использования:** 
 ```ts
 player::show_dialog_menu_from_nbt("dialog_nbt");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::show_dialog_menu_from_nbt(dialog_nbt="dialog_nbt");
 ```
@@ -4353,11 +4403,11 @@ player::show_dialog_menu_from_nbt(dialog_nbt="dialog_nbt");
 
 **Пример использования:** 
 ```ts
-player::show_inventory_menu([item("stick"), item("stick")], "name", "ANVIL");
+player::show_inventory_menu([item("stick"), item("stick")], "name", "custom_id", "ANVIL");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
-player::show_inventory_menu(items=[item("stick"), item("stick")], name="name", inventory_type="ANVIL");
+player::show_inventory_menu(items=[item("stick"), item("stick")], name="name", custom_id="custom_id", inventory_type="ANVIL");
 ```
 
 **Аргументы:**
@@ -4366,6 +4416,7 @@ player::show_inventory_menu(items=[item("stick"), item("stick")], name="name", i
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
 | `items`          | список[Предмет]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Предметы инвентаря |
 | `name`           | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Название инвентаря |
+| `custom_id`      | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Кастомный ID       |
 | `inventory_type` | Маркер<br/>**ANVIL** - Наковальня<br/>**BARREL** - Бочка<br/>**BEACON** - Маяк<br/>**BLAST_FURNACE** - Плавильная печь<br/>**BREWING** - Зельеварка<br/>**CARTOGRAPHY** - Стол картографа<br/>**CHEST** - Сундук<br/>**COMPOSTER** - Компостер<br/>**CRAFTER** - Сборщик<br/>**CRAFTING** - Не открыт<br/>**CREATIVE** - Инвентарь креатива<br/>**DISPENSER** - Раздатчик<br/>**DROPPER** - Выбрасыватель<br/>**ENCHANTING** - Чародейский стол<br/>**ENDER_CHEST** - Эндер-сундук<br/>**FURNACE** - Печь<br/>**GRINDSTONE** - Точило<br/>**HOPPER** - Воронка<br/>**LECTERN** - Кафедра<br/>**LOOM** - Ткацкий станок<br/>**MERCHANT** - Торговец<br/>**PLAYER** - Инвентарь игрока<br/>**SHULKER_BOX** - Шалкеровый ящик<br/>**SMITHING** - Стол кузнеца<br/>**SMOKER** - Коптильня<br/>**STONECUTTER** - Камнерез<br/>**WORKBENCH** - Верстак | Тип инвентаря      |
 <h3 id=player_show_scoreboard>
   <code>player::show_scoreboard</code>
@@ -4380,7 +4431,7 @@ player::show_inventory_menu(items=[item("stick"), item("stick")], name="name", i
 ```ts
 player::show_scoreboard("id");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::show_scoreboard(id="id");
 ```
@@ -4419,7 +4470,7 @@ player::show_win_screen();
 ```ts
 player::spectate_target("name_or_uuid");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::spectate_target(name_or_uuid="name_or_uuid");
 ```
@@ -4442,7 +4493,7 @@ player::spectate_target(name_or_uuid="name_or_uuid");
 ```ts
 player::stop_sound([sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::stop_sound(sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hurt")]);
 ```
@@ -4465,7 +4516,7 @@ player::stop_sound(sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hur
 ```ts
 player::stop_sounds_by_source("AMBIENT");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::stop_sounds_by_source(source="AMBIENT");
 ```
@@ -4488,7 +4539,7 @@ player::stop_sounds_by_source(source="AMBIENT");
 ```ts
 player::swing_hand("MAIN");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::swing_hand(hand_type="MAIN");
 ```
@@ -4513,7 +4564,7 @@ player::swing_hand(hand_type="MAIN");
 ```ts
 player::teleport(location(0,0,0,0,0), "FALSE", "FALSE", "FALSE");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::teleport(location=location(0,0,0,0,0), keep_rotation="FALSE", keep_velocity="FALSE", dismount="FALSE");
 ```
@@ -4539,7 +4590,7 @@ player::teleport(location=location(0,0,0,0,0), keep_rotation="FALSE", keep_veloc
 ```ts
 player::teleport_sequence([location(0,0,0,0,0), location(0,0,0,0,0)], 1);
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 player::teleport_sequence(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], delay=1);
 ```

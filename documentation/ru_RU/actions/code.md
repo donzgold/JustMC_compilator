@@ -11,7 +11,7 @@
 ```ts
 code::call_function("function_name");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 code::call_function(function_name="function_name");
 ```
@@ -36,7 +36,7 @@ code::call_function(function_name="function_name");
 ```ts
 code::call_exception("id", "message", "ERROR");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 code::call_exception(id="id", message="message", type="ERROR");
 ```
@@ -127,7 +127,7 @@ code::stop_repeat();
 ```ts
 code::wait(1, "MINUTES");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 code::wait(duration=1, time_unit="MINUTES");
 ```
@@ -167,7 +167,7 @@ code::else(){
 ```ts
 code::start_process("process_name", "COPY", "CURRENT_SELECTION");
 
-#Или в сухую по ключам
+//Или в сухую по ключам
 
 code::start_process(process_name="process_name", local_variables_mode="COPY", target_mode="CURRENT_SELECTION");
 ```

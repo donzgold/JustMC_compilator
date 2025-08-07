@@ -221,6 +221,9 @@ class Compound:
             raise Exception(f"Недопустимый элемент: {value.__class__.__name__}")
         self.values[key] = value
 
+    def keys(self):
+        return self.values.keys()
+
     def __contains__(self, item):
         return item in self.values
 
