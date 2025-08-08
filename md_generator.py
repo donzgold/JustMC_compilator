@@ -12,6 +12,73 @@ for k, v in color_codes.items():
     codes[k] = f"\x1b[38;2;{r};{g};{b}m"
 allowed_symbols = "0123456789abcdefABCDEF"
 
+import re
+
+
+def convert_markdown_table_with_br_to_oneline(text):
+    lines = text.strip().split('\n')
+    header = []
+    raw_rows = []
+
+    for line in lines:
+        stripped = line.strip()
+        if '|' not in stripped:
+            continue
+        cells = [cell.strip() for cell in stripped.split('|')[1:-1]]
+        if len(cells) < 2:
+            continue
+
+        if not header:
+            header = cells
+            continue
+
+        # Пропускаем разделитель
+        if all(re.fullmatch(r'\s*:?-+\s*:?$', cell) for cell in cells if cell.strip()):
+            continue
+
+        raw_rows.append(cells)
+    result_rows = []
+
+    for row in raw_rows:
+        br_cells = [cell.split('<br/>') for cell in row]
+        max_lines = max(len(cell_list) for cell_list in br_cells)
+        for cell_list in br_cells:
+            while len(cell_list) < max_lines:
+                cell_list.append(cell_list[-1])
+        name_col = 0
+        desc_col = 2
+
+        for i in range(max_lines):
+            new_row = [br_cells[col][i] for col in range(len(br_cells))]
+            if i > 0:
+                new_row[name_col] = ""
+                new_row[desc_col] = ""
+            result_rows.append(new_row)
+
+    if not result_rows:
+        return ""
+
+    all_rows = [header] + result_rows
+    padding = 5
+    col_widths = [
+        max(len(row[i]) for row in all_rows) + padding
+        for i in range(len(header))
+    ]
+
+    def format_row(cells):
+        padded = [cell.ljust(col_widths[i]) for i, cell in enumerate(cells)]
+        return '| ' + ' | '.join(padded) + ' |'
+
+    lines_out = []
+    lines_out.append(format_row(header))
+    sep_parts = [f":{'-' * (w - padding - 1)}" for w in col_widths]
+    lines_out.append('| ' + ' | '.join(sep_parts) + ' |')
+
+    for row in result_rows:
+        lines_out.append(format_row(row))
+
+    return '\n'.join(lines_out)
+
 
 def minecraft_based_text(text1, ignore_last_symbol=False):
     if ignore_last_symbol is False:
@@ -87,13 +154,11 @@ properties = {
               for i in open("new_data/langs/ru_RU.properties", "r", encoding="UTF-8").readlines()},
     "en_US": {i[:i.find("=")].strip(): i[i.find("=") + 1:].strip()
               for i in open("new_data/langs/en_US.properties", "r", encoding="UTF-8").readlines()}}
-minecraft_properties = {"ru_RU": json.load(open("new_data/minecraft-data/ru_ru.json", "r", encoding="UTF-8")),
-                        "en_US": json.load(open("new_data/minecraft-data/en_us.json", "r", encoding="UTF-8"))}
 another_blocks = json.load(open("new_data/minecraft-data/blocks.json", "r", encoding="UTF-8"))
 another_items = json.load(open("new_data/minecraft-data/items.json", "r", encoding="UTF-8"))
 another_enchants = json.load(open("new_data/minecraft-data/enchantments.json", "r", encoding="UTF-8"))
 st = open("localize.txt", "w+", encoding="UTF-8")
-new_properties={}
+new_properties = {}
 for k in properties:
     new_k = {}
     for v in properties[k]:
@@ -145,8 +210,10 @@ for k, v in properties["ru_RU"].items():
             continue
         if game_value_data[0] not in another_game_values:
             another_game_values[game_value_data[0]] = {"id": game_value_data[0]}
-        if game_value_data[1] == "argument" and "type" in another_game_values[game_value_data[0]] and another_game_values[game_value_data[0]]["type"] != game_value_data[2]:
-            print(f"конфликт между {another_game_values[game_value_data[0]]['type']} и {game_value_data[2]} у {game_value_data[0]}")
+        if game_value_data[1] == "argument" and "type" in another_game_values[game_value_data[0]] and \
+                another_game_values[game_value_data[0]]["type"] != game_value_data[2]:
+            print(
+                f"конфликт между {another_game_values[game_value_data[0]]['type']} и {game_value_data[2]} у {game_value_data[0]}")
             exit()
         if game_value_data[1] == "argument":
             another_game_values[game_value_data[0]]["type"] = game_value_data[2]
@@ -211,6 +278,8 @@ actions_docs = {"player": [], "entity": [], "select": [], "world": [], "variable
                 "code": []}
 events = []
 doc_msgs = []
+jmcc_completions = []
+jmcc_hover = {}
 load_events_map = json.load(open("new_data/events_map.json"))
 load_events = {i["id"]: i for i in json.load(open("new_data/events.json"))}
 for i in load_events:
@@ -260,10 +329,24 @@ for i in sorted(another_events.values(), key=lambda x: x["id"]):
             [properties["en_US"].setdefault("creative_plus.trigger." + i["id"] + ".work_with." + i2, "None")
              for i2 in i["worksWith"]])
     if i["cancellable"]:
-        doc_msg["ru_description"] += "<br/>**ОТМЕНЯЕМОЕ** "
-        doc_msg["en_description"] += "<br/>**CANCELLABLE** "
+        doc_msg["ru_description"] += "<br/>**ОТМЕНЯЕМОЕ**"
+        doc_msg["en_description"] += "<br/>**CANCELLABLE**"
     doc_msgs.append(doc_msg)
     events.append(event)
+    completion = {
+        "label": doc_msg["id"],
+        "kind": 3,
+        "insertText": doc_msg["id"],
+        "detail": doc_msg["ru_localize_name"],
+        "documentation": {
+            "kind": "markdown",
+            "value": "```justcode\n" + doc_msg["id"] + "\n```\n\n" + doc_msg['ru_description'].replace("<br/>", "\\\n")
+        }
+    }
+    jmcc_hover[doc_msg["id"]] = "```justcode\n" + doc_msg["id"] + "\n```\n\n" + "**Название**: " + doc_msg[
+        "ru_localize_name"] + "\\\n**Описание**: " + doc_msg['ru_description'].replace("<br/>", "\\\n")
+    jmcc_completions.append(completion)
+
 json.dump(events, open("data/events.json", "w+"), indent=2)
 x = max(max(map(lambda w: len(w) + 2, [i["id"] for i in doc_msgs])), 6)
 y = max(max(map(len, [i["ru_localize_name"] for i in doc_msgs])), 12)
@@ -315,6 +398,22 @@ for i in sorted(another_game_values.values(), key=lambda x: x["id"]):
                                            "None")
     doc_msgs.append(doc_msg)
     values.append(value)
+    a = doc_msg["ru_localize_name"].split("<br/>")
+    doc_msg["ru_localize_name"] = a[0]
+    description = "<br/>".join(a[1:]) + "<br/>" + doc_msg["ru_localize_value"]
+    completion = {
+        "label": doc_msg["id"],
+        "kind": 3,
+        "insertText": doc_msg["id"],
+        "detail": doc_msg["ru_localize_name"],
+        "documentation": {
+            "kind": "markdown",
+            "value": "```justcode\n" + doc_msg["id"] + "\n```\n\n" + description.replace("<br/>", "\\\n")
+        }
+    }
+    jmcc_hover[doc_msg["id"]] = "```justcode\n" + doc_msg["id"] + "\n```\n\n" + "**Название**: " + doc_msg[
+        "ru_localize_name"] + "\\\n**Тип значения**: " + description.replace("<br/>", "\\\n")
+    jmcc_completions.append(completion)
 json.dump(values, open("data/values.json", "w+"), indent=2)
 x = max(max(map(lambda w: len(w) + 2, [i["id"] for i in doc_msgs])), 6)
 y = max(max(map(len, [i["ru_localize_name"] for i in doc_msgs])), 12)
@@ -476,7 +575,7 @@ for i in load_actions:
         if "additionalInfo" in load_actions[i]:
             another_actions[i]["additionalInfo"] = load_actions[i]["additionalInfo"]
 for i in another_actions:
-    if not "args" in another_actions[i]:
+    if "args" not in another_actions[i]:
         another_actions[i]["args"] = []
     if i not in load_actions:
         if i not in load_actions_map:
@@ -507,7 +606,7 @@ for i in another_actions:
         for i1 in another_actions[i]["args"]:
             if not i1["id"] in arges:
                 if i not in load_actions_map:
-                    print("Не существующий аргумент:",  json.dumps(i1))
+                    print("Не существующий аргумент:", json.dumps(i1))
                     print("Действие", json.dumps(another_actions[i]), "не найдено в actions.map2")
                     exit()
                 else:
@@ -683,6 +782,7 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                 doc_msg["en_args"] = [ids, en_types, en_names]
             doc_msg["true_id"] = i["id"]
             ru_true_doc_msg = f"<h3 id={doc_msg['true_id']}>\n  <code>{doc_msg['id']}</code>\n  <a href=\"#\" style=\"font-size: 12px; margin-left:\">⬆️</a>\n</h3>\n\n"
+            start = f"<h3 id={doc_msg['true_id']}>\n  <code>{doc_msg['id']}</code>\n  <a href=\"#\" style=\"font-size: 12px; margin-left:\">⬆️</a>\n</h3>\n\n"
             en_true_doc_msg = f"<h3 id={doc_msg['true_id']}>\n  <code>{doc_msg['id']}</code>\n  <a href=\"#\" style=\"font-size: 12px; margin-left:\">⬆️</a>\n</h3>\n\n"
             ru_true_doc_msg += "**Имя:** " + doc_msg["ru_name"] + "\\\n" + "**Тип:** " + doc_msg[
                 "ru_type"] + "\\\n" + "**Описание:** " + doc_msg["ru_description"] + (
@@ -764,25 +864,26 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                         thing = base_args[action["origin"]]
                         code_thing = []
                     if len(code_thing) > 0:
-                        ru_code_example += "\n#Или от объекта\n\n" + ", ".join(code_thing) + " = " + thing + "." + \
+                        ru_code_example += "\n//Или от объекта\n\n" + ", ".join(code_thing) + " = " + thing + "." + \
                                            action[
                                                "name"] + "(" + ", ".join(list(base_a.values())) + ");\n"
-                        en_code_example += "\n#Or from the object\n\n" + ", ".join(code_thing) + " = " + thing + "." + \
+                        en_code_example += "\n//Or from the object\n\n" + ", ".join(code_thing) + " = " + thing + "." + \
                                            action["name"] + "(" + ", ".join(list(base_a.values())) + ");\n"
                     else:
-                        ru_code_example += "\n#Или от объекта\n\n" + thing + "." + \
+                        ru_code_example += "\n//Или от объекта\n\n" + thing + "." + \
                                            action[
                                                "name"] + "(" + ", ".join(list(base_a.values())) + ");\n"
-                        en_code_example += "\n#Or from the object\n\n" + thing + "." + \
+                        en_code_example += "\n//Or from the object\n\n" + thing + "." + \
                                            action["name"] + "(" + ", ".join(list(base_a.values())) + ");\n"
-                ru_code_example += "\n#Или в сухую позиционно\n\n" + doc_msg["id"] + "(" + ", ".join(
+                ru_code_example += "\n//Или в сухую позиционно\n\n" + doc_msg["id"] + "(" + ", ".join(
                     list(base_args.values())) + ");\n"
-                en_code_example += "\n#Or dry by positionals\n\n" + doc_msg["id"] + "(" + ", ".join(list(base_args.values())) + ");\n"
+                en_code_example += "\n//Or dry by positionals\n\n" + doc_msg["id"] + "(" + ", ".join(
+                    list(base_args.values())) + ");\n"
                 if len(base_args) > 0:
-                    ru_code_example += "\n#Или в сухую по ключам\n\n" + doc_msg["id"] + "(" + ", ".join(
-                        [f"{k1}={v1}" for k1,v1 in base_args.items()]) + ");\n"
-                    en_code_example += "\n#Or dry by keywords\n\n" + doc_msg["id"] + "(" + ", ".join(
-                        [f"{k1}={v1}" for k1,v1 in base_args.items()]) + ");\n"
+                    ru_code_example += "\n//Или в сухую по ключам\n\n" + doc_msg["id"] + "(" + ", ".join(
+                        [f"{k1}={v1}" for k1, v1 in base_args.items()]) + ");\n"
+                    en_code_example += "\n//Or dry by keywords\n\n" + doc_msg["id"] + "(" + ", ".join(
+                        [f"{k1}={v1}" for k1, v1 in base_args.items()]) + ");\n"
             elif "lambda" in action:
                 code_thing = []
                 for i2 in action["lambda"]:
@@ -792,10 +893,12 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                 en_code_example += doc_msg["id"] + "(" + ", ".join(list(base_a.values())) + "){" + ", ".join(
                     code_thing) + "->\n    player::message(\"Code in cycle\");\n}\n"
                 if len(base_args) > 0:
-                    ru_code_example += "\n#Или в сухую по ключам\n\n" + doc_msg["id"] + "(" + ", ".join(
-                        [f"{k1}={v1}" for k1, v1 in base_args.items()]) + "){\n    player::message(\"Код в цикле\");\n}\n"
-                    en_code_example += "\n#Or dry by keywords\n\n" + doc_msg["id"] + "(" + ", ".join(
-                        [f"{k1}={v1}" for k1, v1 in base_args.items()]) + "){\n    player::message(\"Code in cycle\");\n}\n"
+                    ru_code_example += "\n//Или в сухую по ключам\n\n" + doc_msg["id"] + "(" + ", ".join(
+                        [f"{k1}={v1}" for k1, v1 in
+                         base_args.items()]) + "){\n    player::message(\"Код в цикле\");\n}\n"
+                    en_code_example += "\n//Or dry by keywords\n\n" + doc_msg["id"] + "(" + ", ".join(
+                        [f"{k1}={v1}" for k1, v1 in
+                         base_args.items()]) + "){\n    player::message(\"Code in cycle\");\n}\n"
             elif "boolean" in action:
                 ru_code_example += "if(" + doc_msg["id"] + "(" + ", ".join(
                     list(base_a.values())) + ")){\n    player::message(\"Условие верно\");\n}\n"
@@ -805,17 +908,19 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                     if an_args[action["origin"]]["type"] == "number":
                         base_a[action["origin"]] = "(" + base_a[action["origin"]] + ")"
                     thing = base_a.pop(action["origin"])
-                    ru_code_example += "\n#Или от объекта\n\n" + "if(" + thing + "." + action[
+                    ru_code_example += "\n//Или от объекта\n\n" + "if(" + thing + "." + action[
                         "name"] + "(" + ", ".join(
-                        list(base_a.values())) + "){\n    player::message(\"Условие верно\");\n}\n"
-                    en_code_example += "\n#Or from the object\n\n" + "if(" + thing + "." + action[
+                        list(base_a.values())) + ")){\n    player::message(\"Условие верно\");\n}\n"
+                    en_code_example += "\n//Or from the object\n\n" + "if(" + thing + "." + action[
                         "name"] + "(" + ", ".join(
-                        list(base_a.values())) + "){\n    player::message(\"Condition is true\");\n}\n"
+                        list(base_a.values())) + ")){\n    player::message(\"Condition is true\");\n}\n"
                 if len(base_args) > 0:
-                    ru_code_example += "\n#Или в сухую по ключам\n\n" + doc_msg["id"] + "(" + ", ".join(
-                        [f"{k1}={v1}" for k1, v1 in base_args.items()]) + "){\n    player::message(\"Условие верно\");\n}\n"
-                    en_code_example += "\n#Or dry by keywords\n\n" + doc_msg["id"] + "(" + ", ".join(
-                        [f"{k1}={v1}" for k1, v1 in base_args.items()]) + "){\n    player::message(\"Condition is true\");\n}\n"
+                    ru_code_example += "\n//Или в сухую по ключам\n\n" + doc_msg["id"] + "(" + ", ".join(
+                        [f"{k1}={v1}" for k1, v1 in
+                         base_args.items()]) + "){\n    player::message(\"Условие верно\");\n}\n"
+                    en_code_example += "\n//Or dry by keywords\n\n" + doc_msg["id"] + "(" + ", ".join(
+                        [f"{k1}={v1}" for k1, v1 in
+                         base_args.items()]) + "){\n    player::message(\"Condition is true\");\n}\n"
             else:
                 if new_action["type"] == "basic":
                     ru_code_example += doc_msg["id"] + "(" + ", ".join(list(base_a.values())) + ");\n"
@@ -824,14 +929,14 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                         if an_args[action["origin"]]["type"] == "number":
                             base_a[action["origin"]] = "(" + base_a[action["origin"]] + ")"
                         thing = base_a.pop(action["origin"])
-                        ru_code_example += "\n#Или от объекта\n\n" + thing + "." + action[
+                        ru_code_example += "\n//Или от объекта\n\n" + thing + "." + action[
                             "name"] + "(" + ", ".join(list(base_a.values())) + ");\n"
-                        en_code_example += "\n#Or from the object\n\n" + thing + "." + action[
+                        en_code_example += "\n//Or from the object\n\n" + thing + "." + action[
                             "name"] + "(" + ", ".join(list(base_a.values())) + ");\n"
                     if len(base_args) > 0:
-                        ru_code_example += "\n#Или в сухую по ключам\n\n" + doc_msg["id"] + "(" + ", ".join(
+                        ru_code_example += "\n//Или в сухую по ключам\n\n" + doc_msg["id"] + "(" + ", ".join(
                             [f"{k1}={v1}" for k1, v1 in base_args.items()]) + ");\n"
-                        en_code_example += "\n#Or dry by keywords\n\n" + doc_msg["id"] + "(" + ", ".join(
+                        en_code_example += "\n//Or dry by keywords\n\n" + doc_msg["id"] + "(" + ", ".join(
                             [f"{k1}={v1}" for k1, v1 in base_args.items()]) + ");\n"
                 elif new_action["type"] == "container":
                     ru_code_example += doc_msg["id"] + "(" + ", ".join(
@@ -839,10 +944,10 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                     en_code_example += doc_msg["id"] + "(" + ", ".join(
                         list(base_a.values())) + "){\n    player::message(\"Everything work\");\n}\n"
                     if len(base_args) > 0:
-                        ru_code_example += "\n#Или в сухую по ключам\n\n" + doc_msg["id"] + "(" + ", ".join(
+                        ru_code_example += "\n//Или в сухую по ключам\n\n" + doc_msg["id"] + "(" + ", ".join(
                             [f"{k1}={v1}" for k1, v1 in
                              base_args.items()]) + "){\n    player::message(\"Всё работает\");\n}\n"
-                        en_code_example += "\n#Or dry by keywords\n\n" + doc_msg["id"] + "(" + ", ".join(
+                        en_code_example += "\n//Or dry by keywords\n\n" + doc_msg["id"] + "(" + ", ".join(
                             [f"{k1}={v1}" for k1, v1 in
                              base_args.items()]) + "){\n    player::message(\"Everything work\");\n}\n"
                 elif new_action["type"] == "container_with_conditional":
@@ -863,14 +968,16 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                 x = max(max(list(map(th, doc_msg["ru_args"][0]))), 7)
                 y = max(max(list(map(len, doc_msg["ru_args"][1]))), 7)
                 z = max(max(list(map(len, doc_msg["ru_args"][2]))), 12)
-                ru_true_doc_msg += "**Аргументы:**\n\n| " + "**Имя**" + " " * (x - 7) + " | " + "**Тип**" + " " * (
+                ru_true_doc_msg +="**Аргументы:**\n\n"
+                ru_args = "| " + "**Имя**" + " " * (x - 7) + " | " + "**Тип**" + " " * (
                         y - 7) + " | " + "**Описание**" + " " * (
-                                           z - 12) + " |\n| " + "-" * x + " | " + "-" * y + " | " + "-" * z + " |\n"
+                                  z - 12) + " |\n| " + "-" * x + " | " + "-" * y + " | " + "-" * z + " |\n"
                 for i2 in range(0, len(doc_msg["ru_args"][0])):
-                    ru_true_doc_msg += "| `" + doc_msg["ru_args"][0][i2] + "`" + " " * (
+                    ru_args += "| `" + doc_msg["ru_args"][0][i2] + "`" + " " * (
                             x - 2 - len(doc_msg["ru_args"][0][i2])) + " | " + doc_msg["ru_args"][1][i2] + " " * (
-                                               y - len(doc_msg["ru_args"][1][i2])) + " | " + doc_msg["ru_args"][2][
-                                           i2] + " " * (z - len(doc_msg["ru_args"][2][i2])) + " |\n"
+                                       y - len(doc_msg["ru_args"][1][i2])) + " | " + doc_msg["ru_args"][2][
+                                   i2] + " " * (z - len(doc_msg["ru_args"][2][i2])) + " |\n"
+                ru_true_doc_msg += ru_args
                 if "en_args" in doc_msg:
                     x = max(max(list(map(th, doc_msg["en_args"][0]))), 8)
                     y = max(max(list(map(len, doc_msg["en_args"][1]))), 8)
@@ -888,6 +995,26 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
             open("documentation/en_US/actions/" + obj + ".md", "a+", encoding="UTF-8").write(en_true_doc_msg)
             actions_docs[obj].append(doc_msg)
             actions_data.append(new_action)
+            completion = {
+                "label": doc_msg["id"],
+                "kind": 3,
+                "insertText": doc_msg["id"],
+                "detail": doc_msg["ru_name"],
+                "documentation": {
+                    "kind": "markdown",
+                    "value": "```justcode\n" + doc_msg["id"] + "\n```\n\n" + ru_true_doc_msg.replace(start, "").replace(ru_args,convert_markdown_table_with_br_to_oneline(ru_args)).replace(
+                        "```ts\n", "```justcode\n")
+                }
+            }
+            jmcc_hover[doc_msg["id"]] = "```justcode\n" + doc_msg["id"] + "\n```\n\n" + ru_true_doc_msg.replace(start,
+                                                                                                                "").replace(ru_args,convert_markdown_table_with_br_to_oneline(ru_args)).replace(
+                "```ts\n", "```justcode\n")
+            jmcc_completions.append(completion)
+            if "origin" in action:
+                jmcc_hover[f".{action['name']}"] = jmcc_hover[doc_msg["id"]]
+                completion["label"] = f".{action['name']}"
+                completion["insertText"] = completion["label"]
+                jmcc_completions.append(completion)
 ru_true_doc_msg = "**Список действий:**\n\n"
 en_true_doc_msg = "**Actions list:**\n\n"
 for k, v in actions_docs.items():
@@ -975,7 +1102,8 @@ for i in sorted(another_blocks, key=lambda x: x["name"]):
             exit(-1)
     blocks_data[i["name"]] = block_data
 json.dump(blocks_data, open("data/blocks.json", "w+"), indent=2)
-
+json.dump(jmcc_completions, open("assets/completions.json", "w+", encoding="UTF-8"), separators=(",", ":"), ensure_ascii=False)
+json.dump(jmcc_hover, open("assets/hover.json", "w+", encoding="UTF-8"), separators=(",", ":"), ensure_ascii=False)
 items_data = []
 for i in sorted(another_items, key=lambda x: x["name"]):
     items_data.append(i["name"])
