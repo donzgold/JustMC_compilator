@@ -658,7 +658,7 @@
   "set_variable_get_sound_variation": {"name": "get_sound_variation","object": "variable","assign": [{"variable": "text"}],"origin": "sound"},
   "set_variable_get_sound_variations": {"name": "get_sound_variations","object": "variable","assign": [{"variable": "array"}],"origin": "sound"},
   "set_variable_get_sound_volume_action": {"name": "get_sound_volume_action","object": "variable","assign": [{"variable": "number"}],"origin": "sound"},
-  "set_variable_get_template_code": {"name": "get_template_code","object": "variable","assign": [{"variable": "map"}],"origin": "template"},
+  "set_variable_get_template_code": {"name": "get_template_code","object": "variable","assign": [{"variable": "any"}],"origin": "template"},
   "set_variable_text_length": {"name": "get_text_length","object": "variable","assign": [{"variable": "number"}],"origin": "text"},
   "set_variable_get_text_width": {"name": "get_text_width","object": "variable","assign": [{"variable": "number"}],"origin": "text"},
   "set_variable_get_vector_all_components": {"name": "get_vector_all_components","object": "variable","assign": [{"x": "number"},{"y": "number"},{"z": "number"}],"origin": "vector"},
@@ -907,5 +907,18 @@
   "set_variable_set_item_model_data" : {"name": "set_item_model_data","object": "variable","origin": "item","assign": [{"variable": "item"}]},
   "set_variable_set_item_rarity" : {"name": "set_item_rarity","object": "variable","origin": "item","assign": [{"variable": "item"}]},
   "set_variable_set_item_use_remainder" : {"name": "set_item_use_remainder","object": "variable","origin": "item","assign": [{"variable": "item"}]},
-  "set_variable_set_item_weapon" : {"name": "set_item_weapon","object": "variable","origin": "item","assign": [{"variable": "item"}]}
+  "set_variable_set_item_weapon" : {"name": "set_item_weapon","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "controller_do_not_run": {"name": "do_not_run","object": "controller"},
+  "entity_get_attribute": {"name": "get_attribute","object": "entity","assign": [{"variable": "number"}]},
+  "entity_get_nbt": {"name": "get_nbt","object": "entity","assign": [{"variable": "any"}]},
+  "game_set_event_anvil_repair_cost": {"name": "set_event_anvil_repair_cost","object": "world"},
+  "game_set_event_enchantment_offers": {"name": "set_event_enchantment_offers","object": "world"},
+  "player_get_attribute": {"name": "get_attribute","object": "player","assign": [{"variable": "number"}]},
+  "player_get_nbt": {"name": "get_nbt","object": "player","assign": [{"variable": "any"}]},
+  "set_variable_get_item_break_sound": {"name": "get_item_break_sound","object": "variable","origin": "item","assign": [{"variable": "text"}]},
+  "set_variable_get_item_component": {"name": "get_item_component","object": "variable","origin": "item","assign": [{"variable": "any"}]},
+  "set_variable_hide_item_components": {"name": "hide_item_components","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "set_variable_multiple": {"name": "set_values","object": "variable","assign": [{"variables": "any"}]},
+  "set_variable_set_item_break_sound": {"name": "set_item_break_sound","object": "variable","origin": "item","assign": [{"variable": "item"}]},
+  "set_variable_unset_item_components": {"name": "unset_item_components","object": "variable","origin": "item","assign": [{"variable": "item"}]}
 }

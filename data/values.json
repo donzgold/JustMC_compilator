@@ -176,6 +176,10 @@
     "type": "text"
   },
   {
+    "id": "event_block",
+    "type": "text"
+  },
+  {
     "id": "event_block_face",
     "type": "text"
   },
@@ -228,12 +232,20 @@
     "type": "text"
   },
   {
+    "id": "event_enchantment_bonus",
+    "type": "number"
+  },
+  {
     "id": "event_enchantment_hint",
     "type": "text"
   },
   {
     "id": "event_enchantment_level_hint",
     "type": "number"
+  },
+  {
+    "id": "event_enchantment_offers",
+    "type": "array"
   },
   {
     "id": "event_enchantments_to_add",
@@ -546,6 +558,10 @@
   {
     "id": "off_hand_item",
     "type": "item"
+  },
+  {
+    "id": "open_inventory_custom_id",
+    "type": "text"
   },
   {
     "id": "open_inventory_size",

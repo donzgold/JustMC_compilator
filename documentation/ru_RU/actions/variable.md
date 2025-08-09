@@ -3103,6 +3103,38 @@ variable::get_item_attribute(variable=`variable`, item=item("stick"), name="name
 | `attribute` | Маркер<br/>**ARMOR** - Броня<br/>**ARMOR_TOUGHNESS** - Плотность защиты<br/>**ATTACK_DAMAGE** - Урон атаки<br/>**ATTACK_KNOCKBACK** - Отталкивание от атаки<br/>**ATTACK_SPEED** - Скорость атаки<br/>**FLYING_SPEED** - Скорость полёта<br/>**FOLLOW_RANGE** - Расстояние следования<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_GRAVITY** - Гравитация<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**HORSE_JUMP_STRENGTH** - Сила прыжка лошади (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию<br/>**LUCK** - Удача<br/>**MAX_ABSORPTION** - Максимальное поглощение<br/>**MAX_HEALTH** - Максимальное здоровье<br/>**MOVEMENT_SPEED** - Скорость передвижения<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби (zombie.spawn_reinforcements) | Тип атрибута              |
 | `slot`      | Маркер<br/>**ALL** - Все<br/>**ARMOR** - Любая броня<br/>**BODY** - Тело (работает не со всеми сущностями)<br/>**BOOTS** - Ботинки<br/>**CHEST** - Нагрудник<br/>**HAND** - Любая рука<br/>**HEAD** - Шлем<br/>**LEGGINGS** - Поножи<br/>**MAIN_HAND** - Основная рука<br/>**OFF_HAND** - Второстепенная рука                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Слот атрибута             |
 | `operation` | Маркер<br/>**ADD_NUMBER** - Количество (amount)<br/>**ADD_SCALAR** - Процент (percentage)<br/>**MULTIPLY_SCALAR_1** - Произведение (multiplicative)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Операция атрибута         |
+<h3 id=set_variable_get_item_break_sound>
+  <code>variable::get_item_break_sound</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить звук ломания предмета\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает звук, воспроизводимый при поломке указанного предмета, и присваисвает результат к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::get_item_break_sound(item("stick"));
+
+//Или от объекта
+
+`variable` = item("stick").get_item_break_sound();
+
+//Или в сухую позиционно
+
+variable::get_item_break_sound(`variable`, item("stick"));
+
+//Или в сухую по ключам
+
+variable::get_item_break_sound(variable=`variable`, item=item("stick"));
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**    | **Описание**              |
+| ---------- | ---------- | ------------------------- |
+| `variable` | Переменная | Переменная для присвоения |
+| `item`     | Предмет    | Предмет                   |
 <h3 id=set_variable_get_item_color>
   <code>variable::get_item_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3140,6 +3172,39 @@ variable::get_item_color(variable=`variable`, item=item("stick"));
 | ---------- | ---------- | ------------------------- |
 | `variable` | Переменная | Переменная для присвоения |
 | `item`     | Предмет    | Предмет                   |
+<h3 id=set_variable_get_item_component>
+  <code>variable::get_item_component</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить компонент предмета\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает значение компонента предмета и присваисвает значение к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::get_item_component(item("stick"), "component");
+
+//Или от объекта
+
+`variable` = item("stick").get_item_component("component");
+
+//Или в сухую позиционно
+
+variable::get_item_component(`variable`, item("stick"), "component");
+
+//Или в сухую по ключам
+
+variable::get_item_component(variable=`variable`, item=item("stick"), component="component");
+```
+
+**Аргументы:**
+
+| **Имя**     | **Тип**    | **Описание**              |
+| ----------- | ---------- | ------------------------- |
+| `variable`  | Переменная | Переменная для присвоения |
+| `item`      | Предмет    | Предмет                   |
+| `component` | Текст      | Ключ компонента           |
 <h3 id=set_variable_get_item_custom_model_data>
   <code>variable::get_item_custom_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5392,6 +5457,40 @@ variable::get_text_hash(variable=`variable`, text="text", algorithm="MD5");
 | `variable`  | Переменная                                                             | Переменная для присвоения |
 | `text`      | Текст                                                                  | Исходный текст            |
 | `algorithm` | Маркер<br/>**MD5** - MD5<br/>**SHA1** - SHA-1<br/>**SHA256** - SHA-256 | Aлгоритм                  |
+<h3 id=set_variable_hide_item_components>
+  <code>variable::hide_item_components</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Скрыть компоненты предмета\
+**Тип:** Действие, возращающее значение\
+**Описание:** Скрывает указанные компоненты предмета и присваивает результат к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::hide_item_components(item("stick"), ["components", "components"], "SET");
+
+//Или от объекта
+
+`variable` = item("stick").hide_item_components(["components", "components"], "SET");
+
+//Или в сухую позиционно
+
+variable::hide_item_components(`variable`, item("stick"), ["components", "components"], "SET");
+
+//Или в сухую по ключам
+
+variable::hide_item_components(variable=`variable`, item=item("stick"), components=["components", "components"], mode="SET");
+```
+
+**Аргументы:**
+
+| **Имя**      | **Тип**                                                                           | **Описание**              |
+| ------------ | --------------------------------------------------------------------------------- | ------------------------- |
+| `variable`   | Переменная                                                                        | Переменная для присвоения |
+| `item`       | Предмет                                                                           | Предмет                   |
+| `components` | список[Текст]                                                                     | Ключи компонентов         |
+| `mode`       | Маркер<br/>**SET** - Установка<br/>**ADD** - Добавление<br/>**REMOVE** - Удаление | Режим установки           |
 <h3 id=set_variable_increment>
   <code>variable::increment</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5718,6 +5817,34 @@ variable::min(variable=`variable`, value=[1, 2]);
 | ---------- | ------------- | ------------------------- |
 | `variable` | Переменная    | Переменная для присвоения |
 | `value`    | список[Число] | Числа для выбора          |
+<h3 id=set_variable_multiple>
+  <code>variable::set_values</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить значения нескольких переменных (=)\
+**Тип:** Действие, возращающее значение\
+**Описание:** Присваивает указанные значения к указанным переменным.
+
+**Пример использования:** 
+```ts
+[`variables`, `variables`] = variable::set_values(["any value", "any value"]);
+
+//Или в сухую позиционно
+
+variable::set_values([`variables`, `variables`], ["any value", "any value"]);
+
+//Или в сухую по ключам
+
+variable::set_values(variables=[`variables`, `variables`], values=["any value", "any value"]);
+```
+
+**Аргументы:**
+
+| **Имя**     | **Тип**                | **Описание**              |
+| ----------- | ---------------------- | ------------------------- |
+| `variables` | список[Переменная]     | Переменные для присвоения |
+| `values`    | список[Любое значение] | Значения для присвоения   |
 <h3 id=set_variable_multiply>
   <code>variable::multiply</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7456,6 +7583,39 @@ variable::set_item_attribute(variable=`variable`, item=item("stick"), amount=1, 
 | `attribute` | Маркер<br/>**ARMOR** - Броня<br/>**ARMOR_TOUGHNESS** - Плотность защиты<br/>**ATTACK_DAMAGE** - Урон атаки<br/>**ATTACK_KNOCKBACK** - Отталкивание от атаки<br/>**ATTACK_SPEED** - Скорость атаки<br/>**FLYING_SPEED** - Скорость полёта<br/>**FOLLOW_RANGE** - Расстояние следования<br/>**GENERIC_ARMOR** - Очки защиты (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Очки плотности защиты (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Урон атаки (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Отталкивание атаки (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Скорость атаки (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Время горения<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Сопротивление отбрасыванию от взрыва<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Множитель урона от падения<br/>**GENERIC_FLYING_SPEED** - Скорость полёта (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Расстояние следования (generic.follow_range)<br/>**GENERIC_GRAVITY** - Гравитация<br/>**GENERIC_JUMP_STRENGTH** - Сила прыжка<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Удача рыбалки (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Максимальное поглощение (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Максимальное здоровье (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Скорость передвижения по замедляющим блокам<br/>**GENERIC_MOVEMENT_SPEED** - Скорость передвижения (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Воздух под водой<br/>**GENERIC_SAFE_FALL_DISTANCE** - Безопасная высота падения<br/>**GENERIC_SCALE** - Масштаб<br/>**GENERIC_STEP_HEIGHT** - Высота шага<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Скорость передвижения под водой<br/>**HORSE_JUMP_STRENGTH** - Сила прыжка лошади (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Сопротивление отталкиванию<br/>**LUCK** - Удача<br/>**MAX_ABSORPTION** - Максимальное поглощение<br/>**MAX_HEALTH** - Максимальное здоровье<br/>**MOVEMENT_SPEED** - Скорость передвижения<br/>**PLAYER_BLOCK_BREAK_SPEED** - Скорость ломания блока<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Расстояние взаимодействия с блоками<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Расстояние взаимодействия с сущностями<br/>**PLAYER_MINING_EFFICIENCY** - Скорость копания<br/>**PLAYER_SNEAKING_SPEED** - Скорость передвижения крадясь<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Скорость копания под водой<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Коэффициент разящего удара<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Шанс подкрепления зомби (zombie.spawn_reinforcements) | Тип атрибута              |
 | `slot`      | Маркер<br/>**ALL** - Все<br/>**ARMOR** - Любая броня<br/>**BODY** - Тело (работает не со всеми сущностями)<br/>**BOOTS** - Ботинки<br/>**CHEST** - Нагрудник<br/>**HAND** - Любая рука<br/>**HEAD** - Шлем<br/>**LEGGINGS** - Поножи<br/>**MAIN_HAND** - Основная рука<br/>**OFF_HAND** - Второстепенная рука                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Слот атрибута             |
 | `operation` | Маркер<br/>**ADD_NUMBER** - Количество (amount)<br/>**ADD_SCALAR** - Процент (percentage)<br/>**MULTIPLY_SCALAR_1** - Произведение (multiplicative)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Операция атрибута         |
+<h3 id=set_variable_set_item_break_sound>
+  <code>variable::set_item_break_sound</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить звук ломания предмета\
+**Тип:** Действие, возращающее значение\
+**Описание:** Устанавливает звук, воспроизводимый при поломке указанного предмета, и присваисвает результат к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::set_item_break_sound(item("stick"), "break_sound");
+
+//Или от объекта
+
+`variable` = item("stick").set_item_break_sound("break_sound");
+
+//Или в сухую позиционно
+
+variable::set_item_break_sound(`variable`, item("stick"), "break_sound");
+
+//Или в сухую по ключам
+
+variable::set_item_break_sound(variable=`variable`, item=item("stick"), break_sound="break_sound");
+```
+
+**Аргументы:**
+
+| **Имя**       | **Тип**    | **Описание**              |
+| ------------- | ---------- | ------------------------- |
+| `variable`    | Переменная | Переменная для присвоения |
+| `item`        | Предмет    | Предмет                   |
+| `break_sound` | Текст      | Звук поломки              |
 <h3 id=set_variable_set_item_color>
   <code>variable::set_item_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9789,6 +9949,39 @@ variable::trim_text(variable=`variable`, text="text", start=1, end=2);
 | `text`     | Текст      | Текст для обрезки         |
 | `start`    | Число      | Начальная позиция         |
 | `end`      | Число      | Конечная позиция          |
+<h3 id=set_variable_unset_item_components>
+  <code>variable::unset_item_components</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Удалить компоненты предмета\
+**Тип:** Действие, возращающее значение\
+**Описание:** Удаляет указанные компоненты предмета и присваисвает результат к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::unset_item_components(item("stick"), ["components", "components"]);
+
+//Или от объекта
+
+`variable` = item("stick").unset_item_components(["components", "components"]);
+
+//Или в сухую позиционно
+
+variable::unset_item_components(`variable`, item("stick"), ["components", "components"]);
+
+//Или в сухую по ключам
+
+variable::unset_item_components(variable=`variable`, item=item("stick"), components=["components", "components"]);
+```
+
+**Аргументы:**
+
+| **Имя**      | **Тип**       | **Описание**                |
+| ------------ | ------------- | --------------------------- |
+| `variable`   | Переменная    | Переменная для присвоения   |
+| `item`       | Предмет       | Предмет                     |
+| `components` | список[Текст] | Ключи удаляемых компонентов |
 <h3 id=set_variable_value>
   <code>variable::set_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

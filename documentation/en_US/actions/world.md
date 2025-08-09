@@ -1103,6 +1103,31 @@ world::set_dried_ghast_hydration(location=location(0,0,0,0,0), hydration=1);
 | ----------- | -------- | --------------- |
 | `location`  | Location | None            |
 | `hydration` | Number   | None            |
+<h3 id=game_set_event_anvil_repair_cost>
+  <code>world::set_event_anvil_repair_cost</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+world::set_event_anvil_repair_cost(1, "REPAIR_COST", "TRUE");
+
+//Or dry by keywords
+
+world::set_event_anvil_repair_cost(repair_cost=1, repair_cost_type="REPAIR_COST", bypass_cost="TRUE");
+```
+
+**Arguments:**
+
+| **Name**           | **Type**                                                                                                   | **Description** |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- | --------------- |
+| `repair_cost`      | Number                                                                                                     | None            |
+| `repair_cost_type` | Marker<br/>**REPAIR_COST** - None<br/>**REPAIR_ITEM_COUNT_COST** - None<br/>**MAXIMUM_REPAIR_COST** - None | None            |
+| `bypass_cost`      | Marker<br/>**TRUE** - None<br/>**FALSE** - None                                                            | None            |
 <h3 id=game_set_event_combust_duration>
   <code>world::set_event_combust_duration</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1182,6 +1207,33 @@ world::set_event_death_screen_message(message="message");
 | **Name**  | **Type** | **Description** |
 | --------- | -------- | --------------- |
 | `message` | Text     | None            |
+<h3 id=game_set_event_enchantment_offers>
+  <code>world::set_event_enchantment_offers</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+world::set_event_enchantment_offers(["enchantments", "enchantments"], ["levels", "levels"], ["costs", "costs"]);
+
+//Or dry by keywords
+
+world::set_event_enchantment_offers(enchantments=["enchantments", "enchantments"], levels=["levels", "levels"], costs=["costs", "costs"]);
+```
+
+**Arguments:**
+
+| **Name**       | **Type**   | **Description** |
+| -------------- | ---------- | --------------- |
+| `enchantments` | list[Text] | None            |
+| `levels`       | list[Text] | None            |
+| `costs`        | list[Text] | None            |
 <h3 id=game_set_event_exhaustion>
   <code>world::set_event_exhaustion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

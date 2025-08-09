@@ -289,6 +289,35 @@ entity::face_location(location=location(0,0,0,0,0));
 | **Name**   | **Type** | **Description** |
 | ---------- | -------- | --------------- |
 | `location` | Location | Location        |
+<h3 id=entity_get_attribute>
+  <code>entity::get_attribute</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = entity::get_attribute("GENERIC_MAX_HEALTH", "VALUE");
+
+//Or dry by positionals
+
+entity::get_attribute(`variable`, "GENERIC_MAX_HEALTH", "VALUE");
+
+//Or dry by keywords
+
+entity::get_attribute(variable=`variable`, attribute_type="GENERIC_MAX_HEALTH", return_value="VALUE");
+```
+
+**Arguments:**
+
+| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Description** |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `variable`       | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | None            |
+| `attribute_type` | Marker<br/>**GENERIC_MAX_HEALTH** - None<br/>**GENERIC_MAX_ABSORPTION** - None<br/>**GENERIC_FOLLOW_RANGE** - None<br/>**GENERIC_KNOCKBACK_RESISTANCE** - None<br/>**GENERIC_MOVEMENT_SPEED** - None<br/>**GENERIC_FLYING_SPEED** - None<br/>**GENERIC_ATTACK_DAMAGE** - None<br/>**GENERIC_ATTACK_KNOCKBACK** - None<br/>**GENERIC_ATTACK_SPEED** - None<br/>**GENERIC_ARMOR** - None<br/>**GENERIC_ARMOR_TOUGHNESS** - None<br/>**GENERIC_LUCK** - None<br/>**GENERIC_JUMP_STRENGTH** - None<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - None<br/>**GENERIC_SAFE_FALL_DISTANCE** - None<br/>**GENERIC_SCALE** - None<br/>**GENERIC_STEP_HEIGHT** - None<br/>**GENERIC_GRAVITY** - None<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - None<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - None<br/>**PLAYER_BLOCK_BREAK_SPEED** - None<br/>**GENERIC_BURNING_TIME** - None<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - None<br/>**GENERIC_MOVEMENT_EFFICIENCY** - None<br/>**PLAYER_MINING_EFFICIENCY** - None<br/>**PLAYER_SNEAKING_SPEED** - None<br/>**PLAYER_SUBMERGED_MINING_SPEED** - None<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - None<br/>**GENERIC_OXYGEN_BONUS** - None<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - None<br/>**TEMP_RANGE** - None<br/>**WAYPOINT_TRANSMIT_RANGE** - None<br/>**WAYPOINT_RECEIVE_RANGE** - None<br/>**CAMERA_DISTANCE** - None | None            |
+| `return_value`   | Marker<br/>**VALUE** - None<br/>**BASE_VALUE** - None<br/>**DEFAULT_VALUE** - None                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | None            |
 <h3 id=entity_get_custom_tag>
   <code>entity::get_custom_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -318,6 +347,34 @@ entity::get_custom_tag(variable=`variable`, name="name", default="any value");
 | `variable` | Variable  | Variable to Assign |
 | `name`     | Text      | Tag name           |
 | `default`  | Any Value | Default value      |
+<h3 id=entity_get_nbt>
+  <code>entity::get_nbt</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = entity::get_nbt("path");
+
+//Or dry by positionals
+
+entity::get_nbt(`variable`, "path");
+
+//Or dry by keywords
+
+entity::get_nbt(variable=`variable`, path="path");
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | None            |
+| `path`     | Text     | None            |
 <h3 id=entity_give_potion_effects>
   <code>entity::give_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

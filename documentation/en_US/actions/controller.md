@@ -30,6 +30,22 @@ controller::async_run(){
 }
 ```
 
+<h3 id=controller_do_not_run>
+  <code>controller::do_not_run</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+controller::do_not_run(){
+    player::message("Everything work");
+}
+```
+
 <h3 id=controller_exception>
   <code>controller::catch_exception</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

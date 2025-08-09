@@ -508,6 +508,10 @@
     "cancellable": true
   },
   {
+    "id": "player_prepare_item_enchant",
+    "cancellable": true
+  },
+  {
     "id": "player_prepare_result",
     "cancellable": true
   },

@@ -100,6 +100,13 @@
     "type": "container"
   },
   {
+    "id": "controller_do_not_run",
+    "name": "do_not_run",
+    "object": "controller",
+    "args": [],
+    "type": "container"
+  },
+  {
     "id": "controller_exception",
     "name": "catch_exception",
     "object": "controller",
@@ -300,6 +307,73 @@
     "type": "basic"
   },
   {
+    "id": "entity_get_attribute",
+    "name": "get_attribute",
+    "object": "entity",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "attribute_type",
+        "type": "enum",
+        "values": [
+          "GENERIC_MAX_HEALTH",
+          "GENERIC_MAX_ABSORPTION",
+          "GENERIC_FOLLOW_RANGE",
+          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_SPEED",
+          "GENERIC_FLYING_SPEED",
+          "GENERIC_ATTACK_DAMAGE",
+          "GENERIC_ATTACK_KNOCKBACK",
+          "GENERIC_ATTACK_SPEED",
+          "GENERIC_ARMOR",
+          "GENERIC_ARMOR_TOUGHNESS",
+          "GENERIC_LUCK",
+          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_FALL_DAMAGE_MULTIPLIER",
+          "GENERIC_SAFE_FALL_DISTANCE",
+          "GENERIC_SCALE",
+          "GENERIC_STEP_HEIGHT",
+          "GENERIC_GRAVITY",
+          "PLAYER_BLOCK_INTERACTION_RANGE",
+          "PLAYER_ENTITY_INTERACTION_RANGE",
+          "PLAYER_BLOCK_BREAK_SPEED",
+          "GENERIC_BURNING_TIME",
+          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_EFFICIENCY",
+          "PLAYER_MINING_EFFICIENCY",
+          "PLAYER_SNEAKING_SPEED",
+          "PLAYER_SUBMERGED_MINING_SPEED",
+          "PLAYER_SWEEPING_DAMAGE_RATIO",
+          "GENERIC_OXYGEN_BONUS",
+          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
+          "TEMP_RANGE",
+          "WAYPOINT_TRANSMIT_RANGE",
+          "WAYPOINT_RECEIVE_RANGE",
+          "CAMERA_DISTANCE"
+        ]
+      },
+      {
+        "id": "return_value",
+        "type": "enum",
+        "values": [
+          "VALUE",
+          "BASE_VALUE",
+          "DEFAULT_VALUE"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_get_custom_tag",
     "name": "get_custom_tag",
     "object": "entity",
@@ -315,6 +389,28 @@
       {
         "id": "default",
         "type": "any"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "any"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_get_nbt",
+    "name": "get_nbt",
+    "object": "entity",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "path",
+        "type": "text"
       }
     ],
     "assign": [
@@ -4355,6 +4451,35 @@
     "type": "basic"
   },
   {
+    "id": "game_set_event_anvil_repair_cost",
+    "name": "set_event_anvil_repair_cost",
+    "object": "world",
+    "args": [
+      {
+        "id": "repair_cost",
+        "type": "number"
+      },
+      {
+        "id": "repair_cost_type",
+        "type": "enum",
+        "values": [
+          "REPAIR_COST",
+          "REPAIR_ITEM_COUNT_COST",
+          "MAXIMUM_REPAIR_COST"
+        ]
+      },
+      {
+        "id": "bypass_cost",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "game_set_event_combust_duration",
     "name": "set_event_combust_duration",
     "object": "world",
@@ -4386,6 +4511,29 @@
       {
         "id": "message",
         "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "game_set_event_enchantment_offers",
+    "name": "set_event_enchantment_offers",
+    "object": "world",
+    "args": [
+      {
+        "id": "enchantments",
+        "type": "text",
+        "array": 3
+      },
+      {
+        "id": "levels",
+        "type": "text",
+        "array": 3
+      },
+      {
+        "id": "costs",
+        "type": "text",
+        "array": 3
       }
     ],
     "type": "basic"
@@ -8607,6 +8755,95 @@
           "FALSE",
           "TRUE"
         ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "player_get_attribute",
+    "name": "get_attribute",
+    "object": "player",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "attribute_type",
+        "type": "enum",
+        "values": [
+          "GENERIC_MAX_HEALTH",
+          "GENERIC_MAX_ABSORPTION",
+          "GENERIC_FOLLOW_RANGE",
+          "GENERIC_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_SPEED",
+          "GENERIC_FLYING_SPEED",
+          "GENERIC_ATTACK_DAMAGE",
+          "GENERIC_ATTACK_KNOCKBACK",
+          "GENERIC_ATTACK_SPEED",
+          "GENERIC_ARMOR",
+          "GENERIC_ARMOR_TOUGHNESS",
+          "GENERIC_LUCK",
+          "GENERIC_JUMP_STRENGTH",
+          "GENERIC_FALL_DAMAGE_MULTIPLIER",
+          "GENERIC_SAFE_FALL_DISTANCE",
+          "GENERIC_SCALE",
+          "GENERIC_STEP_HEIGHT",
+          "GENERIC_GRAVITY",
+          "PLAYER_BLOCK_INTERACTION_RANGE",
+          "PLAYER_ENTITY_INTERACTION_RANGE",
+          "PLAYER_BLOCK_BREAK_SPEED",
+          "GENERIC_BURNING_TIME",
+          "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE",
+          "GENERIC_MOVEMENT_EFFICIENCY",
+          "PLAYER_MINING_EFFICIENCY",
+          "PLAYER_SNEAKING_SPEED",
+          "PLAYER_SUBMERGED_MINING_SPEED",
+          "PLAYER_SWEEPING_DAMAGE_RATIO",
+          "GENERIC_OXYGEN_BONUS",
+          "GENERIC_WATER_MOVEMENT_EFFICIENCY",
+          "TEMP_RANGE",
+          "WAYPOINT_TRANSMIT_RANGE",
+          "WAYPOINT_RECEIVE_RANGE",
+          "CAMERA_DISTANCE"
+        ]
+      },
+      {
+        "id": "return_value",
+        "type": "enum",
+        "values": [
+          "VALUE",
+          "BASE_VALUE",
+          "DEFAULT_VALUE"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "player_get_nbt",
+    "name": "get_nbt",
+    "object": "player",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "path",
+        "type": "text"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "any"
       }
     ],
     "type": "basic"
@@ -13544,6 +13781,29 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_get_item_break_sound",
+    "name": "get_item_break_sound",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "text"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_get_item_color",
     "name": "get_item_color",
     "object": "variable",
@@ -13561,6 +13821,33 @@
       {
         "id": "variable",
         "type": "text"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_get_item_component",
+    "name": "get_item_component",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "component",
+        "type": "text"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "any"
       }
     ],
     "origin": "item",
@@ -15129,7 +15416,7 @@
     "assign": [
       {
         "id": "variable",
-        "type": "map"
+        "type": "any"
       }
     ],
     "origin": "template",
@@ -15409,6 +15696,43 @@
       }
     ],
     "origin": "text",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_hide_item_components",
+    "name": "hide_item_components",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "components",
+        "type": "text",
+        "array": 21
+      },
+      {
+        "id": "mode",
+        "type": "enum",
+        "values": [
+          "SET",
+          "ADD",
+          "REMOVE"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
     "type": "basic"
   },
   {
@@ -15734,6 +16058,30 @@
       {
         "id": "variable",
         "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_multiple",
+    "name": "set_values",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variables",
+        "type": "variable",
+        "array": 20
+      },
+      {
+        "id": "values",
+        "type": "any",
+        "array": 19
+      }
+    ],
+    "assign": [
+      {
+        "id": "variables",
+        "type": "any"
       }
     ],
     "type": "basic"
@@ -17653,6 +18001,33 @@
           "ADD_SCALAR",
           "MULTIPLY_SCALAR_1"
         ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_set_item_break_sound",
+    "name": "set_item_break_sound",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "break_sound",
+        "type": "text"
       }
     ],
     "assign": [
@@ -19875,6 +20250,34 @@
       }
     ],
     "origin": "text",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_unset_item_components",
+    "name": "unset_item_components",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "components",
+        "type": "text",
+        "array": 21
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item",
     "type": "basic"
   },
   {

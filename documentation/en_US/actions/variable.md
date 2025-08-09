@@ -3103,6 +3103,38 @@ variable::get_item_attribute(variable=`variable`, item=item("stick"), name="name
 | `attribute` | Marker<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor Toughness<br/>**ATTACK_DAMAGE** - Attack Damage<br/>**ATTACK_KNOCKBACK** - Attack Knockback<br/>**ATTACK_SPEED** - Attack Speed<br/>**FLYING_SPEED** - Flying Speed<br/>**FOLLOW_RANGE** - Follow Range<br/>**GENERIC_ARMOR** - Protection Points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Defense Density Points (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack Damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack Knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack Speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning Time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion Knockback Resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall Damage Multiplier<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump Strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback Resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Fishing Luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Maximum Health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement Efficiency<br/>**GENERIC_MOVEMENT_SPEED** - Movement Speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Oxygen Bonus<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe Fall Distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step Height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Water Movement Efficiency<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Knockback Resistance<br/>**LUCK** - Luck<br/>**MAX_ABSORPTION** - Max Absorption<br/>**MAX_HEALTH** - Max Health<br/>**MOVEMENT_SPEED** - Movement Speed<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block Breaking Speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Block Interaction Range<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Entity Interaction Range<br/>**PLAYER_MINING_EFFICIENCY** - Mining Efficiency<br/>**PLAYER_SNEAKING_SPEED** - Sneaking SPeed<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Submerged Mining Speed<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Sweeping Damage Ratio<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zombie reinforcements (zombie.spawn_reinforcements) | Attribute Type      |
 | `slot`      | Marker<br/>**ALL** - All<br/>**ARMOR** - Armor<br/>**BODY** - Body (doesn\'t work with all entities)<br/>**BOOTS** - Boots<br/>**CHEST** - Chest<br/>**HAND** - Hand<br/>**HEAD** - Helmet<br/>**LEGGINGS** - Leggings<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Offhand                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Attribute Slot      |
 | `operation` | Marker<br/>**ADD_NUMBER** - Amount<br/>**ADD_SCALAR** - Percentage<br/>**MULTIPLY_SCALAR_1** - Product (multiplicative)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Attribute Operation |
+<h3 id=set_variable_get_item_break_sound>
+  <code>variable::get_item_break_sound</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::get_item_break_sound(item("stick"));
+
+//Or from the object
+
+`variable` = item("stick").get_item_break_sound();
+
+//Or dry by positionals
+
+variable::get_item_break_sound(`variable`, item("stick"));
+
+//Or dry by keywords
+
+variable::get_item_break_sound(variable=`variable`, item=item("stick"));
+```
+
+**Arguments:**
+
+| **Name**   | **Type** | **Description** |
+| ---------- | -------- | --------------- |
+| `variable` | Variable | None            |
+| `item`     | Item     | None            |
 <h3 id=set_variable_get_item_color>
   <code>variable::get_item_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3140,6 +3172,39 @@ variable::get_item_color(variable=`variable`, item=item("stick"));
 | ---------- | -------- | ------------------ |
 | `variable` | Variable | Variable to assign |
 | `item`     | Item     | Item               |
+<h3 id=set_variable_get_item_component>
+  <code>variable::get_item_component</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::get_item_component(item("stick"), "component");
+
+//Or from the object
+
+`variable` = item("stick").get_item_component("component");
+
+//Or dry by positionals
+
+variable::get_item_component(`variable`, item("stick"), "component");
+
+//Or dry by keywords
+
+variable::get_item_component(variable=`variable`, item=item("stick"), component="component");
+```
+
+**Arguments:**
+
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `variable`  | Variable | None            |
+| `item`      | Item     | None            |
+| `component` | Text     | None            |
 <h3 id=set_variable_get_item_custom_model_data>
   <code>variable::get_item_custom_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5392,6 +5457,40 @@ variable::get_text_hash(variable=`variable`, text="text", algorithm="MD5");
 | `variable`  | Variable                                                               | Variable to assign |
 | `text`      | Text                                                                   | Original Text      |
 | `algorithm` | Marker<br/>**MD5** - MD5<br/>**SHA1** - SHA-1<br/>**SHA256** - SHA-256 | Algorithm          |
+<h3 id=set_variable_hide_item_components>
+  <code>variable::hide_item_components</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::hide_item_components(item("stick"), ["components", "components"], "SET");
+
+//Or from the object
+
+`variable` = item("stick").hide_item_components(["components", "components"], "SET");
+
+//Or dry by positionals
+
+variable::hide_item_components(`variable`, item("stick"), ["components", "components"], "SET");
+
+//Or dry by keywords
+
+variable::hide_item_components(variable=`variable`, item=item("stick"), components=["components", "components"], mode="SET");
+```
+
+**Arguments:**
+
+| **Name**     | **Type**                                                           | **Description** |
+| ------------ | ------------------------------------------------------------------ | --------------- |
+| `variable`   | Variable                                                           | None            |
+| `item`       | Item                                                               | None            |
+| `components` | list[Text]                                                         | None            |
+| `mode`       | Marker<br/>**SET** - None<br/>**ADD** - None<br/>**REMOVE** - None | None            |
 <h3 id=set_variable_increment>
   <code>variable::increment</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5718,6 +5817,34 @@ variable::min(variable=`variable`, value=[1, 2]);
 | ---------- | ------------ | ------------------ |
 | `variable` | Variable     | Variable to assign |
 | `value`    | list[Number] | Numbers to select  |
+<h3 id=set_variable_multiple>
+  <code>variable::set_values</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+[`variables`, `variables`] = variable::set_values(["any value", "any value"]);
+
+//Or dry by positionals
+
+variable::set_values([`variables`, `variables`], ["any value", "any value"]);
+
+//Or dry by keywords
+
+variable::set_values(variables=[`variables`, `variables`], values=["any value", "any value"]);
+```
+
+**Arguments:**
+
+| **Name**    | **Type**        | **Description** |
+| ----------- | --------------- | --------------- |
+| `variables` | list[Variable]  | None            |
+| `values`    | list[Any Value] | None            |
 <h3 id=set_variable_multiply>
   <code>variable::multiply</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7456,6 +7583,39 @@ variable::set_item_attribute(variable=`variable`, item=item("stick"), amount=1, 
 | `attribute` | Marker<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor Toughness<br/>**ATTACK_DAMAGE** - Attack Damage<br/>**ATTACK_KNOCKBACK** - Attack Knockback<br/>**ATTACK_SPEED** - Attack Speed<br/>**FLYING_SPEED** - Flying Speed<br/>**FOLLOW_RANGE** - Follow Range<br/>**GENERIC_ARMOR** - Protection Points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Defense Density Points (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack Damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack Knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack Speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning Time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion Knockback Resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall Damage Multiplier<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump Strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback Resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Fishing Luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Maximum Health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement Efficiency<br/>**GENERIC_MOVEMENT_SPEED** - Movement Speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Oxygen Bonus<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe Fall Distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step Height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Water Movement Efficiency<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Knockback Resistance<br/>**LUCK** - Luck<br/>**MAX_ABSORPTION** - Max Absorption<br/>**MAX_HEALTH** - Max Health<br/>**MOVEMENT_SPEED** - Movement Speed<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block Breaking Speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Block Interaction Range<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Entity Interaction Range<br/>**PLAYER_MINING_EFFICIENCY** - Mining Efficiency<br/>**PLAYER_SNEAKING_SPEED** - Sneaking Speed<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Submerged Mining Speed<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Sweeping Damage Ratio<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zombie reinforcements (zombie.spawn_reinforcements) | Attribute Type      |
 | `slot`      | Marker<br/>**ALL** - All<br/>**ARMOR** - Armor<br/>**BODY** - Body (doesn\'t work with all entities)<br/>**BOOTS** - Boots<br/>**CHEST** - Chest<br/>**HAND** - Hand<br/>**HEAD** - Helmet<br/>**LEGGINGS** - Leggings<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Offhand                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Attribute Slot      |
 | `operation` | Marker<br/>**ADD_NUMBER** - Amount<br/>**ADD_SCALAR** - Percentage<br/>**MULTIPLY_SCALAR_1** - Product (multiplicative)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Attribute Operation |
+<h3 id=set_variable_set_item_break_sound>
+  <code>variable::set_item_break_sound</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::set_item_break_sound(item("stick"), "break_sound");
+
+//Or from the object
+
+`variable` = item("stick").set_item_break_sound("break_sound");
+
+//Or dry by positionals
+
+variable::set_item_break_sound(`variable`, item("stick"), "break_sound");
+
+//Or dry by keywords
+
+variable::set_item_break_sound(variable=`variable`, item=item("stick"), break_sound="break_sound");
+```
+
+**Arguments:**
+
+| **Name**      | **Type** | **Description** |
+| ------------- | -------- | --------------- |
+| `variable`    | Variable | None            |
+| `item`        | Item     | None            |
+| `break_sound` | Text     | None            |
 <h3 id=set_variable_set_item_color>
   <code>variable::set_item_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9789,6 +9949,39 @@ variable::trim_text(variable=`variable`, text="text", start=1, end=2);
 | `text`     | Text     | Text to Trim    |
 | `start`    | Number   | Start Position  |
 | `end`      | Number   | End Position    |
+<h3 id=set_variable_unset_item_components>
+  <code>variable::unset_item_components</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::unset_item_components(item("stick"), ["components", "components"]);
+
+//Or from the object
+
+`variable` = item("stick").unset_item_components(["components", "components"]);
+
+//Or dry by positionals
+
+variable::unset_item_components(`variable`, item("stick"), ["components", "components"]);
+
+//Or dry by keywords
+
+variable::unset_item_components(variable=`variable`, item=item("stick"), components=["components", "components"]);
+```
+
+**Arguments:**
+
+| **Name**     | **Type**   | **Description** |
+| ------------ | ---------- | --------------- |
+| `variable`   | Variable   | None            |
+| `item`       | Item       | None            |
+| `components` | list[Text] | None            |
 <h3 id=set_variable_value>
   <code>variable::set_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

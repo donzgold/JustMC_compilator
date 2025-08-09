@@ -1103,6 +1103,31 @@ world::set_dried_ghast_hydration(location=location(0,0,0,0,0), hydration=1);
 | ----------- | -------------- | -------------- |
 | `location`  | Местоположение | Местоположение |
 | `hydration` | Число          | Влажность      |
+<h3 id=game_set_event_anvil_repair_cost>
+  <code>world::set_event_anvil_repair_cost</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить стоимость действия наковальни\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает стоимость совершаемого действия в наковальне.
+
+**Пример использования:** 
+```ts
+world::set_event_anvil_repair_cost(1, "REPAIR_COST", "TRUE");
+
+//Или в сухую по ключам
+
+world::set_event_anvil_repair_cost(repair_cost=1, repair_cost_type="REPAIR_COST", bypass_cost="TRUE");
+```
+
+**Аргументы:**
+
+| **Имя**            | **Тип**                                                                                                                                                           | **Описание**            |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `repair_cost`      | Число                                                                                                                                                             | Стоимость               |
+| `repair_cost_type` | Маркер<br/>**REPAIR_COST** - Конечная стоимость<br/>**REPAIR_ITEM_COUNT_COST** - Стоимость за каждый предмет<br/>**MAXIMUM_REPAIR_COST** - Максимальная стоимость | Тип стоимости           |
+| `bypass_cost`      | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                                                                                                      | Игнорирование стоимости |
 <h3 id=game_set_event_combust_duration>
   <code>world::set_event_combust_duration</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1182,6 +1207,33 @@ world::set_event_death_screen_message(message="message");
 | **Имя**   | **Тип** | **Описание** |
 | --------- | ------- | ------------ |
 | `message` | Текст   | Сообщение    |
+<h3 id=game_set_event_enchantment_offers>
+  <code>world::set_event_enchantment_offers</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить предлагаемые зачарования события\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает предлагаемые зачарования события.
+**Работает с:**\
+&nbsp;&nbsp;Событием "Игрок выбирает зачарование"
+
+**Пример использования:** 
+```ts
+world::set_event_enchantment_offers(["enchantments", "enchantments"], ["levels", "levels"], ["costs", "costs"]);
+
+//Или в сухую по ключам
+
+world::set_event_enchantment_offers(enchantments=["enchantments", "enchantments"], levels=["levels", "levels"], costs=["costs", "costs"]);
+```
+
+**Аргументы:**
+
+| **Имя**        | **Тип**       | **Описание**             |
+| -------------- | ------------- | ------------------------ |
+| `enchantments` | список[Текст] | Предлагаемые зачарования |
+| `levels`       | список[Текст] | Уровни зачарований       |
+| `costs`        | список[Текст] | Стоимость зачарований    |
 <h3 id=game_set_event_exhaustion>
   <code>world::set_event_exhaustion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
