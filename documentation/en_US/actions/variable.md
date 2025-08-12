@@ -5823,15 +5823,11 @@ variable::min(variable=`variable`, value=[1, 2]);
 </h3>
 
 **Name:** None\
-**Type:** An action that returns a value\
+**Type:** Action without value\
 **Description:** None
 
 **Usage example:** 
 ```ts
-[`variables`, `variables`] = variable::set_values(["any value", "any value"]);
-
-//Or dry by positionals
-
 variable::set_values([`variables`, `variables`], ["any value", "any value"]);
 
 //Or dry by keywords

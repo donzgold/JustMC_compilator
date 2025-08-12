@@ -16078,12 +16078,6 @@
         "array": 19
       }
     ],
-    "assign": [
-      {
-        "id": "variables",
-        "type": "any"
-      }
-    ],
     "type": "basic"
   },
   {
