@@ -4199,7 +4199,7 @@ def check_args(self, args, casts_allowed, strict_check=False):
     return self, None, args1, identity_counter / len_
 
 
-def fix_args(self, args, casts_allowed, inline=False, assigning=None):
+def fix_args(self, args, casts_allowed, inline=False, assigning=None, strict_check=False):
     previous_operations = []
     next_operations = []
     remove_keys = set()
@@ -4222,6 +4222,8 @@ def fix_args(self, args, casts_allowed, inline=False, assigning=None):
                 prev_ops, args[k1], next_ops = v1.simplify(len_limit=self.arges[k1]["array"])
             elif assigning is not None and self.arges[k1]["type"] == "variable" and k1 in assigning:
                 prev_ops, args[k1], next_ops = v1.simplify(mode=1)
+            elif (v1.type in ("map", "array")) and strict_check:
+                prev_ops, args[k1], next_ops = v1.simplify()
             else:
                 prev_ops, args[k1], next_ops = v1.simplify(mode=0)
             previous_operations.extend(prev_ops)
@@ -4869,7 +4871,7 @@ def built_in_simplify(self, mode, work_with):
                 return calling_object(self.type, self.args.copy(), self.starting_pos, self.ending_pos,
                                       self.source).simplify(mode=mode, work_with=work_with)
         error_from_object(*error_message)
-    previous_operations, self.new_args, next_operations = fix_args(self, args1, True, assigning={})
+    previous_operations, self.new_args, next_operations = fix_args(self, args1, True, assigning={}, strict_check=True)
     if len(previous_operations) == 0 and len(next_operations) == 0:
         self.simple = True
         if work_with is not None:
