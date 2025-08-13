@@ -4688,7 +4688,15 @@ def minecraft_text(text1):
             bold=nbtworker.Byte(int(bold)),
             color=nbtworker.String(color))
         add(old_msg)
-    return full_msg
+    if len(full_msg.values) > 1:
+        real_msg = full_msg[0]
+        full_msg.values = full_msg.values[1:]
+        real_msg["extra"] = full_msg
+        return real_msg
+    elif len(full_msg.values) == 1:
+        return full_msg[0]
+    else:
+        return nbtworker.Compound(text=nbtworker.String(""))
 
 
 # noinspection PyUnresolvedReferences
