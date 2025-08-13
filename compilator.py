@@ -4141,6 +4141,8 @@ class assign:
 def check_args(self, args, casts_allowed, strict_check=False):
     args1 = {}
     args2, error_message = args.get_args(list(self.arges), func=self.template)
+    if args2 is None:
+        return None, error_message, None, 0
     identity_counter = 0
     len_ = len(args2) if len(args2) > 0 else 1
     if args2 is None:
