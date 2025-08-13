@@ -1389,7 +1389,7 @@ class Parser:
             del self.context.settings["class_define"][-1]
             del self.context.settings["inline_define"][-1]
             specials = self.context.get_specials()
-            if class_obj is None and parent is not None:
+            if class_obj is None and parent is None:
                 class_obj = class_object(token.value, dct([], [], token.starting_pos, token.ending_pos, token.source),
                                          {}, token.starting_pos, token.ending_pos, token.source)
             self.context.previous_lvl()
@@ -2514,8 +2514,7 @@ class NBT:  # is_jmcc_object
                            self.source) if "components" in self.value else None},
                                      self.starting_pos, self.ending_pos, self.source), self.starting_pos,
                         self.ending_pos, self.source).simplify(mode=mode, work_with=work_with)
-        else:
-            error_from_object(self, "SimplifyError", translate("error.simplifyerror", {0: self}))
+        return [], self, []
 
     def remove_inlines(self):
         return self
@@ -2528,6 +2527,15 @@ class NBT:  # is_jmcc_object
 
     def get_real_type(self):
         return self.value_type
+
+    def can_cast_as(self, typ):
+        return 0
+
+    def cast_as(self, typ, arges):
+        return self
+
+    def json(self):
+        error_from_object(self, "SimplifyError", translate("error.simplifyerror", {0: self}))
 
 
 class Vars:
@@ -5309,6 +5317,8 @@ class class_:
         self.inline = inline
         self.name = name
         self.class_obj = class_obj
+        if self.class_obj is None and self.parent is not None:
+            self.class_obj = Context(Context.sources[-1]).get_special(self.parent).class_obj
         if self.class_obj.object.get_type() == "map":
             if len(self.class_obj.default_values) == 0:
                 if "__set_attribute__" not in self.specials:
@@ -5418,8 +5428,6 @@ class class_:
                                                                     self.class_obj.source), self.class_obj.source,
                                                               True, ready=False, return_var=return_var).special()
 
-        if self.class_obj is None and self.parent is not None:
-            self.class_obj = Context(Context.sources[-1]).get_special(self.parent).class_obj
 
     def __str__(self):
         return f'class({self.name})'
