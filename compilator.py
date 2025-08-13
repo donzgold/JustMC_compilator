@@ -4184,6 +4184,8 @@ def check_args(self, args, casts_allowed, strict_check=False):
             continue
         elif self.arges[k1]["type"] == "text":
             continue
+        elif v1.get_real_type() == "text":
+            continue
         else:
             if casts_allowed and not isinstance(self.arges[k1]["type"], (tuple, list, set)):
                 cast = v1.can_cast_as(self.arges[k1]["type"])
