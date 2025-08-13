@@ -1,5 +1,6 @@
 from time import time
 import sys
+
 sys.stdin.reconfigure(encoding="utf-8")
 sys.stdout.reconfigure(encoding="utf-8")
 start_time = time()
@@ -318,18 +319,39 @@ if __name__ == "__main__":
     if len(additional) == 0:
         additional = ["about"]
     if len(additional) >= 1:
+        if len(additional) > 2:
+            multi_known_dict = {"-o": "output"}
+            small_known_dict = {"-u": "upload", "-c": "compact", "-s": "save", "-su": ("save", "upload"), "-us": ("save", "upload")}
+            known_attr = data.properties.copy()
+            i1 = 2
+            while i1 < len(additional):
+                if additional[i1] in multi_known_dict and i1 + 1 < len(additional):
+                    known_attr[multi_known_dict[additional[i1]]] = fix_type(additional[i1 + 1])
+                    i1 += 2
+                elif additional[i1] in small_known_dict:
+                    if isinstance(small_known_dict[additional[i1]], (tuple, list, set)):
+                        for i2 in small_known_dict[additional[i1]]:
+                            known_attr[i2] = True
+                    else:
+                        known_attr[small_known_dict[additional[i1]]] = True
+                    i1 += 1
+                else:
+                    print(minecraft_based_text("&c" + translate("error.jmcc.unknown_arg", insert={0: additional[i1]})))
+                    exit()
+        else:
+            known_attr = data.properties.copy()
         if additional[0] == "compile" and len(additional) > 1:
             from compilator import compile_file
 
-            compile_file(additional[1], upload=(additional[-1] == "-u"), properties=data.properties)
+            compile_file(additional[1], upload=known_attr.setdefault("upload", False), properties=known_attr)
         elif additional[0] == "decompile" and len(additional) > 1:
             from decompilator import decompile_file
 
-            decompile_file(additional[1], properties=data.properties)
+            decompile_file(additional[1], properties=known_attr)
         elif additional[0] == "fix_items" and len(additional) > 1:
             from decompilator import fix_items
 
-            fix_items(additional[1], properties=data.properties)
+            fix_items(additional[1], properties=known_attr)
         elif additional[0] == "update" and len(additional) > 1:
             if additional[1] == "data":
                 an_data = Properties(text=requests.get(
