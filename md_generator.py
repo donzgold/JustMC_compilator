@@ -1,6 +1,8 @@
 import json
 import os
 import shutil
+from copy import deepcopy
+
 from jmcc import Properties
 
 color_codes = {"0": "#000000", "1": "#0000AA", "2": "#00AA00", "3": "#00AAAA", "4": "#AA0000", "5": "#AA00AA",
@@ -279,7 +281,6 @@ actions_docs = {"player": [], "entity": [], "select": [], "world": [], "variable
 events = []
 doc_msgs = []
 jmcc_completions = []
-jmcc_hover = {}
 load_events_map = json.load(open("new_data/events_map.json"))
 load_events = {i["id"]: i for i in json.load(open("new_data/events.json"))}
 for i in load_events:
@@ -333,19 +334,18 @@ for i in sorted(another_events.values(), key=lambda x: x["id"]):
         doc_msg["en_description"] += "<br/>**CANCELLABLE**"
     doc_msgs.append(doc_msg)
     events.append(event)
-    completion = {
+    secret_tech = {
         "label": doc_msg["id"],
         "kind": 3,
         "insertText": doc_msg["id"],
+        "insertTextFormat": 2,
         "detail": doc_msg["ru_localize_name"],
         "documentation": {
             "kind": "markdown",
             "value": "```justcode\n" + doc_msg["id"] + "\n```\n\n" + doc_msg['ru_description'].replace("<br/>", "\\\n")
         }
     }
-    jmcc_hover[doc_msg["id"]] = "```justcode\n" + doc_msg["id"] + "\n```\n\n" + "**Название**: " + doc_msg[
-        "ru_localize_name"] + "\\\n**Описание**: " + doc_msg['ru_description'].replace("<br/>", "\\\n")
-    jmcc_completions.append(completion)
+    jmcc_completions.append(secret_tech)
 
 json.dump(events, open("data/events.json", "w+"), indent=2)
 x = max(max(map(lambda w: len(w) + 2, [i["id"] for i in doc_msgs])), 6)
@@ -401,19 +401,18 @@ for i in sorted(another_game_values.values(), key=lambda x: x["id"]):
     a = doc_msg["ru_localize_name"].split("<br/>")
     doc_msg["ru_localize_name"] = a[0]
     description = "<br/>".join(a[1:]) + "<br/>" + doc_msg["ru_localize_value"]
-    completion = {
+    secret_tech = {
         "label": doc_msg["id"],
         "kind": 3,
         "insertText": doc_msg["id"],
+        "insertTextFormat": 2,
         "detail": doc_msg["ru_localize_name"],
         "documentation": {
             "kind": "markdown",
             "value": "```justcode\n" + doc_msg["id"] + "\n```\n\n" + description.replace("<br/>", "\\\n")
         }
     }
-    jmcc_hover[doc_msg["id"]] = "```justcode\n" + doc_msg["id"] + "\n```\n\n" + "**Название**: " + doc_msg[
-        "ru_localize_name"] + "\\\n**Тип значения**: " + description.replace("<br/>", "\\\n")
-    jmcc_completions.append(completion)
+    jmcc_completions.append(secret_tech)
 json.dump(values, open("data/values.json", "w+"), indent=2)
 x = max(max(map(lambda w: len(w) + 2, [i["id"] for i in doc_msgs])), 6)
 y = max(max(map(len, [i["ru_localize_name"] for i in doc_msgs])), 12)
@@ -995,26 +994,29 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
             open("documentation/en_US/actions/" + obj + ".md", "a+", encoding="UTF-8").write(en_true_doc_msg)
             actions_docs[obj].append(doc_msg)
             actions_data.append(new_action)
-            completion = {
+            secret_tech = {
                 "label": doc_msg["id"],
                 "kind": 3,
                 "insertText": doc_msg["id"],
+                "insertTextFormat": 2,
                 "detail": doc_msg["ru_name"],
                 "documentation": {
-                    "kind": "markdown",
-                    "value": "```justcode\n" + doc_msg["id"] + "\n```\n\n" + ru_true_doc_msg.replace(start, "").replace(ru_args,convert_markdown_table_with_br_to_oneline(ru_args)).replace(
+                  "kind": "markdown",
+                  "value": "```justcode\n" + doc_msg["id"] + "\n```\n\n" + ru_true_doc_msg.replace(start, "").replace(ru_args,convert_markdown_table_with_br_to_oneline(ru_args)).replace(
                         "```ts\n", "```justcode\n")
                 }
-            }
-            jmcc_hover[doc_msg["id"]] = "```justcode\n" + doc_msg["id"] + "\n```\n\n" + ru_true_doc_msg.replace(start,
-                                                                                                                "").replace(ru_args,convert_markdown_table_with_br_to_oneline(ru_args)).replace(
-                "```ts\n", "```justcode\n")
-            jmcc_completions.append(completion)
+              }
+            if "ru_args" in doc_msg:
+                secret_tech["signature"] = {
+                  "label": ", ".join([f"{doc_msg['ru_args'][0][i1]}: {doc_msg['ru_args'][1][i1].split('<br/>')[0]}" for i1 in range(len(doc_msg["ru_args"][0]))]),
+                  "parameters": [{ "label": i1 } for i1 in doc_msg["ru_args"][0]]
+                }
+            jmcc_completions.append(secret_tech)
             if "origin" in action:
-                jmcc_hover[f".{action['name']}"] = jmcc_hover[doc_msg["id"]]
-                completion["label"] = f".{action['name']}"
-                completion["insertText"] = completion["label"]
-                jmcc_completions.append(completion)
+                secret_tech = deepcopy(secret_tech)
+                secret_tech["label"] = f".{action['name']}"
+                secret_tech["insertText"] = action['name']+"(${0})"
+                jmcc_completions.append(secret_tech)
 ru_true_doc_msg = "**Список действий:**\n\n"
 en_true_doc_msg = "**Actions list:**\n\n"
 for k, v in actions_docs.items():
@@ -1103,7 +1105,6 @@ for i in sorted(another_blocks, key=lambda x: x["name"]):
     blocks_data[i["name"]] = block_data
 json.dump(blocks_data, open("data/blocks.json", "w+"), indent=2)
 json.dump(jmcc_completions, open("assets/completions.json", "w+", encoding="UTF-8"), separators=(",", ":"), ensure_ascii=False)
-json.dump(jmcc_hover, open("assets/hover.json", "w+", encoding="UTF-8"), separators=(",", ":"), ensure_ascii=False)
 items_data = []
 for i in sorted(another_items, key=lambda x: x["name"]):
     items_data.append(i["name"])

@@ -242,6 +242,7 @@
   - [*entity::reset_display_brightness [ Сбросить яркость ]*](./entity.md#entity_reset_display_brightness)
   - [*entity::reset_display_glow_color [ Сбросить цвет свечения ]*](./entity.md#entity_reset_display_glow_color)
   - [*entity::reset_text_display_background [ Сбросить цвет фона ]*](./entity.md#entity_reset_text_display_background)
+  - [*entity::retrieve_fishing_hook [ Вернуть поплавок ]*](./entity.md#entity_retrieve_fishing_hook)
   - [*entity::ride_entity [ Посадить на существо ]*](./entity.md#entity_ride_entity)
   - [*entity::roll_armadillo [ Установить Броненосцу состояние защиты ]*](./entity.md#entity_roll_armadillo)
   - [*entity::set_absorption_health [ Установить дополнительное здоровье ]*](./entity.md#entity_set_absorption_health)

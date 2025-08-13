@@ -775,6 +775,22 @@
     "type": "basic"
   },
   {
+    "id": "entity_retrieve_fishing_hook",
+    "name": "retrieve_fishing_hook",
+    "object": "entity",
+    "args": [
+      {
+        "id": "slot",
+        "type": "enum",
+        "values": [
+          "MAIN_HAND",
+          "OFF_HAND"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_ride_entity",
     "name": "ride_entity",
     "object": "entity",
@@ -2272,6 +2288,14 @@
       {
         "id": "item",
         "type": "item"
+      },
+      {
+        "id": "play_sound",
+        "type": "enum",
+        "values": [
+          "FALSE",
+          "TRUE"
+        ]
       }
     ],
     "type": "basic"

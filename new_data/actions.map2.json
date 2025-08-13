@@ -324,5 +324,10 @@
   "game_set_event_enchantment_offers": {"id": "game_set_event_enchantment_offers", "type": "basic", "args": [
     {"id": "enchantments", "plural": true, "type": "text", "valueSlots": [0,1,2]},
     {"id": "levels", "plural": true, "type": "text", "valueSlots": [3,4,5]},
-    {"id": "costs", "plural": true, "type": "text", "valueSlots": [6,7,8]}]}
+    {"id": "costs", "plural": true, "type": "text", "valueSlots": [6,7,8]}]},
+  "entity_set_item_in_frame": {"id": "entity_set_item_in_frame", "type": "basic", "args": [
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [12]},
+    {"id": "play_sound", "plural": false, "type": "enum", "valueSlots": [14], "values": ["TRUE", "FALSE"]}]},
+  "entity_retrieve_fishing_hook": {"id": "entity_retrieve_fishing_hook", "type": "basic", "args": [
+    {"id": "slot", "plural": false, "type": "enum", "valueSlots": [0], "values": ["MAIN_HAND", "OFF_HAND"]}]}
 }

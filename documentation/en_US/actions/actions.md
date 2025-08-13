@@ -242,6 +242,7 @@
   - [*entity::reset_display_brightness [ Reset Brightness ]*](./entity.md#entity_reset_display_brightness)
   - [*entity::reset_display_glow_color [ Reset Glow Color ]*](./entity.md#entity_reset_display_glow_color)
   - [*entity::reset_text_display_background [ Reset Background Color ]*](./entity.md#entity_reset_text_display_background)
+  - [*entity::retrieve_fishing_hook [ None ]*](./entity.md#entity_retrieve_fishing_hook)
   - [*entity::ride_entity [ Ride an Entity ]*](./entity.md#entity_ride_entity)
   - [*entity::roll_armadillo [ None ]*](./entity.md#entity_roll_armadillo)
   - [*entity::set_absorption_health [ Set Extra Health ]*](./entity.md#entity_set_absorption_health)

@@ -890,6 +890,31 @@ entity::reset_display_glow_color();
 entity::reset_text_display_background();
 ```
 
+<h3 id=entity_retrieve_fishing_hook>
+  <code>entity::retrieve_fishing_hook</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Вернуть поплавок\
+**Тип:** Действие без значения\
+**Описание:** Возвращает закинутый поплавок удочки, находящейся в указанной руке сущности.
+**Работает с:**\
+&nbsp;&nbsp;Удочками
+
+**Пример использования:** 
+```ts
+entity::retrieve_fishing_hook("MAIN_HAND");
+
+//Или в сухую по ключам
+
+entity::retrieve_fishing_hook(slot="MAIN_HAND");
+```
+
+**Аргументы:**
+
+| **Имя** | **Тип**                                                                         | **Описание** |
+| ------- | ------------------------------------------------------------------------------- | ------------ |
+| `slot`  | Маркер<br/>**MAIN_HAND** - Основная рука<br/>**OFF_HAND** - Второстепенная рука | Тип руки     |
 <h3 id=entity_ride_entity>
   <code>entity::ride_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3040,18 +3065,19 @@ entity::set_item_frame_item_drop_chance(drop_chance=1);
 
 **Пример использования:** 
 ```ts
-entity::set_item_in_frame(item("stick"));
+entity::set_item_in_frame(item("stick"), "FALSE");
 
 //Или в сухую по ключам
 
-entity::set_item_in_frame(item=item("stick"));
+entity::set_item_in_frame(item=item("stick"), play_sound="FALSE");
 ```
 
 **Аргументы:**
 
-| **Имя** | **Тип** | **Описание** |
-| ------- | ------- | ------------ |
-| `item`  | Предмет | Предмет      |
+| **Имя**      | **Тип**                                      | **Описание**   |
+| ------------ | -------------------------------------------- | -------------- |
+| `item`       | Предмет                                      | Предмет        |
+| `play_sound` | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да | Проиграть звук |
 <h3 id=entity_set_item_owner>
   <code>entity::set_item_owner</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

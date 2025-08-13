@@ -1111,6 +1111,8 @@ world::set_dried_ghast_hydration(location=location(0,0,0,0,0), hydration=1);
 **Name:** None\
 **Type:** Action without value\
 **Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
 
 **Usage example:** 
 ```ts
@@ -1357,7 +1359,8 @@ world::set_event_heal(heal=1);
 &nbsp;&nbsp;Player Clicks Inventory Event\
 &nbsp;&nbsp;Player Edit Book Event\
 &nbsp;&nbsp;Player Picked Up Projectile Event\
-&nbsp;&nbsp;Witch Throws Potion Event
+&nbsp;&nbsp;Witch Throws Potion Event\
+&nbsp;&nbsp;None
 
 **Usage example:** 
 ```ts

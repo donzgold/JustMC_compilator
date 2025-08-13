@@ -890,6 +890,31 @@ entity::reset_display_glow_color();
 entity::reset_text_display_background();
 ```
 
+<h3 id=entity_retrieve_fishing_hook>
+  <code>entity::retrieve_fishing_hook</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+entity::retrieve_fishing_hook("MAIN_HAND");
+
+//Or dry by keywords
+
+entity::retrieve_fishing_hook(slot="MAIN_HAND");
+```
+
+**Arguments:**
+
+| **Name** | **Type**                                                | **Description** |
+| -------- | ------------------------------------------------------- | --------------- |
+| `slot`   | Marker<br/>**MAIN_HAND** - None<br/>**OFF_HAND** - None | None            |
 <h3 id=entity_ride_entity>
   <code>entity::ride_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3040,18 +3065,19 @@ entity::set_item_frame_item_drop_chance(drop_chance=1);
 
 **Usage example:** 
 ```ts
-entity::set_item_in_frame(item("stick"));
+entity::set_item_in_frame(item("stick"), "FALSE");
 
 //Or dry by keywords
 
-entity::set_item_in_frame(item=item("stick"));
+entity::set_item_in_frame(item=item("stick"), play_sound="FALSE");
 ```
 
 **Arguments:**
 
-| **Name** | **Type** | **Description** |
-| -------- | -------- | --------------- |
-| `item`   | Item     | Item            |
+| **Name**     | **Type**                                        | **Description** |
+| ------------ | ----------------------------------------------- | --------------- |
+| `item`       | Item                                            | Item            |
+| `play_sound` | Marker<br/>**FALSE** - None<br/>**TRUE** - None | None            |
 <h3 id=entity_set_item_owner>
   <code>entity::set_item_owner</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
