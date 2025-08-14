@@ -1016,6 +1016,16 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                 secret_tech = deepcopy(secret_tech)
                 secret_tech["label"] = f".{action['name']}"
                 secret_tech["insertText"] = action['name']+"(${0})"
+                if "ru_args" in doc_msg:
+                    secret_text = lambda x1: x1 != action["origin"]
+                    secret_id = doc_msg["ru_args"][0].index(action["origin"])
+                    secret_text2 = lambda x1: x1 != secret_id
+                    secret_tech["signature"] = {
+                        "label": ", ".join(
+                            [f"{doc_msg['ru_args'][0][i1]}: {doc_msg['ru_args'][1][i1].split('<br/>')[0]}" for i1 in
+                             filter(secret_text2, range(len(doc_msg["ru_args"][0])))]),
+                        "parameters": [{"label": i1} for i1 in filter(secret_text, doc_msg["ru_args"][0])]
+                    }
                 jmcc_completions.append(secret_tech)
 ru_true_doc_msg = "**Список действий:**\n\n"
 en_true_doc_msg = "**Actions list:**\n\n"

@@ -3807,7 +3807,7 @@ class function:
     __slots__ = (
         "name", "operations", "args", "inline", "return_var", "ready", "description", "icon", "hide",
         "args_description",
-        "source", "property")
+        "source", "property", "specials")
 
     def __init__(self, name: str, operations: list, args: calling_args, source, inline=False, return_var=None,
                  ready=True, description=None, icon=None, hide=None, args_description=None, property_=None):
@@ -3825,6 +3825,7 @@ class function:
         self.property = property_
         if self.inline and self.return_var is not None:
             self.return_var.var_type = Vars.INLINE
+        self.specials = None
 
     def __str__(self):
         return f'function({self.name} {self.args} {self.operations})'
@@ -3844,24 +3845,25 @@ class function:
         return self.ready
 
     def special(self):
-        args = self.args.set_args()
-        unpacked = {}
-        if len(args) > 0:
-            description = [(text(translate("function.generator.arguments"), Texts.LEGACY, -1, -1, self.source))]
-            for i1 in args:
-                unpacked[i1["id"]] = i1["unpacked"]
-                argument = "argument." + str(i1['type']).lower() + ".name"
-                argument_type = translate(argument, fallback=i1['type'])
-                description_line = f" {i1['id']}: {argument_type}"
-                if self.args_description is not None and i1["id"] in self.args_description:
-                    description_line += f" - {self.args_description[i1['id']]}"
-                description.append(text(description_line, Texts.LEGACY, -1, -1, self.source))
-            if self.description is None:
-                self.description = []
-            self.description.extend(description)
-        a = special_function(self.name, args, unpacked, self.return_var, self.inline,
-                             self.operations if self.inline else None)
-        return a
+        if self.specials is None:
+            args = self.args.set_args()
+            unpacked = {}
+            if len(args) > 0:
+                description = [(text(translate("function.generator.arguments"), Texts.LEGACY, -1, -1, self.source))]
+                for i1 in args:
+                    unpacked[i1["id"]] = i1["unpacked"]
+                    argument = "argument." + str(i1['type']).lower() + ".name"
+                    argument_type = translate(argument, fallback=i1['type'])
+                    description_line = f" {i1['id']}: {argument_type}"
+                    if self.args_description is not None and i1["id"] in self.args_description:
+                        description_line += f" - {self.args_description[i1['id']]}"
+                    description.append(text(description_line, Texts.LEGACY, -1, -1, self.source))
+                if self.description is None:
+                    self.description = []
+                self.description.extend(description)
+            self.specials = special_function(self.name, args, unpacked, self.return_var, self.inline,
+                                 self.operations if self.inline else None)
+        return self.specials
 
     def json(self):
         while len(self.operations) > 0 and self.operations[-1].type == "action" and (
