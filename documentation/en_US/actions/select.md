@@ -74,9 +74,9 @@ select::add_entity_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| **Name**       | **Type**   | **Description** |
-| -------------- | ---------- | --------------- |
-| `name_or_uuid` | list[Text] | Name or UUID    |
+| **Name**       | **Type**     | **Description** |
+| -------------- | ------------ | --------------- |
+| `name_or_uuid` | list\[Text\] | Name or UUID    |
 <h3 id=select_add_event_target>
   <code>select::add_event_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -148,9 +148,9 @@ select::add_mob_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| **Name**       | **Type**   | **Description** |
-| -------------- | ---------- | --------------- |
-| `name_or_uuid` | list[Text] | Name or UUID    |
+| **Name**       | **Type**     | **Description** |
+| -------------- | ------------ | --------------- |
+| `name_or_uuid` | list\[Text\] | Name or UUID    |
 <h3 id=select_add_player_by_conditional>
   <code>select::add_player_by_conditional</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -185,9 +185,9 @@ select::add_player_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| **Name**       | **Type**   | **Description** |
-| -------------- | ---------- | --------------- |
-| `name_or_uuid` | list[Text] | Name or UUID    |
+| **Name**       | **Type**     | **Description** |
+| -------------- | ------------ | --------------- |
+| `name_or_uuid` | list\[Text\] | Name or UUID    |
 <h3 id=select_add_random_entity>
   <code>select::add_random_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -320,9 +320,9 @@ select::entity_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| **Name**       | **Type**   | **Description**            |
-| -------------- | ---------- | -------------------------- |
-| `name_or_uuid` | list[Text] | Name or UUID of the target |
+| **Name**       | **Type**     | **Description**            |
+| -------------- | ------------ | -------------------------- |
+| `name_or_uuid` | list\[Text\] | Name or UUID of the target |
 <h3 id=select_event_target>
   <code>select::event_target</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -501,9 +501,9 @@ select::mob_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| **Name**       | **Type**   | **Description**            |
-| -------------- | ---------- | -------------------------- |
-| `name_or_uuid` | list[Text] | Name or UUID of the target |
+| **Name**       | **Type**     | **Description**            |
+| -------------- | ------------ | -------------------------- |
+| `name_or_uuid` | list\[Text\] | Name or UUID of the target |
 <h3 id=select_player_by_conditional>
   <code>select::player_by_conditional</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -538,9 +538,9 @@ select::player_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| **Name**       | **Type**   | **Description**            |
-| -------------- | ---------- | -------------------------- |
-| `name_or_uuid` | list[Text] | Name or UUID of the target |
+| **Name**       | **Type**     | **Description**            |
+| -------------- | ------------ | -------------------------- |
+| `name_or_uuid` | list\[Text\] | Name or UUID of the target |
 <h3 id=select_random_entity>
   <code>select::random_entity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

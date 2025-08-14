@@ -237,7 +237,7 @@ repeat::on_path(variable=`variable`, step=1, locations=[location(0,0,0,0,0), loc
 | ----------- | ------------------------------------------------------ | ----------------------------------- |
 | `variable`  | Variable                                               | To assign location                  |
 | `step`      | Number                                                 | Distance between points             |
-| `locations` | list[Location]                                         | Line End Locations                  |
+| `locations` | list\[Location\]                                       | Line End Locations                  |
 | `rotation`  | Marker<br/>**FALSE** - Don\'t Save<br/>**TRUE** - Keep | Keep rotation of specified location |
 <h3 id=repeat_on_range>
   <code>repeat::on_range</code>

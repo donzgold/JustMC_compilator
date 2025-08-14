@@ -690,8 +690,11 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
             if "assign" in action:
                 smth = [list(i1.items())[0] for i1 in action["assign"]]
                 new_action["assign"] = [{"id": i2[0], "type": i2[1]} for i2 in smth]
+                assign = {i2[0]:i2[1] for i2 in smth}
                 ru_type = "Действие, возращающее значение"
                 en_type = "An action that returns a value"
+            else:
+                assign = set()
             if "origin" in action:
                 new_action["origin"] = action["origin"]
             if "boolean" in action:
@@ -737,15 +740,22 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                 ru_names = []
                 en_types = []
                 en_names = []
+                ru_return = "<br/>Возращаемый тип: "
+                en_return = "<br/>Returning type: "
                 for i2 in new_args:
                     if "array" in i2:
-                        ru_pref = "список["
-                        en_pref = "list["
-                        suff = "]"
+                        ru_pref = "список\["
+                        en_pref = "list\["
+                        ru_suff = "\]"
+                        en_suff = "\]"
                     else:
                         ru_pref = ""
                         en_pref = ""
-                        suff = ""
+                        ru_suff = ""
+                        en_suff = ""
+                    if i2["id"] in assign:
+                        ru_suff="\["+properties["ru_RU"]["creative_plus.argument." + assign[i2["id"]] + ".name"]+"\]"+ru_suff
+                        en_suff="\["+properties["en_US"]["creative_plus.argument." + assign[i2["id"]] + ".name"]+"\]"+en_suff
                     ids.append(i2["id"])
                     if i2["type"] == "enum":
                         ru_types.append(ru_pref +
@@ -753,22 +763,22 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                                             "creative_plus.argument." + i2["type"] + ".name"] + "<br/>" + "<br/>".join(
                             ["**" + i3 + "** - " + properties["ru_RU"].setdefault(
                                 "creative_plus.action." + i["id"] + ".argument." + i2["id"] + ".enum." +
-                                i3.lower() + ".name", "None") for i3 in i2["values"]]) + suff)
+                                i3.lower() + ".name", "None") for i3 in i2["values"]]) + ru_suff)
                         en_types.append(en_pref +
                                         properties["en_US"][
                                             "creative_plus.argument." + i2["type"] + ".name"] + "<br/>" + "<br/>".join(
                             ["**" + i3 + "** - " + properties["en_US"].setdefault(
                                 "creative_plus.action." + i["id"] + ".argument." + i2["id"] + ".enum." +
-                                i3.lower() + ".name", "None") for i3 in i2["values"]]) + suff)
+                                i3.lower() + ".name", "None") for i3 in i2["values"]]) + en_suff)
                     else:
                         if i2["type"] == "list":
                             i2["type"] = "array"
                         elif i2["type"] == "dictionary":
                             i2["type"] = "map"
                         ru_types.append(
-                            ru_pref + properties["ru_RU"]["creative_plus.argument." + i2["type"] + ".name"] + suff)
+                            ru_pref + properties["ru_RU"]["creative_plus.argument." + i2["type"] + ".name"] + ru_suff)
                         en_types.append(
-                            en_pref + properties["en_US"]["creative_plus.argument." + i2["type"] + ".name"] + suff)
+                            en_pref + properties["en_US"]["creative_plus.argument." + i2["type"] + ".name"] + en_suff)
                     ru_names.append(
                         properties["ru_RU"].setdefault(
                             "creative_plus.action." + i["id"] + ".argument." + i2["id"] + ".name",

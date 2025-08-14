@@ -56,9 +56,9 @@ player::chat_message_equals(chat_messages=["chat_messages", "chat_messages"]){
 
 **Arguments:**
 
-| **Name**        | **Type**   | **Description** |
-| --------------- | ---------- | --------------- |
-| `chat_messages` | list[Text] | Message         |
+| **Name**        | **Type**     | **Description** |
+| --------------- | ------------ | --------------- |
+| `chat_messages` | list\[Text\] | Message         |
 <h3 id=if_player_collides_at_location>
   <code>player::collides_at_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -168,7 +168,7 @@ player::cursor_item_equals(items=[item("stick"), item("stick")], comparison_mode
 
 | **Name**          | **Type**                                                                                                                                                                                               | **Description** |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `items`           | list[Item]                                                                                                                                                                                             | Items to Check  |
+| `items`           | list\[Item\]                                                                                                                                                                                           | Items to Check  |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_dummy>
   <code>player::is_dummy</code>
@@ -266,7 +266,7 @@ player::has_item(items=[item("stick"), item("stick")], check_mode="ALL", compari
 
 | **Name**          | **Type**                                                                                                                                                                                          | **Description** |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `items`           | list[Item]                                                                                                                                                                                        | Items to Check  |
+| `items`           | list\[Item\]                                                                                                                                                                                      | Items to Check  |
 | `check_mode`      | Marker<br/>**ALL** - All Items<br/>**ANY** - Any Item                                                                                                                                             | Check Mode      |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore quantity<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_has_item_at_least>
@@ -324,8 +324,8 @@ player::has_item_in_slot(slots=[1, 2], items=[item("stick"), item("stick")], com
 
 | **Name**          | **Type**                                                                                                                                                                                               | **Description**      |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
-| `slots`           | list[Number]                                                                                                                                                                                           | Slot number to check |
-| `items`           | list[Item]                                                                                                                                                                                             | Items to Check       |
+| `slots`           | list\[Number\]                                                                                                                                                                                         | Slot number to check |
+| `items`           | list\[Item\]                                                                                                                                                                                           | Items to Check       |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item Type Only | Comparison Mode      |
 <h3 id=if_player_has_potion_effect>
   <code>player::has_potion_effect</code>
@@ -353,7 +353,7 @@ player::has_potion_effect(potions=[potion("slow_falling"), potion("slow_falling"
 
 | **Name**     | **Type**                                                  | **Description** |
 | ------------ | --------------------------------------------------------- | --------------- |
-| `potions`    | list[Potion]                                              | Potions to Test |
+| `potions`    | list\[Potion\]                                            | Potions to Test |
 | `check_mode` | Marker<br/>**ALL** - All Effects<br/>**ANY** - Any Effect | Check Mode      |
 <h3 id=if_player_has_privilege>
   <code>player::has_privilege</code>
@@ -411,7 +411,7 @@ player::has_room_for_item(items=[item("stick"), item("stick")], checked_slots="A
 
 | **Name**        | **Type**                                                                                                                                                                         | **Description**    |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `items`         | list[Item]                                                                                                                                                                       | Items to Check     |
+| `items`         | list\[Item\]                                                                                                                                                                     | Items to Check     |
 | `checked_slots` | Marker<br/>**ARMOR** - Armor<br/>**ENTIRE_INVENTORY** - All Inventory<br/>**HOTBAR** - Hot Bar<br/>**MAIN_INVENTORY** - Main Inventory<br/>**UPPER_INVENTORY** - Upper Inventory | Checked Slots Mode |
 | `check_mode`    | Marker<br/>**ALL** - All Items<br/>**ANY** - Any Items                                                                                                                           | Check Item Mode    |
 <h3 id=if_player_hotbar_slot_equals>
@@ -498,8 +498,8 @@ player::inventory_menu_slot_equals(slots=[1, 2], items=[item("stick"), item("sti
 
 | **Name**          | **Type**                                                                                                                                                                                               | **Description**      |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
-| `slots`           | list[Number]                                                                                                                                                                                           | Slot number to check |
-| `items`           | list[Item]                                                                                                                                                                                             | Items to Check       |
+| `slots`           | list\[Number\]                                                                                                                                                                                         | Slot number to check |
+| `items`           | list\[Item\]                                                                                                                                                                                           | Items to Check       |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item Type Only | Comparison Mode      |
 <h3 id=if_player_inventory_type_open>
   <code>player::inventory_type_open</code>
@@ -634,7 +634,7 @@ player::holding(items=[item("stick"), item("stick")], hand_slot="EITHER_HAND", c
 
 | **Name**          | **Type**                                                                                                                                                                                               | **Description** |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `items`           | list[Item]                                                                                                                                                                                             | Items to Check  |
+| `items`           | list\[Item\]                                                                                                                                                                                           | Items to Check  |
 | `hand_slot`       | Marker<br/>**EITHER_HAND** - Any hand<br/>**MAIN_HAND** - Main Hand<br/>**OFF_HAND** - Sub Hand                                                                                                        | Hand            |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_is_looking_at_block>
@@ -663,8 +663,8 @@ player::is_looking_at_block(blocks=[item("stone"), item("stone")], locations=[lo
 
 | **Name**     | **Type**                                                                                                           | **Description**             |
 | ------------ | ------------------------------------------------------------------------------------------------------------------ | --------------------------- |
-| `blocks`     | list[Block]                                                                                                        | Block(s) to check           |
-| `locations`  | list[Location]                                                                                                     | Location(s) to check        |
+| `blocks`     | list\[Block\]                                                                                                      | Block(s) to check           |
+| `locations`  | list\[Location\]                                                                                                   | Location(s) to check        |
 | `distance`   | Number                                                                                                             | Max Block Distance to Check |
 | `fluid_mode` | Marker<br/>**ALWAYS** - All kinds of fluids<br/>**NEVER** - Ignore Fluids<br/>**SOURCE_ONLY** - Fluid Sources Only | Fluid Mode                  |
 <h3 id=if_player_is_near>
@@ -754,7 +754,7 @@ player::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mode="
 
 | **Name**       | **Type**                                                                                                               | **Description**                        |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| `entity_ids`   | list[Text]                                                                                                             | Name, UUID, or type of entity to check |
+| `entity_ids`   | list\[Text\]                                                                                                           | Name, UUID, or type of entity to check |
 | `compare_mode` | Marker<br/>**FARTHEST** - None<br/>**NAME_OR_UUID** - Name or UUID<br/>**NEAREST** - None<br/>**TYPE** - Creature Type | Compare Mode                           |
 <h3 id=if_player_is_self_disguised>
   <code>player::is_self_disguised</code>
@@ -846,8 +846,8 @@ player::is_standing_on_block(blocks=[item("stone"), item("stone")], locations=[l
 
 | **Name**     | **Type**                                                             | **Description**   |
 | ------------ | -------------------------------------------------------------------- | ----------------- |
-| `blocks`     | list[Block]                                                          | Blocks to Check   |
-| `locations`  | list[Location]                                                       | Location to check |
+| `blocks`     | list\[Block\]                                                        | Blocks to Check   |
+| `locations`  | list\[Location\]                                                     | Location to check |
 | `only_solid` | Marker<br/>**FALSE** - All blocks.<br/>**TRUE** - Only solid blocks. | Block check type  |
 <h3 id=if_player_is_swimming>
   <code>player::is_swimming</code>
@@ -891,7 +891,7 @@ player::is_using_item(items=[item("stick"), item("stick")], comparison_mode="EXA
 
 | **Name**          | **Type**                                                                                                                                                                                               | **Description** |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `items`           | list[Item]                                                                                                                                                                                             | Items to Check  |
+| `items`           | list\[Item\]                                                                                                                                                                                           | Items to Check  |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_is_wearing_item>
   <code>player::is_wearing_item</code>
@@ -919,7 +919,7 @@ player::is_wearing_item(items=[item("stick"), item("stick")], check_mode="ALL", 
 
 | **Name**          | **Type**                                                                                                                                                                                               | **Description** |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `items`           | list[Item]                                                                                                                                                                                             | Item to check   |
+| `items`           | list\[Item\]                                                                                                                                                                                           | Item to check   |
 | `check_mode`      | Marker<br/>**ALL** - Wearing All<br/>**ANY** - Wearing something                                                                                                                                       | Check Mode      |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_player_item_is_not_on_cooldown>
@@ -946,9 +946,9 @@ player::item_is_not_on_cooldown(items=[item("stick"), item("stick")]){
 
 **Arguments:**
 
-| **Name** | **Type**   | **Description** |
-| -------- | ---------- | --------------- |
-| `items`  | list[Item] | Items to Check  |
+| **Name** | **Type**     | **Description** |
+| -------- | ------------ | --------------- |
+| `items`  | list\[Item\] | Items to Check  |
 <h3 id=if_player_name_equals>
   <code>player::name_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -973,9 +973,9 @@ player::name_equals(names_or_uuids=["names_or_uuids", "names_or_uuids"]){
 
 **Arguments:**
 
-| **Name**         | **Type**   | **Description**         |
-| ---------------- | ---------- | ----------------------- |
-| `names_or_uuids` | list[Text] | Names or UUIDs to check |
+| **Name**         | **Type**     | **Description**         |
+| ---------------- | ------------ | ----------------------- |
+| `names_or_uuids` | list\[Text\] | Names or UUIDs to check |
 <h3 id=if_player_text_filtering_enabled>
   <code>player::text_filtering_enabled</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1014,7 +1014,7 @@ player::add_inventory_menu_row(items=[item("stick"), item("stick")], position="B
 
 | **Name**   | **Type**                                                           | **Description** |
 | ---------- | ------------------------------------------------------------------ | --------------- |
-| `items`    | list[Item]                                                         | Items           |
+| `items`    | list\[Item\]                                                       | Items           |
 | `position` | Marker<br/>**BUTTON** - Add Row Below<br/>**TOP** - Add row to top | Row Position    |
 <h3 id=player_allow_placing_breaking_blocks>
   <code>player::allow_placing_breaking_blocks</code>
@@ -1038,7 +1038,7 @@ player::allow_placing_breaking_blocks(blocks=[item("stone"), item("stone")], all
 
 | **Name** | **Type**                                        | **Description** |
 | -------- | ----------------------------------------------- | --------------- |
-| `blocks` | list[Block]                                     | None            |
+| `blocks` | list\[Block\]                                   | None            |
 | `allow`  | Marker<br/>**FALSE** - None<br/>**TRUE** - None | None            |
 <h3 id=player_boost_elytra>
   <code>player::boost_elytra</code>
@@ -1148,9 +1148,9 @@ player::clear_items(items=[item("stick"), item("stick")]);
 
 **Arguments:**
 
-| **Name** | **Type**   | **Description** |
-| -------- | ---------- | --------------- |
-| `items`  | list[Item] | Items to Clear  |
+| **Name** | **Type**     | **Description** |
+| -------- | ------------ | --------------- |
+| `items`  | list\[Item\] | Items to Clear  |
 <h3 id=player_clear_potion_effects>
   <code>player::clear_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1341,10 +1341,10 @@ player::display_block(location=[location(0,0,0,0,0), location(0,0,0,0,0)], block
 
 **Arguments:**
 
-| **Name**   | **Type**       | **Description**  |
-| ---------- | -------------- | ---------------- |
-| `location` | list[Location] | Block Location   |
-| `block`    | Block          | Block to display |
+| **Name**   | **Type**         | **Description**  |
+| ---------- | ---------------- | ---------------- |
+| `location` | list\[Location\] | Block Location   |
+| `block`    | Block            | Block to display |
 <h3 id=player_display_end_gateway_beam>
   <code>player::display_end_gateway_beam</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1438,10 +1438,10 @@ player::display_particle(particle=[particle("fire"), particle("fire")], location
 
 **Arguments:**
 
-| **Name**   | **Type**              | **Description**            |
-| ---------- | --------------------- | -------------------------- |
-| `particle` | list[Particle Effect] | Particle Effect to Display |
-| `location` | list[Location]        | Effect Location            |
+| **Name**   | **Type**                | **Description**            |
+| ---------- | ----------------------- | -------------------------- |
+| `particle` | list\[Particle Effect\] | Particle Effect to Display |
+| `location` | list\[Location\]        | Effect Location            |
 <h3 id=player_display_particle_circle>
   <code>player::display_particle_circle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1722,10 +1722,10 @@ player::expand_inventory_menu(items=[item("stick"), item("stick")], size=1);
 
 **Arguments:**
 
-| **Name** | **Type**   | **Description**          |
-| -------- | ---------- | ------------------------ |
-| `items`  | list[Item] | Items to Fill            |
-| `size`   | Number     | Number of rows to expand |
+| **Name** | **Type**     | **Description**          |
+| -------- | ------------ | ------------------------ |
+| `items`  | list\[Item\] | Items to Fill            |
+| `size`   | Number       | Number of rows to expand |
 <h3 id=player_face_location>
   <code>player::face_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1798,7 +1798,7 @@ player::get_attribute(variable=`variable`, attribute_type="GENERIC_MAX_HEALTH", 
 
 | **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Description** |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `variable`       | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | None            |
+| `variable`       | Variable\[Number\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | None            |
 | `attribute_type` | Marker<br/>**GENERIC_MAX_HEALTH** - None<br/>**GENERIC_MAX_ABSORPTION** - None<br/>**GENERIC_FOLLOW_RANGE** - None<br/>**GENERIC_KNOCKBACK_RESISTANCE** - None<br/>**GENERIC_MOVEMENT_SPEED** - None<br/>**GENERIC_FLYING_SPEED** - None<br/>**GENERIC_ATTACK_DAMAGE** - None<br/>**GENERIC_ATTACK_KNOCKBACK** - None<br/>**GENERIC_ATTACK_SPEED** - None<br/>**GENERIC_ARMOR** - None<br/>**GENERIC_ARMOR_TOUGHNESS** - None<br/>**GENERIC_LUCK** - None<br/>**GENERIC_JUMP_STRENGTH** - None<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - None<br/>**GENERIC_SAFE_FALL_DISTANCE** - None<br/>**GENERIC_SCALE** - None<br/>**GENERIC_STEP_HEIGHT** - None<br/>**GENERIC_GRAVITY** - None<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - None<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - None<br/>**PLAYER_BLOCK_BREAK_SPEED** - None<br/>**GENERIC_BURNING_TIME** - None<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - None<br/>**GENERIC_MOVEMENT_EFFICIENCY** - None<br/>**PLAYER_MINING_EFFICIENCY** - None<br/>**PLAYER_SNEAKING_SPEED** - None<br/>**PLAYER_SUBMERGED_MINING_SPEED** - None<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - None<br/>**GENERIC_OXYGEN_BONUS** - None<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - None<br/>**TEMP_RANGE** - None<br/>**WAYPOINT_TRANSMIT_RANGE** - None<br/>**WAYPOINT_RECEIVE_RANGE** - None<br/>**CAMERA_DISTANCE** - None | None            |
 | `return_value`   | Marker<br/>**VALUE** - None<br/>**BASE_VALUE** - None<br/>**DEFAULT_VALUE** - None                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | None            |
 <h3 id=player_get_nbt>
@@ -1825,10 +1825,10 @@ player::get_nbt(variable=`variable`, path="path");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `path`     | Text     | None            |
+| **Name**   | **Type**              | **Description** |
+| ---------- | --------------------- | --------------- |
+| `variable` | Variable\[Any Value\] | None            |
+| `path`     | Text                  | None            |
 <h3 id=player_give_experience>
   <code>player::give_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1873,10 +1873,10 @@ player::give_items(items=[item("stick"), item("stick")], amount=1);
 
 **Arguments:**
 
-| **Name** | **Type**   | **Description**             |
-| -------- | ---------- | --------------------------- |
-| `items`  | list[Item] | Items                       |
-| `amount` | Number     | Amount of items to give out |
+| **Name** | **Type**     | **Description**             |
+| -------- | ------------ | --------------------------- |
+| `items`  | list\[Item\] | Items                       |
+| `amount` | Number       | Amount of items to give out |
 <h3 id=player_give_potion_effect>
   <code>player::give_potion_effect</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1899,7 +1899,7 @@ player::give_potion_effect(potions=[potion("slow_falling"), potion("slow_falling
 
 | **Name**        | **Type**                                                                       | **Description**            |
 | --------------- | ------------------------------------------------------------------------------ | -------------------------- |
-| `potions`       | list[Potion]                                                                   | Effects to Give            |
+| `potions`       | list\[Potion\]                                                                 | Effects to Give            |
 | `show_icon`     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Show Effect Icon           |
 | `overwrite`     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Overwrite existing effects |
 | `particle_mode` | Marker<br/>**AMBIENT** - Transparent<br/>**NONE** - None<br/>**REGULAR** - Yes | Give Particles             |
@@ -1923,9 +1923,9 @@ player::give_random_item(items=[item("stick"), item("stick")]);
 
 **Arguments:**
 
-| **Name** | **Type**   | **Description** |
-| -------- | ---------- | --------------- |
-| `items`  | list[Item] | Items to Pick   |
+| **Name** | **Type**     | **Description** |
+| -------- | ------------ | --------------- |
+| `items`  | list\[Item\] | Items to Pick   |
 <h3 id=player_heal>
   <code>player::heal</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1971,7 +1971,7 @@ player::hide_entity(name_or_uuid=["name_or_uuid", "name_or_uuid"], hide="FALSE")
 
 | **Name**       | **Type**                                             | **Description**            |
 | -------------- | ---------------------------------------------------- | -------------------------- |
-| `name_or_uuid` | list[Text]                                           | Name or UUID of the entity |
+| `name_or_uuid` | list\[Text\]                                         | Name or UUID of the entity |
 | `hide`         | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Hide                       |
 <h3 id=player_hide_scoreboard>
   <code>player::hide_scoreboard</code>
@@ -2295,10 +2295,10 @@ player::play_sound_from_entity(name_or_uuid="name_or_uuid", sounds=[sound("entit
 
 **Arguments:**
 
-| **Name**       | **Type**    | **Description**     |
-| -------------- | ----------- | ------------------- |
-| `name_or_uuid` | Text        | Entity name or UUID |
-| `sounds`       | list[Sound] | Sound to play       |
+| **Name**       | **Type**      | **Description**     |
+| -------------- | ------------- | ------------------- |
+| `name_or_uuid` | Text          | Entity name or UUID |
+| `sounds`       | list\[Sound\] | Sound to play       |
 <h3 id=player_play_sound_sequence>
   <code>player::play_sound_sequence</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2319,11 +2319,11 @@ player::play_sound_sequence(sounds=[sound("entity.zombie.hurt"), sound("entity.z
 
 **Arguments:**
 
-| **Name**   | **Type**    | **Description** |
-| ---------- | ----------- | --------------- |
-| `sounds`   | list[Sound] | Playable Sounds |
-| `location` | Location    | Sound Location  |
-| `delay`    | Number      | Delay in ticks  |
+| **Name**   | **Type**      | **Description** |
+| ---------- | ------------- | --------------- |
+| `sounds`   | list\[Sound\] | Playable Sounds |
+| `location` | Location      | Sound Location  |
+| `delay`    | Number        | Delay in ticks  |
 <h3 id=player_randomized_teleport>
   <code>player::randomized_teleport</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2346,7 +2346,7 @@ player::randomized_teleport(locations=[location(0,0,0,0,0), location(0,0,0,0,0)]
 
 | **Name**        | **Type**                                               | **Description**            |
 | --------------- | ------------------------------------------------------ | -------------------------- |
-| `locations`     | list[Location]                                         | Teleport Locations         |
+| `locations`     | list\[Location\]                                       | Teleport Locations         |
 | `keep_rotation` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled | Keep current rotation      |
 | `keep_velocity` | Marker<br/>**FALSE** - Keep Off<br/>**TRUE** - Enable  | Keep Momentum              |
 | `dismount`      | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes         | Dismount after teleporting |
@@ -2478,9 +2478,9 @@ player::remove_items(items=[item("stick"), item("stick")]);
 
 **Arguments:**
 
-| **Name** | **Type**   | **Description** |
-| -------- | ---------- | --------------- |
-| `items`  | list[Item] | Items to Remove |
+| **Name** | **Type**     | **Description** |
+| -------- | ------------ | --------------- |
+| `items`  | list\[Item\] | Items to Remove |
 <h3 id=player_remove_pose>
   <code>player::remove_pose</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2515,9 +2515,9 @@ player::remove_potion_effect(potions=[potion("slow_falling"), potion("slow_falli
 
 **Arguments:**
 
-| **Name**  | **Type**     | **Description**   |
-| --------- | ------------ | ----------------- |
-| `potions` | list[Potion] | Effects to Remove |
+| **Name**  | **Type**       | **Description**   |
+| --------- | -------------- | ----------------- |
+| `potions` | list\[Potion\] | Effects to Remove |
 <h3 id=player_remove_self_disguise>
   <code>player::remove_self_disguise</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2580,11 +2580,11 @@ player::replace_items(items=[item("stick"), item("stick")], replace=item("stick"
 
 **Arguments:**
 
-| **Name**  | **Type**   | **Description**            |
-| --------- | ---------- | -------------------------- |
-| `items`   | list[Item] | Replace Items              |
-| `replace` | Item       | Replacement Item           |
-| `count`   | Number     | Number of Items to Replace |
+| **Name**  | **Type**     | **Description**            |
+| --------- | ------------ | -------------------------- |
+| `items`   | list\[Item\] | Replace Items              |
+| `replace` | Item         | Replacement Item           |
+| `count`   | Number       | Number of Items to Replace |
 <h3 id=player_reset_weather>
   <code>player::reset_weather</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2727,7 +2727,7 @@ player::send_action_bar(messages=["messages", "messages"], merging="CONCATENATIO
 
 | **Name**   | **Type**                                                               | **Description**     |
 | ---------- | ---------------------------------------------------------------------- | ------------------- |
-| `messages` | list[Text]                                                             | Action Bar Messages |
+| `messages` | list\[Text\]                                                           | Action Bar Messages |
 | `merging`  | Marker<br/>**CONCATENATION** - Merge<br/>**SPACES** - Space Separation | Merge Text          |
 <h3 id=player_send_advancement>
   <code>player::send_advancement</code>
@@ -2774,10 +2774,10 @@ player::send_break_animation(locations=[location(0,0,0,0,0), location(0,0,0,0,0)
 
 **Arguments:**
 
-| **Name**    | **Type**       | **Description**             |
-| ----------- | -------------- | --------------------------- |
-| `locations` | list[Location] | Block Locations             |
-| `stage`     | Number         | Block Break Level (0 to 10) |
+| **Name**    | **Type**         | **Description**             |
+| ----------- | ---------------- | --------------------------- |
+| `locations` | list\[Location\] | Block Locations             |
+| `stage`     | Number           | Block Break Level (0 to 10) |
 <h3 id=player_send_dialogue>
   <code>player::send_dialogue</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2798,10 +2798,10 @@ player::send_dialogue(messages=["messages", "messages"], delay=1);
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**        |
-| ---------- | ---------- | ---------------------- |
-| `messages` | list[Text] | Text to send           |
-| `delay`    | Number     | Delay between messages |
+| **Name**   | **Type**     | **Description**        |
+| ---------- | ------------ | ---------------------- |
+| `messages` | list\[Text\] | Text to send           |
+| `delay`    | Number       | Delay between messages |
 <h3 id=player_send_hover>
   <code>player::send_hover</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2848,7 +2848,7 @@ player::message(messages=["messages", "messages"], merging="CONCATENATION");
 
 | **Name**   | **Type**                                                                                                       | **Description** |
 | ---------- | -------------------------------------------------------------------------------------------------------------- | --------------- |
-| `messages` | list[Text]                                                                                                     | Text to send    |
+| `messages` | list\[Text\]                                                                                                   | Text to send    |
 | `merging`  | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text      |
 <h3 id=player_send_minimessage>
   <code>player::send_minimessage</code>
@@ -3170,7 +3170,7 @@ player::set_chat_completions(completions=["completions", "completions"], setting
 
 | **Name**       | **Type**                                                           | **Description**   |
 | -------------- | ------------------------------------------------------------------ | ----------------- |
-| `completions`  | list[Text]                                                         | Chat Suggestions  |
+| `completions`  | list\[Text\]                                                       | Chat Suggestions  |
 | `setting_mode` | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove<br/>**SET** - Set | Modification Type |
 <h3 id=player_set_collidable>
   <code>player::set_collidable</code>
@@ -3334,9 +3334,9 @@ player::set_ender_chest_contents(items=[item("stick"), item("stick")]);
 
 **Arguments:**
 
-| **Name** | **Type**   | **Description** |
-| -------- | ---------- | --------------- |
-| `items`  | list[Item] | Items to Set    |
+| **Name** | **Type**     | **Description** |
+| -------- | ------------ | --------------- |
+| `items`  | list\[Item\] | Items to Set    |
 <h3 id=player_set_entity_glowing>
   <code>player::set_entity_glowing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3359,7 +3359,7 @@ player::set_entity_glowing(name_or_uuid=["name_or_uuid", "name_or_uuid"], color=
 
 | **Name**       | **Type**                                                                                                                                                                                                                                                                                                                                                                                                             | **Description**     |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `name_or_uuid` | list[Text]                                                                                                                                                                                                                                                                                                                                                                                                           | Entity name or UUID |
+| `name_or_uuid` | list\[Text\]                                                                                                                                                                                                                                                                                                                                                                                                         | Entity name or UUID |
 | `color`        | Marker<br/>**AQUA** - Light-blue<br/>**BLACK** - Black<br/>**BLUE** - Blue<br/>**DARK_AQUA** - Cyan<br/>**DARK_BLUE** - Dark-blue<br/>**DARK_GRAY** - Gray<br/>**DARK_GREEN** - Dark-green<br/>**DARK_PURPLE** - Dark-purple<br/>**DARK_RED** - Dark-red<br/>**GOLD** - Gold<br/>**GRAY** - Light-gray<br/>**GREEN** - Green<br/>**PURPLE** - Purple<br/>**RED** - Red<br/>**WHITE** - White<br/>**YELLOW** - Yellow | Glow color          |
 | `glow`         | Marker<br/>**FALSE** - Turn off<br/>**TRUE** - Turn on                                                                                                                                                                                                                                                                                                                                                               | Glowing             |
 <h3 id=player_set_equipment>
@@ -3856,9 +3856,9 @@ player::set_items(items=[item("stick"), item("stick")]);
 
 **Arguments:**
 
-| **Name** | **Type**   | **Description**                             |
-| -------- | ---------- | ------------------------------------------- |
-| `items`  | list[Item] | Items to give out in their respective slots |
+| **Name** | **Type**     | **Description**                             |
+| -------- | ------------ | ------------------------------------------- |
+| `items`  | list\[Item\] | Items to give out in their respective slots |
 <h3 id=player_set_max_health>
   <code>player::set_max_health</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3952,7 +3952,7 @@ player::set_player_list_info(text=["text", "text"], merging="CONCATENATION", pos
 
 | **Name**   | **Type**                                                                                                       | **Description**     |
 | ---------- | -------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `text`     | list[Text]                                                                                                     | Text in Player List |
+| `text`     | list\[Text\]                                                                                                   | Text in Player List |
 | `merging`  | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text          |
 | `position` | Marker<br/>**FOOTER** - Bottom<br/>**HEADER** - Top                                                            | Position            |
 <h3 id=player_set_pose>
@@ -4471,7 +4471,7 @@ player::show_inventory_menu(items=[item("stick"), item("stick")], name="name", c
 
 | **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | **Description** |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `items`          | list[Item]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Inventory Items |
+| `items`          | list\[Item\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Inventory Items |
 | `name`           | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Inventory name  |
 | `custom_id`      | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | None            |
 | `inventory_type` | Marker<br/>**ANVIL** - Anvil<br/>**BARREL** - Barrel<br/>**BEACON** - Beacon<br/>**BLAST_FURNACE** - Smelter<br/>**BREWING** - Potion Brewing<br/>**CARTOGRAPHY** - Cartographer\'s Desk<br/>**CHEST** - Chest<br/>**COMPOSTER** - Composter<br/>**CRAFTER** - Crafter<br/>**CRAFTING** - Not opened<br/>**CREATIVE** - Creative Inventory<br/>**DISPENSER** - Dispenser<br/>**DROPPER** - Dropper<br/>**ENCHANTING** - Enchanting Table<br/>**ENDER_CHEST** - Ender Chest<br/>**FURNACE** - Furnace<br/>**GRINDSTONE** - Grindstone<br/>**HOPPER** - Hopper<br/>**LECTERN** - Pulpit<br/>**LOOM** - Loom<br/>**MERCHANT** - Merchant<br/>**PLAYER** - Player Inventory<br/>**SHULKER_BOX** - Shulker Box<br/>**SMITHING** - Blacksmith\'s Table<br/>**SMOKER** - Smoker<br/>**STONECUTTER** - Stonecutter<br/>**WORKBENCH** - Workbench | Inventory Type  |
@@ -4557,9 +4557,9 @@ player::stop_sound(sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hur
 
 **Arguments:**
 
-| **Name** | **Type**    | **Description** |
-| -------- | ----------- | --------------- |
-| `sounds` | list[Sound] | Stop Effects    |
+| **Name** | **Type**      | **Description** |
+| -------- | ------------- | --------------- |
+| `sounds` | list\[Sound\] | Stop Effects    |
 <h3 id=player_stop_sounds_by_source>
   <code>player::stop_sounds_by_source</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4654,7 +4654,7 @@ player::teleport_sequence(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], 
 
 **Arguments:**
 
-| **Name**    | **Type**       | **Description**    |
-| ----------- | -------------- | ------------------ |
-| `locations` | list[Location] | Teleport Locations |
-| `delay`     | Number         | Delay in ticks     |
+| **Name**    | **Type**         | **Description**    |
+| ----------- | ---------------- | ------------------ |
+| `locations` | list\[Location\] | Teleport Locations |
+| `delay`     | Number           | Delay in ticks     |

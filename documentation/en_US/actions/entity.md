@@ -315,7 +315,7 @@ entity::get_attribute(variable=`variable`, attribute_type="GENERIC_MAX_HEALTH", 
 
 | **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Description** |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `variable`       | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | None            |
+| `variable`       | Variable\[Number\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | None            |
 | `attribute_type` | Marker<br/>**GENERIC_MAX_HEALTH** - None<br/>**GENERIC_MAX_ABSORPTION** - None<br/>**GENERIC_FOLLOW_RANGE** - None<br/>**GENERIC_KNOCKBACK_RESISTANCE** - None<br/>**GENERIC_MOVEMENT_SPEED** - None<br/>**GENERIC_FLYING_SPEED** - None<br/>**GENERIC_ATTACK_DAMAGE** - None<br/>**GENERIC_ATTACK_KNOCKBACK** - None<br/>**GENERIC_ATTACK_SPEED** - None<br/>**GENERIC_ARMOR** - None<br/>**GENERIC_ARMOR_TOUGHNESS** - None<br/>**GENERIC_LUCK** - None<br/>**GENERIC_JUMP_STRENGTH** - None<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - None<br/>**GENERIC_SAFE_FALL_DISTANCE** - None<br/>**GENERIC_SCALE** - None<br/>**GENERIC_STEP_HEIGHT** - None<br/>**GENERIC_GRAVITY** - None<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - None<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - None<br/>**PLAYER_BLOCK_BREAK_SPEED** - None<br/>**GENERIC_BURNING_TIME** - None<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - None<br/>**GENERIC_MOVEMENT_EFFICIENCY** - None<br/>**PLAYER_MINING_EFFICIENCY** - None<br/>**PLAYER_SNEAKING_SPEED** - None<br/>**PLAYER_SUBMERGED_MINING_SPEED** - None<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - None<br/>**GENERIC_OXYGEN_BONUS** - None<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - None<br/>**TEMP_RANGE** - None<br/>**WAYPOINT_TRANSMIT_RANGE** - None<br/>**WAYPOINT_RECEIVE_RANGE** - None<br/>**CAMERA_DISTANCE** - None | None            |
 | `return_value`   | Marker<br/>**VALUE** - None<br/>**BASE_VALUE** - None<br/>**DEFAULT_VALUE** - None                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | None            |
 <h3 id=entity_get_custom_tag>
@@ -342,11 +342,11 @@ entity::get_custom_tag(variable=`variable`, name="name", default="any value");
 
 **Arguments:**
 
-| **Name**   | **Type**  | **Description**    |
-| ---------- | --------- | ------------------ |
-| `variable` | Variable  | Variable to Assign |
-| `name`     | Text      | Tag name           |
-| `default`  | Any Value | Default value      |
+| **Name**   | **Type**              | **Description**    |
+| ---------- | --------------------- | ------------------ |
+| `variable` | Variable\[Any Value\] | Variable to Assign |
+| `name`     | Text                  | Tag name           |
+| `default`  | Any Value             | Default value      |
 <h3 id=entity_get_nbt>
   <code>entity::get_nbt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -371,10 +371,10 @@ entity::get_nbt(variable=`variable`, path="path");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `path`     | Text     | None            |
+| **Name**   | **Type**              | **Description** |
+| ---------- | --------------------- | --------------- |
+| `variable` | Variable\[Any Value\] | None            |
+| `path`     | Text                  | None            |
 <h3 id=entity_give_potion_effects>
   <code>entity::give_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -397,7 +397,7 @@ entity::give_potion_effects(potions=[potion("slow_falling"), potion("slow_fallin
 
 | **Name**        | **Type**                                                                       | **Description**            |
 | --------------- | ------------------------------------------------------------------------------ | -------------------------- |
-| `potions`       | list[Potion]                                                                   | Effects to Give            |
+| `potions`       | list\[Potion\]                                                                 | Effects to Give            |
 | `overwrite`     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Overwrite existing effects |
 | `show_icon`     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Show Effect Icon           |
 | `particle_mode` | Marker<br/>**AMBIENT** - Transparent<br/>**NONE** - None<br/>**REGULAR** - Yes | Give Particles             |
@@ -598,7 +598,7 @@ entity::modify_piglin_barter_materials(materials=[item("stick"), item("stick")],
 
 | **Name**            | **Type**                                         | **Description**   |
 | ------------------- | ------------------------------------------------ | ----------------- |
-| `materials`         | list[Item]                                       | Materials         |
+| `materials`         | list\[Item\]                                     | Materials         |
 | `modification_mode` | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove | Modification mode |
 <h3 id=entity_modify_piglin_interested_materials>
   <code>entity::modify_piglin_interested_materials</code>
@@ -626,7 +626,7 @@ entity::modify_piglin_interested_materials(materials=[item("stick"), item("stick
 
 | **Name**            | **Type**                                         | **Description**   |
 | ------------------- | ------------------------------------------------ | ----------------- |
-| `materials`         | list[Item]                                       | Materials         |
+| `materials`         | list\[Item\]                                     | Materials         |
 | `modification_mode` | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove | Modification mode |
 <h3 id=entity_move_to_location>
   <code>entity::move_to_location</code>
@@ -838,9 +838,9 @@ entity::remove_potion_effect(effects=[potion("slow_falling"), potion("slow_falli
 
 **Arguments:**
 
-| **Name**  | **Type**     | **Description**   |
-| --------- | ------------ | ----------------- |
-| `effects` | list[Potion] | Effects to Remove |
+| **Name**  | **Type**       | **Description**   |
+| --------- | -------------- | ----------------- |
+| `effects` | list\[Potion\] | Effects to Remove |
 <h3 id=entity_reset_display_brightness>
   <code>entity::reset_display_brightness</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2147,9 +2147,9 @@ entity::set_display_transformation_matrix(row_major_matrix=[1, 2]);
 
 **Arguments:**
 
-| **Name**           | **Type**     | **Description**  |
-| ------------------ | ------------ | ---------------- |
-| `row_major_matrix` | list[Number] | 16 Number Matrix |
+| **Name**           | **Type**       | **Description**  |
+| ------------------ | -------------- | ---------------- |
+| `row_major_matrix` | list\[Number\] | 16 Number Matrix |
 <h3 id=entity_set_display_translation>
   <code>entity::set_display_translation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4367,7 +4367,7 @@ entity::set_text_display_text(displayed_text=["displayed_text", "displayed_text"
 
 | **Name**         | **Type**                                                                                                       | **Description** |
 | ---------------- | -------------------------------------------------------------------------------------------------------------- | --------------- |
-| `displayed_text` | list[Text]                                                                                                     | Displayed Text  |
+| `displayed_text` | list\[Text\]                                                                                                   | Displayed Text  |
 | `merging_mode`   | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text      |
 <h3 id=entity_set_text_display_text_shadow>
   <code>entity::set_text_display_text_shadow</code>
@@ -5053,7 +5053,7 @@ entity::has_potion_effect(potions=[potion("slow_falling"), potion("slow_falling"
 
 | **Name**     | **Type**                                                  | **Description** |
 | ------------ | --------------------------------------------------------- | --------------- |
-| `potions`    | list[Potion]                                              | Potions to Test |
+| `potions`    | list\[Potion\]                                            | Potions to Test |
 | `check_mode` | Marker<br/>**ALL** - All Effects<br/>**ANY** - Any Effect | Check Mode      |
 <h3 id=if_entity_in_area>
   <code>entity::in_area</code>
@@ -5221,7 +5221,7 @@ entity::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mode="
 
 | **Name**       | **Type**                                                                                                               | **Description**          |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| `entity_ids`   | list[Text]                                                                                                             | Name or UUID of entities |
+| `entity_ids`   | list\[Text\]                                                                                                           | Name or UUID of entities |
 | `compare_mode` | Marker<br/>**FARTHEST** - None<br/>**NAME_OR_UUID** - Name or UUID<br/>**NEAREST** - None<br/>**TYPE** - Creature Type | Riding Mode              |
 <h3 id=if_entity_is_standing_on_block>
   <code>entity::is_standing_on_block</code>
@@ -5249,8 +5249,8 @@ entity::is_standing_on_block(blocks=[item("stone"), item("stone")], locations=[l
 
 | **Name**     | **Type**                                        | **Description**    |
 | ------------ | ----------------------------------------------- | ------------------ |
-| `blocks`     | list[Block]                                     | Blocks to Check    |
-| `locations`  | list[Location]                                  | Locations to Check |
+| `blocks`     | list\[Block\]                                   | Blocks to Check    |
+| `locations`  | list\[Location\]                                | Locations to Check |
 | `only_solid` | Marker<br/>**FALSE** - None<br/>**TRUE** - None | None               |
 <h3 id=if_entity_is_type>
   <code>entity::is_type</code>
@@ -5276,9 +5276,9 @@ entity::is_type(entity_types=[item("stick"), item("stick")]){
 
 **Arguments:**
 
-| **Name**       | **Type**   | **Description** |
-| -------------- | ---------- | --------------- |
-| `entity_types` | list[Item] | Entity Type     |
+| **Name**       | **Type**     | **Description** |
+| -------------- | ------------ | --------------- |
+| `entity_types` | list\[Item\] | Entity Type     |
 <h3 id=if_entity_is_undead>
   <code>entity::is_undead</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5335,9 +5335,9 @@ entity::name_equals(names_or_uuids=["names_or_uuids", "names_or_uuids"]){
 
 **Arguments:**
 
-| **Name**         | **Type**   | **Description**         |
-| ---------------- | ---------- | ----------------------- |
-| `names_or_uuids` | list[Text] | Names or UUIDs to check |
+| **Name**         | **Type**     | **Description**         |
+| ---------------- | ------------ | ----------------------- |
+| `names_or_uuids` | list\[Text\] | Names or UUIDs to check |
 <h3 id=if_entity_spawn_reason_equals>
   <code>entity::spawn_reason_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

@@ -96,7 +96,7 @@ world::break_block(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], tool=it
 
 | **Name**    | **Type**                                               | **Description** |
 | ----------- | ------------------------------------------------------ | --------------- |
-| `locations` | list[Location]                                         | Block Locations |
+| `locations` | list\[Location\]                                       | Block Locations |
 | `tool`      | Item                                                   | Tool            |
 | `drop_exp`  | Marker<br/>**FALSE** - Turn off<br/>**TRUE** - Turn on | Experience drop |
 <h3 id=game_cancel_event>
@@ -160,10 +160,10 @@ world::clear_container_items(items=[item("stick"), item("stick")], location=loca
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**       |
-| ---------- | ---------- | --------------------- |
-| `items`    | list[Item] | Items                 |
-| `location` | Location   | Location of container |
+| **Name**   | **Type**     | **Description**       |
+| ---------- | ------------ | --------------------- |
+| `items`    | list\[Item\] | Items                 |
+| `location` | Location     | Location of container |
 <h3 id=game_clear_exploded_blocks>
   <code>world::clear_exploded_blocks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -187,9 +187,9 @@ world::clear_exploded_blocks(location=[location(0,0,0,0,0), location(0,0,0,0,0)]
 
 **Arguments:**
 
-| **Name**   | **Type**       | **Description** |
-| ---------- | -------------- | --------------- |
-| `location` | list[Location] | Block Locations |
+| **Name**   | **Type**         | **Description** |
+| ---------- | ---------------- | --------------- |
+| `location` | list\[Location\] | Block Locations |
 <h3 id=game_clear_region>
   <code>world::clear_region</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -352,10 +352,10 @@ world::fill_container(items=[item("stick"), item("stick")], location=location(0,
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**       |
-| ---------- | ---------- | --------------------- |
-| `items`    | list[Item] | Items to Fill         |
-| `location` | Location   | Location of Container |
+| **Name**   | **Type**     | **Description**       |
+| ---------- | ------------ | --------------------- |
+| `items`    | list\[Item\] | Items to Fill         |
+| `location` | Location     | Location of Container |
 <h3 id=game_generate_tree>
   <code>world::generate_tree</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -507,10 +507,10 @@ world::remove_container_items(items=[item("stick"), item("stick")], location=loc
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**       |
-| ---------- | ---------- | --------------------- |
-| `items`    | list[Item] | Items                 |
-| `location` | Location   | Location of Container |
+| **Name**   | **Type**     | **Description**       |
+| ---------- | ------------ | --------------------- |
+| `items`    | list\[Item\] | Items                 |
+| `location` | Location     | Location of Container |
 <h3 id=game_remove_scoreboard>
   <code>world::remove_scoreboard</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -602,12 +602,12 @@ world::replace_blocks_in_region(old_block=[item("stone"), item("stone")], pos_1=
 
 **Arguments:**
 
-| **Name**    | **Type**    | **Description**           |
-| ----------- | ----------- | ------------------------- |
-| `old_block` | list[Block] | Blocks to Replace         |
-| `pos_1`     | Location    | Region Corner             |
-| `pos_2`     | Location    | Opposite Corner of Region |
-| `new_block` | Block       | New Block                 |
+| **Name**    | **Type**      | **Description**           |
+| ----------- | ------------- | ------------------------- |
+| `old_block` | list\[Block\] | Blocks to Replace         |
+| `pos_1`     | Location      | Region Corner             |
+| `pos_2`     | Location      | Opposite Corner of Region |
+| `new_block` | Block         | New Block                 |
 <h3 id=game_replace_container_items>
   <code>world::replace_container_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -630,12 +630,12 @@ world::replace_container_items(items=[item("stick"), item("stick")], location=lo
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**            |
-| ---------- | ---------- | -------------------------- |
-| `items`    | list[Item] | Replaceable Items          |
-| `location` | Location   | Location of container      |
-| `replace`  | Item       | Replace Item               |
-| `count`    | Number     | Number of Items to Replace |
+| **Name**   | **Type**     | **Description**            |
+| ---------- | ------------ | -------------------------- |
+| `items`    | list\[Item\] | Replaceable Items          |
+| `location` | Location     | Location of container      |
+| `replace`  | Item         | Replace Item               |
+| `count`    | Number       | Number of Items to Replace |
 <h3 id=game_send_web_request>
   <code>world::send_web_request</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -711,7 +711,7 @@ world::set_block(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], block=ite
 
 | **Name**        | **Type**                                                   | **Description**        |
 | --------------- | ---------------------------------------------------------- | ---------------------- |
-| `locations`     | list[Location]                                             | Block Set Locations    |
+| `locations`     | list\[Location\]                                           | Block Set Locations    |
 | `block`         | Block                                                      | Block                  |
 | `update_blocks` | Marker<br/>**FALSE** - Don\'t update<br/>**TRUE** - Update | Update adjacent blocks |
 <h3 id=game_set_block_analogue_power>
@@ -940,10 +940,10 @@ world::set_container(items=[item("stick"), item("stick")], location=[location(0,
 
 **Arguments:**
 
-| **Name**   | **Type**       | **Description**       |
-| ---------- | -------------- | --------------------- |
-| `items`    | list[Item]     | Items to Set          |
-| `location` | list[Location] | Location of Container |
+| **Name**   | **Type**         | **Description**       |
+| ---------- | ---------------- | --------------------- |
+| `items`    | list\[Item\]     | Items to Set          |
+| `location` | list\[Location\] | Location of Container |
 <h3 id=game_set_container_lock>
   <code>world::set_container_lock</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1231,11 +1231,11 @@ world::set_event_enchantment_offers(enchantments=["enchantments", "enchantments"
 
 **Arguments:**
 
-| **Name**       | **Type**   | **Description** |
-| -------------- | ---------- | --------------- |
-| `enchantments` | list[Text] | None            |
-| `levels`       | list[Text] | None            |
-| `costs`        | list[Text] | None            |
+| **Name**       | **Type**     | **Description** |
+| -------------- | ------------ | --------------- |
+| `enchantments` | list\[Text\] | None            |
+| `levels`       | list\[Text\] | None            |
+| `costs`        | list\[Text\] | None            |
 <h3 id=game_set_event_exhaustion>
   <code>world::set_event_exhaustion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1424,9 +1424,9 @@ world::set_event_items(items=[item("stick"), item("stick")]);
 
 **Arguments:**
 
-| **Name** | **Type**   | **Description** |
-| -------- | ---------- | --------------- |
-| `items`  | list[Item] | Items to set    |
+| **Name** | **Type**     | **Description** |
+| -------- | ------------ | --------------- |
+| `items`  | list\[Item\] | Items to set    |
 <h3 id=game_set_event_knockback_vector>
   <code>world::set_event_knockback_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2384,7 +2384,7 @@ world::spawn_effect_cloud(location=location(0,0,0,0,0), duration=1, radius=2, ef
 | `location`    | Location        | Spawn Location  |
 | `duration`    | Number          | Duration        |
 | `radius`      | Number          | Cloud Radius    |
-| `effects`     | list[Potion]    | Potion Effects  |
+| `effects`     | list\[Potion\]  | Potion Effects  |
 | `particle`    | Particle Effect | Cloud Particles |
 | `custom_name` | Text            | Name            |
 <h3 id=game_spawn_end_crystal>
@@ -2674,7 +2674,7 @@ world::spawn_mob(mob=item("stick"), location=location(0,0,0,0,0), health=1, cust
 | `location`          | Location                                             | Spawn Location     |
 | `health`            | Number                                               | Amount of Health   |
 | `custom_name`       | Text                                                 | Name               |
-| `potion_effects`    | list[Potion]                                         | Effects            |
+| `potion_effects`    | list\[Potion\]                                       | Effects            |
 | `main_hand`         | Item                                                 | Main Hand Item     |
 | `helmet`            | Item                                                 | Headgear           |
 | `chestplate`        | Item                                                 | Chestplate         |
@@ -2782,7 +2782,7 @@ world::spawn_text_display(spawn_location=location(0,0,0,0,0), custom_name="custo
 | ---------------- | -------------------------------------------------------------------------------------------------------------- | --------------- |
 | `spawn_location` | Location                                                                                                       | Spawn Location  |
 | `custom_name`    | Text                                                                                                           | Name            |
-| `displayed_text` | list[Text]                                                                                                     | Displayed Text  |
+| `displayed_text` | list\[Text\]                                                                                                   | Displayed Text  |
 | `merging_mode`   | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text      |
 <h3 id=game_spawn_vehicle>
   <code>world::spawn_vehicle</code>
@@ -2870,10 +2870,10 @@ world::block_equals(blocks=[item("stone"), item("stone")], location=location(0,0
 
 **Arguments:**
 
-| **Name**   | **Type**    | **Description**     |
-| ---------- | ----------- | ------------------- |
-| `blocks`   | list[Block] | Block Type to Check |
-| `location` | Location    | Block Location      |
+| **Name**   | **Type**      | **Description**     |
+| ---------- | ------------- | ------------------- |
+| `blocks`   | list\[Block\] | Block Type to Check |
+| `location` | Location      | Block Location      |
 <h3 id=if_game_block_powered>
   <code>world::block_powered</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2900,7 +2900,7 @@ world::block_powered(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], power
 
 | **Name**     | **Type**                                                                   | **Description**       |
 | ------------ | -------------------------------------------------------------------------- | --------------------- |
-| `locations`  | list[Location]                                                             | Block Location        |
+| `locations`  | list\[Location\]                                                           | Block Location        |
 | `power_mode` | Marker<br/>**DIRECT** - Direct Powered<br/>**INDIRECT** - Indirect Powered | Redstone Powered Type |
 <h3 id=if_game_chunk_is_loaded>
   <code>world::chunk_is_loaded</code>
@@ -2955,7 +2955,7 @@ world::container_has(items=[item("stick"), item("stick")], location=location(0,0
 
 | **Name**          | **Type**                                                                                                                                                                                               | **Description**       |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
-| `items`           | list[Item]                                                                                                                                                                                             | Items to Check        |
+| `items`           | list\[Item\]                                                                                                                                                                                           | Items to Check        |
 | `location`        | Location                                                                                                                                                                                               | Location of container |
 | `check_mode`      | Marker<br/>**ALL** - All Items<br/>**ANY** - Any Items                                                                                                                                                 | Comparison Type       |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item type only | Comparison Mode       |
@@ -2985,7 +2985,7 @@ world::container_has_room_for_item(items=[item("stick"), item("stick")], locatio
 
 | **Name**     | **Type**                                               | **Description**       |
 | ------------ | ------------------------------------------------------ | --------------------- |
-| `items`      | list[Item]                                             | Items to Check        |
+| `items`      | list\[Item\]                                           | Items to Check        |
 | `location`   | Location                                               | Location of container |
 | `check_mode` | Marker<br/>**ALL** - All Items<br/>**ANY** - Any Items | Comparison Type       |
 <h3 id=if_game_damage_cause_equals>
@@ -3071,10 +3071,10 @@ world::event_block_equals(blocks=[item("stone"), item("stone")], locations=[loca
 
 **Arguments:**
 
-| **Name**    | **Type**       | **Description**          |
-| ----------- | -------------- | ------------------------ |
-| `blocks`    | list[Block]    | Block Types to Check     |
-| `locations` | list[Location] | Block Locations to Check |
+| **Name**    | **Type**         | **Description**          |
+| ----------- | ---------------- | ------------------------ |
+| `blocks`    | list\[Block\]    | Block Types to Check     |
+| `locations` | list\[Location\] | Block Locations to Check |
 <h3 id=if_game_event_has_input>
   <code>world::event_has_input</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3148,7 +3148,7 @@ world::event_item_equals(items=[item("stick"), item("stick")], comparison_mode="
 
 | **Name**          | **Type**                                                                                                                                                                                               | **Description** |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `items`           | list[Item]                                                                                                                                                                                             | Items to Check  |
+| `items`           | list\[Item\]                                                                                                                                                                                           | Items to Check  |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 <h3 id=if_game_has_player>
   <code>world::has_player</code>
@@ -3174,9 +3174,9 @@ world::has_player(names_or_uuids=["names_or_uuids", "names_or_uuids"]){
 
 **Arguments:**
 
-| **Name**         | **Type**   | **Description**         |
-| ---------------- | ---------- | ----------------------- |
-| `names_or_uuids` | list[Text] | Player Nickname or UUID |
+| **Name**         | **Type**     | **Description**         |
+| ---------------- | ------------ | ----------------------- |
+| `names_or_uuids` | list\[Text\] | Player Nickname or UUID |
 <h3 id=if_game_heal_cause_equals>
   <code>world::heal_cause_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3312,7 +3312,7 @@ world::sign_contains(location=location(0,0,0,0,0), texts=["texts", "texts"], che
 | **Name**     | **Type**                                                                                                                                              | **Description**  |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | `location`   | Location                                                                                                                                              | Sign location    |
-| `texts`      | list[Text]                                                                                                                                            | Text to check    |
+| `texts`      | list\[Text\]                                                                                                                                          | Text to check    |
 | `check_side` | Marker<br/>**ANY** - Any<br/>**BACK** - Back<br/>**FRONT** - Front                                                                                    | Sign Side        |
 | `check_mode` | Marker<br/>**ALL** - None<br/>**ANY** - None<br/>**CONTAINS** - Content Compare<br/>**EQUALS** - Full Compare                                         | Comparison Type  |
 | `lines`      | Marker<br/>**ALL** - All Lines<br/>**ANY** - Any String<br/>**FIRST** - 1 line<br/>**FOURTH** - line 4<br/>**SECOND** - 2 line<br/>**THIRD** - 3 line | Lines to Compare |

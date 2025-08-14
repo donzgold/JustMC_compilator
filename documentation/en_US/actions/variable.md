@@ -77,10 +77,10 @@ variable::equals(value="any value", compare=["any value", "any value"]){
 
 **Arguments:**
 
-| **Name**  | **Type**        | **Description**     |
-| --------- | --------------- | ------------------- |
-| `value`   | Any Value       | Comparison Variable |
-| `compare` | list[Any Value] | Compare Values      |
+| **Name**  | **Type**          | **Description**     |
+| --------- | ----------------- | ------------------- |
+| `value`   | Any Value         | Comparison Variable |
+| `compare` | list\[Any Value\] | Compare Values      |
 <h3 id=if_variable_exists>
   <code>variable::exists</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -287,7 +287,7 @@ variable::item_equals(value=item("stick"), compare=[item("stick"), item("stick")
 | **Name**          | **Type**                                                                                                                                                                                          | **Description**          |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `value`           | Item                                                                                                                                                                                              | Item Variable to Compare |
-| `compare`         | list[Item]                                                                                                                                                                                        | Compare Values           |
+| `compare`         | list\[Item\]                                                                                                                                                                                      | Compare Values           |
 | `comparison_mode` | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore quantity<br/>**TYPE_ONLY** - Item type only | Comparison Mode          |
 <h3 id=if_variable_item_has_enchantment>
   <code>variable::item_has_enchantment</code>
@@ -494,7 +494,7 @@ variable::list_contains_value(list=`list`, values=["any value", "any value"], ch
 | **Name**     | **Type**                                                | **Description** |
 | ------------ | ------------------------------------------------------- | --------------- |
 | `list`       | List                                                    | List to check   |
-| `values`     | list[Any Value]                                         | Values to Check |
+| `values`     | list\[Any Value\]                                       | Values to Check |
 | `check_mode` | Marker<br/>**ALL** - All Values<br/>**ANY** - Any Value | Check Mode      |
 <h3 id=if_variable_list_is_empty>
   <code>variable::list_is_empty</code>
@@ -563,11 +563,11 @@ variable::list_value_equals(list=`list`, index=1, values=["any value", "any valu
 
 **Arguments:**
 
-| **Name** | **Type**        | **Description**   |
-| -------- | --------------- | ----------------- |
-| `list`   | List            | List to check     |
-| `index`  | Number          | Value index       |
-| `values` | list[Any Value] | Comparable Values |
+| **Name** | **Type**          | **Description**   |
+| -------- | ----------------- | ----------------- |
+| `list`   | List              | List to check     |
+| `index`  | Number            | Value index       |
+| `values` | list\[Any Value\] | Comparable Values |
 <h3 id=if_variable_location_in_range>
   <code>variable::location_in_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -638,7 +638,7 @@ variable::location_is_near(location=location(0,0,0,0,0), radius=1, check=[locati
 | ---------- | -------------------------------------------------------------------------------------------------- | --------------------- |
 | `location` | Location                                                                                           | Location to check     |
 | `radius`   | Number                                                                                             | Check Radius          |
-| `check`    | list[Location]                                                                                     | Shape Center Location |
+| `check`    | list\[Location\]                                                                                   | Shape Center Location |
 | `shape`    | Marker<br/>**CIRCLE** - Circle<br/>**CUBE** - Cube<br/>**SPHERE** - Sphere<br/>**SQUARE** - Square | Shape                 |
 <h3 id=if_variable_map_has_key>
   <code>variable::map_has_key</code>
@@ -704,11 +704,11 @@ variable::map_value_equals(map=`map`, key="any value", values=["any value", "any
 
 **Arguments:**
 
-| **Name** | **Type**        | **Description**     |
-| -------- | --------------- | ------------------- |
-| `map`    | Dictionary      | Dictionary to check |
-| `key`    | Any Value       | Key                 |
-| `values` | list[Any Value] | Comparable Values   |
+| **Name** | **Type**          | **Description**     |
+| -------- | ----------------- | ------------------- |
+| `map`    | Dictionary        | Dictionary to check |
+| `key`    | Any Value         | Key                 |
+| `values` | list\[Any Value\] | Comparable Values   |
 <h3 id=if_variable_not_equals>
   <code>variable::not_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -739,10 +739,10 @@ variable::not_equals(value="any value", compare=["any value", "any value"]){
 
 **Arguments:**
 
-| **Name**  | **Type**        | **Description**     |
-| --------- | --------------- | ------------------- |
-| `value`   | Any Value       | Comparable Variable |
-| `compare` | list[Any Value] | Compare Values      |
+| **Name**  | **Type**          | **Description**     |
+| --------- | ----------------- | ------------------- |
+| `value`   | Any Value         | Comparable Variable |
+| `compare` | list\[Any Value\] | Compare Values      |
 <h3 id=if_variable_range_intersects_range>
   <code>variable::range_intersects_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -807,7 +807,7 @@ variable::text_contains(value="value", compare=["compare", "compare"], ignore_ca
 | **Name**      | **Type**                                       | **Description**   |
 | ------------- | ---------------------------------------------- | ----------------- |
 | `value`       | Text                                           | Variable to check |
-| `compare`     | list[Text]                                     | Text to check     |
+| `compare`     | list\[Text\]                                   | Text to check     |
 | `ignore_case` | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Ignore case       |
 <h3 id=if_variable_text_ends_with>
   <code>variable::text_ends_with</code>
@@ -842,7 +842,7 @@ variable::text_ends_with(value="value", compare=["compare", "compare"], ignore_c
 | **Name**      | **Type**                                     | **Description**       |
 | ------------- | -------------------------------------------- | --------------------- |
 | `value`       | Text                                         | Text variable to test |
-| `compare`     | list[Text]                                   | Compare Text          |
+| `compare`     | list\[Text\]                                 | Compare Text          |
 | `ignore_case` | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Ignore case           |
 <h3 id=if_variable_text_matches>
   <code>variable::text_matches</code>
@@ -877,7 +877,7 @@ variable::text_matches(match="match", values=["values", "values"], regular_expre
 | **Name**              | **Type**                                                      | **Description**            |
 | --------------------- | ------------------------------------------------------------- | -------------------------- |
 | `match`               | Text                                                          | Text or Regular Expression |
-| `values`              | list[Text]                                                    | Text Variables to Validate |
+| `values`              | list\[Text\]                                                  | Text Variables to Validate |
 | `regular_expressions` | Marker<br/>**FALSE** - Text<br/>**TRUE** - Regular Expression | Validation Method          |
 | `ignore_case`         | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                | Ignore case                |
 <h3 id=if_variable_text_starts_with>
@@ -913,7 +913,7 @@ variable::text_starts_with(value="value", compare=["compare", "compare"], ignore
 | **Name**      | **Type**                                     | **Description**       |
 | ------------- | -------------------------------------------- | --------------------- |
 | `value`       | Text                                         | Text variable to test |
-| `compare`     | list[Text]                                   | Compare Text          |
+| `compare`     | list\[Text\]                                 | Compare Text          |
 | `ignore_case` | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Ignore Case           |
 <h3 id=set_variable_absolute>
   <code>variable::absolute</code>
@@ -943,10 +943,10 @@ variable::absolute(variable=`variable`, number=1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `number`   | Number   | Module Number      |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `number`   | Number             | Module Number      |
 <h3 id=set_variable_add>
   <code>variable::add</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -971,10 +971,10 @@ variable::add(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| **Name**   | **Type**     | **Description**    |
-| ---------- | ------------ | ------------------ |
-| `variable` | Variable     | Variable to assign |
-| `value`    | list[Number] | Numbers to Add     |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `value`    | list\[Number\]     | Numbers to Add     |
 <h3 id=set_variable_add_item_enchantment>
   <code>variable::add_item_enchantment</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1003,12 +1003,12 @@ variable::add_item_enchantment(variable=`variable`, item=item("stick"), enchantm
 
 **Arguments:**
 
-| **Name**      | **Type** | **Description**    |
-| ------------- | -------- | ------------------ |
-| `variable`    | Variable | Variable to assign |
-| `item`        | Item     | Item               |
-| `enchantment` | Text     | Enchant ID         |
-| `level`       | Number   | Enchant Level      |
+| **Name**      | **Type**         | **Description**    |
+| ------------- | ---------------- | ------------------ |
+| `variable`    | Variable\[Item\] | Variable to assign |
+| `item`        | Item             | Item               |
+| `enchantment` | Text             | Enchant ID         |
+| `level`       | Number           | Enchant Level      |
 <h3 id=set_variable_add_item_potion_effects>
   <code>variable::add_item_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1039,8 +1039,8 @@ variable::add_item_potion_effects(variable=`variable`, potions=[potion("slow_fal
 
 | **Name**        | **Type**                                                                       | **Description**            |
 | --------------- | ------------------------------------------------------------------------------ | -------------------------- |
-| `variable`      | Variable                                                                       | Variable to assign         |
-| `potions`       | list[Potion]                                                                   | Potion Effects             |
+| `variable`      | Variable\[Item\]                                                               | Variable to assign         |
+| `potions`       | list\[Potion\]                                                                 | Potion Effects             |
 | `item`          | Item                                                                           | Item                       |
 | `overwrite`     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Overwrite existing effects |
 | `show_icon`     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Show Effect Icon           |
@@ -1069,10 +1069,10 @@ variable::add_vectors(variable=`variable`, vectors=[vector(0,0,0), vector(0,0,0)
 
 **Arguments:**
 
-| **Name**   | **Type**     | **Description**    |
-| ---------- | ------------ | ------------------ |
-| `variable` | Variable     | Variable to assign |
-| `vectors`  | list[Vector] | Vectors to Add     |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Vector\] | Variable to assign |
+| `vectors`  | list\[Vector\]     | Vectors to Add     |
 <h3 id=set_variable_align_location>
   <code>variable::align_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1103,7 +1103,7 @@ variable::align_location(variable=`variable`, location=location(0,0,0,0,0), rota
 
 | **Name**           | **Type**                                                                                        | **Description**    |
 | ------------------ | ----------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`         | Variable                                                                                        | Variable to assign |
+| `variable`         | Variable\[Location\]                                                                            | Variable to assign |
 | `location`         | Location                                                                                        | Location           |
 | `rotation_mode`    | Marker<br/>**KEEP** - Enable<br/>**REMOVE** - Disable                                           | Keep Rotation      |
 | `coordinates_mode` | Marker<br/>**ALL** - All Coordinates<br/>**X_Z** - X and Z Coordinates<br/>**Y** - Y Coordinate | Coordinate Type    |
@@ -1138,7 +1138,7 @@ variable::align_to_axis_vector(variable=`variable`, vector=vector(0,0,0), normal
 
 | **Name**    | **Type**                                                         | **Description**       |
 | ----------- | ---------------------------------------------------------------- | --------------------- |
-| `variable`  | Variable                                                         | Variable to assign    |
+| `variable`  | Variable\[Vector\]                                               | Variable to assign    |
 | `vector`    | Vector                                                           | Vector to align       |
 | `normalize` | Marker<br/>**FALSE** - Original Length<br/>**TRUE** - Normalized | Vector type to output |
 <h3 id=set_variable_append_component>
@@ -1167,8 +1167,8 @@ variable::append_component(variable=`variable`, components=["components", "compo
 
 | **Name**     | **Type**                                                                                                    | **Description** |
 | ------------ | ----------------------------------------------------------------------------------------------------------- | --------------- |
-| `variable`   | Variable                                                                                                    | Variable to set |
-| `components` | list[Text]                                                                                                  | Texts to append |
+| `variable`   | Variable\[Text\]                                                                                            | Variable to set |
+| `components` | list\[Text\]                                                                                                | Texts to append |
 | `merging`    | Marker<br/>**CONCATENATION** - Merging<br/>**SEPARATE_LINES** - Separate with lines<br/>**SPACES** - Spaces | Merge Text      |
 <h3 id=set_variable_append_list>
   <code>variable::append_list</code>
@@ -1198,11 +1198,11 @@ variable::append_list(variable=`variable`, list_1=`list_1`, list_2=`list_2`);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to Assign |
-| `list_1`   | List     | First List         |
-| `list_2`   | List     | Second List        |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[List\] | Variable to Assign |
+| `list_1`   | List             | First List         |
+| `list_2`   | List             | Second List        |
 <h3 id=set_variable_append_map>
   <code>variable::append_map</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1231,11 +1231,11 @@ variable::append_map(variable=`variable`, map=`map`, other_map=`other_map`);
 
 **Arguments:**
 
-| **Name**    | **Type**   | **Description**    |
-| ----------- | ---------- | ------------------ |
-| `variable`  | Variable   | Variable to Assign |
-| `map`       | Dictionary | First Dictionary   |
-| `other_map` | Dictionary | Second Dictionary  |
+| **Name**    | **Type**               | **Description**    |
+| ----------- | ---------------------- | ------------------ |
+| `variable`  | Variable\[Dictionary\] | Variable to Assign |
+| `map`       | Dictionary             | First Dictionary   |
+| `other_map` | Dictionary             | Second Dictionary  |
 <h3 id=set_variable_append_value>
   <code>variable::append_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1260,10 +1260,10 @@ variable::append_value(variable=`variable`, values=["any value", "any value"]);
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description** |
-| ---------- | --------------- | --------------- |
-| `variable` | Variable        | List            |
-| `values`   | list[Any Value] | Values          |
+| **Name**   | **Type**          | **Description** |
+| ---------- | ----------------- | --------------- |
+| `variable` | Variable          | List            |
+| `values`   | list\[Any Value\] | Values          |
 <h3 id=set_variable_atan2>
   <code>variable::atan2</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1288,11 +1288,11 @@ variable::atan2(variable=`variable`, y=1, x=2);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `y`        | Number   | First Number (y)   |
-| `x`        | Number   | Second Number (x)  |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `y`        | Number             | First Number (y)   |
+| `x`        | Number             | Second Number (x)  |
 <h3 id=set_variable_average>
   <code>variable::average</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1317,10 +1317,10 @@ variable::average(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| **Name**   | **Type**     | **Description**      |
-| ---------- | ------------ | -------------------- |
-| `variable` | Variable     | Variable to assign   |
-| `value`    | list[Number] | Numbers to get value |
+| **Name**   | **Type**           | **Description**      |
+| ---------- | ------------------ | -------------------- |
+| `variable` | Variable\[Number\] | Variable to assign   |
+| `value`    | list\[Number\]     | Numbers to get value |
 <h3 id=set_variable_bitwise_operation>
   <code>variable::bitwise_operation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1347,7 +1347,7 @@ variable::bitwise_operation(variable=`variable`, operand1=1, operand2=2, operato
 
 | **Name**   | **Type**                                                                                                                                                                                                                                                                    | **Description**    |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable` | Variable                                                                                                                                                                                                                                                                    | Variable to assign |
+| `variable` | Variable\[Number\]                                                                                                                                                                                                                                                          | Variable to assign |
 | `operand1` | Number                                                                                                                                                                                                                                                                      | First operand      |
 | `operand2` | Number                                                                                                                                                                                                                                                                      | Second Operand     |
 | `operator` | Marker<br/>**AND** - And (and)<br/>**LEFT_SHIFT** - Shift Left (left_shift)<br/>**NOT** - NOT (not)<br/>**OR** - OR (or)<br/>**RIGHT_SHIFT** - Shift Right (right_shift)<br/>**UNSIGNED_RIGHT_SHIFT** - Unsigned Right Shift (unsigned_right_shift)<br/>**XOR** - XOR (xor) | Operation Type     |
@@ -1375,10 +1375,10 @@ variable::center_location(variable=`variable`, locations=[location(0,0,0,0,0), l
 
 **Arguments:**
 
-| **Name**    | **Type**       | **Description**    |
-| ----------- | -------------- | ------------------ |
-| `variable`  | Variable       | Variable to assign |
-| `locations` | list[Location] | Locations to Set   |
+| **Name**    | **Type**             | **Description**    |
+| ----------- | -------------------- | ------------------ |
+| `variable`  | Variable\[Location\] | Variable to assign |
+| `locations` | list\[Location\]     | Locations to Set   |
 <h3 id=set_variable_change_component_parsing>
   <code>variable::change_component_parsing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1409,7 +1409,7 @@ variable::change_component_parsing(variable=`variable`, component="component", p
 
 | **Name**    | **Type**                                                                                                      | **Description**   |
 | ----------- | ------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `variable`  | Variable                                                                                                      | Variable to set   |
+| `variable`  | Variable\[Text\]                                                                                              | Variable to set   |
 | `component` | Text                                                                                                          | The text to parse |
 | `parsing`   | Marker<br/>**JSON** - JSON<br/>**LEGACY** - Colored (&)<br/>**MINIMESSAGE** - Stylized<br/>**PLAIN** - Normal | Parse method      |
 <h3 id=set_variable_char_to_number>
@@ -1440,10 +1440,10 @@ variable::char_to_number(variable=`variable`, char="char");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**         |
-| ---------- | -------- | ----------------------- |
-| `variable` | Variable | Variable to assign      |
-| `char`     | Text     | Character to get number |
+| **Name**   | **Type**           | **Description**         |
+| ---------- | ------------------ | ----------------------- |
+| `variable` | Variable\[Number\] | Variable to assign      |
+| `char`     | Text               | Character to get number |
 <h3 id=set_variable_clamp>
   <code>variable::clamp</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1472,12 +1472,12 @@ variable::clamp(variable=`variable`, number=1, min=2, max=3);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to Assign |
-| `number`   | Number   | Number to Clamp    |
-| `min`      | Number   | Minimum Value      |
-| `max`      | Number   | Max Value          |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to Assign |
+| `number`   | Number             | Number to Clamp    |
+| `min`      | Number             | Minimum Value      |
+| `max`      | Number             | Max Value          |
 <h3 id=set_variable_clear_color_codes>
   <code>variable::clear_color_codes</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1506,10 +1506,10 @@ variable::clear_color_codes(variable=`variable`, text="text");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `text`     | Text     | Text to change     |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `text`     | Text             | Text to change     |
 <h3 id=set_variable_clear_map>
   <code>variable::clear_map</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1565,10 +1565,10 @@ variable::compact_component(variable=`variable`, component="component");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**    |
-| ----------- | -------- | ------------------ |
-| `variable`  | Variable | Variable to assign |
-| `component` | Text     | The Styled Text    |
+| **Name**    | **Type**         | **Description**    |
+| ----------- | ---------------- | ------------------ |
+| `variable`  | Variable\[Text\] | Variable to assign |
+| `component` | Text             | The Styled Text    |
 <h3 id=set_variable_component_of_children>
   <code>variable::component_of_children</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1593,10 +1593,10 @@ variable::component_of_children(variable=`variable`, components=["components", "
 
 **Arguments:**
 
-| **Name**     | **Type**   | **Description**    |
-| ------------ | ---------- | ------------------ |
-| `variable`   | Variable   | Variable to assign |
-| `components` | list[Text] | Stylized texts     |
+| **Name**     | **Type**         | **Description**    |
+| ------------ | ---------------- | ------------------ |
+| `variable`   | Variable\[Text\] | Variable to assign |
+| `components` | list\[Text\]     | Stylized texts     |
 <h3 id=set_variable_convert_number_to_text>
   <code>variable::convert_number_to_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1628,11 +1628,11 @@ variable::convert_number_to_text(variable=`variable`, number=1, radix=2);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `number`   | Number   | Number to convert  |
-| `radix`    | Number   | Number Base        |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `number`   | Number           | Number to convert  |
+| `radix`    | Number           | Number Base        |
 <h3 id=set_variable_convert_text_to_number>
   <code>variable::convert_text_to_number</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1661,11 +1661,11 @@ variable::convert_text_to_number(variable=`variable`, text="text", radix=1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `text`     | Text     | Text to convert    |
-| `radix`    | Number   | Number Base        |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `text`     | Text               | Text to convert    |
+| `radix`    | Number             | Number Base        |
 <h3 id=set_variable_cosine>
   <code>variable::cosine</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1696,7 +1696,7 @@ variable::cosine(variable=`variable`, number=1, variant="ARCCOSINE", input="DEGR
 
 | **Name**   | **Type**                                                                                                                                                       | **Description**      |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| `variable` | Variable                                                                                                                                                       | Variable to assign   |
+| `variable` | Variable\[Number\]                                                                                                                                             | Variable to assign   |
 | `number`   | Number                                                                                                                                                         | Number to get cosine |
 | `variant`  | Marker<br/>**ARCCOSINE** - Arccosine<br/>**COSINE** - Cosine<br/>**HYPERBOLIC_ARCCOSINE** - Hyperbolic Arccosine<br/>**HYPERBOLIC_COSINE** - Hyperbolic Cosine | Operation Type       |
 | `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                                     | Corner Type          |
@@ -1730,7 +1730,7 @@ variable::cotangent(variable=`variable`, number=1, variant="ARCCOTANGENT", input
 
 | **Name**   | **Type**                                                                                                                                                                               | **Description**         |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| `variable` | Variable                                                                                                                                                                               | Variable to assign      |
+| `variable` | Variable\[Number\]                                                                                                                                                                     | Variable to assign      |
 | `number`   | Number                                                                                                                                                                                 | Number to get cotangent |
 | `variant`  | Marker<br/>**ARCCOTANGENT** - Arccotangent<br/>**COTANGENT** - Cotangent<br/>**HYPERBOLIC_ARCCOTANGENT** - Hyperbolic Arccotangent<br/>**HYPERBOLIC_COTANGENT** - Hyperbolic Cotangent | Operation Type          |
 | `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                                                             | Angle Type              |
@@ -1758,10 +1758,10 @@ variable::create_keybind_component(variable=`variable`, key="key");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `key`      | Text     | Keybind key        |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `key`      | Text             | Keybind key        |
 <h3 id=set_variable_create_list>
   <code>variable::create_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1788,10 +1788,10 @@ variable::create_list(variable=`variable`, values=["any value", "any value"]);
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**    |
-| ---------- | --------------- | ------------------ |
-| `variable` | Variable        | Variable to assign |
-| `values`   | list[Any Value] | Values             |
+| **Name**   | **Type**          | **Description**    |
+| ---------- | ----------------- | ------------------ |
+| `variable` | Variable\[List\]  | Variable to assign |
+| `values`   | list\[Any Value\] | Values             |
 <h3 id=set_variable_create_map>
   <code>variable::create_map</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1818,11 +1818,11 @@ variable::create_map(variable=`variable`, keys=`keys`, values=`values`);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `keys`     | List     | List Keys          |
-| `values`   | List     | List of Values     |
+| **Name**   | **Type**               | **Description**    |
+| ---------- | ---------------------- | ------------------ |
+| `variable` | Variable\[Dictionary\] | Variable to assign |
+| `keys`     | List                   | List Keys          |
+| `values`   | List                   | List of Values     |
 <h3 id=set_variable_create_map_from_values>
   <code>variable::create_map_from_values</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1849,11 +1849,11 @@ variable::create_map_from_values(variable=`variable`, keys=["any value", "any va
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**    |
-| ---------- | --------------- | ------------------ |
-| `variable` | Variable        | Variable to assign |
-| `keys`     | list[Any Value] | Keys               |
-| `values`   | list[Any Value] | Values             |
+| **Name**   | **Type**               | **Description**    |
+| ---------- | ---------------------- | ------------------ |
+| `variable` | Variable\[Dictionary\] | Variable to assign |
+| `keys`     | list\[Any Value\]      | Keys               |
+| `values`   | list\[Any Value\]      | Values             |
 <h3 id=set_variable_create_translatable_component>
   <code>variable::create_translatable_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1880,12 +1880,12 @@ variable::create_translatable_component(variable=`variable`, key="key", fallback
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**    |
-| ---------- | ---------- | ------------------ |
-| `variable` | Variable   | Variable to assign |
-| `key`      | Text       | Key                |
-| `fallback` | Text       | None               |
-| `args`     | list[Text] | Arguments to add   |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `key`      | Text             | Key                |
+| `fallback` | Text             | None               |
+| `args`     | list\[Text\]     | Arguments to add   |
 <h3 id=set_variable_decrement>
   <code>variable::decrement</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1914,10 +1914,10 @@ variable::decrement(variable=`variable`, number=1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `number`   | Number   | Number to Subtract |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `number`   | Number             | Number to Subtract |
 <h3 id=set_variable_divide>
   <code>variable::divide</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1944,8 +1944,8 @@ variable::divide(variable=`variable`, value=[1, 2], division_mode="CEIL");
 
 | **Name**        | **Type**                                                                                                                    | **Description**    |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`      | Variable                                                                                                                    | Variable to assign |
-| `value`         | list[Number]                                                                                                                | Numbers to Divide  |
+| `variable`      | Variable\[Number\]                                                                                                          | Variable to assign |
+| `value`         | list\[Number\]                                                                                                              | Numbers to Divide  |
 | `division_mode` | Marker<br/>**CEIL** - Round up<br/>**DEFAULT** - Default<br/>**FLOOR** - Round down<br/>**ROUND_TO_INT** - Round To Integer | Division Mode      |
 <h3 id=set_variable_divide_vector>
   <code>variable::divide_vector</code>
@@ -1971,11 +1971,11 @@ variable::divide_vector(variable=`variable`, vector=vector(0,0,0), divider=vecto
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `vector`   | Vector   | Vector to change   |
-| `divider`  | Vector   | Vector Divider     |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Vector\] | Variable to assign |
+| `vector`   | Vector             | Vector to change   |
+| `divider`  | Vector             | Vector Divider     |
 <h3 id=set_variable_dummy>
   <code>variable::dummy</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2020,9 +2020,9 @@ variable::edit_item_custom_model_data(variable=`variable`, item=item("stick"), d
 
 | **Name**     | **Type**                                                                                                                      | **Description** |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `variable`   | Variable                                                                                                                      | None            |
+| `variable`   | Variable\[Item\]                                                                                                              | None            |
 | `item`       | Item                                                                                                                          | None            |
-| `data`       | list[Any Value]                                                                                                               | None            |
+| `data`       | list\[Any Value\]                                                                                                             | None            |
 | `value_type` | Marker<br/>**FLOATS** - None<br/>**BOOLEANS** - None<br/>**STRINGS** - None<br/>**COLORS** - None                             | None            |
 | `setup_mode` | Marker<br/>**SET** - None<br/>**ADD** - None<br/>**REMOVE_ALL** - None<br/>**REMOVE_FIRST** - None<br/>**REMOVE_LAST** - None | None            |
 <h3 id=set_variable_face_location>
@@ -2053,11 +2053,11 @@ variable::face_location(variable=`variable`, location=location(0,0,0,0,0), targe
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `location` | Location | Locations to Set   |
-| `target`   | Location | Target Location    |
+| **Name**   | **Type**             | **Description**    |
+| ---------- | -------------------- | ------------------ |
+| `variable` | Variable\[Location\] | Variable to assign |
+| `location` | Location             | Locations to Set   |
+| `target`   | Location             | Target Location    |
 <h3 id=set_variable_flatten_list>
   <code>variable::flatten_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2086,10 +2086,10 @@ variable::flatten_list(variable=`variable`, list=`list`);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `list`     | List     | List               |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[List\] | Variable to assign |
+| `list`     | List             | List               |
 <h3 id=set_variable_format_timestamp>
   <code>variable::format_timestamp</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2120,7 +2120,7 @@ variable::format_timestamp(variable=`variable`, time=1, pattern="pattern", zone_
 
 | **Name**   | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | **Description**                     |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
-| `variable` | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Variable to assign                  |
+| `variable` | Variable\[Text\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Variable to assign                  |
 | `time`     | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Number to convert                   |
 | `pattern`  | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Time Pattern (e.g. mm\:ss)          |
 | `zone_id`  | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Timezone (GMT+1\.\.13, GMT-1\.\.13) |
@@ -2157,10 +2157,10 @@ variable::gamma_function(variable=`variable`, number=1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `number`   | Number   | None            |
+| **Name**   | **Type**           | **Description** |
+| ---------- | ------------------ | --------------- |
+| `variable` | Variable\[Number\] | None            |
+| `number`   | Number             | None            |
 <h3 id=set_variable_gaussian_distribution>
   <code>variable::gaussian_distribution</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2187,7 +2187,7 @@ variable::gaussian_distribution(variable=`variable`, deviant=1, mean=2, distribu
 
 | **Name**       | **Type**                                                                            | **Description**            |
 | -------------- | ----------------------------------------------------------------------------------- | -------------------------- |
-| `variable`     | Variable                                                                            | Variable to Assign         |
+| `variable`     | Variable\[Number\]                                                                  | Variable to Assign         |
 | `deviant`      | Number                                                                              | Deviation of σ from mean μ |
 | `mean`         | Number                                                                              | Mean μ                     |
 | `distribution` | Marker<br/>**FOLDER_NORMAL** - Side Deviation >= μ<br/>**NORMAL** - Total Deviation | Type of σ deviation        |
@@ -2221,7 +2221,7 @@ variable::get_all_block_data(variable=`variable`, location=location(0,0,0,0,0), 
 
 | **Name**           | **Type**                                             | **Description**         |
 | ------------------ | ---------------------------------------------------- | ----------------------- |
-| `variable`         | Variable                                             | Variable to assign      |
+| `variable`         | Variable\[Text\]                                     | Variable to assign      |
 | `location`         | Location                                             | Block Location          |
 | `hide_unspecified` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Hide Unspecified Values |
 <h3 id=set_variable_get_all_coordinates>
@@ -2252,14 +2252,14 @@ variable::get_all_coordinates(x=`x`, y=`y`, z=`z`, yaw=`yaw`, pitch=`pitch`, loc
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**     |
-| ---------- | -------- | ------------------- |
-| `x`        | Variable | X Coordinate        |
-| `y`        | Variable | Y Coordinate        |
-| `z`        | Variable | Z Coordinate        |
-| `yaw`      | Variable | Horizontal Rotation |
-| `pitch`    | Variable | Pitch Vertical      |
-| `location` | Location | Location to Get     |
+| **Name**   | **Type**           | **Description**     |
+| ---------- | ------------------ | ------------------- |
+| `x`        | Variable\[Number\] | X Coordinate        |
+| `y`        | Variable\[Number\] | Y Coordinate        |
+| `z`        | Variable\[Number\] | Z Coordinate        |
+| `yaw`      | Variable\[Number\] | Horizontal Rotation |
+| `pitch`    | Variable\[Number\] | Pitch Vertical      |
+| `location` | Location           | Location to Get     |
 <h3 id=set_variable_get_angle_between_vectors>
   <code>variable::get_angle_between_vectors</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2286,7 +2286,7 @@ variable::get_angle_between_vectors(variable=`variable`, vector_1=vector(0,0,0),
 
 | **Name**      | **Type**                                                   | **Description**    |
 | ------------- | ---------------------------------------------------------- | ------------------ |
-| `variable`    | Variable                                                   | Variable to assign |
+| `variable`    | Variable\[Number\]                                         | Variable to assign |
 | `vector_1`    | Vector                                                     | First Vector       |
 | `vector_2`    | Vector                                                     | Second Vector      |
 | `angle_units` | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians | Angle Type         |
@@ -2314,13 +2314,13 @@ variable::get_block_custom_tag(variable=`variable`, location=location(0,0,0,0,0)
 
 **Arguments:**
 
-| **Name**        | **Type**  | **Description** |
-| --------------- | --------- | --------------- |
-| `variable`      | Variable  | None            |
-| `location`      | Location  | None            |
-| `tag_name`      | Text      | None            |
-| `tag_value`     | Text      | None            |
-| `default_value` | Any Value | None            |
+| **Name**        | **Type**              | **Description** |
+| --------------- | --------------------- | --------------- |
+| `variable`      | Variable\[Any Value\] | None            |
+| `location`      | Location              | None            |
+| `tag_name`      | Text                  | None            |
+| `tag_value`     | Text                  | None            |
+| `default_value` | Any Value             | None            |
 <h3 id=set_variable_get_block_data>
   <code>variable::get_block_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2349,11 +2349,11 @@ variable::get_block_data(variable=`variable`, location=location(0,0,0,0,0), tag_
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `location` | Location | Block Location     |
-| `tag_name` | Text     | Tag Name           |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `location` | Location         | Block Location     |
+| `tag_name` | Text             | Tag Name           |
 <h3 id=set_variable_get_block_growth>
   <code>variable::get_block_growth</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2384,7 +2384,7 @@ variable::get_block_growth(variable=`variable`, location=location(0,0,0,0,0), gr
 
 | **Name**      | **Type**                                                                                 | **Description**    |
 | ------------- | ---------------------------------------------------------------------------------------- | ------------------ |
-| `variable`    | Variable                                                                                 | Variable to assign |
+| `variable`    | Variable\[Number\]                                                                       | Variable to assign |
 | `location`    | Location                                                                                 | Block Location     |
 | `growth_unit` | Marker<br/>**GROWTH_PERCENTAGE** - Growth Percentage<br/>**GROWTH_STAGE** - Growth Stage | Unit               |
 <h3 id=set_variable_get_block_material>
@@ -2417,7 +2417,7 @@ variable::get_block_material(variable=`variable`, location=location(0,0,0,0,0), 
 
 | **Name**     | **Type**                                                                                                               | **Description**    |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`   | Variable                                                                                                               | Variable to assign |
+| `variable`   | Variable\[Text\]                                                                                                       | Variable to assign |
 | `location`   | Location                                                                                                               | Block Location     |
 | `value_type` | Marker<br/>**ID** - Block ID<br/>**ID_WITH_DATA** - ID and block data<br/>**ITEM** - As Item<br/>**NAME** - Block Name | Value Type         |
 <h3 id=set_variable_get_block_material_property>
@@ -2450,7 +2450,7 @@ variable::get_block_material_property(variable=`variable`, block=item("stone"), 
 
 | **Name**   | **Type**                                                                                                           | **Description**    |
 | ---------- | ------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| `variable` | Variable                                                                                                           | Variable to assign |
+| `variable` | Variable\[Number\]                                                                                                 | Variable to assign |
 | `block`    | Block                                                                                                              | Block to Get       |
 | `property` | Marker<br/>**BLAST_RESISTANCE** - Blast Resistance<br/>**HARDNESS** - Hardness<br/>**SLIPPERINESS** - Slipperiness | Property           |
 <h3 id=set_variable_get_block_power>
@@ -2481,10 +2481,10 @@ variable::get_block_power(variable=`variable`, location=location(0,0,0,0,0));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `location` | Location | Block Location     |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `location` | Location           | Block Location     |
 <h3 id=set_variable_get_block_sound>
   <code>variable::get_block_sound</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2515,7 +2515,7 @@ variable::get_block_sound(variable=`variable`, block=item("stone"), source="BREA
 
 | **Name**   | **Type**                                                                                                     | **Description**    |
 | ---------- | ------------------------------------------------------------------------------------------------------------ | ------------------ |
-| `variable` | Variable                                                                                                     | Variable to assign |
+| `variable` | Variable\[Sound\]                                                                                            | Variable to assign |
 | `block`    | Block                                                                                                        | Block              |
 | `source`   | Marker<br/>**BREAK** - Break<br/>**PLACE** - Place<br/>**HIT** - Hit<br/>**FALL** - Fall<br/>**STEP** - Step | Sound Source       |
 <h3 id=set_variable_get_book_text>
@@ -2546,11 +2546,11 @@ variable::get_book_text(variable=`variable`, book=item("stick"), page=1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `book`     | Item     | Book to get value  |
-| `page`     | Number   | Page Number        |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `book`     | Item             | Book to get value  |
+| `page`     | Number           | Page Number        |
 <h3 id=set_variable_get_brushable_block_item>
   <code>variable::get_brushable_block_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2579,10 +2579,10 @@ variable::get_brushable_block_item(variable=`variable`, location=location(0,0,0,
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `location` | Location | Block Location     |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `location` | Location         | Block Location     |
 <h3 id=set_variable_get_bundle_items>
   <code>variable::get_bundle_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2639,11 +2639,11 @@ variable::get_char_at(variable=`variable`, text="text", index=1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**       |
-| ---------- | -------- | --------------------- |
-| `variable` | Variable | Variable to assign    |
-| `text`     | Text     | Text to get character |
-| `index`    | Number   | Index                 |
+| **Name**   | **Type**         | **Description**       |
+| ---------- | ---------------- | --------------------- |
+| `variable` | Variable\[Text\] | Variable to assign    |
+| `text`     | Text             | Text to get character |
+| `index`    | Number           | Index                 |
 <h3 id=set_variable_get_color_channels>
   <code>variable::get_color_channels</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2674,7 +2674,7 @@ variable::get_color_channels(variable=`variable`, color="color", color_channels=
 
 | **Name**         | **Type**                                                     | **Description**    |
 | ---------------- | ------------------------------------------------------------ | ------------------ |
-| `variable`       | Variable                                                     | Variable to assign |
+| `variable`       | Variable\[List\]                                             | Variable to assign |
 | `color`          | Text                                                         | Color to get value |
 | `color_channels` | Marker<br/>**HSB** - HSB<br/>**HSL** - HSL<br/>**RGB** - RGB | Color Channel      |
 <h3 id=set_variable_get_compass_lodestone>
@@ -2705,10 +2705,10 @@ variable::get_compass_lodestone(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Magnetized Compass |
+| **Name**   | **Type**             | **Description**    |
+| ---------- | -------------------- | ------------------ |
+| `variable` | Variable\[Location\] | Variable to assign |
+| `item`     | Item                 | Magnetized Compass |
 <h3 id=set_variable_get_component_children>
   <code>variable::get_component_children</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2737,10 +2737,10 @@ variable::get_component_children(variable=`variable`, component="component");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description** |
-| ----------- | -------- | --------------- |
-| `variable`  | Variable | Variable to set |
-| `component` | Text     | Stylized text   |
+| **Name**    | **Type**         | **Description** |
+| ----------- | ---------------- | --------------- |
+| `variable`  | Variable\[List\] | Variable to set |
+| `component` | Text             | Stylized text   |
 <h3 id=set_variable_get_component_decorations>
   <code>variable::get_component_decorations</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2769,10 +2769,10 @@ variable::get_component_decorations(variable=`variable`, component="component");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**    |
-| ----------- | -------- | ------------------ |
-| `variable`  | Variable | Variable to assign |
-| `component` | Text     | Stylized text      |
+| **Name**    | **Type**         | **Description**    |
+| ----------- | ---------------- | ------------------ |
+| `variable`  | Variable\[List\] | Variable to assign |
+| `component` | Text             | Stylized text      |
 <h3 id=set_variable_get_component_hex_color>
   <code>variable::get_component_hex_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2801,10 +2801,10 @@ variable::get_component_hex_color(variable=`variable`, component="component");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description** |
-| ----------- | -------- | --------------- |
-| `variable`  | Variable | Variable to set |
-| `component` | Text     | The Styled Text |
+| **Name**    | **Type**         | **Description** |
+| ----------- | ---------------- | --------------- |
+| `variable`  | Variable\[Text\] | Variable to set |
+| `component` | Text             | The Styled Text |
 <h3 id=set_variable_get_component_parsing>
   <code>variable::get_component_parsing</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2833,10 +2833,10 @@ variable::get_component_parsing(variable=`variable`, component="component");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description** |
-| ----------- | -------- | --------------- |
-| `variable`  | Variable | Variable to set |
-| `component` | Text     | The styled text |
+| **Name**    | **Type**         | **Description** |
+| ----------- | ---------------- | --------------- |
+| `variable`  | Variable\[Text\] | Variable to set |
+| `component` | Text             | The styled text |
 <h3 id=set_variable_get_container_contents>
   <code>variable::get_container_contents</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2867,7 +2867,7 @@ variable::get_container_contents(variable=`variable`, location=location(0,0,0,0,
 
 | **Name**             | **Type**                                                   | **Description**    |
 | -------------------- | ---------------------------------------------------------- | ------------------ |
-| `variable`           | Variable                                                   | Variable to assign |
+| `variable`           | Variable\[List\]                                           | Variable to assign |
 | `location`           | Location                                                   | Container Location |
 | `ignore_empty_slots` | Marker<br/>**FALSE** - Don\'t Ignore<br/>**TRUE** - Ignore | Ignore Empty Slots |
 <h3 id=set_variable_get_container_lock>
@@ -2898,10 +2898,10 @@ variable::get_container_lock(variable=`variable`, location=location(0,0,0,0,0));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `location` | Location | Block Location     |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `location` | Location         | Block Location     |
 <h3 id=set_variable_get_container_name>
   <code>variable::get_container_name</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2930,10 +2930,10 @@ variable::get_container_name(variable=`variable`, location=location(0,0,0,0,0));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `location` | Location | Container Location |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `location` | Location         | Container Location |
 <h3 id=set_variable_get_coordinate>
   <code>variable::get_coordinate</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2964,7 +2964,7 @@ variable::get_coordinate(variable=`variable`, location=location(0,0,0,0,0), type
 
 | **Name**   | **Type**                                                                                                                            | **Description**       |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `variable` | Variable                                                                                                                            | Variable to assign    |
+| `variable` | Variable\[Number\]                                                                                                                  | Variable to assign    |
 | `location` | Location                                                                                                                            | Location to get value |
 | `type`     | Marker<br/>**PITCH** - Horizontal Rotation<br/>**X** - X Axis<br/>**Y** - Y Axis<br/>**YAW** - Vertical rotation<br/>**Z** - Z Axis | Coordinate Type       |
 <h3 id=set_variable_get_decorate_pot_sherd>
@@ -2997,7 +2997,7 @@ variable::get_decorate_pot_sherd(variable=`variable`, location=location(0,0,0,0,
 
 | **Name**   | **Type**                                                                                                       | **Description**        |
 | ---------- | -------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `variable` | Variable                                                                                                       | Variable to assign     |
+| `variable` | Variable\[Item\]                                                                                               | Variable to assign     |
 | `location` | Location                                                                                                       | Decorated pot location |
 | `side`     | Marker<br/>**BACK** - Back side<br/>**FRONT** - Front side<br/>**LEFT** - Left side<br/>**RIGHT** - Right side | Decorated pot side     |
 <h3 id=set_variable_get_index_of_subtext>
@@ -3030,7 +3030,7 @@ variable::get_index_of_subtext(variable=`variable`, text="text", subtext="subtex
 
 | **Name**      | **Type**                                                                                     | **Description**    |
 | ------------- | -------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`    | Variable                                                                                     | Variable to assign |
+| `variable`    | Variable\[Number\]                                                                           | Variable to assign |
 | `text`        | Text                                                                                         | Text to get index  |
 | `subtext`     | Text                                                                                         | Subtext            |
 | `start_index` | Number                                                                                       | Starting Index     |
@@ -3063,10 +3063,10 @@ variable::get_item_amount(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `item`     | Item               | Item               |
 <h3 id=set_variable_get_item_attribute>
   <code>variable::get_item_attribute</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3097,7 +3097,7 @@ variable::get_item_attribute(variable=`variable`, item=item("stick"), name="name
 
 | **Name**    | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Description**     |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `variable`  | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Variable to assign  |
+| `variable`  | Variable\[Dictionary\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Variable to assign  |
 | `item`      | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Item                |
 | `name`      | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Attribute Name      |
 | `attribute` | Marker<br/>**ARMOR** - Armor<br/>**ARMOR_TOUGHNESS** - Armor Toughness<br/>**ATTACK_DAMAGE** - Attack Damage<br/>**ATTACK_KNOCKBACK** - Attack Knockback<br/>**ATTACK_SPEED** - Attack Speed<br/>**FLYING_SPEED** - Flying Speed<br/>**FOLLOW_RANGE** - Follow Range<br/>**GENERIC_ARMOR** - Protection Points (generic.armor)<br/>**GENERIC_ARMOR_TOUGHNESS** - Defense Density Points (generic.armor_toughness)<br/>**GENERIC_ATTACK_DAMAGE** - Attack Damage (generic.attack_damage)<br/>**GENERIC_ATTACK_KNOCKBACK** - Attack Knockback (generic.attack_knockback)<br/>**GENERIC_ATTACK_SPEED** - Attack Speed (generic.attack_speed)<br/>**GENERIC_BURNING_TIME** - Burning Time<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - Explosion Knockback Resistance<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - Fall Damage Multiplier<br/>**GENERIC_FLYING_SPEED** - Flying speed (generic.flying_speed)<br/>**GENERIC_FOLLOW_RANGE** - Follow Distance (generic.follow_range)<br/>**GENERIC_GRAVITY** - Gravity<br/>**GENERIC_JUMP_STRENGTH** - Jump Strength<br/>**GENERIC_KNOCKBACK_RESISTANCE** - Knockback Resistance (generic.knockback_resistance)<br/>**GENERIC_LUCK** - Fishing Luck (generic.luck)<br/>**GENERIC_MAX_ABSORPTION** - Max absorption (generic.max_absorption)<br/>**GENERIC_MAX_HEALTH** - Maximum Health (generic.max_health)<br/>**GENERIC_MOVEMENT_EFFICIENCY** - Movement Efficiency<br/>**GENERIC_MOVEMENT_SPEED** - Movement Speed (generic.movement_speed)<br/>**GENERIC_OXYGEN_BONUS** - Oxygen Bonus<br/>**GENERIC_SAFE_FALL_DISTANCE** - Safe Fall Distance<br/>**GENERIC_SCALE** - Scale<br/>**GENERIC_STEP_HEIGHT** - Step Height<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - Water Movement Efficiency<br/>**HORSE_JUMP_STRENGTH** - Horse Jump Strength (horse.jump_strength)<br/>**KNOCKBACK_RESISTANCE** - Knockback Resistance<br/>**LUCK** - Luck<br/>**MAX_ABSORPTION** - Max Absorption<br/>**MAX_HEALTH** - Max Health<br/>**MOVEMENT_SPEED** - Movement Speed<br/>**PLAYER_BLOCK_BREAK_SPEED** - Block Breaking Speed<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - Block Interaction Range<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - Entity Interaction Range<br/>**PLAYER_MINING_EFFICIENCY** - Mining Efficiency<br/>**PLAYER_SNEAKING_SPEED** - Sneaking SPeed<br/>**PLAYER_SUBMERGED_MINING_SPEED** - Submerged Mining Speed<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - Sweeping Damage Ratio<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - Zombie reinforcements (zombie.spawn_reinforcements) | Attribute Type      |
@@ -3131,10 +3131,10 @@ variable::get_item_break_sound(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `item`     | Item     | None            |
+| **Name**   | **Type**         | **Description** |
+| ---------- | ---------------- | --------------- |
+| `variable` | Variable\[Text\] | None            |
+| `item`     | Item             | None            |
 <h3 id=set_variable_get_item_color>
   <code>variable::get_item_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3168,10 +3168,10 @@ variable::get_item_color(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `item`     | Item             | Item               |
 <h3 id=set_variable_get_item_component>
   <code>variable::get_item_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3200,11 +3200,11 @@ variable::get_item_component(variable=`variable`, item=item("stick"), component=
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description** |
-| ----------- | -------- | --------------- |
-| `variable`  | Variable | None            |
-| `item`      | Item     | None            |
-| `component` | Text     | None            |
+| **Name**    | **Type**              | **Description** |
+| ----------- | --------------------- | --------------- |
+| `variable`  | Variable\[Any Value\] | None            |
+| `item`      | Item                  | None            |
+| `component` | Text                  | None            |
 <h3 id=set_variable_get_item_custom_model_data>
   <code>variable::get_item_custom_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3233,10 +3233,10 @@ variable::get_item_custom_model_data(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `item`     | Item               | Item               |
 <h3 id=set_variable_get_item_custom_tag>
   <code>variable::get_item_custom_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3265,12 +3265,12 @@ variable::get_item_custom_tag(variable=`variable`, item=item("stick"), tag_name=
 
 **Arguments:**
 
-| **Name**        | **Type**  | **Description**    |
-| --------------- | --------- | ------------------ |
-| `variable`      | Variable  | Variable to assign |
-| `item`          | Item      | Item               |
-| `tag_name`      | Text      | Tag Name           |
-| `default_value` | Any Value | Default Value      |
+| **Name**        | **Type**              | **Description**    |
+| --------------- | --------------------- | ------------------ |
+| `variable`      | Variable\[Any Value\] | Variable to assign |
+| `item`          | Item                  | Item               |
+| `tag_name`      | Text                  | Tag Name           |
+| `default_value` | Any Value             | Default Value      |
 <h3 id=set_variable_get_item_custom_tags>
   <code>variable::get_item_custom_tags</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3299,10 +3299,10 @@ variable::get_item_custom_tags(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
+| **Name**   | **Type**               | **Description**    |
+| ---------- | ---------------------- | ------------------ |
+| `variable` | Variable\[Dictionary\] | Variable to assign |
+| `item`     | Item                   | Item               |
 <h3 id=set_variable_get_item_destroyable_blocks>
   <code>variable::get_item_destroyable_blocks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3361,7 +3361,7 @@ variable::get_item_durability(variable=`variable`, item=item("stick"), durabilit
 
 | **Name**          | **Type**                                                                                                                                                                                                                                      | **Description**    |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`        | Variable                                                                                                                                                                                                                                      | Variable to assign |
+| `variable`        | Variable\[Number\]                                                                                                                                                                                                                            | Variable to assign |
 | `item`            | Item                                                                                                                                                                                                                                          | Item               |
 | `durability_type` | Marker<br/>**DAMAGE** - Current Durability<br/>**DAMAGE_PERCENTAGE** - Current Durability Percentage<br/>**MAXIMUM** - Max Durability<br/>**REMAINING** - Remaining Durability<br/>**REMAINING_PERCENTAGE** - Remaining Durability Percentage | Durability Type    |
 <h3 id=set_variable_get_item_effective_name>
@@ -3394,10 +3394,10 @@ variable::get_item_effective_name(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `item`     | Item     | None            |
+| **Name**   | **Type**         | **Description** |
+| ---------- | ---------------- | --------------- |
+| `variable` | Variable\[Text\] | None            |
+| `item`     | Item             | None            |
 <h3 id=set_variable_get_item_enchantments>
   <code>variable::get_item_enchantments</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3426,10 +3426,10 @@ variable::get_item_enchantments(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
+| **Name**   | **Type**               | **Description**    |
+| ---------- | ---------------------- | ------------------ |
+| `variable` | Variable\[Dictionary\] | Variable to assign |
+| `item`     | Item                   | Item               |
 <h3 id=set_variable_get_item_food_properties>
   <code>variable::get_item_food_properties</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3460,7 +3460,7 @@ variable::get_item_food_properties(variable=`variable`, item=item("stick"), prop
 
 | **Name**   | **Type**               | **Description** |
 | ---------- | ---------------------- | --------------- |
-| `variable` | Variable               | None            |
+| `variable` | Variable\[Number\]     | None            |
 | `item`     | Item                   | None            |
 | `property` | Marker<br/>**** - None | None            |
 <h3 id=set_variable_get_item_lore>
@@ -3491,10 +3491,10 @@ variable::get_item_lore(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[List\] | Variable to assign |
+| `item`     | Item             | Item               |
 <h3 id=set_variable_get_item_lore_line>
   <code>variable::get_item_lore_line</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3523,11 +3523,11 @@ variable::get_item_lore_line(variable=`variable`, item=item("stick"), line=1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
-| `line`     | Number   | Line Number        |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `item`     | Item             | Item               |
+| `line`     | Number           | Line Number        |
 <h3 id=set_variable_get_item_max_stack_size>
   <code>variable::get_item_max_stack_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3556,10 +3556,10 @@ variable::get_item_max_stack_size(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `item`     | Item               | Item               |
 <h3 id=set_variable_get_item_model_data>
   <code>variable::get_item_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3588,10 +3588,10 @@ variable::get_item_model_data(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `item`     | Item     | None            |
+| **Name**   | **Type**         | **Description** |
+| ---------- | ---------------- | --------------- |
+| `variable` | Variable\[Text\] | None            |
+| `item`     | Item             | None            |
 <h3 id=set_variable_get_item_name>
   <code>variable::get_item_name</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3620,10 +3620,10 @@ variable::get_item_name(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `item`     | Item             | Item               |
 <h3 id=set_variable_get_item_nbt_tags>
   <code>variable::get_item_nbt_tags</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3654,7 +3654,7 @@ variable::get_item_nbt_tags(variable=`variable`, item=item("stick"), fetch_mode=
 
 | **Name**     | **Type**                                                   | **Description**    |
 | ------------ | ---------------------------------------------------------- | ------------------ |
-| `variable`   | Variable                                                   | Variable to assign |
+| `variable`   | Variable\[Dictionary\]                                     | Variable to assign |
 | `item`       | Item                                                       | Item               |
 | `fetch_mode` | Marker<br/>**ALL** - All<br/>**CUSTOM_DATA** - Custom data | Get data           |
 <h3 id=set_variable_get_item_placeable_blocks>
@@ -3713,10 +3713,10 @@ variable::get_item_potion_effects(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[List\] | Variable to assign |
+| `item`     | Item             | Item               |
 <h3 id=set_variable_get_item_rarity>
   <code>variable::get_item_rarity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3745,10 +3745,10 @@ variable::get_item_rarity(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `item`     | Item             | Item               |
 <h3 id=set_variable_get_item_tooltip_style>
   <code>variable::get_item_tooltip_style</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3777,10 +3777,10 @@ variable::get_item_tooltip_style(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `item`     | Item     | None            |
+| **Name**   | **Type**         | **Description** |
+| ---------- | ---------------- | --------------- |
+| `variable` | Variable\[Text\] | None            |
+| `item`     | Item             | None            |
 <h3 id=set_variable_get_item_type>
   <code>variable::get_item_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3811,7 +3811,7 @@ variable::get_item_type(variable=`variable`, type=item("stick"), value="ID");
 
 | **Name**   | **Type**                                                                 | **Description**    |
 | ---------- | ------------------------------------------------------------------------ | ------------------ |
-| `variable` | Variable                                                                 | Variable to assign |
+| `variable` | Variable\[Text\]                                                         | Variable to assign |
 | `type`     | Item                                                                     | Item               |
 | `value`    | Marker<br/>**ID** - Item ID<br/>**ITEM** - Item<br/>**NAME** - Item Name | Text View          |
 <h3 id=set_variable_get_item_use_remainder>
@@ -3842,10 +3842,10 @@ variable::get_item_use_remainder(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `item`     | Item     | None            |
+| **Name**   | **Type**         | **Description** |
+| ---------- | ---------------- | --------------- |
+| `variable` | Variable\[Item\] | None            |
+| `item`     | Item             | None            |
 <h3 id=set_variable_get_item_weapon>
   <code>variable::get_item_weapon</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3876,7 +3876,7 @@ variable::get_item_weapon(variable=`variable`, item=item("stick"), property="ITE
 
 | **Name**   | **Type**                                                                     | **Description** |
 | ---------- | ---------------------------------------------------------------------------- | --------------- |
-| `variable` | Variable                                                                     | None            |
+| `variable` | Variable\[Number\]                                                           | None            |
 | `item`     | Item                                                                         | None            |
 | `property` | Marker<br/>**ITEM_DAMAGE_PER_ATTACK** - None<br/>**DISABLE_BLOCKING** - None | None            |
 <h3 id=set_variable_get_lectern_book>
@@ -3907,10 +3907,10 @@ variable::get_lectern_book(variable=`variable`, location=location(0,0,0,0,0));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `location` | Location | Block Location     |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `location` | Location         | Block Location     |
 <h3 id=set_variable_get_lectern_page>
   <code>variable::get_lectern_page</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3939,10 +3939,10 @@ variable::get_lectern_page(variable=`variable`, location=location(0,0,0,0,0));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `location` | Location | Block Location     |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `location` | Location           | Block Location     |
 <h3 id=set_variable_get_light_level>
   <code>variable::get_light_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3973,7 +3973,7 @@ variable::get_light_level(variable=`variable`, location=location(0,0,0,0,0), val
 
 | **Name**     | **Type**                                                                                         | **Description**       |
 | ------------ | ------------------------------------------------------------------------------------------------ | --------------------- |
-| `variable`   | Variable                                                                                         | Variable to assign    |
+| `variable`   | Variable\[Number\]                                                                               | Variable to assign    |
 | `location`   | Location                                                                                         | Location to get value |
 | `value_type` | Marker<br/>**BLOCKS** - Block Light<br/>**SKY** - Light from the sky<br/>**TOTAL** - Total Light | Light Type            |
 <h3 id=set_variable_get_list_index_of_value>
@@ -4006,7 +4006,7 @@ variable::get_list_index_of_value(variable=`variable`, list=`list`, value="any v
 
 | **Name**      | **Type**                                                                                     | **Description**    |
 | ------------- | -------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`    | Variable                                                                                     | Variable to assign |
+| `variable`    | Variable\[Number\]                                                                           | Variable to assign |
 | `list`        | List                                                                                         | List               |
 | `value`       | Any Value                                                                                    | Value              |
 | `search_mode` | Marker<br/>**FIRST** - From Start (Get First Index)<br/>**LAST** - From End (Get Last Index) | Search Mode        |
@@ -4038,10 +4038,10 @@ variable::get_list_length(variable=`variable`, list=`list`);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `list`     | List     | List               |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `list`     | List               | List               |
 <h3 id=set_variable_get_list_random_value>
   <code>variable::get_list_random_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4070,10 +4070,10 @@ variable::get_list_random_value(variable=`variable`, list=`list`);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `list`     | List     | List               |
+| **Name**   | **Type**              | **Description**    |
+| ---------- | --------------------- | ------------------ |
+| `variable` | Variable\[Any Value\] | Variable to assign |
+| `list`     | List                  | List               |
 <h3 id=set_variable_get_list_value>
   <code>variable::get_list_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4102,12 +4102,12 @@ variable::get_list_value(variable=`variable`, list=`list`, number=1, default_val
 
 **Arguments:**
 
-| **Name**        | **Type**  | **Description**    |
-| --------------- | --------- | ------------------ |
-| `variable`      | Variable  | Variable to assign |
-| `list`          | List      | List               |
-| `number`        | Number    | Index              |
-| `default_value` | Any Value | Default value      |
+| **Name**        | **Type**              | **Description**    |
+| --------------- | --------------------- | ------------------ |
+| `variable`      | Variable\[Any Value\] | Variable to assign |
+| `list`          | List                  | List               |
+| `number`        | Number                | Index              |
+| `default_value` | Any Value             | Default value      |
 <h3 id=set_variable_get_list_variables>
   <code>variable::get_list_variables</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4134,7 +4134,7 @@ variable::get_list_variables(variable=`variable`, scope="GAME");
 
 | **Name**   | **Type**                                                              | **Description**    |
 | ---------- | --------------------------------------------------------------------- | ------------------ |
-| `variable` | Variable                                                              | Variable to assign |
+| `variable` | Variable\[List\]                                                      | Variable to assign |
 | `scope`    | Marker<br/>**GAME** - Game<br/>**LOCAL** - Local<br/>**SAVE** - Saved | Variable Type      |
 <h3 id=set_variable_get_location_direction>
   <code>variable::get_location_direction</code>
@@ -4164,10 +4164,10 @@ variable::get_location_direction(variable=`variable`, location=location(0,0,0,0,
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `location` | Location | Location to Get    |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Vector\] | Variable to assign |
+| `location` | Location           | Location to Get    |
 <h3 id=set_variable_get_map_key_by_index>
   <code>variable::get_map_key_by_index</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4196,12 +4196,12 @@ variable::get_map_key_by_index(variable=`variable`, map=`map`, index=1, default_
 
 **Arguments:**
 
-| **Name**        | **Type**   | **Description** |
-| --------------- | ---------- | --------------- |
-| `variable`      | Variable   | Variable to set |
-| `map`           | Dictionary | The dictionary  |
-| `index`         | Number     | Index           |
-| `default_value` | Any Value  | Default value   |
+| **Name**        | **Type**              | **Description** |
+| --------------- | --------------------- | --------------- |
+| `variable`      | Variable\[Any Value\] | Variable to set |
+| `map`           | Dictionary            | The dictionary  |
+| `index`         | Number                | Index           |
+| `default_value` | Any Value             | Default value   |
 <h3 id=set_variable_get_map_keys>
   <code>variable::get_map_keys</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4230,10 +4230,10 @@ variable::get_map_keys(variable=`variable`, map=`map`);
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**         |
-| ---------- | ---------- | ----------------------- |
-| `variable` | Variable   | Variable to assign      |
-| `map`      | Dictionary | Dictionary to get value |
+| **Name**   | **Type**         | **Description**         |
+| ---------- | ---------------- | ----------------------- |
+| `variable` | Variable\[List\] | Variable to assign      |
+| `map`      | Dictionary       | Dictionary to get value |
 <h3 id=set_variable_get_map_keys_by_value>
   <code>variable::get_map_keys_by_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4264,7 +4264,7 @@ variable::get_map_keys_by_value(variable=`variable`, map=`map`, value="any value
 
 | **Name**        | **Type**                                                                                                                                 | **Description**    |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`      | Variable                                                                                                                                 | Variable to assign |
+| `variable`      | Variable\[List\]                                                                                                                         | Variable to assign |
 | `map`           | Dictionary                                                                                                                               | Dictionary         |
 | `value`         | Any Value                                                                                                                                | Value to get       |
 | `default_value` | Any Value                                                                                                                                | Default value      |
@@ -4297,10 +4297,10 @@ variable::get_map_size(variable=`variable`, map=`map`);
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**    |
-| ---------- | ---------- | ------------------ |
-| `variable` | Variable   | Variable to assign |
-| `map`      | Dictionary | Dictionary         |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `map`      | Dictionary         | Dictionary         |
 <h3 id=set_variable_get_map_value>
   <code>variable::get_map_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4329,12 +4329,12 @@ variable::get_map_value(variable=`variable`, map=`map`, key="any value", default
 
 **Arguments:**
 
-| **Name**        | **Type**   | **Description**      |
-| --------------- | ---------- | -------------------- |
-| `variable`      | Variable   | Variable to assign   |
-| `map`           | Dictionary | Dictionary to change |
-| `key`           | Any Value  | Key                  |
-| `default_value` | Any Value  | Default Value        |
+| **Name**        | **Type**              | **Description**      |
+| --------------- | --------------------- | -------------------- |
+| `variable`      | Variable\[Any Value\] | Variable to assign   |
+| `map`           | Dictionary            | Dictionary to change |
+| `key`           | Any Value             | Key                  |
+| `default_value` | Any Value             | Default Value        |
 <h3 id=set_variable_get_map_value_by_index>
   <code>variable::get_map_value_by_index</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4363,12 +4363,12 @@ variable::get_map_value_by_index(variable=`variable`, map=`map`, index=1, defaul
 
 **Arguments:**
 
-| **Name**        | **Type**   | **Description** |
-| --------------- | ---------- | --------------- |
-| `variable`      | Variable   | Variable to set |
-| `map`           | Dictionary | The dictionary  |
-| `index`         | Number     | Index           |
-| `default_value` | Any Value  | Default value   |
+| **Name**        | **Type**              | **Description** |
+| --------------- | --------------------- | --------------- |
+| `variable`      | Variable\[Any Value\] | Variable to set |
+| `map`           | Dictionary            | The dictionary  |
+| `index`         | Number                | Index           |
+| `default_value` | Any Value             | Default value   |
 <h3 id=set_variable_get_map_values>
   <code>variable::get_map_values</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4397,10 +4397,10 @@ variable::get_map_values(variable=`variable`, map=`map`);
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**         |
-| ---------- | ---------- | ----------------------- |
-| `variable` | Variable   | Variable to assign      |
-| `map`      | Dictionary | Dictionary to get value |
+| **Name**   | **Type**         | **Description**         |
+| ---------- | ---------------- | ----------------------- |
+| `variable` | Variable\[List\] | Variable to assign      |
+| `map`      | Dictionary       | Dictionary to get value |
 <h3 id=set_variable_get_midpoint_between_vectors>
   <code>variable::get_midpoint_between_vectors</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4425,11 +4425,11 @@ variable::get_midpoint_between_vectors(variable=`variable`, vector_1=vector(0,0,
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `vector_1` | Vector   | First Vector       |
-| `vector_2` | Vector   | Second Vector      |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Vector\] | Variable to assign |
+| `vector_1` | Vector             | First Vector       |
+| `vector_2` | Vector             | Second Vector      |
 <h3 id=set_variable_get_particle_amount>
   <code>variable::get_particle_amount</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4458,10 +4458,10 @@ variable::get_particle_amount(variable=`variable`, particle=particle("fire"));
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**       |
-| ---------- | --------------- | --------------------- |
-| `variable` | Variable        | Variable to assign    |
-| `particle` | Particle Effect | Particle to get value |
+| **Name**   | **Type**           | **Description**       |
+| ---------- | ------------------ | --------------------- |
+| `variable` | Variable\[Number\] | Variable to assign    |
+| `particle` | Particle Effect    | Particle to get value |
 <h3 id=set_variable_get_particle_color>
   <code>variable::get_particle_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4492,7 +4492,7 @@ variable::get_particle_color(variable=`variable`, particle=particle("fire"), col
 
 | **Name**     | **Type**                                                                | **Description**       |
 | ------------ | ----------------------------------------------------------------------- | --------------------- |
-| `variable`   | Variable                                                                | Variable to assign    |
+| `variable`   | Variable\[Text\]                                                        | Variable to assign    |
 | `particle`   | Particle Effect                                                         | Particle to get value |
 | `color_type` | Marker<br/>**COLOR** - Normal color<br/>**TO_COLOR** - Transition color | Color type            |
 <h3 id=set_variable_get_particle_material>
@@ -4523,10 +4523,10 @@ variable::get_particle_material(variable=`variable`, particle=particle("fire"));
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**       |
-| ---------- | --------------- | --------------------- |
-| `variable` | Variable        | Variable to assign    |
-| `particle` | Particle Effect | Particle to get value |
+| **Name**   | **Type**         | **Description**       |
+| ---------- | ---------------- | --------------------- |
+| `variable` | Variable\[Text\] | Variable to assign    |
+| `particle` | Particle Effect  | Particle to get value |
 <h3 id=set_variable_get_particle_offset>
   <code>variable::get_particle_offset</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4555,10 +4555,10 @@ variable::get_particle_offset(variable=`variable`, particle=particle("fire"));
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**       |
-| ---------- | --------------- | --------------------- |
-| `variable` | Variable        | Variable to assign    |
-| `particle` | Particle Effect | Particle to get value |
+| **Name**   | **Type**           | **Description**       |
+| ---------- | ------------------ | --------------------- |
+| `variable` | Variable\[Vector\] | Variable to assign    |
+| `particle` | Particle Effect    | Particle to get value |
 <h3 id=set_variable_get_particle_size>
   <code>variable::get_particle_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4587,10 +4587,10 @@ variable::get_particle_size(variable=`variable`, particle=particle("fire"));
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**       |
-| ---------- | --------------- | --------------------- |
-| `variable` | Variable        | Variable to assign    |
-| `particle` | Particle Effect | Particle to get value |
+| **Name**   | **Type**           | **Description**       |
+| ---------- | ------------------ | --------------------- |
+| `variable` | Variable\[Number\] | Variable to assign    |
+| `particle` | Particle Effect    | Particle to get value |
 <h3 id=set_variable_get_particle_spread>
   <code>variable::get_particle_spread</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4621,7 +4621,7 @@ variable::get_particle_spread(variable=`variable`, particle=particle("fire"), ty
 
 | **Name**   | **Type**                                                           | **Description**       |
 | ---------- | ------------------------------------------------------------------ | --------------------- |
-| `variable` | Variable                                                           | Variable to assign    |
+| `variable` | Variable\[Number\]                                                 | Variable to assign    |
 | `particle` | Particle Effect                                                    | Particle to get value |
 | `type`     | Marker<br/>**HORIZONTAL** - Horizontal<br/>**VERTICAL** - Vertical | Spread Plane          |
 <h3 id=set_variable_get_particle_type>
@@ -4652,10 +4652,10 @@ variable::get_particle_type(variable=`variable`, particle=particle("fire"));
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**       |
-| ---------- | --------------- | --------------------- |
-| `variable` | Variable        | Variable to assign    |
-| `particle` | Particle Effect | Particle to get value |
+| **Name**   | **Type**         | **Description**       |
+| ---------- | ---------------- | --------------------- |
+| `variable` | Variable\[Text\] | Variable to assign    |
+| `particle` | Particle Effect  | Particle to get value |
 <h3 id=set_variable_get_player_head>
   <code>variable::get_player_head</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4682,7 +4682,7 @@ variable::get_player_head(variable=`variable`, name_or_uuid="name_or_uuid", rece
 
 | **Name**       | **Type**                                                                            | **Description**     |
 | -------------- | ----------------------------------------------------------------------------------- | ------------------- |
-| `variable`     | Variable                                                                            | Variable to assign  |
+| `variable`     | Variable\[Item\]                                                                    | Variable to assign  |
 | `name_or_uuid` | Text                                                                                | Player name or UUID |
 | `receive_type` | Marker<br/>**NAME_OR_UUID** - Player name or UUID<br/>**VALUE** - Value of the skin | Value type          |
 <h3 id=set_variable_get_player_head_owner>
@@ -4715,7 +4715,7 @@ variable::get_player_head_owner(variable=`variable`, head=item("stick"), return_
 
 | **Name**       | **Type**                                                                         | **Description**    |
 | -------------- | -------------------------------------------------------------------------------- | ------------------ |
-| `variable`     | Variable                                                                         | Variable to assign |
+| `variable`     | Variable\[Text\]                                                                 | Variable to assign |
 | `head`         | Item                                                                             | Player Head        |
 | `return_value` | Marker<br/>**NAME** - Name<br/>**UUID** - UUID<br/>**VALUE** - Value of the skin | Return Value       |
 <h3 id=set_variable_get_player_head_value>
@@ -4748,7 +4748,7 @@ variable::get_player_head_value(variable=`variable`, location=location(0,0,0,0,0
 
 | **Name**       | **Type**                                                                  | **Description** |
 | -------------- | ------------------------------------------------------------------------- | --------------- |
-| `variable`     | Variable                                                                  | Variable to set |
+| `variable`     | Variable\[Text\]                                                          | Variable to set |
 | `location`     | Location                                                                  | Skull location  |
 | `return_value` | Marker<br/>**NAME** - Name<br/>**UUID** - UUID<br/>**VALUE** - Skin value | Return value    |
 <h3 id=set_variable_get_potion_effect_amplifier>
@@ -4779,10 +4779,10 @@ variable::get_potion_effect_amplifier(variable=`variable`, potion=potion("slow_f
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `potion`   | Potion   | Potion             |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `potion`   | Potion             | Potion             |
 <h3 id=set_variable_get_potion_effect_duration>
   <code>variable::get_potion_effect_duration</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4811,10 +4811,10 @@ variable::get_potion_effect_duration(variable=`variable`, potion=potion("slow_fa
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `potion`   | Potion   | Potion             |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `potion`   | Potion             | Potion             |
 <h3 id=set_variable_get_potion_effect_type>
   <code>variable::get_potion_effect_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4843,10 +4843,10 @@ variable::get_potion_effect_type(variable=`variable`, potion=potion("slow_fallin
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `potion`   | Potion   | Potion             |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `potion`   | Potion           | Potion             |
 <h3 id=set_variable_get_sculk_shrieker_warning_level>
   <code>variable::get_sculk_shrieker_warning_level</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4875,10 +4875,10 @@ variable::get_sculk_shrieker_warning_level(variable=`variable`, location=locatio
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**         |
-| ---------- | -------- | ----------------------- |
-| `variable` | Variable | Variable to set         |
-| `location` | Location | Sculk Shrieker location |
+| **Name**   | **Type**           | **Description**         |
+| ---------- | ------------------ | ----------------------- |
+| `variable` | Variable\[Number\] | Variable to set         |
+| `location` | Location           | Sculk Shrieker location |
 <h3 id=set_variable_get_sign_text>
   <code>variable::get_sign_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4909,7 +4909,7 @@ variable::get_sign_text(variable=`variable`, location=location(0,0,0,0,0), check
 
 | **Name**     | **Type**                                                                                                                                       | **Description**    |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`   | Variable                                                                                                                                       | Variable to assign |
+| `variable`   | Variable\[Text\]                                                                                                                               | Variable to assign |
 | `location`   | Location                                                                                                                                       | Sign Location      |
 | `check_side` | Marker<br/>**ALL** - All<br/>**BACK** - Back<br/>**FRONT** - Front                                                                             | Sign Side          |
 | `sign_line`  | Marker<br/>**ALL** - All lines<br/>**FIRST** - First Line<br/>**FOURTH** - Fourth line<br/>**SECOND** - Second Line<br/>**THIRD** - Third line | Line Number        |
@@ -4941,10 +4941,10 @@ variable::get_sound_pitch(variable=`variable`, sound=sound("entity.zombie.hurt")
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `sound`    | Sound    | Sound to get value |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `sound`    | Sound              | Sound to get value |
 <h3 id=set_variable_get_sound_source>
   <code>variable::get_sound_source</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4973,10 +4973,10 @@ variable::get_sound_source(variable=`variable`, sound=sound("entity.zombie.hurt"
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `sound`    | Sound    | Sound to get value |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `sound`    | Sound            | Sound to get value |
 <h3 id=set_variable_get_sound_type>
   <code>variable::get_sound_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5005,10 +5005,10 @@ variable::get_sound_type(variable=`variable`, sound=sound("entity.zombie.hurt"))
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `sound`    | Sound    | Sound to get value |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `sound`    | Sound            | Sound to get value |
 <h3 id=set_variable_get_sound_variation>
   <code>variable::get_sound_variation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5039,10 +5039,10 @@ variable::get_sound_variation(variable=`variable`, sound=sound("entity.zombie.hu
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `sound`    | Sound    | Sound to get value |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `sound`    | Sound            | Sound to get value |
 <h3 id=set_variable_get_sound_variations>
   <code>variable::get_sound_variations</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5071,10 +5071,10 @@ variable::get_sound_variations(variable=`variable`, sound=sound("entity.zombie.h
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**     |
-| ---------- | -------- | ------------------- |
-| `variable` | Variable | Variable to assign  |
-| `sound`    | Sound    | Sound to get values |
+| **Name**   | **Type**         | **Description**     |
+| ---------- | ---------------- | ------------------- |
+| `variable` | Variable\[List\] | Variable to assign  |
+| `sound`    | Sound            | Sound to get values |
 <h3 id=set_variable_get_sound_volume_action>
   <code>variable::get_sound_volume_action</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5103,10 +5103,10 @@ variable::get_sound_volume_action(variable=`variable`, sound=sound("entity.zombi
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `sound`    | Sound    | Sound to get value |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `sound`    | Sound              | Sound to get value |
 <h3 id=set_variable_get_template_code>
   <code>variable::get_template_code</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5137,7 +5137,7 @@ variable::get_template_code(variable=`variable`, template=item("stick"), return_
 
 | **Name**      | **Type**                                                      | **Description**    |
 | ------------- | ------------------------------------------------------------- | ------------------ |
-| `variable`    | Variable                                                      | Variable to assign |
+| `variable`    | Variable\[Any Value\]                                         | Variable to assign |
 | `template`    | Item                                                          | Template           |
 | `return_type` | Marker<br/>**MAP** - JSON Dictionary<br/>**TEXT** - JSON Text | Return Value       |
 <h3 id=set_variable_get_text_width>
@@ -5170,10 +5170,10 @@ variable::get_text_width(variable=`variable`, text="text");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `text`     | Text     | Original Text      |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `text`     | Text               | Original Text      |
 <h3 id=set_variable_get_vault_displayed_item>
   <code>variable::get_vault_displayed_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5200,10 +5200,10 @@ variable::get_vault_displayed_item(variable=`variable`, location=location(0,0,0,
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `location` | Location | None            |
+| **Name**   | **Type**         | **Description** |
+| ---------- | ---------------- | --------------- |
+| `variable` | Variable\[Item\] | None            |
+| `location` | Location         | None            |
 <h3 id=set_variable_get_vault_next_state_update_time>
   <code>variable::get_vault_next_state_update_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5230,10 +5230,10 @@ variable::get_vault_next_state_update_time(variable=`variable`, location=locatio
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `location` | Location | None            |
+| **Name**   | **Type**           | **Description** |
+| ---------- | ------------------ | --------------- |
+| `variable` | Variable\[Number\] | None            |
+| `location` | Location           | None            |
 <h3 id=set_variable_get_vector_all_components>
   <code>variable::get_vector_all_components</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5262,12 +5262,12 @@ variable::get_vector_all_components(x=`x`, y=`y`, z=`z`, vector=vector(0,0,0));
 
 **Arguments:**
 
-| **Name** | **Type** | **Description**           |
-| -------- | -------- | ------------------------- |
-| `x`      | Variable | X location                |
-| `y`      | Variable | Y location                |
-| `z`      | Variable | Z location                |
-| `vector` | Vector   | Vector to get values from |
+| **Name** | **Type**           | **Description**           |
+| -------- | ------------------ | ------------------------- |
+| `x`      | Variable\[Number\] | X location                |
+| `y`      | Variable\[Number\] | Y location                |
+| `z`      | Variable\[Number\] | Z location                |
+| `vector` | Vector             | Vector to get values from |
 <h3 id=set_variable_get_vector_between_locations>
   <code>variable::get_vector_between_locations</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5292,11 +5292,11 @@ variable::get_vector_between_locations(variable=`variable`, end_location=locatio
 
 **Arguments:**
 
-| **Name**         | **Type** | **Description**    |
-| ---------------- | -------- | ------------------ |
-| `variable`       | Variable | Variable to assign |
-| `end_location`   | Location | Starting Location  |
-| `start_location` | Location | End Location       |
+| **Name**         | **Type**           | **Description**    |
+| ---------------- | ------------------ | ------------------ |
+| `variable`       | Variable\[Vector\] | Variable to assign |
+| `end_location`   | Location           | Starting Location  |
+| `start_location` | Location           | End Location       |
 <h3 id=set_variable_get_vector_component>
   <code>variable::get_vector_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5327,7 +5327,7 @@ variable::get_vector_component(variable=`variable`, vector=vector(0,0,0), vector
 
 | **Name**           | **Type**                                                                          | **Description**     |
 | ------------------ | --------------------------------------------------------------------------------- | ------------------- |
-| `variable`         | Variable                                                                          | Variable to assign  |
+| `variable`         | Variable\[Number\]                                                                | Variable to assign  |
 | `vector`           | Vector                                                                            | Vector to get value |
 | `vector_component` | Marker<br/>**X** - X Coordinate<br/>**Y** - Y Coordinate<br/>**Z** - Z Coordinate | Coordinate Type     |
 <h3 id=set_variable_get_vector_from_block_face>
@@ -5354,10 +5354,10 @@ variable::get_vector_from_block_face(variable=`variable`, block_face="block_face
 
 **Arguments:**
 
-| **Name**     | **Type** | **Description**    |
-| ------------ | -------- | ------------------ |
-| `variable`   | Variable | Variable to assign |
-| `block_face` | Text     | Cardinal Direction |
+| **Name**     | **Type**           | **Description**    |
+| ------------ | ------------------ | ------------------ |
+| `variable`   | Variable\[Vector\] | Variable to assign |
+| `block_face` | Text               | Cardinal Direction |
 <h3 id=set_variable_get_vector_length>
   <code>variable::get_vector_length</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5388,7 +5388,7 @@ variable::get_vector_length(variable=`variable`, vector=vector(0,0,0), length_ty
 
 | **Name**      | **Type**                                                                    | **Description**      |
 | ------------- | --------------------------------------------------------------------------- | -------------------- |
-| `variable`    | Variable                                                                    | Variable to assign   |
+| `variable`    | Variable\[Number\]                                                          | Variable to assign   |
 | `vector`      | Vector                                                                      | Vector to get length |
 | `length_type` | Marker<br/>**LENGTH** - Real Length<br/>**LENGTH_SQUARED** - Length Squared | Value Type           |
 <h3 id=set_variable_hadamard_vector_product>
@@ -5419,11 +5419,11 @@ variable::hadamard_vector_product(variable=`variable`, vector_1=vector(0,0,0), v
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `vector_1` | Vector   | None            |
-| `vector_2` | Vector   | None            |
+| **Name**   | **Type**           | **Description** |
+| ---------- | ------------------ | --------------- |
+| `variable` | Variable\[Vector\] | None            |
+| `vector_1` | Vector             | None            |
+| `vector_2` | Vector             | None            |
 <h3 id=set_variable_hash>
   <code>variable::get_text_hash</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5454,7 +5454,7 @@ variable::get_text_hash(variable=`variable`, text="text", algorithm="MD5");
 
 | **Name**    | **Type**                                                               | **Description**    |
 | ----------- | ---------------------------------------------------------------------- | ------------------ |
-| `variable`  | Variable                                                               | Variable to assign |
+| `variable`  | Variable\[Text\]                                                       | Variable to assign |
 | `text`      | Text                                                                   | Original Text      |
 | `algorithm` | Marker<br/>**MD5** - MD5<br/>**SHA1** - SHA-1<br/>**SHA256** - SHA-256 | Algorithm          |
 <h3 id=set_variable_hide_item_components>
@@ -5487,9 +5487,9 @@ variable::hide_item_components(variable=`variable`, item=item("stick"), componen
 
 | **Name**     | **Type**                                                           | **Description** |
 | ------------ | ------------------------------------------------------------------ | --------------- |
-| `variable`   | Variable                                                           | None            |
+| `variable`   | Variable\[Item\]                                                   | None            |
 | `item`       | Item                                                               | None            |
-| `components` | list[Text]                                                         | None            |
+| `components` | list\[Text\]                                                       | None            |
 | `mode`       | Marker<br/>**SET** - None<br/>**ADD** - None<br/>**REMOVE** - None | None            |
 <h3 id=set_variable_increment>
   <code>variable::increment</code>
@@ -5519,10 +5519,10 @@ variable::increment(variable=`variable`, number=1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `number`   | Number   | Number to add      |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `number`   | Number             | Number to add      |
 <h3 id=set_variable_insert_list_value>
   <code>variable::insert_list_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5551,12 +5551,12 @@ variable::insert_list_value(variable=`variable`, list=`list`, number=1, value="a
 
 **Arguments:**
 
-| **Name**   | **Type**  | **Description**    |
-| ---------- | --------- | ------------------ |
-| `variable` | Variable  | Variable to assign |
-| `list`     | List      | List               |
-| `number`   | Number    | Index              |
-| `value`    | Any Value | Value              |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[List\] | Variable to assign |
+| `list`     | List             | List               |
+| `number`   | Number           | Index              |
+| `value`    | Any Value        | Value              |
 <h3 id=set_variable_join_text>
   <code>variable::join_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5585,15 +5585,15 @@ variable::join_text(variable=`variable`, list=`list`, separator="separator", pre
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**                       |
-| ----------- | -------- | ------------------------------------- |
-| `variable`  | Variable | Variable to assign                    |
-| `list`      | List     | List to Join                          |
-| `separator` | Text     | Separator                             |
-| `prefix`    | Text     | Prefix                                |
-| `postfix`   | Text     | Postfix                               |
-| `limit`     | Number   | Item Limit (if empty, all items)      |
-| `truncated` | Text     | Text after limit (default is \"...\") |
+| **Name**    | **Type**         | **Description**                       |
+| ----------- | ---------------- | ------------------------------------- |
+| `variable`  | Variable\[Text\] | Variable to assign                    |
+| `list`      | List             | List to Join                          |
+| `separator` | Text             | Separator                             |
+| `prefix`    | Text             | Prefix                                |
+| `postfix`   | Text             | Postfix                               |
+| `limit`     | Number           | Item Limit (if empty, all items)      |
+| `truncated` | Text             | Text after limit (default is \"...\") |
 <h3 id=set_variable_lerp_number>
   <code>variable::lerp_number</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5622,12 +5622,12 @@ variable::lerp_number(variable=`variable`, start=1, stop=2, amount=3);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**      |
-| ---------- | -------- | -------------------- |
-| `variable` | Variable | Variable to assign   |
-| `start`    | Number   | First number         |
-| `stop`     | Number   | Second number        |
-| `amount`   | Number   | Factor (from 0 to 1) |
+| **Name**   | **Type**           | **Description**      |
+| ---------- | ------------------ | -------------------- |
+| `variable` | Variable\[Number\] | Variable to assign   |
+| `start`    | Number             | First number         |
+| `stop`     | Number             | Second number        |
+| `amount`   | Number             | Factor (from 0 to 1) |
 <h3 id=set_variable_location_relative>
   <code>variable::location_relative</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5658,7 +5658,7 @@ variable::location_relative(variable=`variable`, location=location(0,0,0,0,0), d
 
 | **Name**     | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | **Description**    |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`   | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Variable to assign |
+| `variable`   | Variable\[Location\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Variable to assign |
 | `location`   | Location                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Relative Location  |
 | `distance`   | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Distance           |
 | `block_face` | Marker<br/>**DOWN** - Down<br/>**EAST** - East<br/>**EAST_NORTH_EAST** - East-North-East (east_north_east)<br/>**EAST_SOUTH_EAST** - East Southeast (east_south_east)<br/>**NORTH** - North<br/>**NORTH_EAST** - Northeast<br/>**NORTH_NORTH_EAST** - North-north-east (north_north_east)<br/>**NORTH_NORTH_WEST** - North-north-west (north_north_west)<br/>**NORTH_WEST** - Northwest<br/>**SELF** - Own (self)<br/>**SOUTH** - South<br/>**SOUTH_EAST** - Southeast<br/>**SOUTH_SOUTH_EAST** - South Southeast (south_south_east)<br/>**SOUTH_SOUTH_WEST** - South-South-West (south_south_west)<br/>**SOUTH_WEST** - Southwest<br/>**UP** - Up<br/>**WEST** - West<br/>**WEST_NORTH_WEST** - West-north-west (west_north_west)<br/>**WEST_SOUTH_WEST** - West-south-west (west_south_west) | Block Side         |
@@ -5688,7 +5688,7 @@ variable::locations_distance(variable=`variable`, location_1=location(0,0,0,0,0)
 
 | **Name**     | **Type**                                                                             | **Description**    |
 | ------------ | ------------------------------------------------------------------------------------ | ------------------ |
-| `variable`   | Variable                                                                             | Variable to assign |
+| `variable`   | Variable\[Number\]                                                                   | Variable to assign |
 | `location_1` | Location                                                                             | First Location     |
 | `location_2` | Location                                                                             | Second Location    |
 | `type`       | Marker<br/>**ALTITUDE** - Altitude<br/>**THREE_D** - Volume<br/>**TWO_D** - In Plane | Distance Type      |
@@ -5720,11 +5720,11 @@ variable::log(variable=`variable`, number=1, base=2);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `number`   | Number   | Log Argument       |
-| `base`     | Number   | Log Base           |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `number`   | Number             | Log Argument       |
+| `base`     | Number             | Log Base           |
 <h3 id=set_variable_map_range>
   <code>variable::map_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5753,14 +5753,14 @@ variable::map_range(variable=`variable`, number=1, from_start=2, from_stop=3, to
 
 **Arguments:**
 
-| **Name**     | **Type** | **Description**                    |
-| ------------ | -------- | ---------------------------------- |
-| `variable`   | Variable | Variable to assign                 |
-| `number`     | Number   | Number to modify                   |
-| `from_start` | Number   | Lowest limit of the initial range  |
-| `from_stop`  | Number   | Highest limit of the initial range |
-| `to_start`   | Number   | Lowest limit of the new range      |
-| `to_stop`    | Number   | Highest limit of the new range     |
+| **Name**     | **Type**           | **Description**                    |
+| ------------ | ------------------ | ---------------------------------- |
+| `variable`   | Variable\[Number\] | Variable to assign                 |
+| `number`     | Number             | Number to modify                   |
+| `from_start` | Number             | Lowest limit of the initial range  |
+| `from_stop`  | Number             | Highest limit of the initial range |
+| `to_start`   | Number             | Lowest limit of the new range      |
+| `to_stop`    | Number             | Highest limit of the new range     |
 <h3 id=set_variable_max>
   <code>variable::max</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5785,10 +5785,10 @@ variable::max(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| **Name**   | **Type**     | **Description**    |
-| ---------- | ------------ | ------------------ |
-| `variable` | Variable     | Variable to assign |
-| `value`    | list[Number] | Numbers to select  |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `value`    | list\[Number\]     | Numbers to select  |
 <h3 id=set_variable_min>
   <code>variable::min</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5813,10 +5813,10 @@ variable::min(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| **Name**   | **Type**     | **Description**    |
-| ---------- | ------------ | ------------------ |
-| `variable` | Variable     | Variable to assign |
-| `value`    | list[Number] | Numbers to select  |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `value`    | list\[Number\]     | Numbers to select  |
 <h3 id=set_variable_multiple>
   <code>variable::set_values</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5837,10 +5837,10 @@ variable::set_values(variables=[`variables`, `variables`], values=["any value", 
 
 **Arguments:**
 
-| **Name**    | **Type**        | **Description** |
-| ----------- | --------------- | --------------- |
-| `variables` | list[Variable]  | None            |
-| `values`    | list[Any Value] | None            |
+| **Name**    | **Type**          | **Description** |
+| ----------- | ----------------- | --------------- |
+| `variables` | list\[Variable\]  | None            |
+| `values`    | list\[Any Value\] | None            |
 <h3 id=set_variable_multiply>
   <code>variable::multiply</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5865,10 +5865,10 @@ variable::multiply(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| **Name**   | **Type**     | **Description**     |
-| ---------- | ------------ | ------------------- |
-| `variable` | Variable     | Variable to assign  |
-| `value`    | list[Number] | Numbers to Multiply |
+| **Name**   | **Type**           | **Description**     |
+| ---------- | ------------------ | ------------------- |
+| `variable` | Variable\[Number\] | Variable to assign  |
+| `value`    | list\[Number\]     | Numbers to Multiply |
 <h3 id=set_variable_multiply_vector>
   <code>variable::multiply_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5893,11 +5893,11 @@ variable::multiply_vector(variable=`variable`, vector=vector(0,0,0), multiplier=
 
 **Arguments:**
 
-| **Name**     | **Type** | **Description**    |
-| ------------ | -------- | ------------------ |
-| `variable`   | Variable | Variable to assign |
-| `vector`     | Vector   | Vector to change   |
-| `multiplier` | Number   | Number to Multiply |
+| **Name**     | **Type**           | **Description**    |
+| ------------ | ------------------ | ------------------ |
+| `variable`   | Variable\[Vector\] | Variable to assign |
+| `vector`     | Vector             | Vector to change   |
+| `multiplier` | Number             | Number to Multiply |
 <h3 id=set_variable_obtain_item_custom_model_data>
   <code>variable::obtain_item_custom_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5928,7 +5928,7 @@ variable::obtain_item_custom_model_data(variable=`variable`, item=item("stick"),
 
 | **Name**     | **Type**                                                                                          | **Description** |
 | ------------ | ------------------------------------------------------------------------------------------------- | --------------- |
-| `variable`   | Variable                                                                                          | None            |
+| `variable`   | Variable\[List\]                                                                                  | None            |
 | `item`       | Item                                                                                              | None            |
 | `value_type` | Marker<br/>**FLOATS** - None<br/>**BOOLEANS** - None<br/>**STRINGS** - None<br/>**COLORS** - None | None            |
 <h3 id=set_variable_parse_json>
@@ -5955,10 +5955,10 @@ variable::parse_json(variable=`variable`, json="json");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | For writing result |
-| `json`     | Text     | JSON text          |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | For writing result |
+| `json`     | Text             | JSON text          |
 <h3 id=set_variable_parse_to_component>
   <code>variable::parse_to_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5989,7 +5989,7 @@ variable::parse_to_component(variable=`variable`, text="text", parsing="JSON");
 
 | **Name**   | **Type**                                                                                                      | **Description**    |
 | ---------- | ------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable` | Variable                                                                                                      | Variable to assign |
+| `variable` | Variable\[Text\]                                                                                              | Variable to assign |
 | `text`     | Text                                                                                                          | Text to convert    |
 | `parsing`  | Marker<br/>**JSON** - JSON<br/>**LEGACY** - Colored (&)<br/>**MINIMESSAGE** - Stylized<br/>**PLAIN** - Normal | Convertion type    |
 <h3 id=set_variable_perlin_noise_3d>
@@ -6018,7 +6018,7 @@ variable::perlin_noise_3d(variable=`variable`, location=location(0,0,0,0,0), see
 
 | **Name**        | **Type**                                                                              | **Description**            |
 | --------------- | ------------------------------------------------------------------------------------- | -------------------------- |
-| `variable`      | Variable                                                                              | Variable to assign         |
+| `variable`      | Variable\[Number\]                                                                    | Variable to assign         |
 | `location`      | Location                                                                              | Location to set noise      |
 | `seed`          | Number                                                                                | Noise Key                  |
 | `loc_frequency` | Number                                                                                | Noise Frequency            |
@@ -6055,11 +6055,11 @@ variable::pow(variable=`variable`, base=1, power=2);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `base`     | Number   | Power base         |
-| `power`    | Number   | Exponent           |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `base`     | Number             | Power base         |
+| `power`    | Number             | Exponent           |
 <h3 id=set_variable_purge>
   <code>variable::purge</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6082,7 +6082,7 @@ variable::purge(names=["names", "names"], scope="GAME", match="ENDS_WITH", ignor
 
 | **Name**      | **Type**                                                                                                                                                                     | **Description**  |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `names`       | list[Text]                                                                                                                                                                   | Names to Compare |
+| `names`       | list\[Text\]                                                                                                                                                                 | Names to Compare |
 | `scope`       | Marker<br/>**GAME** - Game<br/>**LOCAL** - Local<br/>**SAVE** - Saved                                                                                                        | Variable Type    |
 | `match`       | Marker<br/>**ENDS_WITH** - None<br/>**EQUALS** - Full Match<br/>**NAME_CONTAINS** - Name contains text<br/>**PART_CONTAINS** - Text contains name<br/>**STARTS_WITH** - None | Comparison Mode  |
 | `ignore_case` | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                                                                                                                       | Ignore case      |
@@ -6110,10 +6110,10 @@ variable::random(variable=`variable`, values=["any value", "any value"]);
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**    |
-| ---------- | --------------- | ------------------ |
-| `variable` | Variable        | Variable to assign |
-| `values`   | list[Any Value] | Values to choose   |
+| **Name**   | **Type**              | **Description**    |
+| ---------- | --------------------- | ------------------ |
+| `variable` | Variable\[Any Value\] | Variable to assign |
+| `values`   | list\[Any Value\]     | Values to choose   |
 <h3 id=set_variable_random_location>
   <code>variable::random_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6140,7 +6140,7 @@ variable::random_location(variable=`variable`, location_1=location(0,0,0,0,0), l
 
 | **Name**     | **Type**                                             | **Description**              |
 | ------------ | ---------------------------------------------------- | ---------------------------- |
-| `variable`   | Variable                                             | Variable to assign           |
+| `variable`   | Variable\[Location\]                                 | Variable to assign           |
 | `location_1` | Location                                             | First corner of region       |
 | `location_2` | Location                                             | Second Region Corner         |
 | `integer`    | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Round to Integer Coordinates |
@@ -6170,7 +6170,7 @@ variable::random_number(variable=`variable`, min=1, max=2, integer="FALSE");
 
 | **Name**   | **Type**                                                 | **Description**    |
 | ---------- | -------------------------------------------------------- | ------------------ |
-| `variable` | Variable                                                 | Variable to assign |
+| `variable` | Variable\[Number\]                                       | Variable to assign |
 | `min`      | Number                                                   | Minimum Value      |
 | `max`      | Number                                                   | Max Value          |
 | `integer`  | Marker<br/>**FALSE** - Fractional<br/>**TRUE** - Integer | Number Type        |
@@ -6202,10 +6202,10 @@ variable::randomize_list_order(variable=`variable`, list=`list`);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `list`     | List     | List               |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[List\] | Variable to assign |
+| `list`     | List             | List               |
 <h3 id=set_variable_ray_trace_result>
   <code>variable::ray_trace_result</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6232,10 +6232,10 @@ variable::ray_trace_result(variable_for_hit_location=`variable_for_hit_location`
 
 | **Name**                          | **Type**                                                                                                                                   | **Description**                                                                      |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `variable_for_hit_location`       | Variable                                                                                                                                   | Ray Impact Point                                                                     |
-| `variable_for_hit_block_location` | Variable                                                                                                                                   | Block Location                                                                       |
-| `variable_for_hit_block_face`     | Variable                                                                                                                                   | Block/Hitbox Side                                                                    |
-| `variable_for_hit_entity_uuid`    | Variable                                                                                                                                   | Entity UUID                                                                          |
+| `variable_for_hit_location`       | Variable\[Location\]                                                                                                                       | Ray Impact Point                                                                     |
+| `variable_for_hit_block_location` | Variable\[Location\]                                                                                                                       | Block Location                                                                       |
+| `variable_for_hit_block_face`     | Variable\[Text\]                                                                                                                           | Block/Hitbox Side                                                                    |
+| `variable_for_hit_entity_uuid`    | Variable\[List\]                                                                                                                           | Entity UUID                                                                          |
 | `start`                           | Location                                                                                                                                   | Beam Start                                                                           |
 | `ray_size`                        | Number                                                                                                                                     | Beam Width                                                                           |
 | `max_distance`                    | Number                                                                                                                                     | Beam length                                                                          |
@@ -6267,12 +6267,12 @@ variable::reflect_vector_product(variable=`variable`, vector_1=vector(0,0,0), ve
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**                                            |
-| ---------- | -------- | ---------------------------------------------------------- |
-| `variable` | Variable | Variable to assign                                         |
-| `vector_1` | Vector   | Source Vector                                              |
-| `vector_2` | Vector   | Reflection Surface Vector                                  |
-| `bounce`   | Number   | Multiply the resulting vector by this number (default 1.0) |
+| **Name**   | **Type**           | **Description**                                            |
+| ---------- | ------------------ | ---------------------------------------------------------- |
+| `variable` | Variable\[Vector\] | Variable to assign                                         |
+| `vector_1` | Vector             | Source Vector                                              |
+| `vector_2` | Vector             | Reflection Surface Vector                                  |
+| `bounce`   | Number             | Multiply the resulting vector by this number (default 1.0) |
 <h3 id=set_variable_regex_replace_text>
   <code>variable::regex_replace_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6303,7 +6303,7 @@ variable::regex_replace_text(variable=`variable`, text="text", regex="regex", re
 
 | **Name**          | **Type**                                                                          | **Description**                                  |
 | ----------------- | --------------------------------------------------------------------------------- | ------------------------------------------------ |
-| `variable`        | Variable                                                                          | Variable to assign                               |
+| `variable`        | Variable\[Text\]                                                                  | Variable to assign                               |
 | `text`            | Text                                                                              | Original Text                                    |
 | `regex`           | Text                                                                              | Regular Expression                               |
 | `replacement`     | Text                                                                              | Replacement                                      |
@@ -6345,7 +6345,7 @@ variable::remainder(variable=`variable`, dividend=1, divisor=2, remainder_mode="
 
 | **Name**         | **Type**                                                                                                                        | **Description**    |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`       | Variable                                                                                                                        | Variable to Assign |
+| `variable`       | Variable\[Number\]                                                                                                              | Variable to Assign |
 | `dividend`       | Number                                                                                                                          | Dividend           |
 | `divisor`        | Number                                                                                                                          | Divisor            |
 | `remainder_mode` | Marker<br/>**MODULO** - Modulo Remainder (leaves divisor sign)<br/>**REMAINDER** - Remainder of division (leaves dividend sign) | Operation Mode     |
@@ -6377,10 +6377,10 @@ variable::remove_compass_lodestone(variable=`variable`, item=item("stick"));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to Assign |
-| `item`     | Item     | Magnetized Compass |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to Assign |
+| `item`     | Item             | Magnetized Compass |
 <h3 id=set_variable_remove_enchantment>
   <code>variable::remove_enchantment</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6409,11 +6409,11 @@ variable::remove_enchantment(variable=`variable`, item=item("stick"), enchantmen
 
 **Arguments:**
 
-| **Name**      | **Type** | **Description**    |
-| ------------- | -------- | ------------------ |
-| `variable`    | Variable | Variable to Assign |
-| `item`        | Item     | Item               |
-| `enchantment` | Text     | Enchant ID         |
+| **Name**      | **Type**         | **Description**    |
+| ------------- | ---------------- | ------------------ |
+| `variable`    | Variable\[Item\] | Variable to Assign |
+| `item`        | Item             | Item               |
+| `enchantment` | Text             | Enchant ID         |
 <h3 id=set_variable_remove_item_attribute>
   <code>variable::remove_item_attribute</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6472,10 +6472,10 @@ variable::remove_item_custom_model_data(variable=`variable`, item=item("stick"))
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | Variable to set |
-| `item`     | Item     | Item            |
+| **Name**   | **Type**         | **Description** |
+| ---------- | ---------------- | --------------- |
+| `variable` | Variable\[Item\] | Variable to set |
+| `item`     | Item             | Item            |
 <h3 id=set_variable_remove_item_custom_tag>
   <code>variable::remove_item_custom_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6504,11 +6504,11 @@ variable::remove_item_custom_tag(variable=`variable`, item=item("stick"), tag_na
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
-| `tag_name` | Text     | Tag Name           |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `item`     | Item             | Item               |
+| `tag_name` | Text             | Tag Name           |
 <h3 id=set_variable_remove_item_lore_line>
   <code>variable::remove_item_lore_line</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6537,11 +6537,11 @@ variable::remove_item_lore_line(variable=`variable`, item=item("stick"), line=1)
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
-| `line`     | Number   | Line Number        |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `item`     | Item             | Item               |
+| `line`     | Number           | Line Number        |
 <h3 id=set_variable_remove_item_potion_effects>
   <code>variable::remove_item_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6570,11 +6570,11 @@ variable::remove_item_potion_effects(variable=`variable`, effects=[potion("slow_
 
 **Arguments:**
 
-| **Name**   | **Type**     | **Description**    |
-| ---------- | ------------ | ------------------ |
-| `variable` | Variable     | Variable to assign |
-| `effects`  | list[Potion] | Potion Effects     |
-| `item`     | Item         | Item               |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `effects`  | list\[Potion\]   | Potion Effects     |
+| `item`     | Item             | Item               |
 <h3 id=set_variable_remove_list_duplicates>
   <code>variable::remove_list_duplicates</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6603,10 +6603,10 @@ variable::remove_list_duplicates(variable=`variable`, list=`list`);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to Assign |
-| `list`     | List     | List               |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[List\] | Variable to Assign |
+| `list`     | List             | List               |
 <h3 id=set_variable_remove_list_value>
   <code>variable::remove_list_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6637,7 +6637,7 @@ variable::remove_list_value(variable=`variable`, list=`list`, value="any value",
 
 | **Name**      | **Type**                                                           | **Description**    |
 | ------------- | ------------------------------------------------------------------ | ------------------ |
-| `variable`    | Variable                                                           | Variable to Assign |
+| `variable`    | Variable\[List\]                                                   | Variable to Assign |
 | `list`        | List                                                               | List               |
 | `value`       | Any Value                                                          | Value              |
 | `remove_mode` | Marker<br/>**ALL** - All<br/>**FIRST** - First<br/>**LAST** - Last | Remove mode        |
@@ -6669,12 +6669,12 @@ variable::remove_list_value_at_index(removed_value=`removed_value`, variable=`va
 
 **Arguments:**
 
-| **Name**        | **Type** | **Description**    |
-| --------------- | -------- | ------------------ |
-| `removed_value` | Variable | Removed Value      |
-| `variable`      | Variable | Variable to Assign |
-| `list`          | List     | List               |
-| `index`         | Number   | Index              |
+| **Name**        | **Type**              | **Description**    |
+| --------------- | --------------------- | ------------------ |
+| `removed_value` | Variable\[Any Value\] | Removed Value      |
+| `variable`      | Variable\[List\]      | Variable to Assign |
+| `list`          | List                  | List               |
+| `index`         | Number                | Index              |
 <h3 id=set_variable_remove_map_entry>
   <code>variable::remove_map_entry</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6703,13 +6703,13 @@ variable::remove_map_entry(removed_value=`removed_value`, variable=`variable`, m
 
 **Arguments:**
 
-| **Name**        | **Type**        | **Description**      |
-| --------------- | --------------- | -------------------- |
-| `removed_value` | Variable        | Removed Value        |
-| `variable`      | Variable        | Variable to assign   |
-| `map`           | Dictionary      | Dictionary to change |
-| `key`           | Any Value       | Key                  |
-| `values`        | list[Any Value] | Values               |
+| **Name**        | **Type**               | **Description**      |
+| --------------- | ---------------------- | -------------------- |
+| `removed_value` | Variable\[Any Value\]  | Removed Value        |
+| `variable`      | Variable\[Dictionary\] | Variable to assign   |
+| `map`           | Dictionary             | Dictionary to change |
+| `key`           | Any Value              | Key                  |
+| `values`        | list\[Any Value\]      | Values               |
 <h3 id=set_variable_remove_text>
   <code>variable::remove_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6740,8 +6740,8 @@ variable::remove_text(variable=`variable`, remove=["remove", "remove"], text="te
 
 | **Name**   | **Type**                                             | **Description**     |
 | ---------- | ---------------------------------------------------- | ------------------- |
-| `variable` | Variable                                             | Variable to assign  |
-| `remove`   | list[Text]                                           | Text to Remove      |
+| `variable` | Variable\[Text\]                                     | Variable to assign  |
+| `remove`   | list\[Text\]                                         | Text to Remove      |
 | `text`     | Text                                                 | Original Text       |
 | `regex`    | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Regular Expressions |
 <h3 id=set_variable_repeat_text>
@@ -6772,11 +6772,11 @@ variable::repeat_text(variable=`variable`, text="text", repeat=1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `text`     | Text     | Text to repeat     |
-| `repeat`   | Number   | Number of Repeats  |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `text`     | Text             | Text to repeat     |
+| `repeat`   | Number           | Number of Repeats  |
 <h3 id=set_variable_replace_text>
   <code>variable::replace_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6807,7 +6807,7 @@ variable::replace_text(variable=`variable`, text="text", replace="replace", repl
 
 | **Name**      | **Type**                                                                          | **Description**        |
 | ------------- | --------------------------------------------------------------------------------- | ---------------------- |
-| `variable`    | Variable                                                                          | Variable to assign     |
+| `variable`    | Variable\[Text\]                                                                  | Variable to assign     |
 | `text`        | Text                                                                              | Original Text          |
 | `replace`     | Text                                                                              | Text to Replace        |
 | `replacement` | Text                                                                              | Replacement            |
@@ -6841,10 +6841,10 @@ variable::reverse_list(variable=`variable`, list=`list`);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `list`     | List     | List               |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[List\] | Variable to assign |
+| `list`     | List             | List               |
 <h3 id=set_variable_root>
   <code>variable::root</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6869,11 +6869,11 @@ variable::root(variable=`variable`, base=1, root=2);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | Variable to set |
-| `base`     | Number   | Root Root       |
-| `root`     | Number   | Root Index      |
+| **Name**   | **Type**           | **Description** |
+| ---------- | ------------------ | --------------- |
+| `variable` | Variable\[Number\] | Variable to set |
+| `base`     | Number             | Root Root       |
+| `root`     | Number             | Root Index      |
 <h3 id=set_variable_rotate_vector_around_axis>
   <code>variable::rotate_vector_around_axis</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6904,7 +6904,7 @@ variable::rotate_vector_around_axis(variable=`variable`, vector=vector(0,0,0), a
 
 | **Name**      | **Type**                                                                          | **Description**    |
 | ------------- | --------------------------------------------------------------------------------- | ------------------ |
-| `variable`    | Variable                                                                          | Variable to assign |
+| `variable`    | Variable\[Vector\]                                                                | Variable to assign |
 | `vector`      | Vector                                                                            | Vector to Rotate   |
 | `angle`       | Number                                                                            | Rotation Angle     |
 | `axis`        | Marker<br/>**X** - X Coordinate<br/>**Y** - Y Coordinate<br/>**Z** - Z Coordinate | Coordinate Type    |
@@ -6939,7 +6939,7 @@ variable::rotate_vector_around_vector(variable=`variable`, rotating_vector=vecto
 
 | **Name**          | **Type**                                                   | **Description**    |
 | ----------------- | ---------------------------------------------------------- | ------------------ |
-| `variable`        | Variable                                                   | Variable to assign |
+| `variable`        | Variable\[Vector\]                                         | Variable to assign |
 | `rotating_vector` | Vector                                                     | Vector to Rotate   |
 | `axis_vector`     | Vector                                                     | Axis Vector        |
 | `angle`           | Number                                                     | Rotation Angle     |
@@ -6974,7 +6974,7 @@ variable::round(variable=`variable`, number=1, precision=2, round_type="CEIL");
 
 | **Name**     | **Type**                                                                                  | **Description**                     |
 | ------------ | ----------------------------------------------------------------------------------------- | ----------------------------------- |
-| `variable`   | Variable                                                                                  | Variable to assign                  |
+| `variable`   | Variable\[Number\]                                                                        | Variable to assign                  |
 | `number`     | Number                                                                                    | Number to Round                     |
 | `precision`  | Number                                                                                    | Number of digits after integer part |
 | `round_type` | Marker<br/>**CEIL** - Round Up<br/>**FLOOR** - Round Down<br/>**ROUND** - Normal Rounding | Rounding Method                     |
@@ -7002,14 +7002,14 @@ variable::set_all_coordinates(variable=`variable`, x=1, y=2, z=3, yaw=4, pitch=5
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**     |
-| ---------- | -------- | ------------------- |
-| `variable` | Variable | Variable to assign  |
-| `x`        | Number   | X Coordinate        |
-| `y`        | Number   | Y Coordinate        |
-| `z`        | Number   | Z Coordinate        |
-| `yaw`      | Number   | Horizontal Rotation |
-| `pitch`    | Number   | Pitch Vertical      |
+| **Name**   | **Type**             | **Description**     |
+| ---------- | -------------------- | ------------------- |
+| `variable` | Variable\[Location\] | Variable to assign  |
+| `x`        | Number               | X Coordinate        |
+| `y`        | Number               | Y Coordinate        |
+| `z`        | Number               | Z Coordinate        |
+| `yaw`      | Number               | Horizontal Rotation |
+| `pitch`    | Number               | Pitch Vertical      |
 <h3 id=set_variable_set_armor_trim>
   <code>variable::set_armor_trim</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7070,7 +7070,7 @@ variable::set_book_page(variable=`variable`, book=item("stick"), text="text", pa
 
 | **Name**   | **Type**                                               | **Description**    |
 | ---------- | ------------------------------------------------------ | ------------------ |
-| `variable` | Variable                                               | Variable to assign |
+| `variable` | Variable\[Item\]                                       | Variable to assign |
 | `book`     | Item                                                   | Book to change     |
 | `text`     | Text                                                   | New Text           |
 | `page`     | Number                                                 | Page Number        |
@@ -7103,11 +7103,11 @@ variable::set_book_pages(variable=`variable`, book=item("stick"), text=["text", 
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**    |
-| ---------- | ---------- | ------------------ |
-| `variable` | Variable   | Variable to assign |
-| `book`     | Item       | Book to change     |
-| `text`     | list[Text] | New Text           |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `book`     | Item             | Book to change     |
+| `text`     | list\[Text\]     | New Text           |
 <h3 id=set_variable_set_bundle_items>
   <code>variable::set_bundle_items</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7136,7 +7136,7 @@ variable::set_bundle_items(variable=`variable`, bundle=item("stick"), items=[ite
 | -------------- | ------------------------------------------------------------------ | --------------- |
 | `variable`     | Variable                                                           | Variable to set |
 | `bundle`       | Item                                                               | Bundle          |
-| `items`        | list[Item]                                                         | Items           |
+| `items`        | list\[Item\]                                                       | Items           |
 | `setting_mode` | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove<br/>**SET** - Set | Set mode        |
 <h3 id=set_variable_set_compass_lodestone>
   <code>variable::set_compass_lodestone</code>
@@ -7168,7 +7168,7 @@ variable::set_compass_lodestone(variable=`variable`, item=item("stick"), locatio
 
 | **Name**   | **Type**                                                 | **Description**             |
 | ---------- | -------------------------------------------------------- | --------------------------- |
-| `variable` | Variable                                                 | Variable to Assign          |
+| `variable` | Variable\[Item\]                                         | Variable to Assign          |
 | `item`     | Item                                                     | Compass                     |
 | `location` | Location                                                 | Magnetite Location          |
 | `tracked`  | Marker<br/>**FALSE** - Don\'t check<br/>**TRUE** - Track | Location Magnetite Presence |
@@ -7200,11 +7200,11 @@ variable::set_component_children(variable=`variable`, component="component", chi
 
 **Arguments:**
 
-| **Name**    | **Type**   | **Description**         |
-| ----------- | ---------- | ----------------------- |
-| `variable`  | Variable   | Variable to assign      |
-| `component` | Text       | Main stylized text      |
-| `children`  | list[Text] | Children stylized texts |
+| **Name**    | **Type**         | **Description**         |
+| ----------- | ---------------- | ----------------------- |
+| `variable`  | Variable\[Text\] | Variable to assign      |
+| `component` | Text             | Main stylized text      |
+| `children`  | list\[Text\]     | Children stylized texts |
 <h3 id=set_variable_set_component_click>
   <code>variable::set_component_click</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7235,7 +7235,7 @@ variable::set_component_click(variable=`variable`, component="component", value=
 
 | **Name**       | **Type**                                                                                                                                                                                                  | **Description**  |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `variable`     | Variable                                                                                                                                                                                                  | Variable to set  |
+| `variable`     | Variable\[Text\]                                                                                                                                                                                          | Variable to set  |
 | `component`    | Text                                                                                                                                                                                                      | The Styled Text  |
 | `value`        | Text                                                                                                                                                                                                      | Value            |
 | `click_action` | Marker<br/>**CHANGE_PAGE** - Change page<br/>**COPY_TO_CLIPBOARD** - Copy to Clipboard<br/>**COPY_TO_CLIPBORD** - Copy to clipboard<br/>**OPEN_URL** - Open URL<br/>**SUGGEST_COMMAND** - Suggest command | Click Event Type |
@@ -7269,7 +7269,7 @@ variable::set_component_decorations(variable=`variable`, component="component", 
 
 | **Name**        | **Type**                                                               | **Description**     |
 | --------------- | ---------------------------------------------------------------------- | ------------------- |
-| `variable`      | Variable                                                               | Variable to assign  |
+| `variable`      | Variable\[Text\]                                                       | Variable to assign  |
 | `component`     | Text                                                                   | Stylized text       |
 | `bold`          | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not set<br/>**TRUE** - Yes | Bold text           |
 | `italic`        | Marker<br/>**FALSE** - No<br/>**NOT_SET** - Not set<br/>**TRUE** - Yes | Italic text         |
@@ -7304,11 +7304,11 @@ variable::set_component_entity_hover(variable=`variable`, component="component",
 
 **Arguments:**
 
-| **Name**       | **Type** | **Description**    |
-| -------------- | -------- | ------------------ |
-| `variable`     | Variable | Variable to set    |
-| `component`    | Text     | The Styled Text    |
-| `name_or_uuid` | Text     | UUID of the entity |
+| **Name**       | **Type**         | **Description**    |
+| -------------- | ---------------- | ------------------ |
+| `variable`     | Variable\[Text\] | Variable to set    |
+| `component`    | Text             | The Styled Text    |
+| `name_or_uuid` | Text             | UUID of the entity |
 <h3 id=set_variable_set_component_font>
   <code>variable::set_component_font</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7337,12 +7337,12 @@ variable::set_component_font(variable=`variable`, component="component", namespa
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**               |
-| ----------- | -------- | ----------------------------- |
-| `variable`  | Variable | Variable to assign            |
-| `component` | Text     | Stylized text                 |
-| `namespace` | Text     | Namespace (minecraft\:, etc.) |
-| `value`     | Text     | Font ID                       |
+| **Name**    | **Type**         | **Description**               |
+| ----------- | ---------------- | ----------------------------- |
+| `variable`  | Variable\[Text\] | Variable to assign            |
+| `component` | Text             | Stylized text                 |
+| `namespace` | Text             | Namespace (minecraft\:, etc.) |
+| `value`     | Text             | Font ID                       |
 <h3 id=set_variable_set_component_hex_color>
   <code>variable::set_component_hex_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7371,11 +7371,11 @@ variable::set_component_hex_color(variable=`variable`, component="component", co
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**    |
-| ----------- | -------- | ------------------ |
-| `variable`  | Variable | Variable to assign |
-| `component` | Text     | Stylized text      |
-| `color`     | Text     | HEX-color          |
+| **Name**    | **Type**         | **Description**    |
+| ----------- | ---------------- | ------------------ |
+| `variable`  | Variable\[Text\] | Variable to assign |
+| `component` | Text             | Stylized text      |
+| `color`     | Text             | HEX-color          |
 <h3 id=set_variable_set_component_hover>
   <code>variable::set_component_hover</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7404,11 +7404,11 @@ variable::set_component_hover(variable=`variable`, component="component", hover=
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**    |
-| ----------- | -------- | ------------------ |
-| `variable`  | Variable | Variable to assign |
-| `component` | Text     | Stylized text      |
-| `hover`     | Text     | Hover text         |
+| **Name**    | **Type**         | **Description**    |
+| ----------- | ---------------- | ------------------ |
+| `variable`  | Variable\[Text\] | Variable to assign |
+| `component` | Text             | Stylized text      |
+| `hover`     | Text             | Hover text         |
 <h3 id=set_variable_set_component_insertion>
   <code>variable::set_component_insertion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7437,11 +7437,11 @@ variable::set_component_insertion(variable=`variable`, component="component", in
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description** |
-| ----------- | -------- | --------------- |
-| `variable`  | Variable | Variable to set |
-| `component` | Text     | The Styled Text |
-| `insertion` | Text     | Text to insert  |
+| **Name**    | **Type**         | **Description** |
+| ----------- | ---------------- | --------------- |
+| `variable`  | Variable\[Text\] | Variable to set |
+| `component` | Text             | The Styled Text |
+| `insertion` | Text             | Text to insert  |
 <h3 id=set_variable_set_component_item_hover>
   <code>variable::set_component_item_hover</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7470,11 +7470,11 @@ variable::set_component_item_hover(variable=`variable`, component="component", h
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**    |
-| ----------- | -------- | ------------------ |
-| `variable`  | Variable | Variable to assign |
-| `component` | Text     | Stylized text      |
-| `hover`     | Item     | Hover item         |
+| **Name**    | **Type**         | **Description**    |
+| ----------- | ---------------- | ------------------ |
+| `variable`  | Variable\[Text\] | Variable to assign |
+| `component` | Text             | Stylized text      |
+| `hover`     | Item             | Hover item         |
 <h3 id=set_variable_set_coordinate>
   <code>variable::set_coordinate</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7505,7 +7505,7 @@ variable::set_coordinate(variable=`variable`, location=location(0,0,0,0,0), coor
 
 | **Name**     | **Type**                                                                                                                         | **Description**    |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`   | Variable                                                                                                                         | Variable to assign |
+| `variable`   | Variable\[Location\]                                                                                                             | Variable to assign |
 | `location`   | Location                                                                                                                         | Location to set    |
 | `coordinate` | Number                                                                                                                           | Coordinate Value   |
 | `type`       | Marker<br/>**PITCH** - Pitch Vertical<br/>**X** - X Axis<br/>**Y** - Y Axis<br/>**YAW** - Horizontal rotation<br/>**Z** - Z Axis | Coordinate Type    |
@@ -7537,11 +7537,11 @@ variable::set_item_amount(variable=`variable`, item=item("stick"), amount=1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
-| `amount`   | Number   | Amount             |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `item`     | Item             | Item               |
+| `amount`   | Number           | Amount             |
 <h3 id=set_variable_set_item_attribute>
   <code>variable::set_item_attribute</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7572,7 +7572,7 @@ variable::set_item_attribute(variable=`variable`, item=item("stick"), amount=1, 
 
 | **Name**    | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Description**     |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `variable`  | Variable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Variable to assign  |
+| `variable`  | Variable\[Item\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Variable to assign  |
 | `item`      | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Item                |
 | `amount`    | Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Attribute Value     |
 | `name`      | Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Attribute Name      |
@@ -7607,11 +7607,11 @@ variable::set_item_break_sound(variable=`variable`, item=item("stick"), break_so
 
 **Arguments:**
 
-| **Name**      | **Type** | **Description** |
-| ------------- | -------- | --------------- |
-| `variable`    | Variable | None            |
-| `item`        | Item     | None            |
-| `break_sound` | Text     | None            |
+| **Name**      | **Type**         | **Description** |
+| ------------- | ---------------- | --------------- |
+| `variable`    | Variable\[Item\] | None            |
+| `item`        | Item             | None            |
+| `break_sound` | Text             | None            |
 <h3 id=set_variable_set_item_color>
   <code>variable::set_item_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7646,11 +7646,11 @@ variable::set_item_color(variable=`variable`, item=item("stick"), color="color")
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
-| `color`    | Text     | Color              |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `item`     | Item             | Item               |
+| `color`    | Text             | Color              |
 <h3 id=set_variable_set_item_component>
   <code>variable::set_item_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7679,12 +7679,12 @@ variable::set_item_component(variable=`variable`, item=item("stick"), component=
 
 **Arguments:**
 
-| **Name**    | **Type**  | **Description** |
-| ----------- | --------- | --------------- |
-| `variable`  | Variable  | Variable        |
-| `item`      | Item      | Item            |
-| `component` | Text      | Component Key   |
-| `value`     | Any Value | Component Value |
+| **Name**    | **Type**         | **Description** |
+| ----------- | ---------------- | --------------- |
+| `variable`  | Variable\[Item\] | Variable        |
+| `item`      | Item             | Item            |
+| `component` | Text             | Component Key   |
+| `value`     | Any Value        | Component Value |
 <h3 id=set_variable_set_item_custom_model_data>
   <code>variable::set_item_custom_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7713,11 +7713,11 @@ variable::set_item_custom_model_data(variable=`variable`, item=item("stick"), mo
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
-| `model`    | Number   | Model Number       |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `item`     | Item             | Item               |
+| `model`    | Number           | Model Number       |
 <h3 id=set_variable_set_item_custom_tag>
   <code>variable::set_item_custom_tag</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7746,12 +7746,12 @@ variable::set_item_custom_tag(variable=`variable`, item=item("stick"), tag_name=
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**    |
-| ----------- | -------- | ------------------ |
-| `variable`  | Variable | Variable to assign |
-| `item`      | Item     | Item               |
-| `tag_name`  | Text     | Tag Name           |
-| `tag_value` | Text     | Tag Value          |
+| **Name**    | **Type**         | **Description**    |
+| ----------- | ---------------- | ------------------ |
+| `variable`  | Variable\[Item\] | Variable to assign |
+| `item`      | Item             | Item               |
+| `tag_name`  | Text             | Tag Name           |
+| `tag_value` | Text             | Tag Value          |
 <h3 id=set_variable_set_item_destroyable_blocks>
   <code>variable::set_item_destroyable_blocks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7780,11 +7780,11 @@ variable::set_item_destroyable_blocks(variable=`variable`, destroyable=[item("st
 
 **Arguments:**
 
-| **Name**      | **Type**   | **Description**                 |
-| ------------- | ---------- | ------------------------------- |
-| `variable`    | Variable   | Variable to assign              |
-| `destroyable` | list[Item] | Blocks Can Be Destroyed by Item |
-| `item`        | Item       | Item                            |
+| **Name**      | **Type**         | **Description**                 |
+| ------------- | ---------------- | ------------------------------- |
+| `variable`    | Variable\[Item\] | Variable to assign              |
+| `destroyable` | list\[Item\]     | Blocks Can Be Destroyed by Item |
+| `item`        | Item             | Item                            |
 <h3 id=set_variable_set_item_durability>
   <code>variable::set_item_durability</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7815,7 +7815,7 @@ variable::set_item_durability(variable=`variable`, item=item("stick"), durabilit
 
 | **Name**          | **Type**                                                                                                                                                                                                                                                                | **Description**    |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`        | Variable                                                                                                                                                                                                                                                                | Variable to Assign |
+| `variable`        | Variable\[Item\]                                                                                                                                                                                                                                                        | Variable to Assign |
 | `item`            | Item                                                                                                                                                                                                                                                                    | Item               |
 | `durability`      | Number                                                                                                                                                                                                                                                                  | New Durability     |
 | `durability_type` | Marker<br/>**DAMAGE** - Current Durability<br/>**DAMAGE_PERCENTAGE** - Current Durability Percentage<br/>**MAXIMUM** - Max Durability<br/>**MAX_DAMAGE** - None<br/>**REMAINING** - Remaining Durability<br/>**REMAINING_PERCENTAGE** - Remaining Durability Percentage | Durability Type    |
@@ -7847,11 +7847,11 @@ variable::set_item_enchantments(variable=`variable`, item=item("stick"), enchant
 
 **Arguments:**
 
-| **Name**       | **Type**   | **Description**               |
-| -------------- | ---------- | ----------------------------- |
-| `variable`     | Variable   | Variable to assign            |
-| `item`         | Item       | Item                          |
-| `enchantments` | Dictionary | Enchantments and their levels |
+| **Name**       | **Type**         | **Description**               |
+| -------------- | ---------------- | ----------------------------- |
+| `variable`     | Variable\[Item\] | Variable to assign            |
+| `item`         | Item             | Item                          |
+| `enchantments` | Dictionary       | Enchantments and their levels |
 <h3 id=set_variable_set_item_food_properties>
   <code>variable::set_item_food_properties</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7882,7 +7882,7 @@ variable::set_item_food_properties(variable=`variable`, item=item("stick"), nutr
 
 | **Name**         | **Type**                                        | **Description** |
 | ---------------- | ----------------------------------------------- | --------------- |
-| `variable`       | Variable                                        | None            |
+| `variable`       | Variable\[Item\]                                | None            |
 | `item`           | Item                                            | None            |
 | `nutrition`      | Number                                          | None            |
 | `saturation`     | Number                                          | None            |
@@ -7919,7 +7919,7 @@ variable::set_item_glider(variable=`variable`, item=item("stick"), glider="TRUE"
 
 | **Name**   | **Type**                                        | **Description** |
 | ---------- | ----------------------------------------------- | --------------- |
-| `variable` | Variable                                        | None            |
+| `variable` | Variable\[Item\]                                | None            |
 | `item`     | Item                                            | None            |
 | `glider`   | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=set_variable_set_item_glint_override>
@@ -7952,7 +7952,7 @@ variable::set_item_glint_override(variable=`variable`, item=item("stick"), glowi
 
 | **Name**   | **Type**                                                               | **Description** |
 | ---------- | ---------------------------------------------------------------------- | --------------- |
-| `variable` | Variable                                                               | None            |
+| `variable` | Variable\[Item\]                                                       | None            |
 | `item`     | Item                                                                   | None            |
 | `glowing`  | Marker<br/>**TRUE** - None<br/>**FALSE** - None<br/>**NOT_SET** - None | None            |
 <h3 id=set_variable_set_item_hidden_tooltip>
@@ -7985,7 +7985,7 @@ variable::set_item_hidden_tooltip(variable=`variable`, item=item("stick"), toolt
 
 | **Name**         | **Type**                                        | **Description** |
 | ---------------- | ----------------------------------------------- | --------------- |
-| `variable`       | Variable                                        | None            |
+| `variable`       | Variable\[Item\]                                | None            |
 | `item`           | Item                                            | None            |
 | `tooltip_hidden` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=set_variable_set_item_lore>
@@ -8018,11 +8018,11 @@ variable::set_item_lore(variable=`variable`, item=item("stick"), lore=["lore", "
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**    |
-| ---------- | ---------- | ------------------ |
-| `variable` | Variable   | Variable to assign |
-| `item`     | Item       | Item               |
-| `lore`     | list[Text] | New Description    |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `item`     | Item             | Item               |
+| `lore`     | list\[Text\]     | New Description    |
 <h3 id=set_variable_set_item_lore_line>
   <code>variable::set_item_lore_line</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8053,7 +8053,7 @@ variable::set_item_lore_line(variable=`variable`, item=item("stick"), text="text
 
 | **Name**   | **Type**                                               | **Description**    |
 | ---------- | ------------------------------------------------------ | ------------------ |
-| `variable` | Variable                                               | Variable to assign |
+| `variable` | Variable\[Item\]                                       | Variable to assign |
 | `item`     | Item                                                   | Item               |
 | `text`     | Text                                                   | New Description    |
 | `line`     | Number                                                 | Line Number        |
@@ -8114,11 +8114,11 @@ variable::set_item_model_data(variable=`variable`, item=item("stick"), model="mo
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `item`     | Item     | None            |
-| `model`    | Text     | None            |
+| **Name**   | **Type**         | **Description** |
+| ---------- | ---------------- | --------------- |
+| `variable` | Variable\[Item\] | None            |
+| `item`     | Item             | None            |
+| `model`    | Text             | None            |
 <h3 id=set_variable_set_item_name>
   <code>variable::set_item_name</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8147,11 +8147,11 @@ variable::set_item_name(variable=`variable`, item=item("stick"), text="text");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
-| `text`     | Text     | Name               |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `item`     | Item             | Item               |
+| `text`     | Text             | Name               |
 <h3 id=set_variable_set_item_placeable_blocks>
   <code>variable::set_item_placeable_blocks</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8180,11 +8180,11 @@ variable::set_item_placeable_blocks(variable=`variable`, placeable=[item("stick"
 
 **Arguments:**
 
-| **Name**    | **Type**   | **Description**    |
-| ----------- | ---------- | ------------------ |
-| `variable`  | Variable   | Variable to assign |
-| `placeable` | list[Item] | Placeable Blocks   |
-| `item`      | Item       | Item               |
+| **Name**    | **Type**         | **Description**    |
+| ----------- | ---------------- | ------------------ |
+| `variable`  | Variable\[Item\] | Variable to assign |
+| `placeable` | list\[Item\]     | Placeable Blocks   |
+| `item`      | Item             | Item               |
 <h3 id=set_variable_set_item_rarity>
   <code>variable::set_item_rarity</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8215,7 +8215,7 @@ variable::set_item_rarity(variable=`variable`, item=item("stick"), rarity="NONE"
 
 | **Name**   | **Type**                                                                                                         | **Description** |
 | ---------- | ---------------------------------------------------------------------------------------------------------------- | --------------- |
-| `variable` | Variable                                                                                                         | None            |
+| `variable` | Variable\[Item\]                                                                                                 | None            |
 | `item`     | Item                                                                                                             | None            |
 | `rarity`   | Marker<br/>**NONE** - None<br/>**COMMON** - None<br/>**UNCOMMON** - None<br/>**RARE** - None<br/>**EPIC** - None | None            |
 <h3 id=set_variable_set_item_tooltip_style>
@@ -8246,11 +8246,11 @@ variable::set_item_tooltip_style(variable=`variable`, item=item("stick"), style=
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | None            |
-| `item`     | Item     | None            |
-| `style`    | Text     | None            |
+| **Name**   | **Type**         | **Description** |
+| ---------- | ---------------- | --------------- |
+| `variable` | Variable\[Item\] | None            |
+| `item`     | Item             | None            |
+| `style`    | Text             | None            |
 <h3 id=set_variable_set_item_type>
   <code>variable::set_item_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8279,11 +8279,11 @@ variable::set_item_type(variable=`variable`, item=item("stick"), type="type");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `item`     | Item     | Item               |
-| `type`     | Text     | Item Type          |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `item`     | Item             | Item               |
+| `type`     | Text             | Item Type          |
 <h3 id=set_variable_set_item_unbreakable>
   <code>variable::set_item_unbreakable</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8314,7 +8314,7 @@ variable::set_item_unbreakable(variable=`variable`, item=item("stick"), unbreaka
 
 | **Name**      | **Type**                                             | **Description**    |
 | ------------- | ---------------------------------------------------- | ------------------ |
-| `variable`    | Variable                                             | Variable to assign |
+| `variable`    | Variable\[Item\]                                     | Variable to assign |
 | `item`        | Item                                                 | Item               |
 | `unbreakable` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Unbreakable        |
 <h3 id=set_variable_set_item_use_remainder>
@@ -8345,11 +8345,11 @@ variable::set_item_use_remainder(variable=`variable`, item=item("stick"), remain
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description** |
-| ----------- | -------- | --------------- |
-| `variable`  | Variable | None            |
-| `item`      | Item     | None            |
-| `remainder` | Item     | None            |
+| **Name**    | **Type**         | **Description** |
+| ----------- | ---------------- | --------------- |
+| `variable`  | Variable\[Item\] | None            |
+| `item`      | Item             | None            |
+| `remainder` | Item             | None            |
 <h3 id=set_variable_set_item_visibility_flags>
   <code>variable::set_item_visibility_flags</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8380,7 +8380,7 @@ variable::set_item_visibility_flags(variable=`variable`, item=item("stick"), hid
 
 | **Name**              | **Type**                                                                         | **Description**           |
 | --------------------- | -------------------------------------------------------------------------------- | ------------------------- |
-| `variable`            | Variable                                                                         | Variable to assign        |
+| `variable`            | Variable\[Item\]                                                                 | Variable to assign        |
 | `item`                | Item                                                                             | Item                      |
 | `hide_dye`            | Marker<br/>**NO_CHANGE** - No Change<br/>**OFF** - Off<br/>**ON** - Enabled      | Hide color                |
 | `hide_enchantments`   | Marker<br/>**NO_CHANGE** - No Change<br/>**OFF** - Off<br/>**ON** - Enabled      | Hide Enchantments         |
@@ -8418,12 +8418,12 @@ variable::set_item_weapon(variable=`variable`, item=item("stick"), item_damage_p
 
 **Arguments:**
 
-| **Name**                 | **Type** | **Description** |
-| ------------------------ | -------- | --------------- |
-| `variable`               | Variable | None            |
-| `item`                   | Item     | None            |
-| `item_damage_per_attack` | Number   | None            |
-| `disable_blocking`       | Number   | None            |
+| **Name**                 | **Type**         | **Description** |
+| ------------------------ | ---------------- | --------------- |
+| `variable`               | Variable\[Item\] | None            |
+| `item`                   | Item             | None            |
+| `item_damage_per_attack` | Number           | None            |
+| `disable_blocking`       | Number           | None            |
 <h3 id=set_variable_set_list_value>
   <code>variable::set_list_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8452,12 +8452,12 @@ variable::set_list_value(variable=`variable`, list=`list`, number=1, value="any 
 
 **Arguments:**
 
-| **Name**   | **Type**  | **Description**    |
-| ---------- | --------- | ------------------ |
-| `variable` | Variable  | Variable to assign |
-| `list`     | List      | List               |
-| `number`   | Number    | Index              |
-| `value`    | Any Value | Value              |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[List\] | Variable to assign |
+| `list`     | List             | List               |
+| `number`   | Number           | Index              |
+| `value`    | Any Value        | Value              |
 <h3 id=set_variable_set_location_direction>
   <code>variable::set_location_direction</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8486,11 +8486,11 @@ variable::set_location_direction(variable=`variable`, location=location(0,0,0,0,
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**     |
-| ---------- | -------- | ------------------- |
-| `variable` | Variable | Variable to Assign  |
-| `location` | Location | Location to install |
-| `vector`   | Vector   | Direction Vector    |
+| **Name**   | **Type**             | **Description**     |
+| ---------- | -------------------- | ------------------- |
+| `variable` | Variable\[Location\] | Variable to Assign  |
+| `location` | Location             | Location to install |
+| `vector`   | Vector               | Direction Vector    |
 <h3 id=set_variable_set_map_value>
   <code>variable::set_map_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8519,12 +8519,12 @@ variable::set_map_value(variable=`variable`, map=`map`, key="any value", value="
 
 **Arguments:**
 
-| **Name**   | **Type**   | **Description**      |
-| ---------- | ---------- | -------------------- |
-| `variable` | Variable   | Variable to assign   |
-| `map`      | Dictionary | Dictionary to change |
-| `key`      | Any Value  | Key                  |
-| `value`    | Any Value  | New Value            |
+| **Name**   | **Type**               | **Description**      |
+| ---------- | ---------------------- | -------------------- |
+| `variable` | Variable\[Dictionary\] | Variable to assign   |
+| `map`      | Dictionary             | Dictionary to change |
+| `key`      | Any Value              | Key                  |
+| `value`    | Any Value              | New Value            |
 <h3 id=set_variable_set_particle_amount>
   <code>variable::set_particle_amount</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8553,11 +8553,11 @@ variable::set_particle_amount(variable=`variable`, particle=particle("fire"), am
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**    |
-| ---------- | --------------- | ------------------ |
-| `variable` | Variable        | Variable to Assign |
-| `particle` | Particle Effect | Particle to Change |
-| `amount`   | Number          | New Amount         |
+| **Name**   | **Type**                    | **Description**    |
+| ---------- | --------------------------- | ------------------ |
+| `variable` | Variable\[Particle Effect\] | Variable to Assign |
+| `particle` | Particle Effect             | Particle to Change |
+| `amount`   | Number                      | New Amount         |
 <h3 id=set_variable_set_particle_color>
   <code>variable::set_particle_color</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8588,7 +8588,7 @@ variable::set_particle_color(variable=`variable`, particle=particle("fire"), hex
 
 | **Name**     | **Type**                                                                | **Description**    |
 | ------------ | ----------------------------------------------------------------------- | ------------------ |
-| `variable`   | Variable                                                                | Variable to assign |
+| `variable`   | Variable\[Particle Effect\]                                             | Variable to assign |
 | `particle`   | Particle Effect                                                         | Particle to change |
 | `hex_color`  | Text                                                                    | HEX color          |
 | `color_type` | Marker<br/>**COLOR** - Normal color<br/>**TO_COLOR** - Transition color | Color type         |
@@ -8620,11 +8620,11 @@ variable::set_particle_material(variable=`variable`, particle=particle("fire"), 
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**    |
-| ---------- | --------------- | ------------------ |
-| `variable` | Variable        | Variable to assign |
-| `particle` | Particle Effect | Particle to change |
-| `material` | Item            | New Material       |
+| **Name**   | **Type**                    | **Description**    |
+| ---------- | --------------------------- | ------------------ |
+| `variable` | Variable\[Particle Effect\] | Variable to assign |
+| `particle` | Particle Effect             | Particle to change |
+| `material` | Item                        | New Material       |
 <h3 id=set_variable_set_particle_offset>
   <code>variable::set_particle_offset</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8653,11 +8653,11 @@ variable::set_particle_offset(variable=`variable`, particle=particle("fire"), of
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**    |
-| ---------- | --------------- | ------------------ |
-| `variable` | Variable        | Variable to assign |
-| `particle` | Particle Effect | Particle to change |
-| `offset`   | Vector          | New Motion         |
+| **Name**   | **Type**                    | **Description**    |
+| ---------- | --------------------------- | ------------------ |
+| `variable` | Variable\[Particle Effect\] | Variable to assign |
+| `particle` | Particle Effect             | Particle to change |
+| `offset`   | Vector                      | New Motion         |
 <h3 id=set_variable_set_particle_size>
   <code>variable::set_particle_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8686,11 +8686,11 @@ variable::set_particle_size(variable=`variable`, particle=particle("fire"), size
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**    |
-| ---------- | --------------- | ------------------ |
-| `variable` | Variable        | Variable to assign |
-| `particle` | Particle Effect | Particle to change |
-| `size`     | Number          | New Size           |
+| **Name**   | **Type**                    | **Description**    |
+| ---------- | --------------------------- | ------------------ |
+| `variable` | Variable\[Particle Effect\] | Variable to assign |
+| `particle` | Particle Effect             | Particle to change |
+| `size`     | Number                      | New Size           |
 <h3 id=set_variable_set_particle_spread>
   <code>variable::set_particle_spread</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8719,12 +8719,12 @@ variable::set_particle_spread(variable=`variable`, particle=particle("fire"), ho
 
 **Arguments:**
 
-| **Name**     | **Type**        | **Description**    |
-| ------------ | --------------- | ------------------ |
-| `variable`   | Variable        | Variable to assign |
-| `particle`   | Particle Effect | Particle to change |
-| `horizontal` | Number          | Horizontal Plane   |
-| `vertical`   | Number          | Vertical Plane     |
+| **Name**     | **Type**                    | **Description**    |
+| ------------ | --------------------------- | ------------------ |
+| `variable`   | Variable\[Particle Effect\] | Variable to assign |
+| `particle`   | Particle Effect             | Particle to change |
+| `horizontal` | Number                      | Horizontal Plane   |
+| `vertical`   | Number                      | Vertical Plane     |
 <h3 id=set_variable_set_particle_type>
   <code>variable::set_particle_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8753,11 +8753,11 @@ variable::set_particle_type(variable=`variable`, particle=particle("fire"), type
 
 **Arguments:**
 
-| **Name**   | **Type**        | **Description**    |
-| ---------- | --------------- | ------------------ |
-| `variable` | Variable        | Variable to assign |
-| `particle` | Particle Effect | Particle to change |
-| `type`     | Text            | New Particle Type  |
+| **Name**   | **Type**                    | **Description**    |
+| ---------- | --------------------------- | ------------------ |
+| `variable` | Variable\[Particle Effect\] | Variable to assign |
+| `particle` | Particle Effect             | Particle to change |
+| `type`     | Text                        | New Particle Type  |
 <h3 id=set_variable_set_potion_effect_amplifier>
   <code>variable::set_potion_effect_amplifier</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8786,11 +8786,11 @@ variable::set_potion_effect_amplifier(variable=`variable`, potion=potion("slow_f
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**    |
-| ----------- | -------- | ------------------ |
-| `variable`  | Variable | Variable to assign |
-| `potion`    | Potion   | Potion             |
-| `amplifier` | Number   | Potion Power       |
+| **Name**    | **Type**           | **Description**    |
+| ----------- | ------------------ | ------------------ |
+| `variable`  | Variable\[Potion\] | Variable to assign |
+| `potion`    | Potion             | Potion             |
+| `amplifier` | Number             | Potion Power       |
 <h3 id=set_variable_set_potion_effect_duration>
   <code>variable::set_potion_effect_duration</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8819,11 +8819,11 @@ variable::set_potion_effect_duration(variable=`variable`, potion=potion("slow_fa
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `potion`   | Potion   | Potion             |
-| `duration` | Number   | Duration           |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Potion\] | Variable to assign |
+| `potion`   | Potion             | Potion             |
+| `duration` | Number             | Duration           |
 <h3 id=set_variable_set_potion_effect_type>
   <code>variable::set_potion_effect_type</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8852,11 +8852,11 @@ variable::set_potion_effect_type(variable=`variable`, potion=potion("slow_fallin
 
 **Arguments:**
 
-| **Name**      | **Type** | **Description**    |
-| ------------- | -------- | ------------------ |
-| `variable`    | Variable | Variable to assign |
-| `potion`      | Potion   | Potion             |
-| `effect_type` | Text     | Effect ID          |
+| **Name**      | **Type**           | **Description**    |
+| ------------- | ------------------ | ------------------ |
+| `variable`    | Variable\[Potion\] | Variable to assign |
+| `potion`      | Potion             | Potion             |
+| `effect_type` | Text               | Effect ID          |
 <h3 id=set_variable_set_sound_pitch>
   <code>variable::set_sound_pitch</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8885,11 +8885,11 @@ variable::set_sound_pitch(variable=`variable`, sound=sound("entity.zombie.hurt")
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `sound`    | Sound    | Sound to change    |
-| `pitch`    | Number   | New Pitch Value    |
+| **Name**   | **Type**          | **Description**    |
+| ---------- | ----------------- | ------------------ |
+| `variable` | Variable\[Sound\] | Variable to assign |
+| `sound`    | Sound             | Sound to change    |
+| `pitch`    | Number            | New Pitch Value    |
 <h3 id=set_variable_set_sound_source>
   <code>variable::set_sound_source</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8920,7 +8920,7 @@ variable::set_sound_source(variable=`variable`, sound=sound("entity.zombie.hurt"
 
 | **Name**   | **Type**                                                                                                                                                                                                                                                                                                                                                                             | **Description**    |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| `variable` | Variable                                                                                                                                                                                                                                                                                                                                                                             | Variable to assign |
+| `variable` | Variable\[Sound\]                                                                                                                                                                                                                                                                                                                                                                    | Variable to assign |
 | `sound`    | Sound                                                                                                                                                                                                                                                                                                                                                                                | Sound to change    |
 | `source`   | Marker<br/>**AMBIENT** - Environment (ambient)<br/>**BLOCK** - Blocks<br/>**HOSTILE** - Hostile Creatures (hostile)<br/>**MASTER** - General (master)<br/>**MUSIC** - Music (music)<br/>**NEUTRAL** - Friendly Creatures (neutral)<br/>**PLAYER** - Players (player)<br/>**RECORD** - Music Blocks (record)<br/>**VOICE** - Voice/Speech (voice)<br/>**WEATHER** - Weather (weather) | Sound Source       |
 <h3 id=set_variable_set_sound_type>
@@ -8951,12 +8951,12 @@ variable::set_sound_type(variable=`variable`, sound=sound("entity.zombie.hurt"),
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**             |
-| ----------- | -------- | --------------------------- |
-| `variable`  | Variable | Variable to assign          |
-| `sound`     | Sound    | Sound to set                |
-| `namespace` | Text     | Namespace (minecraft\: etc) |
-| `value`     | Text     | Sound ID                    |
+| **Name**    | **Type**          | **Description**             |
+| ----------- | ----------------- | --------------------------- |
+| `variable`  | Variable\[Sound\] | Variable to assign          |
+| `sound`     | Sound             | Sound to set                |
+| `namespace` | Text              | Namespace (minecraft\: etc) |
+| `value`     | Text              | Sound ID                    |
 <h3 id=set_variable_set_sound_variation>
   <code>variable::set_sound_variation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8988,11 +8988,11 @@ variable::set_sound_variation(variable=`variable`, sound=sound("entity.zombie.hu
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**    |
-| ----------- | -------- | ------------------ |
-| `variable`  | Variable | Variable to assign |
-| `sound`     | Sound    | Sound to change    |
-| `variation` | Text     | Variation          |
+| **Name**    | **Type**          | **Description**    |
+| ----------- | ----------------- | ------------------ |
+| `variable`  | Variable\[Sound\] | Variable to assign |
+| `sound`     | Sound             | Sound to change    |
+| `variation` | Text              | Variation          |
 <h3 id=set_variable_set_sound_volume_action>
   <code>variable::set_sound_volume_action</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9021,11 +9021,11 @@ variable::set_sound_volume_action(variable=`variable`, sound=sound("entity.zombi
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `sound`    | Sound    | Sound to change    |
-| `volume`   | Number   | New volume value   |
+| **Name**   | **Type**          | **Description**    |
+| ---------- | ----------------- | ------------------ |
+| `variable` | Variable\[Sound\] | Variable to assign |
+| `sound`    | Sound             | Sound to change    |
+| `volume`   | Number            | New volume value   |
 <h3 id=set_variable_set_template_code>
   <code>variable::set_template_code</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9054,11 +9054,11 @@ variable::set_template_code(variable=`variable`, template=item("stick"), code="a
 
 **Arguments:**
 
-| **Name**   | **Type**  | **Description**      |
-| ---------- | --------- | -------------------- |
-| `variable` | Variable  | Variable to assign   |
-| `template` | Item      | Template             |
-| `code`     | Any Value | JSON Text/Dictionary |
+| **Name**   | **Type**         | **Description**      |
+| ---------- | ---------------- | -------------------- |
+| `variable` | Variable\[Item\] | Variable to assign   |
+| `template` | Item             | Template             |
+| `code`     | Any Value        | JSON Text/Dictionary |
 <h3 id=set_variable_set_texture_to_map>
   <code>variable::set_texture_to_map</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9087,11 +9087,11 @@ variable::set_texture_to_map(variable=`variable`, map=item("stick"), url="url");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `map`      | Item     | Map to Set         |
-| `url`      | Text     | Image Link         |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Item\] | Variable to assign |
+| `map`      | Item             | Map to Set         |
+| `url`      | Text             | Image Link         |
 <h3 id=set_variable_set_vector_component>
   <code>variable::set_vector_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9122,7 +9122,7 @@ variable::set_vector_component(variable=`variable`, vector=vector(0,0,0), value=
 
 | **Name**           | **Type**                                                                          | **Description**    |
 | ------------------ | --------------------------------------------------------------------------------- | ------------------ |
-| `variable`         | Variable                                                                          | Variable to assign |
+| `variable`         | Variable\[Vector\]                                                                | Variable to assign |
 | `vector`           | Vector                                                                            | Vector to change   |
 | `value`            | Number                                                                            | New Value          |
 | `vector_component` | Marker<br/>**X** - X Coordinate<br/>**Y** - Y Coordinate<br/>**Z** - Z Coordinate | Coordinate Type    |
@@ -9154,11 +9154,11 @@ variable::set_vector_length(variable=`variable`, vector=vector(0,0,0), length=1)
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `vector`   | Vector   | Vector to change   |
-| `length`   | Number   | New Length         |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Vector\] | Variable to assign |
+| `vector`   | Vector             | Vector to change   |
+| `length`   | Number             | New Length         |
 <h3 id=set_variable_shift_all_coordinates>
   <code>variable::shift_all_coordinates</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9187,15 +9187,15 @@ variable::shift_all_coordinates(variable=`variable`, location=location(0,0,0,0,0
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `location` | Location | Locations to Shift |
-| `x`        | Number   | Shift X            |
-| `y`        | Number   | Shift Y            |
-| `z`        | Number   | Shift Z            |
-| `yaw`      | Number   | Shift Yaw          |
-| `pitch`    | Number   | Shift Pitch        |
+| **Name**   | **Type**             | **Description**    |
+| ---------- | -------------------- | ------------------ |
+| `variable` | Variable\[Location\] | Variable to assign |
+| `location` | Location             | Locations to Shift |
+| `x`        | Number               | Shift X            |
+| `y`        | Number               | Shift Y            |
+| `z`        | Number               | Shift Z            |
+| `yaw`      | Number               | Shift Yaw          |
+| `pitch`    | Number               | Shift Pitch        |
 <h3 id=set_variable_shift_coordinate>
   <code>variable::shift_coordinate</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9226,7 +9226,7 @@ variable::shift_coordinate(variable=`variable`, location=location(0,0,0,0,0), di
 
 | **Name**   | **Type**                                                                                                             | **Description**    |
 | ---------- | -------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable` | Variable                                                                                                             | Variable to assign |
+| `variable` | Variable\[Location\]                                                                                                 | Variable to assign |
 | `location` | Location                                                                                                             | Locations to Shift |
 | `distance` | Number                                                                                                               | Shift Value        |
 | `type`     | Marker<br/>**PITCH** - Horizontal Rotation<br/>**X** - X<br/>**Y** - Y<br/>**YAW** - Vertical Rotation<br/>**Z** - Z | Coordinate Type    |
@@ -9260,7 +9260,7 @@ variable::shift_location_in_direction(variable=`variable`, location=location(0,0
 
 | **Name**    | **Type**                                                                                         | **Description**    |
 | ----------- | ------------------------------------------------------------------------------------------------ | ------------------ |
-| `variable`  | Variable                                                                                         | Variable to assign |
+| `variable`  | Variable\[Location\]                                                                             | Variable to assign |
 | `location`  | Location                                                                                         | Location to Shift  |
 | `shift`     | Number                                                                                           | Shift Value        |
 | `direction` | Marker<br/>**FORWARD** - Forward/Backward<br/>**SIDEWAYS** - Right/Left<br/>**UPWARD** - Up/Down | Direction          |
@@ -9292,12 +9292,12 @@ variable::shift_location_on_vector(variable=`variable`, location=location(0,0,0,
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `location` | Location | Location to Shift  |
-| `vector`   | Vector   | Shift Vector       |
-| `length`   | Number   | Shift distance     |
+| **Name**   | **Type**             | **Description**    |
+| ---------- | -------------------- | ------------------ |
+| `variable` | Variable\[Location\] | Variable to assign |
+| `location` | Location             | Location to Shift  |
+| `vector`   | Vector               | Shift Vector       |
+| `length`   | Number               | Shift distance     |
 <h3 id=set_variable_shift_location_towards_location>
   <code>variable::shift_location_towards_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9326,12 +9326,12 @@ variable::shift_location_towards_location(variable=`variable`, location_from=loc
 
 **Arguments:**
 
-| **Name**        | **Type** | **Description**            |
-| --------------- | -------- | -------------------------- |
-| `variable`      | Variable | Variable to assign         |
-| `location_from` | Location | Location to Shift          |
-| `location_to`   | Location | Which Location to Shift To |
-| `distance`      | Number   | How much to shift location |
+| **Name**        | **Type**             | **Description**            |
+| --------------- | -------------------- | -------------------------- |
+| `variable`      | Variable\[Location\] | Variable to assign         |
+| `location_from` | Location             | Location to Shift          |
+| `location_to`   | Location             | Which Location to Shift To |
+| `distance`      | Number               | How much to shift location |
 <h3 id=set_variable_simplex_noise_3d>
   <code>variable::simplex_noise_3d</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9362,7 +9362,7 @@ variable::simplex_noise_3d(variable=`variable`, location=location(0,0,0,0,0), se
 
 | **Name**        | **Type**                                                                              | **Description**        |
 | --------------- | ------------------------------------------------------------------------------------- | ---------------------- |
-| `variable`      | Variable                                                                              | Variable to set        |
+| `variable`      | Variable\[Number\]                                                                    | Variable to set        |
 | `location`      | Location                                                                              | Location to set noise  |
 | `seed`          | Number                                                                                | Noise Key              |
 | `loc_frequency` | Number                                                                                | Noise Frequency        |
@@ -9401,7 +9401,7 @@ variable::sine(variable=`variable`, number=1, variant="ARCSINE", input="DEGREES"
 
 | **Name**   | **Type**                                                                                                                                       | **Description**    |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable` | Variable                                                                                                                                       | Variable to assign |
+| `variable` | Variable\[Number\]                                                                                                                             | Variable to assign |
 | `number`   | Number                                                                                                                                         | Number to get sine |
 | `variant`  | Marker<br/>**ARCSINE** - Arcsine<br/>**HYPERBOLIC_ARCSINE** - Hyperbolic Arcsine<br/>**HYPERBOLIC_SINE** - Hyperbolic Sine<br/>**SINE** - Sine | Operation Type     |
 | `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                     | Angle Type         |
@@ -9439,7 +9439,7 @@ variable::sort_list(variable=`variable`, list=`list`, sort_mode="ASCENDING");
 
 | **Name**    | **Type**                                                             | **Description**    |
 | ----------- | -------------------------------------------------------------------- | ------------------ |
-| `variable`  | Variable                                                             | Variable to assign |
+| `variable`  | Variable\[List\]                                                     | Variable to assign |
 | `list`      | List                                                                 | List               |
 | `sort_mode` | Marker<br/>**ASCENDING** - Ascending<br/>**DESCENDING** - Descending | Sort Method        |
 <h3 id=set_variable_sort_any_map>
@@ -9472,7 +9472,7 @@ variable::sort_map(variable=`variable`, map=`map`, sort_order="ASCENDING", sort_
 
 | **Name**     | **Type**                                                             | **Description**    |
 | ------------ | -------------------------------------------------------------------- | ------------------ |
-| `variable`   | Variable                                                             | Variable to assign |
+| `variable`   | Variable\[Dictionary\]                                               | Variable to assign |
 | `map`        | Dictionary                                                           | Dictionary to sort |
 | `sort_order` | Marker<br/>**ASCENDING** - Ascending<br/>**DESCENDING** - Descending | Sort Order         |
 | `sort_type`  | Marker<br/>**KEYS** - By Key<br/>**VALUES** - By Value               | Sort Type          |
@@ -9504,11 +9504,11 @@ variable::split_text(variable=`variable`, text="text", delimiter="delimiter");
 
 **Arguments:**
 
-| **Name**    | **Type** | **Description**    |
-| ----------- | -------- | ------------------ |
-| `variable`  | Variable | Variable to assign |
-| `text`      | Text     | Split Text         |
-| `delimiter` | Text     | Delimiter          |
+| **Name**    | **Type**         | **Description**    |
+| ----------- | ---------------- | ------------------ |
+| `variable`  | Variable\[List\] | Variable to assign |
+| `text`      | Text             | Split Text         |
+| `delimiter` | Text             | Delimiter          |
 <h3 id=set_variable_strip_text>
   <code>variable::strip_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9539,7 +9539,7 @@ variable::strip_text(variable=`variable`, text="text", strip_type="ALL");
 
 | **Name**     | **Type**                                                                                                | **Description**    |
 | ------------ | ------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`   | Variable                                                                                                | Variable to assign |
+| `variable`   | Variable\[Text\]                                                                                        | Variable to assign |
 | `text`       | Text                                                                                                    | Text to change     |
 | `strip_type` | Marker<br/>**ALL** - Start and End<br/>**END** - End<br/>**INDENT** - Indentation<br/>**START** - Start | Strip Type         |
 <h3 id=set_variable_subtract>
@@ -9566,10 +9566,10 @@ variable::subtract(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| **Name**   | **Type**     | **Description**     |
-| ---------- | ------------ | ------------------- |
-| `variable` | Variable     | Variable to assign  |
-| `value`    | list[Number] | Numbers to Subtract |
+| **Name**   | **Type**           | **Description**     |
+| ---------- | ------------------ | ------------------- |
+| `variable` | Variable\[Number\] | Variable to assign  |
+| `value`    | list\[Number\]     | Numbers to Subtract |
 <h3 id=set_variable_subtract_vectors>
   <code>variable::subtract_vectors</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9594,10 +9594,10 @@ variable::subtract_vectors(variable=`variable`, vectors=[vector(0,0,0), vector(0
 
 **Arguments:**
 
-| **Name**   | **Type**     | **Description**    |
-| ---------- | ------------ | ------------------ |
-| `variable` | Variable     | Variable to assign |
-| `vectors`  | list[Vector] | Difference Vectors |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Vector\] | Variable to assign |
+| `vectors`  | list\[Vector\]     | Difference Vectors |
 <h3 id=set_variable_tangent>
   <code>variable::tangent</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9628,7 +9628,7 @@ variable::tangent(variable=`variable`, number=1, variant="ARCTANGENT", input="DE
 
 | **Name**   | **Type**                                                                                                                                                               | **Description**       |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `variable` | Variable                                                                                                                                                               | Variable to assign    |
+| `variable` | Variable\[Number\]                                                                                                                                                     | Variable to assign    |
 | `number`   | Number                                                                                                                                                                 | Number to get tangent |
 | `variant`  | Marker<br/>**ARCTANGENT** - Arctangent<br/>**HYPERBOLIC_ARCTANGENT** - Hyperbolic Arctangent<br/>**HYPERBOLIC_TANGENT** - Hyperbolic Tangent<br/>**TANGENT** - Tangent | Operation Type        |
 | `input`    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                                             | Angle Type            |
@@ -9658,8 +9658,8 @@ variable::set_text(variable=`variable`, text=["text", "text"], merging="CONCATEN
 
 | **Name**   | **Type**                                                                                                       | **Description**    |
 | ---------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable` | Variable                                                                                                       | Variable to assign |
-| `text`     | list[Text]                                                                                                     | Text to set        |
+| `variable` | Variable\[Text\]                                                                                               | Variable to assign |
+| `text`     | list\[Text\]                                                                                                   | Text to set        |
 | `merging`  | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text         |
 <h3 id=set_variable_text_case>
   <code>variable::set_text_case</code>
@@ -9691,7 +9691,7 @@ variable::set_text_case(variable=`variable`, text="text", case_type="INVERT");
 
 | **Name**    | **Type**                                                                                                                            | **Description**    |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `variable`  | Variable                                                                                                                            | Variable to assign |
+| `variable`  | Variable\[Text\]                                                                                                                    | Variable to assign |
 | `text`      | Text                                                                                                                                | Text to set        |
 | `case_type` | Marker<br/>**INVERT** - Invert<br/>**LOWER** - Lower<br/>**PROPER** - First character<br/>**RANDOM** - Random<br/>**UPPER** - Upper | Case Type          |
 <h3 id=set_variable_text_length>
@@ -9722,10 +9722,10 @@ variable::get_text_length(variable=`variable`, text="text");
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `text`     | Text     | Text to Get Length |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `text`     | Text               | Text to Get Length |
 <h3 id=set_variable_to_char>
   <code>variable::to_char</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9754,10 +9754,10 @@ variable::to_char(variable=`variable`, number=1);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**         |
-| ---------- | -------- | ----------------------- |
-| `variable` | Variable | Variable to assign      |
-| `number`   | Number   | Number to get character |
+| **Name**   | **Type**         | **Description**         |
+| ---------- | ---------------- | ----------------------- |
+| `variable` | Variable\[Text\] | Variable to assign      |
+| `number`   | Number           | Number to get character |
 <h3 id=set_variable_to_hsb>
   <code>variable::to_hsb</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9782,12 +9782,12 @@ variable::to_hsb(variable=`variable`, hue=1, saturation=2, brightness=3);
 
 **Arguments:**
 
-| **Name**     | **Type** | **Description**      |
-| ------------ | -------- | -------------------- |
-| `variable`   | Variable | Variable to assign   |
-| `hue`        | Number   | Hue (0 - 360)        |
-| `saturation` | Number   | Saturation (0 - 100) |
-| `brightness` | Number   | Brightness (0 - 100) |
+| **Name**     | **Type**         | **Description**      |
+| ------------ | ---------------- | -------------------- |
+| `variable`   | Variable\[Text\] | Variable to assign   |
+| `hue`        | Number           | Hue (0 - 360)        |
+| `saturation` | Number           | Saturation (0 - 100) |
+| `brightness` | Number           | Brightness (0 - 100) |
 <h3 id=set_variable_to_hsl>
   <code>variable::to_hsl</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9812,12 +9812,12 @@ variable::to_hsl(variable=`variable`, hue=1, saturation=2, lightness=3);
 
 **Arguments:**
 
-| **Name**     | **Type** | **Description**      |
-| ------------ | -------- | -------------------- |
-| `variable`   | Variable | Variable to assign   |
-| `hue`        | Number   | Hue (0 - 360)        |
-| `saturation` | Number   | Saturation (0 - 100) |
-| `lightness`  | Number   | Lightness (0 - 100)  |
+| **Name**     | **Type**         | **Description**      |
+| ------------ | ---------------- | -------------------- |
+| `variable`   | Variable\[Text\] | Variable to assign   |
+| `hue`        | Number           | Hue (0 - 360)        |
+| `saturation` | Number           | Saturation (0 - 100) |
+| `lightness`  | Number           | Lightness (0 - 100)  |
 <h3 id=set_variable_to_json>
   <code>variable::to_json</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9844,7 +9844,7 @@ variable::to_json(variable=`variable`, value="any value", pretty_print="FALSE");
 
 | **Name**       | **Type**                                             | **Description**             |
 | -------------- | ---------------------------------------------------- | --------------------------- |
-| `variable`     | Variable                                             | To write result             |
+| `variable`     | Variable\[Any Value\]                                | To write result             |
 | `value`        | Any Value                                            | List/Dictionary with values |
 | `pretty_print` | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Format Pretty Print         |
 <h3 id=set_variable_to_rgb>
@@ -9871,12 +9871,12 @@ variable::to_rgb(variable=`variable`, red=1, green=2, blue=3);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**         |
-| ---------- | -------- | ----------------------- |
-| `variable` | Variable | Variable to assign      |
-| `red`      | Number   | Red Channel (0 - 255)   |
-| `green`    | Number   | Green Channel (0 - 255) |
-| `blue`     | Number   | Blue channel (0 - 255)  |
+| **Name**   | **Type**         | **Description**         |
+| ---------- | ---------------- | ----------------------- |
+| `variable` | Variable\[Text\] | Variable to assign      |
+| `red`      | Number           | Red Channel (0 - 255)   |
+| `green`    | Number           | Green Channel (0 - 255) |
+| `blue`     | Number           | Blue channel (0 - 255)  |
 <h3 id=set_variable_trim_list>
   <code>variable::trim_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9905,12 +9905,12 @@ variable::trim_list(variable=`variable`, list=`list`, start=1, end=2);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `list`     | List     | List               |
-| `start`    | Number   | Start Index        |
-| `end`      | Number   | End index          |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[List\] | Variable to assign |
+| `list`     | List             | List               |
+| `start`    | Number           | Start Index        |
+| `end`      | Number           | End index          |
 <h3 id=set_variable_trim_text>
   <code>variable::trim_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9939,12 +9939,12 @@ variable::trim_text(variable=`variable`, text="text", start=1, end=2);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description** |
-| ---------- | -------- | --------------- |
-| `variable` | Variable | Variable to set |
-| `text`     | Text     | Text to Trim    |
-| `start`    | Number   | Start Position  |
-| `end`      | Number   | End Position    |
+| **Name**   | **Type**         | **Description** |
+| ---------- | ---------------- | --------------- |
+| `variable` | Variable\[Text\] | Variable to set |
+| `text`     | Text             | Text to Trim    |
+| `start`    | Number           | Start Position  |
+| `end`      | Number           | End Position    |
 <h3 id=set_variable_unset_item_components>
   <code>variable::unset_item_components</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9973,11 +9973,11 @@ variable::unset_item_components(variable=`variable`, item=item("stick"), compone
 
 **Arguments:**
 
-| **Name**     | **Type**   | **Description** |
-| ------------ | ---------- | --------------- |
-| `variable`   | Variable   | None            |
-| `item`       | Item       | None            |
-| `components` | list[Text] | None            |
+| **Name**     | **Type**         | **Description** |
+| ------------ | ---------------- | --------------- |
+| `variable`   | Variable\[Item\] | None            |
+| `item`       | Item             | None            |
+| `components` | list\[Text\]     | None            |
 <h3 id=set_variable_value>
   <code>variable::set_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -10002,10 +10002,10 @@ variable::set_value(variable=`variable`, value="any value");
 
 **Arguments:**
 
-| **Name**   | **Type**  | **Description**    |
-| ---------- | --------- | ------------------ |
-| `variable` | Variable  | Variable to assign |
-| `value`    | Any Value | Value to assign    |
+| **Name**   | **Type**              | **Description**    |
+| ---------- | --------------------- | ------------------ |
+| `variable` | Variable\[Any Value\] | Variable to assign |
+| `value`    | Any Value             | Value to assign    |
 <h3 id=set_variable_vector>
   <code>variable::set_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -10030,12 +10030,12 @@ variable::set_vector(variable=`variable`, x=1, y=2, z=3);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `x`        | Number   | X Coordinate       |
-| `y`        | Number   | Y Coordinate       |
-| `z`        | Number   | Z Coordinate       |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Vector\] | Variable to assign |
+| `x`        | Number             | X Coordinate       |
+| `y`        | Number             | Y Coordinate       |
+| `z`        | Number             | Z Coordinate       |
 <h3 id=set_variable_vector_cross_product>
   <code>variable::vector_cross_product</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -10060,11 +10060,11 @@ variable::vector_cross_product(variable=`variable`, vector_1=vector(0,0,0), vect
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `vector_1` | Vector   | First Vector       |
-| `vector_2` | Vector   | Second Vector      |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Vector\] | Variable to assign |
+| `vector_1` | Vector             | First Vector       |
+| `vector_2` | Vector             | Second Vector      |
 <h3 id=set_variable_vector_dot_product>
   <code>variable::vector_dot_product</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -10089,11 +10089,11 @@ variable::vector_dot_product(variable=`variable`, vector_1=vector(0,0,0), vector
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `vector_1` | Vector   | First Vector       |
-| `vector_2` | Vector   | Second Vector      |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `vector_1` | Vector             | First Vector       |
+| `vector_2` | Vector             | Second Vector      |
 <h3 id=set_variable_vector_to_direction_name>
   <code>variable::vector_to_direction_name</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -10122,10 +10122,10 @@ variable::vector_to_direction_name(variable=`variable`, vector=vector(0,0,0));
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `vector`   | Vector   | Vector to get      |
+| **Name**   | **Type**         | **Description**    |
+| ---------- | ---------------- | ------------------ |
+| `variable` | Variable\[Text\] | Variable to assign |
+| `vector`   | Vector           | Vector to get      |
 <h3 id=set_variable_voronoi_noise_3d>
   <code>variable::voronoi_noise_3d</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -10156,7 +10156,7 @@ variable::voronoi_noise_3d(variable=`variable`, location=location(0,0,0,0,0), se
 
 | **Name**          | **Type**                                                         | **Description**       |
 | ----------------- | ---------------------------------------------------------------- | --------------------- |
-| `variable`        | Variable                                                         | Variable to assign    |
+| `variable`        | Variable\[Number\]                                               | Variable to assign    |
 | `location`        | Location                                                         | Location to set noise |
 | `seed`            | Number                                                           | Noise Key             |
 | `frequency`       | Number                                                           | Noise Frequency       |
@@ -10191,9 +10191,9 @@ variable::wrap(variable=`variable`, number=1, min=2, max=3);
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `variable` | Variable | Variable to assign |
-| `number`   | Number   | Number to wrap     |
-| `min`      | Number   | Minimum Value      |
-| `max`      | Number   | Max Value          |
+| **Name**   | **Type**           | **Description**    |
+| ---------- | ------------------ | ------------------ |
+| `variable` | Variable\[Number\] | Variable to assign |
+| `number`   | Number             | Number to wrap     |
+| `min`      | Number             | Minimum Value      |
+| `max`      | Number             | Max Value          |
