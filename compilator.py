@@ -1096,7 +1096,7 @@ class Parser:
             token_value = [self.current_token]
             self.eat(Tokens.LCPAREN)
             count = 1
-            allow_return = False
+            allow_return = 0
             while (self.current_token.type != Tokens.EOF) and (count != 0):
                 token_value.append(self.current_token)
                 if self.current_token.type == Tokens.LCPAREN:
@@ -1105,9 +1105,11 @@ class Parser:
                     count -= 1
                 if self.current_token.type == Tokens.RETURN and (
                         self.token(self.index + 1).type not in {Tokens.NEXT_LINE, Tokens.SEMICOLON}):
-                    allow_return = True
+                    allow_return += 1
+                if allow_return > 1 and inline:
+                    error_from_object(self.current_token, "", "В инлайн функциях можно только 1 возврат")
                 self.eat(self.current_token.type)
-            if allow_return or return_var_type is not None:
+            if allow_return > 0 or return_var_type is not None:
                 if return_var is None:
                     return_var = var(f"jmcc.{new('var')}", Vars.LOCAL if not inline else Vars.INLINE,
                                      token.starting_pos, token.ending_pos,
@@ -3351,6 +3353,8 @@ class calling_object:  # is_jmcc_object
                 previous_operations.extend(prev_ops)
                 next_ops.extend(next_operations)
                 next_operations = next_ops
+            elif special.return_var is not None:
+                error_from_object(self, "", "вызов функции ожидал возврат, но возврат не был найден")
             return previous_operations, data, next_operations
         elif special.type == "function" and not special.inline:
             previous_operations.append(action("code", "call_function", calling_args([], {
@@ -4205,7 +4209,7 @@ def check_args(self, args, casts_allowed, strict_check=False):
             continue
         elif self.arges[k1]["type"] == "text":
             continue
-        elif v1.get_real_type() == "text":
+        elif v1.get_real_type() == "text" and self.arges[k1]["type"] != "variable":
             continue
         else:
             if casts_allowed and not isinstance(self.arges[k1]["type"], (tuple, list, set)):
