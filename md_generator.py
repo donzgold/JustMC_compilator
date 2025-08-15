@@ -1017,8 +1017,9 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                 }
               }
             if "ru_args" in doc_msg:
+                backslash = "\\"
                 secret_tech["signature"] = {
-                  "label": ", ".join([f"{doc_msg['ru_args'][0][i1]}: {doc_msg['ru_args'][1][i1].split('<br/>')[0]}" for i1 in range(len(doc_msg["ru_args"][0]))]),
+                  "label": ", ".join([f"{doc_msg['ru_args'][0][i1]}: {doc_msg['ru_args'][1][i1].split('<br/>')[0].replace(backslash,'')}" for i1 in range(len(doc_msg["ru_args"][0]))]),
                   "parameters": [{ "label": i1 } for i1 in doc_msg["ru_args"][0]]
                 }
             jmcc_completions.append(secret_tech)

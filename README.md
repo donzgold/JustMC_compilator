@@ -17,6 +17,7 @@
    - [Классы](#классы)
    - [Импортирование](#импортирование)
 4. [Документация](#документация)
+5. [Подсветка синтаксиса](#подсветка-синтаксиса)
 
 [История изменения](./CHANGELOG.md)
 
@@ -926,3 +927,6 @@ event<player_join> {
 - [Фабрики](./documentation/ru_RU/factories.md)
 - [Игровые значения](./documentation/ru_RU/properties.md)
 - [Действия](./documentation/ru_RU/actions/actions.md)
+
+### Подсветка синтаксиса
+[Расширение от lemonhead2000](https://github.com/lemonhead2000/JMCC-helper)

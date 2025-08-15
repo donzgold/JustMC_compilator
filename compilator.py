@@ -628,6 +628,7 @@ class Parser:
             giga_acts.append(parser.expr())
             parser.eat(Tokens.NONE)
             self.context.previous_lvl()
+            del Context.sources[-1]
         return giga_acts
 
     def factor(self):
