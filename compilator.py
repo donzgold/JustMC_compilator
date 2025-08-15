@@ -577,12 +577,12 @@ def tokenize_from_file(file1):
 
 
 class Parser:
-    Expr_priorities = [Tokens.IN, Tokens.AND, Tokens.OR, Tokens.LESS, Tokens.GREATER, Tokens.EQUALS,
+    Expr_priorities = [Tokens.IN, Tokens.AND, Tokens.OR, Tokens.LESS, Tokens.GREATER,Tokens.NOT_EQUALS, Tokens.EQUALS,
                        Tokens.LESS_OR_EQUALS,
                        Tokens.GREATER_OR_EQUALS, Tokens.PLUS, Tokens.MINUS, Tokens.MINUS_NUMBER, Tokens.PLUS_NUMBER,
                        Tokens.MULTIPLY, Tokens.DIVIDE, Tokens.PR, Tokens.DEG]
     Expr_operations = {Tokens.AND: "__and__", Tokens.OR: "__or__", Tokens.LESS: "__less__",
-                       Tokens.GREATER: "__greater__", Tokens.EQUALS: "__equals__",
+                       Tokens.GREATER: "__greater__", Tokens.NOT_EQUALS: "__not_equals__", Tokens.EQUALS: "__equals__",
                        Tokens.LESS_OR_EQUALS: "__less_or_equals__",
                        Tokens.GREATER_OR_EQUALS: "__greater_or_equals__", Tokens.PLUS: "__add__",
                        Tokens.MINUS: "__subtract__",
@@ -3758,6 +3758,8 @@ class if_:
         next_operations = []
         if not self.condition.is_simple():
             a = self.condition.simplify()
+            if a is None or a[1] is None:
+                a = self.condition.simplify(mode=0)
             prev_ops, self.condition, next_ops = a
             previous_operations.extend(prev_ops)
             next_ops.extend(next_operations)
@@ -4040,12 +4042,15 @@ class return_:
                 work_with = self.in_var
         else:
             work_with = self.in_var
-        prev_ops, cur_op, next_ops = action("variable", "set_value",
-                                            calling_args([], {"variable": work_with, "value": self.object},
-                                                         self.starting_pos,
-                                                         self.ending_pos,
-                                                         self.source), self.starting_pos, self.ending_pos,
-                                            self.source).simplify()
+        if len(Context(Context.sources[-1]).settings["inline"]) == 0:
+            prev_ops, cur_op, next_ops = assign([work_with],None,self.object,self.starting_pos,self.ending_pos,self.source).simplify()
+        else:
+            prev_ops, cur_op, next_ops = action("variable", "set_value",
+                                                calling_args([], {"variable": work_with, "value": self.object},
+                                                             self.starting_pos,
+                                                             self.ending_pos,
+                                                             self.source), self.starting_pos, self.ending_pos,
+                                                self.source).simplify()
         previous_operations.extend(prev_ops)
         next_ops.extend(next_operations)
         next_operations = next_ops
