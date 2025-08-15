@@ -3748,10 +3748,14 @@ class if_:
 
     def simplify(self, mode=None, work_with=None):
         if self.condition.type == "calling_function" and self.condition.value == "__and__" and mode is None:
+            Context(Context.sources[-1]).next_lvl()
             prev_ops, thing, next_ops = if_(self.condition.args.positional[1], self.operations, self.eli, self.els,
                                             self.starting_pos,
                                             self.ending_pos, self.source).simplify()
             prev_ops.extend(next_ops)
+            Context(Context.sources[-1]).add_operations(prev_ops)
+            prev_ops = Context(Context.sources[-1]).get_operations()
+            Context(Context.sources[-1]).previous_lvl()
             return if_(self.condition.args.positional[0], prev_ops, [], [], self.starting_pos, self.ending_pos,
                        self.source).simplify()
         previous_operations = []
@@ -3797,8 +3801,13 @@ class if_:
         else:
             cur_thing = None
         if len(self.eli) > 0:
+            Context(Context.sources[-1]).next_lvl()
             prev_ops, zap, next_ops = if_(self.eli[0][0], self.eli[0][1], self.eli[1:], self.els, self.starting_pos,
                                           self.ending_pos, self.source).simplify()
+            prev_ops.extend(next_ops)
+            Context(Context.sources[-1]).add_operations(prev_ops)
+            prev_ops = Context(Context.sources[-1]).get_operations()
+            Context(Context.sources[-1]).previous_lvl()
             cur_thing.operations = prev_ops
         elif len(self.els) > 0:
             cur_thing.operations = self.els
