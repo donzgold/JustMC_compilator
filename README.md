@@ -838,6 +838,31 @@ class vector {
 vector1 = vector(1,2,3); //в таком случае будет использован стандартный способ создания класса установленный в jmcc
 vector2 = vector(a,b,c); //в таком случае будет использован наш новый способ создания класса, так как в изначальном варианте он бы вызвал ошибку.
 ```
+Установка и получение для a\[0\], a\[0:1\]
+```ts
+//Добавим метод получения длины вектора в класс
+class array {
+  @getter
+  function __subscript__(self: array, index: number) -> any{
+    return self.get_list_value(index);
+  }
+  @setter
+  function __subscript__(self: array, index: number, value: any){
+    self = self.set_list_value(index, value)
+  }
+  @getter
+  function __slice__(self: array, first_index: number, second_index: number) -> array{
+    return self.trim_list(first_index, second_index);
+  }
+  @setter
+  function __slice__(self: array, first_index: number, second_index: number, value: array){
+    //тут я уже не буду писать как реализовать установку a[0:1] = [0, 1]
+  }
+}
+a = [1,2,3]
+player::message(a[1]); //ожидаемый вывод 2
+player::message(a[0:1]); //ожидаемый вывод [1, 2]
+```
 Операторы в функциях
 ```ts
 //Расширим класс text и добавим ему пару действий
