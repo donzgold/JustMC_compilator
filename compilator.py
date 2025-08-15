@@ -4241,7 +4241,7 @@ def fix_args(self, args, casts_allowed, inline=False, assigning=None, strict_che
             previous_operations.extend(prev_ops)
             next_ops.extend(next_operations)
             next_operations = next_ops
-        if casts_allowed and args[k1].can_cast_as(self.arges[k1]["type"]) != 0:
+        if casts_allowed and isinstance(self.arges[k1]["type"], str) and args[k1].can_cast_as(self.arges[k1]["type"]) != 0:
             args[k1] = args[k1].cast_as(self.arges[k1]["type"], self.arges[k1])
         if not (args[k1].type == "variable" and args[k1].value == k1) and assigning is None:
             if not v1.is_simple() and not inline:
