@@ -3426,8 +3426,8 @@ class calling_argument:  # is_jmcc_object
                              self.source))
             if spec is not None:
                 self.value_type = spec.get_real_type()
-        elif self.spec.has_special(f"__set_attribute__"):
-            spec, error_message, args1, nun = self.spec.get_special(f"__set_attribute__").check_args(
+        elif self.spec.has_special(f"__get_attribute__"):
+            spec, error_message, args1, nun = self.spec.get_special(f"__get_attribute__").check_args(
                 calling_args([self.object, text(self.arg, Texts.LEGACY, self.starting_pos, self.ending_pos,
                                                 self.source)], {}, self.starting_pos, self.ending_pos,
                              self.source))
@@ -3516,7 +3516,8 @@ class calling_function:  # is_jmcc_object
             spec = Context(Context.sources[-1]).get_special(self.object.get_real_type())
             if spec.has_special(self.value):
                 spec, error_message, args1, nun = spec.get_special(self.value).check_args(args)
-                self.value_type = spec.get_real_type()
+                if spec is not None:
+                    self.value_type = spec.get_real_type()
         elif self.value in {"__or__", "__and__", "__not__"}:
             self.value_type = "number"
 
@@ -3627,19 +3628,22 @@ class subscript:  # is_jmcc_object
             error_from_object(self.object, "", "найди отца")
         self.spec = context.get_special(self.object.get_real_type())
         self.value_type = None
-        if self.arg2 is None:
-            if self.spec.has_special(f"__subscript__.getter"):
-                spec, error_message, args1, nun = self.spec.get_special(f"__subscript__.getter").check_args(
-                    calling_args([self.object, self.arg1], {}, self.starting_pos, self.ending_pos,
-                                 self.source))
-                self.value_type = spec.get_real_type()
-        else:
-            if self.spec.has_special(f"__slice__.getter"):
-                spec, error_message, args1, nun = self.spec.get_special(f"__slice__.getter").check_args(
-                    calling_args([self.object, self.arg1, self.arg2], {}, self.starting_pos,
-                                 self.ending_pos,
-                                 self.source))
-                self.value_type = spec.get_real_type()
+        if self.spec is not None:
+            if self.arg2 is None:
+                if self.spec.has_special(f"__subscript__.getter"):
+                    spec, error_message, args1, nun = self.spec.get_special(f"__subscript__.getter").check_args(
+                        calling_args([self.object, self.arg1], {}, self.starting_pos, self.ending_pos,
+                                     self.source))
+                    if spec is not None:
+                        self.value_type = spec.get_real_type()
+            else:
+                if self.spec.has_special(f"__slice__.getter"):
+                    spec, error_message, args1, nun = self.spec.get_special(f"__slice__.getter").check_args(
+                        calling_args([self.object, self.arg1, self.arg2], {}, self.starting_pos,
+                                     self.ending_pos,
+                                     self.source))
+                    if spec is not None:
+                        self.value_type = spec.get_real_type()
 
     def __str__(self):
         return f'subscript({self.object}, {self.arg1}:{self.arg2})'
