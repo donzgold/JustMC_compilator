@@ -774,11 +774,11 @@ class vector2d {
 //В данный момент работа с атрибутами не задана, а потому будет вызвана ошибка, исправим это
 //Для удобства расширим предыдущий класс и добавим методы
 class vector2d(vector2d) {
-  function __set_attribute__(self, key, value) {//установка (self.x = x)
-  //так как мы не собираемся использовать функции класса, можно не указывать тип данных для self
+  function __set_attribute__(self: vector2d, key: text, value: any) -> vector2d {//установка (self.x = x)
     self = self.set_map_value(key, value);
+    return self; //Необходимо для сохранения результата
   }
-  function __get_attribute__(self, key) {//получение атрибута по self.x
+  function __get_attribute__(self: vector2d, key: text) -> any {//получение атрибута по self.x
     return self.get_map_value(key);
   }
 }
@@ -789,11 +789,12 @@ player::message<all_players>(vector.x); //выведет 3
 //Так же можно указать метод для отдельного атрибута:
 class vector2d(vector2d) {
   @setter
-  function x(self, value){
+  function x(self: vector2d, value: any) -> vector2d{
      self.set_map_value("x_coordinate", value);
+     return self; //Необходимо для сохранения результата
   }
   @getter
-  function x(self){
+  function x(self: vector2d){
     return self.get_map_value("x_coordinate");
   }
 }
@@ -811,7 +812,7 @@ class vector2d {
     self.y = y;
     return self;
   }
-  function get_length(self: vector2d) {
+  function get_length(self: vector2d) -> number{
     x = variable::pow(self.x, 2);
     y = variable::pow(self.y, 2);
     sum_x_y = variable::add([x, y]);
@@ -841,19 +842,20 @@ vector2 = vector(a,b,c); //в таком случае будет использ�
 ```ts
 class array {
   @getter
-  function __subscript__(self: array, index: number) -> any{
+  function __subscript__(self: array, index: number) -> any {
     return self.get_list_value(index);
   }
   @setter
-  function __subscript__(self: array, index: number, value: any){
+  function __subscript__(self: array, index: number, value: any) -> array {
     self = self.set_list_value(index, value)
+    return self; //Необходимо для сохранения результата
   }
   @getter
-  function __slice__(self: array, first_index: number, second_index: number) -> array{
+  function __slice__(self: array, first_index: number, second_index: number) -> array {
     return self.trim_list(first_index, second_index);
   }
   @setter
-  function __slice__(self: array, first_index: number, second_index: number, value: array){
+  function __slice__(self: array, first_index: number, second_index: number, value: array) -> array {
     //тут я уже не буду писать как реализовать установку a[0:1] = [0, 1]
   }
 }
