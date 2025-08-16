@@ -214,6 +214,10 @@ class Lexer:
                     token_type = Tokens.ELSE
                 case "function":
                     token_type = Tokens.FUNCTION_DEFINE
+                case "def":
+                    token_type = Tokens.FUNCTION_DEFINE
+                case "fun":
+                    token_type = Tokens.FUNCTION_DEFINE
                 case "process":
                     token_type = Tokens.PROCESS_DEFINE
                 case "var":
@@ -1107,7 +1111,7 @@ class Parser:
                         self.token(self.index + 1).type not in {Tokens.NEXT_LINE, Tokens.SEMICOLON}):
                     allow_return += 1
                 if allow_return > 1 and inline:
-                    error_from_object(self.current_token, "", "В инлайн функциях можно только 1 возврат")
+                    error_from_object(self.current_token, "FunctionError", translate("error.functionerror.only_one_return"))
                 self.eat(self.current_token.type)
             if allow_return > 0 or return_var_type is not None:
                 if return_var is None:
@@ -1131,8 +1135,12 @@ class Parser:
                     error_from_object(token, "NameError", translate("error.nameerror.special_cant_be_rewritten"))
                 else:
                     result.name = f"{result.name}.{new('function_' + result.name)}"
+                    spec = self.context.get_special(token.value)
+                    if isinstance(spec, special_class):
+                        error_from_object(token, "OverloadError",
+                                          translate("error.overloaderror.class_cant_have_overloads"))
                     self.context.set_special(token.value,
-                                             self.context.get_special(token.value).add_overload(result.special()))
+                                             spec.add_overload(result.special()))
             elif result.name in {"block", "enum"}:
                 error_from_object(token, "NameError", translate("error.nameerror.special_cant_be_rewritten"))
             else:
@@ -1168,8 +1176,11 @@ class Parser:
                     error_from_object(token, "NameError", translate("error.nameerror.special_cant_be_rewritten"))
                 else:
                     result.name = f"{result.name}.{new(result.name)}"
+                    spec = self.context.get_special(token.value)
+                    if isinstance(spec, special_class):
+                        error_from_object(token, "OverloadError", translate("error.overloaderror.class_cant_have_overloads"))
                     self.context.set_special(token.value,
-                                             self.context.get_special(token.value).add_overload(result.special()))
+                                             spec.add_overload(result.special()))
             elif result.name in {"block", "enum"}:
                 error_from_object(token, "NameError", translate("error.nameerror.special_cant_be_rewritten"))
             else:
@@ -1345,9 +1356,9 @@ class Parser:
             if self.current_token.type == Tokens.LPAREN:
                 self.eat(Tokens.LPAREN)
                 parent = self.current_token.value
-                if not self.context.has_special(parent):
-                    error_from_object(self.current_token, "", translate("ашипка нет атца", {0: parent}))
                 self.eat(Tokens.VARIABLE)
+                if not self.context.has_special(parent):
+                    error_from_object(self.current_token, "NameError", translate("error.nameerror.special_not_found", {0: parent}))
                 self.eat(Tokens.RPAREN)
             else:
                 parent = None
@@ -2238,7 +2249,7 @@ class lst:  # is_jmcc_object
         self.values = new_lst
         self.simple = True
         if (mode == 0 or (len_limit is not None and (len(new_lst) > len_limit))):
-            if isinstance(work_with, var):
+            if work_with is not None and (work_with.type == "variable" or work_with.can_cast_as("variable")):
                 current_operation = work_with
             else:
                 current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos,
@@ -2372,7 +2383,7 @@ class dct:  # is_jmcc_object
                 new_values.append(cur_op)
         self.values = new_values
         if mode == 0:
-            if isinstance(work_with, var):
+            if work_with is not None and (work_with.type == "variable" or work_with.can_cast_as("variable")):
                 current_operation = work_with
             else:
                 current_operation = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos,
@@ -2898,7 +2909,7 @@ class value:  # is_jmcc_object
         return True
 
     def simplify(self, mode=None, work_with=None):
-        if isinstance(work_with, var):
+        if work_with is None or not (work_with.type == "variable" or work_with.can_cast_as("variable")):
             work_with = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
         return assign(work_with, None, self, self.starting_pos, self.ending_pos, self.source).simplify()
 
@@ -3032,7 +3043,7 @@ class action:  # is_jmcc_object
             if mode == 0 or mode == -1:
                 if "assign" in actions[self.object][self.name]:
                     if not isinstance(work_with, list):
-                        if not isinstance(work_with, var):
+                        if work_with is None or not (work_with.type == "variable" or work_with.can_cast_as("variable")):
                             work_with = var(f"jmcc.{new(var_based)}", Vars.LOCAL, self.starting_pos, self.ending_pos,
                                             self.source)
                         work_with = [work_with]
@@ -3081,14 +3092,14 @@ class action:  # is_jmcc_object
                             context.jmcc_lvl > 0 and isinstance(context.get_inline(load_args["variable"].value), var)):
                         context.set_inline(load_args["variable"].value, load_args["value"].remove_inlines())
                         return [], None, []
+                    if load_args["variable"].type in {"subscript", "calling_argument"}:
+                        return load_args["variable"].simplify(mode=1, work_with=load_args["value"])
                     if load_args["value"].type in {"subscript", "calling_argument", "calling_function",
                                                    "calling_object", "action", "if_else_expr", "array", "map"} or (
                             load_args["value"].type in {"location", "vector"} and not load_args["value"].is_simple()):
                         if len(work_with) < 2:
                             work_with = load_args["variable"]
                         return load_args["value"].simplify(mode=0, work_with=work_with)
-                    if load_args["variable"].type in {"subscript", "calling_argument"}:
-                        return load_args["variable"].simplify(mode=1, work_with=load_args["value"])
             if inline and not (
                     context.jmcc_lvl > 0 and isinstance(context.get_inline(load_args["variable"].value), var)):
                 context.set_inline(work_with[0].value, self.remove_inlines())
@@ -3253,7 +3264,7 @@ class calling_object:  # is_jmcc_object
         if self.special is None:
             self.special = Context(Context.sources[-1])
         if self.value not in self.changeable:
-            if self.special.has_special(self.value):
+            if isinstance(self.special, (special_class, Context)) and self.special.has_special(self.value):
                 spec, error_message, args1, nun = self.special.get_special(self.value).check_args(args)
                 if spec is not None:
                     self.value_type = spec.get_real_type()
@@ -3293,7 +3304,7 @@ class calling_object:  # is_jmcc_object
     def simplify(self, mode=None, work_with=None):
         if mode == 1:
             error_from_object(self, "ActionError", translate("error.actionerror.action_cant_be_setter", {0: self}))
-        if not self.special.has_special(self.value):
+        if not isinstance(self.special, (special_class, Context)) or not self.special.has_special(self.value):
             if isinstance(self.special, special_class):
                 error_from_object(self, "ActionError",
                                   translate("error.actionerror.unexists_calling_object_in_class",
@@ -3340,8 +3351,6 @@ class calling_object:  # is_jmcc_object
             data = context.get_inline(return_var.value)
             context.previous_lvl()
             context.previous_jmcc_lvl()
-            if isinstance(data, var):
-                data.value_type = return_var.get_real_type()
             if data is not None:
                 if work_with is not None:
                     prev_ops, data, next_ops = assign([work_with], None, data, data.starting_pos, data.ending_pos,
@@ -3354,7 +3363,9 @@ class calling_object:  # is_jmcc_object
                 next_ops.extend(next_operations)
                 next_operations = next_ops
             elif special.return_var is not None:
-                error_from_object(self, "", "вызов функции ожидал возврат, но возврат не был найден")
+                error_from_object(self, "FunctionError", translate("error.functionerror.expected_return"))
+            if isinstance(data, var):
+                data.value_type = return_var.get_real_type()
             return previous_operations, data, next_operations
         elif special.type == "function" and not special.inline:
             previous_operations.append(action("code", "call_function", calling_args([], {
@@ -3367,12 +3378,14 @@ class calling_object:  # is_jmcc_object
                 if special.return_var is None:
                     error_from_object(self, "ActionError",
                                       translate("error.actionerror.action_has_no_value", {0: self.value}))
-                if isinstance(work_with, var):
-                    if work_with.value != special.return_var.value:
+                if work_with is not None and (work_with.type == "variable" or work_with.can_cast_as("variable")):
+                    if work_with.type != "variable" or work_with.value != special.return_var.value:
                         previous_operations.append(action("variable", "set_value", calling_args([], {
                             "variable": work_with, "value": special.return_var}, self.starting_pos, self.ending_pos,
                                                                                                 self.source),
                                                           self.starting_pos, self.ending_pos, self.source))
+                    else:
+                        work_with = special.return_var
                 else:
                     work_with = special.return_var
                 return previous_operations, work_with, next_operations
@@ -3421,8 +3434,10 @@ class calling_argument:  # is_jmcc_object
         self.value_type = None
         context = Context(Context.sources[-1])
         if not context.has_special(self.object.get_real_type()):
-            error_from_object(self.object, "312", f"нету {self.object.get_real_type()}")
+            error_from_object(self.object, "NameError", translate("error.nameerror.special_not_found", insert={0: self.object.get_real_type()}))
         self.spec = context.get_special(self.object.get_real_type())
+        if not isinstance(self.spec, special_class):
+            error_from_object(self.object, "NameError", translate("error.nameerror.special_is_not_class", insert={0: self.object.get_real_type(), 1: translate("special."+self.spec.type+".name",fallback=translate("special.unknown.name"))}))
         self.value_type = None
         if self.spec.has_special(f"{self.arg}.getter"):
             spec, error_message, args1, nun = self.spec.get_special(f"{self.arg}.getter").check_args(
@@ -3467,7 +3482,7 @@ class calling_argument:  # is_jmcc_object
                                                   self.ending_pos,
                                                   self.source), self.starting_pos, self.ending_pos, self.source,
                                      self.spec)
-            return obj.simplify()
+            return obj.simplify(mode=0, work_with=self.object)
         elif mode == 0:
             if self.spec.has_special(f"{self.arg}.getter"):
                 obj = calling_object(f"{self.arg}.getter",
@@ -3497,7 +3512,9 @@ class calling_argument:  # is_jmcc_object
         return self.value_type
 
     def can_cast_as(self, typ):
-        return try_cast_as_class(self.get_real_type(), typ)
+        if typ == "variable":
+            return 1
+        return try_cast_as_class(self.get_real_type(), typ, 1)
 
     def cast_as(self, typ, arges):
         return self
@@ -3505,7 +3522,7 @@ class calling_argument:  # is_jmcc_object
 
 class calling_function:  # is_jmcc_object
     type = "calling_function"
-    __slots__ = ("object", "value", "value_type", "args", "starting_pos", "ending_pos", "source")
+    __slots__ = ("object", "value", "value_type", "spec", "args", "starting_pos", "ending_pos", "source")
 
     def __init__(self, obj: default_jmcc_object, val: str, args: calling_args, starting_pos: int, ending_pos: int,
                  source: str):
@@ -3516,10 +3533,14 @@ class calling_function:  # is_jmcc_object
         self.ending_pos = ending_pos
         self.source = source
         self.value_type = None
-        if Context(Context.sources[-1]).has_special(self.object.get_real_type()):
-            spec = Context(Context.sources[-1]).get_special(self.object.get_real_type())
-            if spec.has_special(self.value):
-                spec, error_message, args1, nun = spec.get_special(self.value).check_args(args)
+        self.spec = Context(Context.sources[-1]).get_special(self.object.get_real_type())
+        if self.spec is not None:
+            if not isinstance(self.spec, special_class):
+                error_from_object(self.object, "NameError", translate("error.nameerror.special_is_not_class",
+                                                                      insert={0: self.object.get_real_type(),
+                                                                              1: translate("special."+self.spec.type+".name",fallback=translate("special.unknown.name"))}))
+            if self.spec.has_special(self.value):
+                spec, error_message, args1, nun = self.spec.get_special(self.value).check_args(args)
                 if spec is not None:
                     self.value_type = spec.get_real_type()
         elif self.value in {"__or__", "__and__", "__not__"}:
@@ -3545,7 +3566,7 @@ class calling_function:  # is_jmcc_object
     def simplify(self, mode=None, work_with=None):
         if mode == 0 or mode is None:
             if self.value in {"__or__", "__and__"}:
-                if not isinstance(work_with, var):
+                if work_with is None or not (work_with.type == "variable" or work_with.can_cast_as("variable")):
                     work_with = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
                 work_with.value_type = "number"
                 true = number(1, self.starting_pos, self.ending_pos, self.source)
@@ -3584,10 +3605,9 @@ class calling_function:  # is_jmcc_object
                     next_ops.extend(next_operations)
                     next_operations = next_ops
                     return previous_operations, cur_op, next_operations
-            elif Context(Context.sources[-1]).has_special(self.object.get_real_type()):
-                special = Context(Context.sources[-1]).get_special(self.object.get_real_type())
+            elif self.spec is not None:
                 return calling_object(self.value, self.args, self.starting_pos, self.ending_pos, self.source,
-                                      special).simplify(mode=mode, work_with=work_with)
+                                      self.spec).simplify(mode=mode, work_with=work_with)
             else:
                 error_from_object(self.object, "NameError",
                                   translate("error.nameerror.special_not_found", {0: self.object.get_real_type()}))
@@ -3620,7 +3640,7 @@ class subscript:  # is_jmcc_object
     type = "subscript"
     __slots__ = ("object", "arg1", "arg2", "value_type", "starting_pos", "ending_pos", "source", "spec")
 
-    def __init__(self, obj: object, arg1: number, arg2: number, starting_pos: int, ending_pos: int, source: str):
+    def __init__(self, obj: default_jmcc_object, arg1: default_jmcc_object, arg2: default_jmcc_object, starting_pos: int, ending_pos: int, source: str):
         self.object = obj
         self.arg1 = arg1
         self.arg2 = arg2
@@ -3629,8 +3649,10 @@ class subscript:  # is_jmcc_object
         self.source = source
         context = Context(Context.sources[-1])
         if not context.has_special(self.object.get_real_type()):
-            error_from_object(self.object, "", "найди отца")
+            error_from_object(self.object, "NameError", translate("error.nameerror.special_not_found", insert={0: self.object.get_real_type()}))
         self.spec = context.get_special(self.object.get_real_type())
+        if not isinstance(self.spec, special_class):
+            error_from_object(self.object, "NameError", translate("error.nameerror.special_is_not_class", insert={0: self.object.get_real_type(), 1: translate("special."+self.spec.type+".name",fallback=translate("special.unknown.name"))}))
         self.value_type = None
         if self.spec is not None:
             if self.arg2 is None:
@@ -3664,6 +3686,7 @@ class subscript:  # is_jmcc_object
         return False
 
     def simplify(self, mode=None, work_with=None):
+        print(self, mode, work_with)
         if mode == 1:
             if self.arg2 is None:
                 obj = calling_object(f"__subscript__.setter",
@@ -3677,7 +3700,7 @@ class subscript:  # is_jmcc_object
                                                   self.ending_pos,
                                                   self.source), self.starting_pos, self.ending_pos, self.source,
                                      self.spec)
-            return obj.simplify()
+            return obj.simplify(mode=0, work_with=self.object)
         else:
             if self.arg2 is None:
                 obj = calling_object(f"__subscript__.getter",
@@ -3705,7 +3728,11 @@ class subscript:  # is_jmcc_object
         return self.value_type
 
     def can_cast_as(self, typ):
-        return try_cast_as_class(self.get_real_type(), typ)
+        if typ == "variable":
+            return 1
+        return try_cast_as_class(self.get_real_type(), typ, 1)
+    def cast_as(self, typ, arges):
+        return self
 
 
 def try_cast_as_class(class_typ, typ, additional=0):
@@ -4045,7 +4072,7 @@ class return_:
         previous_operations = []
         next_operations = []
         if mode == 0:
-            if not isinstance(work_with, var):
+            if work_with is None or not (work_with.type == "variable" or work_with.can_cast_as("variable")):
                 if len(Context(Context.sources[-1]).settings["inline"]) == 0:
                     work_with = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
                 else:
@@ -4147,12 +4174,15 @@ class assign:
 
     def simplify(self, mode=None, work_with=None):
         if self.assign_type is None:
-            if self.object.get_type() == "action":
-                return self.object.simplify(mode=0, work_with=self.variables)
             return action("variable", "set_value",
                           calling_args([], {"value": self.object}, self.starting_pos, self.ending_pos, self.source),
                           self.starting_pos, self.ending_pos, self.source).simplify(mode=0, work_with=self.variables)
         else:
+            assign_type = self.assign_type.replace("__","__i",1)
+            spec = Context(Context.sources[-1]).get_special(self.variables[0].get_real_type())
+            if spec is not None and isinstance(spec, special_class):
+                if spec.has_special(assign_type):
+                    self.assign_type = assign_type
             return action("variable", "set_value",
                           calling_args([], {"value": calling_function(self.variables[0], self.assign_type,
                                                                       calling_args([self.variables[0], self.object], {},
@@ -4247,7 +4277,7 @@ def fix_args(self, args, casts_allowed, inline=False, assigning=None, strict_che
                 prev_ops, args[k1], next_ops = v1.simplify(len_limit=self.arges[k1]["array"])
             elif assigning is not None and self.arges[k1]["type"] == "variable" and k1 in assigning:
                 prev_ops, args[k1], next_ops = v1.simplify(mode=1)
-            elif (v1.type in ("map", "array")) and strict_check:
+            elif ((v1.type in ("map", "array") or v1.type == "class_object" and v1.object.type in ("map","array")) and (strict_check or assigning is None)):
                 prev_ops, args[k1], next_ops = v1.simplify()
             else:
                 prev_ops, args[k1], next_ops = v1.simplify(mode=0)
@@ -4257,7 +4287,7 @@ def fix_args(self, args, casts_allowed, inline=False, assigning=None, strict_che
         if casts_allowed and isinstance(self.arges[k1]["type"], str) and args[k1].can_cast_as(self.arges[k1]["type"]) != 0:
             args[k1] = args[k1].cast_as(self.arges[k1]["type"], self.arges[k1])
         if not (args[k1].type == "variable" and args[k1].value == k1) and assigning is None:
-            if not v1.is_simple() and not inline:
+            if isinstance(v1, (calling_argument, calling_function, calling_object, subscript)) and not inline:
                 prev_ops, args[k1], next_ops = action("variable", "set_value",
                                                       calling_args([], {"value": args[k1]}, args[k1].starting_pos,
                                                                    args[k1].ending_pos, args[k1].source),
@@ -4271,7 +4301,7 @@ def fix_args(self, args, casts_allowed, inline=False, assigning=None, strict_che
             if args[k1].get_real_type() in ("any", None):
                 args[k1].value_type = assigning[k1]
         if self.arges[k1]["type"] == "variable" and not "array" in self.arges[k1]:
-            Context(Context.sources[-1]).set_variable_type(v1.var_type, v1.value, v1.get_real_type())
+            Context(Context.sources[-1]).set_variable_type(args[k1].var_type, args[k1].value, args[k1].get_real_type())
     for var_thing, k1 in super_args:
         prev_ops, args[k1], next_ops = assign([var_thing], None, args[k1], args[k1].starting_pos, args[k1].ending_pos,
                                               args[k1].source).simplify()
@@ -4911,7 +4941,7 @@ def built_in_simplify(self, mode, work_with):
             return assign([work_with], None, self, self.starting_pos, self.ending_pos, self.source).simplify()
         return previous_operations, self, next_operations
     else:
-        error_from_object(self, "", "ты чо как это сделал")
+        error_from_object(self, "", translate("error.unknown"))
 
 
 # noinspection PyUnresolvedReferences
@@ -5172,7 +5202,7 @@ class particle:  # is_jmcc_object
                     self.new_args["color"].value = int(self.new_args["color"].value[1:], 16)
                 else:
                     error_from_object(self.new_args["color"], "ArgumentError",
-                                      "неверный формат цвета '{0}', ожидался: '#FFFFFF'")
+                                      translate("error.argumenterror.wrong_color"))
             if self.new_args["to_color"].get_type() == "text":
                 if len(self.new_args["to_color"].value) == 7 and self.new_args["to_color"].value[0] == "#" and \
                         self.new_args["to_color"].value[1] in allowed_symbols and self.new_args["to_color"].value[
@@ -5182,7 +5212,7 @@ class particle:  # is_jmcc_object
                     self.new_args["to_color"].value = int(self.new_args["to_color"].value[1:], 16)
                 else:
                     error_from_object(self.new_args["to_color"], "ArgumentError",
-                                      "неверный формат цвета '{0}', ожидался: '#FFFFFF'")
+                                      translate("error.argumenterror.wrong_color"))
         return ret
 
     def json(self):
@@ -5247,7 +5277,7 @@ class if_else_expr:
     def simplify(self, mode=None, work_with=None):
         if mode == 1:
             exit()
-        if not isinstance(work_with, var):
+        if work_with is None or not (work_with.type == "variable" or work_with.can_cast_as("variable")):
             work_with = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
         Context(Context.sources[-1]).next_lvl()
         Context(Context.sources[-1]).add_operation(
@@ -5319,9 +5349,7 @@ class class_object:
         if not self.object.is_simple():
             return self.object.simplify(mode=mode, work_with=work_with)
         else:
-            if not isinstance(work_with, var):
-                work_with = var(f"jmcc.{new('var')}", Vars.LOCAL, self.starting_pos, self.ending_pos, self.source)
-            return assign([work_with], None, self.object, self.starting_pos, self.ending_pos, self.source).simplify()
+            return [], self.object, []
 
     def copy(self):
         return self

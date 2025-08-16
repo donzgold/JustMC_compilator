@@ -84,7 +84,7 @@ class Properties:
 
 def translate(message: str, insert: dict = None, fallback: str = None):
     global lang
-    if message not in lang:
+    if lang is None or message not in lang:
         if fallback is None:
             return f"&fMessage '{message}' not found, inserts={insert}&r"
         else:
@@ -307,7 +307,10 @@ if not os.path.isfile("jmcc.properties"):
     exit()
 else:
     data = Properties(text=open("jmcc.properties", "r", encoding="UTF-8").read())
-    lang = Properties(text=open("data/lang/" + data["lang"] + ".properties", "r", encoding="UTF-8").read())
+    if "lang" in data and os.path.isfile("data/lang/" + data["lang"] + ".properties"):
+        lang = Properties(text=open("data/lang/" + data["lang"] + ".properties", "r", encoding="UTF-8").read())
+    else:
+        lang = None
 end_time = time()
 print(minecraft_based_text(translate("jmcc.prepare_data_time", {0: round(end_time - start_time, 3)})))
 if __name__ == "__main__":
