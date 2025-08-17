@@ -1892,20 +1892,16 @@ variable::create_translatable_component(variable=`variable`, key="key", fallback
 </h3>
 
 **Name:** Decrement (-=)\
-**Type:** An action that returns a value\
+**Type:** Action without value\
 **Description:** Subtracts the selected number from the variable.
 
 **Usage example:** 
 ```ts
-`variable` = variable::decrement(1);
+variable::decrement(`variable`, 1);
 
 //Or from the object
 
 `variable`.decrement(1);
-
-//Or dry by positionals
-
-variable::decrement(`variable`, 1);
 
 //Or dry by keywords
 
@@ -1914,10 +1910,10 @@ variable::decrement(variable=`variable`, number=1);
 
 **Arguments:**
 
-| **Name**   | **Type**           | **Description**    |
-| ---------- | ------------------ | ------------------ |
-| `variable` | Variable\[Number\] | Variable to assign |
-| `number`   | Number             | Number to Subtract |
+| **Name**   | **Type** | **Description**    |
+| ---------- | -------- | ------------------ |
+| `variable` | Variable | Variable to assign |
+| `number`   | Number   | Number to Subtract |
 <h3 id=set_variable_divide>
   <code>variable::divide</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5497,20 +5493,16 @@ variable::hide_item_components(variable=`variable`, item=item("stick"), componen
 </h3>
 
 **Name:** Increment (+=)\
-**Type:** An action that returns a value\
+**Type:** Action without value\
 **Description:** Adds the selected number to a variable.
 
 **Usage example:** 
 ```ts
-`variable` = variable::increment(1);
+variable::increment(`variable`, 1);
 
 //Or from the object
 
 `variable`.increment(1);
-
-//Or dry by positionals
-
-variable::increment(`variable`, 1);
 
 //Or dry by keywords
 
@@ -5519,10 +5511,10 @@ variable::increment(variable=`variable`, number=1);
 
 **Arguments:**
 
-| **Name**   | **Type**           | **Description**    |
-| ---------- | ------------------ | ------------------ |
-| `variable` | Variable\[Number\] | Variable to assign |
-| `number`   | Number             | Number to add      |
+| **Name**   | **Type** | **Description**    |
+| ---------- | -------- | ------------------ |
+| `variable` | Variable | Variable to assign |
+| `number`   | Number   | Number to add      |
 <h3 id=set_variable_insert_list_value>
   <code>variable::insert_list_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

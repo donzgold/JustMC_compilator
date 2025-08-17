@@ -1892,20 +1892,16 @@ variable::create_translatable_component(variable=`variable`, key="key", fallback
 </h3>
 
 **Имя:** Отнимание (-=)\
-**Тип:** Действие, возращающее значение\
+**Тип:** Действие без значения\
 **Описание:** Отнимает от переменной выбранное число.
 
 **Пример использования:** 
 ```ts
-`variable` = variable::decrement(1);
+variable::decrement(`variable`, 1);
 
 //Или от объекта
 
 `variable`.decrement(1);
-
-//Или в сухую позиционно
-
-variable::decrement(`variable`, 1);
 
 //Или в сухую по ключам
 
@@ -1914,10 +1910,10 @@ variable::decrement(variable=`variable`, number=1);
 
 **Аргументы:**
 
-| **Имя**    | **Тип**             | **Описание**              |
-| ---------- | ------------------- | ------------------------- |
-| `variable` | Переменная\[Число\] | Переменная для присвоения |
-| `number`   | Число               | Число для отнимания       |
+| **Имя**    | **Тип**    | **Описание**              |
+| ---------- | ---------- | ------------------------- |
+| `variable` | Переменная | Переменная для присвоения |
+| `number`   | Число      | Число для отнимания       |
 <h3 id=set_variable_divide>
   <code>variable::divide</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5497,20 +5493,16 @@ variable::hide_item_components(variable=`variable`, item=item("stick"), componen
 </h3>
 
 **Имя:** Прибавление (+=)\
-**Тип:** Действие, возращающее значение\
+**Тип:** Действие без значения\
 **Описание:** Прибавляет к переменной выбранное число.
 
 **Пример использования:** 
 ```ts
-`variable` = variable::increment(1);
+variable::increment(`variable`, 1);
 
 //Или от объекта
 
 `variable`.increment(1);
-
-//Или в сухую позиционно
-
-variable::increment(`variable`, 1);
 
 //Или в сухую по ключам
 
@@ -5519,10 +5511,10 @@ variable::increment(variable=`variable`, number=1);
 
 **Аргументы:**
 
-| **Имя**    | **Тип**             | **Описание**              |
-| ---------- | ------------------- | ------------------------- |
-| `variable` | Переменная\[Число\] | Переменная для присвоения |
-| `number`   | Число               | Число для прибавления     |
+| **Имя**    | **Тип**    | **Описание**              |
+| ---------- | ---------- | ------------------------- |
+| `variable` | Переменная | Переменная для присвоения |
+| `number`   | Число      | Число для прибавления     |
 <h3 id=set_variable_insert_list_value>
   <code>variable::insert_list_value</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

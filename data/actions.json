@@ -12637,12 +12637,6 @@
         "type": "number"
       }
     ],
-    "assign": [
-      {
-        "id": "variable",
-        "type": "number"
-      }
-    ],
     "origin": "variable",
     "type": "basic"
   },
@@ -15770,12 +15764,6 @@
       },
       {
         "id": "number",
-        "type": "number"
-      }
-    ],
-    "assign": [
-      {
-        "id": "variable",
         "type": "number"
       }
     ],
