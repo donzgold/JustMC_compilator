@@ -1434,10 +1434,10 @@ class Parser:
                     assign_type = "__add__"
                 elif self.current_token.type == Tokens.MINUS_ASSIGN:
                     self.eat(Tokens.MINUS_ASSIGN)
-                    assign_type = "__minus__"
+                    assign_type = "__subtract__"
                 elif self.current_token.type == Tokens.MULTIPLY_ASSIGN:
                     self.eat(Tokens.MULTIPLY_ASSIGN)
-                    assign_type = "__subtract__"
+                    assign_type = "__multiply__"
                 elif self.current_token.type == Tokens.DIVIDE_ASSIGN:
                     self.eat(Tokens.DIVIDE_ASSIGN)
                     assign_type = "__divide__"
@@ -3099,7 +3099,7 @@ class action:  # is_jmcc_object
                             load_args["value"].type in {"location", "vector"} and not load_args["value"].is_simple()):
                         if len(work_with) < 2:
                             work_with = load_args["variable"]
-                        else:
+                        elif load_args["value"].type != "action":
                             work_with = work_with[0]
                         return load_args["value"].simplify(mode=0, work_with=work_with)
             if inline and not (
