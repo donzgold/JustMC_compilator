@@ -3099,10 +3099,12 @@ class action:  # is_jmcc_object
                             load_args["value"].type in {"location", "vector"} and not load_args["value"].is_simple()):
                         if len(work_with) < 2:
                             work_with = load_args["variable"]
+                        else:
+                            work_with = work_with[0]
                         return load_args["value"].simplify(mode=0, work_with=work_with)
             if inline and not (
-                    context.jmcc_lvl > 0 and isinstance(context.get_inline(load_args["variable"].value), var)):
-                context.set_inline(work_with[0].value, self.remove_inlines())
+                    context.jmcc_lvl > 0 and isinstance(context.get_inline(load_args[actions[self.object][self.name]["assign"][0]["id"]].value), var)):
+                context.set_inline(load_args[actions[self.object][self.name]["assign"][0]["id"]].value, self.remove_inlines())
                 return [], None, []
             if self.object == "variable":
                 if self.name == "create_list":
@@ -3122,11 +3124,11 @@ class action:  # is_jmcc_object
                     new_value = []
                     spec_number = None
 
-                    def add_number(new_value, spec_numba, numba, method):
+                    def add_number(new_value1, spec_numba, numba, method):
                         if numba.get_type() == "number" and isinstance(numba.value, (int, float)):
                             if spec_numba is None:
                                 spec_numba = numba
-                                new_value.append(spec_numba)
+                                new_value1.append(spec_numba)
                             else:
                                 match method:
                                     case "add":
