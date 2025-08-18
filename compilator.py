@@ -2996,7 +2996,7 @@ class action:  # is_jmcc_object
             error_from_object(self, "ActionError", translate("error.actionerror.action_cant_be_setter", {0: self}))
         if self.selector is not None:
             if isinstance(self.selector.value, list):
-                previous_operations, self.selector.value, next_operations = giga_value(self, self.selector)
+                previous_operations, self.selector.value, next_operations = giga_value(self, self.selector.value)
                 if len(previous_operations) + len(next_operations) > 0:
                     error_from_object(self, "", translate("error.unknown10"))
             if self.object == "player":
@@ -3427,7 +3427,7 @@ class calling_argument:  # is_jmcc_object
     type = "calling_argument"
     __slots__ = ("object", "arg", "value_type", "spec", "starting_pos", "ending_pos", "source")
 
-    def __init__(self, obj: object, arg: str, starting_pos: int, ending_pos: int, source: str):
+    def __init__(self, obj: default_jmcc_object, arg: str, starting_pos: int, ending_pos: int, source: str):
         self.object = obj
         self.arg = arg
         self.starting_pos = starting_pos
