@@ -3321,6 +3321,7 @@ class calling_object:  # is_jmcc_object
             error_from_object(*error_message)
         if special.type == "function" and special.inline:
             context = Context(Context.sources[-1])
+            context.next_jmcc_lvl()
             context.next_lvl()
         prev_ops, args, next_ops = special.fix_args(args)
         previous_operations.extend(prev_ops)
@@ -3328,7 +3329,6 @@ class calling_object:  # is_jmcc_object
         next_operations = next_ops
         if special.type == "function" and special.inline:
             context.update()
-            context.next_jmcc_lvl()
             parser = Parser(special.operations, Context.sources[-1])
             context.settings["inline"].append(self.value)
             if context.settings["inline"].count(self.value) > 100:
@@ -3436,6 +3436,7 @@ class calling_argument:  # is_jmcc_object
         self.value_type = None
         context = Context(Context.sources[-1])
         if not context.has_special(self.object.get_real_type()):
+            print(context)
             error_from_object(self.object, "NameError", translate("error.nameerror.special_not_found", insert={0: self.object.get_real_type()}))
         self.spec = context.get_special(self.object.get_real_type())
         if not isinstance(self.spec, special_class):
@@ -4219,7 +4220,7 @@ def check_args(self, args, casts_allowed, strict_check=False):
             continue
         if v1.get_type() == "variable" and v1.get_real_type() is None:
             v2 = v1.remove_inlines()
-            v1.value_type = Context(v2.source).get_variable_type(v2.var_type, v2.value)
+            v1.value_type = Context(Context.sources[-1]).get_variable_type(v2.var_type, v2.value)
         args1[k1] = v1
         if "array" in self.arges[k1] and self.arges[k1]["type"] != "array" and v1.get_type() != "array":
             args1[k1] = lst([v1], v1.starting_pos, v1.ending_pos, v1.source)
@@ -4269,7 +4270,7 @@ def fix_args(self, args, casts_allowed, inline=False, assigning=None, strict_che
             var_thing = var(k1, Vars.LOCAL if not inline else Vars.INLINE, v1.starting_pos, v1.ending_pos, v1.source,
                             value_type=self.arges[k1]["type"])
             if inline:
-                Context(v1.source).set_variable(k1, var_thing.var_type)
+                Context(Context.sources[-1]).set_variable(k1, var_thing.var_type)
         else:
             var_thing = None
         if v1.is_simple():
@@ -4311,7 +4312,7 @@ def fix_args(self, args, casts_allowed, inline=False, assigning=None, strict_che
         next_ops.extend(next_operations)
         next_operations = next_ops
         var_thing.value_type = self.arges[k1]["type"]
-        Context(var_thing.source).set_variable_type(var_thing.var_type, var_thing.value, var_thing.get_real_type())
+        Context(Context.sources[-1]).set_variable_type(var_thing.var_type, var_thing.value, var_thing.get_real_type())
     for k1 in remove_keys:
         del args[k1]
     return previous_operations, args, next_operations
@@ -5393,7 +5394,7 @@ class class_:
                 if "__set_attribute__" not in self.specials:
                     jmcc_var1, jmcc_var2, jmcc_var3 = new("var"), new("var"), new("var")
                     self.specials["__set_attribute__"] = function("__set_attribute__", tokenize(
-                        "{" + f"`jmcc.{jmcc_var1}`:any;`jmcc.{jmcc_var1}`=`jmcc.{jmcc_var1}`.set_map_value(`jmcc.{jmcc_var2}`,`jmcc.{jmcc_var3}`);`jmcc.{jmcc_var1}`: {self.name}" + "}",
+                        "{" + f"`jmcc.{jmcc_var1}`=`jmcc.{jmcc_var1}`.set_map_value(`jmcc.{jmcc_var2}`,`jmcc.{jmcc_var3}`);`jmcc.{jmcc_var1}`: {name};return `jmcc.{jmcc_var1}`" + "}",
                         self.source, allow_jmcc=True), calling_args([var(f"jmcc.{jmcc_var1}", Vars.LOCAL,
                                                                          self.class_obj.starting_pos,
                                                                          self.class_obj.ending_pos,
@@ -5431,7 +5432,7 @@ class class_:
                     if f"{obj}.setter" not in self.specials:
                         jmcc_var1, jmcc_var2 = new("var"), new("var")
                         self.specials[f"{obj}.setter"] = function(f"{obj}.setter", tokenize(
-                            "{" + f"`jmcc.{jmcc_var1}`:any;`jmcc.{jmcc_var1}`=`jmcc.{jmcc_var1}`.set_map_value('{obj}',`jmcc.{jmcc_var2}`);`jmcc.{jmcc_var1}`: {self.name}" + "}",
+                            "{" + f"`jmcc.{jmcc_var1}`=`jmcc.{jmcc_var1}`.set_map_value('{obj}',`jmcc.{jmcc_var2}`);`jmcc.{jmcc_var1}`: {name};return `jmcc.{jmcc_var1}`" + "}",
                             self.source, allow_jmcc=True), calling_args([var(f"jmcc.{jmcc_var1}", Vars.LOCAL,
                                                                              self.class_obj.starting_pos,
                                                                              self.class_obj.ending_pos,
@@ -5468,7 +5469,7 @@ class class_:
                 if f"{obj}.setter" not in self.specials:
                     jmcc_var1, jmcc_var2 = new("var"), new("var")
                     self.specials[f"{obj}.setter"] = function(f"{obj}.setter", tokenize(
-                        "{" + f"`jmcc.{jmcc_var1}`:any;`jmcc.{jmcc_var1}`=`jmcc.{jmcc_var1}`.set_list_value({default_values.index(obj)},`jmcc.{jmcc_var2}`);`jmcc.{jmcc_var1}`: {self.name}" + "}",
+                        "{" + f"`jmcc.{jmcc_var1}`=`jmcc.{jmcc_var1}`.set_list_value({default_values.index(obj)},`jmcc.{jmcc_var2}`);`jmcc.{jmcc_var1}`: {name};return `jmcc.{jmcc_var1}`" + "}",
                         self.source, allow_jmcc=True), calling_args([var(f"jmcc.{jmcc_var1}", Vars.LOCAL,
                                                                          self.class_obj.starting_pos,
                                                                          self.class_obj.ending_pos,
