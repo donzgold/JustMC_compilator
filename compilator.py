@@ -4287,8 +4287,10 @@ def fix_args(self, args, casts_allowed, inline=False, assigning=None, strict_che
             previous_operations.extend(prev_ops)
             next_ops.extend(next_operations)
             next_operations = next_ops
+        print(args[k1], args[k1].can_cast_as(self.arges[k1]["type"]))
         if casts_allowed and isinstance(self.arges[k1]["type"], str) and args[k1].can_cast_as(self.arges[k1]["type"]) != 0:
             args[k1] = args[k1].cast_as(self.arges[k1]["type"], self.arges[k1])
+        print(args[k1], self.arges[k1]["type"])
         if not (args[k1].type == "variable" and args[k1].value == k1) and assigning is None:
             if isinstance(v1, (calling_argument, calling_function, calling_object, subscript)) and not inline:
                 prev_ops, args[k1], next_ops = action("variable", "set_value",
@@ -4861,6 +4863,8 @@ class item:  # is_jmcc_object
         elif typ == "text":
             item_data = str(self.item).replace("\"", "\\\"")
             return text(f"\"{item_data}\"", Texts.LEGACY, self.starting_pos, self.ending_pos, self.source)
+        else:
+            return self
 
 
 # noinspection PyUnresolvedReferences
@@ -5523,10 +5527,11 @@ class class_:
         if self.parent is not None:
             all_funcs_before = Context(Context.sources[-1]).get_special(self.parent).functions
             all_parents_before = Context(Context.sources[-1]).get_special(self.parent).parents
-            if len(all_parents_before) > 0 and all_parents_before[0] != self.parent:
-                all_parents_before.insert(0, self.parent)
-            else:
-                all_parents_before.append(self.parent)
+            if self.parent != self.name:
+                if len(all_parents_before) > 0 and all_parents_before[0] != self.parent:
+                    all_parents_before.insert(0, self.parent)
+                else:
+                    all_parents_before.append(self.parent)
         else:
             all_funcs_before = {}
             all_parents_before = []
