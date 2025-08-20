@@ -23,8 +23,6 @@ class Properties:
             self.get_properties(text=text)
         else:
             self.get_properties()
-        if len(self.positions) == 0:
-            self.positions[-1] = "#properties"
 
     def __getitem__(self, item):
         return self.properties[item]

@@ -1521,166 +1521,168 @@ class Parser:
         return jmcc_obj
 
     def parse(self):
-        while self.current_token.type != Tokens.EOF:
-            self.context.add_operation(self.up_statement())
-            self.context.update()
-        for i1 in self.context.get_operations():
-            if not i1.is_ready():
-                self.index = 0
-                self.tokens = i1.operations
-                self.current_token = self.token(self.index)
-                self.eat(Tokens.LCPAREN)
-                self.context.next_lvl()
-                self.context.next_jmcc_lvl()
-                if isinstance(i1, function):
-                    for i2 in i1.special().args:
-                        self.context.set_variable_type(Vars.LOCAL, i2["id"], i2["type"])
-                        self.context.set_variable(i2["id"], Vars.LOCAL)
-                    self.context.update()
-                    self.context.settings["allow_returns"].append(i1.return_var)
-                    while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                        self.context.add_operation(self.up_statement(Tokens.RCPAREN))
-                        self.context.update()
-                    del self.context.settings["allow_returns"][-1]
-                elif isinstance(i1, (process, event)):
-                    if isinstance(i1, process):
+        if not self.context.get_property("optimize_code", False):
+
+            while self.current_token.type != Tokens.EOF:
+                self.context.add_operation(self.up_statement())
+                self.context.update()
+            for i1 in self.context.get_operations():
+                if not i1.is_ready():
+                    self.index = 0
+                    self.tokens = i1.operations
+                    self.current_token = self.token(self.index)
+                    self.eat(Tokens.LCPAREN)
+                    self.context.next_lvl()
+                    self.context.next_jmcc_lvl()
+                    if isinstance(i1, function):
                         for i2 in i1.special().args:
                             self.context.set_variable_type(Vars.LOCAL, i2["id"], i2["type"])
                             self.context.set_variable(i2["id"], Vars.LOCAL)
                         self.context.update()
-                    while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
-                        self.context.add_operation(self.up_statement(Tokens.RCPAREN))
-                        self.context.update()
-                else:
-                    error_from_object(i1, "", translate("error.unknown4"))
-                self.context.previous_jmcc_lvl()
-                ops = self.context.get_operations()
-                i1.operations = ops
+                        self.context.settings["allow_returns"].append(i1.return_var)
+                        while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
+                            self.context.add_operation(self.up_statement(Tokens.RCPAREN))
+                            self.context.update()
+                        del self.context.settings["allow_returns"][-1]
+                    elif isinstance(i1, (process, event)):
+                        if isinstance(i1, process):
+                            for i2 in i1.special().args:
+                                self.context.set_variable_type(Vars.LOCAL, i2["id"], i2["type"])
+                                self.context.set_variable(i2["id"], Vars.LOCAL)
+                            self.context.update()
+                        while (self.current_token.type != Tokens.EOF) and (self.current_token.type != Tokens.RCPAREN):
+                            self.context.add_operation(self.up_statement(Tokens.RCPAREN))
+                            self.context.update()
+                    else:
+                        error_from_object(i1, "", translate("error.unknown4"))
+                    self.context.previous_jmcc_lvl()
+                    ops = self.context.get_operations()
+                    i1.operations = ops
+                    self.context.previous_lvl()
+                    self.eat(Tokens.RCPAREN)
+                    i1.ready = True
+            if self.context.get_property("create_world_restart_function", False):
+                cringe = {"start": [], "stop": [], "join": [], "quit": []}
+                for i1 in self.context.get_operations():
+                    if i1.type == "event":
+                        if i1.name == "world_start":
+                            cringe["start"].append(i1.operations)
+                        elif i1.name == "world_stop":
+                            cringe["stop"].append(i1.operations)
+                        elif i1.name == "player_join":
+                            new_ops = []
+                            for op in i1.operations:
+                                if not (op.type == "action" and op.object == "world" and op.name == "hide_event_message"):
+                                    new_ops.append(op)
+                            cringe["join"].append(new_ops)
+                        elif i1.name == "player_quit":
+                            new_ops = []
+                            for op in i1.operations:
+                                if not (op.type == "action" and op.object == "world" and op.name == "hide_event_message"):
+                                    new_ops.append(op)
+                            cringe["quit"].append(new_ops)
+                self.context.next_lvl()
+                self.context.add_operations(
+                    [action("code", "wait", calling_args([number(20, -1, -1, None)], {}, -1, -1, None), -1, -1, None)])
+                waiter_ops = self.context.get_operations()
                 self.context.previous_lvl()
-                self.eat(Tokens.RCPAREN)
-                i1.ready = True
-        self.context.compiled = True
-        if self.context.get_property("create_world_restart_function", False):
-            cringe = {"start": [], "stop": [], "join": [], "quit": []}
-            for i1 in self.context.get_operations():
-                if i1.type == "event":
-                    if i1.name == "world_start":
-                        cringe["start"].append(i1.operations)
-                    elif i1.name == "world_stop":
-                        cringe["stop"].append(i1.operations)
-                    elif i1.name == "player_join":
-                        new_ops = []
-                        for op in i1.operations:
-                            if not (op.type == "action" and op.object == "world" and op.name == "hide_event_message"):
-                                new_ops.append(op)
-                        cringe["join"].append(new_ops)
-                    elif i1.name == "player_quit":
-                        new_ops = []
-                        for op in i1.operations:
-                            if not (op.type == "action" and op.object == "world" and op.name == "hide_event_message"):
-                                new_ops.append(op)
-                        cringe["quit"].append(new_ops)
-            self.context.next_lvl()
-            self.context.add_operations(
-                [action("code", "wait", calling_args([number(20, -1, -1, None)], {}, -1, -1, None), -1, -1, None)])
-            waiter_ops = self.context.get_operations()
-            self.context.previous_lvl()
-            waiter = action("repeat", "while",
-                            calling_args([], {"conditional": action("variable", "greater_or_equals", calling_args(
-                                [value("cpu_usage", -1, -1, None), number(40, -1, -1, None)], {}, -1, -1, None), -1, -1,
-                                                                    None)}, -1, -1, None), -1, -1, None,
-                            operations=waiter_ops)
-            self.context.next_lvl()
-            self.context.next_lvl()
-            quit_ops = []
-            for i1 in cringe["quit"]:
-                quit_ops.append(action("variable", "purge", calling_args(
-                    [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
+                waiter = action("repeat", "while",
+                                calling_args([], {"conditional": action("variable", "greater_or_equals", calling_args(
+                                    [value("cpu_usage", -1, -1, None), number(40, -1, -1, None)], {}, -1, -1, None), -1, -1,
+                                                                        None)}, -1, -1, None), -1, -1, None,
+                                operations=waiter_ops)
+                self.context.next_lvl()
+                self.context.next_lvl()
+                quit_ops = []
+                for i1 in cringe["quit"]:
+                    quit_ops.append(action("variable", "purge", calling_args(
+                        [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
+                         enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
+                                           -1, -1, None))
+                    quit_ops.extend(i1)
+                    quit_ops.append(waiter)
+                quit_ops.append(
+                    action("player", "clear_inventory", calling_args([enum_("ENTIRE", -1, -1, None)], {}, -1, -1, None), -1,
+                           -1, None, selector="default_player"))
+                quit_ops.append(
+                    action("player", "teleport", calling_args(
+                        [value("spawn_location", -1, -1, None), enum_("FALSE", -1, -1, None), enum_("FALSE", -1, -1, None),
+                         enum_("TRUE", -1, -1, None)], {}, -1, -1, None), -1,
+                           -1, None, selector="default_player"))
+                self.context.add_operations(quit_ops)
+                quit_ops = self.context.get_operations()
+                self.context.previous_lvl()
+                self.context.next_lvl()
+                join_ops = []
+                for i1 in cringe["join"]:
+                    join_ops.append(action("variable", "purge", calling_args(
+                        [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
+                         enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
+                                           -1, -1, None))
+                    join_ops.extend(i1)
+                    join_ops.append(waiter)
+                self.context.add_operations(join_ops)
+                join_ops = self.context.get_operations()
+                self.context.previous_lvl()
+                player_quit_process = f"jmcc.{new('process')}"
+                player_join_process = f"jmcc.{new('process')}"
+                ops = [action("select", "all_players", calling_args([], {}, -1, -1, None), -1, -1, None),
+                       action("code", "start_process", calling_args([], {
+                           "process_name": text(player_quit_process, Texts.LEGACY, -1, -1, None),
+                           "target_mode": enum_("FOR_EACH_IN_SELECTION", -1, -1, None),
+                           "local_variables_mode": enum_("DONT_COPY", -1, -1, None)}, -1, -1, None), -1, -1, None)]
+                player_quit = process(player_quit_process, quit_ops, calling_args([], {}, -1, -1, None), self.source)
+                player_join = process(player_join_process, join_ops, calling_args([], {}, -1, -1, None), self.source)
+                for i1 in cringe["stop"]:
+                    ops.append(action("variable", "purge", calling_args(
+                        [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
+                         enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
+                                      -1, -1, None))
+                    ops.extend(i1)
+                    ops.append(waiter)
+                ops.append(
+                    action("code", "wait", calling_args([number(5, -1, -1, None)], {}, -1, -1, None), -1, -1, None))
+                ops.append(action("variable", "purge", calling_args(
+                    [text("", Texts.PLAIN, -1, -1, None), enum_("GAME", -1, -1, None),
                      enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
-                                       -1, -1, None))
-                quit_ops.extend(i1)
-                quit_ops.append(waiter)
-            quit_ops.append(
-                action("player", "clear_inventory", calling_args([enum_("ENTIRE", -1, -1, None)], {}, -1, -1, None), -1,
-                       -1, None, selector="default_player"))
-            quit_ops.append(
-                action("player", "teleport", calling_args(
-                    [value("spawn_location", -1, -1, None), enum_("FALSE", -1, -1, None), enum_("FALSE", -1, -1, None),
-                     enum_("TRUE", -1, -1, None)], {}, -1, -1, None), -1,
-                       -1, None, selector="default_player"))
-            self.context.add_operations(quit_ops)
-            quit_ops = self.context.get_operations()
-            self.context.previous_lvl()
-            self.context.next_lvl()
-            join_ops = []
-            for i1 in cringe["join"]:
-                join_ops.append(action("variable", "purge", calling_args(
-                    [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
-                     enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
-                                       -1, -1, None))
-                join_ops.extend(i1)
-                join_ops.append(waiter)
-            self.context.add_operations(join_ops)
-            join_ops = self.context.get_operations()
-            self.context.previous_lvl()
-            player_quit_process = f"jmcc.{new('process')}"
-            player_join_process = f"jmcc.{new('process')}"
-            ops = [action("select", "all_players", calling_args([], {}, -1, -1, None), -1, -1, None),
-                   action("code", "start_process", calling_args([], {
-                       "process_name": text(player_quit_process, Texts.LEGACY, -1, -1, None),
-                       "target_mode": enum_("FOR_EACH_IN_SELECTION", -1, -1, None),
-                       "local_variables_mode": enum_("DONT_COPY", -1, -1, None)}, -1, -1, None), -1, -1, None)]
-            player_quit = process(player_quit_process, quit_ops, calling_args([], {}, -1, -1, None), self.source)
-            player_join = process(player_join_process, join_ops, calling_args([], {}, -1, -1, None), self.source)
-            for i1 in cringe["stop"]:
+                                  -1, -1, None))
+                ops.append(
+                    action("player", "message", calling_args(
+                        [text("&9Creative &8» &fМир запущен в режиме строительства", Texts.LEGACY, -1, -1, None)], {}, -1,
+                        -1, None), -1, -1, None, selector="all_players"))
+                ops.append(
+                    action("code", "wait", calling_args([number(95, -1, -1, None)], {}, -1, -1, None), -1, -1, None))
+                ops.append(waiter)
+                ops.append(
+                    action("player", "message", calling_args(
+                        [text("&9Creative &8» &fМир запущен в режиме игры", Texts.LEGACY, -1, -1, None)], {}, -1,
+                        -1, None), -1, -1, None, selector="all_players"))
+                for i1 in cringe["start"]:
+                    ops.append(action("variable", "purge", calling_args(
+                        [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
+                         enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
+                                      -1, -1, None))
+                    ops.extend(i1)
+                    ops.append(waiter)
                 ops.append(action("variable", "purge", calling_args(
                     [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
                      enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
                                   -1, -1, None))
-                ops.extend(i1)
-                ops.append(waiter)
-            ops.append(
-                action("code", "wait", calling_args([number(5, -1, -1, None)], {}, -1, -1, None), -1, -1, None))
-            ops.append(action("variable", "purge", calling_args(
-                [text("", Texts.PLAIN, -1, -1, None), enum_("GAME", -1, -1, None),
-                 enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
-                              -1, -1, None))
-            ops.append(
-                action("player", "message", calling_args(
-                    [text("&9Creative &8» &fМир запущен в режиме строительства", Texts.LEGACY, -1, -1, None)], {}, -1,
-                    -1, None), -1, -1, None, selector="all_players"))
-            ops.append(
-                action("code", "wait", calling_args([number(95, -1, -1, None)], {}, -1, -1, None), -1, -1, None))
-            ops.append(waiter)
-            ops.append(
-                action("player", "message", calling_args(
-                    [text("&9Creative &8» &fМир запущен в режиме игры", Texts.LEGACY, -1, -1, None)], {}, -1,
-                    -1, None), -1, -1, None, selector="all_players"))
-            for i1 in cringe["start"]:
-                ops.append(action("variable", "purge", calling_args(
-                    [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
-                     enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
-                                  -1, -1, None))
-                ops.extend(i1)
-                ops.append(waiter)
-            ops.append(action("variable", "purge", calling_args(
-                [text("", Texts.PLAIN, -1, -1, None), enum_("LOCAL", -1, -1, None),
-                 enum_("NAME_CONTAINS", -1, -1, None), enum_("TRUE", -1, -1, None)], {}, -1, -1, None),
-                              -1, -1, None))
-            ops.extend([action("select", "all_players", calling_args([], {}, -1, -1, None), -1, -1, None),
-                        action("code", "start_process", calling_args([], {
-                            "process_name": text(player_join_process, Texts.LEGACY, -1, -1, None),
-                            "target_mode": enum_("FOR_EACH_IN_SELECTION", -1, -1, None),
-                            "local_variables_mode": enum_("DONT_COPY", -1, -1, None)}, -1, -1, None), -1, -1, None)])
-            self.context.add_operations(ops)
-            ops = self.context.get_operations()
-            self.context.previous_lvl()
-            a = function("world_restart", ops, calling_args([], {}, -1, -1, None), self.source)
-            self.context.add_operation(player_join)
-            self.context.add_operation(player_quit)
-            self.context.add_operation(a)
-            self.context.update()
+                ops.extend([action("select", "all_players", calling_args([], {}, -1, -1, None), -1, -1, None),
+                            action("code", "start_process", calling_args([], {
+                                "process_name": text(player_join_process, Texts.LEGACY, -1, -1, None),
+                                "target_mode": enum_("FOR_EACH_IN_SELECTION", -1, -1, None),
+                                "local_variables_mode": enum_("DONT_COPY", -1, -1, None)}, -1, -1, None), -1, -1, None)])
+                self.context.add_operations(ops)
+                ops = self.context.get_operations()
+                self.context.previous_lvl()
+                a = function("world_restart", ops, calling_args([], {}, -1, -1, None), self.source)
+                self.context.add_operation(player_join)
+                self.context.add_operation(player_quit)
+                self.context.add_operation(a)
+                self.context.update()
 
+        self.context.compiled = True
         del Context.sources[-1]
         return self.context
 
@@ -1790,6 +1792,12 @@ class Context:
 
     def set_properties(self, properties):
         self.context[self.source]["properties"] = properties
+        for k, v in self.context[self.source]["properties"].items():
+            if k == "code_line_limit":
+                if v < 8:
+                    self.context[self.source]["properties"][k] = 8
+                elif v > 43:
+                    self.context[self.source]["properties"][k] = 43
 
     def get_jmcc(self, var_name):
         if var_name in self.context[self.source]["jmcc"][self.jmcc_lvl]:
@@ -1916,11 +1924,13 @@ class Context:
         i1 = 0
         while i1 < len(self.json_obj["handlers"]):
             self.idx = 0
-            self.json_obj["handlers"][i1] = self.walk(self.json_obj["handlers"][i1], 43)
+            self.json_obj["handlers"][i1] = self.walk(self.json_obj["handlers"][i1], self.get_property("code_line_limit", 43))
             i1 += 1
         return self.json_obj
 
     def walk(self, act, max_length):
+        if max_length > 43:
+            max_length = 43
         if "operations" in act:
             acts = act["operations"]
         else:
@@ -1942,7 +1952,7 @@ class Context:
                     reserved += 1
                 if actionIdx + 2 < len(acts):
                     reserved += 1
-            containerMaxLength = max_length - reserved - hasContents
+            containerMaxLength = (max_length - reserved) - hasContents
             if newIdx > containerMaxLength:
                 func_count = new('function')
                 call_func = {"action": "call_function", "values": [{"name": "function_name",
@@ -1963,7 +1973,7 @@ class Context:
                 break
             self.idx = newIdx
             if isContainer:
-                acts[actionIdx] = self.walk(acti, max_length - reserved)
+                acts[actionIdx] = self.walk(acti, max_length-reserved)
         act["operations"] = acts
         return act
 
@@ -3518,6 +3528,9 @@ class calling_argument:  # is_jmcc_object
         if typ == "variable":
             return 1
         return try_cast_as_class(self.get_real_type(), typ, 1)
+
+    def copy(self):
+        return calling_argument(self.object.copy(),self.arg,self.starting_pos,self.ending_pos,self.source)
 
     def cast_as(self, typ, arges):
         return self

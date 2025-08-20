@@ -598,7 +598,7 @@ process abc() {
 
 Так же можно указать параметры функций и процессов, указывать тип параметров не обязательно
 ```ts
-function add(first: number, second=1) -> number {//после -> указывается возращаемый тип функции.
+function add(first: number, second=1) -> number { //после -> указывается возращаемый тип функции.
   return variable::add([first, second]);
 }
 a = add(1, 2);
