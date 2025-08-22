@@ -3448,7 +3448,6 @@ class calling_argument:  # is_jmcc_object
         self.value_type = None
         context = Context(Context.sources[-1])
         if not context.has_special(self.object.get_real_type()):
-            print(context)
             error_from_object(self.object, "NameError", translate("error.nameerror.special_not_found", insert={0: self.object.get_real_type()}))
         self.spec = context.get_special(self.object.get_real_type())
         if not isinstance(self.spec, special_class):
@@ -3704,7 +3703,6 @@ class subscript:  # is_jmcc_object
         return False
 
     def simplify(self, mode=None, work_with=None):
-        print(self, mode, work_with)
         if mode == 1:
             if self.arg2 is None:
                 obj = calling_object(f"__subscript__.setter",
@@ -4256,9 +4254,9 @@ def check_args(self, args, casts_allowed, strict_check=False):
         elif "array" in self.arges[k1] and v1.get_type() == "array":
             identity_counter += 1
             continue
-        elif self.arges[k1]["type"] == "text":
+        elif self.arges[k1]["type"] == "text" and not strict_check:
             continue
-        elif v1.get_real_type() == "text" and self.arges[k1]["type"] != "variable":
+        elif v1.get_real_type() == "text" and self.arges[k1]["type"] != "variable" and not strict_check:
             continue
         else:
             if casts_allowed and not isinstance(self.arges[k1]["type"], (tuple, list, set)):
@@ -4303,10 +4301,8 @@ def fix_args(self, args, casts_allowed, inline=False, assigning=None, strict_che
             previous_operations.extend(prev_ops)
             next_ops.extend(next_operations)
             next_operations = next_ops
-        print(args[k1], args[k1].can_cast_as(self.arges[k1]["type"]))
         if casts_allowed and isinstance(self.arges[k1]["type"], str) and args[k1].can_cast_as(self.arges[k1]["type"]) != 0:
             args[k1] = args[k1].cast_as(self.arges[k1]["type"], self.arges[k1])
-        print(args[k1], self.arges[k1]["type"])
         if not (args[k1].type == "variable" and args[k1].value == k1) and assigning is None:
             if isinstance(v1, (calling_argument, calling_function, calling_object, subscript)) and not inline:
                 prev_ops, args[k1], next_ops = action("variable", "set_value",
