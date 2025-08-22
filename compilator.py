@@ -1091,6 +1091,7 @@ class Parser:
                 self.eat(Tokens.RPAREN)
             else:
                 args = calling_args([], {}, token.starting_pos, token.ending_pos, token.source)
+            self.skip_next_lines()
             if self.current_token.type == Tokens.CYCLE_THING:
                 self.eat(Tokens.CYCLE_THING)
                 return_var_type = self.current_token.value
@@ -1158,6 +1159,7 @@ class Parser:
             else:
                 args = calling_args([], {}, token.starting_pos, token.ending_pos, token.source)
             token_value = [self.current_token]
+            self.skip_next_lines()
             self.eat(Tokens.LCPAREN)
             count = 1
             while (self.current_token.type != Tokens.EOF) and (count != 0):
@@ -4233,7 +4235,8 @@ def check_args(self, args, casts_allowed, strict_check=False):
             continue
         if v1.get_type() == "variable" and v1.get_real_type() is None:
             v2 = v1.remove_inlines()
-            v1.value_type = Context(Context.sources[-1]).get_variable_type(v2.var_type, v2.value)
+            if v2.get_type() == "variable":
+                v1.value_type = Context(Context.sources[-1]).get_variable_type(v2.var_type, v2.value)
         args1[k1] = v1
         if "array" in self.arges[k1] and self.arges[k1]["type"] != "array" and v1.get_type() != "array":
             args1[k1] = lst([v1], v1.starting_pos, v1.ending_pos, v1.source)
@@ -4807,7 +4810,7 @@ class item:  # is_jmcc_object
         if ret[1] is self:
             self.new_args["id"].value = self.new_args["id"].value.lower().replace("minecraft:", "")
             if self.new_args["id"].value not in items:
-                error_from_object(self.new_args["potion"], "ArgumentError",
+                error_from_object(self.new_args["id"], "ArgumentError",
                                   translate("error.unexistsitem", {0: self.new_args["id"].value}))
             self.item = nbtworker.Compound(
                 id=nbtworker.String(self.new_args["id"].value),
