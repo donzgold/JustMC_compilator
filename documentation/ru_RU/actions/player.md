@@ -3713,6 +3713,29 @@ player::set_inventory_kept(kept="FALSE");
 | **Имя** | **Тип**                                                  | **Описание**         |
 | ------- | -------------------------------------------------------- | -------------------- |
 | `kept`  | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Сохранение инвентаря |
+<h3 id=player_set_inventory_menu_custom_id>
+  <code>player::set_inventory_menu_custom_id</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить кастомный ID открытого инвентаря\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает кастомный ID для открытого меню игрока.
+
+**Пример использования:** 
+```ts
+player::set_inventory_menu_custom_id("custom_id");
+
+//Или в сухую по ключам
+
+player::set_inventory_menu_custom_id(custom_id="custom_id");
+```
+
+**Аргументы:**
+
+| **Имя**     | **Тип** | **Описание** |
+| ----------- | ------- | ------------ |
+| `custom_id` | Текст   | Кастомный ID |
 <h3 id=player_set_inventory_menu_item>
   <code>player::set_inventory_menu_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

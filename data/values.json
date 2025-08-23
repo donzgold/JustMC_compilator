@@ -608,6 +608,10 @@
     "type": "number"
   },
   {
+    "id": "player_enderchest_items",
+    "type": "array"
+  },
+  {
     "id": "pose",
     "type": "text"
   },

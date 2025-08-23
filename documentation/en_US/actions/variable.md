@@ -8494,19 +8494,19 @@ variable::set_location_direction(variable=`variable`, location=location(0,0,0,0,
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_map_value(`map`, "any value", "any value");
+`variable` = variable::set_map_value(`map`, ["any value", "any value"], ["any value", "any value"]);
 
 //Or from the object
 
-`variable` = `map`.set_map_value("any value", "any value");
+`variable` = `map`.set_map_value(["any value", "any value"], ["any value", "any value"]);
 
 //Or dry by positionals
 
-variable::set_map_value(`variable`, `map`, "any value", "any value");
+variable::set_map_value(`variable`, `map`, ["any value", "any value"], ["any value", "any value"]);
 
 //Or dry by keywords
 
-variable::set_map_value(variable=`variable`, map=`map`, key="any value", value="any value");
+variable::set_map_value(variable=`variable`, map=`map`, key=["any value", "any value"], value=["any value", "any value"]);
 ```
 
 **Arguments:**
@@ -8515,8 +8515,8 @@ variable::set_map_value(variable=`variable`, map=`map`, key="any value", value="
 | ---------- | ---------------------- | -------------------- |
 | `variable` | Variable\[Dictionary\] | Variable to assign   |
 | `map`      | Dictionary             | Dictionary to change |
-| `key`      | Any Value              | Key                  |
-| `value`    | Any Value              | New Value            |
+| `key`      | list\[Any Value\]      | Key                  |
+| `value`    | list\[Any Value\]      | New Value            |
 <h3 id=set_variable_set_particle_amount>
   <code>variable::set_particle_amount</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

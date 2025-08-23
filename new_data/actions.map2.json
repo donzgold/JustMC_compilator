@@ -329,5 +329,12 @@
     {"id": "item", "plural": false, "type": "item", "valueSlots": [12]},
     {"id": "play_sound", "plural": false, "type": "enum", "valueSlots": [14], "values": ["TRUE", "FALSE"]}]},
   "entity_retrieve_fishing_hook": {"id": "entity_retrieve_fishing_hook", "type": "basic", "args": [
-    {"id": "slot", "plural": false, "type": "enum", "valueSlots": [0], "values": ["MAIN_HAND", "OFF_HAND"]}]}
+    {"id": "slot", "plural": false, "type": "enum", "valueSlots": [0], "values": ["MAIN_HAND", "OFF_HAND"]}]},
+  "set_variable_set_map_value": {"id": "set_variable_set_map_value","type": "basic","args": [
+    {"id": "variable","plural": false,"type": "variable","valueSlots": [9]},
+    {"id": "map", "plural": false, "type": "dictionary", "valueSlots": [27]},
+    {"id": "key","plural": true,"type": "any","valueSlots": [2,3,4,11,12,13,20,21,22,29,30,31,38,39,40]},
+    {"id": "value","plural": true,"type": "any","valueSlots": [6,7,8,15,16,17,24,25,26,33,34,35,42,43,44]}]},
+  "player_set_inventory_menu_custom_id": {"id": "player_set_inventory_menu_custom_id","type": "basic", "args": [
+    {"id": "custom_id","plural": false,"type": "text","valueSlots": [0]}]}
 }

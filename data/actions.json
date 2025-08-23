@@ -10305,6 +10305,18 @@
     "type": "basic"
   },
   {
+    "id": "player_set_inventory_menu_custom_id",
+    "name": "set_inventory_menu_custom_id",
+    "object": "player",
+    "args": [
+      {
+        "id": "custom_id",
+        "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "player_set_inventory_menu_item",
     "name": "set_inventory_menu_item",
     "object": "player",
@@ -18902,11 +18914,13 @@
       },
       {
         "id": "key",
-        "type": "any"
+        "type": "any",
+        "array": 15
       },
       {
         "id": "value",
-        "type": "any"
+        "type": "any",
+        "array": 15
       }
     ],
     "assign": [

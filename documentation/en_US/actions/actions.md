@@ -161,6 +161,7 @@
   - [*player::set_hotbar_slot [ Set Hotbar Slot ]*](./player.md#player_set_hotbar_slot)
   - [*player::set_instant_respawn [ Set Instant Respawn ]*](./player.md#player_set_instant_respawn)
   - [*player::set_inventory_kept [ Set Keep Inventory ]*](./player.md#player_set_inventory_kept)
+  - [*player::set_inventory_menu_custom_id [ None ]*](./player.md#player_set_inventory_menu_custom_id)
   - [*player::set_inventory_menu_item [ Set Item Into Inventory Slot ]*](./player.md#player_set_inventory_menu_item)
   - [*player::set_inventory_menu_name [ Set Inventory Menu Name ]*](./player.md#player_set_inventory_menu_name)
   - [*player::set_invulnerability_ticks [ Set Invulnerability Duration ]*](./player.md#player_set_invulnerability_ticks)

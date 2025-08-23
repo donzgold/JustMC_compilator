@@ -921,5 +921,6 @@
   "set_variable_multiple": {"name": "set_values","object": "variable"},
   "set_variable_set_item_break_sound": {"name": "set_item_break_sound","object": "variable","origin": "item","assign": [{"variable": "item"}]},
   "set_variable_unset_item_components": {"name": "unset_item_components","object": "variable","origin": "item","assign": [{"variable": "item"}]},
-  "entity_retrieve_fishing_hook": {"name": "retrieve_fishing_hook", "object": "entity"}
+  "entity_retrieve_fishing_hook": {"name": "retrieve_fishing_hook", "object": "entity"},
+  "player_set_inventory_menu_custom_id": {"name": "set_inventory_menu_custom_id", "object": "player"}
 }

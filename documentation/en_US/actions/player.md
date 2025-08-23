@@ -3713,6 +3713,29 @@ player::set_inventory_kept(kept="FALSE");
 | **Name** | **Type**                                               | **Description** |
 | -------- | ------------------------------------------------------ | --------------- |
 | `kept`   | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled | Keep Inventory  |
+<h3 id=player_set_inventory_menu_custom_id>
+  <code>player::set_inventory_menu_custom_id</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+player::set_inventory_menu_custom_id("custom_id");
+
+//Or dry by keywords
+
+player::set_inventory_menu_custom_id(custom_id="custom_id");
+```
+
+**Arguments:**
+
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `custom_id` | Text     | None            |
 <h3 id=player_set_inventory_menu_item>
   <code>player::set_inventory_menu_item</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

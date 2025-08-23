@@ -886,15 +886,17 @@ class Parser:
         return calling_args(pos, unpos, starting_pos, ending_pos, self.source)
 
     def expr(self, lvl=-1, result=None):
-        if self.current_token.type == Tokens.NOT:
+        if result is None and self.current_token.type == Tokens.NOT: #исправить это говно
             token = self.current_token
             self.eat(Tokens.NOT)
-            result = self.expr()
-            return calling_function(result, "__invert__",
-                                    calling_args([], {}, token.starting_pos, result.ending_pos, token.source),
-                                    token.starting_pos, result.ending_pos, token.source)
+            result = self.up_factor()
+            result = calling_function(result, "__invert__",
+                                      calling_args([], {}, token.starting_pos, result.ending_pos, token.source),
+                                      token.starting_pos, result.ending_pos, token.source)
+            return self.expr(lvl, result)
         if lvl == -1:
-            result = self.expr(lvl + 1)
+            if result is None:
+                result = self.expr(lvl + 1)
             if self.current_token.type == Tokens.IF:
                 self.eat(Tokens.IF)
                 cond = self.expr()
@@ -924,7 +926,9 @@ class Parser:
                                           result.source)
             return result
         else:
-            return self.up_factor(result)
+            if result is not None:
+                return result
+            return self.up_factor()
 
     def get_vars(self):
         variables = []
@@ -4271,14 +4275,13 @@ def check_args(self, args, casts_allowed, strict_check=False):
     return self, None, args1, identity_counter / len_
 
 
-def fix_args(self, args, casts_allowed, inline=False, assigning=None, strict_check=False):
+def fix_args(self, args1, casts_allowed, inline=False, assigning=None, strict_check=False):
     previous_operations = []
     next_operations = []
-    remove_keys = set()
     super_args = []
-    for k1, v1 in args.items():
+    args = {}
+    for k1, v1 in args1.items():
         if v1 is None:
-            remove_keys.add(k1)
             continue
         if assigning is None:
             var_thing = var(k1, Vars.LOCAL if not inline else Vars.INLINE, v1.starting_pos, v1.ending_pos, v1.source,
@@ -4294,7 +4297,7 @@ def fix_args(self, args, casts_allowed, inline=False, assigning=None, strict_che
                 prev_ops, args[k1], next_ops = v1.simplify(len_limit=self.arges[k1]["array"])
             elif assigning is not None and self.arges[k1]["type"] == "variable" and k1 in assigning:
                 prev_ops, args[k1], next_ops = v1.simplify(mode=1)
-            elif ((v1.type in ("map", "array") or v1.type == "class_object" and v1.object.type in ("map","array")) and (strict_check or assigning is None)):
+            elif ((v1.type in ("map", "array") or (v1.type == "class_object" and v1.object.type in ("map","array"))) and (strict_check or assigning is None)):
                 prev_ops, args[k1], next_ops = v1.simplify()
             else:
                 prev_ops, args[k1], next_ops = v1.simplify(mode=0)
@@ -4327,8 +4330,6 @@ def fix_args(self, args, casts_allowed, inline=False, assigning=None, strict_che
         next_operations = next_ops
         var_thing.value_type = self.arges[k1]["type"]
         Context(Context.sources[-1]).set_variable_type(var_thing.var_type, var_thing.value, var_thing.get_real_type())
-    for k1 in remove_keys:
-        del args[k1]
     return previous_operations, args, next_operations
 
 
