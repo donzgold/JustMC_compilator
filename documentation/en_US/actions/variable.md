@@ -507,7 +507,10 @@ variable::list_contains_value(list=`list`, values=["any value", "any value"], ch
 **Work_with:**\
 &nbsp;&nbsp;Text\
 &nbsp;&nbsp;Lists\
-&nbsp;&nbsp;Dictionaries
+&nbsp;&nbsp;Dictionaries\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None
 
 **Usage example:** 
 ```ts
@@ -651,29 +654,30 @@ variable::location_is_near(location=location(0,0,0,0,0), radius=1, check=[locati
 
 **Usage example:** 
 ```ts
-if(variable::map_has_key(`map`, "any value")){
+if(variable::map_has_key(`map`, ["any value", "any value"], "ALL")){
     player::message("Condition is true");
 }
 
 //Or from the object
 
-if(`map`.map_has_key("any value")){
+if(`map`.map_has_key(["any value", "any value"], "ALL")){
     player::message("Condition is true");
 }
 
 //Or dry by keywords
 
-variable::map_has_key(map=`map`, key="any value"){
+variable::map_has_key(map=`map`, key=["any value", "any value"], check_mode="ALL"){
     player::message("Condition is true");
 }
 ```
 
 **Arguments:**
 
-| **Name** | **Type**   | **Description**     |
-| -------- | ---------- | ------------------- |
-| `map`    | Dictionary | Dictionary to check |
-| `key`    | Any Value  | Key                 |
+| **Name**     | **Type**                                     | **Description**     |
+| ------------ | -------------------------------------------- | ------------------- |
+| `map`        | Dictionary                                   | Dictionary to check |
+| `key`        | list\[Any Value\]                            | Key                 |
+| `check_mode` | Marker<br/>**ALL** - None<br/>**ANY** - None | None                |
 <h3 id=if_variable_map_value_equals>
   <code>variable::map_value_equals</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -743,6 +747,36 @@ variable::not_equals(value="any value", compare=["any value", "any value"]){
 | --------- | ----------------- | ------------------- |
 | `value`   | Any Value         | Comparable Variable |
 | `compare` | list\[Any Value\] | Compare Values      |
+<h3 id=if_variable_number_in_range>
+  <code>variable::number_in_range</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action that checks the conditions\
+**Description:** None
+
+**Usage example:** 
+```ts
+if(variable::number_in_range(1, 2, 3, "NOT_INCLUDE")){
+    player::message("Condition is true");
+}
+
+//Or dry by keywords
+
+variable::number_in_range(value=1, min=2, max=3, including="NOT_INCLUDE"){
+    player::message("Condition is true");
+}
+```
+
+**Arguments:**
+
+| **Name**    | **Type**                                                                                                              | **Description** |
+| ----------- | --------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `value`     | Number                                                                                                                | None            |
+| `min`       | Number                                                                                                                | None            |
+| `max`       | Number                                                                                                                | None            |
+| `including` | Marker<br/>**NOT_INCLUDE** - None<br/>**INCLUDE_FIRST** - None<br/>**INCLUDE_LAST** - None<br/>**INCLUDE_ALL** - None | None            |
 <h3 id=if_variable_range_intersects_range>
   <code>variable::range_intersects_range</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1304,23 +1338,24 @@ variable::atan2(variable=`variable`, y=1, x=2);
 
 **Usage example:** 
 ```ts
-`variable` = variable::average([1, 2]);
+`variable` = variable::average([1, 2], "ARITHMETIC");
 
 //Or dry by positionals
 
-variable::average(`variable`, [1, 2]);
+variable::average(`variable`, [1, 2], "ARITHMETIC");
 
 //Or dry by keywords
 
-variable::average(variable=`variable`, value=[1, 2]);
+variable::average(variable=`variable`, value=[1, 2], type="ARITHMETIC");
 ```
 
 **Arguments:**
 
-| **Name**   | **Type**           | **Description**      |
-| ---------- | ------------------ | -------------------- |
-| `variable` | Variable\[Number\] | Variable to assign   |
-| `value`    | list\[Number\]     | Numbers to get value |
+| **Name**   | **Type**                                                                                                   | **Description**      |
+| ---------- | ---------------------------------------------------------------------------------------------------------- | -------------------- |
+| `variable` | Variable\[Number\]                                                                                         | Variable to assign   |
+| `value`    | list\[Number\]                                                                                             | Numbers to get value |
+| `type`     | Marker<br/>**ARITHMETIC** - None<br/>**GEOMETRIC** - None<br/>**HARMONIC** - None<br/>**QUADRATIC** - None | None                 |
 <h3 id=set_variable_bitwise_operation>
   <code>variable::bitwise_operation</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1351,6 +1386,35 @@ variable::bitwise_operation(variable=`variable`, operand1=1, operand2=2, operato
 | `operand1` | Number                                                                                                                                                                                                                                                                      | First operand      |
 | `operand2` | Number                                                                                                                                                                                                                                                                      | Second Operand     |
 | `operator` | Marker<br/>**AND** - And (and)<br/>**LEFT_SHIFT** - Shift Left (left_shift)<br/>**NOT** - NOT (not)<br/>**OR** - OR (or)<br/>**RIGHT_SHIFT** - Shift Right (right_shift)<br/>**UNSIGNED_RIGHT_SHIFT** - Unsigned Right Shift (unsigned_right_shift)<br/>**XOR** - XOR (xor) | Operation Type     |
+<h3 id=set_variable_bytes_to_text>
+  <code>variable::bytes_to_text</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** Convert bytes to text\
+**Type:** An action that returns a value\
+**Description:** Converts bytes to text and assigns the result to a variable.
+
+**Usage example:** 
+```ts
+`variable` = variable::bytes_to_text([1, 2], "UTF_8");
+
+//Or dry by positionals
+
+variable::bytes_to_text(`variable`, [1, 2], "UTF_8");
+
+//Or dry by keywords
+
+variable::bytes_to_text(variable=`variable`, bytes=[1, 2], charset="UTF_8");
+```
+
+**Arguments:**
+
+| **Name**   | **Type**                                          | **Description**    |
+| ---------- | ------------------------------------------------- | ------------------ |
+| `variable` | Variable\[Text\]                                  | Variable to assign |
+| `bytes`    | list\[Number\]                                    | Bytes to convert   |
+| `charset`  | Marker<br/>**UTF_8** - None<br/>**ASCII** - ASCII | Encoding           |
 <h3 id=set_variable_center_location>
   <code>variable::center_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1478,6 +1542,41 @@ variable::clamp(variable=`variable`, number=1, min=2, max=3);
 | `number`   | Number             | Number to Clamp    |
 | `min`      | Number             | Minimum Value      |
 | `max`      | Number             | Max Value          |
+<h3 id=set_variable_clamp_location>
+  <code>variable::clamp_location</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::clamp_location(location(0,0,0,0,0), location(0,0,0,0,0), location(0,0,0,0,0), "XYZ");
+
+//Or from the object
+
+`variable` = location(0,0,0,0,0).clamp_location(location(0,0,0,0,0), location(0,0,0,0,0), "XYZ");
+
+//Or dry by positionals
+
+variable::clamp_location(`variable`, location(0,0,0,0,0), location(0,0,0,0,0), location(0,0,0,0,0), "XYZ");
+
+//Or dry by keywords
+
+variable::clamp_location(variable=`variable`, location=location(0,0,0,0,0), corner_1=location(0,0,0,0,0), corner_2=location(0,0,0,0,0), coordinates_mode="XYZ");
+```
+
+**Arguments:**
+
+| **Name**           | **Type**                                                     | **Description** |
+| ------------------ | ------------------------------------------------------------ | --------------- |
+| `variable`         | Variable\[Location\]                                         | None            |
+| `location`         | Location                                                     | None            |
+| `corner_1`         | Location                                                     | None            |
+| `corner_2`         | Location                                                     | None            |
+| `coordinates_mode` | Marker<br/>**XYZ** - None<br/>**XZ** - None<br/>**Y** - None | None            |
 <h3 id=set_variable_clear_color_codes>
   <code>variable::clear_color_codes</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1537,6 +1636,35 @@ variable::clear_map(map=`map`);
 | **Name** | **Type** | **Description**     |
 | -------- | -------- | ------------------- |
 | `map`    | Variable | Dictionary to Clear |
+<h3 id=set_variable_code_bytes>
+  <code>variable::code_bytes</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::code_bytes([1, 2], "BASE64_ENCODE");
+
+//Or dry by positionals
+
+variable::code_bytes(`variable`, [1, 2], "BASE64_ENCODE");
+
+//Or dry by keywords
+
+variable::code_bytes(variable=`variable`, input=[1, 2], codec="BASE64_ENCODE");
+```
+
+**Arguments:**
+
+| **Name**   | **Type**                                                                                                                     | **Description** |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `variable` | Variable\[List\]                                                                                                             | None            |
+| `input`    | list\[Number\]                                                                                                               | None            |
+| `codec`    | Marker<br/>**BASE64_ENCODE** - None<br/>**BASE64_DECODE** - None<br/>**ZLIB_COMPRESS** - None<br/>**ZLIB_DECOMPRESS** - None | None            |
 <h3 id=set_variable_compact_component>
   <code>variable::compact_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2054,6 +2182,73 @@ variable::face_location(variable=`variable`, location=location(0,0,0,0,0), targe
 | `variable` | Variable\[Location\] | Variable to assign |
 | `location` | Location             | Locations to Set   |
 | `target`   | Location             | Target Location    |
+<h3 id=set_variable_find_nearest_location>
+  <code>variable::find_nearest_location</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::find_nearest_location(location(0,0,0,0,0), [location(0,0,0,0,0), location(0,0,0,0,0)], "XYZ");
+
+//Or from the object
+
+`variable` = location(0,0,0,0,0).find_nearest_location([location(0,0,0,0,0), location(0,0,0,0,0)], "XYZ");
+
+//Or dry by positionals
+
+variable::find_nearest_location(`variable`, location(0,0,0,0,0), [location(0,0,0,0,0), location(0,0,0,0,0)], "XYZ");
+
+//Or dry by keywords
+
+variable::find_nearest_location(variable=`variable`, location=location(0,0,0,0,0), locations=[location(0,0,0,0,0), location(0,0,0,0,0)], distance_type="XYZ");
+```
+
+**Arguments:**
+
+| **Name**        | **Type**                                                     | **Description** |
+| --------------- | ------------------------------------------------------------ | --------------- |
+| `variable`      | Variable\[Location\]                                         | None            |
+| `location`      | Location                                                     | None            |
+| `locations`     | list\[Location\]                                             | None            |
+| `distance_type` | Marker<br/>**XYZ** - None<br/>**XZ** - None<br/>**Y** - None | None            |
+<h3 id=set_variable_find_nearest_number>
+  <code>variable::find_nearest_number</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::find_nearest_number(`number`, [1, 2]);
+
+//Or from the object
+
+`variable` = `number`.find_nearest_number([1, 2]);
+
+//Or dry by positionals
+
+variable::find_nearest_number(`variable`, `number`, [1, 2]);
+
+//Or dry by keywords
+
+variable::find_nearest_number(variable=`variable`, number=`number`, numbers=[1, 2]);
+```
+
+**Arguments:**
+
+| **Name**   | **Type**           | **Description** |
+| ---------- | ------------------ | --------------- |
+| `variable` | Variable\[Number\] | None            |
+| `number`   | Variable           | None            |
+| `numbers`  | list\[Number\]     | None            |
 <h3 id=set_variable_flatten_list>
   <code>variable::flatten_list</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2065,27 +2260,28 @@ variable::face_location(variable=`variable`, location=location(0,0,0,0,0), targe
 
 **Usage example:** 
 ```ts
-`variable` = variable::flatten_list(`list`);
+`variable` = variable::flatten_list(`list`, "FALSE");
 
 //Or from the object
 
-`variable` = `list`.flatten_list();
+`variable` = `list`.flatten_list("FALSE");
 
 //Or dry by positionals
 
-variable::flatten_list(`variable`, `list`);
+variable::flatten_list(`variable`, `list`, "FALSE");
 
 //Or dry by keywords
 
-variable::flatten_list(variable=`variable`, list=`list`);
+variable::flatten_list(variable=`variable`, list=`list`, deep="FALSE");
 ```
 
 **Arguments:**
 
-| **Name**   | **Type**         | **Description**    |
-| ---------- | ---------------- | ------------------ |
-| `variable` | Variable\[List\] | Variable to assign |
-| `list`     | List             | List               |
+| **Name**   | **Type**                                        | **Description**    |
+| ---------- | ----------------------------------------------- | ------------------ |
+| `variable` | Variable\[List\]                                | Variable to assign |
+| `list`     | List                                            | List               |
+| `deep`     | Marker<br/>**FALSE** - None<br/>**TRUE** - None | None               |
 <h3 id=set_variable_format_timestamp>
   <code>variable::format_timestamp</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5136,6 +5332,83 @@ variable::get_template_code(variable=`variable`, template=item("stick"), return_
 | `variable`    | Variable\[Any Value\]                                         | Variable to assign |
 | `template`    | Item                                                          | Template           |
 | `return_type` | Marker<br/>**MAP** - JSON Dictionary<br/>**TEXT** - JSON Text | Return Value       |
+<h3 id=set_variable_get_text_regex_groups>
+  <code>variable::get_text_regex_groups</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::get_text_regex_groups("text", "regex", "group", "ALL", "INDEX", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE");
+
+//Or from the object
+
+`variable` = "text".get_text_regex_groups("regex", "group", "ALL", "INDEX", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE");
+
+//Or dry by positionals
+
+variable::get_text_regex_groups(`variable`, "text", "regex", "group", "ALL", "INDEX", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE");
+
+//Or dry by keywords
+
+variable::get_text_regex_groups(variable=`variable`, text="text", regex="regex", group="group", match_mode="ALL", get_group_by="INDEX", ignore_case="TRUE", multiline="TRUE", literal="TRUE", unix_lines="TRUE", comments="TRUE", dot_matches_all="TRUE", cannon_eq="TRUE");
+```
+
+**Arguments:**
+
+| **Name**          | **Type**                                        | **Description** |
+| ----------------- | ----------------------------------------------- | --------------- |
+| `variable`        | Variable\[List\]                                | None            |
+| `text`            | Text                                            | None            |
+| `regex`           | Text                                            | None            |
+| `group`           | Text                                            | None            |
+| `match_mode`      | Marker<br/>**ALL** - None<br/>**FIRST** - None  | None            |
+| `get_group_by`    | Marker<br/>**INDEX** - None<br/>**NAME** - None | None            |
+| `ignore_case`     | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
+| `multiline`       | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
+| `literal`         | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
+| `unix_lines`      | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
+| `comments`        | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
+| `dot_matches_all` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
+| `cannon_eq`       | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
+<h3 id=set_variable_get_text_similarity>
+  <code>variable::get_text_similarity</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::get_text_similarity("text_1", "text_2", "SIMILARITY");
+
+//Or from the object
+
+`variable` = "text_1".get_text_similarity("text_2", "SIMILARITY");
+
+//Or dry by positionals
+
+variable::get_text_similarity(`variable`, "text_1", "text_2", "SIMILARITY");
+
+//Or dry by keywords
+
+variable::get_text_similarity(variable=`variable`, text_1="text_1", text_2="text_2", value_type="SIMILARITY");
+```
+
+**Arguments:**
+
+| **Name**     | **Type**                                                             | **Description** |
+| ------------ | -------------------------------------------------------------------- | --------------- |
+| `variable`   | Variable\[Number\]                                                   | None            |
+| `text_1`     | Text                                                                 | None            |
+| `text_2`     | Text                                                                 | None            |
+| `value_type` | Marker<br/>**SIMILARITY** - None<br/>**LEVENSHTEIN_DISTANCE** - None | None            |
 <h3 id=set_variable_get_text_width>
   <code>variable::get_text_width</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5678,12 +5951,12 @@ variable::locations_distance(variable=`variable`, location_1=location(0,0,0,0,0)
 
 **Arguments:**
 
-| **Name**     | **Type**                                                                             | **Description**    |
-| ------------ | ------------------------------------------------------------------------------------ | ------------------ |
-| `variable`   | Variable\[Number\]                                                                   | Variable to assign |
-| `location_1` | Location                                                                             | First Location     |
-| `location_2` | Location                                                                             | Second Location    |
-| `type`       | Marker<br/>**ALTITUDE** - Altitude<br/>**THREE_D** - Volume<br/>**TWO_D** - In Plane | Distance Type      |
+| **Name**     | **Type**                                                                                                                                 | **Description**    |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `variable`   | Variable\[Number\]                                                                                                                       | Variable to assign |
+| `location_1` | Location                                                                                                                                 | First Location     |
+| `location_2` | Location                                                                                                                                 | Second Location    |
+| `type`       | Marker<br/>**ALTITUDE** - Altitude<br/>**SQUARED_2D** - None<br/>**SQUARED_3D** - None<br/>**THREE_D** - Volume<br/>**TWO_D** - In Plane | Distance Type      |
 <h3 id=set_variable_log>
   <code>variable::log</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5753,6 +6026,35 @@ variable::map_range(variable=`variable`, number=1, from_start=2, from_stop=3, to
 | `from_stop`  | Number             | Highest limit of the initial range |
 | `to_start`   | Number             | Lowest limit of the new range      |
 | `to_stop`    | Number             | Highest limit of the new range     |
+<h3 id=set_variable_mathematical_expectation>
+  <code>variable::mathematical_expectation</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::mathematical_expectation([1, 2], [3, 4]);
+
+//Or dry by positionals
+
+variable::mathematical_expectation(`variable`, [1, 2], [3, 4]);
+
+//Or dry by keywords
+
+variable::mathematical_expectation(variable=`variable`, values=[1, 2], probabilities=[3, 4]);
+```
+
+**Arguments:**
+
+| **Name**        | **Type**           | **Description** |
+| --------------- | ------------------ | --------------- |
+| `variable`      | Variable\[Number\] | None            |
+| `values`        | list\[Number\]     | None            |
+| `probabilities` | list\[Number\]     | None            |
 <h3 id=set_variable_max>
   <code>variable::max</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5781,6 +6083,34 @@ variable::max(variable=`variable`, value=[1, 2]);
 | ---------- | ------------------ | ------------------ |
 | `variable` | Variable\[Number\] | Variable to assign |
 | `value`    | list\[Number\]     | Numbers to select  |
+<h3 id=set_variable_median>
+  <code>variable::median</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::median([1, 2]);
+
+//Or dry by positionals
+
+variable::median(`variable`, [1, 2]);
+
+//Or dry by keywords
+
+variable::median(variable=`variable`, value=[1, 2]);
+```
+
+**Arguments:**
+
+| **Name**   | **Type**           | **Description** |
+| ---------- | ------------------ | --------------- |
+| `variable` | Variable\[Number\] | None            |
+| `value`    | list\[Number\]     | None            |
 <h3 id=set_variable_min>
   <code>variable::min</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -7467,6 +7797,39 @@ variable::set_component_item_hover(variable=`variable`, component="component", h
 | `variable`  | Variable\[Text\] | Variable to assign |
 | `component` | Text             | Stylized text      |
 | `hover`     | Item             | Hover item         |
+<h3 id=set_variable_set_component_shadow_color>
+  <code>variable::set_component_shadow_color</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::set_component_shadow_color("component", "color");
+
+//Or from the object
+
+`variable` = "component".set_component_shadow_color("color");
+
+//Or dry by positionals
+
+variable::set_component_shadow_color(`variable`, "component", "color");
+
+//Or dry by keywords
+
+variable::set_component_shadow_color(variable=`variable`, component="component", color="color");
+```
+
+**Arguments:**
+
+| **Name**    | **Type**         | **Description** |
+| ----------- | ---------------- | --------------- |
+| `variable`  | Variable\[Text\] | None            |
+| `component` | Text             | None            |
+| `color`     | Text             | None            |
 <h3 id=set_variable_set_coordinate>
   <code>variable::set_coordinate</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9501,6 +9864,39 @@ variable::split_text(variable=`variable`, text="text", delimiter="delimiter");
 | `variable`  | Variable\[List\] | Variable to assign |
 | `text`      | Text             | Split Text         |
 | `delimiter` | Text             | Delimiter          |
+<h3 id=set_variable_split_text_by_length>
+  <code>variable::split_text_by_length</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::split_text_by_length("text", 1);
+
+//Or from the object
+
+`variable` = "text".split_text_by_length(1);
+
+//Or dry by positionals
+
+variable::split_text_by_length(`variable`, "text", 1);
+
+//Or dry by keywords
+
+variable::split_text_by_length(variable=`variable`, text="text", max_length=1);
+```
+
+**Arguments:**
+
+| **Name**     | **Type**         | **Description** |
+| ------------ | ---------------- | --------------- |
+| `variable`   | Variable\[List\] | None            |
+| `text`       | Text             | None            |
+| `max_length` | Number           | None            |
 <h3 id=set_variable_strip_text>
   <code>variable::strip_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9718,6 +10114,72 @@ variable::get_text_length(variable=`variable`, text="text");
 | ---------- | ------------------ | ------------------ |
 | `variable` | Variable\[Number\] | Variable to assign |
 | `text`     | Text               | Text to Get Length |
+<h3 id=set_variable_text_to_bytes>
+  <code>variable::text_to_bytes</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** Convert text to bytes\
+**Type:** An action that returns a value\
+**Description:** Converts the text to bytes and assigns the result to a variable.
+
+**Usage example:** 
+```ts
+`variable` = variable::text_to_bytes("text", "UTF_8");
+
+//Or from the object
+
+`variable` = "text".text_to_bytes("UTF_8");
+
+//Or dry by positionals
+
+variable::text_to_bytes(`variable`, "text", "UTF_8");
+
+//Or dry by keywords
+
+variable::text_to_bytes(variable=`variable`, text="text", charset="UTF_8");
+```
+
+**Arguments:**
+
+| **Name**   | **Type**                                          | **Description**    |
+| ---------- | ------------------------------------------------- | ------------------ |
+| `variable` | Variable\[List\]                                  | Variable to assign |
+| `text`     | Text                                              | Text to convert    |
+| `charset`  | Marker<br/>**UTF_8** - None<br/>**ASCII** - ASCII | Encoding           |
+<h3 id=set_variable_text_to_chars>
+  <code>variable::text_to_chars</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::text_to_chars("text", "CHARS");
+
+//Or from the object
+
+`variable` = "text".text_to_chars("CHARS");
+
+//Or dry by positionals
+
+variable::text_to_chars(`variable`, "text", "CHARS");
+
+//Or dry by keywords
+
+variable::text_to_chars(variable=`variable`, text="text", chars_type="CHARS");
+```
+
+**Arguments:**
+
+| **Name**     | **Type**                                                                                                   | **Description** |
+| ------------ | ---------------------------------------------------------------------------------------------------------- | --------------- |
+| `variable`   | Variable\[Text\]                                                                                           | None            |
+| `text`       | Text                                                                                                       | None            |
+| `chars_type` | Marker<br/>**CHARS** - None<br/>**CODES** - None<br/>**CODEPOINTS_CHARS** - None<br/>**CODEPOINTS** - None | None            |
 <h3 id=set_variable_to_char>
   <code>variable::to_char</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

@@ -347,6 +347,34 @@ entity::get_custom_tag(variable=`variable`, name="name", default="any value");
 | `variable` | Variable\[Any Value\] | Variable to Assign |
 | `name`     | Text                  | Tag name           |
 | `default`  | Any Value             | Default value      |
+<h3 id=entity_get_equipment_item>
+  <code>entity::get_equipment_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = entity::get_equipment_item("HAND");
+
+//Or dry by positionals
+
+entity::get_equipment_item(`variable`, "HAND");
+
+//Or dry by keywords
+
+entity::get_equipment_item(variable=`variable`, slot="HAND");
+```
+
+**Arguments:**
+
+| **Name**   | **Type**                                                                                                                                                                      | **Description** |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `variable` | Variable\[Item\]                                                                                                                                                              | None            |
+| `slot`     | Marker<br/>**HAND** - None<br/>**OFF_HAND** - None<br/>**FEET** - None<br/>**LEGS** - None<br/>**CHEST** - None<br/>**HEAD** - None<br/>**BODY** - None<br/>**SADDLE** - None | None            |
 <h3 id=entity_get_nbt>
   <code>entity::get_nbt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -358,23 +386,24 @@ entity::get_custom_tag(variable=`variable`, name="name", default="any value");
 
 **Usage example:** 
 ```ts
-`variable` = entity::get_nbt("path");
+`variable` = entity::get_nbt("path", "ANY_VALUE");
 
 //Or dry by positionals
 
-entity::get_nbt(`variable`, "path");
+entity::get_nbt(`variable`, "path", "ANY_VALUE");
 
 //Or dry by keywords
 
-entity::get_nbt(variable=`variable`, path="path");
+entity::get_nbt(variable=`variable`, path="path", value_type="ANY_VALUE");
 ```
 
 **Arguments:**
 
-| **Name**   | **Type**              | **Description** |
-| ---------- | --------------------- | --------------- |
-| `variable` | Variable\[Any Value\] | None            |
-| `path`     | Text                  | None            |
+| **Name**     | **Type**                                                  | **Description** |
+| ------------ | --------------------------------------------------------- | --------------- |
+| `variable`   | Variable\[Any Value\]                                     | None            |
+| `path`       | Text                                                      | None            |
+| `value_type` | Marker<br/>**ANY_VALUE** - None<br/>**NBT_STRING** - None | None            |
 <h3 id=entity_give_potion_effects>
   <code>entity::give_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1911,6 +1940,31 @@ entity::set_display_brightness(block_light_level=1, sky_light_level=2);
 | ------------------- | -------- | ----------------- |
 | `block_light_level` | Number   | Block Light Level |
 | `sky_light_level`   | Number   | Sky light level   |
+<h3 id=entity_set_display_correct_transformation_matrix>
+  <code>entity::set_display_correct_transformation_matrix</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+entity::set_display_correct_transformation_matrix([1, 2]);
+
+//Or dry by keywords
+
+entity::set_display_correct_transformation_matrix(matrix=[1, 2]);
+```
+
+**Arguments:**
+
+| **Name** | **Type**       | **Description** |
+| -------- | -------------- | --------------- |
+| `matrix` | list\[Number\] | None            |
 <h3 id=entity_set_display_culling_suze>
   <code>entity::set_display_culling_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

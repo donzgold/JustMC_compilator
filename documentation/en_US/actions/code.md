@@ -48,6 +48,20 @@ code::call_exception(id="id", message="message", type="ERROR");
 | `id`      | Text                                                                         | Error ID        |
 | `message` | Text                                                                         | Error Message   |
 | `type`    | Marker<br/>**ERROR** - Error<br/>**FATAL** - Fatal<br/>**WARNING** - Warning | Error Type      |
+<h3 id=control_dummy>
+  <code>code::dummy</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** ...\
+**Type:** Action without value\
+**Description:** ...
+
+**Usage example:** 
+```ts
+code::dummy();
+```
+
 <h3 id=control_end_thread>
   <code>code::break</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

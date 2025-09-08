@@ -39,7 +39,7 @@
   {
     "id": "control_dummy",
     "name": "dummy",
-    "object": "controller",
+    "object": "code",
     "args": [],
     "type": "basic"
   },
@@ -122,6 +122,24 @@
           "ALL",
           "ERROR",
           "WARNING"
+        ]
+      }
+    ],
+    "type": "container"
+  },
+  {
+    "id": "controller_isolated_selection",
+    "name": "isolated_selection",
+    "object": "controller",
+    "args": [
+      {
+        "id": "selection_mode",
+        "type": "enum",
+        "values": [
+          "DEFAULT",
+          "CURRENT",
+          "EMPTY",
+          "FOR_EACH"
         ]
       }
     ],
@@ -400,6 +418,38 @@
     "type": "basic"
   },
   {
+    "id": "entity_get_equipment_item",
+    "name": "get_equipment_item",
+    "object": "entity",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "slot",
+        "type": "enum",
+        "values": [
+          "HAND",
+          "OFF_HAND",
+          "FEET",
+          "LEGS",
+          "CHEST",
+          "HEAD",
+          "BODY",
+          "SADDLE"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_get_nbt",
     "name": "get_nbt",
     "object": "entity",
@@ -411,6 +461,14 @@
       {
         "id": "path",
         "type": "text"
+      },
+      {
+        "id": "value_type",
+        "type": "enum",
+        "values": [
+          "ANY_VALUE",
+          "NBT_STRING"
+        ]
       }
     ],
     "assign": [
@@ -1482,6 +1540,19 @@
       {
         "id": "sky_light_level",
         "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_display_correct_transformation_matrix",
+    "name": "set_display_correct_transformation_matrix",
+    "object": "entity",
+    "args": [
+      {
+        "id": "matrix",
+        "type": "number",
+        "array": 16
       }
     ],
     "type": "basic"
@@ -7949,7 +8020,16 @@
       },
       {
         "id": "key",
-        "type": "any"
+        "type": "any",
+        "array": 21
+      },
+      {
+        "id": "check_mode",
+        "type": "enum",
+        "values": [
+          "ALL",
+          "ANY"
+        ]
       }
     ],
     "origin": "map",
@@ -7995,6 +8075,37 @@
       }
     ],
     "origin": "value",
+    "boolean": true,
+    "type": "container"
+  },
+  {
+    "id": "if_variable_number_in_range",
+    "name": "number_in_range",
+    "object": "variable",
+    "args": [
+      {
+        "id": "value",
+        "type": "number"
+      },
+      {
+        "id": "min",
+        "type": "number"
+      },
+      {
+        "id": "max",
+        "type": "number"
+      },
+      {
+        "id": "including",
+        "type": "enum",
+        "values": [
+          "NOT_INCLUDE",
+          "INCLUDE_FIRST",
+          "INCLUDE_LAST",
+          "INCLUDE_ALL"
+        ]
+      }
+    ],
     "boolean": true,
     "type": "container"
   },
@@ -8707,6 +8818,15 @@
       {
         "id": "line_4",
         "type": "text"
+      },
+      {
+        "id": "side",
+        "type": "enum",
+        "values": [
+          "ALL",
+          "BACK",
+          "FRONT"
+        ]
       }
     ],
     "type": "basic"
@@ -8829,7 +8949,8 @@
           "TEMP_RANGE",
           "WAYPOINT_TRANSMIT_RANGE",
           "WAYPOINT_RECEIVE_RANGE",
-          "CAMERA_DISTANCE"
+          "CAMERA_DISTANCE",
+          "ZOMBIE_SPAWN_REINFORCEMENTS"
         ]
       },
       {
@@ -8862,6 +8983,14 @@
       {
         "id": "path",
         "type": "text"
+      },
+      {
+        "id": "value_type",
+        "type": "enum",
+        "values": [
+          "ANY_VALUE",
+          "NBT_STRING"
+        ]
       }
     ],
     "assign": [
@@ -9148,6 +9277,13 @@
         "type": "location"
       }
     ],
+    "type": "basic"
+  },
+  {
+    "id": "player_open_ender_chest",
+    "name": "open_ender_chest",
+    "object": "player",
+    "args": [],
     "type": "basic"
   },
   {
@@ -10067,7 +10203,8 @@
           "HAND",
           "HEAD",
           "LEGS",
-          "OFF_HAND"
+          "OFF_HAND",
+          "SADDLE"
         ]
       }
     ],
@@ -12128,6 +12265,16 @@
         "id": "value",
         "type": "number",
         "array": 21
+      },
+      {
+        "id": "type",
+        "type": "enum",
+        "values": [
+          "ARITHMETIC",
+          "GEOMETRIC",
+          "HARMONIC",
+          "QUADRATIC"
+        ]
       }
     ],
     "assign": [
@@ -12173,6 +12320,37 @@
       {
         "id": "variable",
         "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_bytes_to_text",
+    "name": "bytes_to_text",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "bytes",
+        "type": "number",
+        "array": 21
+      },
+      {
+        "id": "charset",
+        "type": "enum",
+        "values": [
+          "UTF_8",
+          "ASCII"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "text"
       }
     ],
     "type": "basic"
@@ -12288,6 +12466,46 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_clamp_location",
+    "name": "clamp_location",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "corner_1",
+        "type": "location"
+      },
+      {
+        "id": "corner_2",
+        "type": "location"
+      },
+      {
+        "id": "coordinates_mode",
+        "type": "enum",
+        "values": [
+          "XYZ",
+          "XZ",
+          "Y"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "location"
+      }
+    ],
+    "origin": "location",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_clear_color_codes",
     "name": "clear_color_codes",
     "object": "variable",
@@ -12321,6 +12539,39 @@
       }
     ],
     "origin": "map",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_code_bytes",
+    "name": "code_bytes",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "input",
+        "type": "number",
+        "array": 21
+      },
+      {
+        "id": "codec",
+        "type": "enum",
+        "values": [
+          "BASE64_ENCODE",
+          "BASE64_DECODE",
+          "ZLIB_COMPRESS",
+          "ZLIB_DECOMPRESS"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
     "type": "basic"
   },
   {
@@ -12795,6 +13046,71 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_find_nearest_location",
+    "name": "find_nearest_location",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "locations",
+        "type": "location",
+        "array": 21
+      },
+      {
+        "id": "distance_type",
+        "type": "enum",
+        "values": [
+          "XYZ",
+          "XZ",
+          "Y"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "location"
+      }
+    ],
+    "origin": "location",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_find_nearest_number",
+    "name": "find_nearest_number",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "number",
+        "type": "variable"
+      },
+      {
+        "id": "numbers",
+        "type": "number",
+        "array": 21
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
+      }
+    ],
+    "origin": "number",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_flatten_list",
     "name": "flatten_list",
     "object": "variable",
@@ -12806,6 +13122,14 @@
       {
         "id": "list",
         "type": "array"
+      },
+      {
+        "id": "deep",
+        "type": "enum",
+        "values": [
+          "FALSE",
+          "TRUE"
+        ]
       }
     ],
     "assign": [
@@ -15453,6 +15777,144 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_get_text_regex_groups",
+    "name": "get_text_regex_groups",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "text",
+        "type": "text"
+      },
+      {
+        "id": "regex",
+        "type": "text"
+      },
+      {
+        "id": "group",
+        "type": "text"
+      },
+      {
+        "id": "match_mode",
+        "type": "enum",
+        "values": [
+          "ALL",
+          "FIRST"
+        ]
+      },
+      {
+        "id": "get_group_by",
+        "type": "enum",
+        "values": [
+          "INDEX",
+          "NAME"
+        ]
+      },
+      {
+        "id": "ignore_case",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "multiline",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "literal",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "unix_lines",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "comments",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "dot_matches_all",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "cannon_eq",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
+    "origin": "text",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_get_text_similarity",
+    "name": "get_text_similarity",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "text_1",
+        "type": "text"
+      },
+      {
+        "id": "text_2",
+        "type": "text"
+      },
+      {
+        "id": "value_type",
+        "type": "enum",
+        "values": [
+          "SIMILARITY",
+          "LEVENSHTEIN_DISTANCE"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
+      }
+    ],
+    "origin": "text_1",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_get_text_width",
     "name": "get_text_width",
     "object": "variable",
@@ -15961,6 +16423,8 @@
         "type": "enum",
         "values": [
           "ALTITUDE",
+          "SQUARED_2D",
+          "SQUARED_3D",
           "THREE_D",
           "TWO_D"
         ]
@@ -16041,8 +16505,59 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_mathematical_expectation",
+    "name": "mathematical_expectation",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "values",
+        "type": "number",
+        "array": 15
+      },
+      {
+        "id": "probabilities",
+        "type": "number",
+        "array": 15
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "set_variable_max",
     "name": "max",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "value",
+        "type": "number",
+        "array": 21
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_median",
+    "name": "median",
     "object": "variable",
     "args": [
       {
@@ -17848,6 +18363,33 @@
       {
         "id": "hover",
         "type": "item"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "text"
+      }
+    ],
+    "origin": "component",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_set_component_shadow_color",
+    "name": "set_component_shadow_color",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "component",
+        "type": "text"
+      },
+      {
+        "id": "color",
+        "type": "text"
       }
     ],
     "assign": [
@@ -19859,6 +20401,33 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_split_text_by_length",
+    "name": "split_text_by_length",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "text",
+        "type": "text"
+      },
+      {
+        "id": "max_length",
+        "type": "number"
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
+    "origin": "text",
+    "type": "basic"
+  },
+  {
     "id": "set_variable_strip_text",
     "name": "strip_text",
     "object": "variable",
@@ -20062,6 +20631,70 @@
       {
         "id": "variable",
         "type": "number"
+      }
+    ],
+    "origin": "text",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_text_to_bytes",
+    "name": "text_to_bytes",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "text",
+        "type": "text"
+      },
+      {
+        "id": "charset",
+        "type": "enum",
+        "values": [
+          "UTF_8",
+          "ASCII"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
+    "origin": "text",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_text_to_chars",
+    "name": "text_to_chars",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "text",
+        "type": "text"
+      },
+      {
+        "id": "chars_type",
+        "type": "enum",
+        "values": [
+          "CHARS",
+          "CODES",
+          "CODEPOINTS_CHARS",
+          "CODEPOINTS"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "text"
       }
     ],
     "origin": "text",

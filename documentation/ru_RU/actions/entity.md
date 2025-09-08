@@ -347,6 +347,34 @@ entity::get_custom_tag(variable=`variable`, name="name", default="any value");
 | `variable` | Переменная\[Любое значение\] | Переменная для присвоения |
 | `name`     | Текст                        | Имя тега                  |
 | `default`  | Любое значение               | Значение по умолчанию     |
+<h3 id=entity_get_equipment_item>
+  <code>entity::get_equipment_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить снаряжение сущности\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает снаряжение сущности из указанного слота, и присваивает результат к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = entity::get_equipment_item("HAND");
+
+//Или в сухую позиционно
+
+entity::get_equipment_item(`variable`, "HAND");
+
+//Или в сухую по ключам
+
+entity::get_equipment_item(variable=`variable`, slot="HAND");
+```
+
+**Аргументы:**
+
+| **Имя**    | **Тип**                                                                                                                                                                                                          | **Описание**              |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `variable` | Переменная\[Предмет\]                                                                                                                                                                                            | Переменная для присвоения |
+| `slot`     | Маркер<br/>**HAND** - Основная рука<br/>**OFF_HAND** - Второстепенная рука<br/>**FEET** - Ботинки<br/>**LEGS** - Поножи<br/>**CHEST** - Нагрудник<br/>**HEAD** - Шлем<br/>**BODY** - Тело<br/>**SADDLE** - Седло | Слот снаряжения           |
 <h3 id=entity_get_nbt>
   <code>entity::get_nbt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -354,27 +382,28 @@ entity::get_custom_tag(variable=`variable`, name="name", default="any value");
 
 **Имя:** Получить NBT-теги сущности\
 **Тип:** Действие, возращающее значение\
-**Описание:** Получает NBT-теги сущности по введенному пути и присваисвает результат к переменной.
+**Описание:** Получает NBT-теги сущности по введённому пути и присваивает результат к переменной.
 
 **Пример использования:** 
 ```ts
-`variable` = entity::get_nbt("path");
+`variable` = entity::get_nbt("path", "ANY_VALUE");
 
 //Или в сухую позиционно
 
-entity::get_nbt(`variable`, "path");
+entity::get_nbt(`variable`, "path", "ANY_VALUE");
 
 //Или в сухую по ключам
 
-entity::get_nbt(variable=`variable`, path="path");
+entity::get_nbt(variable=`variable`, path="path", value_type="ANY_VALUE");
 ```
 
 **Аргументы:**
 
-| **Имя**    | **Тип**                      | **Описание**              |
-| ---------- | ---------------------------- | ------------------------- |
-| `variable` | Переменная\[Любое значение\] | Переменная для присвоения |
-| `path`     | Текст                        | Путь                      |
+| **Имя**      | **Тип**                                                                   | **Описание**              |
+| ------------ | ------------------------------------------------------------------------- | ------------------------- |
+| `variable`   | Переменная\[Любое значение\]                                              | Переменная для присвоения |
+| `path`       | Текст                                                                     | Путь                      |
+| `value_type` | Маркер<br/>**ANY_VALUE** - Любое значение<br/>**NBT_STRING** - NBT-строка | Тип данных                |
 <h3 id=entity_give_potion_effects>
   <code>entity::give_potion_effects</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1911,6 +1940,31 @@ entity::set_display_brightness(block_light_level=1, sky_light_level=2);
 | ------------------- | ------- | ----------------------- |
 | `block_light_level` | Число   | Уровень света от блоков |
 | `sky_light_level`   | Число   | Уровень света от неба   |
+<h3 id=entity_set_display_correct_transformation_matrix>
+  <code>entity::set_display_correct_transformation_matrix</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить матрицу преобразования\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает матрицу преобразования сущности-визуализатору.
+**Работает с:**\
+&nbsp;&nbsp;Любой сущностью-визуализатором
+
+**Пример использования:** 
+```ts
+entity::set_display_correct_transformation_matrix([1, 2]);
+
+//Или в сухую по ключам
+
+entity::set_display_correct_transformation_matrix(matrix=[1, 2]);
+```
+
+**Аргументы:**
+
+| **Имя**  | **Тип**         | **Описание**        |
+| -------- | --------------- | ------------------- |
+| `matrix` | список\[Число\] | Матрица из 16 чисел |
 <h3 id=entity_set_display_culling_suze>
   <code>entity::set_display_culling_size</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

@@ -1647,22 +1647,23 @@ player::display_pick_up_animation(collected_name_or_uuid="collected_name_or_uuid
 
 **Usage example:** 
 ```ts
-player::display_sign_text(location(0,0,0,0,0), "line_1", "line_2", "line_3", "line_4");
+player::display_sign_text(location(0,0,0,0,0), "line_1", "line_2", "line_3", "line_4", "ALL");
 
 //Or dry by keywords
 
-player::display_sign_text(location=location(0,0,0,0,0), line_1="line_1", line_2="line_2", line_3="line_3", line_4="line_4");
+player::display_sign_text(location=location(0,0,0,0,0), line_1="line_1", line_2="line_2", line_3="line_3", line_4="line_4", side="ALL");
 ```
 
 **Arguments:**
 
-| **Name**   | **Type** | **Description**    |
-| ---------- | -------- | ------------------ |
-| `location` | Location | Sign location      |
-| `line_1`   | Text     | First Sign Line    |
-| `line_2`   | Text     | Second Sign Line   |
-| `line_3`   | Text     | Third line of sign |
-| `line_4`   | Text     | Fourth Sign Line   |
+| **Name**   | **Type**                                                           | **Description**    |
+| ---------- | ------------------------------------------------------------------ | ------------------ |
+| `location` | Location                                                           | Sign location      |
+| `line_1`   | Text                                                               | First Sign Line    |
+| `line_2`   | Text                                                               | Second Sign Line   |
+| `line_3`   | Text                                                               | Third line of sign |
+| `line_4`   | Text                                                               | Fourth Sign Line   |
+| `side`     | Marker<br/>**ALL** - None<br/>**BACK** - None<br/>**FRONT** - None | None               |
 <h3 id=player_display_vibration>
   <code>player::display_vibration</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1796,11 +1797,11 @@ player::get_attribute(variable=`variable`, attribute_type="GENERIC_MAX_HEALTH", 
 
 **Arguments:**
 
-| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Description** |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `variable`       | Variable\[Number\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | None            |
-| `attribute_type` | Marker<br/>**GENERIC_MAX_HEALTH** - None<br/>**GENERIC_MAX_ABSORPTION** - None<br/>**GENERIC_FOLLOW_RANGE** - None<br/>**GENERIC_KNOCKBACK_RESISTANCE** - None<br/>**GENERIC_MOVEMENT_SPEED** - None<br/>**GENERIC_FLYING_SPEED** - None<br/>**GENERIC_ATTACK_DAMAGE** - None<br/>**GENERIC_ATTACK_KNOCKBACK** - None<br/>**GENERIC_ATTACK_SPEED** - None<br/>**GENERIC_ARMOR** - None<br/>**GENERIC_ARMOR_TOUGHNESS** - None<br/>**GENERIC_LUCK** - None<br/>**GENERIC_JUMP_STRENGTH** - None<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - None<br/>**GENERIC_SAFE_FALL_DISTANCE** - None<br/>**GENERIC_SCALE** - None<br/>**GENERIC_STEP_HEIGHT** - None<br/>**GENERIC_GRAVITY** - None<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - None<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - None<br/>**PLAYER_BLOCK_BREAK_SPEED** - None<br/>**GENERIC_BURNING_TIME** - None<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - None<br/>**GENERIC_MOVEMENT_EFFICIENCY** - None<br/>**PLAYER_MINING_EFFICIENCY** - None<br/>**PLAYER_SNEAKING_SPEED** - None<br/>**PLAYER_SUBMERGED_MINING_SPEED** - None<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - None<br/>**GENERIC_OXYGEN_BONUS** - None<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - None<br/>**TEMP_RANGE** - None<br/>**WAYPOINT_TRANSMIT_RANGE** - None<br/>**WAYPOINT_RECEIVE_RANGE** - None<br/>**CAMERA_DISTANCE** - None | None            |
-| `return_value`   | Marker<br/>**VALUE** - None<br/>**BASE_VALUE** - None<br/>**DEFAULT_VALUE** - None                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | None            |
+| **Name**         | **Type**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | **Description** |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `variable`       | Variable\[Number\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | None            |
+| `attribute_type` | Marker<br/>**GENERIC_MAX_HEALTH** - None<br/>**GENERIC_MAX_ABSORPTION** - None<br/>**GENERIC_FOLLOW_RANGE** - None<br/>**GENERIC_KNOCKBACK_RESISTANCE** - None<br/>**GENERIC_MOVEMENT_SPEED** - None<br/>**GENERIC_FLYING_SPEED** - None<br/>**GENERIC_ATTACK_DAMAGE** - None<br/>**GENERIC_ATTACK_KNOCKBACK** - None<br/>**GENERIC_ATTACK_SPEED** - None<br/>**GENERIC_ARMOR** - None<br/>**GENERIC_ARMOR_TOUGHNESS** - None<br/>**GENERIC_LUCK** - None<br/>**GENERIC_JUMP_STRENGTH** - None<br/>**GENERIC_FALL_DAMAGE_MULTIPLIER** - None<br/>**GENERIC_SAFE_FALL_DISTANCE** - None<br/>**GENERIC_SCALE** - None<br/>**GENERIC_STEP_HEIGHT** - None<br/>**GENERIC_GRAVITY** - None<br/>**PLAYER_BLOCK_INTERACTION_RANGE** - None<br/>**PLAYER_ENTITY_INTERACTION_RANGE** - None<br/>**PLAYER_BLOCK_BREAK_SPEED** - None<br/>**GENERIC_BURNING_TIME** - None<br/>**GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE** - None<br/>**GENERIC_MOVEMENT_EFFICIENCY** - None<br/>**PLAYER_MINING_EFFICIENCY** - None<br/>**PLAYER_SNEAKING_SPEED** - None<br/>**PLAYER_SUBMERGED_MINING_SPEED** - None<br/>**PLAYER_SWEEPING_DAMAGE_RATIO** - None<br/>**GENERIC_OXYGEN_BONUS** - None<br/>**GENERIC_WATER_MOVEMENT_EFFICIENCY** - None<br/>**TEMP_RANGE** - None<br/>**WAYPOINT_TRANSMIT_RANGE** - None<br/>**WAYPOINT_RECEIVE_RANGE** - None<br/>**CAMERA_DISTANCE** - None<br/>**ZOMBIE_SPAWN_REINFORCEMENTS** - None | None            |
+| `return_value`   | Marker<br/>**VALUE** - None<br/>**BASE_VALUE** - None<br/>**DEFAULT_VALUE** - None                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | None            |
 <h3 id=player_get_nbt>
   <code>player::get_nbt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1812,23 +1813,24 @@ player::get_attribute(variable=`variable`, attribute_type="GENERIC_MAX_HEALTH", 
 
 **Usage example:** 
 ```ts
-`variable` = player::get_nbt("path");
+`variable` = player::get_nbt("path", "ANY_VALUE");
 
 //Or dry by positionals
 
-player::get_nbt(`variable`, "path");
+player::get_nbt(`variable`, "path", "ANY_VALUE");
 
 //Or dry by keywords
 
-player::get_nbt(variable=`variable`, path="path");
+player::get_nbt(variable=`variable`, path="path", value_type="ANY_VALUE");
 ```
 
 **Arguments:**
 
-| **Name**   | **Type**              | **Description** |
-| ---------- | --------------------- | --------------- |
-| `variable` | Variable\[Any Value\] | None            |
-| `path`     | Text                  | None            |
+| **Name**     | **Type**                                                  | **Description** |
+| ------------ | --------------------------------------------------------- | --------------- |
+| `variable`   | Variable\[Any Value\]                                     | None            |
+| `path`       | Text                                                      | None            |
+| `value_type` | Marker<br/>**ANY_VALUE** - None<br/>**NBT_STRING** - None | None            |
 <h3 id=player_give_experience>
   <code>player::give_experience</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2179,6 +2181,20 @@ player::open_container_inventory(location=location(0,0,0,0,0));
 | **Name**   | **Type** | **Description**           |
 | ---------- | -------- | ------------------------- |
 | `location` | Location | Location of block to open |
+<h3 id=player_open_ender_chest>
+  <code>player::open_ender_chest</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+player::open_ender_chest();
+```
+
 <h3 id=player_open_working_menu>
   <code>player::open_working_menu</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3382,10 +3398,10 @@ player::set_equipment(item=item("stick"), slot="BODY");
 
 **Arguments:**
 
-| **Name** | **Type**                                                                                                                                                            | **Description** |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `item`   | Item                                                                                                                                                                | Items to give   |
-| `slot`   | Marker<br/>**BODY** - Body<br/>**CHEST** - Chest<br/>**FEET** - Boots<br/>**HAND** - Main Hand<br/>**HEAD** - Helmet<br/>**LEGS** - Legs<br/>**OFF_HAND** - OffHand | Equipment slot  |
+| **Name** | **Type**                                                                                                                                                                                  | **Description** |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `item`   | Item                                                                                                                                                                                      | Items to give   |
+| `slot`   | Marker<br/>**BODY** - Body<br/>**CHEST** - Chest<br/>**FEET** - Boots<br/>**HAND** - Main Hand<br/>**HEAD** - Helmet<br/>**LEGS** - Legs<br/>**OFF_HAND** - OffHand<br/>**SADDLE** - None | Equipment slot  |
 <h3 id=player_set_exhaustion>
   <code>player::set_exhaustion</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

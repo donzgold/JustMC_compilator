@@ -1,17 +1,3 @@
-<h3 id=control_dummy>
-  <code>controller::dummy</code>
-  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
-</h3>
-
-**Имя:** ...\
-**Тип:** Действие без значения\
-**Описание:** ...
-
-**Пример использования:** 
-```ts
-controller::dummy();
-```
-
 <h3 id=controller_async_run>
   <code>controller::async_run</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -76,6 +62,36 @@ controller::catch_exception(variable=`variable`, exception_type="ALL"){
 | ---------------- | -------------------------------------------------------------------------------- | ------------------------- |
 | `variable`       | Переменная                                                                       | Переменная для присвоения |
 | `exception_type` | Маркер<br/>**ALL** - Все<br/>**ERROR** - Ошибка<br/>**WARNING** - Предупреждение | Тип ошибки                |
+<h3 id=controller_isolated_selection>
+  <code>controller::isolated_selection</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Изолировать выборку\
+**Тип:** Действие без значения\
+**Описание:** Изолирует выборку внутри скобок.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Созданная внутри выборка будет активна лишь в рамках скобок.\
+&nbsp;&nbsp;При выбранном типе выборки "Проход по выборке", внутри скобок может быть вызвано действие "Возврат" для перехода к следующему значению в выборке.
+
+**Пример использования:** 
+```ts
+controller::isolated_selection("DEFAULT"){
+    player::message("Всё работает");
+}
+
+//Или в сухую по ключам
+
+controller::isolated_selection(selection_mode="DEFAULT"){
+    player::message("Всё работает");
+}
+```
+
+**Аргументы:**
+
+| **Имя**          | **Тип**                                                                                                                                     | **Описание** |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `selection_mode` | Маркер<br/>**DEFAULT** - По умолчанию<br/>**CURRENT** - Текущая выборка<br/>**EMPTY** - Пустая выборка<br/>**FOR_EACH** - Проход по выборке | Тип выборки  |
 <h3 id=controller_measure_time>
   <code>controller::measure_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

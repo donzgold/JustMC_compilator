@@ -584,6 +584,10 @@ for i in another_actions:
             another_actions[i]["type"] = load_actions_map[i]["type"]
             arges = {i1["id"]: i1 for i1 in load_actions_map[i]["args"]}
             for i1 in another_actions[i]["args"]:
+                if i1["id"] not in arges:
+                    print("Не существующий аргумент:", json.dumps(i1))
+                    print("Действие", json.dumps(another_actions[i]), "необходимо обновить в actions.map2")
+                    exit()
                 i1["plural"] = arges[i1["id"]]["plural"]
                 i1["type"] = arges[i1["id"]]["type"]
                 i1["valueSlots"] = arges[i1["id"]]["valueSlots"]

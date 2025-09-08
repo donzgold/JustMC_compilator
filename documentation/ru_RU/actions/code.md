@@ -48,6 +48,20 @@ code::call_exception(id="id", message="message", type="ERROR");
 | `id`      | Текст                                                                                      | ID ошибки        |
 | `message` | Текст                                                                                      | Сообщение ошибки |
 | `type`    | Маркер<br/>**ERROR** - Ошибка<br/>**FATAL** - Критическая<br/>**WARNING** - Предупреждение | Тип ошибки       |
+<h3 id=control_dummy>
+  <code>code::dummy</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** ...\
+**Тип:** Действие без значения\
+**Описание:** ...
+
+**Пример использования:** 
+```ts
+code::dummy();
+```
+
 <h3 id=control_end_thread>
   <code>code::break</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

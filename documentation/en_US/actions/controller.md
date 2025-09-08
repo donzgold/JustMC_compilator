@@ -1,17 +1,3 @@
-<h3 id=control_dummy>
-  <code>controller::dummy</code>
-  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
-</h3>
-
-**Name:** ...\
-**Type:** Action without value\
-**Description:** ...
-
-**Usage example:** 
-```ts
-controller::dummy();
-```
-
 <h3 id=controller_async_run>
   <code>controller::async_run</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -76,6 +62,36 @@ controller::catch_exception(variable=`variable`, exception_type="ALL"){
 | ---------------- | ------------------------------------------------------------------------ | ------------------ |
 | `variable`       | Variable                                                                 | Variable to Assign |
 | `exception_type` | Marker<br/>**ALL** - All<br/>**ERROR** - Error<br/>**WARNING** - Warning | Error Type         |
+<h3 id=controller_isolated_selection>
+  <code>controller::isolated_selection</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+controller::isolated_selection("DEFAULT"){
+    player::message("Everything work");
+}
+
+//Or dry by keywords
+
+controller::isolated_selection(selection_mode="DEFAULT"){
+    player::message("Everything work");
+}
+```
+
+**Arguments:**
+
+| **Name**         | **Type**                                                                                          | **Description** |
+| ---------------- | ------------------------------------------------------------------------------------------------- | --------------- |
+| `selection_mode` | Marker<br/>**DEFAULT** - None<br/>**CURRENT** - None<br/>**EMPTY** - None<br/>**FOR_EACH** - None | None            |
 <h3 id=controller_measure_time>
   <code>controller::measure_time</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

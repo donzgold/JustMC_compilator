@@ -23,6 +23,7 @@
   "if_game_dummy": {"id":"if_game_dummy","type":"container","args": []},
   "select_dummy": {"id":"select_dummy","type":"basic","args": []},
   "control_dummy": {"id":"control_dummy","type":"basic","args": []},
+  "controller_dummy": {"id":"controller_dummy","type":"basic","args": []},
   "repeat_dummy": {"id":"repeat_dummy","type":"container","args": []},
   "set_variable_dummy": {"id":"set_variable_dummy","type":"basic","args": []},
   "entity_set_projectile_power": {"id":"entity_set_projectile_power","type": "basic","args": [
@@ -284,10 +285,12 @@
     {"id": "values", "plural": true, "type": "any", "valueSlots": [21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39]}]},
   "entity_get_nbt": {"id": "entity_get_nbt", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
-    {"id": "path", "plural": false, "type": "text", "valueSlots": [1]}]},
+    {"id": "path", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "value_type", "plural": false, "type": "enum", "valueSlots": [2], "values": ["ANY_VALUE", "NBT_STRING"]}]},
   "player_get_nbt": {"id": "player_get_nbt", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
-    {"id": "path", "plural": false, "type": "text", "valueSlots": [1]}]},
+    {"id": "path", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "value_type", "plural": false, "type": "enum", "valueSlots": [2], "values": ["ANY_VALUE", "NBT_STRING"]}]},
   "entity_get_attribute": {"id": "entity_get_attribute", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "attribute_type", "plural": false, "type": "enum", "valueSlots": [1], "values": ["GENERIC_MAX_HEALTH", "GENERIC_MAX_ABSORPTION", "GENERIC_FOLLOW_RANGE", "GENERIC_KNOCKBACK_RESISTANCE", "GENERIC_MOVEMENT_SPEED", "GENERIC_FLYING_SPEED", "GENERIC_ATTACK_DAMAGE", "GENERIC_ATTACK_KNOCKBACK", "GENERIC_ATTACK_SPEED", "GENERIC_ARMOR", "GENERIC_ARMOR_TOUGHNESS", "GENERIC_LUCK", "GENERIC_JUMP_STRENGTH", "GENERIC_FALL_DAMAGE_MULTIPLIER", "GENERIC_SAFE_FALL_DISTANCE", "GENERIC_SCALE", "GENERIC_STEP_HEIGHT", "GENERIC_GRAVITY", "PLAYER_BLOCK_INTERACTION_RANGE", "PLAYER_ENTITY_INTERACTION_RANGE", "PLAYER_BLOCK_BREAK_SPEED", "GENERIC_BURNING_TIME", "GENERIC_EXPLOSION_KNOCKBACK_RESISTANCE", "GENERIC_MOVEMENT_EFFICIENCY", "PLAYER_MINING_EFFICIENCY", "PLAYER_SNEAKING_SPEED", "PLAYER_SUBMERGED_MINING_SPEED", "PLAYER_SWEEPING_DAMAGE_RATIO", "GENERIC_OXYGEN_BONUS", "GENERIC_WATER_MOVEMENT_EFFICIENCY", "TEMP_RANGE", "WAYPOINT_TRANSMIT_RANGE", "WAYPOINT_RECEIVE_RANGE", "CAMERA_DISTANCE"]},
@@ -336,5 +339,102 @@
     {"id": "key","plural": true,"type": "any","valueSlots": [2,3,4,11,12,13,20,21,22,29,30,31,38,39,40]},
     {"id": "value","plural": true,"type": "any","valueSlots": [6,7,8,15,16,17,24,25,26,33,34,35,42,43,44]}]},
   "player_set_inventory_menu_custom_id": {"id": "player_set_inventory_menu_custom_id","type": "basic", "args": [
-    {"id": "custom_id","plural": false,"type": "text","valueSlots": [0]}]}
+    {"id": "custom_id","plural": false,"type": "text","valueSlots": [0]}]},
+  "player_display_sign_text": {"id": "player_display_sign_text", "type": "basic", "args": [
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [10]},
+    {"id": "line_1", "plural": false, "type": "text", "valueSlots": [13]},
+    {"id": "line_2", "plural": false, "type": "text", "valueSlots": [14]},
+    {"id": "line_3", "plural": false, "type": "text", "valueSlots": [15]},
+    {"id": "line_4", "plural": false, "type": "text", "valueSlots": [16]},
+    {"id": "side", "plural": false, "type": "enum", "valueSlots": [17], "values": ["FRONT", "BACK", "ALL"]}]},
+  "set_variable_flatten_list": {"id": "set_variable_flatten_list", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [12]},
+    {"id": "list", "plural": false, "type": "list", "valueSlots": [14]},
+    {"id": "deep", "plural": false, "type": "enum", "valueSlots": [17], "values": ["TRUE", "FALSE"]}]},
+  "set_variable_average": {"id": "set_variable_average", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [9]},
+    {"id": "value", "plural": true, "type": "number", "valueSlots": [2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26]},
+    {"id": "type", "plural": false, "type": "enum", "valueSlots": [27], "values": ["ARITHMETIC", "GEOMETRIC", "HARMONIC", "QUADRATIC"]}]},
+  "if_variable_map_has_key": {"id": "if_variable_map_has_key", "type": "container", "args": [
+    {"id": "map", "plural": false, "type": "dictionary", "valueSlots": [9]},
+    {"id": "key", "plural": true, "type": "any", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
+    {"id": "check_mode", "plural": false, "type": "enum", "valueSlots": [35], "values": ["ANY", "ALL"]}]},
+  "entity_set_display_correct_transformation_matrix": {"id": "entity_set_display_correct_transformation_matrix", "type": "basic", "args": [
+    {"id": "matrix","plural": true, "type": "number","valueSlots": [0, 1, 2, 3, 9, 10, 11, 12, 18, 19, 20, 21, 27, 28, 29, 30]}]},
+  "set_variable_set_component_shadow_color": {"id": "set_variable_set_component_shadow_color", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "component", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "color", "plural": false, "type": "text", "valueSlots": [2]}]},
+  "set_variable_find_nearest_location": {"id": "set_variable_find_nearest_location", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [18]},
+    {"id": "locations", "plural": true, "type": "location", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
+    {"id": "distance_type", "plural": false, "type": "enum", "valueSlots": [35], "values": ["XYZ", "XZ", "Y"]}]},
+  "set_variable_clamp_location": {"id": "set_variable_clamp_location", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "location", "plural": false, "type": "location", "valueSlots": [1]},
+    {"id": "corner_1", "plural": false, "type": "location", "valueSlots": [2]},
+    {"id": "corner_2", "plural": false, "type": "location", "valueSlots": [3]},
+    {"id": "coordinates_mode", "plural": false, "type": "enum", "valueSlots": [4], "values": ["XYZ", "XZ", "Y"]}]},
+  "set_variable_mathematical_expectation": {"id": "set_variable_mathematical_expectation", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [18]},
+    {"id": "values", "plural": true, "type": "number", "valueSlots": [2,3,4,11,12,13,20,21,22,29,30,31,38,39,40]},
+    {"id": "probabilities", "plural": true, "type": "number", "valueSlots": [6,7,8,15,16,17,24,25,26,33,34,35,42,43,44]}]},
+  "set_variable_median": {"id": "set_variable_median", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "value", "plural": true, "type": "number", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]}]},
+  "set_variable_find_nearest_number": {"id": "set_variable_find_nearest_number", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "number", "plural": false, "type": "variable", "valueSlots": [18]},
+    {"id": "numbers", "plural": true, "type": "number", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]}]},
+  "set_variable_bytes_to_text": {"id": "set_variable_bytes_to_text", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "bytes", "plural": true, "type": "number", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
+    {"id": "charset", "plural": false, "type": "enum", "valueSlots": [27], "values": ["UTF_8", "ASCII"]}]},
+  "set_variable_text_to_bytes": {"id": "set_variable_text_to_bytes", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "text", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "charset", "plural": false, "type": "enum", "valueSlots": [2], "values": ["UTF_8", "ASCII"]}]},
+  "entity_get_equipment_item": {"id": "entity_get_equipment_item", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "slot", "plural": false, "type": "enum", "valueSlots": [1], "values": ["HAND", "OFF_HAND", "FEET", "LEGS", "CHEST", "HEAD", "BODY", "SADDLE"]}]},
+  "set_variable_code_bytes": {"id": "set_variable_code_bytes", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "input", "plural": true, "type": "number", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
+    {"id": "codec", "plural": false, "type": "enum", "valueSlots": [27], "values": ["BASE64_ENCODE", "BASE64_DECODE", "ZLIB_COMPRESS", "ZLIB_DECOMPRESS"]}]},
+  "controller_isolated_selection": {"id": "controller_isolated_selection", "type": "container", "args": [
+    {"id": "selection_mode", "plural": false, "type": "enum", "valueSlots": [0], "values": ["DEFAULT", "CURRENT", "EMPTY", "FOR_EACH"]}]},
+  "if_variable_number_in_range": {"id": "if_variable_number_in_range", "type": "container", "args": [
+    {"id": "value", "plural": false, "type": "number", "valueSlots": [0]},
+    {"id": "min", "plural": false, "type": "number", "valueSlots": [1]},
+    {"id": "max", "plural": false, "type": "number", "valueSlots": [2]},
+    {"id": "including", "plural": false, "type": "enum", "valueSlots": [3], "values": ["NOT_INCLUDE", "INCLUDE_FIRST", "INCLUDE_LAST", "INCLUDE_ALL"]}]},
+  "player_open_ender_chest": {"id": "player_open_ender_chest", "type": "basic", "args": []},
+  "set_variable_get_text_regex_groups": {"id": "set_variable_get_text_regex_groups", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "text", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "regex", "plural": false, "type": "text", "valueSlots": [2]},
+    {"id": "group", "plural": false, "type": "text", "valueSlots": [3]},
+    {"id": "match_mode", "plural": false, "type": "enum", "valueSlots": [4], "values": ["ALL", "FIRST"]},
+    {"id": "get_group_by", "plural": false, "type": "enum", "valueSlots": [5], "values": ["INDEX", "NAME"]},
+    {"id": "ignore_case", "plural": false, "type": "enum", "valueSlots": [6], "values": ["TRUE", "FALSE"]},
+    {"id": "multiline", "plural": false, "type": "enum", "valueSlots": [7], "values": ["TRUE", "FALSE"]},
+    {"id": "literal", "plural": false, "type": "enum", "valueSlots": [8], "values": ["TRUE", "FALSE"]},
+    {"id": "unix_lines", "plural": false, "type": "enum", "valueSlots": [9], "values": ["TRUE", "FALSE"]},
+    {"id": "comments", "plural": false, "type": "enum", "valueSlots": [10], "values": ["TRUE", "FALSE"]},
+    {"id": "dot_matches_all", "plural": false, "type": "enum", "valueSlots": [11], "values": ["TRUE", "FALSE"]},
+    {"id": "cannon_eq", "plural": false, "type": "enum", "valueSlots": [12], "values": ["TRUE", "FALSE"]}]},
+  "set_variable_get_text_similarity": {"id": "set_variable_get_text_similarity", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "text_1", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "text_2", "plural": false, "type": "text", "valueSlots": [2]},
+    {"id": "value_type", "plural": false, "type": "enum", "valueSlots": [3], "values": ["SIMILARITY", "LEVENSHTEIN_DISTANCE"]}]},
+  "set_variable_text_to_chars": {"id": "set_variable_text_to_chars", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "text", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "chars_type", "plural": false, "type": "enum", "valueSlots": [2], "values": ["CHARS", "CODES", "CODEPOINTS_CHARS", "CODEPOINTS"]}]},
+  "set_variable_split_text_by_length": {"id": "set_variable_split_text_by_length", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "text", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "max_length", "plural": false, "type": "number", "valueSlots": [2]}]}
 }
