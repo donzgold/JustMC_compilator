@@ -17,7 +17,8 @@
    - [Классы](#классы)
    - [Импортирование](#импортирование)
 4. [Документация](#документация)
-5. [Подсветка синтаксиса](#подсветка-синтаксиса)
+5. [Примеры](#примеры)
+6. [Подсветка синтаксиса](#подсветка-синтаксиса)
 
 [История изменения](./CHANGELOG.md)
 
@@ -951,6 +952,9 @@ event<player_join> {
 - [Фабрики](./documentation/ru_RU/factories.md)
 - [Игровые значения](./documentation/ru_RU/properties.md)
 - [Действия](./documentation/ru_RU/actions/actions.md)
+
+### Примеры
+- [New World Order](./examples/nwo) поправленный код [New World Order At jmcc by kubik](https://github.com/justmc-os/jmcc/tree/main/examples/nwo), чтобы подходил под текущий.
 
 ### Подсветка синтаксиса
 [Расширение от lemonhead2000](https://github.com/lemonhead2000/JMCC-helper)

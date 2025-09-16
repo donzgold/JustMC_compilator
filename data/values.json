@@ -4,10 +4,6 @@
     "type": "number"
   },
   {
-    "id": "action_count_per_tick",
-    "type": "number"
-  },
-  {
     "id": "age",
     "type": "number"
   },

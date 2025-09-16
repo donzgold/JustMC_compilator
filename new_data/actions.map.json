@@ -939,7 +939,17 @@
   "set_variable_mathematical_expectation" : {"name": "mathematical_expectation","object": "variable","assign": [{"variable": "number"}]},
   "set_variable_median" : {"name": "median","object": "variable","assign": [{"variable": "number"}]},
   "set_variable_set_component_shadow_color" : {"name": "set_component_shadow_color","object": "variable","origin": "component","assign": [{"variable": "text"}]},
-  "set_variable_split_text_by_length" : {"name": "split_text_by_length","object": "variable","origin": "text","assign": [{"variable": "array"}]},
-  "set_variable_text_to_bytes" : {"name": "text_to_bytes","object": "variable","origin": "text","assign": [{"variable": "array"}]},
-  "set_variable_text_to_chars" : {"name": "text_to_chars","object": "variable","origin": "text","assign": [{"variable": "text"}]}
+  "set_variable_split_text_by_length" : {"name": "split_text_by_length", "object": "variable","origin": "text","assign": [{"variable": "array"}]},
+  "set_variable_text_to_bytes" : {"name": "text_to_bytes","object": "variable", "origin": "text","assign": [{"variable": "array"}]},
+  "set_variable_text_to_chars" : {"name": "text_to_chars","object": "variable", "origin": "text","assign": [{"variable": "text"}]},
+  "entity_complete_using_active_item" : {"name": "complete_using_active_item","object": "entity"},
+  "if_entity_is_minecraft_tagged" : {"name": "is_minecraft_tagged", "object": "entity","boolean": true},
+  "if_variable_block_is_minecraft_tagged" : {"name": "block_is_minecraft_tagged", "object": "variable","boolean": true},
+  "if_variable_item_is_minecraft_tagged" : {"name": "item_is_minecraft_tagged", "object": "variable","boolean": true},
+  "player_clear_active_item" : {"name": "clear_active_item", "object": "player"},
+  "player_complete_using_active_item" : {"name": "complete_using_active_item", "object": "player"},
+  "player_start_using_item" : {"name": "start_using_item", "object": "player"},
+  "set_variable_get_blocks_by_tag" : {"name": "get_blocks_by_tag", "object": "variable", "assign": [{"variable": "array"}]},
+  "set_variable_get_entity_types_by_tag" : {"name": "get_entity_types_by_tag", "object": "variable", "assign": [{"variable": "array"}]},
+  "set_variable_get_items_by_tag" : {"name": "get_items_by_tag", "object": "variable", "assign": [{"variable": "array"}]}
 }

@@ -1063,6 +1063,20 @@ player::boost_elytra(firework=item("stick"));
 | **Имя**    | **Тип** | **Описание**            |
 | ---------- | ------- | ----------------------- |
 | `firework` | Предмет | Фейерверк для ускорения |
+<h3 id=player_clear_active_item>
+  <code>player::clear_active_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Прервать использование предмета\
+**Тип:** Действие без значения\
+**Описание:** Прерывает использование текущего предмета.
+
+**Пример использования:** 
+```ts
+player::clear_active_item();
+```
+
 <h3 id=player_clear_chat>
   <code>player::clear_chat</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1191,6 +1205,20 @@ player::close_dialog_menu();
 **Пример использования:** 
 ```ts
 player::close_inventory();
+```
+
+<h3 id=player_complete_using_active_item>
+  <code>player::complete_using_active_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Завершить использование предмета\
+**Тип:** Действие без значения\
+**Описание:** Завершает использование текущего предмета в руке с результатом.
+
+**Пример использования:** 
+```ts
+player::complete_using_active_item();
 ```
 
 <h3 id=player_damage>
@@ -4450,7 +4478,7 @@ player::show_debug_marker(location=location(0,0,0,0,0), name="name", duration=1,
 | `red`      | Число          | Красный цвет (от 0 до 100)                    |
 | `green`    | Число          | Зелёный цвет (от 0 до 100)                    |
 | `blue`     | Число          | Синий цвет (от 0 до 100)                      |
-| `alpha`    | Число          | Прозрачность (от 0 до 100)                    |
+| `alpha`    | Число          | Непрозрачность (от 0 до 100)                  |
 <h3 id=player_show_demo_screen>
   <code>player::show_demo_screen</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4576,6 +4604,29 @@ player::spectate_target(name_or_uuid="name_or_uuid");
 | **Имя**        | **Тип** | **Описание**      |
 | -------------- | ------- | ----------------- |
 | `name_or_uuid` | Текст   | Имя или UUID цели |
+<h3 id=player_start_using_item>
+  <code>player::start_using_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Начать использование предмета\
+**Тип:** Действие без значения\
+**Описание:** Начинает использование предмета в указанной руке.
+
+**Пример использования:** 
+```ts
+player::start_using_item("MAIN_HAND");
+
+//Или в сухую по ключам
+
+player::start_using_item(equipment="MAIN_HAND");
+```
+
+**Аргументы:**
+
+| **Имя**     | **Тип**                                                 | **Описание** |
+| ----------- | ------------------------------------------------------- | ------------ |
+| `equipment` | Маркер<br/>**MAIN_HAND** - None<br/>**OFF_HAND** - None | Тип руки     |
 <h3 id=player_stop_sound>
   <code>player::stop_sound</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

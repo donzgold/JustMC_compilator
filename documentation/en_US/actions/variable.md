@@ -1,3 +1,33 @@
+<h3 id=if_variable_block_is_minecraft_tagged>
+  <code>variable::block_is_minecraft_tagged</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action that checks the conditions\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+if(variable::block_is_minecraft_tagged(item("stick"), "namespace")){
+    player::message("Condition is true");
+}
+
+//Or dry by keywords
+
+variable::block_is_minecraft_tagged(item=item("stick"), namespace="namespace"){
+    player::message("Condition is true");
+}
+```
+
+**Arguments:**
+
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `item`      | Item     | None            |
+| `namespace` | Text     | None            |
 <h3 id=if_variable_block_is_solid>
   <code>variable::block_is_solid</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -393,6 +423,36 @@ variable::item_is_block(item=item("stick")){
 | **Name** | **Type** | **Description** |
 | -------- | -------- | --------------- |
 | `item`   | Item     | Item to check   |
+<h3 id=if_variable_item_is_minecraft_tagged>
+  <code>variable::item_is_minecraft_tagged</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action that checks the conditions\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+if(variable::item_is_minecraft_tagged(item("stick"), "namespace")){
+    player::message("Condition is true");
+}
+
+//Or dry by keywords
+
+variable::item_is_minecraft_tagged(item=item("stick"), namespace="namespace"){
+    player::message("Condition is true");
+}
+```
+
+**Arguments:**
+
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `item`      | Item     | None            |
+| `namespace` | Text     | None            |
 <h3 id=if_variable_less>
   <code>variable::less</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2710,6 +2770,35 @@ variable::get_block_sound(variable=`variable`, block=item("stone"), source="BREA
 | `variable` | Variable\[Sound\]                                                                                            | Variable to assign |
 | `block`    | Block                                                                                                        | Block              |
 | `source`   | Marker<br/>**BREAK** - Break<br/>**PLACE** - Place<br/>**HIT** - Hit<br/>**FALL** - Fall<br/>**STEP** - Step | Sound Source       |
+<h3 id=set_variable_get_blocks_by_tag>
+  <code>variable::get_blocks_by_tag</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::get_blocks_by_tag("namespace", "ID");
+
+//Or dry by positionals
+
+variable::get_blocks_by_tag(`variable`, "namespace", "ID");
+
+//Or dry by keywords
+
+variable::get_blocks_by_tag(variable=`variable`, namespace="namespace", result_type="ID");
+```
+
+**Arguments:**
+
+| **Name**      | **Type**                                                                    | **Description** |
+| ------------- | --------------------------------------------------------------------------- | --------------- |
+| `variable`    | Variable\[List\]                                                            | None            |
+| `namespace`   | Text                                                                        | None            |
+| `result_type` | Marker<br/>**ID** - None<br/>**TRANSLATION_KEY** - None<br/>**ITEM** - None | None            |
 <h3 id=set_variable_get_book_text>
   <code>variable::get_book_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3192,6 +3281,35 @@ variable::get_decorate_pot_sherd(variable=`variable`, location=location(0,0,0,0,
 | `variable` | Variable\[Item\]                                                                                               | Variable to assign     |
 | `location` | Location                                                                                                       | Decorated pot location |
 | `side`     | Marker<br/>**BACK** - Back side<br/>**FRONT** - Front side<br/>**LEFT** - Left side<br/>**RIGHT** - Right side | Decorated pot side     |
+<h3 id=set_variable_get_entity_types_by_tag>
+  <code>variable::get_entity_types_by_tag</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::get_entity_types_by_tag("namespace", "ID");
+
+//Or dry by positionals
+
+variable::get_entity_types_by_tag(`variable`, "namespace", "ID");
+
+//Or dry by keywords
+
+variable::get_entity_types_by_tag(variable=`variable`, namespace="namespace", result_type="ID");
+```
+
+**Arguments:**
+
+| **Name**      | **Type**                                                | **Description** |
+| ------------- | ------------------------------------------------------- | --------------- |
+| `variable`    | Variable\[List\]                                        | None            |
+| `namespace`   | Text                                                    | None            |
+| `result_type` | Marker<br/>**ID** - None<br/>**TRANSLATION_KEY** - None | None            |
 <h3 id=set_variable_get_index_of_subtext>
   <code>variable::get_index_of_subtext</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4071,6 +4189,35 @@ variable::get_item_weapon(variable=`variable`, item=item("stick"), property="ITE
 | `variable` | Variable\[Number\]                                                           | None            |
 | `item`     | Item                                                                         | None            |
 | `property` | Marker<br/>**ITEM_DAMAGE_PER_ATTACK** - None<br/>**DISABLE_BLOCKING** - None | None            |
+<h3 id=set_variable_get_items_by_tag>
+  <code>variable::get_items_by_tag</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** An action that returns a value\
+**Description:** None
+
+**Usage example:** 
+```ts
+`variable` = variable::get_items_by_tag("namespace", "ID");
+
+//Or dry by positionals
+
+variable::get_items_by_tag(`variable`, "namespace", "ID");
+
+//Or dry by keywords
+
+variable::get_items_by_tag(variable=`variable`, namespace="namespace", result_type="ID");
+```
+
+**Arguments:**
+
+| **Name**      | **Type**                                                                    | **Description** |
+| ------------- | --------------------------------------------------------------------------- | --------------- |
+| `variable`    | Variable\[List\]                                                            | None            |
+| `namespace`   | Text                                                                        | None            |
+| `result_type` | Marker<br/>**ID** - None<br/>**TRANSLATION_KEY** - None<br/>**ITEM** - None | None            |
 <h3 id=set_variable_get_lectern_book>
   <code>variable::get_lectern_book</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

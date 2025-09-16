@@ -1063,6 +1063,20 @@ player::boost_elytra(firework=item("stick"));
 | **Name**   | **Type** | **Description** |
 | ---------- | -------- | --------------- |
 | `firework` | Item     | Firework Boost  |
+<h3 id=player_clear_active_item>
+  <code>player::clear_active_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+player::clear_active_item();
+```
+
 <h3 id=player_clear_chat>
   <code>player::clear_chat</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1191,6 +1205,20 @@ player::close_dialog_menu();
 **Usage example:** 
 ```ts
 player::close_inventory();
+```
+
+<h3 id=player_complete_using_active_item>
+  <code>player::complete_using_active_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+player::complete_using_active_item();
 ```
 
 <h3 id=player_damage>
@@ -4576,6 +4604,29 @@ player::spectate_target(name_or_uuid="name_or_uuid");
 | **Name**       | **Type** | **Description**            |
 | -------------- | -------- | -------------------------- |
 | `name_or_uuid` | Text     | Name or UUID of the target |
+<h3 id=player_start_using_item>
+  <code>player::start_using_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+player::start_using_item("MAIN_HAND");
+
+//Or dry by keywords
+
+player::start_using_item(equipment="MAIN_HAND");
+```
+
+**Arguments:**
+
+| **Name**    | **Type**                                                | **Description** |
+| ----------- | ------------------------------------------------------- | --------------- |
+| `equipment` | Marker<br/>**MAIN_HAND** - None<br/>**OFF_HAND** - None | None            |
 <h3 id=player_stop_sound>
   <code>player::stop_sound</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

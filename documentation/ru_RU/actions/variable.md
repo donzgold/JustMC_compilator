@@ -1,3 +1,33 @@
+<h3 id=if_variable_block_is_minecraft_tagged>
+  <code>variable::block_is_minecraft_tagged</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Блок имеет Minecraft-тег\
+**Тип:** Действие, проверяющее условие\
+**Описание:** Проверяет, имеет ли блок указанный Minecraft-тег (например, "mineable/shovel").\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Minecraft-тег должен начинаться с "#minecraft:"
+
+**Пример использования:** 
+```ts
+if(variable::block_is_minecraft_tagged(item("stick"), "namespace")){
+    player::message("Условие верно");
+}
+
+//Или в сухую по ключам
+
+variable::block_is_minecraft_tagged(item=item("stick"), namespace="namespace"){
+    player::message("Условие верно");
+}
+```
+
+**Аргументы:**
+
+| **Имя**     | **Тип** | **Описание**      |
+| ----------- | ------- | ----------------- |
+| `item`      | Предмет | Блок для проверки |
+| `namespace` | Текст   | Minecraft-тег     |
 <h3 id=if_variable_block_is_solid>
   <code>variable::block_is_solid</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -393,6 +423,36 @@ variable::item_is_block(item=item("stick")){
 | **Имя** | **Тип** | **Описание**         |
 | ------- | ------- | -------------------- |
 | `item`  | Предмет | Предмет для проверки |
+<h3 id=if_variable_item_is_minecraft_tagged>
+  <code>variable::item_is_minecraft_tagged</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Предмет имеет Minecraft-тег\
+**Тип:** Действие, проверяющее условие\
+**Описание:** Проверяет, имеет ли предмет указанный Minecraft-тег (например, "swords").\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Minecraft-тег должен начинаться с "#minecraft:"
+
+**Пример использования:** 
+```ts
+if(variable::item_is_minecraft_tagged(item("stick"), "namespace")){
+    player::message("Условие верно");
+}
+
+//Или в сухую по ключам
+
+variable::item_is_minecraft_tagged(item=item("stick"), namespace="namespace"){
+    player::message("Условие верно");
+}
+```
+
+**Аргументы:**
+
+| **Имя**     | **Тип** | **Описание**         |
+| ----------- | ------- | -------------------- |
+| `item`      | Предмет | Предмет для проверки |
+| `namespace` | Текст   | Minecraft-тег        |
 <h3 id=if_variable_less>
   <code>variable::less</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1303,7 +1363,7 @@ variable::append_value(variable=`variable`, values=["any value", "any value"]);
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
 </h3>
 
-**Имя:** Арктангенс значений\
+**Имя:** Арктангенс значений (atan2)\
 **Тип:** Действие, возращающее значение\
 **Описание:** Возвращает арктангенс от двух указанных чисел.
 
@@ -2066,11 +2126,11 @@ variable::divide(variable=`variable`, value=[1, 2], division_mode="CEIL");
 
 **Аргументы:**
 
-| **Имя**         | **Тип**                                                                                                                                                    | **Описание**              |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| `variable`      | Переменная\[Число\]                                                                                                                                        | Переменная для присвоения |
-| `value`         | список\[Число\]                                                                                                                                            | Числа для деления         |
-| `division_mode` | Маркер<br/>**CEIL** - Округлить до большего<br/>**DEFAULT** - По умолчанию<br/>**FLOOR** - Округлить до меньшего<br/>**ROUND_TO_INT** - Обычное округление | Режим деления             |
+| **Имя**         | **Тип**                                                                                                                                                      | **Описание**              |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- |
+| `variable`      | Переменная\[Число\]                                                                                                                                          | Переменная для присвоения |
+| `value`         | список\[Число\]                                                                                                                                              | Числа для деления         |
+| `division_mode` | Маркер<br/>**CEIL** - Округлить до большего<br/>**DEFAULT** - Без округления<br/>**FLOOR** - Округлить до меньшего<br/>**ROUND_TO_INT** - Обычное округление | Режим деления             |
 <h3 id=set_variable_divide_vector>
   <code>variable::divide_vector</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2310,14 +2370,14 @@ variable::format_timestamp(variable=`variable`, time=1, pattern="pattern", zone_
 
 **Аргументы:**
 
-| **Имя**    | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Описание**                            |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| `variable` | Переменная\[Текст\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Переменная для присвоения               |
-| `time`     | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Число для преобразования                |
-| `pattern`  | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Шаблон времени (например, mm\:ss)       |
-| `zone_id`  | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Часовой пояс (GMT+1\.\.13, GMT-1\.\.13) |
-| `locale`   | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Язык (ru_RU, en_US...)                  |
-| `format`   | Маркер<br/>**CUSTOM** - Настраиваемое<br/>**DD_MM_YYYY** - 01\/01\/1970 (dd_mm_yyyy)<br/>**DD_MM_YYYY_HH_MM_S** - 01\/01\/1970 00\:00\:00 (dd_mm_yyyy_hh_mm_s)<br/>**EEEE** - Thursday (eeee)<br/>**EEE_D_MMMM** - Thu, 01 January (eee_d_mmmm)<br/>**EEE_MMMM_D** - Thu, January 01 (eee_mmmm_d)<br/>**HH_MM_SS** - 00\:00\:00 (hh_mm_ss)<br/>**H_H_M_M_S_S** - 00h00m00s (h_h_m_m_s_s)<br/>**H_MM_A** - 00\:00 AM (h_mm_a)<br/>**S_S** - 00.00 (s_s)<br/>**YYYY_MM_DD** - 1970\/01\/01 (yyyy_mm_dd)<br/>**YYYY_MM_DD_HH_MM_S** - 1970\/01\/01 00\:00\:00 (yyyy_mm_dd_hh_mm_s) | Формат времени                          |
+| **Имя**    | **Тип**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **Описание**                      |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| `variable` | Переменная\[Текст\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Переменная для присвоения         |
+| `time`     | Число                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Число для преобразования          |
+| `pattern`  | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Шаблон времени (например, mm\:ss) |
+| `zone_id`  | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Часовой пояс (GMT±1\.\.13)        |
+| `locale`   | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Язык (ru_RU, en_US...)            |
+| `format`   | Маркер<br/>**CUSTOM** - Настраиваемое<br/>**DD_MM_YYYY** - 01\/01\/1970 (dd_mm_yyyy)<br/>**DD_MM_YYYY_HH_MM_S** - 01\/01\/1970 00\:00\:00 (dd_mm_yyyy_hh_mm_s)<br/>**EEEE** - Thursday (eeee)<br/>**EEE_D_MMMM** - Thu, 01 January (eee_d_mmmm)<br/>**EEE_MMMM_D** - Thu, January 01 (eee_mmmm_d)<br/>**HH_MM_SS** - 00\:00\:00 (hh_mm_ss)<br/>**H_H_M_M_S_S** - 00h00m00s (h_h_m_m_s_s)<br/>**H_MM_A** - 00\:00 AM (h_mm_a)<br/>**S_S** - 00.00 (s_s)<br/>**YYYY_MM_DD** - 1970\/01\/01 (yyyy_mm_dd)<br/>**YYYY_MM_DD_HH_MM_S** - 1970\/01\/01 00\:00\:00 (yyyy_mm_dd_hh_mm_s) | Формат времени                    |
 <h3 id=set_variable_gamma_function>
   <code>variable::gamma_function</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2710,6 +2770,35 @@ variable::get_block_sound(variable=`variable`, block=item("stone"), source="BREA
 | `variable` | Переменная\[Звук\]                                                                                                                                         | Переменная для присвоения |
 | `block`    | Блок                                                                                                                                                       | Блок                      |
 | `source`   | Маркер<br/>**BREAK** - Ломание<br/>**PLACE** - Установка<br/>**HIT** - Процесс ломания<br/>**FALL** - Падение на блок<br/>**STEP** - Передвижение по блоку | Источник звука            |
+<h3 id=set_variable_get_blocks_by_tag>
+  <code>variable::get_blocks_by_tag</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить блоки по Minecraft-тегу\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает блоки по Minecraft-тегу (например, "mineable/shovel") и присваивает результат к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::get_blocks_by_tag("namespace", "ID");
+
+//Или в сухую позиционно
+
+variable::get_blocks_by_tag(`variable`, "namespace", "ID");
+
+//Или в сухую по ключам
+
+variable::get_blocks_by_tag(variable=`variable`, namespace="namespace", result_type="ID");
+```
+
+**Аргументы:**
+
+| **Имя**       | **Тип**                                                                                                        | **Описание**              |
+| ------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `variable`    | Переменная\[Список\]                                                                                           | Переменная для присвоения |
+| `namespace`   | Текст                                                                                                          | Minecraft-тег             |
+| `result_type` | Маркер<br/>**ID** - ID блока<br/>**TRANSLATION_KEY** - Переводимое название блока<br/>**ITEM** - Предмет блока | Тип результата            |
 <h3 id=set_variable_get_book_text>
   <code>variable::get_book_text</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -3192,6 +3281,35 @@ variable::get_decorate_pot_sherd(variable=`variable`, location=location(0,0,0,0,
 | `variable` | Переменная\[Предмет\]                                                                                                             | Переменная для присвоения |
 | `location` | Местоположение                                                                                                                    | Местоположение вазы       |
 | `side`     | Маркер<br/>**BACK** - Задняя сторона<br/>**FRONT** - Передняя сторона<br/>**LEFT** - Левая сторона<br/>**RIGHT** - Правая сторона | Сторона вазы              |
+<h3 id=set_variable_get_entity_types_by_tag>
+  <code>variable::get_entity_types_by_tag</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить сущностей по Minecraft-тегу\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает сущностей по Minecraft-тегу (например, "aquatic") и присваивает результат к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::get_entity_types_by_tag("namespace", "ID");
+
+//Или в сухую позиционно
+
+variable::get_entity_types_by_tag(`variable`, "namespace", "ID");
+
+//Или в сухую по ключам
+
+variable::get_entity_types_by_tag(variable=`variable`, namespace="namespace", result_type="ID");
+```
+
+**Аргументы:**
+
+| **Имя**       | **Тип**                                                                                 | **Описание**              |
+| ------------- | --------------------------------------------------------------------------------------- | ------------------------- |
+| `variable`    | Переменная\[Список\]                                                                    | Переменная для присвоения |
+| `namespace`   | Текст                                                                                   | Minecraft-тег             |
+| `result_type` | Маркер<br/>**ID** - ID сущности<br/>**TRANSLATION_KEY** - Переводимое название сущности | Тип результата            |
 <h3 id=set_variable_get_index_of_subtext>
   <code>variable::get_index_of_subtext</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4071,6 +4189,35 @@ variable::get_item_weapon(variable=`variable`, item=item("stick"), property="ITE
 | `variable` | Переменная\[Число\]                                                                                        | Переменная для присвоения |
 | `item`     | Предмет                                                                                                    | Предмет                   |
 | `property` | Маркер<br/>**ITEM_DAMAGE_PER_ATTACK** - Урон от атаки<br/>**DISABLE_BLOCKING** - Задержка щита после удара | Значение                  |
+<h3 id=set_variable_get_items_by_tag>
+  <code>variable::get_items_by_tag</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить предметы по Minecraft-тегу\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает предметы по Minecraft-тегу (например, "swords") и присваивает результат к переменной.
+
+**Пример использования:** 
+```ts
+`variable` = variable::get_items_by_tag("namespace", "ID");
+
+//Или в сухую позиционно
+
+variable::get_items_by_tag(`variable`, "namespace", "ID");
+
+//Или в сухую по ключам
+
+variable::get_items_by_tag(variable=`variable`, namespace="namespace", result_type="ID");
+```
+
+**Аргументы:**
+
+| **Имя**       | **Тип**                                                                                                        | **Описание**              |
+| ------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `variable`    | Переменная\[Список\]                                                                                           | Переменная для присвоения |
+| `namespace`   | Текст                                                                                                          | Minecraft-тег             |
+| `result_type` | Маркер<br/>**ID** - ID предмета<br/>**TRANSLATION_KEY** - Переводимое название предмета<br/>**ITEM** - Предмет | Тип результата            |
 <h3 id=set_variable_get_lectern_book>
   <code>variable::get_lectern_book</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5327,11 +5474,11 @@ variable::get_template_code(variable=`variable`, template=item("stick"), return_
 
 **Аргументы:**
 
-| **Имя**       | **Тип**                                                     | **Описание**              |
-| ------------- | ----------------------------------------------------------- | ------------------------- |
-| `variable`    | Переменная\[Любое значение\]                                | Переменная для присвоения |
-| `template`    | Предмет                                                     | Шаблон                    |
-| `return_type` | Маркер<br/>**MAP** - Словарь JSON<br/>**TEXT** - Текст JSON | Возвращаемое значение     |
+| **Имя**       | **Тип**                                                | **Описание**              |
+| ------------- | ------------------------------------------------------ | ------------------------- |
+| `variable`    | Переменная\[Любое значение\]                           | Переменная для присвоения |
+| `template`    | Предмет                                                | Шаблон                    |
+| `return_type` | Маркер<br/>**MAP** - Словарь<br/>**TEXT** - Текст JSON | Возвращаемое значение     |
 <h3 id=set_variable_get_text_regex_groups>
   <code>variable::get_text_regex_groups</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6033,7 +6180,7 @@ variable::map_range(variable=`variable`, number=1, from_start=2, from_stop=3, to
 
 **Имя:** Математическое ожидание\
 **Тип:** Действие, возращающее значение\
-**Описание:** Вычисляет математическое ожидание, то есть средневзвешенное значение всех возможных исходов случайной величины.
+**Описание:** Вычисляет математическое ожидание, то есть средневзвешенное значение всех возможных исходов случайной величины. Может быть представлено как Σ nᵢ * pᵢ, где n - исход, p - вероятность
 
 **Пример использования:** 
 ```ts
@@ -9413,7 +9560,7 @@ variable::set_template_code(variable=`variable`, template=item("stick"), code="a
 | ---------- | --------------------- | ------------------------- |
 | `variable` | Переменная\[Предмет\] | Переменная для присвоения |
 | `template` | Предмет               | Шаблон                    |
-| `code`     | Любое значение        | Текст/словарь JSON        |
+| `code`     | Любое значение        | Словарь/текст JSON        |
 <h3 id=set_variable_set_texture_to_map>
   <code>variable::set_texture_to_map</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

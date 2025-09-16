@@ -8306,90 +8306,96 @@
   },
   {
     "id": 1256,
-    "name": "music_disc_mall",
+    "name": "music_disc_lava_chicken",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1257,
-    "name": "music_disc_mellohi",
+    "name": "music_disc_mall",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1258,
-    "name": "music_disc_stal",
+    "name": "music_disc_mellohi",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1259,
-    "name": "music_disc_strad",
+    "name": "music_disc_stal",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1260,
-    "name": "music_disc_ward",
+    "name": "music_disc_strad",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1261,
-    "name": "music_disc_11",
+    "name": "music_disc_ward",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1262,
-    "name": "music_disc_wait",
+    "name": "music_disc_11",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1263,
-    "name": "music_disc_otherside",
+    "name": "music_disc_wait",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1264,
-    "name": "music_disc_relic",
+    "name": "music_disc_otherside",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1265,
-    "name": "music_disc_5",
+    "name": "music_disc_relic",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1266,
-    "name": "music_disc_pigstep",
+    "name": "music_disc_5",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1267,
-    "name": "music_disc_precipice",
+    "name": "music_disc_pigstep",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1268,
-    "name": "music_disc_tears",
+    "name": "music_disc_precipice",
     "displayName": "Music Disc",
     "stackSize": 1
   },
   {
     "id": 1269,
+    "name": "music_disc_tears",
+    "displayName": "Music Disc",
+    "stackSize": 1
+  },
+  {
+    "id": 1270,
     "name": "disc_fragment_5",
     "displayName": "Disc Fragment",
     "stackSize": 64
   },
   {
-    "id": 1270,
+    "id": 1271,
     "name": "trident",
     "displayName": "Trident",
     "stackSize": 1,
@@ -8401,19 +8407,19 @@
     "maxDurability": 250
   },
   {
-    "id": 1271,
+    "id": 1272,
     "name": "nautilus_shell",
     "displayName": "Nautilus Shell",
     "stackSize": 64
   },
   {
-    "id": 1272,
+    "id": 1273,
     "name": "heart_of_the_sea",
     "displayName": "Heart of the Sea",
     "stackSize": 64
   },
   {
-    "id": 1273,
+    "id": 1274,
     "name": "crossbow",
     "displayName": "Crossbow",
     "stackSize": 1,
@@ -8425,469 +8431,469 @@
     "maxDurability": 465
   },
   {
-    "id": 1274,
+    "id": 1275,
     "name": "suspicious_stew",
     "displayName": "Suspicious Stew",
     "stackSize": 1
   },
   {
-    "id": 1275,
+    "id": 1276,
     "name": "loom",
     "displayName": "Loom",
     "stackSize": 64
   },
   {
-    "id": 1276,
+    "id": 1277,
     "name": "flower_banner_pattern",
     "displayName": "Flower Charge Banner Pattern",
     "stackSize": 1
   },
   {
-    "id": 1277,
+    "id": 1278,
     "name": "creeper_banner_pattern",
     "displayName": "Creeper Charge Banner Pattern",
     "stackSize": 1
   },
   {
-    "id": 1278,
+    "id": 1279,
     "name": "skull_banner_pattern",
     "displayName": "Skull Charge Banner Pattern",
     "stackSize": 1
   },
   {
-    "id": 1279,
+    "id": 1280,
     "name": "mojang_banner_pattern",
     "displayName": "Thing Banner Pattern",
     "stackSize": 1
   },
   {
-    "id": 1280,
+    "id": 1281,
     "name": "globe_banner_pattern",
     "displayName": "Globe Banner Pattern",
     "stackSize": 1
   },
   {
-    "id": 1281,
+    "id": 1282,
     "name": "piglin_banner_pattern",
     "displayName": "Snout Banner Pattern",
     "stackSize": 1
   },
   {
-    "id": 1282,
+    "id": 1283,
     "name": "flow_banner_pattern",
     "displayName": "Flow Banner Pattern",
     "stackSize": 1
   },
   {
-    "id": 1283,
+    "id": 1284,
     "name": "guster_banner_pattern",
     "displayName": "Guster Banner Pattern",
     "stackSize": 1
   },
   {
-    "id": 1284,
+    "id": 1285,
     "name": "field_masoned_banner_pattern",
     "displayName": "Field Masoned Banner Pattern",
     "stackSize": 1
   },
   {
-    "id": 1285,
+    "id": 1286,
     "name": "bordure_indented_banner_pattern",
     "displayName": "Bordure Indented Banner Pattern",
     "stackSize": 1
   },
   {
-    "id": 1286,
+    "id": 1287,
     "name": "goat_horn",
     "displayName": "Goat Horn",
     "stackSize": 1
   },
   {
-    "id": 1287,
+    "id": 1288,
     "name": "composter",
     "displayName": "Composter",
     "stackSize": 64
   },
   {
-    "id": 1288,
+    "id": 1289,
     "name": "barrel",
     "displayName": "Barrel",
     "stackSize": 64
   },
   {
-    "id": 1289,
+    "id": 1290,
     "name": "smoker",
     "displayName": "Smoker",
     "stackSize": 64
   },
   {
-    "id": 1290,
+    "id": 1291,
     "name": "blast_furnace",
     "displayName": "Blast Furnace",
     "stackSize": 64
   },
   {
-    "id": 1291,
+    "id": 1292,
     "name": "cartography_table",
     "displayName": "Cartography Table",
     "stackSize": 64
   },
   {
-    "id": 1292,
+    "id": 1293,
     "name": "fletching_table",
     "displayName": "Fletching Table",
     "stackSize": 64
   },
   {
-    "id": 1293,
+    "id": 1294,
     "name": "grindstone",
     "displayName": "Grindstone",
     "stackSize": 64
   },
   {
-    "id": 1294,
+    "id": 1295,
     "name": "smithing_table",
     "displayName": "Smithing Table",
     "stackSize": 64
   },
   {
-    "id": 1295,
+    "id": 1296,
     "name": "stonecutter",
     "displayName": "Stonecutter",
     "stackSize": 64
   },
   {
-    "id": 1296,
+    "id": 1297,
     "name": "bell",
     "displayName": "Bell",
     "stackSize": 64
   },
   {
-    "id": 1297,
+    "id": 1298,
     "name": "lantern",
     "displayName": "Lantern",
     "stackSize": 64
   },
   {
-    "id": 1298,
+    "id": 1299,
     "name": "soul_lantern",
     "displayName": "Soul Lantern",
     "stackSize": 64
   },
   {
-    "id": 1299,
+    "id": 1300,
     "name": "sweet_berries",
     "displayName": "Sweet Berries",
     "stackSize": 64
   },
   {
-    "id": 1300,
+    "id": 1301,
     "name": "glow_berries",
     "displayName": "Glow Berries",
     "stackSize": 64
   },
   {
-    "id": 1301,
+    "id": 1302,
     "name": "campfire",
     "displayName": "Campfire",
     "stackSize": 64
   },
   {
-    "id": 1302,
+    "id": 1303,
     "name": "soul_campfire",
     "displayName": "Soul Campfire",
     "stackSize": 64
   },
   {
-    "id": 1303,
+    "id": 1304,
     "name": "shroomlight",
     "displayName": "Shroomlight",
     "stackSize": 64
   },
   {
-    "id": 1304,
+    "id": 1305,
     "name": "honeycomb",
     "displayName": "Honeycomb",
     "stackSize": 64
   },
   {
-    "id": 1305,
+    "id": 1306,
     "name": "bee_nest",
     "displayName": "Bee Nest",
     "stackSize": 64
   },
   {
-    "id": 1306,
+    "id": 1307,
     "name": "beehive",
     "displayName": "Beehive",
     "stackSize": 64
   },
   {
-    "id": 1307,
+    "id": 1308,
     "name": "honey_bottle",
     "displayName": "Honey Bottle",
     "stackSize": 16
   },
   {
-    "id": 1308,
+    "id": 1309,
     "name": "honeycomb_block",
     "displayName": "Honeycomb Block",
     "stackSize": 64
   },
   {
-    "id": 1309,
+    "id": 1310,
     "name": "lodestone",
     "displayName": "Lodestone",
     "stackSize": 64
   },
   {
-    "id": 1310,
+    "id": 1311,
     "name": "crying_obsidian",
     "displayName": "Crying Obsidian",
     "stackSize": 64
   },
   {
-    "id": 1311,
+    "id": 1312,
     "name": "blackstone",
     "displayName": "Blackstone",
     "stackSize": 64
   },
   {
-    "id": 1312,
+    "id": 1313,
     "name": "blackstone_slab",
     "displayName": "Blackstone Slab",
     "stackSize": 64
   },
   {
-    "id": 1313,
+    "id": 1314,
     "name": "blackstone_stairs",
     "displayName": "Blackstone Stairs",
     "stackSize": 64
   },
   {
-    "id": 1314,
+    "id": 1315,
     "name": "gilded_blackstone",
     "displayName": "Gilded Blackstone",
     "stackSize": 64
   },
   {
-    "id": 1315,
+    "id": 1316,
     "name": "polished_blackstone",
     "displayName": "Polished Blackstone",
     "stackSize": 64
   },
   {
-    "id": 1316,
+    "id": 1317,
     "name": "polished_blackstone_slab",
     "displayName": "Polished Blackstone Slab",
     "stackSize": 64
   },
   {
-    "id": 1317,
+    "id": 1318,
     "name": "polished_blackstone_stairs",
     "displayName": "Polished Blackstone Stairs",
     "stackSize": 64
   },
   {
-    "id": 1318,
+    "id": 1319,
     "name": "chiseled_polished_blackstone",
     "displayName": "Chiseled Polished Blackstone",
     "stackSize": 64
   },
   {
-    "id": 1319,
+    "id": 1320,
     "name": "polished_blackstone_bricks",
     "displayName": "Polished Blackstone Bricks",
     "stackSize": 64
   },
   {
-    "id": 1320,
+    "id": 1321,
     "name": "polished_blackstone_brick_slab",
     "displayName": "Polished Blackstone Brick Slab",
     "stackSize": 64
   },
   {
-    "id": 1321,
+    "id": 1322,
     "name": "polished_blackstone_brick_stairs",
     "displayName": "Polished Blackstone Brick Stairs",
     "stackSize": 64
   },
   {
-    "id": 1322,
+    "id": 1323,
     "name": "cracked_polished_blackstone_bricks",
     "displayName": "Cracked Polished Blackstone Bricks",
     "stackSize": 64
   },
   {
-    "id": 1323,
+    "id": 1324,
     "name": "respawn_anchor",
     "displayName": "Respawn Anchor",
     "stackSize": 64
   },
   {
-    "id": 1324,
+    "id": 1325,
     "name": "candle",
     "displayName": "Candle",
     "stackSize": 64
   },
   {
-    "id": 1325,
+    "id": 1326,
     "name": "white_candle",
     "displayName": "White Candle",
     "stackSize": 64
   },
   {
-    "id": 1326,
+    "id": 1327,
     "name": "orange_candle",
     "displayName": "Orange Candle",
     "stackSize": 64
   },
   {
-    "id": 1327,
+    "id": 1328,
     "name": "magenta_candle",
     "displayName": "Magenta Candle",
     "stackSize": 64
   },
   {
-    "id": 1328,
+    "id": 1329,
     "name": "light_blue_candle",
     "displayName": "Light Blue Candle",
     "stackSize": 64
   },
   {
-    "id": 1329,
+    "id": 1330,
     "name": "yellow_candle",
     "displayName": "Yellow Candle",
     "stackSize": 64
   },
   {
-    "id": 1330,
+    "id": 1331,
     "name": "lime_candle",
     "displayName": "Lime Candle",
     "stackSize": 64
   },
   {
-    "id": 1331,
+    "id": 1332,
     "name": "pink_candle",
     "displayName": "Pink Candle",
     "stackSize": 64
   },
   {
-    "id": 1332,
+    "id": 1333,
     "name": "gray_candle",
     "displayName": "Gray Candle",
     "stackSize": 64
   },
   {
-    "id": 1333,
+    "id": 1334,
     "name": "light_gray_candle",
     "displayName": "Light Gray Candle",
     "stackSize": 64
   },
   {
-    "id": 1334,
+    "id": 1335,
     "name": "cyan_candle",
     "displayName": "Cyan Candle",
     "stackSize": 64
   },
   {
-    "id": 1335,
+    "id": 1336,
     "name": "purple_candle",
     "displayName": "Purple Candle",
     "stackSize": 64
   },
   {
-    "id": 1336,
+    "id": 1337,
     "name": "blue_candle",
     "displayName": "Blue Candle",
     "stackSize": 64
   },
   {
-    "id": 1337,
+    "id": 1338,
     "name": "brown_candle",
     "displayName": "Brown Candle",
     "stackSize": 64
   },
   {
-    "id": 1338,
+    "id": 1339,
     "name": "green_candle",
     "displayName": "Green Candle",
     "stackSize": 64
   },
   {
-    "id": 1339,
+    "id": 1340,
     "name": "red_candle",
     "displayName": "Red Candle",
     "stackSize": 64
   },
   {
-    "id": 1340,
+    "id": 1341,
     "name": "black_candle",
     "displayName": "Black Candle",
     "stackSize": 64
   },
   {
-    "id": 1341,
+    "id": 1342,
     "name": "small_amethyst_bud",
     "displayName": "Small Amethyst Bud",
     "stackSize": 64
   },
   {
-    "id": 1342,
+    "id": 1343,
     "name": "medium_amethyst_bud",
     "displayName": "Medium Amethyst Bud",
     "stackSize": 64
   },
   {
-    "id": 1343,
+    "id": 1344,
     "name": "large_amethyst_bud",
     "displayName": "Large Amethyst Bud",
     "stackSize": 64
   },
   {
-    "id": 1344,
+    "id": 1345,
     "name": "amethyst_cluster",
     "displayName": "Amethyst Cluster",
     "stackSize": 64
   },
   {
-    "id": 1345,
+    "id": 1346,
     "name": "pointed_dripstone",
     "displayName": "Pointed Dripstone",
     "stackSize": 64
   },
   {
-    "id": 1346,
+    "id": 1347,
     "name": "ochre_froglight",
     "displayName": "Ochre Froglight",
     "stackSize": 64
   },
   {
-    "id": 1347,
+    "id": 1348,
     "name": "verdant_froglight",
     "displayName": "Verdant Froglight",
     "stackSize": 64
   },
   {
-    "id": 1348,
+    "id": 1349,
     "name": "pearlescent_froglight",
     "displayName": "Pearlescent Froglight",
     "stackSize": 64
   },
   {
-    "id": 1349,
+    "id": 1350,
     "name": "frogspawn",
     "displayName": "Frogspawn",
     "stackSize": 64
   },
   {
-    "id": 1350,
+    "id": 1351,
     "name": "echo_shard",
     "displayName": "Echo Shard",
     "stackSize": 64
   },
   {
-    "id": 1351,
+    "id": 1352,
     "name": "brush",
     "displayName": "Brush",
     "stackSize": 1,
@@ -8898,379 +8904,379 @@
     "maxDurability": 64
   },
   {
-    "id": 1352,
+    "id": 1353,
     "name": "netherite_upgrade_smithing_template",
     "displayName": "Netherite Upgrade",
     "stackSize": 64
   },
   {
-    "id": 1353,
+    "id": 1354,
     "name": "sentry_armor_trim_smithing_template",
     "displayName": "Sentry Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1354,
+    "id": 1355,
     "name": "dune_armor_trim_smithing_template",
     "displayName": "Dune Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1355,
+    "id": 1356,
     "name": "coast_armor_trim_smithing_template",
     "displayName": "Coast Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1356,
+    "id": 1357,
     "name": "wild_armor_trim_smithing_template",
     "displayName": "Wild Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1357,
+    "id": 1358,
     "name": "ward_armor_trim_smithing_template",
     "displayName": "Ward Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1358,
+    "id": 1359,
     "name": "eye_armor_trim_smithing_template",
     "displayName": "Eye Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1359,
+    "id": 1360,
     "name": "vex_armor_trim_smithing_template",
     "displayName": "Vex Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1360,
+    "id": 1361,
     "name": "tide_armor_trim_smithing_template",
     "displayName": "Tide Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1361,
+    "id": 1362,
     "name": "snout_armor_trim_smithing_template",
     "displayName": "Snout Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1362,
+    "id": 1363,
     "name": "rib_armor_trim_smithing_template",
     "displayName": "Rib Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1363,
+    "id": 1364,
     "name": "spire_armor_trim_smithing_template",
     "displayName": "Spire Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1364,
+    "id": 1365,
     "name": "wayfinder_armor_trim_smithing_template",
     "displayName": "Wayfinder Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1365,
+    "id": 1366,
     "name": "shaper_armor_trim_smithing_template",
     "displayName": "Shaper Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1366,
+    "id": 1367,
     "name": "silence_armor_trim_smithing_template",
     "displayName": "Silence Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1367,
+    "id": 1368,
     "name": "raiser_armor_trim_smithing_template",
     "displayName": "Raiser Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1368,
+    "id": 1369,
     "name": "host_armor_trim_smithing_template",
     "displayName": "Host Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1369,
+    "id": 1370,
     "name": "flow_armor_trim_smithing_template",
     "displayName": "Flow Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1370,
+    "id": 1371,
     "name": "bolt_armor_trim_smithing_template",
     "displayName": "Bolt Armor Trim",
     "stackSize": 64
   },
   {
-    "id": 1371,
+    "id": 1372,
     "name": "angler_pottery_sherd",
     "displayName": "Angler Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1372,
+    "id": 1373,
     "name": "archer_pottery_sherd",
     "displayName": "Archer Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1373,
+    "id": 1374,
     "name": "arms_up_pottery_sherd",
     "displayName": "Arms Up Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1374,
+    "id": 1375,
     "name": "blade_pottery_sherd",
     "displayName": "Blade Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1375,
+    "id": 1376,
     "name": "brewer_pottery_sherd",
     "displayName": "Brewer Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1376,
+    "id": 1377,
     "name": "burn_pottery_sherd",
     "displayName": "Burn Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1377,
+    "id": 1378,
     "name": "danger_pottery_sherd",
     "displayName": "Danger Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1378,
+    "id": 1379,
     "name": "explorer_pottery_sherd",
     "displayName": "Explorer Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1379,
+    "id": 1380,
     "name": "flow_pottery_sherd",
     "displayName": "Flow Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1380,
+    "id": 1381,
     "name": "friend_pottery_sherd",
     "displayName": "Friend Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1381,
+    "id": 1382,
     "name": "guster_pottery_sherd",
     "displayName": "Guster Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1382,
+    "id": 1383,
     "name": "heart_pottery_sherd",
     "displayName": "Heart Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1383,
+    "id": 1384,
     "name": "heartbreak_pottery_sherd",
     "displayName": "Heartbreak Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1384,
+    "id": 1385,
     "name": "howl_pottery_sherd",
     "displayName": "Howl Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1385,
+    "id": 1386,
     "name": "miner_pottery_sherd",
     "displayName": "Miner Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1386,
+    "id": 1387,
     "name": "mourner_pottery_sherd",
     "displayName": "Mourner Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1387,
+    "id": 1388,
     "name": "plenty_pottery_sherd",
     "displayName": "Plenty Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1388,
+    "id": 1389,
     "name": "prize_pottery_sherd",
     "displayName": "Prize Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1389,
+    "id": 1390,
     "name": "scrape_pottery_sherd",
     "displayName": "Scrape Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1390,
+    "id": 1391,
     "name": "sheaf_pottery_sherd",
     "displayName": "Sheaf Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1391,
+    "id": 1392,
     "name": "shelter_pottery_sherd",
     "displayName": "Shelter Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1392,
+    "id": 1393,
     "name": "skull_pottery_sherd",
     "displayName": "Skull Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1393,
+    "id": 1394,
     "name": "snort_pottery_sherd",
     "displayName": "Snort Pottery Sherd",
     "stackSize": 64
   },
   {
-    "id": 1394,
+    "id": 1395,
     "name": "copper_grate",
     "displayName": "Copper Grate",
     "stackSize": 64
   },
   {
-    "id": 1395,
+    "id": 1396,
     "name": "exposed_copper_grate",
     "displayName": "Exposed Copper Grate",
     "stackSize": 64
   },
   {
-    "id": 1396,
+    "id": 1397,
     "name": "weathered_copper_grate",
     "displayName": "Weathered Copper Grate",
     "stackSize": 64
   },
   {
-    "id": 1397,
+    "id": 1398,
     "name": "oxidized_copper_grate",
     "displayName": "Oxidized Copper Grate",
     "stackSize": 64
   },
   {
-    "id": 1398,
+    "id": 1399,
     "name": "waxed_copper_grate",
     "displayName": "Waxed Copper Grate",
     "stackSize": 64
   },
   {
-    "id": 1399,
+    "id": 1400,
     "name": "waxed_exposed_copper_grate",
     "displayName": "Waxed Exposed Copper Grate",
     "stackSize": 64
   },
   {
-    "id": 1400,
+    "id": 1401,
     "name": "waxed_weathered_copper_grate",
     "displayName": "Waxed Weathered Copper Grate",
     "stackSize": 64
   },
   {
-    "id": 1401,
+    "id": 1402,
     "name": "waxed_oxidized_copper_grate",
     "displayName": "Waxed Oxidized Copper Grate",
     "stackSize": 64
   },
   {
-    "id": 1402,
+    "id": 1403,
     "name": "copper_bulb",
     "displayName": "Copper Bulb",
     "stackSize": 64
   },
   {
-    "id": 1403,
+    "id": 1404,
     "name": "exposed_copper_bulb",
     "displayName": "Exposed Copper Bulb",
     "stackSize": 64
   },
   {
-    "id": 1404,
+    "id": 1405,
     "name": "weathered_copper_bulb",
     "displayName": "Weathered Copper Bulb",
     "stackSize": 64
   },
   {
-    "id": 1405,
+    "id": 1406,
     "name": "oxidized_copper_bulb",
     "displayName": "Oxidized Copper Bulb",
     "stackSize": 64
   },
   {
-    "id": 1406,
+    "id": 1407,
     "name": "waxed_copper_bulb",
     "displayName": "Waxed Copper Bulb",
     "stackSize": 64
   },
   {
-    "id": 1407,
+    "id": 1408,
     "name": "waxed_exposed_copper_bulb",
     "displayName": "Waxed Exposed Copper Bulb",
     "stackSize": 64
   },
   {
-    "id": 1408,
+    "id": 1409,
     "name": "waxed_weathered_copper_bulb",
     "displayName": "Waxed Weathered Copper Bulb",
     "stackSize": 64
   },
   {
-    "id": 1409,
+    "id": 1410,
     "name": "waxed_oxidized_copper_bulb",
     "displayName": "Waxed Oxidized Copper Bulb",
     "stackSize": 64
   },
   {
-    "id": 1410,
+    "id": 1411,
     "name": "trial_spawner",
     "displayName": "Trial Spawner",
     "stackSize": 64
   },
   {
-    "id": 1411,
+    "id": 1412,
     "name": "trial_key",
     "displayName": "Trial Key",
     "stackSize": 64
   },
   {
-    "id": 1412,
+    "id": 1413,
     "name": "ominous_trial_key",
     "displayName": "Ominous Trial Key",
     "stackSize": 64
   },
   {
-    "id": 1413,
+    "id": 1414,
     "name": "vault",
     "displayName": "Vault",
     "stackSize": 64
   },
   {
-    "id": 1414,
+    "id": 1415,
     "name": "ominous_bottle",
     "displayName": "Ominous Bottle",
     "stackSize": 64

@@ -436,5 +436,30 @@
   "set_variable_split_text_by_length": {"id": "set_variable_split_text_by_length", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "text", "plural": false, "type": "text", "valueSlots": [1]},
-    {"id": "max_length", "plural": false, "type": "number", "valueSlots": [2]}]}
+    {"id": "max_length", "plural": false, "type": "number", "valueSlots": [2]}]},
+  "player_start_using_item": {"id": "player_start_using_item", "type": "basic", "args": [
+    {"id": "equipment", "plural": false, "type": "enum", "valueSlots": [0], "values": ["MAIN_HAND", "OFF_HAND"]}]},
+  "player_complete_using_active_item": {"id": "player_complete_using_active_item", "type": "basic", "args": []},
+  "player_clear_active_item": {"id": "player_clear_active_item", "type": "basic", "args": []},
+  "entity_complete_using_active_item": {"id": "entity_complete_using_active_item", "type": "basic", "args": []},
+  "set_variable_get_items_by_tag": {"id": "set_variable_get_items_by_tag", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "namespace", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "result_type", "plural": false, "type": "enum", "valueSlots": [2], "values": ["ID", "TRANSLATION_KEY", "ITEM"]}]},
+  "set_variable_get_blocks_by_tag": {"id": "set_variable_get_blocks_by_tag", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "namespace", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "result_type", "plural": false, "type": "enum", "valueSlots": [2], "values": ["ID", "TRANSLATION_KEY", "ITEM"]}]},
+  "set_variable_get_entity_types_by_tag": {"id": "set_variable_get_entity_types_by_tag", "type": "basic", "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "namespace", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "result_type", "plural": false, "type": "enum", "valueSlots": [2], "values": ["ID", "TRANSLATION_KEY"]}]},
+  "if_variable_item_is_minecraft_tagged": {"id": "if_variable_item_is_minecraft_tagged", "type": "basic", "args": [
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [0]},
+    {"id": "namespace", "plural": false, "type": "text", "valueSlots": [1]}]},
+  "if_variable_block_is_minecraft_tagged": {"id": "if_variable_block_is_minecraft_tagged", "type": "basic", "args": [
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [0]},
+    {"id": "namespace", "plural": false, "type": "text", "valueSlots": [1]}]},
+  "if_entity_is_minecraft_tagged": {"id": "if_entity_is_minecraft_tagged", "type": "basic", "args": [
+    {"id": "namespace", "plural": false, "type": "text", "valueSlots": [1]}]}
 }

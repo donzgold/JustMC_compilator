@@ -226,3 +226,6 @@ creative_plus.game_value.selection_target_uuids.argument.text.name
 creative_plus.trigger.player_command.name
 creative_plus.trigger.player_command.description
 creative_plus.trigger.player_command.sign
+creative_plus.game_value.action_count_per_tick.name
+creative_plus.game_value.action_count_per_tick.description
+creative_plus.game_value.action_count_per_tick.argument.number.name

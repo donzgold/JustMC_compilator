@@ -204,6 +204,13 @@
     "type": "basic"
   },
   {
+    "id": "entity_complete_using_active_item",
+    "name": "complete_using_active_item",
+    "object": "entity",
+    "args": [],
+    "type": "basic"
+  },
+  {
     "id": "entity_damage",
     "name": "damage",
     "object": "entity",
@@ -6230,6 +6237,19 @@
     "type": "container"
   },
   {
+    "id": "if_entity_is_minecraft_tagged",
+    "name": "is_minecraft_tagged",
+    "object": "entity",
+    "args": [
+      {
+        "id": "namespace",
+        "type": "text"
+      }
+    ],
+    "boolean": true,
+    "type": "basic"
+  },
+  {
     "id": "if_entity_is_mob",
     "name": "is_mob",
     "object": "entity",
@@ -7606,6 +7626,23 @@
     "type": "container"
   },
   {
+    "id": "if_variable_block_is_minecraft_tagged",
+    "name": "block_is_minecraft_tagged",
+    "object": "variable",
+    "args": [
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "namespace",
+        "type": "text"
+      }
+    ],
+    "boolean": true,
+    "type": "basic"
+  },
+  {
     "id": "if_variable_block_is_solid",
     "name": "block_is_solid",
     "object": "variable",
@@ -7842,6 +7879,23 @@
       }
     ],
     "origin": "item",
+    "boolean": true,
+    "type": "basic"
+  },
+  {
+    "id": "if_variable_item_is_minecraft_tagged",
+    "name": "item_is_minecraft_tagged",
+    "object": "variable",
+    "args": [
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "namespace",
+        "type": "text"
+      }
+    ],
     "boolean": true,
     "type": "basic"
   },
@@ -8313,6 +8367,13 @@
     "type": "basic"
   },
   {
+    "id": "player_clear_active_item",
+    "name": "clear_active_item",
+    "object": "player",
+    "args": [],
+    "type": "basic"
+  },
+  {
     "id": "player_clear_chat",
     "name": "clear_chat",
     "object": "player",
@@ -8382,6 +8443,13 @@
   {
     "id": "player_close_inventory",
     "name": "close_inventory",
+    "object": "player",
+    "args": [],
+    "type": "basic"
+  },
+  {
+    "id": "player_complete_using_active_item",
+    "name": "complete_using_active_item",
     "object": "player",
     "args": [],
     "type": "basic"
@@ -11075,6 +11143,22 @@
     "type": "basic"
   },
   {
+    "id": "player_start_using_item",
+    "name": "start_using_item",
+    "object": "player",
+    "args": [
+      {
+        "id": "equipment",
+        "type": "enum",
+        "values": [
+          "MAIN_HAND",
+          "OFF_HAND"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "player_stop_sound",
     "name": "stop_sound",
     "object": "player",
@@ -13586,6 +13670,37 @@
     "type": "basic"
   },
   {
+    "id": "set_variable_get_blocks_by_tag",
+    "name": "get_blocks_by_tag",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "namespace",
+        "type": "text"
+      },
+      {
+        "id": "result_type",
+        "type": "enum",
+        "values": [
+          "ID",
+          "TRANSLATION_KEY",
+          "ITEM"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "set_variable_get_book_text",
     "name": "get_book_text",
     "object": "variable",
@@ -13968,6 +14083,36 @@
       }
     ],
     "origin": "location",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_get_entity_types_by_tag",
+    "name": "get_entity_types_by_tag",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "namespace",
+        "type": "text"
+      },
+      {
+        "id": "result_type",
+        "type": "enum",
+        "values": [
+          "ID",
+          "TRANSLATION_KEY"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
     "type": "basic"
   },
   {
@@ -14731,6 +14876,37 @@
       }
     ],
     "origin": "item",
+    "type": "basic"
+  },
+  {
+    "id": "set_variable_get_items_by_tag",
+    "name": "get_items_by_tag",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "namespace",
+        "type": "text"
+      },
+      {
+        "id": "result_type",
+        "type": "enum",
+        "values": [
+          "ID",
+          "TRANSLATION_KEY",
+          "ITEM"
+        ]
+      }
+    ],
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
     "type": "basic"
   },
   {

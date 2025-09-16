@@ -75,6 +75,22 @@ entity::clear_potion_effects();
 entity::clear_merchant_recipes();
 ```
 
+<h3 id=entity_complete_using_active_item>
+  <code>entity::complete_using_active_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+**Work_with:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+entity::complete_using_active_item();
+```
+
 <h3 id=entity_damage>
   <code>entity::damage</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5188,6 +5204,35 @@ if(entity::is_item()){
 }
 ```
 
+<h3 id=if_entity_is_minecraft_tagged>
+  <code>entity::is_minecraft_tagged</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action that checks the conditions\
+**Description:** None\
+**Additional info:**\
+&nbsp;&nbsp;None
+
+**Usage example:** 
+```ts
+if(entity::is_minecraft_tagged("namespace")){
+    player::message("Condition is true");
+}
+
+//Or dry by keywords
+
+entity::is_minecraft_tagged(namespace="namespace"){
+    player::message("Condition is true");
+}
+```
+
+**Arguments:**
+
+| **Name**    | **Type** | **Description** |
+| ----------- | -------- | --------------- |
+| `namespace` | Text     | None            |
 <h3 id=if_entity_is_mob>
   <code>entity::is_mob</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

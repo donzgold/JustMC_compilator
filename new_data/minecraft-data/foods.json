@@ -360,7 +360,7 @@
     "saturationRatio": 14.400001
   },
   {
-    "id": 1274,
+    "id": 1275,
     "name": "suspicious_stew",
     "stackSize": 1,
     "displayName": "Suspicious Stew",
@@ -370,7 +370,7 @@
     "saturationRatio": 14.400001
   },
   {
-    "id": 1299,
+    "id": 1300,
     "name": "sweet_berries",
     "stackSize": 64,
     "displayName": "Sweet Berries",
@@ -380,7 +380,7 @@
     "saturationRatio": 0.8
   },
   {
-    "id": 1300,
+    "id": 1301,
     "name": "glow_berries",
     "stackSize": 64,
     "displayName": "Glow Berries",
@@ -390,7 +390,7 @@
     "saturationRatio": 0.8
   },
   {
-    "id": 1307,
+    "id": 1308,
     "name": "honey_bottle",
     "stackSize": 16,
     "displayName": "Honey Bottle",

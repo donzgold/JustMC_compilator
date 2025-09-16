@@ -75,6 +75,22 @@ entity::clear_potion_effects();
 entity::clear_merchant_recipes();
 ```
 
+<h3 id=entity_complete_using_active_item>
+  <code>entity::complete_using_active_item</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Завершить использование предмета\
+**Тип:** Действие без значения\
+**Описание:** Завершает использование текущего предмета в руке с результатом.
+**Работает с:**\
+&nbsp;&nbsp;Мобами
+
+**Пример использования:** 
+```ts
+entity::complete_using_active_item();
+```
+
 <h3 id=entity_damage>
   <code>entity::damage</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1234,7 +1250,7 @@ entity::set_arrow_hit_sound(sound=sound("entity.zombie.hurt"));
 
 **Имя:** Установить стреле количество пронзаний\
 **Тип:** Действие без значения\
-**Описание:** Устаналивает стреле количество раз, которые она может пронзить сущность (от 0 до 127).
+**Описание:** Устанавливает стреле количество раз, которые она может пронзить сущность (от 0 до 127).
 
 **Пример использования:** 
 ```ts
@@ -1586,7 +1602,7 @@ entity::set_celebrating(celebrating="FALSE");
 
 **Имя:** Установить тип Курицы\
 **Тип:** Действие без значения\
-**Описание:** Устаналивает курице тип окраски.
+**Описание:** Устанавливает курице тип окраски.
 **Работает с:**\
 &nbsp;&nbsp;Курицами
 
@@ -1634,7 +1650,7 @@ entity::set_collidable(collidable="FALSE");
 
 **Имя:** Установить тип Коровы\
 **Тип:** Действие без значения\
-**Описание:** Устаналивает корове тип окраски.
+**Описание:** Устанавливает корове тип окраски.
 **Работает с:**\
 &nbsp;&nbsp;Коровами
 
@@ -3637,7 +3653,7 @@ entity::set_pickup_delay(delay=1);
 
 **Имя:** Установить тип Свиньи\
 **Тип:** Действие без значения\
-**Описание:** Устаналивает свинье тип окраски.
+**Описание:** Устанавливает свинье тип окраски.
 **Работает с:**\
 &nbsp;&nbsp;Свиньями
 
@@ -5188,6 +5204,35 @@ if(entity::is_item()){
 }
 ```
 
+<h3 id=if_entity_is_minecraft_tagged>
+  <code>entity::is_minecraft_tagged</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Имеет Minecraft-тег\
+**Тип:** Действие, проверяющее условие\
+**Описание:** Проверяет, имеет ли сущность указанный Minecraft-тег (например, "aquatic").\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Minecraft-тег должен начинаться с "#minecraft:"
+
+**Пример использования:** 
+```ts
+if(entity::is_minecraft_tagged("namespace")){
+    player::message("Условие верно");
+}
+
+//Или в сухую по ключам
+
+entity::is_minecraft_tagged(namespace="namespace"){
+    player::message("Условие верно");
+}
+```
+
+**Аргументы:**
+
+| **Имя**     | **Тип** | **Описание**  |
+| ----------- | ------- | ------------- |
+| `namespace` | Текст   | Minecraft-тег |
 <h3 id=if_entity_is_mob>
   <code>entity::is_mob</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
