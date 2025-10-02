@@ -56,13 +56,13 @@ repeat::dummy(){
 
 **Пример использования:** 
 ```ts
-repeat::for_each_in_list(`list`){`index_variable`, `value_variable`->
+repeat::for_each_in_list([`list`, `list`]){`index_variable`, `value_variable`->
     player::message("Код в цикле");
 }
 
 //Или в сухую по ключам
 
-repeat::for_each_in_list(index_variable=`index_variable`, value_variable=`value_variable`, list=`list`){
+repeat::for_each_in_list(index_variable=`index_variable`, value_variable=`value_variable`, list=[`list`, `list`]){
     player::message("Код в цикле");
 }
 ```
@@ -85,13 +85,13 @@ repeat::for_each_in_list(index_variable=`index_variable`, value_variable=`value_
 
 **Пример использования:** 
 ```ts
-repeat::for_each_map_entry(`map`){`key_variable`, `value_variable`->
+repeat::for_each_map_entry({"map":`map`}){`key_variable`, `value_variable`->
     player::message("Код в цикле");
 }
 
 //Или в сухую по ключам
 
-repeat::for_each_map_entry(key_variable=`key_variable`, value_variable=`value_variable`, map=`map`){
+repeat::for_each_map_entry(key_variable=`key_variable`, value_variable=`value_variable`, map={"map":`map`}){
     player::message("Код в цикле");
 }
 ```

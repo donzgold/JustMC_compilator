@@ -11,13 +11,13 @@
 
 **Usage example:** 
 ```ts
-if(variable::block_is_minecraft_tagged(item("stick"), "namespace")){
+if(variable::block_is_minecraft_tagged("minecraft:oak_log[axis=x]", "namespace")){
     player::message("Condition is true");
 }
 
 //Or dry by keywords
 
-variable::block_is_minecraft_tagged(item=item("stick"), namespace="namespace"){
+variable::block_is_minecraft_tagged(block="minecraft:oak_log[axis=x]", namespace="namespace"){
     player::message("Condition is true");
 }
 ```
@@ -26,7 +26,7 @@ variable::block_is_minecraft_tagged(item=item("stick"), namespace="namespace"){
 
 | **Name**    | **Type** | **Description** |
 | ----------- | -------- | --------------- |
-| `item`      | Item     | None            |
+| `block`     | Block    | None            |
 | `namespace` | Text     | None            |
 <h3 id=if_variable_block_is_solid>
   <code>variable::block_is_solid</code>
@@ -39,19 +39,19 @@ variable::block_is_minecraft_tagged(item=item("stick"), namespace="namespace"){
 
 **Usage example:** 
 ```ts
-if(variable::block_is_solid(item("stone"))){
+if(variable::block_is_solid("minecraft:oak_log[axis=x]")){
     player::message("Condition is true");
 }
 
 //Or from the object
 
-if(item("stone").block_is_solid()){
+if("minecraft:oak_log[axis=x]".block_is_solid()){
     player::message("Condition is true");
 }
 
 //Or dry by keywords
 
-variable::block_is_solid(block=item("stone")){
+variable::block_is_solid(block="minecraft:oak_log[axis=x]"){
     player::message("Condition is true");
 }
 ```
@@ -532,19 +532,19 @@ variable::less_or_equals(value=1, compare=2){
 
 **Usage example:** 
 ```ts
-if(variable::list_contains_value(`list`, ["any value", "any value"], "ALL")){
+if(variable::list_contains_value([`list`, `list`], ["any value", "any value"], "ALL")){
     player::message("Condition is true");
 }
 
 //Or from the object
 
-if(`list`.list_contains_value(["any value", "any value"], "ALL")){
+if([`list`, `list`].list_contains_value(["any value", "any value"], "ALL")){
     player::message("Condition is true");
 }
 
 //Or dry by keywords
 
-variable::list_contains_value(list=`list`, values=["any value", "any value"], check_mode="ALL"){
+variable::list_contains_value(list=[`list`, `list`], values=["any value", "any value"], check_mode="ALL"){
     player::message("Condition is true");
 }
 ```
@@ -607,19 +607,19 @@ variable::list_is_empty(list="any value"){
 
 **Usage example:** 
 ```ts
-if(variable::list_value_equals(`list`, 1, ["any value", "any value"])){
+if(variable::list_value_equals([`list`, `list`], 1, ["any value", "any value"])){
     player::message("Condition is true");
 }
 
 //Or from the object
 
-if(`list`.list_value_equals(1, ["any value", "any value"])){
+if([`list`, `list`].list_value_equals(1, ["any value", "any value"])){
     player::message("Condition is true");
 }
 
 //Or dry by keywords
 
-variable::list_value_equals(list=`list`, index=1, values=["any value", "any value"]){
+variable::list_value_equals(list=[`list`, `list`], index=1, values=["any value", "any value"]){
     player::message("Condition is true");
 }
 ```
@@ -714,19 +714,19 @@ variable::location_is_near(location=location(0,0,0,0,0), radius=1, check=[locati
 
 **Usage example:** 
 ```ts
-if(variable::map_has_key(`map`, ["any value", "any value"], "ALL")){
+if(variable::map_has_key({"map":`map`}, ["any value", "any value"], "ALL")){
     player::message("Condition is true");
 }
 
 //Or from the object
 
-if(`map`.map_has_key(["any value", "any value"], "ALL")){
+if({"map":`map`}.map_has_key(["any value", "any value"], "ALL")){
     player::message("Condition is true");
 }
 
 //Or dry by keywords
 
-variable::map_has_key(map=`map`, key=["any value", "any value"], check_mode="ALL"){
+variable::map_has_key(map={"map":`map`}, key=["any value", "any value"], check_mode="ALL"){
     player::message("Condition is true");
 }
 ```
@@ -749,19 +749,19 @@ variable::map_has_key(map=`map`, key=["any value", "any value"], check_mode="ALL
 
 **Usage example:** 
 ```ts
-if(variable::map_value_equals(`map`, "any value", ["any value", "any value"])){
+if(variable::map_value_equals({"map":`map`}, "any value", ["any value", "any value"])){
     player::message("Condition is true");
 }
 
 //Or from the object
 
-if(`map`.map_value_equals("any value", ["any value", "any value"])){
+if({"map":`map`}.map_value_equals("any value", ["any value", "any value"])){
     player::message("Condition is true");
 }
 
 //Or dry by keywords
 
-variable::map_value_equals(map=`map`, key="any value", values=["any value", "any value"]){
+variable::map_value_equals(map={"map":`map`}, key="any value", values=["any value", "any value"]){
     player::message("Condition is true");
 }
 ```
@@ -1275,19 +1275,19 @@ variable::append_component(variable=`variable`, components=["components", "compo
 
 **Usage example:** 
 ```ts
-`variable` = variable::append_list(`list_1`, `list_2`);
+`variable` = variable::append_list([`list_1`, `list_1`], [`list_2`, `list_2`]);
 
 //Or from the object
 
-`variable` = `list_1`.append_list(`list_2`);
+`variable` = [`list_1`, `list_1`].append_list([`list_2`, `list_2`]);
 
 //Or dry by positionals
 
-variable::append_list(`variable`, `list_1`, `list_2`);
+variable::append_list(`variable`, [`list_1`, `list_1`], [`list_2`, `list_2`]);
 
 //Or dry by keywords
 
-variable::append_list(variable=`variable`, list_1=`list_1`, list_2=`list_2`);
+variable::append_list(variable=`variable`, list_1=[`list_1`, `list_1`], list_2=[`list_2`, `list_2`]);
 ```
 
 **Arguments:**
@@ -1308,19 +1308,19 @@ variable::append_list(variable=`variable`, list_1=`list_1`, list_2=`list_2`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::append_map(`map`, `other_map`);
+`variable` = variable::append_map({"map":`map`}, {"other_map":`other_map`});
 
 //Or from the object
 
-`variable` = `map`.append_map(`other_map`);
+`variable` = {"map":`map`}.append_map({"other_map":`other_map`});
 
 //Or dry by positionals
 
-variable::append_map(`variable`, `map`, `other_map`);
+variable::append_map(`variable`, {"map":`map`}, {"other_map":`other_map`});
 
 //Or dry by keywords
 
-variable::append_map(variable=`variable`, map=`map`, other_map=`other_map`);
+variable::append_map(variable=`variable`, map={"map":`map`}, other_map={"other_map":`other_map`});
 ```
 
 **Arguments:**
@@ -1457,24 +1457,24 @@ variable::bitwise_operation(variable=`variable`, operand1=1, operand2=2, operato
 
 **Usage example:** 
 ```ts
-`variable` = variable::bytes_to_text([1, 2], "UTF_8");
+`variable` = variable::bytes_to_text([1, 2], "UTF_16");
 
 //Or dry by positionals
 
-variable::bytes_to_text(`variable`, [1, 2], "UTF_8");
+variable::bytes_to_text(`variable`, [1, 2], "UTF_16");
 
 //Or dry by keywords
 
-variable::bytes_to_text(variable=`variable`, bytes=[1, 2], charset="UTF_8");
+variable::bytes_to_text(variable=`variable`, bytes=[1, 2], charset="UTF_16");
 ```
 
 **Arguments:**
 
-| **Name**   | **Type**                                          | **Description**    |
-| ---------- | ------------------------------------------------- | ------------------ |
-| `variable` | Variable\[Text\]                                  | Variable to assign |
-| `bytes`    | list\[Number\]                                    | Bytes to convert   |
-| `charset`  | Marker<br/>**UTF_8** - None<br/>**ASCII** - ASCII | Encoding           |
+| **Name**   | **Type**                                                                | **Description**    |
+| ---------- | ----------------------------------------------------------------------- | ------------------ |
+| `variable` | Variable\[Text\]                                                        | Variable to assign |
+| `bytes`    | list\[Number\]                                                          | Bytes to convert   |
+| `charset`  | Marker<br/>**UTF_16** - None<br/>**UTF_8** - None<br/>**ASCII** - ASCII | Encoding           |
 <h3 id=set_variable_center_location>
   <code>variable::center_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1993,15 +1993,15 @@ variable::create_list(variable=`variable`, values=["any value", "any value"]);
 
 **Usage example:** 
 ```ts
-`variable` = variable::create_map(`keys`, `values`);
+`variable` = variable::create_map([`keys`, `keys`], [`values`, `values`]);
 
 //Or dry by positionals
 
-variable::create_map(`variable`, `keys`, `values`);
+variable::create_map(`variable`, [`keys`, `keys`], [`values`, `values`]);
 
 //Or dry by keywords
 
-variable::create_map(variable=`variable`, keys=`keys`, values=`values`);
+variable::create_map(variable=`variable`, keys=[`keys`, `keys`], values=[`values`, `values`]);
 ```
 
 **Arguments:**
@@ -2320,19 +2320,19 @@ variable::find_nearest_number(variable=`variable`, number=`number`, numbers=[1, 
 
 **Usage example:** 
 ```ts
-`variable` = variable::flatten_list(`list`, "FALSE");
+`variable` = variable::flatten_list([`list`, `list`], "FALSE");
 
 //Or from the object
 
-`variable` = `list`.flatten_list("FALSE");
+`variable` = [`list`, `list`].flatten_list("FALSE");
 
 //Or dry by positionals
 
-variable::flatten_list(`variable`, `list`, "FALSE");
+variable::flatten_list(`variable`, [`list`, `list`], "FALSE");
 
 //Or dry by keywords
 
-variable::flatten_list(variable=`variable`, list=`list`, deep="FALSE");
+variable::flatten_list(variable=`variable`, list=[`list`, `list`], deep="FALSE");
 ```
 
 **Arguments:**
@@ -2683,19 +2683,19 @@ variable::get_block_material(variable=`variable`, location=location(0,0,0,0,0), 
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_block_material_property(item("stone"), "BLAST_RESISTANCE");
+`variable` = variable::get_block_material_property("minecraft:oak_log[axis=x]", "BLAST_RESISTANCE");
 
 //Or from the object
 
-`variable` = item("stone").get_block_material_property("BLAST_RESISTANCE");
+`variable` = "minecraft:oak_log[axis=x]".get_block_material_property("BLAST_RESISTANCE");
 
 //Or dry by positionals
 
-variable::get_block_material_property(`variable`, item("stone"), "BLAST_RESISTANCE");
+variable::get_block_material_property(`variable`, "minecraft:oak_log[axis=x]", "BLAST_RESISTANCE");
 
 //Or dry by keywords
 
-variable::get_block_material_property(variable=`variable`, block=item("stone"), property="BLAST_RESISTANCE");
+variable::get_block_material_property(variable=`variable`, block="minecraft:oak_log[axis=x]", property="BLAST_RESISTANCE");
 ```
 
 **Arguments:**
@@ -2748,19 +2748,19 @@ variable::get_block_power(variable=`variable`, location=location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_block_sound(item("stone"), "BREAK");
+`variable` = variable::get_block_sound("minecraft:oak_log[axis=x]", "BREAK");
 
 //Or from the object
 
-`variable` = item("stone").get_block_sound("BREAK");
+`variable` = "minecraft:oak_log[axis=x]".get_block_sound("BREAK");
 
 //Or dry by positionals
 
-variable::get_block_sound(`variable`, item("stone"), "BREAK");
+variable::get_block_sound(`variable`, "minecraft:oak_log[axis=x]", "BREAK");
 
 //Or dry by keywords
 
-variable::get_block_sound(variable=`variable`, block=item("stone"), source="BREAK");
+variable::get_block_sound(variable=`variable`, block="minecraft:oak_log[axis=x]", source="BREAK");
 ```
 
 **Arguments:**
@@ -4326,19 +4326,19 @@ variable::get_light_level(variable=`variable`, location=location(0,0,0,0,0), val
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_list_index_of_value(`list`, "any value", "FIRST");
+`variable` = variable::get_list_index_of_value([`list`, `list`], "any value", "FIRST");
 
 //Or from the object
 
-`variable` = `list`.get_list_index_of_value("any value", "FIRST");
+`variable` = [`list`, `list`].get_list_index_of_value("any value", "FIRST");
 
 //Or dry by positionals
 
-variable::get_list_index_of_value(`variable`, `list`, "any value", "FIRST");
+variable::get_list_index_of_value(`variable`, [`list`, `list`], "any value", "FIRST");
 
 //Or dry by keywords
 
-variable::get_list_index_of_value(variable=`variable`, list=`list`, value="any value", search_mode="FIRST");
+variable::get_list_index_of_value(variable=`variable`, list=[`list`, `list`], value="any value", search_mode="FIRST");
 ```
 
 **Arguments:**
@@ -4360,19 +4360,19 @@ variable::get_list_index_of_value(variable=`variable`, list=`list`, value="any v
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_list_length(`list`);
+`variable` = variable::get_list_length([`list`, `list`]);
 
 //Or from the object
 
-`variable` = `list`.get_list_length();
+`variable` = [`list`, `list`].get_list_length();
 
 //Or dry by positionals
 
-variable::get_list_length(`variable`, `list`);
+variable::get_list_length(`variable`, [`list`, `list`]);
 
 //Or dry by keywords
 
-variable::get_list_length(variable=`variable`, list=`list`);
+variable::get_list_length(variable=`variable`, list=[`list`, `list`]);
 ```
 
 **Arguments:**
@@ -4392,19 +4392,19 @@ variable::get_list_length(variable=`variable`, list=`list`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_list_random_value(`list`);
+`variable` = variable::get_list_random_value([`list`, `list`]);
 
 //Or from the object
 
-`variable` = `list`.get_list_random_value();
+`variable` = [`list`, `list`].get_list_random_value();
 
 //Or dry by positionals
 
-variable::get_list_random_value(`variable`, `list`);
+variable::get_list_random_value(`variable`, [`list`, `list`]);
 
 //Or dry by keywords
 
-variable::get_list_random_value(variable=`variable`, list=`list`);
+variable::get_list_random_value(variable=`variable`, list=[`list`, `list`]);
 ```
 
 **Arguments:**
@@ -4424,19 +4424,19 @@ variable::get_list_random_value(variable=`variable`, list=`list`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_list_value(`list`, 1, "any value");
+`variable` = variable::get_list_value([`list`, `list`], 1, "any value");
 
 //Or from the object
 
-`variable` = `list`.get_list_value(1, "any value");
+`variable` = [`list`, `list`].get_list_value(1, "any value");
 
 //Or dry by positionals
 
-variable::get_list_value(`variable`, `list`, 1, "any value");
+variable::get_list_value(`variable`, [`list`, `list`], 1, "any value");
 
 //Or dry by keywords
 
-variable::get_list_value(variable=`variable`, list=`list`, number=1, default_value="any value");
+variable::get_list_value(variable=`variable`, list=[`list`, `list`], number=1, default_value="any value");
 ```
 
 **Arguments:**
@@ -4518,19 +4518,19 @@ variable::get_location_direction(variable=`variable`, location=location(0,0,0,0,
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_map_key_by_index(`map`, 1, "any value");
+`variable` = variable::get_map_key_by_index({"map":`map`}, 1, "any value");
 
 //Or from the object
 
-`variable` = `map`.get_map_key_by_index(1, "any value");
+`variable` = {"map":`map`}.get_map_key_by_index(1, "any value");
 
 //Or dry by positionals
 
-variable::get_map_key_by_index(`variable`, `map`, 1, "any value");
+variable::get_map_key_by_index(`variable`, {"map":`map`}, 1, "any value");
 
 //Or dry by keywords
 
-variable::get_map_key_by_index(variable=`variable`, map=`map`, index=1, default_value="any value");
+variable::get_map_key_by_index(variable=`variable`, map={"map":`map`}, index=1, default_value="any value");
 ```
 
 **Arguments:**
@@ -4552,19 +4552,19 @@ variable::get_map_key_by_index(variable=`variable`, map=`map`, index=1, default_
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_map_keys(`map`);
+`variable` = variable::get_map_keys({"map":`map`});
 
 //Or from the object
 
-`variable` = `map`.get_map_keys();
+`variable` = {"map":`map`}.get_map_keys();
 
 //Or dry by positionals
 
-variable::get_map_keys(`variable`, `map`);
+variable::get_map_keys(`variable`, {"map":`map`});
 
 //Or dry by keywords
 
-variable::get_map_keys(variable=`variable`, map=`map`);
+variable::get_map_keys(variable=`variable`, map={"map":`map`});
 ```
 
 **Arguments:**
@@ -4584,19 +4584,19 @@ variable::get_map_keys(variable=`variable`, map=`map`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_map_keys_by_value(`map`, "any value", "any value", "ALL");
+`variable` = variable::get_map_keys_by_value({"map":`map`}, "any value", "any value", "ALL");
 
 //Or from the object
 
-`variable` = `map`.get_map_keys_by_value("any value", "any value", "ALL");
+`variable` = {"map":`map`}.get_map_keys_by_value("any value", "any value", "ALL");
 
 //Or dry by positionals
 
-variable::get_map_keys_by_value(`variable`, `map`, "any value", "any value", "ALL");
+variable::get_map_keys_by_value(`variable`, {"map":`map`}, "any value", "any value", "ALL");
 
 //Or dry by keywords
 
-variable::get_map_keys_by_value(variable=`variable`, map=`map`, value="any value", default_value="any value", find_mode="ALL");
+variable::get_map_keys_by_value(variable=`variable`, map={"map":`map`}, value="any value", default_value="any value", find_mode="ALL");
 ```
 
 **Arguments:**
@@ -4619,19 +4619,19 @@ variable::get_map_keys_by_value(variable=`variable`, map=`map`, value="any value
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_map_size(`map`);
+`variable` = variable::get_map_size({"map":`map`});
 
 //Or from the object
 
-`variable` = `map`.get_map_size();
+`variable` = {"map":`map`}.get_map_size();
 
 //Or dry by positionals
 
-variable::get_map_size(`variable`, `map`);
+variable::get_map_size(`variable`, {"map":`map`});
 
 //Or dry by keywords
 
-variable::get_map_size(variable=`variable`, map=`map`);
+variable::get_map_size(variable=`variable`, map={"map":`map`});
 ```
 
 **Arguments:**
@@ -4651,19 +4651,19 @@ variable::get_map_size(variable=`variable`, map=`map`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_map_value(`map`, "any value", "any value");
+`variable` = variable::get_map_value({"map":`map`}, "any value", "any value");
 
 //Or from the object
 
-`variable` = `map`.get_map_value("any value", "any value");
+`variable` = {"map":`map`}.get_map_value("any value", "any value");
 
 //Or dry by positionals
 
-variable::get_map_value(`variable`, `map`, "any value", "any value");
+variable::get_map_value(`variable`, {"map":`map`}, "any value", "any value");
 
 //Or dry by keywords
 
-variable::get_map_value(variable=`variable`, map=`map`, key="any value", default_value="any value");
+variable::get_map_value(variable=`variable`, map={"map":`map`}, key="any value", default_value="any value");
 ```
 
 **Arguments:**
@@ -4685,19 +4685,19 @@ variable::get_map_value(variable=`variable`, map=`map`, key="any value", default
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_map_value_by_index(`map`, 1, "any value");
+`variable` = variable::get_map_value_by_index({"map":`map`}, 1, "any value");
 
 //Or from the object
 
-`variable` = `map`.get_map_value_by_index(1, "any value");
+`variable` = {"map":`map`}.get_map_value_by_index(1, "any value");
 
 //Or dry by positionals
 
-variable::get_map_value_by_index(`variable`, `map`, 1, "any value");
+variable::get_map_value_by_index(`variable`, {"map":`map`}, 1, "any value");
 
 //Or dry by keywords
 
-variable::get_map_value_by_index(variable=`variable`, map=`map`, index=1, default_value="any value");
+variable::get_map_value_by_index(variable=`variable`, map={"map":`map`}, index=1, default_value="any value");
 ```
 
 **Arguments:**
@@ -4719,19 +4719,19 @@ variable::get_map_value_by_index(variable=`variable`, map=`map`, index=1, defaul
 
 **Usage example:** 
 ```ts
-`variable` = variable::get_map_values(`map`);
+`variable` = variable::get_map_values({"map":`map`});
 
 //Or from the object
 
-`variable` = `map`.get_map_values();
+`variable` = {"map":`map`}.get_map_values();
 
 //Or dry by positionals
 
-variable::get_map_values(`variable`, `map`);
+variable::get_map_values(`variable`, {"map":`map`});
 
 //Or dry by keywords
 
-variable::get_map_values(variable=`variable`, map=`map`);
+variable::get_map_values(variable=`variable`, map={"map":`map`});
 ```
 
 **Arguments:**
@@ -5946,19 +5946,19 @@ variable::increment(variable=`variable`, number=1);
 
 **Usage example:** 
 ```ts
-`variable` = variable::insert_list_value(`list`, 1, "any value");
+`variable` = variable::insert_list_value([`list`, `list`], 1, "any value");
 
 //Or from the object
 
-`variable` = `list`.insert_list_value(1, "any value");
+`variable` = [`list`, `list`].insert_list_value(1, "any value");
 
 //Or dry by positionals
 
-variable::insert_list_value(`variable`, `list`, 1, "any value");
+variable::insert_list_value(`variable`, [`list`, `list`], 1, "any value");
 
 //Or dry by keywords
 
-variable::insert_list_value(variable=`variable`, list=`list`, number=1, value="any value");
+variable::insert_list_value(variable=`variable`, list=[`list`, `list`], number=1, value="any value");
 ```
 
 **Arguments:**
@@ -5980,19 +5980,19 @@ variable::insert_list_value(variable=`variable`, list=`list`, number=1, value="a
 
 **Usage example:** 
 ```ts
-`variable` = variable::join_text(`list`, "separator", "prefix", "postfix", 1, "truncated");
+`variable` = variable::join_text([`list`, `list`], "separator", "prefix", "postfix", 1, "truncated");
 
 //Or from the object
 
-`variable` = `list`.join_text("separator", "prefix", "postfix", 1, "truncated");
+`variable` = [`list`, `list`].join_text("separator", "prefix", "postfix", 1, "truncated");
 
 //Or dry by positionals
 
-variable::join_text(`variable`, `list`, "separator", "prefix", "postfix", 1, "truncated");
+variable::join_text(`variable`, [`list`, `list`], "separator", "prefix", "postfix", 1, "truncated");
 
 //Or dry by keywords
 
-variable::join_text(variable=`variable`, list=`list`, separator="separator", prefix="prefix", postfix="postfix", limit=1, truncated="truncated");
+variable::join_text(variable=`variable`, list=[`list`, `list`], separator="separator", prefix="prefix", postfix="postfix", limit=1, truncated="truncated");
 ```
 
 **Arguments:**
@@ -6654,19 +6654,19 @@ variable::random_number(variable=`variable`, min=1, max=2, integer="FALSE");
 
 **Usage example:** 
 ```ts
-`variable` = variable::randomize_list_order(`list`);
+`variable` = variable::randomize_list_order([`list`, `list`]);
 
 //Or from the object
 
-`variable` = `list`.randomize_list_order();
+`variable` = [`list`, `list`].randomize_list_order();
 
 //Or dry by positionals
 
-variable::randomize_list_order(`variable`, `list`);
+variable::randomize_list_order(`variable`, [`list`, `list`]);
 
 //Or dry by keywords
 
-variable::randomize_list_order(variable=`variable`, list=`list`);
+variable::randomize_list_order(variable=`variable`, list=[`list`, `list`]);
 ```
 
 **Arguments:**
@@ -6686,15 +6686,15 @@ variable::randomize_list_order(variable=`variable`, list=`list`);
 
 **Usage example:** 
 ```ts
-`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid` = variable::ray_trace_result(location(0,0,0,0,0), 1, 2, `entities`, "BLOCKS_AND_ENTITIES", "FALSE", "ALWAYS");
+`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid` = variable::ray_trace_result(location(0,0,0,0,0), 1, 2, [`entities`, `entities`], "BLOCKS_AND_ENTITIES", "FALSE", "ALWAYS");
 
 //Or dry by positionals
 
-variable::ray_trace_result(`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid`, location(0,0,0,0,0), 1, 2, `entities`, "BLOCKS_AND_ENTITIES", "FALSE", "ALWAYS");
+variable::ray_trace_result(`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid`, location(0,0,0,0,0), 1, 2, [`entities`, `entities`], "BLOCKS_AND_ENTITIES", "FALSE", "ALWAYS");
 
 //Or dry by keywords
 
-variable::ray_trace_result(variable_for_hit_location=`variable_for_hit_location`, variable_for_hit_block_location=`variable_for_hit_block_location`, variable_for_hit_block_face=`variable_for_hit_block_face`, variable_for_hit_entity_uuid=`variable_for_hit_entity_uuid`, start=location(0,0,0,0,0), ray_size=1, max_distance=2, entities=`entities`, ray_collision_mode="BLOCKS_AND_ENTITIES", ignore_passable_blocks="FALSE", fluid_collision_mode="ALWAYS");
+variable::ray_trace_result(variable_for_hit_location=`variable_for_hit_location`, variable_for_hit_block_location=`variable_for_hit_block_location`, variable_for_hit_block_face=`variable_for_hit_block_face`, variable_for_hit_entity_uuid=`variable_for_hit_entity_uuid`, start=location(0,0,0,0,0), ray_size=1, max_distance=2, entities=[`entities`, `entities`], ray_collision_mode="BLOCKS_AND_ENTITIES", ignore_passable_blocks="FALSE", fluid_collision_mode="ALWAYS");
 ```
 
 **Arguments:**
@@ -7055,19 +7055,19 @@ variable::remove_item_potion_effects(variable=`variable`, effects=[potion("slow_
 
 **Usage example:** 
 ```ts
-`variable` = variable::remove_list_duplicates(`list`);
+`variable` = variable::remove_list_duplicates([`list`, `list`]);
 
 //Or from the object
 
-`variable` = `list`.remove_list_duplicates();
+`variable` = [`list`, `list`].remove_list_duplicates();
 
 //Or dry by positionals
 
-variable::remove_list_duplicates(`variable`, `list`);
+variable::remove_list_duplicates(`variable`, [`list`, `list`]);
 
 //Or dry by keywords
 
-variable::remove_list_duplicates(variable=`variable`, list=`list`);
+variable::remove_list_duplicates(variable=`variable`, list=[`list`, `list`]);
 ```
 
 **Arguments:**
@@ -7087,19 +7087,19 @@ variable::remove_list_duplicates(variable=`variable`, list=`list`);
 
 **Usage example:** 
 ```ts
-`variable` = variable::remove_list_value(`list`, "any value", "ALL");
+`variable` = variable::remove_list_value([`list`, `list`], "any value", "ALL");
 
 //Or from the object
 
-`variable` = `list`.remove_list_value("any value", "ALL");
+`variable` = [`list`, `list`].remove_list_value("any value", "ALL");
 
 //Or dry by positionals
 
-variable::remove_list_value(`variable`, `list`, "any value", "ALL");
+variable::remove_list_value(`variable`, [`list`, `list`], "any value", "ALL");
 
 //Or dry by keywords
 
-variable::remove_list_value(variable=`variable`, list=`list`, value="any value", remove_mode="ALL");
+variable::remove_list_value(variable=`variable`, list=[`list`, `list`], value="any value", remove_mode="ALL");
 ```
 
 **Arguments:**
@@ -7121,19 +7121,19 @@ variable::remove_list_value(variable=`variable`, list=`list`, value="any value",
 
 **Usage example:** 
 ```ts
-`variable`, `removed_value` = variable::remove_list_value_at_index(`list`, 1);
+`variable`, `removed_value` = variable::remove_list_value_at_index([`list`, `list`], 1);
 
 //Or from the object
 
-`variable`, `removed_value` = `list`.remove_list_value_at_index(1);
+`variable`, `removed_value` = [`list`, `list`].remove_list_value_at_index(1);
 
 //Or dry by positionals
 
-variable::remove_list_value_at_index(`removed_value`, `variable`, `list`, 1);
+variable::remove_list_value_at_index(`removed_value`, `variable`, [`list`, `list`], 1);
 
 //Or dry by keywords
 
-variable::remove_list_value_at_index(removed_value=`removed_value`, variable=`variable`, list=`list`, index=1);
+variable::remove_list_value_at_index(removed_value=`removed_value`, variable=`variable`, list=[`list`, `list`], index=1);
 ```
 
 **Arguments:**
@@ -7155,19 +7155,19 @@ variable::remove_list_value_at_index(removed_value=`removed_value`, variable=`va
 
 **Usage example:** 
 ```ts
-`variable`, `removed_value` = variable::remove_map_entry(`map`, "any value", ["any value", "any value"]);
+`variable`, `removed_value` = variable::remove_map_entry({"map":`map`}, "any value", ["any value", "any value"]);
 
 //Or from the object
 
-`variable`, `removed_value` = `map`.remove_map_entry("any value", ["any value", "any value"]);
+`variable`, `removed_value` = {"map":`map`}.remove_map_entry("any value", ["any value", "any value"]);
 
 //Or dry by positionals
 
-variable::remove_map_entry(`removed_value`, `variable`, `map`, "any value", ["any value", "any value"]);
+variable::remove_map_entry(`removed_value`, `variable`, {"map":`map`}, "any value", ["any value", "any value"]);
 
 //Or dry by keywords
 
-variable::remove_map_entry(removed_value=`removed_value`, variable=`variable`, map=`map`, key="any value", values=["any value", "any value"]);
+variable::remove_map_entry(removed_value=`removed_value`, variable=`variable`, map={"map":`map`}, key="any value", values=["any value", "any value"]);
 ```
 
 **Arguments:**
@@ -7293,19 +7293,19 @@ variable::replace_text(variable=`variable`, text="text", replace="replace", repl
 
 **Usage example:** 
 ```ts
-`variable` = variable::reverse_list(`list`);
+`variable` = variable::reverse_list([`list`, `list`]);
 
 //Or from the object
 
-`variable` = `list`.reverse_list();
+`variable` = [`list`, `list`].reverse_list();
 
 //Or dry by positionals
 
-variable::reverse_list(`variable`, `list`);
+variable::reverse_list(`variable`, [`list`, `list`]);
 
 //Or dry by keywords
 
-variable::reverse_list(variable=`variable`, list=`list`);
+variable::reverse_list(variable=`variable`, list=[`list`, `list`]);
 ```
 
 **Arguments:**
@@ -8332,19 +8332,19 @@ variable::set_item_durability(variable=`variable`, item=item("stick"), durabilit
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_item_enchantments(item("stick"), `enchantments`);
+`variable` = variable::set_item_enchantments(item("stick"), {"enchantments":`enchantments`});
 
 //Or from the object
 
-`variable` = item("stick").set_item_enchantments(`enchantments`);
+`variable` = item("stick").set_item_enchantments({"enchantments":`enchantments`});
 
 //Or dry by positionals
 
-variable::set_item_enchantments(`variable`, item("stick"), `enchantments`);
+variable::set_item_enchantments(`variable`, item("stick"), {"enchantments":`enchantments`});
 
 //Or dry by keywords
 
-variable::set_item_enchantments(variable=`variable`, item=item("stick"), enchantments=`enchantments`);
+variable::set_item_enchantments(variable=`variable`, item=item("stick"), enchantments={"enchantments":`enchantments`});
 ```
 
 **Arguments:**
@@ -8937,19 +8937,19 @@ variable::set_item_weapon(variable=`variable`, item=item("stick"), item_damage_p
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_list_value(`list`, 1, "any value");
+`variable` = variable::set_list_value([`list`, `list`], 1, "any value");
 
 //Or from the object
 
-`variable` = `list`.set_list_value(1, "any value");
+`variable` = [`list`, `list`].set_list_value(1, "any value");
 
 //Or dry by positionals
 
-variable::set_list_value(`variable`, `list`, 1, "any value");
+variable::set_list_value(`variable`, [`list`, `list`], 1, "any value");
 
 //Or dry by keywords
 
-variable::set_list_value(variable=`variable`, list=`list`, number=1, value="any value");
+variable::set_list_value(variable=`variable`, list=[`list`, `list`], number=1, value="any value");
 ```
 
 **Arguments:**
@@ -9004,19 +9004,19 @@ variable::set_location_direction(variable=`variable`, location=location(0,0,0,0,
 
 **Usage example:** 
 ```ts
-`variable` = variable::set_map_value(`map`, ["any value", "any value"], ["any value", "any value"]);
+`variable` = variable::set_map_value({"map":`map`}, ["any value", "any value"], ["any value", "any value"]);
 
 //Or from the object
 
-`variable` = `map`.set_map_value(["any value", "any value"], ["any value", "any value"]);
+`variable` = {"map":`map`}.set_map_value(["any value", "any value"], ["any value", "any value"]);
 
 //Or dry by positionals
 
-variable::set_map_value(`variable`, `map`, ["any value", "any value"], ["any value", "any value"]);
+variable::set_map_value(`variable`, {"map":`map`}, ["any value", "any value"], ["any value", "any value"]);
 
 //Or dry by keywords
 
-variable::set_map_value(variable=`variable`, map=`map`, key=["any value", "any value"], value=["any value", "any value"]);
+variable::set_map_value(variable=`variable`, map={"map":`map`}, key=["any value", "any value"], value=["any value", "any value"]);
 ```
 
 **Arguments:**
@@ -9922,19 +9922,19 @@ variable::sine(variable=`variable`, number=1, variant="ARCSINE", input="DEGREES"
 
 **Usage example:** 
 ```ts
-`variable` = variable::sort_list(`list`, "ASCENDING");
+`variable` = variable::sort_list([`list`, `list`], "ASCENDING");
 
 //Or from the object
 
-`variable` = `list`.sort_list("ASCENDING");
+`variable` = [`list`, `list`].sort_list("ASCENDING");
 
 //Or dry by positionals
 
-variable::sort_list(`variable`, `list`, "ASCENDING");
+variable::sort_list(`variable`, [`list`, `list`], "ASCENDING");
 
 //Or dry by keywords
 
-variable::sort_list(variable=`variable`, list=`list`, sort_mode="ASCENDING");
+variable::sort_list(variable=`variable`, list=[`list`, `list`], sort_mode="ASCENDING");
 ```
 
 **Arguments:**
@@ -9955,19 +9955,19 @@ variable::sort_list(variable=`variable`, list=`list`, sort_mode="ASCENDING");
 
 **Usage example:** 
 ```ts
-`variable` = variable::sort_map(`map`, "ASCENDING", "KEYS");
+`variable` = variable::sort_map({"map":`map`}, "ASCENDING", "KEYS");
 
 //Or from the object
 
-`variable` = `map`.sort_map("ASCENDING", "KEYS");
+`variable` = {"map":`map`}.sort_map("ASCENDING", "KEYS");
 
 //Or dry by positionals
 
-variable::sort_map(`variable`, `map`, "ASCENDING", "KEYS");
+variable::sort_map(`variable`, {"map":`map`}, "ASCENDING", "KEYS");
 
 //Or dry by keywords
 
-variable::sort_map(variable=`variable`, map=`map`, sort_order="ASCENDING", sort_type="KEYS");
+variable::sort_map(variable=`variable`, map={"map":`map`}, sort_order="ASCENDING", sort_type="KEYS");
 ```
 
 **Arguments:**
@@ -10272,28 +10272,28 @@ variable::get_text_length(variable=`variable`, text="text");
 
 **Usage example:** 
 ```ts
-`variable` = variable::text_to_bytes("text", "UTF_8");
+`variable` = variable::text_to_bytes("text", "UTF_16");
 
 //Or from the object
 
-`variable` = "text".text_to_bytes("UTF_8");
+`variable` = "text".text_to_bytes("UTF_16");
 
 //Or dry by positionals
 
-variable::text_to_bytes(`variable`, "text", "UTF_8");
+variable::text_to_bytes(`variable`, "text", "UTF_16");
 
 //Or dry by keywords
 
-variable::text_to_bytes(variable=`variable`, text="text", charset="UTF_8");
+variable::text_to_bytes(variable=`variable`, text="text", charset="UTF_16");
 ```
 
 **Arguments:**
 
-| **Name**   | **Type**                                          | **Description**    |
-| ---------- | ------------------------------------------------- | ------------------ |
-| `variable` | Variable\[List\]                                  | Variable to assign |
-| `text`     | Text                                              | Text to convert    |
-| `charset`  | Marker<br/>**UTF_8** - None<br/>**ASCII** - ASCII | Encoding           |
+| **Name**   | **Type**                                                                | **Description**    |
+| ---------- | ----------------------------------------------------------------------- | ------------------ |
+| `variable` | Variable\[List\]                                                        | Variable to assign |
+| `text`     | Text                                                                    | Text to convert    |
+| `charset`  | Marker<br/>**UTF_16** - None<br/>**UTF_8** - None<br/>**ASCII** - ASCII | Encoding           |
 <h3 id=set_variable_text_to_chars>
   <code>variable::text_to_chars</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -10489,19 +10489,19 @@ variable::to_rgb(variable=`variable`, red=1, green=2, blue=3);
 
 **Usage example:** 
 ```ts
-`variable` = variable::trim_list(`list`, 1, 2);
+`variable` = variable::trim_list([`list`, `list`], 1, 2);
 
 //Or from the object
 
-`variable` = `list`.trim_list(1, 2);
+`variable` = [`list`, `list`].trim_list(1, 2);
 
 //Or dry by positionals
 
-variable::trim_list(`variable`, `list`, 1, 2);
+variable::trim_list(`variable`, [`list`, `list`], 1, 2);
 
 //Or dry by keywords
 
-variable::trim_list(variable=`variable`, list=`list`, start=1, end=2);
+variable::trim_list(variable=`variable`, list=[`list`, `list`], start=1, end=2);
 ```
 
 **Arguments:**

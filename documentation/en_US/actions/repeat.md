@@ -56,13 +56,13 @@ repeat::dummy(){
 
 **Usage example:** 
 ```ts
-repeat::for_each_in_list(`list`){`index_variable`, `value_variable`->
+repeat::for_each_in_list([`list`, `list`]){`index_variable`, `value_variable`->
     player::message("Code in cycle");
 }
 
 //Or dry by keywords
 
-repeat::for_each_in_list(index_variable=`index_variable`, value_variable=`value_variable`, list=`list`){
+repeat::for_each_in_list(index_variable=`index_variable`, value_variable=`value_variable`, list=[`list`, `list`]){
     player::message("Code in cycle");
 }
 ```
@@ -85,13 +85,13 @@ repeat::for_each_in_list(index_variable=`index_variable`, value_variable=`value_
 
 **Usage example:** 
 ```ts
-repeat::for_each_map_entry(`map`){`key_variable`, `value_variable`->
+repeat::for_each_map_entry({"map":`map`}){`key_variable`, `value_variable`->
     player::message("Code in cycle");
 }
 
 //Or dry by keywords
 
-repeat::for_each_map_entry(key_variable=`key_variable`, value_variable=`value_variable`, map=`map`){
+repeat::for_each_map_entry(key_variable=`key_variable`, value_variable=`value_variable`, map={"map":`map`}){
     player::message("Code in cycle");
 }
 ```

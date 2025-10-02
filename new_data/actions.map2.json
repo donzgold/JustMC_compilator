@@ -124,7 +124,7 @@
     {"id": "vector_1", "plural": false, "type": "vector", "valueSlots": [1]},
     {"id": "vector_2", "plural": false, "type": "vector", "valueSlots": [2]}]},
   "game_spawn_item_frame": {"id": "game_spawn_item_frame", "type": "basic", "args": [
-    {"id": "location", "plural": false, "type": "location", "valueSlots": [0]},
+    {"id": "spawn_location", "plural": false, "type": "location", "valueSlots": [0]},
     {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
     {"id": "rotation", "plural": false, "type": "enum", "valueSlots": [2], "values": ["NONE", "CLOCKWISE_45", "CLOCKWISE", "CLOCKWISE_135", "FLIPPED", "FLIPPED_45", "COUNTER_CLOCKWISE", "COUNTER_CLOCKWISE_45"]},
     {"id": "block_face", "plural": false, "type": "enum", "valueSlots": [3], "values": ["NORTH", "EAST", "SOUTH", "WEST", "UP", "DOWN"]},
@@ -282,7 +282,7 @@
     {"id": "name_or_uuid", "plural": false, "type": "text", "valueSlots": [0]}]},
   "set_variable_multiple": {"id": "set_variable_multiple", "type": "basic", "args": [
     {"id": "variables", "plural": true, "type": "variable", "valueSlots": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]},
-    {"id": "values", "plural": true, "type": "any", "valueSlots": [21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39]}]},
+    {"id": "values", "plural": true, "type": "any", "valueSlots": [21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]}]},
   "entity_get_nbt": {"id": "entity_get_nbt", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "path", "plural": false, "type": "text", "valueSlots": [1]},
@@ -458,8 +458,16 @@
     {"id": "item", "plural": false, "type": "item", "valueSlots": [0]},
     {"id": "namespace", "plural": false, "type": "text", "valueSlots": [1]}]},
   "if_variable_block_is_minecraft_tagged": {"id": "if_variable_block_is_minecraft_tagged", "type": "basic", "args": [
-    {"id": "item", "plural": false, "type": "item", "valueSlots": [0]},
+    {"id": "block", "plural": false, "type": "block", "valueSlots": [0]},
     {"id": "namespace", "plural": false, "type": "text", "valueSlots": [1]}]},
   "if_entity_is_minecraft_tagged": {"id": "if_entity_is_minecraft_tagged", "type": "basic", "args": [
-    {"id": "namespace", "plural": false, "type": "text", "valueSlots": [1]}]}
+    {"id": "namespace", "plural": false, "type": "text", "valueSlots": [1]}]},
+  "call_function": {"id": "call_function", "type": "basic", "args": [
+    {"id": "function_name", "plural": false, "type": "text", "valueSlots": [13]},
+    {"id": "args", "plural": false, "type": "map", "valueSlots": [14]}]},
+  "start_process": {"id": "start_process", "type": "basic", "args": [
+    {"id": "process_name", "plural": false, "type": "text", "valueSlots": [13]},
+    {"id": "args", "plural": false, "type": "map", "valueSlots": [14]},
+    {"id": "local_variables_mode", "values": ["COPY", "DONT_COPY", "SHARE"], "plural": false, "type": "enum", "valueSlots": [25]},
+    {"id": "target_mode", "values": ["CURRENT_SELECTION", "CURRENT_TARGET", "FOR_EACH_IN_SELECTION", "NO_TARGET"], "plural": false, "type": "enum", "valueSlots": [26]}]}
 }

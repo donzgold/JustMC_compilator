@@ -9,18 +9,19 @@
 
 **Usage example:** 
 ```ts
-code::call_function("function_name");
+code::call_function("function_name", {"args":`args`});
 
 //Or dry by keywords
 
-code::call_function(function_name="function_name");
+code::call_function(function_name="function_name", args={"args":`args`});
 ```
 
 **Arguments:**
 
-| **Name**        | **Type** | **Description** |
-| --------------- | -------- | --------------- |
-| `function_name` | Text     | Function Name   |
+| **Name**        | **Type**   | **Description** |
+| --------------- | ---------- | --------------- |
+| `function_name` | Text       | Function Name   |
+| `args`          | Dictionary | None            |
 <h3 id=control_call_exception>
   <code>code::call_exception</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -179,11 +180,11 @@ code::else(){
 
 **Usage example:** 
 ```ts
-code::start_process("process_name", "COPY", "CURRENT_SELECTION");
+code::start_process("process_name", {"args":`args`}, "COPY", "CURRENT_SELECTION");
 
 //Or dry by keywords
 
-code::start_process(process_name="process_name", local_variables_mode="COPY", target_mode="CURRENT_SELECTION");
+code::start_process(process_name="process_name", args={"args":`args`}, local_variables_mode="COPY", target_mode="CURRENT_SELECTION");
 ```
 
 **Arguments:**
@@ -191,5 +192,6 @@ code::start_process(process_name="process_name", local_variables_mode="COPY", ta
 | **Name**               | **Type**                                                                                                                                                                       | **Description** |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
 | `process_name`         | Text                                                                                                                                                                           | Process name    |
+| `args`                 | Dictionary                                                                                                                                                                     | None            |
 | `local_variables_mode` | Marker<br/>**COPY** - Duplicate<br/>**DONT_COPY** - Don\'t duplicate<br/>**SHARE** - General                                                                                   | Variable Mode   |
 | `target_mode`          | Marker<br/>**CURRENT_SELECTION** - Current Target<br/>**CURRENT_TARGET** - Event Target<br/>**FOR_EACH_IN_SELECTION** - Each Target in Selection<br/>**NO_TARGET** - No Target | Process Target  |

@@ -648,13 +648,13 @@ player::holding(items=[item("stick"), item("stick")], hand_slot="EITHER_HAND", c
 
 **Usage example:** 
 ```ts
-if(player::is_looking_at_block([item("stone"), item("stone")], [location(0,0,0,0,0), location(0,0,0,0,0)], 1, "ALWAYS")){
+if(player::is_looking_at_block(["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], [location(0,0,0,0,0), location(0,0,0,0,0)], 1, "ALWAYS")){
     player::message("Condition is true");
 }
 
 //Or dry by keywords
 
-player::is_looking_at_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], distance=1, fluid_mode="ALWAYS"){
+player::is_looking_at_block(blocks=["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], distance=1, fluid_mode="ALWAYS"){
     player::message("Condition is true");
 }
 ```
@@ -831,13 +831,13 @@ if(player::is_sprinting()){
 
 **Usage example:** 
 ```ts
-if(player::is_standing_on_block([item("stone"), item("stone")], [location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE")){
+if(player::is_standing_on_block(["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], [location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE")){
     player::message("Condition is true");
 }
 
 //Or dry by keywords
 
-player::is_standing_on_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
+player::is_standing_on_block(blocks=["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
     player::message("Condition is true");
 }
 ```
@@ -1027,11 +1027,11 @@ player::add_inventory_menu_row(items=[item("stick"), item("stick")], position="B
 
 **Usage example:** 
 ```ts
-player::allow_placing_breaking_blocks([item("stone"), item("stone")], "FALSE");
+player::allow_placing_breaking_blocks(["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], "FALSE");
 
 //Or dry by keywords
 
-player::allow_placing_breaking_blocks(blocks=[item("stone"), item("stone")], allow="FALSE");
+player::allow_placing_breaking_blocks(blocks=["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], allow="FALSE");
 ```
 
 **Arguments:**
@@ -1256,11 +1256,11 @@ player::damage(damage=1, source="source");
 
 **Usage example:** 
 ```ts
-player::disguise_as_block(item("stone"), "FALSE");
+player::disguise_as_block("minecraft:oak_log[axis=x]", "FALSE");
 
 //Or dry by keywords
 
-player::disguise_as_block(block=item("stone"), visible_to_self="FALSE");
+player::disguise_as_block(block="minecraft:oak_log[axis=x]", visible_to_self="FALSE");
 ```
 
 **Arguments:**
@@ -1360,11 +1360,11 @@ player::display_bell_ring(location=location(0,0,0,0,0), direction="DOWN");
 
 **Usage example:** 
 ```ts
-player::display_block([location(0,0,0,0,0), location(0,0,0,0,0)], item("stone"));
+player::display_block([location(0,0,0,0,0), location(0,0,0,0,0)], "minecraft:oak_log[axis=x]");
 
 //Or dry by keywords
 
-player::display_block(location=[location(0,0,0,0,0), location(0,0,0,0,0)], block=item("stone"));
+player::display_block(location=[location(0,0,0,0,0), location(0,0,0,0,0)], block="minecraft:oak_log[axis=x]");
 ```
 
 **Arguments:**
@@ -2691,11 +2691,11 @@ player::save_inventory();
 
 **Usage example:** 
 ```ts
-player::self_disguise_as_block(item("stone"));
+player::self_disguise_as_block("minecraft:oak_log[axis=x]");
 
 //Or dry by keywords
 
-player::self_disguise_as_block(block=item("stone"));
+player::self_disguise_as_block(block="minecraft:oak_log[axis=x]");
 ```
 
 **Arguments:**

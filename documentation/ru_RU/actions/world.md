@@ -593,11 +593,11 @@ world::remove_scoreboard_score_by_score(id="id", score=1);
 
 **Пример использования:** 
 ```ts
-world::replace_blocks_in_region([item("stone"), item("stone")], location(0,0,0,0,0), location(0,0,0,0,0), item("stone"));
+world::replace_blocks_in_region(["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], location(0,0,0,0,0), location(0,0,0,0,0), "minecraft:oak_log[axis=x]");
 
 //Или в сухую по ключам
 
-world::replace_blocks_in_region(old_block=[item("stone"), item("stone")], pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0), new_block=item("stone"));
+world::replace_blocks_in_region(old_block=["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0), new_block="minecraft:oak_log[axis=x]");
 ```
 
 **Аргументы:**
@@ -647,11 +647,11 @@ world::replace_container_items(items=[item("stick"), item("stick")], location=lo
 
 **Пример использования:** 
 ```ts
-world::send_web_request("url", "content_body", `headers`, "DELETE", "APPLICATION_JSON");
+world::send_web_request("url", "content_body", {"headers":`headers`}, "DELETE", "APPLICATION_JSON");
 
 //Или в сухую по ключам
 
-world::send_web_request(url="url", content_body="content_body", headers=`headers`, request_type="DELETE", content_type="APPLICATION_JSON");
+world::send_web_request(url="url", content_body="content_body", headers={"headers":`headers`}, request_type="DELETE", content_type="APPLICATION_JSON");
 ```
 
 **Аргументы:**
@@ -700,11 +700,11 @@ world::set_age(location=location(0,0,0,0,0), tick=1);
 
 **Пример использования:** 
 ```ts
-world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)], item("stone"), "FALSE");
+world::set_block([location(0,0,0,0,0), location(0,0,0,0,0)], "minecraft:oak_log[axis=x]", "FALSE");
 
 //Или в сухую по ключам
 
-world::set_block(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], block=item("stone"), update_blocks="FALSE");
+world::set_block(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], block="minecraft:oak_log[axis=x]", update_blocks="FALSE");
 ```
 
 **Аргументы:**
@@ -1748,11 +1748,11 @@ world::set_player_head(location=location(0,0,0,0,0), name_or_uuid="name_or_uuid"
 
 **Пример использования:** 
 ```ts
-world::set_region(item("stone"), location(0,0,0,0,0), location(0,0,0,0,0));
+world::set_region("minecraft:oak_log[axis=x]", location(0,0,0,0,0), location(0,0,0,0,0));
 
 //Или в сухую по ключам
 
-world::set_region(block=item("stone"), pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0));
+world::set_region(block="minecraft:oak_log[axis=x]", pos_1=location(0,0,0,0,0), pos_2=location(0,0,0,0,0));
 ```
 
 **Аргументы:**
@@ -2159,6 +2159,7 @@ world::set_vault_displayed_item(location=location(0,0,0,0,0), item=item("stick")
 **Описание:** Устанавливает время до перехода в следующее состоянии сокровищнице, находящейся на указанном местоположении.\
 **Дополнительная информация:**\
 &nbsp;&nbsp;Необходимо установить точное время, когда сокровищница перейдёт в следующее состояние.\
+&nbsp;&nbsp;По умолчанию выбирает максимальное возможное значение.\
 **Работает с:**\
 &nbsp;&nbsp;Сокровищницами
 
@@ -2345,11 +2346,11 @@ world::spawn_armor_stand(helmet=item("stick"), chestplate=item("stick"), legging
 
 **Пример использования:** 
 ```ts
-world::spawn_block_display(location(0,0,0,0,0), "custom_name", item("stone"));
+world::spawn_block_display(location(0,0,0,0,0), "custom_name", "minecraft:oak_log[axis=x]");
 
 //Или в сухую по ключам
 
-world::spawn_block_display(spawn_location=location(0,0,0,0,0), custom_name="custom_name", block=item("stone"));
+world::spawn_block_display(spawn_location=location(0,0,0,0,0), custom_name="custom_name", block="minecraft:oak_log[axis=x]");
 ```
 
 **Аргументы:**
@@ -2499,11 +2500,11 @@ world::spawn_eye_of_ender(location=location(0,0,0,0,0), destination=location(0,0
 
 **Пример использования:** 
 ```ts
-world::spawn_falling_block(item("stone"), location(0,0,0,0,0), "name", "FALSE");
+world::spawn_falling_block("minecraft:oak_log[axis=x]", location(0,0,0,0,0), "name", "FALSE");
 
 //Или в сухую по ключам
 
-world::spawn_falling_block(block=item("stone"), location=location(0,0,0,0,0), name="name", should_expire="FALSE");
+world::spawn_falling_block(block="minecraft:oak_log[axis=x]", location=location(0,0,0,0,0), name="name", should_expire="FALSE");
 ```
 
 **Аргументы:**
@@ -2611,20 +2612,20 @@ world::spawn_item_frame(location(0,0,0,0,0), item("stick"), "NONE", "NORTH", "TR
 
 //Или в сухую по ключам
 
-world::spawn_item_frame(location=location(0,0,0,0,0), item=item("stick"), rotation="NONE", block_face="NORTH", glowing="TRUE", visible="TRUE", fixed="TRUE");
+world::spawn_item_frame(spawn_location=location(0,0,0,0,0), item=item("stick"), rotation="NONE", block_face="NORTH", glowing="TRUE", visible="TRUE", fixed="TRUE");
 ```
 
 **Аргументы:**
 
-| **Имя**      | **Тип**                                                                                                                                                                                                                                                                                 | **Описание**       |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `location`   | Местоположение                                                                                                                                                                                                                                                                          | Местоположение     |
-| `item`       | Предмет                                                                                                                                                                                                                                                                                 | Предмет в рамке    |
-| `rotation`   | Маркер<br/>**NONE** - Нет<br/>**CLOCKWISE_45** - 45 градусов<br/>**CLOCKWISE** - 90 градусов<br/>**CLOCKWISE_135** - 135 градусов<br/>**FLIPPED** - 180 градусов<br/>**FLIPPED_45** - 225 градусов<br/>**COUNTER_CLOCKWISE** - 270 градусов<br/>**COUNTER_CLOCKWISE_45** - 315 градусов | Поворот предмета   |
-| `block_face` | Маркер<br/>**NORTH** - Север<br/>**EAST** - Восток<br/>**SOUTH** - Юг<br/>**WEST** - Запад<br/>**UP** - Верх<br/>**DOWN** - Низ                                                                                                                                                         | Сторона блока      |
-| `glowing`    | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                                                                                                                                                                                                                            | Свечение           |
-| `visible`    | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                                                                                                                                                                                                                            | Видимость          |
-| `fixed`      | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                                                                                                                                                                                                                            | Защита содержимого |
+| **Имя**          | **Тип**                                                                                                                                                                                                                                                                                 | **Описание**       |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `spawn_location` | Местоположение                                                                                                                                                                                                                                                                          | Местоположение     |
+| `item`           | Предмет                                                                                                                                                                                                                                                                                 | Предмет в рамке    |
+| `rotation`       | Маркер<br/>**NONE** - Нет<br/>**CLOCKWISE_45** - 45 градусов<br/>**CLOCKWISE** - 90 градусов<br/>**CLOCKWISE_135** - 135 градусов<br/>**FLIPPED** - 180 градусов<br/>**FLIPPED_45** - 225 градусов<br/>**COUNTER_CLOCKWISE** - 270 градусов<br/>**COUNTER_CLOCKWISE_45** - 315 градусов | Поворот предмета   |
+| `block_face`     | Маркер<br/>**NORTH** - Север<br/>**EAST** - Восток<br/>**SOUTH** - Юг<br/>**WEST** - Запад<br/>**UP** - Верх<br/>**DOWN** - Низ                                                                                                                                                         | Сторона блока      |
+| `glowing`        | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                                                                                                                                                                                                                            | Свечение           |
+| `visible`        | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                                                                                                                                                                                                                            | Видимость          |
+| `fixed`          | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет                                                                                                                                                                                                                                            | Защита содержимого |
 <h3 id=game_spawn_lightning_bolt>
   <code>world::spawn_lightning_bolt</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2718,11 +2719,11 @@ world::spawn_painting(spawn_location=location(0,0,0,0,0), art="art", block_face=
 
 **Пример использования:** 
 ```ts
-world::spawn_primed_tnt(location(0,0,0,0,0), 1, 2, "custom_name", item("stone"));
+world::spawn_primed_tnt(location(0,0,0,0,0), 1, 2, "custom_name", "minecraft:oak_log[axis=x]");
 
 //Или в сухую по ключам
 
-world::spawn_primed_tnt(location=location(0,0,0,0,0), tnt_power=1, fuse_duration=2, custom_name="custom_name", block=item("stone"));
+world::spawn_primed_tnt(location=location(0,0,0,0,0), tnt_power=1, fuse_duration=2, custom_name="custom_name", block="minecraft:oak_log[axis=x]");
 ```
 
 **Аргументы:**
@@ -2857,13 +2858,13 @@ world::update_block(location=location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-if(world::block_equals([item("stone"), item("stone")], location(0,0,0,0,0))){
+if(world::block_equals(["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], location(0,0,0,0,0))){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-world::block_equals(blocks=[item("stone"), item("stone")], location=location(0,0,0,0,0)){
+world::block_equals(blocks=["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], location=location(0,0,0,0,0)){
     player::message("Условие верно");
 }
 ```
@@ -3058,13 +3059,13 @@ if(world::event_attack_is_critical()){
 
 **Пример использования:** 
 ```ts
-if(world::event_block_equals([item("stone"), item("stone")], [location(0,0,0,0,0), location(0,0,0,0,0)])){
+if(world::event_block_equals(["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], [location(0,0,0,0,0), location(0,0,0,0,0)])){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-world::event_block_equals(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)]){
+world::event_block_equals(blocks=["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], locations=[location(0,0,0,0,0), location(0,0,0,0,0)]){
     player::message("Условие верно");
 }
 ```

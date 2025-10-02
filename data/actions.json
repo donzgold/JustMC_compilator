@@ -5783,7 +5783,7 @@
     "object": "world",
     "args": [
       {
-        "id": "location",
+        "id": "spawn_location",
         "type": "location"
       },
       {
@@ -7631,8 +7631,8 @@
     "object": "variable",
     "args": [
       {
-        "id": "item",
-        "type": "item"
+        "id": "block",
+        "type": "block"
       },
       {
         "id": "namespace",
@@ -12426,6 +12426,7 @@
         "id": "charset",
         "type": "enum",
         "values": [
+          "UTF_16",
           "UTF_8",
           "ASCII"
         ]
@@ -16790,7 +16791,7 @@
       {
         "id": "values",
         "type": "any",
-        "array": 19
+        "array": 20
       }
     ],
     "type": "basic"
@@ -20829,6 +20830,7 @@
         "id": "charset",
         "type": "enum",
         "values": [
+          "UTF_16",
           "UTF_8",
           "ASCII"
         ]

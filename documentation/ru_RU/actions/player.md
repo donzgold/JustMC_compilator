@@ -648,13 +648,13 @@ player::holding(items=[item("stick"), item("stick")], hand_slot="EITHER_HAND", c
 
 **Пример использования:** 
 ```ts
-if(player::is_looking_at_block([item("stone"), item("stone")], [location(0,0,0,0,0), location(0,0,0,0,0)], 1, "ALWAYS")){
+if(player::is_looking_at_block(["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], [location(0,0,0,0,0), location(0,0,0,0,0)], 1, "ALWAYS")){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-player::is_looking_at_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], distance=1, fluid_mode="ALWAYS"){
+player::is_looking_at_block(blocks=["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], distance=1, fluid_mode="ALWAYS"){
     player::message("Условие верно");
 }
 ```
@@ -831,13 +831,13 @@ if(player::is_sprinting()){
 
 **Пример использования:** 
 ```ts
-if(player::is_standing_on_block([item("stone"), item("stone")], [location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE")){
+if(player::is_standing_on_block(["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], [location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE")){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-player::is_standing_on_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
+player::is_standing_on_block(blocks=["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
     player::message("Условие верно");
 }
 ```
@@ -1027,11 +1027,11 @@ player::add_inventory_menu_row(items=[item("stick"), item("stick")], position="B
 
 **Пример использования:** 
 ```ts
-player::allow_placing_breaking_blocks([item("stone"), item("stone")], "FALSE");
+player::allow_placing_breaking_blocks(["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], "FALSE");
 
 //Или в сухую по ключам
 
-player::allow_placing_breaking_blocks(blocks=[item("stone"), item("stone")], allow="FALSE");
+player::allow_placing_breaking_blocks(blocks=["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], allow="FALSE");
 ```
 
 **Аргументы:**
@@ -1256,11 +1256,11 @@ player::damage(damage=1, source="source");
 
 **Пример использования:** 
 ```ts
-player::disguise_as_block(item("stone"), "FALSE");
+player::disguise_as_block("minecraft:oak_log[axis=x]", "FALSE");
 
 //Или в сухую по ключам
 
-player::disguise_as_block(block=item("stone"), visible_to_self="FALSE");
+player::disguise_as_block(block="minecraft:oak_log[axis=x]", visible_to_self="FALSE");
 ```
 
 **Аргументы:**
@@ -1360,11 +1360,11 @@ player::display_bell_ring(location=location(0,0,0,0,0), direction="DOWN");
 
 **Пример использования:** 
 ```ts
-player::display_block([location(0,0,0,0,0), location(0,0,0,0,0)], item("stone"));
+player::display_block([location(0,0,0,0,0), location(0,0,0,0,0)], "minecraft:oak_log[axis=x]");
 
 //Или в сухую по ключам
 
-player::display_block(location=[location(0,0,0,0,0), location(0,0,0,0,0)], block=item("stone"));
+player::display_block(location=[location(0,0,0,0,0), location(0,0,0,0,0)], block="minecraft:oak_log[axis=x]");
 ```
 
 **Аргументы:**
@@ -2691,11 +2691,11 @@ player::save_inventory();
 
 **Пример использования:** 
 ```ts
-player::self_disguise_as_block(item("stone"));
+player::self_disguise_as_block("minecraft:oak_log[axis=x]");
 
 //Или в сухую по ключам
 
-player::self_disguise_as_block(block=item("stone"));
+player::self_disguise_as_block(block="minecraft:oak_log[axis=x]");
 ```
 
 **Аргументы:**

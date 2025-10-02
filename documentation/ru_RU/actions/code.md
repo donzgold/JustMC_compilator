@@ -9,18 +9,19 @@
 
 **Пример использования:** 
 ```ts
-code::call_function("function_name");
+code::call_function("function_name", {"args":`args`});
 
 //Или в сухую по ключам
 
-code::call_function(function_name="function_name");
+code::call_function(function_name="function_name", args={"args":`args`});
 ```
 
 **Аргументы:**
 
-| **Имя**         | **Тип** | **Описание**     |
-| --------------- | ------- | ---------------- |
-| `function_name` | Текст   | Название функции |
+| **Имя**         | **Тип** | **Описание**      |
+| --------------- | ------- | ----------------- |
+| `function_name` | Текст   | Название функции  |
+| `args`          | Словарь | Аргументы функции |
 <h3 id=control_call_exception>
   <code>code::call_exception</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -179,17 +180,18 @@ code::else(){
 
 **Пример использования:** 
 ```ts
-code::start_process("process_name", "COPY", "CURRENT_SELECTION");
+code::start_process("process_name", {"args":`args`}, "COPY", "CURRENT_SELECTION");
 
 //Или в сухую по ключам
 
-code::start_process(process_name="process_name", local_variables_mode="COPY", target_mode="CURRENT_SELECTION");
+code::start_process(process_name="process_name", args={"args":`args`}, local_variables_mode="COPY", target_mode="CURRENT_SELECTION");
 ```
 
 **Аргументы:**
 
-| **Имя**                | **Тип**                                                                                                                                                                  | **Описание**      |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| `process_name`         | Текст                                                                                                                                                                    | Название процесса |
-| `local_variables_mode` | Маркер<br/>**COPY** - Дублировать<br/>**DONT_COPY** - Не дублировать<br/>**SHARE** - Общие                                                                               | Режим переменных  |
-| `target_mode`          | Маркер<br/>**CURRENT_SELECTION** - Текущая цель<br/>**CURRENT_TARGET** - Цель события<br/>**FOR_EACH_IN_SELECTION** - Каждая цель в выборке<br/>**NO_TARGET** - Без цели | Цель процесса     |
+| **Имя**                | **Тип**                                                                                                                                                                  | **Описание**       |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| `process_name`         | Текст                                                                                                                                                                    | Название процесса  |
+| `args`                 | Словарь                                                                                                                                                                  | Аргументы процесса |
+| `local_variables_mode` | Маркер<br/>**COPY** - Дублировать<br/>**DONT_COPY** - Не дублировать<br/>**SHARE** - Общие                                                                               | Режим переменных   |
+| `target_mode`          | Маркер<br/>**CURRENT_SELECTION** - Текущая цель<br/>**CURRENT_TARGET** - Цель события<br/>**FOR_EACH_IN_SELECTION** - Каждая цель в выборке<br/>**NO_TARGET** - Без цели | Цель процесса      |

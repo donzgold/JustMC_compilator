@@ -126,11 +126,11 @@ entity::damage(damage=1, source="source");
 
 **Usage example:** 
 ```ts
-entity::disguise_as_block(item("stone"));
+entity::disguise_as_block("minecraft:oak_log[axis=x]");
 
 //Or dry by keywords
 
-entity::disguise_as_block(block=item("stone"));
+entity::disguise_as_block(block="minecraft:oak_log[axis=x]");
 ```
 
 **Arguments:**
@@ -1455,11 +1455,11 @@ entity::set_bee_nectar(nectar="FALSE");
 
 **Usage example:** 
 ```ts
-entity::set_block_display_block(item("stone"));
+entity::set_block_display_block("minecraft:oak_log[axis=x]");
 
 //Or dry by keywords
 
-entity::set_block_display_block(displayed_block=item("stone"));
+entity::set_block_display_block(displayed_block="minecraft:oak_log[axis=x]");
 ```
 
 **Arguments:**
@@ -2362,11 +2362,11 @@ entity::set_end_crystal_beam(beam=location(0,0,0,0,0));
 
 **Usage example:** 
 ```ts
-entity::set_enderman_block(item("stone"));
+entity::set_enderman_block("minecraft:oak_log[axis=x]");
 
 //Or dry by keywords
 
-entity::set_enderman_block(block=item("stone"));
+entity::set_enderman_block(block="minecraft:oak_log[axis=x]");
 ```
 
 **Arguments:**
@@ -2461,11 +2461,11 @@ entity::set_fall_distance(fall_distance=1);
 
 **Usage example:** 
 ```ts
-entity::set_falling_block_type(item("stone"));
+entity::set_falling_block_type("minecraft:oak_log[axis=x]");
 
 //Or dry by keywords
 
-entity::set_falling_block_type(block=item("stone"));
+entity::set_falling_block_type(block="minecraft:oak_log[axis=x]");
 ```
 
 **Arguments:**
@@ -3322,11 +3322,11 @@ entity::set_merchant_recipe(result=item("stick"), uses=1, max_uses=2, ingredient
 
 **Usage example:** 
 ```ts
-entity::set_minecart_block(item("stone"), 1);
+entity::set_minecart_block("minecraft:oak_log[axis=x]", 1);
 
 //Or dry by keywords
 
-entity::set_minecart_block(block=item("stone"), block_offset=1);
+entity::set_minecart_block(block="minecraft:oak_log[axis=x]", block_offset=1);
 ```
 
 **Arguments:**
@@ -3812,11 +3812,11 @@ entity::set_potion_cloud_radius(radius=1, shrinking_speed=2);
 
 **Usage example:** 
 ```ts
-entity::set_primed_tnt_block(item("stone"));
+entity::set_primed_tnt_block("minecraft:oak_log[axis=x]");
 
 //Or dry by keywords
 
-entity::set_primed_tnt_block(block=item("stone"));
+entity::set_primed_tnt_block(block="minecraft:oak_log[axis=x]");
 ```
 
 **Arguments:**
@@ -5333,13 +5333,13 @@ entity::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mode="
 
 **Usage example:** 
 ```ts
-if(entity::is_standing_on_block([item("stone"), item("stone")], [location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE")){
+if(entity::is_standing_on_block(["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], [location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE")){
     player::message("Condition is true");
 }
 
 //Or dry by keywords
 
-entity::is_standing_on_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
+entity::is_standing_on_block(blocks=["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
     player::message("Condition is true");
 }
 ```

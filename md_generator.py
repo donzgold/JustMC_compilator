@@ -838,7 +838,7 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                 elif arg["type"] == "location":
                     return "location(0,0,0,0,0)"
                 elif arg["type"] == "block":
-                    return "item(\"stone\")"
+                    return "\"minecraft:oak_log[axis=x]\""
                 elif arg["type"] == "item":
                     return "item(\"stick\")"
                 elif arg["type"] == "any":
@@ -852,9 +852,9 @@ for i in sorted(another_actions.values(), key=lambda x: x["id"]):
                 elif arg["type"] == "sound":
                     return "sound(\"entity.zombie.hurt\")"
                 elif arg["type"] == "array":
-                    return f"`{arg['id']}`"
+                    return f"[`{arg['id']}`, `{arg['id']}`]"
                 elif arg["type"] == "map":
-                    return f"`{arg['id']}`"
+                    return "{"+ f"\"{arg['id']}\":`{arg['id']}`"+"}"
 
 
             base_args = {i2["id"]: base_arg(i2) for i2 in new_args}

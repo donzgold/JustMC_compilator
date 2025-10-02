@@ -126,11 +126,11 @@ entity::damage(damage=1, source="source");
 
 **Пример использования:** 
 ```ts
-entity::disguise_as_block(item("stone"));
+entity::disguise_as_block("minecraft:oak_log[axis=x]");
 
 //Или в сухую по ключам
 
-entity::disguise_as_block(block=item("stone"));
+entity::disguise_as_block(block="minecraft:oak_log[axis=x]");
 ```
 
 **Аргументы:**
@@ -1455,11 +1455,11 @@ entity::set_bee_nectar(nectar="FALSE");
 
 **Пример использования:** 
 ```ts
-entity::set_block_display_block(item("stone"));
+entity::set_block_display_block("minecraft:oak_log[axis=x]");
 
 //Или в сухую по ключам
 
-entity::set_block_display_block(displayed_block=item("stone"));
+entity::set_block_display_block(displayed_block="minecraft:oak_log[axis=x]");
 ```
 
 **Аргументы:**
@@ -2362,11 +2362,11 @@ entity::set_end_crystal_beam(beam=location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-entity::set_enderman_block(item("stone"));
+entity::set_enderman_block("minecraft:oak_log[axis=x]");
 
 //Или в сухую по ключам
 
-entity::set_enderman_block(block=item("stone"));
+entity::set_enderman_block(block="minecraft:oak_log[axis=x]");
 ```
 
 **Аргументы:**
@@ -2461,11 +2461,11 @@ entity::set_fall_distance(fall_distance=1);
 
 **Пример использования:** 
 ```ts
-entity::set_falling_block_type(item("stone"));
+entity::set_falling_block_type("minecraft:oak_log[axis=x]");
 
 //Или в сухую по ключам
 
-entity::set_falling_block_type(block=item("stone"));
+entity::set_falling_block_type(block="minecraft:oak_log[axis=x]");
 ```
 
 **Аргументы:**
@@ -3322,11 +3322,11 @@ entity::set_merchant_recipe(result=item("stick"), uses=1, max_uses=2, ingredient
 
 **Пример использования:** 
 ```ts
-entity::set_minecart_block(item("stone"), 1);
+entity::set_minecart_block("minecraft:oak_log[axis=x]", 1);
 
 //Или в сухую по ключам
 
-entity::set_minecart_block(block=item("stone"), block_offset=1);
+entity::set_minecart_block(block="minecraft:oak_log[axis=x]", block_offset=1);
 ```
 
 **Аргументы:**
@@ -3812,11 +3812,11 @@ entity::set_potion_cloud_radius(radius=1, shrinking_speed=2);
 
 **Пример использования:** 
 ```ts
-entity::set_primed_tnt_block(item("stone"));
+entity::set_primed_tnt_block("minecraft:oak_log[axis=x]");
 
 //Или в сухую по ключам
 
-entity::set_primed_tnt_block(block=item("stone"));
+entity::set_primed_tnt_block(block="minecraft:oak_log[axis=x]");
 ```
 
 **Аргументы:**
@@ -5333,13 +5333,13 @@ entity::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mode="
 
 **Пример использования:** 
 ```ts
-if(entity::is_standing_on_block([item("stone"), item("stone")], [location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE")){
+if(entity::is_standing_on_block(["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], [location(0,0,0,0,0), location(0,0,0,0,0)], "FALSE")){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-entity::is_standing_on_block(blocks=[item("stone"), item("stone")], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
+entity::is_standing_on_block(blocks=["minecraft:oak_log[axis=x]", "minecraft:oak_log[axis=x]"], locations=[location(0,0,0,0,0), location(0,0,0,0,0)], only_solid="FALSE"){
     player::message("Условие верно");
 }
 ```

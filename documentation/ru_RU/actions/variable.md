@@ -11,13 +11,13 @@
 
 **Пример использования:** 
 ```ts
-if(variable::block_is_minecraft_tagged(item("stick"), "namespace")){
+if(variable::block_is_minecraft_tagged("minecraft:oak_log[axis=x]", "namespace")){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-variable::block_is_minecraft_tagged(item=item("stick"), namespace="namespace"){
+variable::block_is_minecraft_tagged(block="minecraft:oak_log[axis=x]", namespace="namespace"){
     player::message("Условие верно");
 }
 ```
@@ -26,7 +26,7 @@ variable::block_is_minecraft_tagged(item=item("stick"), namespace="namespace"){
 
 | **Имя**     | **Тип** | **Описание**      |
 | ----------- | ------- | ----------------- |
-| `item`      | Предмет | Блок для проверки |
+| `block`     | Блок    | Блок для проверки |
 | `namespace` | Текст   | Minecraft-тег     |
 <h3 id=if_variable_block_is_solid>
   <code>variable::block_is_solid</code>
@@ -39,19 +39,19 @@ variable::block_is_minecraft_tagged(item=item("stick"), namespace="namespace"){
 
 **Пример использования:** 
 ```ts
-if(variable::block_is_solid(item("stone"))){
+if(variable::block_is_solid("minecraft:oak_log[axis=x]")){
     player::message("Условие верно");
 }
 
 //Или от объекта
 
-if(item("stone").block_is_solid()){
+if("minecraft:oak_log[axis=x]".block_is_solid()){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-variable::block_is_solid(block=item("stone")){
+variable::block_is_solid(block="minecraft:oak_log[axis=x]"){
     player::message("Условие верно");
 }
 ```
@@ -532,19 +532,19 @@ variable::less_or_equals(value=1, compare=2){
 
 **Пример использования:** 
 ```ts
-if(variable::list_contains_value(`list`, ["any value", "any value"], "ALL")){
+if(variable::list_contains_value([`list`, `list`], ["any value", "any value"], "ALL")){
     player::message("Условие верно");
 }
 
 //Или от объекта
 
-if(`list`.list_contains_value(["any value", "any value"], "ALL")){
+if([`list`, `list`].list_contains_value(["any value", "any value"], "ALL")){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-variable::list_contains_value(list=`list`, values=["any value", "any value"], check_mode="ALL"){
+variable::list_contains_value(list=[`list`, `list`], values=["any value", "any value"], check_mode="ALL"){
     player::message("Условие верно");
 }
 ```
@@ -607,19 +607,19 @@ variable::list_is_empty(list="any value"){
 
 **Пример использования:** 
 ```ts
-if(variable::list_value_equals(`list`, 1, ["any value", "any value"])){
+if(variable::list_value_equals([`list`, `list`], 1, ["any value", "any value"])){
     player::message("Условие верно");
 }
 
 //Или от объекта
 
-if(`list`.list_value_equals(1, ["any value", "any value"])){
+if([`list`, `list`].list_value_equals(1, ["any value", "any value"])){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-variable::list_value_equals(list=`list`, index=1, values=["any value", "any value"]){
+variable::list_value_equals(list=[`list`, `list`], index=1, values=["any value", "any value"]){
     player::message("Условие верно");
 }
 ```
@@ -714,19 +714,19 @@ variable::location_is_near(location=location(0,0,0,0,0), radius=1, check=[locati
 
 **Пример использования:** 
 ```ts
-if(variable::map_has_key(`map`, ["any value", "any value"], "ALL")){
+if(variable::map_has_key({"map":`map`}, ["any value", "any value"], "ALL")){
     player::message("Условие верно");
 }
 
 //Или от объекта
 
-if(`map`.map_has_key(["any value", "any value"], "ALL")){
+if({"map":`map`}.map_has_key(["any value", "any value"], "ALL")){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-variable::map_has_key(map=`map`, key=["any value", "any value"], check_mode="ALL"){
+variable::map_has_key(map={"map":`map`}, key=["any value", "any value"], check_mode="ALL"){
     player::message("Условие верно");
 }
 ```
@@ -749,19 +749,19 @@ variable::map_has_key(map=`map`, key=["any value", "any value"], check_mode="ALL
 
 **Пример использования:** 
 ```ts
-if(variable::map_value_equals(`map`, "any value", ["any value", "any value"])){
+if(variable::map_value_equals({"map":`map`}, "any value", ["any value", "any value"])){
     player::message("Условие верно");
 }
 
 //Или от объекта
 
-if(`map`.map_value_equals("any value", ["any value", "any value"])){
+if({"map":`map`}.map_value_equals("any value", ["any value", "any value"])){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-variable::map_value_equals(map=`map`, key="any value", values=["any value", "any value"]){
+variable::map_value_equals(map={"map":`map`}, key="any value", values=["any value", "any value"]){
     player::message("Условие верно");
 }
 ```
@@ -1275,19 +1275,19 @@ variable::append_component(variable=`variable`, components=["components", "compo
 
 **Пример использования:** 
 ```ts
-`variable` = variable::append_list(`list_1`, `list_2`);
+`variable` = variable::append_list([`list_1`, `list_1`], [`list_2`, `list_2`]);
 
 //Или от объекта
 
-`variable` = `list_1`.append_list(`list_2`);
+`variable` = [`list_1`, `list_1`].append_list([`list_2`, `list_2`]);
 
 //Или в сухую позиционно
 
-variable::append_list(`variable`, `list_1`, `list_2`);
+variable::append_list(`variable`, [`list_1`, `list_1`], [`list_2`, `list_2`]);
 
 //Или в сухую по ключам
 
-variable::append_list(variable=`variable`, list_1=`list_1`, list_2=`list_2`);
+variable::append_list(variable=`variable`, list_1=[`list_1`, `list_1`], list_2=[`list_2`, `list_2`]);
 ```
 
 **Аргументы:**
@@ -1308,19 +1308,19 @@ variable::append_list(variable=`variable`, list_1=`list_1`, list_2=`list_2`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::append_map(`map`, `other_map`);
+`variable` = variable::append_map({"map":`map`}, {"other_map":`other_map`});
 
 //Или от объекта
 
-`variable` = `map`.append_map(`other_map`);
+`variable` = {"map":`map`}.append_map({"other_map":`other_map`});
 
 //Или в сухую позиционно
 
-variable::append_map(`variable`, `map`, `other_map`);
+variable::append_map(`variable`, {"map":`map`}, {"other_map":`other_map`});
 
 //Или в сухую по ключам
 
-variable::append_map(variable=`variable`, map=`map`, other_map=`other_map`);
+variable::append_map(variable=`variable`, map={"map":`map`}, other_map={"other_map":`other_map`});
 ```
 
 **Аргументы:**
@@ -1457,24 +1457,24 @@ variable::bitwise_operation(variable=`variable`, operand1=1, operand2=2, operato
 
 **Пример использования:** 
 ```ts
-`variable` = variable::bytes_to_text([1, 2], "UTF_8");
+`variable` = variable::bytes_to_text([1, 2], "UTF_16");
 
 //Или в сухую позиционно
 
-variable::bytes_to_text(`variable`, [1, 2], "UTF_8");
+variable::bytes_to_text(`variable`, [1, 2], "UTF_16");
 
 //Или в сухую по ключам
 
-variable::bytes_to_text(variable=`variable`, bytes=[1, 2], charset="UTF_8");
+variable::bytes_to_text(variable=`variable`, bytes=[1, 2], charset="UTF_16");
 ```
 
 **Аргументы:**
 
-| **Имя**    | **Тип**                                            | **Описание**              |
-| ---------- | -------------------------------------------------- | ------------------------- |
-| `variable` | Переменная\[Текст\]                                | Переменная для присвоения |
-| `bytes`    | список\[Число\]                                    | Байты для преобразования  |
-| `charset`  | Маркер<br/>**UTF_8** - UTF-8<br/>**ASCII** - ASCII | Кодировка                 |
+| **Имя**    | **Тип**                                                                    | **Описание**              |
+| ---------- | -------------------------------------------------------------------------- | ------------------------- |
+| `variable` | Переменная\[Текст\]                                                        | Переменная для присвоения |
+| `bytes`    | список\[Число\]                                                            | Байты для преобразования  |
+| `charset`  | Маркер<br/>**UTF_16** - UTF-16<br/>**UTF_8** - UTF-8<br/>**ASCII** - ASCII | Кодировка                 |
 <h3 id=set_variable_center_location>
   <code>variable::center_location</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -1993,15 +1993,15 @@ variable::create_list(variable=`variable`, values=["any value", "any value"]);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::create_map(`keys`, `values`);
+`variable` = variable::create_map([`keys`, `keys`], [`values`, `values`]);
 
 //Или в сухую позиционно
 
-variable::create_map(`variable`, `keys`, `values`);
+variable::create_map(`variable`, [`keys`, `keys`], [`values`, `values`]);
 
 //Или в сухую по ключам
 
-variable::create_map(variable=`variable`, keys=`keys`, values=`values`);
+variable::create_map(variable=`variable`, keys=[`keys`, `keys`], values=[`values`, `values`]);
 ```
 
 **Аргументы:**
@@ -2320,19 +2320,19 @@ variable::find_nearest_number(variable=`variable`, number=`number`, numbers=[1, 
 
 **Пример использования:** 
 ```ts
-`variable` = variable::flatten_list(`list`, "FALSE");
+`variable` = variable::flatten_list([`list`, `list`], "FALSE");
 
 //Или от объекта
 
-`variable` = `list`.flatten_list("FALSE");
+`variable` = [`list`, `list`].flatten_list("FALSE");
 
 //Или в сухую позиционно
 
-variable::flatten_list(`variable`, `list`, "FALSE");
+variable::flatten_list(`variable`, [`list`, `list`], "FALSE");
 
 //Или в сухую по ключам
 
-variable::flatten_list(variable=`variable`, list=`list`, deep="FALSE");
+variable::flatten_list(variable=`variable`, list=[`list`, `list`], deep="FALSE");
 ```
 
 **Аргументы:**
@@ -2683,19 +2683,19 @@ variable::get_block_material(variable=`variable`, location=location(0,0,0,0,0), 
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_block_material_property(item("stone"), "BLAST_RESISTANCE");
+`variable` = variable::get_block_material_property("minecraft:oak_log[axis=x]", "BLAST_RESISTANCE");
 
 //Или от объекта
 
-`variable` = item("stone").get_block_material_property("BLAST_RESISTANCE");
+`variable` = "minecraft:oak_log[axis=x]".get_block_material_property("BLAST_RESISTANCE");
 
 //Или в сухую позиционно
 
-variable::get_block_material_property(`variable`, item("stone"), "BLAST_RESISTANCE");
+variable::get_block_material_property(`variable`, "minecraft:oak_log[axis=x]", "BLAST_RESISTANCE");
 
 //Или в сухую по ключам
 
-variable::get_block_material_property(variable=`variable`, block=item("stone"), property="BLAST_RESISTANCE");
+variable::get_block_material_property(variable=`variable`, block="minecraft:oak_log[axis=x]", property="BLAST_RESISTANCE");
 ```
 
 **Аргументы:**
@@ -2748,19 +2748,19 @@ variable::get_block_power(variable=`variable`, location=location(0,0,0,0,0));
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_block_sound(item("stone"), "BREAK");
+`variable` = variable::get_block_sound("minecraft:oak_log[axis=x]", "BREAK");
 
 //Или от объекта
 
-`variable` = item("stone").get_block_sound("BREAK");
+`variable` = "minecraft:oak_log[axis=x]".get_block_sound("BREAK");
 
 //Или в сухую позиционно
 
-variable::get_block_sound(`variable`, item("stone"), "BREAK");
+variable::get_block_sound(`variable`, "minecraft:oak_log[axis=x]", "BREAK");
 
 //Или в сухую по ключам
 
-variable::get_block_sound(variable=`variable`, block=item("stone"), source="BREAK");
+variable::get_block_sound(variable=`variable`, block="minecraft:oak_log[axis=x]", source="BREAK");
 ```
 
 **Аргументы:**
@@ -4326,19 +4326,19 @@ variable::get_light_level(variable=`variable`, location=location(0,0,0,0,0), val
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_list_index_of_value(`list`, "any value", "FIRST");
+`variable` = variable::get_list_index_of_value([`list`, `list`], "any value", "FIRST");
 
 //Или от объекта
 
-`variable` = `list`.get_list_index_of_value("any value", "FIRST");
+`variable` = [`list`, `list`].get_list_index_of_value("any value", "FIRST");
 
 //Или в сухую позиционно
 
-variable::get_list_index_of_value(`variable`, `list`, "any value", "FIRST");
+variable::get_list_index_of_value(`variable`, [`list`, `list`], "any value", "FIRST");
 
 //Или в сухую по ключам
 
-variable::get_list_index_of_value(variable=`variable`, list=`list`, value="any value", search_mode="FIRST");
+variable::get_list_index_of_value(variable=`variable`, list=[`list`, `list`], value="any value", search_mode="FIRST");
 ```
 
 **Аргументы:**
@@ -4360,19 +4360,19 @@ variable::get_list_index_of_value(variable=`variable`, list=`list`, value="any v
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_list_length(`list`);
+`variable` = variable::get_list_length([`list`, `list`]);
 
 //Или от объекта
 
-`variable` = `list`.get_list_length();
+`variable` = [`list`, `list`].get_list_length();
 
 //Или в сухую позиционно
 
-variable::get_list_length(`variable`, `list`);
+variable::get_list_length(`variable`, [`list`, `list`]);
 
 //Или в сухую по ключам
 
-variable::get_list_length(variable=`variable`, list=`list`);
+variable::get_list_length(variable=`variable`, list=[`list`, `list`]);
 ```
 
 **Аргументы:**
@@ -4392,19 +4392,19 @@ variable::get_list_length(variable=`variable`, list=`list`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_list_random_value(`list`);
+`variable` = variable::get_list_random_value([`list`, `list`]);
 
 //Или от объекта
 
-`variable` = `list`.get_list_random_value();
+`variable` = [`list`, `list`].get_list_random_value();
 
 //Или в сухую позиционно
 
-variable::get_list_random_value(`variable`, `list`);
+variable::get_list_random_value(`variable`, [`list`, `list`]);
 
 //Или в сухую по ключам
 
-variable::get_list_random_value(variable=`variable`, list=`list`);
+variable::get_list_random_value(variable=`variable`, list=[`list`, `list`]);
 ```
 
 **Аргументы:**
@@ -4424,19 +4424,19 @@ variable::get_list_random_value(variable=`variable`, list=`list`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_list_value(`list`, 1, "any value");
+`variable` = variable::get_list_value([`list`, `list`], 1, "any value");
 
 //Или от объекта
 
-`variable` = `list`.get_list_value(1, "any value");
+`variable` = [`list`, `list`].get_list_value(1, "any value");
 
 //Или в сухую позиционно
 
-variable::get_list_value(`variable`, `list`, 1, "any value");
+variable::get_list_value(`variable`, [`list`, `list`], 1, "any value");
 
 //Или в сухую по ключам
 
-variable::get_list_value(variable=`variable`, list=`list`, number=1, default_value="any value");
+variable::get_list_value(variable=`variable`, list=[`list`, `list`], number=1, default_value="any value");
 ```
 
 **Аргументы:**
@@ -4518,19 +4518,19 @@ variable::get_location_direction(variable=`variable`, location=location(0,0,0,0,
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_map_key_by_index(`map`, 1, "any value");
+`variable` = variable::get_map_key_by_index({"map":`map`}, 1, "any value");
 
 //Или от объекта
 
-`variable` = `map`.get_map_key_by_index(1, "any value");
+`variable` = {"map":`map`}.get_map_key_by_index(1, "any value");
 
 //Или в сухую позиционно
 
-variable::get_map_key_by_index(`variable`, `map`, 1, "any value");
+variable::get_map_key_by_index(`variable`, {"map":`map`}, 1, "any value");
 
 //Или в сухую по ключам
 
-variable::get_map_key_by_index(variable=`variable`, map=`map`, index=1, default_value="any value");
+variable::get_map_key_by_index(variable=`variable`, map={"map":`map`}, index=1, default_value="any value");
 ```
 
 **Аргументы:**
@@ -4552,19 +4552,19 @@ variable::get_map_key_by_index(variable=`variable`, map=`map`, index=1, default_
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_map_keys(`map`);
+`variable` = variable::get_map_keys({"map":`map`});
 
 //Или от объекта
 
-`variable` = `map`.get_map_keys();
+`variable` = {"map":`map`}.get_map_keys();
 
 //Или в сухую позиционно
 
-variable::get_map_keys(`variable`, `map`);
+variable::get_map_keys(`variable`, {"map":`map`});
 
 //Или в сухую по ключам
 
-variable::get_map_keys(variable=`variable`, map=`map`);
+variable::get_map_keys(variable=`variable`, map={"map":`map`});
 ```
 
 **Аргументы:**
@@ -4584,19 +4584,19 @@ variable::get_map_keys(variable=`variable`, map=`map`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_map_keys_by_value(`map`, "any value", "any value", "ALL");
+`variable` = variable::get_map_keys_by_value({"map":`map`}, "any value", "any value", "ALL");
 
 //Или от объекта
 
-`variable` = `map`.get_map_keys_by_value("any value", "any value", "ALL");
+`variable` = {"map":`map`}.get_map_keys_by_value("any value", "any value", "ALL");
 
 //Или в сухую позиционно
 
-variable::get_map_keys_by_value(`variable`, `map`, "any value", "any value", "ALL");
+variable::get_map_keys_by_value(`variable`, {"map":`map`}, "any value", "any value", "ALL");
 
 //Или в сухую по ключам
 
-variable::get_map_keys_by_value(variable=`variable`, map=`map`, value="any value", default_value="any value", find_mode="ALL");
+variable::get_map_keys_by_value(variable=`variable`, map={"map":`map`}, value="any value", default_value="any value", find_mode="ALL");
 ```
 
 **Аргументы:**
@@ -4619,19 +4619,19 @@ variable::get_map_keys_by_value(variable=`variable`, map=`map`, value="any value
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_map_size(`map`);
+`variable` = variable::get_map_size({"map":`map`});
 
 //Или от объекта
 
-`variable` = `map`.get_map_size();
+`variable` = {"map":`map`}.get_map_size();
 
 //Или в сухую позиционно
 
-variable::get_map_size(`variable`, `map`);
+variable::get_map_size(`variable`, {"map":`map`});
 
 //Или в сухую по ключам
 
-variable::get_map_size(variable=`variable`, map=`map`);
+variable::get_map_size(variable=`variable`, map={"map":`map`});
 ```
 
 **Аргументы:**
@@ -4651,19 +4651,19 @@ variable::get_map_size(variable=`variable`, map=`map`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_map_value(`map`, "any value", "any value");
+`variable` = variable::get_map_value({"map":`map`}, "any value", "any value");
 
 //Или от объекта
 
-`variable` = `map`.get_map_value("any value", "any value");
+`variable` = {"map":`map`}.get_map_value("any value", "any value");
 
 //Или в сухую позиционно
 
-variable::get_map_value(`variable`, `map`, "any value", "any value");
+variable::get_map_value(`variable`, {"map":`map`}, "any value", "any value");
 
 //Или в сухую по ключам
 
-variable::get_map_value(variable=`variable`, map=`map`, key="any value", default_value="any value");
+variable::get_map_value(variable=`variable`, map={"map":`map`}, key="any value", default_value="any value");
 ```
 
 **Аргументы:**
@@ -4685,19 +4685,19 @@ variable::get_map_value(variable=`variable`, map=`map`, key="any value", default
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_map_value_by_index(`map`, 1, "any value");
+`variable` = variable::get_map_value_by_index({"map":`map`}, 1, "any value");
 
 //Или от объекта
 
-`variable` = `map`.get_map_value_by_index(1, "any value");
+`variable` = {"map":`map`}.get_map_value_by_index(1, "any value");
 
 //Или в сухую позиционно
 
-variable::get_map_value_by_index(`variable`, `map`, 1, "any value");
+variable::get_map_value_by_index(`variable`, {"map":`map`}, 1, "any value");
 
 //Или в сухую по ключам
 
-variable::get_map_value_by_index(variable=`variable`, map=`map`, index=1, default_value="any value");
+variable::get_map_value_by_index(variable=`variable`, map={"map":`map`}, index=1, default_value="any value");
 ```
 
 **Аргументы:**
@@ -4719,19 +4719,19 @@ variable::get_map_value_by_index(variable=`variable`, map=`map`, index=1, defaul
 
 **Пример использования:** 
 ```ts
-`variable` = variable::get_map_values(`map`);
+`variable` = variable::get_map_values({"map":`map`});
 
 //Или от объекта
 
-`variable` = `map`.get_map_values();
+`variable` = {"map":`map`}.get_map_values();
 
 //Или в сухую позиционно
 
-variable::get_map_values(`variable`, `map`);
+variable::get_map_values(`variable`, {"map":`map`});
 
 //Или в сухую по ключам
 
-variable::get_map_values(variable=`variable`, map=`map`);
+variable::get_map_values(variable=`variable`, map={"map":`map`});
 ```
 
 **Аргументы:**
@@ -5946,19 +5946,19 @@ variable::increment(variable=`variable`, number=1);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::insert_list_value(`list`, 1, "any value");
+`variable` = variable::insert_list_value([`list`, `list`], 1, "any value");
 
 //Или от объекта
 
-`variable` = `list`.insert_list_value(1, "any value");
+`variable` = [`list`, `list`].insert_list_value(1, "any value");
 
 //Или в сухую позиционно
 
-variable::insert_list_value(`variable`, `list`, 1, "any value");
+variable::insert_list_value(`variable`, [`list`, `list`], 1, "any value");
 
 //Или в сухую по ключам
 
-variable::insert_list_value(variable=`variable`, list=`list`, number=1, value="any value");
+variable::insert_list_value(variable=`variable`, list=[`list`, `list`], number=1, value="any value");
 ```
 
 **Аргументы:**
@@ -5980,19 +5980,19 @@ variable::insert_list_value(variable=`variable`, list=`list`, number=1, value="a
 
 **Пример использования:** 
 ```ts
-`variable` = variable::join_text(`list`, "separator", "prefix", "postfix", 1, "truncated");
+`variable` = variable::join_text([`list`, `list`], "separator", "prefix", "postfix", 1, "truncated");
 
 //Или от объекта
 
-`variable` = `list`.join_text("separator", "prefix", "postfix", 1, "truncated");
+`variable` = [`list`, `list`].join_text("separator", "prefix", "postfix", 1, "truncated");
 
 //Или в сухую позиционно
 
-variable::join_text(`variable`, `list`, "separator", "prefix", "postfix", 1, "truncated");
+variable::join_text(`variable`, [`list`, `list`], "separator", "prefix", "postfix", 1, "truncated");
 
 //Или в сухую по ключам
 
-variable::join_text(variable=`variable`, list=`list`, separator="separator", prefix="prefix", postfix="postfix", limit=1, truncated="truncated");
+variable::join_text(variable=`variable`, list=[`list`, `list`], separator="separator", prefix="prefix", postfix="postfix", limit=1, truncated="truncated");
 ```
 
 **Аргументы:**
@@ -6654,19 +6654,19 @@ variable::random_number(variable=`variable`, min=1, max=2, integer="FALSE");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::randomize_list_order(`list`);
+`variable` = variable::randomize_list_order([`list`, `list`]);
 
 //Или от объекта
 
-`variable` = `list`.randomize_list_order();
+`variable` = [`list`, `list`].randomize_list_order();
 
 //Или в сухую позиционно
 
-variable::randomize_list_order(`variable`, `list`);
+variable::randomize_list_order(`variable`, [`list`, `list`]);
 
 //Или в сухую по ключам
 
-variable::randomize_list_order(variable=`variable`, list=`list`);
+variable::randomize_list_order(variable=`variable`, list=[`list`, `list`]);
 ```
 
 **Аргументы:**
@@ -6686,15 +6686,15 @@ variable::randomize_list_order(variable=`variable`, list=`list`);
 
 **Пример использования:** 
 ```ts
-`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid` = variable::ray_trace_result(location(0,0,0,0,0), 1, 2, `entities`, "BLOCKS_AND_ENTITIES", "FALSE", "ALWAYS");
+`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid` = variable::ray_trace_result(location(0,0,0,0,0), 1, 2, [`entities`, `entities`], "BLOCKS_AND_ENTITIES", "FALSE", "ALWAYS");
 
 //Или в сухую позиционно
 
-variable::ray_trace_result(`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid`, location(0,0,0,0,0), 1, 2, `entities`, "BLOCKS_AND_ENTITIES", "FALSE", "ALWAYS");
+variable::ray_trace_result(`variable_for_hit_location`, `variable_for_hit_block_location`, `variable_for_hit_block_face`, `variable_for_hit_entity_uuid`, location(0,0,0,0,0), 1, 2, [`entities`, `entities`], "BLOCKS_AND_ENTITIES", "FALSE", "ALWAYS");
 
 //Или в сухую по ключам
 
-variable::ray_trace_result(variable_for_hit_location=`variable_for_hit_location`, variable_for_hit_block_location=`variable_for_hit_block_location`, variable_for_hit_block_face=`variable_for_hit_block_face`, variable_for_hit_entity_uuid=`variable_for_hit_entity_uuid`, start=location(0,0,0,0,0), ray_size=1, max_distance=2, entities=`entities`, ray_collision_mode="BLOCKS_AND_ENTITIES", ignore_passable_blocks="FALSE", fluid_collision_mode="ALWAYS");
+variable::ray_trace_result(variable_for_hit_location=`variable_for_hit_location`, variable_for_hit_block_location=`variable_for_hit_block_location`, variable_for_hit_block_face=`variable_for_hit_block_face`, variable_for_hit_entity_uuid=`variable_for_hit_entity_uuid`, start=location(0,0,0,0,0), ray_size=1, max_distance=2, entities=[`entities`, `entities`], ray_collision_mode="BLOCKS_AND_ENTITIES", ignore_passable_blocks="FALSE", fluid_collision_mode="ALWAYS");
 ```
 
 **Аргументы:**
@@ -7055,19 +7055,19 @@ variable::remove_item_potion_effects(variable=`variable`, effects=[potion("slow_
 
 **Пример использования:** 
 ```ts
-`variable` = variable::remove_list_duplicates(`list`);
+`variable` = variable::remove_list_duplicates([`list`, `list`]);
 
 //Или от объекта
 
-`variable` = `list`.remove_list_duplicates();
+`variable` = [`list`, `list`].remove_list_duplicates();
 
 //Или в сухую позиционно
 
-variable::remove_list_duplicates(`variable`, `list`);
+variable::remove_list_duplicates(`variable`, [`list`, `list`]);
 
 //Или в сухую по ключам
 
-variable::remove_list_duplicates(variable=`variable`, list=`list`);
+variable::remove_list_duplicates(variable=`variable`, list=[`list`, `list`]);
 ```
 
 **Аргументы:**
@@ -7087,19 +7087,19 @@ variable::remove_list_duplicates(variable=`variable`, list=`list`);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::remove_list_value(`list`, "any value", "ALL");
+`variable` = variable::remove_list_value([`list`, `list`], "any value", "ALL");
 
 //Или от объекта
 
-`variable` = `list`.remove_list_value("any value", "ALL");
+`variable` = [`list`, `list`].remove_list_value("any value", "ALL");
 
 //Или в сухую позиционно
 
-variable::remove_list_value(`variable`, `list`, "any value", "ALL");
+variable::remove_list_value(`variable`, [`list`, `list`], "any value", "ALL");
 
 //Или в сухую по ключам
 
-variable::remove_list_value(variable=`variable`, list=`list`, value="any value", remove_mode="ALL");
+variable::remove_list_value(variable=`variable`, list=[`list`, `list`], value="any value", remove_mode="ALL");
 ```
 
 **Аргументы:**
@@ -7121,19 +7121,19 @@ variable::remove_list_value(variable=`variable`, list=`list`, value="any value",
 
 **Пример использования:** 
 ```ts
-`variable`, `removed_value` = variable::remove_list_value_at_index(`list`, 1);
+`variable`, `removed_value` = variable::remove_list_value_at_index([`list`, `list`], 1);
 
 //Или от объекта
 
-`variable`, `removed_value` = `list`.remove_list_value_at_index(1);
+`variable`, `removed_value` = [`list`, `list`].remove_list_value_at_index(1);
 
 //Или в сухую позиционно
 
-variable::remove_list_value_at_index(`removed_value`, `variable`, `list`, 1);
+variable::remove_list_value_at_index(`removed_value`, `variable`, [`list`, `list`], 1);
 
 //Или в сухую по ключам
 
-variable::remove_list_value_at_index(removed_value=`removed_value`, variable=`variable`, list=`list`, index=1);
+variable::remove_list_value_at_index(removed_value=`removed_value`, variable=`variable`, list=[`list`, `list`], index=1);
 ```
 
 **Аргументы:**
@@ -7155,19 +7155,19 @@ variable::remove_list_value_at_index(removed_value=`removed_value`, variable=`va
 
 **Пример использования:** 
 ```ts
-`variable`, `removed_value` = variable::remove_map_entry(`map`, "any value", ["any value", "any value"]);
+`variable`, `removed_value` = variable::remove_map_entry({"map":`map`}, "any value", ["any value", "any value"]);
 
 //Или от объекта
 
-`variable`, `removed_value` = `map`.remove_map_entry("any value", ["any value", "any value"]);
+`variable`, `removed_value` = {"map":`map`}.remove_map_entry("any value", ["any value", "any value"]);
 
 //Или в сухую позиционно
 
-variable::remove_map_entry(`removed_value`, `variable`, `map`, "any value", ["any value", "any value"]);
+variable::remove_map_entry(`removed_value`, `variable`, {"map":`map`}, "any value", ["any value", "any value"]);
 
 //Или в сухую по ключам
 
-variable::remove_map_entry(removed_value=`removed_value`, variable=`variable`, map=`map`, key="any value", values=["any value", "any value"]);
+variable::remove_map_entry(removed_value=`removed_value`, variable=`variable`, map={"map":`map`}, key="any value", values=["any value", "any value"]);
 ```
 
 **Аргументы:**
@@ -7293,19 +7293,19 @@ variable::replace_text(variable=`variable`, text="text", replace="replace", repl
 
 **Пример использования:** 
 ```ts
-`variable` = variable::reverse_list(`list`);
+`variable` = variable::reverse_list([`list`, `list`]);
 
 //Или от объекта
 
-`variable` = `list`.reverse_list();
+`variable` = [`list`, `list`].reverse_list();
 
 //Или в сухую позиционно
 
-variable::reverse_list(`variable`, `list`);
+variable::reverse_list(`variable`, [`list`, `list`]);
 
 //Или в сухую по ключам
 
-variable::reverse_list(variable=`variable`, list=`list`);
+variable::reverse_list(variable=`variable`, list=[`list`, `list`]);
 ```
 
 **Аргументы:**
@@ -8332,19 +8332,19 @@ variable::set_item_durability(variable=`variable`, item=item("stick"), durabilit
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_item_enchantments(item("stick"), `enchantments`);
+`variable` = variable::set_item_enchantments(item("stick"), {"enchantments":`enchantments`});
 
 //Или от объекта
 
-`variable` = item("stick").set_item_enchantments(`enchantments`);
+`variable` = item("stick").set_item_enchantments({"enchantments":`enchantments`});
 
 //Или в сухую позиционно
 
-variable::set_item_enchantments(`variable`, item("stick"), `enchantments`);
+variable::set_item_enchantments(`variable`, item("stick"), {"enchantments":`enchantments`});
 
 //Или в сухую по ключам
 
-variable::set_item_enchantments(variable=`variable`, item=item("stick"), enchantments=`enchantments`);
+variable::set_item_enchantments(variable=`variable`, item=item("stick"), enchantments={"enchantments":`enchantments`});
 ```
 
 **Аргументы:**
@@ -8937,19 +8937,19 @@ variable::set_item_weapon(variable=`variable`, item=item("stick"), item_damage_p
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_list_value(`list`, 1, "any value");
+`variable` = variable::set_list_value([`list`, `list`], 1, "any value");
 
 //Или от объекта
 
-`variable` = `list`.set_list_value(1, "any value");
+`variable` = [`list`, `list`].set_list_value(1, "any value");
 
 //Или в сухую позиционно
 
-variable::set_list_value(`variable`, `list`, 1, "any value");
+variable::set_list_value(`variable`, [`list`, `list`], 1, "any value");
 
 //Или в сухую по ключам
 
-variable::set_list_value(variable=`variable`, list=`list`, number=1, value="any value");
+variable::set_list_value(variable=`variable`, list=[`list`, `list`], number=1, value="any value");
 ```
 
 **Аргументы:**
@@ -9004,19 +9004,19 @@ variable::set_location_direction(variable=`variable`, location=location(0,0,0,0,
 
 **Пример использования:** 
 ```ts
-`variable` = variable::set_map_value(`map`, ["any value", "any value"], ["any value", "any value"]);
+`variable` = variable::set_map_value({"map":`map`}, ["any value", "any value"], ["any value", "any value"]);
 
 //Или от объекта
 
-`variable` = `map`.set_map_value(["any value", "any value"], ["any value", "any value"]);
+`variable` = {"map":`map`}.set_map_value(["any value", "any value"], ["any value", "any value"]);
 
 //Или в сухую позиционно
 
-variable::set_map_value(`variable`, `map`, ["any value", "any value"], ["any value", "any value"]);
+variable::set_map_value(`variable`, {"map":`map`}, ["any value", "any value"], ["any value", "any value"]);
 
 //Или в сухую по ключам
 
-variable::set_map_value(variable=`variable`, map=`map`, key=["any value", "any value"], value=["any value", "any value"]);
+variable::set_map_value(variable=`variable`, map={"map":`map`}, key=["any value", "any value"], value=["any value", "any value"]);
 ```
 
 **Аргументы:**
@@ -9922,19 +9922,19 @@ variable::sine(variable=`variable`, number=1, variant="ARCSINE", input="DEGREES"
 
 **Пример использования:** 
 ```ts
-`variable` = variable::sort_list(`list`, "ASCENDING");
+`variable` = variable::sort_list([`list`, `list`], "ASCENDING");
 
 //Или от объекта
 
-`variable` = `list`.sort_list("ASCENDING");
+`variable` = [`list`, `list`].sort_list("ASCENDING");
 
 //Или в сухую позиционно
 
-variable::sort_list(`variable`, `list`, "ASCENDING");
+variable::sort_list(`variable`, [`list`, `list`], "ASCENDING");
 
 //Или в сухую по ключам
 
-variable::sort_list(variable=`variable`, list=`list`, sort_mode="ASCENDING");
+variable::sort_list(variable=`variable`, list=[`list`, `list`], sort_mode="ASCENDING");
 ```
 
 **Аргументы:**
@@ -9955,19 +9955,19 @@ variable::sort_list(variable=`variable`, list=`list`, sort_mode="ASCENDING");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::sort_map(`map`, "ASCENDING", "KEYS");
+`variable` = variable::sort_map({"map":`map`}, "ASCENDING", "KEYS");
 
 //Или от объекта
 
-`variable` = `map`.sort_map("ASCENDING", "KEYS");
+`variable` = {"map":`map`}.sort_map("ASCENDING", "KEYS");
 
 //Или в сухую позиционно
 
-variable::sort_map(`variable`, `map`, "ASCENDING", "KEYS");
+variable::sort_map(`variable`, {"map":`map`}, "ASCENDING", "KEYS");
 
 //Или в сухую по ключам
 
-variable::sort_map(variable=`variable`, map=`map`, sort_order="ASCENDING", sort_type="KEYS");
+variable::sort_map(variable=`variable`, map={"map":`map`}, sort_order="ASCENDING", sort_type="KEYS");
 ```
 
 **Аргументы:**
@@ -10272,28 +10272,28 @@ variable::get_text_length(variable=`variable`, text="text");
 
 **Пример использования:** 
 ```ts
-`variable` = variable::text_to_bytes("text", "UTF_8");
+`variable` = variable::text_to_bytes("text", "UTF_16");
 
 //Или от объекта
 
-`variable` = "text".text_to_bytes("UTF_8");
+`variable` = "text".text_to_bytes("UTF_16");
 
 //Или в сухую позиционно
 
-variable::text_to_bytes(`variable`, "text", "UTF_8");
+variable::text_to_bytes(`variable`, "text", "UTF_16");
 
 //Или в сухую по ключам
 
-variable::text_to_bytes(variable=`variable`, text="text", charset="UTF_8");
+variable::text_to_bytes(variable=`variable`, text="text", charset="UTF_16");
 ```
 
 **Аргументы:**
 
-| **Имя**    | **Тип**                                            | **Описание**              |
-| ---------- | -------------------------------------------------- | ------------------------- |
-| `variable` | Переменная\[Список\]                               | Переменная для присвоения |
-| `text`     | Текст                                              | Текст для преобразования  |
-| `charset`  | Маркер<br/>**UTF_8** - UTF-8<br/>**ASCII** - ASCII | Кодировка                 |
+| **Имя**    | **Тип**                                                                    | **Описание**              |
+| ---------- | -------------------------------------------------------------------------- | ------------------------- |
+| `variable` | Переменная\[Список\]                                                       | Переменная для присвоения |
+| `text`     | Текст                                                                      | Текст для преобразования  |
+| `charset`  | Маркер<br/>**UTF_16** - UTF-16<br/>**UTF_8** - UTF-8<br/>**ASCII** - ASCII | Кодировка                 |
 <h3 id=set_variable_text_to_chars>
   <code>variable::text_to_chars</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -10489,19 +10489,19 @@ variable::to_rgb(variable=`variable`, red=1, green=2, blue=3);
 
 **Пример использования:** 
 ```ts
-`variable` = variable::trim_list(`list`, 1, 2);
+`variable` = variable::trim_list([`list`, `list`], 1, 2);
 
 //Или от объекта
 
-`variable` = `list`.trim_list(1, 2);
+`variable` = [`list`, `list`].trim_list(1, 2);
 
 //Или в сухую позиционно
 
-variable::trim_list(`variable`, `list`, 1, 2);
+variable::trim_list(`variable`, [`list`, `list`], 1, 2);
 
 //Или в сухую по ключам
 
-variable::trim_list(variable=`variable`, list=`list`, start=1, end=2);
+variable::trim_list(variable=`variable`, list=[`list`, `list`], start=1, end=2);
 ```
 
 **Аргументы:**
