@@ -354,6 +354,7 @@
   - [*entity::set_panda_sad_ticks [ Установить время грусти Панды ]*](./entity.md#entity_set_panda_sad_ticks)
   - [*entity::set_parrot_type [ Установить тип попугая ]*](./entity.md#entity_set_parrot_type)
   - [*entity::set_persistence [ Установить исчезание существа ]*](./entity.md#entity_set_persistence)
+  - [*entity::set_persistent [ Установить сущности сохранение ]*](./entity.md#entity_set_persistent)
   - [*entity::set_pickup [ Установить возможность подбора ]*](./entity.md#entity_set_pickup)
   - [*entity::set_pickup_delay [ Установить задержку для поднятия ]*](./entity.md#entity_set_pickup_delay)
   - [*entity::set_pig_type [ Установить тип Свиньи ]*](./entity.md#entity_set_pig_type)

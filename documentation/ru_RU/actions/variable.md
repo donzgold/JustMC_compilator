@@ -6351,6 +6351,10 @@ variable::multiply(variable=`variable`, value=[1, 2]);
 ```ts
 `variable` = variable::multiply_vector(vector(0,0,0), 1);
 
+//Или от объекта
+
+`variable` = vector(0,0,0).multiply_vector(1);
+
 //Или в сухую позиционно
 
 variable::multiply_vector(`variable`, vector(0,0,0), 1);

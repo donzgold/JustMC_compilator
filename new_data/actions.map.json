@@ -678,7 +678,7 @@
   "set_variable_max": {"name": "max","object": "variable","assign": [{"variable": "number"}]},
   "set_variable_min": {"name": "min","object": "variable","assign": [{"variable": "number"}]},
   "set_variable_multiply": {"name": "multiply","object": "variable","assign": [{"variable": "number"}]},
-  "set_variable_multiply_vector": {"name": "multiply_vector","object": "variable","assign": [{"variable": "vector"}]},
+  "set_variable_multiply_vector": {"name": "multiply_vector","object": "variable", "origin": "vector","assign": [{"variable": "vector"}]},
   "set_variable_parse_json": {"name": "parse_json","object": "variable","assign": [{"variable": "text"}]},
   "set_variable_parse_to_component": {"name": "parse_to_component","object": "variable","assign": [{"variable": "text"}],"origin": "text"},
   "set_variable_perlin_noise_3d": {"name": "perlin_noise_3d","object": "variable","assign": [{"variable": "number"}]},
@@ -951,5 +951,6 @@
   "player_start_using_item" : {"name": "start_using_item", "object": "player"},
   "set_variable_get_blocks_by_tag" : {"name": "get_blocks_by_tag", "object": "variable", "assign": [{"variable": "array"}]},
   "set_variable_get_entity_types_by_tag" : {"name": "get_entity_types_by_tag", "object": "variable", "assign": [{"variable": "array"}]},
-  "set_variable_get_items_by_tag" : {"name": "get_items_by_tag", "object": "variable", "assign": [{"variable": "array"}]}
+  "set_variable_get_items_by_tag" : {"name": "get_items_by_tag", "object": "variable", "assign": [{"variable": "array"}]},
+  "entity_set_persistent" : {"name": "set_persistent", "object": "entity"}
 }

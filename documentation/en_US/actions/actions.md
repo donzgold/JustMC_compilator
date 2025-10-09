@@ -354,6 +354,7 @@
   - [*entity::set_panda_sad_ticks [ Set Panda Sad Time ]*](./entity.md#entity_set_panda_sad_ticks)
   - [*entity::set_parrot_type [ Set Parrot Type ]*](./entity.md#entity_set_parrot_type)
   - [*entity::set_persistence [ Set Entity Persistence ]*](./entity.md#entity_set_persistence)
+  - [*entity::set_persistent [ None ]*](./entity.md#entity_set_persistent)
   - [*entity::set_pickup [ Entity Set Pickup ]*](./entity.md#entity_set_pickup)
   - [*entity::set_pickup_delay [ Set Pickup Delay ]*](./entity.md#entity_set_pickup_delay)
   - [*entity::set_pig_type [ None ]*](./entity.md#entity_set_pig_type)

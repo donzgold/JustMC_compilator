@@ -468,6 +468,8 @@
   "start_process": {"id": "start_process", "type": "basic", "args": [
     {"id": "process_name", "plural": false, "type": "text", "valueSlots": [13]},
     {"id": "args", "plural": false, "type": "map", "valueSlots": [14]},
-    {"id": "local_variables_mode", "values": ["COPY", "DONT_COPY", "SHARE"], "plural": false, "type": "enum", "valueSlots": [25]},
-    {"id": "target_mode", "values": ["CURRENT_SELECTION", "CURRENT_TARGET", "FOR_EACH_IN_SELECTION", "NO_TARGET"], "plural": false, "type": "enum", "valueSlots": [26]}]}
+    {"id": "local_variables_mode", "plural": false, "type": "enum", "valueSlots": [25]},
+    {"id": "target_mode", "plural": false, "type": "enum", "valueSlots": [26]}]},
+  "entity_set_persistent": {"id": "entity_set_persistent", "type": "basic", "args": [
+    {"id": "persistent", "plural": false, "type": "enum", "valueSlots": [0]}]}
 }

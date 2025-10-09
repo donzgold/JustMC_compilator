@@ -6351,6 +6351,10 @@ variable::multiply(variable=`variable`, value=[1, 2]);
 ```ts
 `variable` = variable::multiply_vector(vector(0,0,0), 1);
 
+//Or from the object
+
+`variable` = vector(0,0,0).multiply_vector(1);
+
 //Or dry by positionals
 
 variable::multiply_vector(`variable`, vector(0,0,0), 1);

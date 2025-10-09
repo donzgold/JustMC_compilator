@@ -7,6 +7,10 @@
       {
         "id": "function_name",
         "type": "text"
+      },
+      {
+        "id": "args",
+        "type": "map"
       }
     ],
     "type": "basic"
@@ -2724,6 +2728,22 @@
         "values": [
           "FALSE",
           "TRUE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_persistent",
+    "name": "set_persistent",
+    "object": "entity",
+    "args": [
+      {
+        "id": "persistent",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
         ]
       }
     ],
@@ -16843,6 +16863,7 @@
         "type": "vector"
       }
     ],
+    "origin": "vector",
     "type": "basic"
   },
   {
@@ -21330,11 +21351,15 @@
         "type": "text"
       },
       {
+        "id": "args",
+        "type": "map"
+      },
+      {
         "id": "local_variables_mode",
         "type": "enum",
         "values": [
-          "COPY",
           "DONT_COPY",
+          "COPY",
           "SHARE"
         ]
       },
@@ -21342,10 +21367,10 @@
         "id": "target_mode",
         "type": "enum",
         "values": [
-          "CURRENT_SELECTION",
           "CURRENT_TARGET",
-          "FOR_EACH_IN_SELECTION",
-          "NO_TARGET"
+          "CURRENT_SELECTION",
+          "NO_TARGET",
+          "FOR_EACH_IN_SELECTION"
         ]
       }
     ],

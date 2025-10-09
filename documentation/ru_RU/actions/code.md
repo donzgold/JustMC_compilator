@@ -180,11 +180,11 @@ code::else(){
 
 **Пример использования:** 
 ```ts
-code::start_process("process_name", {"args":`args`}, "COPY", "CURRENT_SELECTION");
+code::start_process("process_name", {"args":`args`}, "DONT_COPY", "CURRENT_TARGET");
 
 //Или в сухую по ключам
 
-code::start_process(process_name="process_name", args={"args":`args`}, local_variables_mode="COPY", target_mode="CURRENT_SELECTION");
+code::start_process(process_name="process_name", args={"args":`args`}, local_variables_mode="DONT_COPY", target_mode="CURRENT_TARGET");
 ```
 
 **Аргументы:**
@@ -193,5 +193,5 @@ code::start_process(process_name="process_name", args={"args":`args`}, local_var
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
 | `process_name`         | Текст                                                                                                                                                                    | Название процесса  |
 | `args`                 | Словарь                                                                                                                                                                  | Аргументы процесса |
-| `local_variables_mode` | Маркер<br/>**COPY** - Дублировать<br/>**DONT_COPY** - Не дублировать<br/>**SHARE** - Общие                                                                               | Режим переменных   |
-| `target_mode`          | Маркер<br/>**CURRENT_SELECTION** - Текущая цель<br/>**CURRENT_TARGET** - Цель события<br/>**FOR_EACH_IN_SELECTION** - Каждая цель в выборке<br/>**NO_TARGET** - Без цели | Цель процесса      |
+| `local_variables_mode` | Маркер<br/>**DONT_COPY** - Не дублировать<br/>**COPY** - Дублировать<br/>**SHARE** - Общие                                                                               | Режим переменных   |
+| `target_mode`          | Маркер<br/>**CURRENT_TARGET** - Цель события<br/>**CURRENT_SELECTION** - Текущая цель<br/>**NO_TARGET** - Без цели<br/>**FOR_EACH_IN_SELECTION** - Каждая цель в выборке | Цель процесса      |

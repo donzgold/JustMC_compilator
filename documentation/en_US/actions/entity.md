@@ -3595,6 +3595,29 @@ entity::set_persistence(persistence="FALSE");
 | **Name**      | **Type**                                                                | **Description**   |
 | ------------- | ----------------------------------------------------------------------- | ----------------- |
 | `persistence` | Marker<br/>**FALSE** - Will disappear<br/>**TRUE** - Will not disappear | Entity Disappears |
+<h3 id=entity_set_persistent>
+  <code>entity::set_persistent</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** None\
+**Type:** Action without value\
+**Description:** None
+
+**Usage example:** 
+```ts
+entity::set_persistent("TRUE");
+
+//Or dry by keywords
+
+entity::set_persistent(persistent="TRUE");
+```
+
+**Arguments:**
+
+| **Name**     | **Type**                                        | **Description** |
+| ------------ | ----------------------------------------------- | --------------- |
+| `persistent` | Marker<br/>**TRUE** - None<br/>**FALSE** - None | None            |
 <h3 id=entity_set_pickup>
   <code>entity::set_pickup</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

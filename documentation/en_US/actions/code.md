@@ -180,11 +180,11 @@ code::else(){
 
 **Usage example:** 
 ```ts
-code::start_process("process_name", {"args":`args`}, "COPY", "CURRENT_SELECTION");
+code::start_process("process_name", {"args":`args`}, "DONT_COPY", "CURRENT_TARGET");
 
 //Or dry by keywords
 
-code::start_process(process_name="process_name", args={"args":`args`}, local_variables_mode="COPY", target_mode="CURRENT_SELECTION");
+code::start_process(process_name="process_name", args={"args":`args`}, local_variables_mode="DONT_COPY", target_mode="CURRENT_TARGET");
 ```
 
 **Arguments:**
@@ -193,5 +193,5 @@ code::start_process(process_name="process_name", args={"args":`args`}, local_var
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
 | `process_name`         | Text                                                                                                                                                                           | Process name    |
 | `args`                 | Dictionary                                                                                                                                                                     | None            |
-| `local_variables_mode` | Marker<br/>**COPY** - Duplicate<br/>**DONT_COPY** - Don\'t duplicate<br/>**SHARE** - General                                                                                   | Variable Mode   |
-| `target_mode`          | Marker<br/>**CURRENT_SELECTION** - Current Target<br/>**CURRENT_TARGET** - Event Target<br/>**FOR_EACH_IN_SELECTION** - Each Target in Selection<br/>**NO_TARGET** - No Target | Process Target  |
+| `local_variables_mode` | Marker<br/>**DONT_COPY** - Don\'t duplicate<br/>**COPY** - Duplicate<br/>**SHARE** - General                                                                                   | Variable Mode   |
+| `target_mode`          | Marker<br/>**CURRENT_TARGET** - Event Target<br/>**CURRENT_SELECTION** - Current Target<br/>**NO_TARGET** - No Target<br/>**FOR_EACH_IN_SELECTION** - Each Target in Selection | Process Target  |
