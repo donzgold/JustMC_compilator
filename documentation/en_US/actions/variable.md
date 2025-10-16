@@ -365,19 +365,19 @@ variable::item_has_enchantment(item=item("stick"), enchant="enchant", level=1){
 
 **Usage example:** 
 ```ts
-if(variable::item_has_tag(item("stick"), "tag", "value", "CONTAINS")){
+if(variable::item_has_tag(item("stick"), "tag", ["value", "value"], "CONTAINS")){
     player::message("Condition is true");
 }
 
 //Or from the object
 
-if(item("stick").item_has_tag("tag", "value", "CONTAINS")){
+if(item("stick").item_has_tag("tag", ["value", "value"], "CONTAINS")){
     player::message("Condition is true");
 }
 
 //Or dry by keywords
 
-variable::item_has_tag(item=item("stick"), tag="tag", value="value", compare_type="CONTAINS"){
+variable::item_has_tag(item=item("stick"), tag="tag", value=["value", "value"], compare_type="CONTAINS"){
     player::message("Condition is true");
 }
 ```
@@ -388,7 +388,7 @@ variable::item_has_tag(item=item("stick"), tag="tag", value="value", compare_typ
 | -------------- | -------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | `item`         | Item                                                                                                                       | Item Variable   |
 | `tag`          | Text                                                                                                                       | Tag name        |
-| `value`        | Text                                                                                                                       | Tag Value       |
+| `value`        | list\[Text\]                                                                                                               | Tag Value       |
 | `compare_type` | Marker<br/>**CONTAINS** - Contains<br/>**ENDS_WITH** - Ends With<br/>**EQUALS** - Equals<br/>**STARTS_WITH** - Starts With | Comparison Type |
 <h3 id=if_variable_item_is_block>
   <code>variable::item_is_block</code>

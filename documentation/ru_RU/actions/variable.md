@@ -365,19 +365,19 @@ variable::item_has_enchantment(item=item("stick"), enchant="enchant", level=1){
 
 **Пример использования:** 
 ```ts
-if(variable::item_has_tag(item("stick"), "tag", "value", "CONTAINS")){
+if(variable::item_has_tag(item("stick"), "tag", ["value", "value"], "CONTAINS")){
     player::message("Условие верно");
 }
 
 //Или от объекта
 
-if(item("stick").item_has_tag("tag", "value", "CONTAINS")){
+if(item("stick").item_has_tag("tag", ["value", "value"], "CONTAINS")){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-variable::item_has_tag(item=item("stick"), tag="tag", value="value", compare_type="CONTAINS"){
+variable::item_has_tag(item=item("stick"), tag="tag", value=["value", "value"], compare_type="CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -388,7 +388,7 @@ variable::item_has_tag(item=item("stick"), tag="tag", value="value", compare_typ
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
 | `item`         | Предмет                                                                                                                                          | Предметная переменная |
 | `tag`          | Текст                                                                                                                                            | Имя тега              |
-| `value`        | Текст                                                                                                                                            | Значение тега         |
+| `value`        | список\[Текст\]                                                                                                                                  | Значение тега         |
 | `compare_type` | Маркер<br/>**CONTAINS** - Содержит<br/>**ENDS_WITH** - Заканчивается на<br/>**EQUALS** - Точное соответствие<br/>**STARTS_WITH** - Начинается на | Тип сравнения         |
 <h3 id=if_variable_item_is_block>
   <code>variable::item_is_block</code>

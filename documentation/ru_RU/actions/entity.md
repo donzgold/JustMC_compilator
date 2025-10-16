@@ -5102,13 +5102,13 @@ if(entity::exists()){
 
 **Пример использования:** 
 ```ts
-if(entity::has_custom_tag("tag", "tag_value", "CONTAINS")){
+if(entity::has_custom_tag("tag", ["tag_value", "tag_value"], "CONTAINS")){
     player::message("Условие верно");
 }
 
 //Или в сухую по ключам
 
-entity::has_custom_tag(tag="tag", tag_value="tag_value", compare_type="CONTAINS"){
+entity::has_custom_tag(tag="tag", tag_value=["tag_value", "tag_value"], compare_type="CONTAINS"){
     player::message("Условие верно");
 }
 ```
@@ -5118,7 +5118,7 @@ entity::has_custom_tag(tag="tag", tag_value="tag_value", compare_type="CONTAINS"
 | **Имя**        | **Тип**                                                                                                                                          | **Описание**  |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
 | `tag`          | Текст                                                                                                                                            | Название тега |
-| `tag_value`    | Текст                                                                                                                                            | Значение тега |
+| `tag_value`    | список\[Текст\]                                                                                                                                  | Значение тега |
 | `compare_type` | Маркер<br/>**CONTAINS** - Содержит<br/>**ENDS_WITH** - Заканчивается на<br/>**EQUALS** - Точное соответствие<br/>**STARTS_WITH** - Начинается на | Тип сравнения |
 <h3 id=if_entity_has_potion_effect>
   <code>entity::has_potion_effect</code>
