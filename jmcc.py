@@ -322,7 +322,8 @@ if __name__ == "__main__":
     if len(additional) >= 1:
         if len(additional) > 2:
             multi_known_dict = {"-o": "output"}
-            small_known_dict = {"-u": "upload", "-c": "compact", "-s": "save", "-su": ("save", "upload"), "-us": ("save", "upload")}
+            small_known_dict = {"-u": "upload", "-c": "compact", "-s": "save", "-su": ("save", "upload"),
+                                "-us": ("save", "upload")}
             known_attr = data.properties.copy()
             i1 = 2
             while i1 < len(additional):

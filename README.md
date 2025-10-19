@@ -102,7 +102,7 @@ j"текст" //текст типа json
 _Определение локальных переменных_
 
 ```ts
-var a = 1;
+local var a = 1;
 
 //или
 
@@ -605,18 +605,27 @@ function add(first: number, second=1) -> number { //после -> указыва
 a = add(1, 2);
 
 //Параметры будут установлены перед вызовом функции:
-first = 1;
-second = 2;
-code::call_function("add");
-a = return_variable; //некая переменная для возвращения значения
+code::call_function("add", {"first": 1, "second": 2, "return_variable": a});
+// параметр return_variable создаётся автоматически, если функции есть что возращать.
 
 //Сама функция же будет выглядеть как:
-function add {
-  return_variable = variable::add([first, second]);
+function add(first: number, second=1, return_variable: variable) {
+  return_variable = variable::add([first, second]); //return заменяется на эти два действия.
   code::return_function(); //обычно code::return_function() удаляется если является последним действием в функции
 }
 
-// Так же, есть *args и **kwargs в функциях
+//У параметров функций есть способ записи ссылки на переменную(ref), 
+// по своей сути устанавливает параметру тип variable при компиляции на джаст
+// но сохраняет проверяемый тип для работы jmcc по сравнению типов.
+function append(ref a: array, value: any){
+  a.append_value(value);
+}
+a = [1, 2]
+append(a,3);
+//a = [1, 2, 3]
+
+
+// Так же, есть *args и **kwargs в функциях, работают аналогично вариантам в python
 function a(*args, **kwargs) {}
 
 
@@ -653,7 +662,6 @@ a = variable::add([1, 2]);
 //ВАЖНО: Возвраты в инлайн функциях возможны только в конце.
 
 ```
-ВАЖНО: Аргументы функции и процесса имеют более строгие проверки типов, а инлайн функция требует точного совпадения
 
 Описание процессов и функций
 ```ts
@@ -678,6 +686,27 @@ add
 Возврат:
  var: Число - возвращается число
 ```
+#### Маркер, enum или же перечисление
+```ts
+//Создание маркера
+enum Gender {
+    MALE,
+    FEMALE,
+    HELICOPTER
+}
+//Использование этой конструкции создаёт:
+// inline var Gender: Gender = ["MALE", "FEMALE", "HELICOPTER"]
+// Gender.MALE, Gender.FEMALE, Gender.HELICOPTER что равны "MALE", "FEMALE", "HELICOPTER"
+// Маркер является неизменяемым
+
+//Использование маркера в качестве параметра функции
+
+function gender_party(gender: Gender){
+    player::message("Gender $gender");
+}
+//В таком случае будет создан параметр типа enum и его перечислениями будут "MALE", "FEMALE", "HELICOPTER"
+//И в действительности этот параметр сможет принимать только текста этих трёх вариантов: "MALE", "FEMALE", "HELICOPTER"
+```
 #### Классы
 Классы на justmc не существуют, потому используются хитрости.\
 Создание класса
@@ -698,11 +727,7 @@ function `vector2d.__init__`{
     self = self.set_map_value("y", y);
     return_var = self;
 }
-self = variable::create_map_from_values([], []);
-x = 3;
-y = 4;
-code::call_function("vector2d.__init__");
-vector = return_var;
+code::call_function("vector2d.__init__", {"self" : {}, "x": 3, "y": 4, "return_var": vector);
 
 //Видим что наш созданный класс это словарь, но ему не обязательно быть словарём.
 //Изменим тип на список, используя встроенные фичи
@@ -724,11 +749,7 @@ function `vector2d.__init__`{
   self = self.set_list_value(1, y);
   return_var = self;
 }
-self = [0, 0];
-x = 3;
-y = 4;
-code::call_function("vector2d.__init__");
-vector = return_var;
+code::call_function("vector2d.__init__", {"self": [0,0], "x": 3, "y": 4, "return_var": vector);
 
 /*
 Видим, что наш класс теперь является списком

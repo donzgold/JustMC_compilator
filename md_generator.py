@@ -637,7 +637,7 @@ for i in another_actions:
         for i1 in another_actions[i]["args"]:
             if i1["type"] == "variable":
                 cringe1.append(i1)
-            elif i1["type"] == "enum":
+            elif i1["type"] == "enum" or "last" in arges[i1["id"]]:
                 cringe3.append(i1)
             else:
                 cringe2.append(i1)
