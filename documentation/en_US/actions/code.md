@@ -180,18 +180,18 @@ code::else(){
 
 **Usage example:** 
 ```ts
-code::start_process("process_name", {"args":`args`}, "DONT_COPY", "CURRENT_TARGET");
+code::start_process({"args":`args`}, "process_name", "DONT_COPY", "CURRENT_TARGET");
 
 //Or dry by keywords
 
-code::start_process(process_name="process_name", args={"args":`args`}, local_variables_mode="DONT_COPY", target_mode="CURRENT_TARGET");
+code::start_process(args={"args":`args`}, process_name="process_name", local_variables_mode="DONT_COPY", target_mode="CURRENT_TARGET");
 ```
 
 **Arguments:**
 
 | **Name**               | **Type**                                                                                                                                                                       | **Description** |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `process_name`         | Text                                                                                                                                                                           | Process name    |
 | `args`                 | Dictionary                                                                                                                                                                     | None            |
+| `process_name`         | Text                                                                                                                                                                           | Process name    |
 | `local_variables_mode` | Marker<br/>**DONT_COPY** - Don\'t duplicate<br/>**COPY** - Duplicate<br/>**SHARE** - General                                                                                   | Variable Mode   |
 | `target_mode`          | Marker<br/>**CURRENT_TARGET** - Event Target<br/>**CURRENT_SELECTION** - Current Target<br/>**NO_TARGET** - No Target<br/>**FOR_EACH_IN_SELECTION** - Each Target in Selection | Process Target  |

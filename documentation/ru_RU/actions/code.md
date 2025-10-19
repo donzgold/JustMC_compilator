@@ -180,18 +180,18 @@ code::else(){
 
 **Пример использования:** 
 ```ts
-code::start_process("process_name", {"args":`args`}, "DONT_COPY", "CURRENT_TARGET");
+code::start_process({"args":`args`}, "process_name", "DONT_COPY", "CURRENT_TARGET");
 
 //Или в сухую по ключам
 
-code::start_process(process_name="process_name", args={"args":`args`}, local_variables_mode="DONT_COPY", target_mode="CURRENT_TARGET");
+code::start_process(args={"args":`args`}, process_name="process_name", local_variables_mode="DONT_COPY", target_mode="CURRENT_TARGET");
 ```
 
 **Аргументы:**
 
 | **Имя**                | **Тип**                                                                                                                                                                  | **Описание**       |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| `process_name`         | Текст                                                                                                                                                                    | Название процесса  |
 | `args`                 | Словарь                                                                                                                                                                  | Аргументы процесса |
+| `process_name`         | Текст                                                                                                                                                                    | Название процесса  |
 | `local_variables_mode` | Маркер<br/>**DONT_COPY** - Не дублировать<br/>**COPY** - Дублировать<br/>**SHARE** - Общие                                                                               | Режим переменных   |
 | `target_mode`          | Маркер<br/>**CURRENT_TARGET** - Цель события<br/>**CURRENT_SELECTION** - Текущая цель<br/>**NO_TARGET** - Без цели<br/>**FOR_EACH_IN_SELECTION** - Каждая цель в выборке | Цель процесса      |
