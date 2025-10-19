@@ -467,7 +467,7 @@
     {"id": "args", "plural": false, "type": "map", "valueSlots": [14]}]},
   "start_process": {"id": "start_process", "type": "basic", "args": [
     {"id": "process_name", "plural": false, "type": "text", "valueSlots": [13]},
-    {"id": "args", "plural": false, "type": "map", "valueSlots": [27]},
+    {"id": "args", "plural": false, "type": "map", "valueSlots": [27], "last": true},
     {"id": "local_variables_mode", "plural": false, "type": "enum", "valueSlots": [25]},
     {"id": "target_mode", "plural": false, "type": "enum", "valueSlots": [26]}]},
   "entity_set_persistent": {"id": "entity_set_persistent", "type": "basic", "args": [
