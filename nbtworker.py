@@ -1,3 +1,7 @@
+import base64
+import gzip
+import struct
+
 
 class SnbtReader:
 
@@ -55,7 +59,8 @@ class SnbtReader:
         elif self.current_char == ":":
             self.advance()
             return Token("colon", ":")
-        elif self.current_char.isdigit() or self.current_char == "-" or self.current_char == "+" or self.current_char == ".":
+        elif (self.current_char.isdigit() or self.current_char == "-" or
+              self.current_char == "+" or self.current_char == "."):
             token_value = ""
             minus = False
             plus = False
@@ -69,28 +74,33 @@ class SnbtReader:
                 token_value = "0"
                 dot = True
             while self.current_char is not None and self.current_char.isdigit() or (
-                    es is False and self.current_char == "e") or (plus is True and self.current_char == "+") or (
+                    es is False and self.current_char in ("e", "E") and token_value[-1] != ".") or (
+                    plus is True and self.current_char == "+") or (
                     minus is True and self.current_char == "-") or (
                     dot is False and self.current_char == "." and es is False):
-                if es is False and self.current_char == "e":
+                if es is False and self.current_char in ("e", "E") and token_value[-1] != ".":
                     es = True
                 if dot is False and self.current_char == "." and es is False:
                     dot = True
                 token_value += self.current_char
                 self.advance()
-            if self.current_char == "b":
+            if token_value[-1] == ".":
+                token_value = token_value[:-1]
+                self.index -= 1
+                self.current_char = self.text[self.index]
+            if self.current_char in ("b", "B"):
                 self.advance()
                 return Token("Byte", int(token_value))
-            if self.current_char == "s":
+            if self.current_char in ("s", "S"):
                 self.advance()
                 return Token("Short", int(token_value))
-            if self.current_char == "L":
+            if self.current_char in ("l", "L"):
                 self.advance()
                 return Token("Long", int(token_value))
-            if self.current_char == "f":
+            if self.current_char in ("f", "F"):
                 self.advance()
                 return Token("Float", float(token_value))
-            if self.current_char == "d":
+            if self.current_char in ("d", "D"):
                 self.advance()
                 return Token("Double", float(token_value))
             return Token("Int", int(token_value))
@@ -119,10 +129,13 @@ class SnbtReader:
                     self.current_char.isalpha() or self.current_char.isdigit() or self.current_char == "_"):
                 token_value += self.current_char
                 self.advance()
+            if token_value == "true":
+                return Token("Byte", 1)
+            elif token_value == "false":
+                return Token("Byte", 0)
             return Token("Compound_entry", token_value)
         else:
-            print("error", self.index, self.text)
-            exit(-1)
+            raise Exception("error", self.index, self.text)
 
     def eat(self, token):
         if self.current_token.type == token:
@@ -183,6 +196,8 @@ class SnbtReader:
             a = self.current_token
             self.eat("String")
             return String(a.value)
+        else:
+            raise Exception(-1)
 
 
 class Token:
@@ -233,6 +248,14 @@ class Compound:
     def __len__(self):
         return len(self.values)
 
+    def to_bytes(self, name: str):
+        name_bytes = name.encode("UTF-8")
+        bytes_ = [10, *struct.pack("!h", len(name_bytes)), *name_bytes]
+        for key in self.values:
+            bytes_.extend(self.values[key].to_bytes(key))
+        bytes_.append(0)
+        return bytes_
+
 
 class Byte:
     def __init__(self, integer: int):
@@ -247,6 +270,10 @@ class Byte:
 
     def __repr__(self):
         return self.__str__()
+
+    def to_bytes(self, name):
+        name_bytes = name.encode("UTF-8")
+        return [1, *struct.pack("!h", len(name_bytes)), *name_bytes, *struct.pack("!b", self.value)]
 
 
 class Short:
@@ -263,6 +290,10 @@ class Short:
     def __repr__(self):
         return self.__str__()
 
+    def to_bytes(self, name):
+        name_bytes = name.encode("UTF-8")
+        return [2, *struct.pack("!h", len(name_bytes)), *name_bytes, *struct.pack("!h", self.value)]
+
 
 class Int:
     def __init__(self, integer: int):
@@ -277,6 +308,10 @@ class Int:
 
     def __repr__(self):
         return self.__str__()
+
+    def to_bytes(self, name):
+        name_bytes = name.encode("UTF-8")
+        return [3, *struct.pack("!h", len(name_bytes)), *name_bytes, *struct.pack("!i", self.value)]
 
 
 class Long:
@@ -293,6 +328,10 @@ class Long:
     def __repr__(self):
         return self.__str__()
 
+    def to_bytes(self, name):
+        name_bytes = name.encode("UTF-8")
+        return [4, *struct.pack("!h", len(name_bytes)), *name_bytes, *struct.pack("!q", self.value)]
+
 
 class Float:
     def __init__(self, floating: float):
@@ -305,6 +344,10 @@ class Float:
 
     def __repr__(self):
         return self.__str__()
+
+    def to_bytes(self, name):
+        name_bytes = name.encode("UTF-8")
+        return [5, *struct.pack("!h", len(name_bytes)), *name_bytes, *struct.pack("!f", self.value)]
 
 
 class Double:
@@ -319,6 +362,10 @@ class Double:
     def __repr__(self):
         return self.__str__()
 
+    def to_bytes(self, name):
+        name_bytes = name.encode("UTF-8")
+        return [6, *struct.pack("!h", len(name_bytes)), *name_bytes, *struct.pack("!d", self.value)]
+
 
 class ByteArray:
     def __init__(self, *array):
@@ -328,10 +375,15 @@ class ByteArray:
         self.values = array
 
     def __str__(self):
-        return f"[B;{','.join(list(map(str, self.values)))}]"
+        return f"[B;{','.join(list(map(lambda x: str(x.value), self.values)))}]"
 
     def __repr__(self):
         return self.__str__()
+
+    def to_bytes(self, name):
+        name_bytes = name.encode("UTF-8")
+        return [7, *struct.pack("!h", len(name_bytes)), *name_bytes, *struct.pack("!h", len(self.values)),
+                  *[struct.pack("!b", i.value) for i in self.values]]
 
 
 class String:
@@ -339,19 +391,29 @@ class String:
         self.value = text
 
     def __str__(self):
-        if ("\"" in self.value) and (not "'" in self.value):
+        if ("\"" in self.value) and ("'" not in self.value):
             return "'" + self.value + "'"
         return "\"" + self.value.replace("\"", "\\\"") + "\""
 
     def __repr__(self):
         return self.__str__()
 
+    def to_bytes(self, name):
+        name_bytes = name.encode("UTF-8")
+        str_bytes = self.value.encode("UTF-8")
+        return [8, *struct.pack("!h", len(name_bytes)), *name_bytes, *struct.pack("!h", len(str_bytes)), *str_bytes]
+
 
 class List:
     def __init__(self, *array):
+        self.type = None
         for i in array:
             if not type(i) in (
                     Compound, Byte, Short, Int, Long, Float, Double, ByteArray, String, List, IntArray, LongArray):
+                raise Exception(f"Недопустимый элмент: {i.__class__.__name__}")
+            if self.type is None:
+                self.type = type(i)
+            if i != self.type:
                 raise Exception(f"Недопустимый элмент: {i.__class__.__name__}")
         self.values = list(array)
 
@@ -363,12 +425,17 @@ class List:
 
     def append(self, value):
         if not type(value) in (
-                Compound, Byte, Short, Int, Long, Float, Double, ByteArray, String, List, IntArray, LongArray):
+                Compound, Byte, Short, Int, Long, Float, Double, ByteArray, String, List, IntArray, LongArray,
+                self.type):
             raise Exception(f"Недопустимый элемент: {value.__class__.__name__}")
+        if self.type is None:
+            self.type = type(value)
         self.values.append(value)
 
     def extend(self, values):
         if not type(values) in (List, IntArray, LongArray, ByteArray):
+            raise Exception(f"Недопустимый элемент: {values.__class__.__name__}")
+        if isinstance(values, List) and self.type != values.type:
             raise Exception(f"Недопустимый элемент: {values.__class__.__name__}")
         for i in values.values:
             if not type(i) in (
@@ -385,6 +452,19 @@ class List:
             raise Exception(f"Недопустимый элемент: {value.__class__.__name__}")
         self.values[key] = value
 
+    def to_bytes(self, name):
+        name_bytes = name.encode("UTF-8")
+        bytes_ = [9, *struct.pack("!h", len(name_bytes)), *name_bytes]
+        type1 = None
+        for i1 in self.values:
+            a = i1.to_bytes("")
+            if type1 is None:
+                type1 = a[0]
+                bytes_.append(type1)
+                bytes_.extend(struct.pack("!i", len(self.values)))
+            bytes_.extend(a[3:])
+        return bytes_
+
 
 class IntArray:
     def __init__(self, *array):
@@ -394,7 +474,7 @@ class IntArray:
         self.values = list(array)
 
     def __str__(self):
-        return f"[I;{','.join(list(map(str, self.values)))}]"
+        return f"[I;{','.join(list(map(lambda x: str(x.value), self.values)))}]"
 
     def __repr__(self):
         return self.__str__()
@@ -419,6 +499,11 @@ class IntArray:
         if not isinstance(value, Int):
             raise Exception(f"Недопустимый элемент: {value.__class__.__name__}")
         self.values[key] = value
+
+    def to_bytes(self, name):
+        name_bytes = name.encode("UTF-8")
+        return [11, *struct.pack("!h", len(name_bytes)), *name_bytes, *struct.pack("!h", len(self.values)),
+                  *[struct.pack("!i", i.value) for i in self.values]]
 
 
 class LongArray:
@@ -429,7 +514,7 @@ class LongArray:
         self.values = list(array)
 
     def __str__(self):
-        return f"[L;{','.join(list(map(str, self.values)))}]"
+        return f"[L;{','.join(list(map(lambda x: str(x.value), self.values)))}]"
 
     def __repr__(self):
         return self.__str__()
@@ -455,7 +540,138 @@ class LongArray:
             raise Exception(f"Недопустимый элемент: {value.__class__.__name__}")
         self.values[key] = value
 
+    def to_bytes(self, name):
+        name_bytes = name.encode("UTF-8")
+        return [12, *struct.pack("!h", len(name_bytes)), *name_bytes, *struct.pack("!h", len(self.values)),
+                  *[struct.pack("!q", i.value) for i in self.values]]
+
 
 def load(string):
     reader = SnbtReader(string)
     return reader.get_value()
+
+
+def read_base64(base64_text):
+    def eat(a, number):
+        if a[0] == number:
+            del a[0]
+        else:
+            raise Exception()
+
+    def read(a, amount):
+        b = a[:amount]
+        del a[:amount]
+        return b
+
+    def text_from_bytes(lst):
+        return bytes(lst).decode("UTF-8")
+
+    def int_from_bytes(inbytes):
+        if len(inbytes) == 1:  # byte
+            return struct.unpack("!b", bytes(inbytes))[0]
+        if len(inbytes) == 2:  # short
+            return struct.unpack("!h", bytes(inbytes))[0]
+        if len(inbytes) == 4:  # int
+            return struct.unpack("!i", bytes(inbytes))[0]
+        if len(inbytes) == 8:  # long
+            return struct.unpack("!q", bytes(inbytes))[0]
+        raise Exception(-2)
+
+    def float_from_bytes(inbytes):
+        if len(inbytes) == 4:  # float
+            return struct.unpack("!f", bytes(inbytes))[0]
+        if len(inbytes) == 8:  # double
+            return struct.unpack("!d", bytes(inbytes))[0]
+        raise Exception(-3)
+
+    def full_read(a):
+        if a[0] == 12:  # longArray
+            eat(a, 7)
+            b = read(a, 2)
+            name = text_from_bytes(read(a, int_from_bytes(b)))
+            amount = int_from_bytes(read(a, 4))
+            it = LongArray(*[Long(int_from_bytes(read(a, 8))) for _ in range(amount)])
+            return name, it
+        elif a[0] == 11:  # intArray
+            eat(a, 7)
+            b = read(a, 2)
+            name = text_from_bytes(read(a, int_from_bytes(b)))
+            amount = int_from_bytes(read(a, 4))
+            it = IntArray(*[Int(int_from_bytes(read(a, 4))) for _ in range(amount)])
+            return name, it
+        elif a[0] == 10:  # dict
+            it = Compound()
+            eat(a, 10)
+            b = read(a, 2)
+            name = text_from_bytes(read(a, int_from_bytes(b)))
+            while a[0] != 0:
+                key, value = full_read(a)
+                it[key] = value
+            eat(a, 0)
+            return name, it
+        elif a[0] == 9:  # list
+            it = List()
+            eat(a, 9)
+            b = read(a, 2)
+            name = text_from_bytes(read(a, int_from_bytes(b)))
+            list_of = read(a, 1)[0]
+            amount = int_from_bytes(read(a, 4))
+            for i1 in range(amount):
+                a.insert(0, list_of)
+                a.insert(1, 0)
+                a.insert(2, 0)
+                key, value = full_read(a)
+                it.append(value)
+            return name, it
+        elif a[0] == 8:  # string
+            eat(a, 8)
+            b = read(a, 2)
+            name = text_from_bytes(read(a, int_from_bytes(b)))
+            b = read(a, 2)
+            value = text_from_bytes(read(a, int_from_bytes(b)))
+            return name, String(value)
+        elif a[0] == 7:  # byteArray
+            eat(a, 7)
+            b = read(a, 2)
+            name = text_from_bytes(read(a, int_from_bytes(b)))
+            amount = int_from_bytes(read(a, 4))
+            it = ByteArray(*[Byte(int_from_bytes(read(a, 1))) for _ in range(amount)])
+            return name, it
+        elif a[0] == 6:  # double
+            eat(a, 5)
+            b = read(a, 2)
+            name = text_from_bytes(read(a, int_from_bytes(b)))
+            return name, Float(float_from_bytes(read(a, 8)))
+        elif a[0] == 5:  # float
+            eat(a, 5)
+            b = read(a, 2)
+            name = text_from_bytes(read(a, int_from_bytes(b)))
+            return name, Float(float_from_bytes(read(a, 4)))
+        elif a[0] == 4:  # long
+            eat(a, 4)
+            b = read(a, 2)
+            name = text_from_bytes(read(a, int_from_bytes(b)))
+            return name, Long(int_from_bytes(read(a, 8)))
+        elif a[0] == 3:  # int
+            eat(a, 3)
+            b = read(a, 2)
+            name = text_from_bytes(read(a, int_from_bytes(b)))
+            return name, Int(int_from_bytes(read(a, 4)))
+        elif a[0] == 2:  # short
+            eat(a, 2)
+            b = read(a, 2)
+            name = text_from_bytes(read(a, int_from_bytes(b)))
+            return name, Short(int_from_bytes(read(a, 2)))
+        elif a[0] == 1:  # byte
+            eat(a, 1)
+            b = read(a, 2)
+            name = text_from_bytes(read(a, int_from_bytes(b)))
+            return name, Byte(int_from_bytes(read(a, 1)))
+        else:
+            raise Exception(1)
+
+    return full_read(list(gzip.decompress(base64.b64decode(base64_text))))[1]
+
+
+def convert_to_base64(it):
+    return base64.b64encode(gzip.compress(bytes(it.to_bytes(name="")), mtime=1337)).decode("UTF-8")

@@ -1,6 +1,5 @@
 import os
 from time import time
-
 from compilator import find_value_from_list
 
 start_time = time()
@@ -21,7 +20,6 @@ color_codes = {"0": "#000000", "1": "#0000AA", "2": "#00AA00", "3": "#00AAAA", "
 allowed_symbols = "0123456789abcdefABCDEF"
 
 current_indent = 0
-
 item_list = set()
 for i in json.load(open("data/actions.json")):
     actions[i["id"]] = i
@@ -125,21 +123,28 @@ def decompile(thing):
             return "\"" + str(thing['enum']).replace("\\", "\\\\").replace("\"", "\\\"") + "\""
     elif typ == "array":
         arr = list(filter(is_not_none, map(decompile, thing['values'])))
+        while len(arr) > 0 and arr[-1] == "item(\"air\", count=0)":
+            del arr[-1]
         return f"[{', '.join(arr)}]"
     elif typ == "map":
         return "{" + ", ".join([f"{k}: {v}" for k, v in thing["values"].items()]) + "}"
     elif typ == "item":
         if thing["item"] == "AAAAAAAAAAA=":
-            return None
+            return "item(\"air\", count=0)"
         try:
             it = nbtworker.load(thing["item"])
-            if len(it) == 0:
-                return None
-            return f"item({it['id']}" + (f", count={it['count'].value}" if it['count'].value != 1 else "") + (
-                f", nbt=m{it['components']}" if "components" in it else "") + ")"
-        except Exception:
-            item_list.add(thing["item"])
-            return thing["item"]
+        except:
+            try:
+                it = nbtworker.read_base64(thing["item"])
+            except:
+                item_list.add(thing["item"])
+                return thing["item"]
+        if len(it) == 0:
+            return "item(\"air\")"
+        return f"item({it['id']}" + (f", count={it['count'].value}" if it['count'].value != 1 else "") + (
+            f", nbt=m{it['components']}" if "components" in it else (f", nbt=m{it['tag']}" if "tag" in it else "")) + (
+            f", dataversion={0}" if "tag" in it else (
+                f", dataversion={it['DataVersion']}" if "DataVersion" in it else "")) + ")"
     elif typ == "game_value":
         return f"value::{thing['game_value']}" + (
             f"<{json.loads(thing['selection'])['type']}>" if thing["selection"] != "null" else "")
@@ -158,7 +163,9 @@ def decompile(thing):
         color = thing.setdefault("color", None)
         size = thing.setdefault("size", None)
         to_color = thing.setdefault("to_color", None)
-        a = (f', material=\"{material}\"' if material is not None else '') + (f', color={color}' if color is not None else '') + (f', size={size}' if size is not None else '') + (f', to_color={to_color}' if to_color is not None else '')
+        a = (f', material=\"{material}\"' if material is not None else '') + (
+            f', color={color}' if color is not None else '') + (f', size={size}' if size is not None else '') + (
+                f', to_color={to_color}' if to_color is not None else '')
         return f"particle(\"{thing['particle_type']}\", {thing['count']}, {thing['first_spread']}, {thing['second_spread']}, {thing.setdefault('x_motion', 0)}, {thing.setdefault('y_motion', 0)}, {thing.setdefault('z_motion', 0)}{a})"
     elif "action" in thing:
         if thing["action"] == "empty":
@@ -171,7 +178,7 @@ def decompile(thing):
             return ret
         act = actions[thing["action"]]
         selector = f"<{thing['selection']['type']}>" if "selection" in thing and thing["selection"] not in (
-        "null", None) else ""
+            "null", None) else ""
         selector = f"<{thing['conditional']['selection']['type']}>" if "conditional" in thing and "selection" in thing[
             'conditional'] and thing['conditional']["selection"] not in ("null", None) else selector
         if act["type"] == "basic":
@@ -193,7 +200,7 @@ def decompile(thing):
             for arg in act["args"]:
                 if arg["id"] in args:
                     arg_t = decompile(args[arg["id"]]["value"])
-                    if is_not_none(arg_t):
+                    if is_not_none(arg_t) and arg_t != "item(\"air\", count=0)":
                         if arg["id"] in ass:
                             if ass_pos:
                                 ass_text.append(arg_t)
@@ -244,7 +251,7 @@ def decompile(thing):
             for arg in new_act["args"]:
                 if arg["id"] in args:
                     arg_t = decompile(args[arg["id"]]["value"])
-                    if is_not_none(arg_t):
+                    if is_not_none(arg_t) and arg_t != "item(\"air\", count=0)":
                         if ori_pos:
                             if arg["id"] == new_act["origin"]:
                                 ori = "(" + arg_t + ")" if "." in arg_t else arg_t
@@ -276,10 +283,10 @@ def decompile(thing):
             for arg in act["args"]:
                 if arg["id"] in args:
                     arg_t = decompile(args[arg["id"]]["value"])
-                    if is_not_none(arg_t):
+                    if is_not_none(arg_t) and arg_t != "item(\"air\", count=0)":
                         if ori_pos:
                             if arg["id"] == act["origin"]:
-                                ori = "(" + arg_t + ")" if "." in arg_t else arg_t
+                                ori = "(" + arg_t + ")" if "." in arg_t or arg_t.isdecimal() else arg_t
                                 ori_pos = False
                                 continue
                         if pos:
@@ -318,10 +325,10 @@ def decompile(thing):
             for arg in new_act["args"]:
                 if arg["id"] in args:
                     arg_t = decompile(args[arg["id"]]["value"])
-                    if is_not_none(arg_t):
+                    if is_not_none(arg_t) and arg_t != "item(\"air\", count=0)":
                         if ori_pos:
                             if arg["id"] == new_act["origin"]:
-                                ori = "(" + arg_t + ")" if "." in arg_t else arg_t
+                                ori = "(" + arg_t + ")" if "." in arg_t or arg_t.isdecimal() else arg_t
                                 ori_pos = False
                                 continue
                         if pos:
@@ -386,9 +393,9 @@ def decompile_file(file, properties=None):
             "&fВ коде обнаружены предметы, невозможные расшифровать обычным способом.\nПрограмма выполнит компиляцию кода необходимого для исправления предметов."))
         print(minecraft_based_text(translate("compilator.code_uploading_message")))
         start_time1 = time()
-        from compilator import dct, text, assign, var, Vars, Context
+        from compilator import dct, text, assign, var, Vars, Context, Texts
         import requests
-        keys = [text(i, 0, -1, -1, "") for i in item_list]
+        keys = [text(i, Texts.LEGACY, -1, -1, "") for i in item_list]
 
         class fake_item:
             def __init__(self, base64, start_pos, end_pos, source):
@@ -405,7 +412,7 @@ def decompile_file(file, properties=None):
         context = Context("decompilator")
         context.next_lvl()
         add_actions = \
-        assign([var("a", Vars.LOCAL, -1, -1, "")], None, dct(keys, vals, -1, -1, ""), -1, -1, "").simplify()[0]
+            assign([var("a", Vars.LOCAL, -1, -1, "")], None, dct(keys, vals, -1, -1, ""), -1, -1, "").simplify()[0]
         context.add_operations(add_actions)
         add_actions = [i.json() for i in context.get_operations()]
         code = {"handlers": [{"type": "event", "event": "player_join", "position": 0, "operations": [
@@ -482,25 +489,25 @@ def decompile_file(file, properties=None):
                                                                                       "scope": "local"}},
                                                                            {"name": "text", "value": {"type": "array",
                                                                                                       "values": [{
-                                                                                                                     "type": "text",
-                                                                                                                     "text": "{\"",
-                                                                                                                     "parsing": "legacy"},
-                                                                                                                 {
-                                                                                                                     "type": "variable",
-                                                                                                                     "variable": "k",
-                                                                                                                     "scope": "local"},
-                                                                                                                 {
-                                                                                                                     "type": "text",
-                                                                                                                     "text": "\":\"",
-                                                                                                                     "parsing": "legacy"},
-                                                                                                                 {
-                                                                                                                     "type": "variable",
-                                                                                                                     "variable": "v",
-                                                                                                                     "scope": "local"},
-                                                                                                                 {
-                                                                                                                     "type": "text",
-                                                                                                                     "text": "\"",
-                                                                                                                     "parsing": "legacy"}]}},
+                                                                                                          "type": "text",
+                                                                                                          "text": "{\"",
+                                                                                                          "parsing": "legacy"},
+                                                                                                          {
+                                                                                                              "type": "variable",
+                                                                                                              "variable": "k",
+                                                                                                              "scope": "local"},
+                                                                                                          {
+                                                                                                              "type": "text",
+                                                                                                              "text": "\":\"",
+                                                                                                              "parsing": "legacy"},
+                                                                                                          {
+                                                                                                              "type": "variable",
+                                                                                                              "variable": "v",
+                                                                                                              "scope": "local"},
+                                                                                                          {
+                                                                                                              "type": "text",
+                                                                                                              "text": "\"",
+                                                                                                              "parsing": "legacy"}]}},
                                                                            {"name": "merging", "value": {"type": "enum",
                                                                                                          "enum": "CONCATENATION"}}]}]},
                             {"action": "else", "values": [], "operations": [{"action": "set_variable_text", "values": [
