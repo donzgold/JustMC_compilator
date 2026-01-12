@@ -381,7 +381,8 @@
           "TEMP_RANGE",
           "WAYPOINT_TRANSMIT_RANGE",
           "WAYPOINT_RECEIVE_RANGE",
-          "CAMERA_DISTANCE"
+          "CAMERA_DISTANCE",
+          "ZOMBIE_SPAWN_REINFORCEMENTS"
         ]
       },
       {
@@ -394,13 +395,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "entity_get_custom_tag",
@@ -420,13 +421,13 @@
         "type": "any"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "entity_get_equipment_item",
@@ -452,13 +453,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "entity_get_nbt",
@@ -482,13 +483,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "entity_give_potion_effects",
@@ -663,6 +664,34 @@
     "name": "leave_vehicle",
     "object": "entity",
     "args": [],
+    "type": "basic"
+  },
+  {
+    "id": "entity_mimic_disguise_from_entity",
+    "name": "mimic_disguise_from_entity",
+    "object": "entity",
+    "args": [
+      {
+        "id": "name_or_uuid",
+        "type": "text"
+      },
+      {
+        "id": "include_disguise",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "remove_original_entity",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
     "type": "basic"
   },
   {
@@ -4155,6 +4184,22 @@
     "type": "basic"
   },
   {
+    "id": "game_remove_tile_block_custom_tag",
+    "name": "remove_tile_block_custom_tag",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "tag_name",
+        "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "game_replace_blocks_in_region",
     "name": "replace_blocks_in_region",
     "object": "world",
@@ -4991,8 +5036,8 @@
         ]
       }
     ],
-    "origin": "id",
-    "type": "basic"
+    "type": "basic",
+    "origin": "id"
   },
   {
     "id": "game_set_scoreboard_line_display",
@@ -5012,8 +5057,8 @@
         "type": "text"
       }
     ],
-    "origin": "id",
-    "type": "basic"
+    "type": "basic",
+    "origin": "id"
   },
   {
     "id": "game_set_scoreboard_line_format",
@@ -5043,8 +5088,8 @@
         ]
       }
     ],
-    "origin": "id",
-    "type": "basic"
+    "type": "basic",
+    "origin": "id"
   },
   {
     "id": "game_set_scoreboard_number_format",
@@ -5070,8 +5115,8 @@
         ]
       }
     ],
-    "origin": "id",
-    "type": "basic"
+    "type": "basic",
+    "origin": "id"
   },
   {
     "id": "game_set_scoreboard_score",
@@ -5279,7 +5324,27 @@
         "type": "item"
       }
     ],
-    "origin": "location",
+    "type": "basic",
+    "origin": "location"
+  },
+  {
+    "id": "game_set_tile_block_custom_tag",
+    "name": "set_tile_block_custom_tag",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "tag_name",
+        "type": "text"
+      },
+      {
+        "id": "tag_value",
+        "type": "text"
+      }
+    ],
     "type": "basic"
   },
   {
@@ -6085,8 +6150,8 @@
         "type": "location"
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_collides_using_hitbox",
@@ -6102,8 +6167,8 @@
         "type": "location"
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_collides_with_entity",
@@ -6123,24 +6188,24 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_dummy",
     "name": "is_dummy",
     "object": "entity",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_exists",
     "name": "exists",
     "object": "entity",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_has_custom_tag",
@@ -6167,8 +6232,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_has_potion_effect",
@@ -6189,8 +6254,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_in_area",
@@ -6230,32 +6295,32 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_is_disguised",
     "name": "is_disguised",
     "object": "entity",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_is_grounded",
     "name": "is_grounded",
     "object": "entity",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_is_item",
     "name": "is_item",
     "object": "entity",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_is_minecraft_tagged",
@@ -6267,16 +6332,16 @@
         "type": "text"
       }
     ],
-    "boolean": true,
-    "type": "basic"
+    "type": "basic",
+    "boolean": true
   },
   {
     "id": "if_entity_is_mob",
     "name": "is_mob",
     "object": "entity",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_is_near_location",
@@ -6300,16 +6365,16 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_is_projectile",
     "name": "is_projectile",
     "object": "entity",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_is_riding_entity",
@@ -6332,8 +6397,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_is_standing_on_block",
@@ -6359,8 +6424,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_is_type",
@@ -6373,24 +6438,24 @@
         "array": 18
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_is_undead",
     "name": "is_undead",
     "object": "entity",
     "args": [],
-    "boolean": true,
-    "type": "basic"
+    "type": "basic",
+    "boolean": true
   },
   {
     "id": "if_entity_is_vehicle",
     "name": "is_vehicle",
     "object": "entity",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_name_equals",
@@ -6403,8 +6468,8 @@
         "array": 18
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_entity_spawn_reason_equals",
@@ -6453,8 +6518,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_block_equals",
@@ -6471,8 +6536,8 @@
         "type": "location"
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_block_powered",
@@ -6493,8 +6558,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_chunk_is_loaded",
@@ -6506,8 +6571,8 @@
         "type": "location"
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_container_has",
@@ -6542,8 +6607,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_container_has_room_for_item",
@@ -6568,8 +6633,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_damage_cause_equals",
@@ -6616,24 +6681,24 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_dummy",
     "name": "is_dummy",
     "object": "world",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_event_attack_is_critical",
     "name": "event_attack_is_critical",
     "object": "world",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_event_block_equals",
@@ -6651,8 +6716,8 @@
         "array": 20
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_event_has_input",
@@ -6673,16 +6738,16 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "basic"
+    "type": "basic",
+    "boolean": true
   },
   {
     "id": "if_game_event_is_canceled",
     "name": "event_is_canceled",
     "object": "world",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_event_item_equals",
@@ -6705,8 +6770,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_has_player",
@@ -6719,8 +6784,8 @@
         "array": 18
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_heal_cause_equals",
@@ -6743,8 +6808,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_ignite_cause_equals",
@@ -6768,8 +6833,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_instrument_equals",
@@ -6806,8 +6871,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_game_location_in_block",
@@ -6819,8 +6884,8 @@
         "type": "location"
       }
     ],
-    "boolean": true,
-    "type": "basic"
+    "type": "basic",
+    "boolean": true
   },
   {
     "id": "if_game_sign_contains",
@@ -6868,16 +6933,16 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_chat_colors_enabled",
     "name": "chat_colors_enabled",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_chat_message_equals",
@@ -6890,8 +6955,8 @@
         "array": 18
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_collides_at_location",
@@ -6903,8 +6968,8 @@
         "type": "location"
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_collides_using_hitbox",
@@ -6920,8 +6985,8 @@
         "type": "location"
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_collides_with_entity",
@@ -6941,8 +7006,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_cursor_item_equals",
@@ -6965,16 +7030,16 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_dummy",
     "name": "is_dummy",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_gamemode_equals",
@@ -6992,8 +7057,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_has_input",
@@ -7014,8 +7079,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "basic"
+    "type": "basic",
+    "boolean": true
   },
   {
     "id": "if_player_has_item",
@@ -7046,8 +7111,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_has_item_at_least",
@@ -7073,8 +7138,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_has_item_in_slot",
@@ -7102,8 +7167,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_has_potion_effect",
@@ -7124,8 +7189,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_has_privilege",
@@ -7152,8 +7217,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_has_room_for_item",
@@ -7185,8 +7250,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_hotbar_slot_equals",
@@ -7198,8 +7263,8 @@
         "type": "number"
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_in_area",
@@ -7239,8 +7304,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_inventory_menu_slot_equals",
@@ -7268,8 +7333,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_inventory_type_open",
@@ -7314,48 +7379,48 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_allow_server_listing",
     "name": "is_allow_server_listing",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_blocking",
     "name": "is_blocking",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_disguised",
     "name": "is_disguised",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_flying",
     "name": "is_flying",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_gliding",
     "name": "is_gliding",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_holding",
@@ -7387,8 +7452,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_looking_at_block",
@@ -7419,8 +7484,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_near",
@@ -7444,24 +7509,24 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_on_ground",
     "name": "is_on_ground",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_online_mode",
     "name": "is_online_mode",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_riding_entity",
@@ -7484,40 +7549,40 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_self_disguised",
     "name": "is_self_disguised",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_sleeping",
     "name": "is_sleeping",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_sneaking",
     "name": "is_sneaking",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_sprinting",
     "name": "is_sprinting",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_standing_on_block",
@@ -7543,16 +7608,16 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_swimming",
     "name": "is_swimming",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_using_item",
@@ -7575,8 +7640,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_is_wearing_item",
@@ -7607,8 +7672,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_item_is_not_on_cooldown",
@@ -7621,8 +7686,8 @@
         "array": 18
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_name_equals",
@@ -7635,16 +7700,16 @@
         "array": 18
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_player_text_filtering_enabled",
     "name": "text_filtering_enabled",
     "object": "player",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_variable_block_is_minecraft_tagged",
@@ -7660,8 +7725,8 @@
         "type": "text"
       }
     ],
-    "boolean": true,
-    "type": "basic"
+    "type": "basic",
+    "boolean": true
   },
   {
     "id": "if_variable_block_is_solid",
@@ -7673,17 +7738,17 @@
         "type": "block"
       }
     ],
+    "type": "basic",
     "origin": "block",
-    "boolean": true,
-    "type": "basic"
+    "boolean": true
   },
   {
     "id": "if_variable_dummy",
     "name": "is_dummy",
     "object": "variable",
     "args": [],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_variable_equals",
@@ -7700,9 +7765,9 @@
         "array": 21
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_exists",
@@ -7714,9 +7779,9 @@
         "type": "variable"
       }
     ],
+    "type": "container",
     "origin": "variable",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_greater",
@@ -7732,9 +7797,9 @@
         "type": "number"
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_greater_or_equals",
@@ -7750,9 +7815,9 @@
         "type": "number"
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_in_range",
@@ -7772,9 +7837,9 @@
         "type": "any"
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_is_type",
@@ -7802,9 +7867,9 @@
         ]
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_item_equals",
@@ -7831,9 +7896,9 @@
         ]
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_item_has_enchantment",
@@ -7853,9 +7918,9 @@
         "type": "number"
       }
     ],
+    "type": "container",
     "origin": "item",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_item_has_tag",
@@ -7886,9 +7951,9 @@
         ]
       }
     ],
+    "type": "container",
     "origin": "item",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_item_is_block",
@@ -7900,9 +7965,9 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "origin": "item",
-    "boolean": true,
-    "type": "basic"
+    "boolean": true
   },
   {
     "id": "if_variable_item_is_minecraft_tagged",
@@ -7918,8 +7983,8 @@
         "type": "text"
       }
     ],
-    "boolean": true,
-    "type": "basic"
+    "type": "basic",
+    "boolean": true
   },
   {
     "id": "if_variable_less",
@@ -7935,9 +8000,9 @@
         "type": "number"
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_less_or_equals",
@@ -7953,9 +8018,9 @@
         "type": "number"
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_list_contains_value",
@@ -7980,9 +8045,9 @@
         ]
       }
     ],
+    "type": "container",
     "origin": "list",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_list_is_empty",
@@ -7994,9 +8059,9 @@
         "type": "any"
       }
     ],
+    "type": "container",
     "origin": "list",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_list_value_equals",
@@ -8017,9 +8082,9 @@
         "array": 21
       }
     ],
+    "type": "container",
     "origin": "list",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_location_in_range",
@@ -8048,9 +8113,9 @@
         ]
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_location_is_near",
@@ -8081,9 +8146,9 @@
         ]
       }
     ],
+    "type": "container",
     "origin": "location",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_map_has_key",
@@ -8108,9 +8173,9 @@
         ]
       }
     ],
+    "type": "container",
     "origin": "map",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_map_value_equals",
@@ -8131,9 +8196,9 @@
         "array": 21
       }
     ],
+    "type": "container",
     "origin": "map",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_not_equals",
@@ -8150,9 +8215,9 @@
         "array": 21
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_number_in_range",
@@ -8182,8 +8247,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_variable_range_intersects_range",
@@ -8215,8 +8280,8 @@
         ]
       }
     ],
-    "boolean": true,
-    "type": "container"
+    "type": "container",
+    "boolean": true
   },
   {
     "id": "if_variable_text_contains",
@@ -8241,9 +8306,9 @@
         ]
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_text_ends_with",
@@ -8268,9 +8333,9 @@
         ]
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_text_matches",
@@ -8303,9 +8368,9 @@
         ]
       }
     ],
+    "type": "container",
     "origin": "match",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "if_variable_text_starts_with",
@@ -8330,9 +8395,9 @@
         ]
       }
     ],
+    "type": "container",
     "origin": "value",
-    "boolean": true,
-    "type": "container"
+    "boolean": true
   },
   {
     "id": "player_add_inventory_menu_row",
@@ -8573,8 +8638,8 @@
         ]
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "type": "basic",
+    "origin": "location"
   },
   {
     "id": "player_display_block",
@@ -9053,13 +9118,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "player_get_nbt",
@@ -9083,13 +9148,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "player_give_experience",
@@ -9343,6 +9408,43 @@
     "name": "load_inventory",
     "object": "player",
     "args": [],
+    "type": "basic"
+  },
+  {
+    "id": "player_mimic_disguise_from_entity",
+    "name": "mimic_disguise_from_entity",
+    "object": "player",
+    "args": [
+      {
+        "id": "name_or_uuid",
+        "type": "text"
+      },
+      {
+        "id": "include_disguise",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "disguise",
+        "type": "enum",
+        "values": [
+          "ALL",
+          "EVERYONE_BUT_NOT_SELF",
+          "ONLY_SELF"
+        ]
+      },
+      {
+        "id": "remove_original_entity",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
     "type": "basic"
   },
   {
@@ -11326,13 +11428,13 @@
         ]
       }
     ],
+    "type": "container",
     "lambda": [
       {
         "id": "variable",
         "type": "location"
       }
-    ],
-    "type": "container"
+    ]
   },
   {
     "id": "repeat_dummy",
@@ -11359,6 +11461,7 @@
         "type": "array"
       }
     ],
+    "type": "container",
     "lambda": [
       {
         "id": "index_variable",
@@ -11368,8 +11471,7 @@
         "id": "value_variable",
         "type": "any"
       }
-    ],
-    "type": "container"
+    ]
   },
   {
     "id": "repeat_for_each_map_entry",
@@ -11389,6 +11491,7 @@
         "type": "map"
       }
     ],
+    "type": "container",
     "lambda": [
       {
         "id": "key_variable",
@@ -11398,8 +11501,7 @@
         "id": "value_variable",
         "type": "any"
       }
-    ],
-    "type": "container"
+    ]
   },
   {
     "id": "repeat_forever",
@@ -11422,13 +11524,13 @@
         "type": "number"
       }
     ],
+    "type": "container",
     "lambda": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "container"
+    ]
   },
   {
     "id": "repeat_on_circle",
@@ -11468,13 +11570,13 @@
         ]
       }
     ],
+    "type": "container",
     "lambda": [
       {
         "id": "variable",
         "type": "location"
       }
-    ],
-    "type": "container"
+    ]
   },
   {
     "id": "repeat_on_grid",
@@ -11494,13 +11596,13 @@
         "type": "location"
       }
     ],
+    "type": "container",
     "lambda": [
       {
         "id": "variable",
         "type": "location"
       }
-    ],
-    "type": "container"
+    ]
   },
   {
     "id": "repeat_on_path",
@@ -11529,13 +11631,13 @@
         ]
       }
     ],
+    "type": "container",
     "lambda": [
       {
         "id": "variable",
         "type": "location"
       }
-    ],
-    "type": "container"
+    ]
   },
   {
     "id": "repeat_on_range",
@@ -11559,13 +11661,13 @@
         "type": "number"
       }
     ],
+    "type": "container",
     "lambda": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "container"
+    ]
   },
   {
     "id": "repeat_on_sphere",
@@ -11598,13 +11700,13 @@
         ]
       }
     ],
+    "type": "container",
     "lambda": [
       {
         "id": "variable",
         "type": "location"
       }
-    ],
-    "type": "container"
+    ]
   },
   {
     "id": "repeat_while",
@@ -12010,14 +12112,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_add",
@@ -12034,13 +12136,13 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_add_item_enchantment",
@@ -12064,14 +12166,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_add_item_potion_effects",
@@ -12117,14 +12219,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_add_vectors",
@@ -12141,13 +12243,13 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_align_location",
@@ -12188,14 +12290,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_align_to_axis_vector",
@@ -12219,14 +12321,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
     ],
-    "origin": "vector",
-    "type": "basic"
+    "origin": "vector"
   },
   {
     "id": "set_variable_append_component",
@@ -12252,13 +12354,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_append_list",
@@ -12278,14 +12380,14 @@
         "type": "array"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "list_1",
-    "type": "basic"
+    "origin": "list_1"
   },
   {
     "id": "set_variable_append_map",
@@ -12305,14 +12407,14 @@
         "type": "map"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "map"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "origin": "map"
   },
   {
     "id": "set_variable_append_value",
@@ -12329,8 +12431,8 @@
         "array": 21
       }
     ],
-    "origin": "variable",
-    "type": "basic"
+    "type": "basic",
+    "origin": "variable"
   },
   {
     "id": "set_variable_atan2",
@@ -12350,13 +12452,13 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_average",
@@ -12383,13 +12485,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_bitwise_operation",
@@ -12413,22 +12515,24 @@
         "type": "enum",
         "values": [
           "AND",
+          "LEFT_ROTATE",
           "LEFT_SHIFT",
           "NOT",
           "OR",
+          "RIGHT_ROTATE",
           "RIGHT_SHIFT",
           "UNSIGNED_RIGHT_SHIFT",
           "XOR"
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_bytes_to_text",
@@ -12454,13 +12558,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_center_location",
@@ -12477,13 +12581,13 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_change_component_parsing",
@@ -12509,14 +12613,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_char_to_number",
@@ -12532,14 +12636,41 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "char",
-    "type": "basic"
+    "origin": "char"
+  },
+  {
+    "id": "set_variable_chunk_text",
+    "name": "chunk_text",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "text",
+        "type": "text"
+      },
+      {
+        "id": "size",
+        "type": "number"
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
+    "origin": "text"
   },
   {
     "id": "set_variable_clamp",
@@ -12563,14 +12694,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_clamp_location",
@@ -12603,14 +12734,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_clear_color_codes",
@@ -12626,14 +12757,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_clear_map",
@@ -12645,8 +12776,8 @@
         "type": "variable"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "type": "basic",
+    "origin": "map"
   },
   {
     "id": "set_variable_code_bytes",
@@ -12673,13 +12804,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_compact_component",
@@ -12695,14 +12826,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_component_of_children",
@@ -12719,13 +12850,13 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_convert_number_to_text",
@@ -12745,14 +12876,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_convert_text_to_number",
@@ -12772,14 +12903,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_cosine",
@@ -12813,14 +12944,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_cotangent",
@@ -12854,14 +12985,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_create_keybind_component",
@@ -12877,13 +13008,13 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_create_list",
@@ -12900,13 +13031,13 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_create_map",
@@ -12926,13 +13057,13 @@
         "type": "array"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "map"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_create_map_from_values",
@@ -12954,13 +13085,13 @@
         "array": 15
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "map"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_create_translatable_component",
@@ -12985,13 +13116,13 @@
         "array": 35
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_decrement",
@@ -13007,8 +13138,8 @@
         "type": "number"
       }
     ],
-    "origin": "variable",
-    "type": "basic"
+    "type": "basic",
+    "origin": "variable"
   },
   {
     "id": "set_variable_divide",
@@ -13035,13 +13166,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_divide_vector",
@@ -13061,13 +13192,13 @@
         "type": "vector"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_dummy",
@@ -13116,14 +13247,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_face_location",
@@ -13143,14 +13274,14 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_find_nearest_location",
@@ -13180,14 +13311,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_find_nearest_number",
@@ -13200,7 +13331,7 @@
       },
       {
         "id": "number",
-        "type": "variable"
+        "type": "number"
       },
       {
         "id": "numbers",
@@ -13208,14 +13339,14 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_flatten_list",
@@ -13239,14 +13370,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_format_timestamp",
@@ -13292,14 +13423,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "time",
-    "type": "basic"
+    "origin": "time"
   },
   {
     "id": "set_variable_gamma_function",
@@ -13315,14 +13446,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_gaussian_distribution",
@@ -13350,13 +13481,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_all_block_data",
@@ -13380,14 +13511,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_all_coordinates",
@@ -13419,6 +13550,7 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "x",
@@ -13441,8 +13573,7 @@
         "type": "number"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_angle_between_vectors",
@@ -13470,13 +13601,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_block_custom_tag",
@@ -13504,13 +13635,13 @@
         "type": "any"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_block_data",
@@ -13530,14 +13661,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_block_growth",
@@ -13561,14 +13692,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_block_material",
@@ -13594,14 +13725,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_block_material_property",
@@ -13626,14 +13757,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "block",
-    "type": "basic"
+    "origin": "block"
   },
   {
     "id": "set_variable_get_block_power",
@@ -13649,14 +13780,14 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_block_sound",
@@ -13683,14 +13814,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "sound"
       }
     ],
-    "origin": "block",
-    "type": "basic"
+    "origin": "block"
   },
   {
     "id": "set_variable_get_blocks_by_tag",
@@ -13715,13 +13846,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_book_text",
@@ -13741,14 +13872,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "book",
-    "type": "basic"
+    "origin": "book"
   },
   {
     "id": "set_variable_get_brushable_block_item",
@@ -13764,14 +13895,14 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_bundle_items",
@@ -13787,8 +13918,14 @@
         "type": "item"
       }
     ],
-    "origin": "bundle",
-    "type": "basic"
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
+    "origin": "bundle"
   },
   {
     "id": "set_variable_get_char_at",
@@ -13808,14 +13945,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_get_color_channels",
@@ -13840,14 +13977,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "color",
-    "type": "basic"
+    "origin": "color"
   },
   {
     "id": "set_variable_get_compass_lodestone",
@@ -13863,14 +14000,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_component_children",
@@ -13886,14 +14023,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_get_component_decorations",
@@ -13909,14 +14046,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_get_component_hex_color",
@@ -13932,14 +14069,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_get_component_parsing",
@@ -13955,14 +14092,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_get_container_contents",
@@ -13986,14 +14123,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_container_lock",
@@ -14009,14 +14146,14 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_container_name",
@@ -14032,14 +14169,14 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_coordinate",
@@ -14066,14 +14203,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_decorate_pot_sherd",
@@ -14099,14 +14236,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_entity_types_by_tag",
@@ -14130,13 +14267,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_index_of_subtext",
@@ -14168,14 +14305,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_get_item_amount",
@@ -14191,14 +14328,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_attribute",
@@ -14293,14 +14430,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "map"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_break_sound",
@@ -14316,14 +14453,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_color",
@@ -14339,14 +14476,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_component",
@@ -14366,14 +14503,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_custom_model_data",
@@ -14389,14 +14526,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_custom_tag",
@@ -14420,14 +14557,14 @@
         "type": "any"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_custom_tags",
@@ -14443,14 +14580,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "map"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_destroyable_blocks",
@@ -14466,8 +14603,14 @@
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_durability",
@@ -14494,14 +14637,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_effective_name",
@@ -14517,14 +14660,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_enchantments",
@@ -14540,14 +14683,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "map"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_food_properties",
@@ -14570,14 +14713,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_lore",
@@ -14593,14 +14736,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_lore_line",
@@ -14620,14 +14763,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_max_stack_size",
@@ -14643,14 +14786,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_model_data",
@@ -14666,14 +14809,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_name",
@@ -14689,14 +14832,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_nbt_tags",
@@ -14720,14 +14863,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "map"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_placeable_blocks",
@@ -14743,8 +14886,14 @@
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "array"
+      }
+    ],
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_potion_effects",
@@ -14760,14 +14909,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_rarity",
@@ -14783,14 +14932,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_tooltip_style",
@@ -14806,14 +14955,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_type",
@@ -14838,14 +14987,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "type",
-    "type": "basic"
+    "origin": "type"
   },
   {
     "id": "set_variable_get_item_use_remainder",
@@ -14861,14 +15010,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_item_weapon",
@@ -14892,14 +15041,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_get_items_by_tag",
@@ -14924,13 +15073,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_lectern_book",
@@ -14946,14 +15095,14 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_lectern_page",
@@ -14969,14 +15118,14 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_light_level",
@@ -15001,14 +15150,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_list_index_of_value",
@@ -15036,14 +15185,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_get_list_length",
@@ -15059,14 +15208,14 @@
         "type": "array"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_get_list_random_value",
@@ -15082,14 +15231,14 @@
         "type": "array"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_get_list_value",
@@ -15113,14 +15262,14 @@
         "type": "any"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_get_list_variables",
@@ -15132,22 +15281,46 @@
         "type": "variable"
       },
       {
+        "id": "names",
+        "type": "text",
+        "array": 12
+      },
+      {
         "id": "scope",
         "type": "enum",
         "values": [
           "GAME",
-          "LOCAL",
-          "SAVE"
+          "SAVE",
+          "LOCAL"
+        ]
+      },
+      {
+        "id": "match",
+        "type": "enum",
+        "values": [
+          "EQUALS",
+          "NAME_CONTAINS",
+          "PART_CONTAINS",
+          "STARTS_WITH",
+          "ENDS_WITH"
+        ]
+      },
+      {
+        "id": "ignore_case",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_location_direction",
@@ -15163,14 +15336,14 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_map_key_by_index",
@@ -15194,14 +15367,14 @@
         "type": "any"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "origin": "map"
   },
   {
     "id": "set_variable_get_map_keys",
@@ -15217,14 +15390,14 @@
         "type": "map"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "origin": "map"
   },
   {
     "id": "set_variable_get_map_keys_by_value",
@@ -15257,14 +15430,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "origin": "map"
   },
   {
     "id": "set_variable_get_map_size",
@@ -15280,14 +15453,14 @@
         "type": "map"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "origin": "map"
   },
   {
     "id": "set_variable_get_map_value",
@@ -15311,14 +15484,14 @@
         "type": "any"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "origin": "map"
   },
   {
     "id": "set_variable_get_map_value_by_index",
@@ -15342,14 +15515,14 @@
         "type": "any"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "origin": "map"
   },
   {
     "id": "set_variable_get_map_values",
@@ -15365,14 +15538,14 @@
         "type": "map"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "origin": "map"
   },
   {
     "id": "set_variable_get_midpoint_between_vectors",
@@ -15392,13 +15565,13 @@
         "type": "vector"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_particle_amount",
@@ -15414,14 +15587,14 @@
         "type": "particle"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_get_particle_color",
@@ -15445,14 +15618,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_get_particle_material",
@@ -15468,14 +15641,14 @@
         "type": "particle"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_get_particle_offset",
@@ -15491,14 +15664,14 @@
         "type": "particle"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_get_particle_size",
@@ -15514,14 +15687,14 @@
         "type": "particle"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_get_particle_spread",
@@ -15545,14 +15718,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_get_particle_type",
@@ -15568,14 +15741,14 @@
         "type": "particle"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_get_player_head",
@@ -15599,13 +15772,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_player_head_owner",
@@ -15630,14 +15803,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "head",
-    "type": "basic"
+    "origin": "head"
   },
   {
     "id": "set_variable_get_player_head_value",
@@ -15662,14 +15835,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_potion_effect_amplifier",
@@ -15685,14 +15858,14 @@
         "type": "potion"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "potion",
-    "type": "basic"
+    "origin": "potion"
   },
   {
     "id": "set_variable_get_potion_effect_duration",
@@ -15708,14 +15881,14 @@
         "type": "potion"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "potion",
-    "type": "basic"
+    "origin": "potion"
   },
   {
     "id": "set_variable_get_potion_effect_type",
@@ -15731,14 +15904,14 @@
         "type": "potion"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "potion",
-    "type": "basic"
+    "origin": "potion"
   },
   {
     "id": "set_variable_get_sculk_shrieker_warning_level",
@@ -15754,14 +15927,14 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_sign_text",
@@ -15797,14 +15970,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_get_sound_pitch",
@@ -15820,14 +15993,14 @@
         "type": "sound"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "sound",
-    "type": "basic"
+    "origin": "sound"
   },
   {
     "id": "set_variable_get_sound_source",
@@ -15843,14 +16016,14 @@
         "type": "sound"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "sound",
-    "type": "basic"
+    "origin": "sound"
   },
   {
     "id": "set_variable_get_sound_type",
@@ -15866,14 +16039,14 @@
         "type": "sound"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "sound",
-    "type": "basic"
+    "origin": "sound"
   },
   {
     "id": "set_variable_get_sound_variation",
@@ -15889,14 +16062,14 @@
         "type": "sound"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "sound",
-    "type": "basic"
+    "origin": "sound"
   },
   {
     "id": "set_variable_get_sound_variations",
@@ -15912,14 +16085,14 @@
         "type": "sound"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "sound",
-    "type": "basic"
+    "origin": "sound"
   },
   {
     "id": "set_variable_get_sound_volume_action",
@@ -15935,14 +16108,14 @@
         "type": "sound"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "sound",
-    "type": "basic"
+    "origin": "sound"
   },
   {
     "id": "set_variable_get_template_code",
@@ -15966,14 +16139,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
     ],
-    "origin": "template",
-    "type": "basic"
+    "origin": "template"
   },
   {
     "id": "set_variable_get_text_regex_groups",
@@ -16069,14 +16242,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_get_text_similarity",
@@ -16104,14 +16277,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "text_1",
-    "type": "basic"
+    "origin": "text_1"
   },
   {
     "id": "set_variable_get_text_width",
@@ -16127,14 +16300,78 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
+  },
+  {
+    "id": "set_variable_get_tile_block_custom_tag",
+    "name": "get_tile_block_custom_tag",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "tag_name",
+        "type": "text"
+      },
+      {
+        "id": "default_value",
+        "type": "any"
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "id": "set_variable_get_tile_block_nbt",
+    "name": "get_tile_block_nbt",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "path",
+        "type": "text"
+      },
+      {
+        "id": "value_type",
+        "type": "enum",
+        "values": [
+          "ANY_VALUE",
+          "NBT_STRING"
+        ]
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "any"
+      }
+    ]
   },
   {
     "id": "set_variable_get_vault_displayed_item",
@@ -16150,13 +16387,13 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_vault_next_state_update_time",
@@ -16172,13 +16409,13 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_vector_all_components",
@@ -16202,6 +16439,7 @@
         "type": "vector"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "x",
@@ -16216,8 +16454,7 @@
         "type": "number"
       }
     ],
-    "origin": "vector",
-    "type": "basic"
+    "origin": "vector"
   },
   {
     "id": "set_variable_get_vector_between_locations",
@@ -16237,13 +16474,13 @@
         "type": "location"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_vector_component",
@@ -16268,14 +16505,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "vector",
-    "type": "basic"
+    "origin": "vector"
   },
   {
     "id": "set_variable_get_vector_from_block_face",
@@ -16291,13 +16528,13 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_get_vector_length",
@@ -16321,14 +16558,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "vector",
-    "type": "basic"
+    "origin": "vector"
   },
   {
     "id": "set_variable_hadamard_vector_product",
@@ -16348,14 +16585,14 @@
         "type": "vector"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
     ],
-    "origin": "vector_1",
-    "type": "basic"
+    "origin": "vector_1"
   },
   {
     "id": "set_variable_hash",
@@ -16380,14 +16617,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_hide_item_components",
@@ -16417,14 +16654,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_increment",
@@ -16440,8 +16677,8 @@
         "type": "number"
       }
     ],
-    "origin": "variable",
-    "type": "basic"
+    "type": "basic",
+    "origin": "variable"
   },
   {
     "id": "set_variable_insert_list_value",
@@ -16465,14 +16702,14 @@
         "type": "any"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_join_text",
@@ -16508,14 +16745,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_lerp_number",
@@ -16539,14 +16776,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "amount",
-    "type": "basic"
+    "origin": "amount"
   },
   {
     "id": "set_variable_location_relative",
@@ -16591,14 +16828,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_locations_distance",
@@ -16629,13 +16866,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_log",
@@ -16655,14 +16892,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_map_range",
@@ -16694,14 +16931,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_mathematical_expectation",
@@ -16723,13 +16960,13 @@
         "array": 15
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_max",
@@ -16746,13 +16983,13 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_median",
@@ -16769,13 +17006,13 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_min",
@@ -16792,13 +17029,13 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_multiple",
@@ -16833,13 +17070,13 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_multiply_vector",
@@ -16859,14 +17096,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
     ],
-    "origin": "vector",
-    "type": "basic"
+    "origin": "vector"
   },
   {
     "id": "set_variable_obtain_item_custom_model_data",
@@ -16892,14 +17129,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_parse_json",
@@ -16915,13 +17152,13 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_parse_to_component",
@@ -16947,14 +17184,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_perlin_noise_3d",
@@ -17006,13 +17243,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_pow",
@@ -17032,14 +17269,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "base",
-    "type": "basic"
+    "origin": "base"
   },
   {
     "id": "set_variable_purge",
@@ -17097,13 +17334,13 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_random_location",
@@ -17131,13 +17368,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_random_number",
@@ -17165,13 +17402,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_randomize_list_order",
@@ -17187,14 +17424,14 @@
         "type": "array"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_ray_trace_result",
@@ -17260,6 +17497,7 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable_for_hit_location",
@@ -17277,8 +17515,7 @@
         "id": "variable_for_hit_entity_uuid",
         "type": "array"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_reflect_vector_product",
@@ -17302,13 +17539,13 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_regex_replace_text",
@@ -17396,14 +17633,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_remainder",
@@ -17431,14 +17668,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "dividend",
-    "type": "basic"
+    "origin": "dividend"
   },
   {
     "id": "set_variable_remove_compass_lodestone",
@@ -17454,14 +17691,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_remove_enchantment",
@@ -17481,14 +17718,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_remove_item_attribute",
@@ -17558,8 +17795,14 @@
         ]
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item"
   },
   {
     "id": "set_variable_remove_item_custom_model_data",
@@ -17575,14 +17818,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_remove_item_custom_tag",
@@ -17602,14 +17845,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_remove_item_lore_line",
@@ -17629,14 +17872,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_remove_item_potion_effects",
@@ -17657,14 +17900,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_remove_list_duplicates",
@@ -17680,14 +17923,14 @@
         "type": "array"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_remove_list_value",
@@ -17716,14 +17959,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_remove_list_value_at_index",
@@ -17747,6 +17990,7 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
@@ -17757,8 +18001,7 @@
         "type": "any"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_remove_map_entry",
@@ -17787,6 +18030,7 @@
         "array": 18
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
@@ -17797,8 +18041,7 @@
         "type": "any"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "origin": "map"
   },
   {
     "id": "set_variable_remove_text",
@@ -17827,14 +18070,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_repeat_text",
@@ -17854,14 +18097,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_replace_text",
@@ -17901,14 +18144,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_reverse_list",
@@ -17924,14 +18167,14 @@
         "type": "array"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_root",
@@ -17951,13 +18194,13 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_rotate_vector_around_axis",
@@ -17994,14 +18237,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
     ],
-    "origin": "vector",
-    "type": "basic"
+    "origin": "vector"
   },
   {
     "id": "set_variable_rotate_vector_around_vector",
@@ -18033,14 +18276,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
     ],
-    "origin": "rotating_vector",
-    "type": "basic"
+    "origin": "rotating_vector"
   },
   {
     "id": "set_variable_round",
@@ -18069,14 +18312,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_set_all_coordinates",
@@ -18108,13 +18351,13 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_set_armor_trim",
@@ -18138,8 +18381,14 @@
         "type": "item"
       }
     ],
-    "origin": "armor",
-    "type": "basic"
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "armor"
   },
   {
     "id": "set_variable_set_book_page",
@@ -18171,14 +18420,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "book",
-    "type": "basic"
+    "origin": "book"
   },
   {
     "id": "set_variable_set_book_pages",
@@ -18199,14 +18448,14 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "book",
-    "type": "basic"
+    "origin": "book"
   },
   {
     "id": "set_variable_set_bundle_items",
@@ -18236,8 +18485,14 @@
         ]
       }
     ],
-    "origin": "bundle",
-    "type": "basic"
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "bundle"
   },
   {
     "id": "set_variable_set_compass_lodestone",
@@ -18265,14 +18520,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_component_children",
@@ -18293,14 +18548,14 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_set_component_click",
@@ -18331,14 +18586,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_set_component_decorations",
@@ -18399,14 +18654,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_set_component_entity_hover",
@@ -18426,14 +18681,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_set_component_font",
@@ -18457,14 +18712,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_set_component_hex_color",
@@ -18484,14 +18739,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_set_component_hover",
@@ -18511,14 +18766,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_set_component_insertion",
@@ -18538,14 +18793,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_set_component_item_hover",
@@ -18565,14 +18820,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_set_component_shadow_color",
@@ -18592,14 +18847,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "component",
-    "type": "basic"
+    "origin": "component"
   },
   {
     "id": "set_variable_set_coordinate",
@@ -18630,14 +18885,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_set_item_amount",
@@ -18657,14 +18912,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_attribute",
@@ -18763,14 +19018,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_break_sound",
@@ -18790,14 +19045,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_color",
@@ -18817,14 +19072,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_component",
@@ -18848,14 +19103,14 @@
         "type": "any"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_custom_model_data",
@@ -18875,14 +19130,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_custom_tag",
@@ -18906,14 +19161,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_destroyable_blocks",
@@ -18934,14 +19189,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_durability",
@@ -18973,14 +19228,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_enchantments",
@@ -19000,14 +19255,14 @@
         "type": "map"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_food_properties",
@@ -19039,14 +19294,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_glider",
@@ -19070,14 +19325,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_glint_override",
@@ -19102,14 +19357,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_hidden_tooltip",
@@ -19133,14 +19388,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_lore",
@@ -19161,14 +19416,14 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_lore_line",
@@ -19200,14 +19455,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_max_stack_size",
@@ -19227,7 +19482,14 @@
         "type": "number"
       }
     ],
-    "type": "basic"
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ],
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_model_data",
@@ -19247,14 +19509,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_name",
@@ -19274,14 +19536,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_placeable_blocks",
@@ -19302,14 +19564,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_rarity",
@@ -19336,14 +19598,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_tooltip_style",
@@ -19363,14 +19625,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_type",
@@ -19390,14 +19652,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_unbreakable",
@@ -19421,14 +19683,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_use_remainder",
@@ -19448,14 +19710,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_visibility_flags",
@@ -19543,14 +19805,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_item_weapon",
@@ -19574,14 +19836,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_set_list_value",
@@ -19605,14 +19867,14 @@
         "type": "any"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_set_location_direction",
@@ -19632,14 +19894,14 @@
         "type": "vector"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_set_map_value",
@@ -19665,14 +19927,14 @@
         "array": 15
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "map"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "origin": "map"
   },
   {
     "id": "set_variable_set_particle_amount",
@@ -19692,14 +19954,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "particle"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_set_particle_color",
@@ -19727,14 +19989,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "particle"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_set_particle_material",
@@ -19754,14 +20016,14 @@
         "type": "item"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "particle"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_set_particle_offset",
@@ -19781,14 +20043,14 @@
         "type": "vector"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "particle"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_set_particle_size",
@@ -19808,14 +20070,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "particle"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_set_particle_spread",
@@ -19839,14 +20101,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "particle"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_set_particle_type",
@@ -19866,14 +20128,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "particle"
       }
     ],
-    "origin": "particle",
-    "type": "basic"
+    "origin": "particle"
   },
   {
     "id": "set_variable_set_potion_effect_amplifier",
@@ -19893,14 +20155,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "potion"
       }
     ],
-    "origin": "potion",
-    "type": "basic"
+    "origin": "potion"
   },
   {
     "id": "set_variable_set_potion_effect_duration",
@@ -19920,14 +20182,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "potion"
       }
     ],
-    "origin": "potion",
-    "type": "basic"
+    "origin": "potion"
   },
   {
     "id": "set_variable_set_potion_effect_type",
@@ -19947,14 +20209,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "potion"
       }
     ],
-    "origin": "potion",
-    "type": "basic"
+    "origin": "potion"
   },
   {
     "id": "set_variable_set_sound_pitch",
@@ -19974,14 +20236,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "sound"
       }
     ],
-    "origin": "sound",
-    "type": "basic"
+    "origin": "sound"
   },
   {
     "id": "set_variable_set_sound_source",
@@ -20013,14 +20275,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "sound"
       }
     ],
-    "origin": "sound",
-    "type": "basic"
+    "origin": "sound"
   },
   {
     "id": "set_variable_set_sound_type",
@@ -20044,14 +20306,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "sound"
       }
     ],
-    "origin": "sound",
-    "type": "basic"
+    "origin": "sound"
   },
   {
     "id": "set_variable_set_sound_variation",
@@ -20071,14 +20333,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "sound"
       }
     ],
-    "origin": "sound",
-    "type": "basic"
+    "origin": "sound"
   },
   {
     "id": "set_variable_set_sound_volume_action",
@@ -20098,14 +20360,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "sound"
       }
     ],
-    "origin": "sound",
-    "type": "basic"
+    "origin": "sound"
   },
   {
     "id": "set_variable_set_template_code",
@@ -20125,14 +20387,14 @@
         "type": "any"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "template",
-    "type": "basic"
+    "origin": "template"
   },
   {
     "id": "set_variable_set_texture_to_map",
@@ -20152,14 +20414,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "origin": "map"
   },
   {
     "id": "set_variable_set_vector_component",
@@ -20188,14 +20450,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
     ],
-    "origin": "vector",
-    "type": "basic"
+    "origin": "vector"
   },
   {
     "id": "set_variable_set_vector_length",
@@ -20215,14 +20477,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
     ],
-    "origin": "vector",
-    "type": "basic"
+    "origin": "vector"
   },
   {
     "id": "set_variable_shift_all_coordinates",
@@ -20258,14 +20520,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_shift_coordinate",
@@ -20296,14 +20558,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_shift_location_in_direction",
@@ -20332,14 +20594,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_shift_location_on_vector",
@@ -20363,14 +20625,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_shift_location_towards_location",
@@ -20394,14 +20656,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "location"
       }
     ],
-    "origin": "location_from",
-    "type": "basic"
+    "origin": "location_from"
   },
   {
     "id": "set_variable_simplex_noise_3d",
@@ -20453,14 +20715,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_sine",
@@ -20494,14 +20756,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_sort_any_list",
@@ -20525,14 +20787,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_sort_any_map",
@@ -20564,14 +20826,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "map"
       }
     ],
-    "origin": "map",
-    "type": "basic"
+    "origin": "map"
   },
   {
     "id": "set_variable_split_text",
@@ -20591,14 +20853,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_split_text_by_length",
@@ -20618,14 +20880,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_strip_text",
@@ -20651,14 +20913,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_subtract",
@@ -20675,13 +20937,13 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_subtract_vectors",
@@ -20698,13 +20960,13 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_tangent",
@@ -20738,14 +21000,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_text",
@@ -20771,13 +21033,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_text_case",
@@ -20804,14 +21066,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_text_length",
@@ -20827,14 +21089,14 @@
         "type": "text"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_text_to_bytes",
@@ -20859,14 +21121,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_text_to_chars",
@@ -20892,14 +21154,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_to_char",
@@ -20915,14 +21177,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "set_variable_to_hsb",
@@ -20946,13 +21208,13 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_to_hsl",
@@ -20976,13 +21238,13 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_to_json",
@@ -21006,13 +21268,13 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_to_rgb",
@@ -21036,13 +21298,13 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_trim_list",
@@ -21066,14 +21328,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "array"
       }
     ],
-    "origin": "list",
-    "type": "basic"
+    "origin": "list"
   },
   {
     "id": "set_variable_trim_text",
@@ -21097,14 +21359,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "text",
-    "type": "basic"
+    "origin": "text"
   },
   {
     "id": "set_variable_unset_item_components",
@@ -21125,14 +21387,14 @@
         "array": 21
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "item"
       }
     ],
-    "origin": "item",
-    "type": "basic"
+    "origin": "item"
   },
   {
     "id": "set_variable_value",
@@ -21148,13 +21410,13 @@
         "type": "any"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "any"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_vector",
@@ -21178,13 +21440,13 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_vector_cross_product",
@@ -21204,13 +21466,13 @@
         "type": "vector"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "vector"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_vector_dot_product",
@@ -21230,13 +21492,13 @@
         "type": "vector"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
-    ],
-    "type": "basic"
+    ]
   },
   {
     "id": "set_variable_vector_to_direction_name",
@@ -21252,14 +21514,14 @@
         "type": "vector"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "text"
       }
     ],
-    "origin": "vector",
-    "type": "basic"
+    "origin": "vector"
   },
   {
     "id": "set_variable_voronoi_noise_3d",
@@ -21303,14 +21565,14 @@
         ]
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "location",
-    "type": "basic"
+    "origin": "location"
   },
   {
     "id": "set_variable_warp",
@@ -21334,14 +21596,14 @@
         "type": "number"
       }
     ],
+    "type": "basic",
     "assign": [
       {
         "id": "variable",
         "type": "number"
       }
     ],
-    "origin": "number",
-    "type": "basic"
+    "origin": "number"
   },
   {
     "id": "start_process",

@@ -229,3 +229,6 @@ creative_plus.trigger.player_command.sign
 creative_plus.game_value.action_count_per_tick.name
 creative_plus.game_value.action_count_per_tick.description
 creative_plus.game_value.action_count_per_tick.argument.number.name
+creative_plus.game_value.selection.menu.title
+creative_plus.selection.menu.title
+creative_plus.selection.default.sign

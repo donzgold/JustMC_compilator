@@ -200,6 +200,10 @@
     "cancellable": true
   },
   {
+    "id": "experience_orb_merge",
+    "cancellable": true
+  },
+  {
     "id": "falling_block_land",
     "cancellable": true
   },
@@ -506,6 +510,10 @@
   {
     "id": "player_pre_attack_entity",
     "cancellable": true
+  },
+  {
+    "id": "player_prepare_item_craft",
+    "cancellable": false
   },
   {
     "id": "player_prepare_item_enchant",
