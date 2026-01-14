@@ -456,7 +456,7 @@ entity::give_potion_effects(potions=[potion("slow_falling"), potion("slow_fallin
 
 | ID            | Тип                                                                          | Описание                            |
 |---------------|------------------------------------------------------------------------------|-------------------------------------|
-| potions       | Message 'actions.array' not found in 'ru_RU'\[Зелье\]                        | Эффекты для выдачи                  |
+| potions       | Список\[Зелье\]                                                              | Эффекты для выдачи                  |
 | overwrite     | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да                                 | Перезаписывать существующие эффекты |
 | show_icon     | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да                                 | Показывать иконку эффекта           |
 | particle_mode | Маркер<br/>**AMBIENT** - Прозрачными<br/>**NONE** - Нет<br/>**REGULAR** - Да | Показывать частицы                  |
@@ -689,7 +689,7 @@ entity::modify_piglin_barter_materials(materials=[item("stick"), item("stick")],
 
 | ID                | Тип                                                       | Описание               |
 |-------------------|-----------------------------------------------------------|------------------------|
-| materials         | Message 'actions.array' not found in 'ru_RU'\[Предмет\]   | Предметы для изменения |
+| materials         | Список\[Предмет\]                                         | Предметы для изменения |
 | modification_mode | Маркер<br/>**ADD** - Добавление<br/>**REMOVE** - Удаление | Режим изменения        |
 
 <h3 id=entity_modify_piglin_interested_materials>
@@ -718,7 +718,7 @@ entity::modify_piglin_interested_materials(materials=[item("stick"), item("stick
 
 | ID                | Тип                                                       | Описание               |
 |-------------------|-----------------------------------------------------------|------------------------|
-| materials         | Message 'actions.array' not found in 'ru_RU'\[Предмет\]   | Предметы для изменения |
+| materials         | Список\[Предмет\]                                         | Предметы для изменения |
 | modification_mode | Маркер<br/>**ADD** - Добавление<br/>**REMOVE** - Удаление | Режим изменения        |
 
 <h3 id=entity_move_to_location>
@@ -937,9 +937,9 @@ entity::remove_potion_effect(effects=[potion("slow_falling"), potion("slow_falli
 
 **Аргументы:**
 
-| ID      | Тип                                                   | Описание             |
-|---------|-------------------------------------------------------|----------------------|
-| effects | Message 'actions.array' not found in 'ru_RU'\[Зелье\] | Эффекты для удаления |
+| ID      | Тип             | Описание             |
+|---------|-----------------|----------------------|
+| effects | Список\[Зелье\] | Эффекты для удаления |
 
 <h3 id=entity_reset_display_brightness>
   <code>entity::reset_display_brightness</code>
@@ -2074,9 +2074,9 @@ entity::set_display_correct_transformation_matrix(matrix=[1, 2]);
 
 **Аргументы:**
 
-| ID     | Тип                                                   | Описание            |
-|--------|-------------------------------------------------------|---------------------|
-| matrix | Message 'actions.array' not found in 'ru_RU'\[Число\] | Матрица из 16 чисел |
+| ID     | Тип             | Описание            |
+|--------|-----------------|---------------------|
+| matrix | Список\[Число\] | Матрица из 16 чисел |
 
 <h3 id=entity_set_display_culling_suze>
   <code>entity::set_display_culling_size</code>
@@ -2322,9 +2322,9 @@ entity::set_display_transformation_matrix(row_major_matrix=[1, 2]);
 
 **Аргументы:**
 
-| ID               | Тип                                                   | Описание            |
-|------------------|-------------------------------------------------------|---------------------|
-| row_major_matrix | Message 'actions.array' not found in 'ru_RU'\[Число\] | Матрица из 16 чисел |
+| ID               | Тип             | Описание            |
+|------------------|-----------------|---------------------|
+| row_major_matrix | Список\[Число\] | Матрица из 16 чисел |
 
 <h3 id=entity_set_display_translation>
   <code>entity::set_display_translation</code>
@@ -4653,7 +4653,7 @@ entity::set_text_display_text(displayed_text=["displayed_text", "displayed_text"
 
 | ID             | Тип                                                                                                                           | Описание           |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| displayed_text | Message 'actions.array' not found in 'ru_RU'\[Текст\]                                                                         | Отображаемый текст |
+| displayed_text | Список\[Текст\]                                                                                                               | Отображаемый текст |
 | merging_mode   | Маркер<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки<br/>**SPACES** - Разделение пробелом | Объединение текста |
 
 <h3 id=entity_set_text_display_text_shadow>
@@ -5334,7 +5334,7 @@ if(entity::has_custom_tag(tag="tag", tag_value=["tag_value", "tag_value"], compa
 | ID           | Тип                                                                                                                                              | Описание      |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | tag          | Текст                                                                                                                                            | Название тега |
-| tag_value    | Message 'actions.array' not found in 'ru_RU'\[Текст\]                                                                                            | Значение тега |
+| tag_value    | Список\[Текст\]                                                                                                                                  | Значение тега |
 | compare_type | Маркер<br/>**CONTAINS** - Содержит<br/>**ENDS_WITH** - Заканчивается на<br/>**EQUALS** - Точное соответствие<br/>**STARTS_WITH** - Начинается на | Тип сравнения |
 
 <h3 id=if_entity_has_potion_effect>
@@ -5363,7 +5363,7 @@ if(entity::has_potion_effect(potions=[potion("slow_falling"), potion("slow_falli
 
 | ID         | Тип                                                         | Описание           |
 |------------|-------------------------------------------------------------|--------------------|
-| potions    | Message 'actions.array' not found in 'ru_RU'\[Зелье\]       | Зелья для проверки |
+| potions    | Список\[Зелье\]                                             | Зелья для проверки |
 | check_mode | Маркер<br/>**ALL** - Все эффекты<br/>**ANY** - Любой эффект | Режим проверки     |
 
 <h3 id=if_entity_in_area>
@@ -5564,7 +5564,7 @@ if(entity::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mod
 
 | ID           | Тип                                                                                                                                                                                                                                                                                          | Описание               |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
-| entity_ids   | Message 'actions.array' not found in 'ru_RU'\[Текст\]                                                                                                                                                                                                                                        | Имя или UUID сущностей |
+| entity_ids   | Список\[Текст\]                                                                                                                                                                                                                                                                              | Имя или UUID сущностей |
 | compare_mode | Маркер<br/>**FARTHEST** - creative_plus.action.if_entity_is_riding_entity.argument.compare_mode.enum.farthest.name<br/>**NAME_OR_UUID** - Имя или UUID<br/>**NEAREST** - creative_plus.action.if_entity_is_riding_entity.argument.compare_mode.enum.nearest.name<br/>**TYPE** - Тип существа | Режим проверки         |
 
 <h3 id=if_entity_is_standing_on_block>
@@ -5591,11 +5591,11 @@ if(entity::is_standing_on_block(blocks=["minecraft:oak_log[axis=x]", "minecraft:
 
 **Аргументы:**
 
-| ID         | Тип                                                            | Описание                    |
-|------------|----------------------------------------------------------------|-----------------------------|
-| blocks     | Message 'actions.array' not found in 'ru_RU'\[Блок\]           | Блоки для проверки          |
-| locations  | Message 'actions.array' not found in 'ru_RU'\[Местоположение\] | Местоположения для проверки |
-| only_solid | Маркер<br/>**FALSE** - Учитывать<br/>**TRUE** - Не учитывать   | Учитывать проходимые блоки  |
+| ID         | Тип                                                          | Описание                    |
+|------------|--------------------------------------------------------------|-----------------------------|
+| blocks     | Список\[Блок\]                                               | Блоки для проверки          |
+| locations  | Список\[Местоположение\]                                     | Местоположения для проверки |
+| only_solid | Маркер<br/>**FALSE** - Учитывать<br/>**TRUE** - Не учитывать | Учитывать проходимые блоки  |
 
 <h3 id=if_entity_is_type>
   <code>entity::is_type</code>
@@ -5621,9 +5621,9 @@ if(entity::is_type(entity_types=[item("stick"), item("stick")])){
 
 **Аргументы:**
 
-| ID           | Тип                                                     | Описание     |
-|--------------|---------------------------------------------------------|--------------|
-| entity_types | Message 'actions.array' not found in 'ru_RU'\[Предмет\] | Тип существа |
+| ID           | Тип               | Описание     |
+|--------------|-------------------|--------------|
+| entity_types | Список\[Предмет\] | Тип существа |
 
 <h3 id=if_entity_is_undead>
   <code>entity::is_undead</code>
@@ -5681,9 +5681,9 @@ if(entity::name_equals(names_or_uuids=["names_or_uuids", "names_or_uuids"])){
 
 **Аргументы:**
 
-| ID             | Тип                                                   | Описание                    |
-|----------------|-------------------------------------------------------|-----------------------------|
-| names_or_uuids | Message 'actions.array' not found in 'ru_RU'\[Текст\] | Имена или UUID для проверки |
+| ID             | Тип             | Описание                    |
+|----------------|-----------------|-----------------------------|
+| names_or_uuids | Список\[Текст\] | Имена или UUID для проверки |
 
 <h3 id=if_entity_spawn_reason_equals>
   <code>entity::spawn_reason_equals</code>

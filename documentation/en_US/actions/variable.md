@@ -114,10 +114,10 @@ if(variable::equals(value="any value", compare=["any value", "any value"])){
 
 **Arguments:**
 
-| ID      | Type                                                      | Description         |
-|---------|-----------------------------------------------------------|---------------------|
-| value   | Any Value                                                 | Comparison Variable |
-| compare | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | Compare Values      |
+| ID      | Type               | Description         |
+|---------|--------------------|---------------------|
+| value   | Any Value          | Comparison Variable |
+| compare | Array\[Any Value\] | Compare Values      |
 
 <h3 id=if_variable_exists>
   <code>variable::exists</code>
@@ -330,7 +330,7 @@ if(variable::item_equals(value=item("stick"), compare=[item("stick"), item("stic
 | ID              | Type                                                                                                                                                                                              | Description              |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
 | value           | Item                                                                                                                                                                                              | Item Variable to Compare |
-| compare         | Message 'actions.array' not found in 'ru_RU'\[Item\]                                                                                                                                              | Compare Values           |
+| compare         | Array\[Item\]                                                                                                                                                                                     | Compare Values           |
 | comparison_mode | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore quantity<br/>**TYPE_ONLY** - Item type only | Comparison Mode          |
 
 <h3 id=if_variable_item_has_enchantment>
@@ -403,7 +403,7 @@ if(variable::item_has_tag(item=item("stick"), tag="tag", value=["value", "value"
 |--------------|----------------------------------------------------------------------------------------------------------------------------|-----------------|
 | item         | Item                                                                                                                       | Item Variable   |
 | tag          | Text                                                                                                                       | Tag name        |
-| value        | Message 'actions.array' not found in 'ru_RU'\[Text\]                                                                       | Tag Value       |
+| value        | Array\[Text\]                                                                                                              | Tag Value       |
 | compare_type | Marker<br/>**CONTAINS** - Contains<br/>**ENDS_WITH** - Ends With<br/>**EQUALS** - Equals<br/>**STARTS_WITH** - Starts With | Comparison Type |
 
 <h3 id=if_variable_item_is_block>
@@ -571,11 +571,11 @@ if(variable::list_contains_value(list=[`list`, `list`], values=["any value", "an
 
 **Arguments:**
 
-| ID         | Type                                                      | Description     |
-|------------|-----------------------------------------------------------|-----------------|
-| list       | List                                                      | List to check   |
-| values     | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | Values to Check |
-| check_mode | Marker<br/>**ALL** - All Values<br/>**ANY** - Any Value   | Check Mode      |
+| ID         | Type                                                    | Description     |
+|------------|---------------------------------------------------------|-----------------|
+| list       | List                                                    | List to check   |
+| values     | Array\[Any Value\]                                      | Values to Check |
+| check_mode | Marker<br/>**ALL** - All Values<br/>**ANY** - Any Value | Check Mode      |
 
 <h3 id=if_variable_list_is_empty>
   <code>variable::list_is_empty</code>
@@ -648,11 +648,11 @@ if(variable::list_value_equals(list=[`list`, `list`], index=1, values=["any valu
 
 **Arguments:**
 
-| ID     | Type                                                      | Description       |
-|--------|-----------------------------------------------------------|-------------------|
-| list   | List                                                      | List to check     |
-| index  | Number                                                    | Value index       |
-| values | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | Comparable Values |
+| ID     | Type               | Description       |
+|--------|--------------------|-------------------|
+| list   | List               | List to check     |
+| index  | Number             | Value index       |
+| values | Array\[Any Value\] | Comparable Values |
 
 <h3 id=if_variable_location_in_range>
   <code>variable::location_in_range</code>
@@ -725,7 +725,7 @@ if(variable::location_is_near(location=location(0,0,0,0,0), radius=1, check=[loc
 |----------|----------------------------------------------------------------------------------------------------|-----------------------|
 | location | Location                                                                                           | Location to check     |
 | radius   | Number                                                                                             | Check Radius          |
-| check    | Message 'actions.array' not found in 'ru_RU'\[Location\]                                           | Shape Center Location |
+| check    | Array\[Location\]                                                                                  | Shape Center Location |
 | shape    | Marker<br/>**CIRCLE** - Circle<br/>**CUBE** - Cube<br/>**SPHERE** - Sphere<br/>**SQUARE** - Square | Shape                 |
 
 <h3 id=if_variable_map_has_key>
@@ -761,7 +761,7 @@ if(variable::map_has_key(map={"map":`map`}, key=["any value", "any value"], chec
 | ID         | Type                                                                                                                                                                                             | Description                                                           |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
 | map        | Dictionary                                                                                                                                                                                       | Dictionary to check                                                   |
-| key        | Message 'actions.array' not found in 'ru_RU'\[Any Value\]                                                                                                                                        | Key                                                                   |
+| key        | Array\[Any Value\]                                                                                                                                                                               | Key                                                                   |
 | check_mode | Marker<br/>**ALL** - creative_plus.action.if_variable_map_has_key.argument.check_mode.enum.all.name<br/>**ANY** - creative_plus.action.if_variable_map_has_key.argument.check_mode.enum.any.name | creative_plus.action.if_variable_map_has_key.argument.check_mode.name |
 
 <h3 id=if_variable_map_value_equals>
@@ -794,11 +794,11 @@ if(variable::map_value_equals(map={"map":`map`}, key="any value", values=["any v
 
 **Arguments:**
 
-| ID     | Type                                                      | Description         |
-|--------|-----------------------------------------------------------|---------------------|
-| map    | Dictionary                                                | Dictionary to check |
-| key    | Any Value                                                 | Key                 |
-| values | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | Comparable Values   |
+| ID     | Type               | Description         |
+|--------|--------------------|---------------------|
+| map    | Dictionary         | Dictionary to check |
+| key    | Any Value          | Key                 |
+| values | Array\[Any Value\] | Comparable Values   |
 
 <h3 id=if_variable_not_equals>
   <code>variable::not_equals</code>
@@ -830,10 +830,10 @@ if(variable::not_equals(value="any value", compare=["any value", "any value"])){
 
 **Arguments:**
 
-| ID      | Type                                                      | Description         |
-|---------|-----------------------------------------------------------|---------------------|
-| value   | Any Value                                                 | Comparable Variable |
-| compare | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | Compare Values      |
+| ID      | Type               | Description         |
+|---------|--------------------|---------------------|
+| value   | Any Value          | Comparable Variable |
+| compare | Array\[Any Value\] | Compare Values      |
 
 <h3 id=if_variable_number_in_range>
   <code>variable::number_in_range</code>
@@ -928,11 +928,11 @@ if(variable::text_contains(value="value", compare=["compare", "compare"], ignore
 
 **Arguments:**
 
-| ID          | Type                                                 | Description       |
-|-------------|------------------------------------------------------|-------------------|
-| value       | Text                                                 | Variable to check |
-| compare     | Message 'actions.array' not found in 'ru_RU'\[Text\] | Text to check     |
-| ignore_case | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes       | Ignore case       |
+| ID          | Type                                           | Description       |
+|-------------|------------------------------------------------|-------------------|
+| value       | Text                                           | Variable to check |
+| compare     | Array\[Text\]                                  | Text to check     |
+| ignore_case | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Ignore case       |
 
 <h3 id=if_variable_text_ends_with>
   <code>variable::text_ends_with</code>
@@ -964,11 +964,11 @@ if(variable::text_ends_with(value="value", compare=["compare", "compare"], ignor
 
 **Arguments:**
 
-| ID          | Type                                                 | Description           |
-|-------------|------------------------------------------------------|-----------------------|
-| value       | Text                                                 | Text variable to test |
-| compare     | Message 'actions.array' not found in 'ru_RU'\[Text\] | Compare Text          |
-| ignore_case | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes         | Ignore case           |
+| ID          | Type                                         | Description           |
+|-------------|----------------------------------------------|-----------------------|
+| value       | Text                                         | Text variable to test |
+| compare     | Array\[Text\]                                | Compare Text          |
+| ignore_case | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Ignore case           |
 
 <h3 id=if_variable_text_matches>
   <code>variable::text_matches</code>
@@ -1003,7 +1003,7 @@ if(variable::text_matches(match="match", values=["values", "values"], regular_ex
 | ID                  | Type                                                          | Description                |
 |---------------------|---------------------------------------------------------------|----------------------------|
 | match               | Text                                                          | Text or Regular Expression |
-| values              | Message 'actions.array' not found in 'ru_RU'\[Text\]          | Text Variables to Validate |
+| values              | Array\[Text\]                                                 | Text Variables to Validate |
 | regular_expressions | Marker<br/>**FALSE** - Text<br/>**TRUE** - Regular Expression | Validation Method          |
 | ignore_case         | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                | Ignore case                |
 
@@ -1037,11 +1037,11 @@ if(variable::text_starts_with(value="value", compare=["compare", "compare"], ign
 
 **Arguments:**
 
-| ID          | Type                                                 | Description           |
-|-------------|------------------------------------------------------|-----------------------|
-| value       | Text                                                 | Text variable to test |
-| compare     | Message 'actions.array' not found in 'ru_RU'\[Text\] | Compare Text          |
-| ignore_case | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes         | Ignore Case           |
+| ID          | Type                                         | Description           |
+|-------------|----------------------------------------------|-----------------------|
+| value       | Text                                         | Text variable to test |
+| compare     | Array\[Text\]                                | Compare Text          |
+| ignore_case | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Ignore Case           |
 
 <h3 id=set_variable_absolute>
   <code>variable::absolute</code>
@@ -1100,10 +1100,10 @@ variable::add(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| ID       | Type                                                   | Description        |
-|----------|--------------------------------------------------------|--------------------|
-| variable | Variable\[Number\]                                     | Variable to assign |
-| value    | Message 'actions.array' not found in 'ru_RU'\[Number\] | Numbers to Add     |
+| ID       | Type               | Description        |
+|----------|--------------------|--------------------|
+| variable | Variable\[Number\] | Variable to assign |
+| value    | Array\[Number\]    | Numbers to Add     |
 
 <h3 id=set_variable_add_item_enchantment>
   <code>variable::add_item_enchantment</code>
@@ -1171,7 +1171,7 @@ variable::add_item_potion_effects(variable=`variable`, potions=[potion("slow_fal
 | ID            | Type                                                                           | Description                |
 |---------------|--------------------------------------------------------------------------------|----------------------------|
 | variable      | Variable\[Item\]                                                               | Variable to assign         |
-| potions       | Message 'actions.array' not found in 'ru_RU'\[Potion\]                         | Potion Effects             |
+| potions       | Array\[Potion\]                                                                | Potion Effects             |
 | item          | Item                                                                           | Item                       |
 | overwrite     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Overwrite existing effects |
 | show_icon     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Show Effect Icon           |
@@ -1201,10 +1201,10 @@ variable::add_vectors(variable=`variable`, vectors=[vector(0,0,0), vector(0,0,0)
 
 **Arguments:**
 
-| ID       | Type                                                   | Description        |
-|----------|--------------------------------------------------------|--------------------|
-| variable | Variable\[Vector\]                                     | Variable to assign |
-| vectors  | Message 'actions.array' not found in 'ru_RU'\[Vector\] | Vectors to Add     |
+| ID       | Type               | Description        |
+|----------|--------------------|--------------------|
+| variable | Variable\[Vector\] | Variable to assign |
+| vectors  | Array\[Vector\]    | Vectors to Add     |
 
 <h3 id=set_variable_align_location>
   <code>variable::align_location</code>
@@ -1303,7 +1303,7 @@ variable::append_component(variable=`variable`, components=["components", "compo
 | ID         | Type                                                                                                        | Description     |
 |------------|-------------------------------------------------------------------------------------------------------------|-----------------|
 | variable   | Variable\[Text\]                                                                                            | Variable to set |
-| components | Message 'actions.array' not found in 'ru_RU'\[Text\]                                                        | Texts to append |
+| components | Array\[Text\]                                                                                               | Texts to append |
 | merging    | Marker<br/>**CONCATENATION** - Merging<br/>**SEPARATE_LINES** - Separate with lines<br/>**SPACES** - Spaces | Merge Text      |
 
 <h3 id=set_variable_append_list>
@@ -1398,10 +1398,10 @@ variable::append_value(variable=`variable`, values=["any value", "any value"]);
 
 **Arguments:**
 
-| ID       | Type                                                      | Description |
-|----------|-----------------------------------------------------------|-------------|
-| variable | Variable                                                  | List        |
-| values   | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | Values      |
+| ID       | Type               | Description |
+|----------|--------------------|-------------|
+| variable | Variable           | List        |
+| values   | Array\[Any Value\] | Values      |
 
 <h3 id=set_variable_atan2>
   <code>variable::atan2</code>
@@ -1460,7 +1460,7 @@ variable::average(variable=`variable`, value=[1, 2], type="ARITHMETIC");
 | ID       | Type                                                                                                                                                                                                                                                                                                                                                                                                   | Description                                                  |
 |----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
 | variable | Variable\[Number\]                                                                                                                                                                                                                                                                                                                                                                                     | Variable to assign                                           |
-| value    | Message 'actions.array' not found in 'ru_RU'\[Number\]                                                                                                                                                                                                                                                                                                                                                 | Numbers to get value                                         |
+| value    | Array\[Number\]                                                                                                                                                                                                                                                                                                                                                                                        | Numbers to get value                                         |
 | type     | Marker<br/>**ARITHMETIC** - creative_plus.action.set_variable_average.argument.type.enum.arithmetic.name<br/>**GEOMETRIC** - creative_plus.action.set_variable_average.argument.type.enum.geometric.name<br/>**HARMONIC** - creative_plus.action.set_variable_average.argument.type.enum.harmonic.name<br/>**QUADRATIC** - creative_plus.action.set_variable_average.argument.type.enum.quadratic.name | creative_plus.action.set_variable_average.argument.type.name |
 
 <h3 id=set_variable_bitwise_operation>
@@ -1521,7 +1521,7 @@ variable::bytes_to_text(variable=`variable`, bytes=[1, 2], charset="UTF_16");
 | ID       | Type                                                                                                                                                                                                                             | Description        |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
 | variable | Variable\[Text\]                                                                                                                                                                                                                 | Variable to assign |
-| bytes    | Message 'actions.array' not found in 'ru_RU'\[Number\]                                                                                                                                                                           | Bytes to convert   |
+| bytes    | Array\[Number\]                                                                                                                                                                                                                  | Bytes to convert   |
 | charset  | Marker<br/>**UTF_16** - creative_plus.action.set_variable_bytes_to_text.argument.charset.enum.utf_16.name<br/>**UTF_8** - creative_plus.action.set_variable_bytes_to_text.argument.charset.enum.utf_8.name<br/>**ASCII** - ASCII | Encoding           |
 
 <h3 id=set_variable_center_location>
@@ -1548,10 +1548,10 @@ variable::center_location(variable=`variable`, locations=[location(0,0,0,0,0), l
 
 **Arguments:**
 
-| ID        | Type                                                     | Description        |
-|-----------|----------------------------------------------------------|--------------------|
-| variable  | Variable\[Location\]                                     | Variable to assign |
-| locations | Message 'actions.array' not found in 'ru_RU'\[Location\] | Locations to Set   |
+| ID        | Type                 | Description        |
+|-----------|----------------------|--------------------|
+| variable  | Variable\[Location\] | Variable to assign |
+| locations | Array\[Location\]    | Locations to Set   |
 
 <h3 id=set_variable_change_component_parsing>
   <code>variable::change_component_parsing</code>
@@ -1813,7 +1813,7 @@ variable::code_bytes(variable=`variable`, input=[1, 2], codec="BASE64_ENCODE");
 | ID       | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Description                                                         |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
 | variable | Variable\[List\]                                                                                                                                                                                                                                                                                                                                                                                                                                           | creative_plus.action.set_variable_code_bytes.argument.variable.name |
-| input    | Message 'actions.array' not found in 'ru_RU'\[Number\]                                                                                                                                                                                                                                                                                                                                                                                                     | creative_plus.action.set_variable_code_bytes.argument.input.name    |
+| input    | Array\[Number\]                                                                                                                                                                                                                                                                                                                                                                                                                                            | creative_plus.action.set_variable_code_bytes.argument.input.name    |
 | codec    | Marker<br/>**BASE64_ENCODE** - creative_plus.action.set_variable_code_bytes.argument.codec.enum.base64_encode.name<br/>**BASE64_DECODE** - creative_plus.action.set_variable_code_bytes.argument.codec.enum.base64_decode.name<br/>**ZLIB_COMPRESS** - creative_plus.action.set_variable_code_bytes.argument.codec.enum.zlib_compress.name<br/>**ZLIB_DECOMPRESS** - creative_plus.action.set_variable_code_bytes.argument.codec.enum.zlib_decompress.name | creative_plus.action.set_variable_code_bytes.argument.codec.name    |
 
 <h3 id=set_variable_compact_component>
@@ -1873,10 +1873,10 @@ variable::component_of_children(variable=`variable`, components=["components", "
 
 **Arguments:**
 
-| ID         | Type                                                 | Description        |
-|------------|------------------------------------------------------|--------------------|
-| variable   | Variable\[Text\]                                     | Variable to assign |
-| components | Message 'actions.array' not found in 'ru_RU'\[Text\] | Stylized texts     |
+| ID         | Type             | Description        |
+|------------|------------------|--------------------|
+| variable   | Variable\[Text\] | Variable to assign |
+| components | Array\[Text\]    | Stylized texts     |
 
 <h3 id=set_variable_convert_number_to_text>
   <code>variable::convert_number_to_text</code>
@@ -2074,10 +2074,10 @@ variable::create_list(variable=`variable`, values=["any value", "any value"]);
 
 **Arguments:**
 
-| ID       | Type                                                      | Description        |
-|----------|-----------------------------------------------------------|--------------------|
-| variable | Variable\[List\]                                          | Variable to assign |
-| values   | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | Values             |
+| ID       | Type               | Description        |
+|----------|--------------------|--------------------|
+| variable | Variable\[List\]   | Variable to assign |
+| values   | Array\[Any Value\] | Values             |
 
 <h3 id=set_variable_create_map>
   <code>variable::create_map</code>
@@ -2137,11 +2137,11 @@ variable::create_map_from_values(variable=`variable`, keys=["any value", "any va
 
 **Arguments:**
 
-| ID       | Type                                                      | Description        |
-|----------|-----------------------------------------------------------|--------------------|
-| variable | Variable\[Dictionary\]                                    | Variable to assign |
-| keys     | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | Keys               |
-| values   | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | Values             |
+| ID       | Type                   | Description        |
+|----------|------------------------|--------------------|
+| variable | Variable\[Dictionary\] | Variable to assign |
+| keys     | Array\[Any Value\]     | Keys               |
+| values   | Array\[Any Value\]     | Values             |
 
 <h3 id=set_variable_create_translatable_component>
   <code>variable::create_translatable_component</code>
@@ -2169,12 +2169,12 @@ variable::create_translatable_component(variable=`variable`, key="key", fallback
 
 **Arguments:**
 
-| ID       | Type                                                 | Description                                                                            |
-|----------|------------------------------------------------------|----------------------------------------------------------------------------------------|
-| variable | Variable\[Text\]                                     | Variable to assign                                                                     |
-| key      | Text                                                 | Key                                                                                    |
-| fallback | Text                                                 | creative_plus.action.set_variable_create_translatable_component.argument.fallback.name |
-| args     | Message 'actions.array' not found in 'ru_RU'\[Text\] | Arguments to add                                                                       |
+| ID       | Type             | Description                                                                            |
+|----------|------------------|----------------------------------------------------------------------------------------|
+| variable | Variable\[Text\] | Variable to assign                                                                     |
+| key      | Text             | Key                                                                                    |
+| fallback | Text             | creative_plus.action.set_variable_create_translatable_component.argument.fallback.name |
+| args     | Array\[Text\]    | Arguments to add                                                                       |
 
 <h3 id=set_variable_decrement>
   <code>variable::decrement</code>
@@ -2232,7 +2232,7 @@ variable::divide(variable=`variable`, value=[1, 2], division_mode="CEIL");
 | ID            | Type                                                                                                                        | Description        |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------|--------------------|
 | variable      | Variable\[Number\]                                                                                                          | Variable to assign |
-| value         | Message 'actions.array' not found in 'ru_RU'\[Number\]                                                                      | Numbers to Divide  |
+| value         | Array\[Number\]                                                                                                             | Numbers to Divide  |
 | division_mode | Marker<br/>**CEIL** - Round up<br/>**DEFAULT** - Default<br/>**FLOOR** - Round down<br/>**ROUND_TO_INT** - Round To Integer | Division Mode      |
 
 <h3 id=set_variable_divide_vector>
@@ -2311,7 +2311,7 @@ variable::edit_item_custom_model_data(variable=`variable`, item=item("stick"), d
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | variable   | Variable\[Item\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | creative_plus.action.set_variable_edit_item_custom_model_data.argument.variable.name   |
 | item       | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | creative_plus.action.set_variable_edit_item_custom_model_data.argument.item.name       |
-| data       | Message 'actions.array' not found in 'ru_RU'\[Any Value\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | creative_plus.action.set_variable_edit_item_custom_model_data.argument.data.name       |
+| data       | Array\[Any Value\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | creative_plus.action.set_variable_edit_item_custom_model_data.argument.data.name       |
 | value_type | Marker<br/>**FLOATS** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.enum.floats.name<br/>**BOOLEANS** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.enum.booleans.name<br/>**STRINGS** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.enum.strings.name<br/>**COLORS** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.enum.colors.name                                                                                                                                 | creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.name |
 | setup_mode | Marker<br/>**SET** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.set.name<br/>**ADD** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.add.name<br/>**REMOVE_ALL** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.remove_all.name<br/>**REMOVE_FIRST** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.remove_first.name<br/>**REMOVE_LAST** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.remove_last.name | creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.name |
 
@@ -2381,7 +2381,7 @@ variable::find_nearest_location(variable=`variable`, location=location(0,0,0,0,0
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | variable      | Variable\[Location\]                                                                                                                                                                                                                                                                                                              | creative_plus.action.set_variable_find_nearest_location.argument.variable.name      |
 | location      | Location                                                                                                                                                                                                                                                                                                                          | creative_plus.action.set_variable_find_nearest_location.argument.location.name      |
-| locations     | Message 'actions.array' not found in 'ru_RU'\[Location\]                                                                                                                                                                                                                                                                          | creative_plus.action.set_variable_find_nearest_location.argument.locations.name     |
+| locations     | Array\[Location\]                                                                                                                                                                                                                                                                                                                 | creative_plus.action.set_variable_find_nearest_location.argument.locations.name     |
 | distance_type | Marker<br/>**XYZ** - creative_plus.action.set_variable_find_nearest_location.argument.distance_type.enum.xyz.name<br/>**XZ** - creative_plus.action.set_variable_find_nearest_location.argument.distance_type.enum.xz.name<br/>**Y** - creative_plus.action.set_variable_find_nearest_location.argument.distance_type.enum.y.name | creative_plus.action.set_variable_find_nearest_location.argument.distance_type.name |
 
 <h3 id=set_variable_find_nearest_number>
@@ -2412,11 +2412,11 @@ variable::find_nearest_number(variable=`variable`, number=1, numbers=[2, 3]);
 
 **Arguments:**
 
-| ID       | Type                                                   | Description                                                                  |
-|----------|--------------------------------------------------------|------------------------------------------------------------------------------|
-| variable | Variable\[Number\]                                     | creative_plus.action.set_variable_find_nearest_number.argument.variable.name |
-| number   | Number                                                 | creative_plus.action.set_variable_find_nearest_number.argument.number.name   |
-| numbers  | Message 'actions.array' not found in 'ru_RU'\[Number\] | creative_plus.action.set_variable_find_nearest_number.argument.numbers.name  |
+| ID       | Type               | Description                                                                  |
+|----------|--------------------|------------------------------------------------------------------------------|
+| variable | Variable\[Number\] | creative_plus.action.set_variable_find_nearest_number.argument.variable.name |
+| number   | Number             | creative_plus.action.set_variable_find_nearest_number.argument.number.name   |
+| numbers  | Array\[Number\]    | creative_plus.action.set_variable_find_nearest_number.argument.numbers.name  |
 
 <h3 id=set_variable_flatten_list>
   <code>variable::flatten_list</code>
@@ -4663,7 +4663,7 @@ variable::get_list_variables(variable=`variable`, names=["names", "names"], scop
 | ID          | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Description                                                                    |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
 | variable    | Variable\[List\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Variable to assign                                                             |
-| names       | Message 'actions.array' not found in 'ru_RU'\[Text\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | creative_plus.action.set_variable_get_list_variables.argument.names.name       |
+| names       | Array\[Text\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | creative_plus.action.set_variable_get_list_variables.argument.names.name       |
 | scope       | Marker<br/>**GAME** - Game<br/>**SAVE** - Saved<br/>**LOCAL** - Local                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Variable Type                                                                  |
 | match       | Marker<br/>**EQUALS** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.equals.name<br/>**NAME_CONTAINS** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.name_contains.name<br/>**PART_CONTAINS** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.part_contains.name<br/>**STARTS_WITH** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.starts_with.name<br/>**ENDS_WITH** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.ends_with.name | creative_plus.action.set_variable_get_list_variables.argument.match.name       |
 | ignore_case | Marker<br/>**TRUE** - creative_plus.action.set_variable_get_list_variables.argument.ignore_case.enum.true.name<br/>**FALSE** - creative_plus.action.set_variable_get_list_variables.argument.ignore_case.enum.false.name                                                                                                                                                                                                                                                                                                                                                         | creative_plus.action.set_variable_get_list_variables.argument.ignore_case.name |
@@ -6205,7 +6205,7 @@ variable::hide_item_components(variable=`variable`, item=item("stick"), componen
 |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
 | variable   | Variable\[Item\]                                                                                                                                                                                                                                                                                                | creative_plus.action.set_variable_hide_item_components.argument.variable.name   |
 | item       | Item                                                                                                                                                                                                                                                                                                            | creative_plus.action.set_variable_hide_item_components.argument.item.name       |
-| components | Message 'actions.array' not found in 'ru_RU'\[Text\]                                                                                                                                                                                                                                                            | creative_plus.action.set_variable_hide_item_components.argument.components.name |
+| components | Array\[Text\]                                                                                                                                                                                                                                                                                                   | creative_plus.action.set_variable_hide_item_components.argument.components.name |
 | mode       | Marker<br/>**SET** - creative_plus.action.set_variable_hide_item_components.argument.mode.enum.set.name<br/>**ADD** - creative_plus.action.set_variable_hide_item_components.argument.mode.enum.add.name<br/>**REMOVE** - creative_plus.action.set_variable_hide_item_components.argument.mode.enum.remove.name | creative_plus.action.set_variable_hide_item_components.argument.mode.name       |
 
 <h3 id=set_variable_increment>
@@ -6506,11 +6506,11 @@ variable::mathematical_expectation(variable=`variable`, values=[1, 2], probabili
 
 **Arguments:**
 
-| ID            | Type                                                   | Description                                                                            |
-|---------------|--------------------------------------------------------|----------------------------------------------------------------------------------------|
-| variable      | Variable\[Number\]                                     | creative_plus.action.set_variable_mathematical_expectation.argument.variable.name      |
-| values        | Message 'actions.array' not found in 'ru_RU'\[Number\] | creative_plus.action.set_variable_mathematical_expectation.argument.values.name        |
-| probabilities | Message 'actions.array' not found in 'ru_RU'\[Number\] | creative_plus.action.set_variable_mathematical_expectation.argument.probabilities.name |
+| ID            | Type               | Description                                                                            |
+|---------------|--------------------|----------------------------------------------------------------------------------------|
+| variable      | Variable\[Number\] | creative_plus.action.set_variable_mathematical_expectation.argument.variable.name      |
+| values        | Array\[Number\]    | creative_plus.action.set_variable_mathematical_expectation.argument.values.name        |
+| probabilities | Array\[Number\]    | creative_plus.action.set_variable_mathematical_expectation.argument.probabilities.name |
 
 <h3 id=set_variable_max>
   <code>variable::max</code>
@@ -6536,10 +6536,10 @@ variable::max(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| ID       | Type                                                   | Description        |
-|----------|--------------------------------------------------------|--------------------|
-| variable | Variable\[Number\]                                     | Variable to assign |
-| value    | Message 'actions.array' not found in 'ru_RU'\[Number\] | Numbers to select  |
+| ID       | Type               | Description        |
+|----------|--------------------|--------------------|
+| variable | Variable\[Number\] | Variable to assign |
+| value    | Array\[Number\]    | Numbers to select  |
 
 <h3 id=set_variable_median>
   <code>variable::median</code>
@@ -6565,10 +6565,10 @@ variable::median(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| ID       | Type                                                   | Description                                                     |
-|----------|--------------------------------------------------------|-----------------------------------------------------------------|
-| variable | Variable\[Number\]                                     | creative_plus.action.set_variable_median.argument.variable.name |
-| value    | Message 'actions.array' not found in 'ru_RU'\[Number\] | creative_plus.action.set_variable_median.argument.value.name    |
+| ID       | Type               | Description                                                     |
+|----------|--------------------|-----------------------------------------------------------------|
+| variable | Variable\[Number\] | creative_plus.action.set_variable_median.argument.variable.name |
+| value    | Array\[Number\]    | creative_plus.action.set_variable_median.argument.value.name    |
 
 <h3 id=set_variable_min>
   <code>variable::min</code>
@@ -6594,10 +6594,10 @@ variable::min(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| ID       | Type                                                   | Description        |
-|----------|--------------------------------------------------------|--------------------|
-| variable | Variable\[Number\]                                     | Variable to assign |
-| value    | Message 'actions.array' not found in 'ru_RU'\[Number\] | Numbers to select  |
+| ID       | Type               | Description        |
+|----------|--------------------|--------------------|
+| variable | Variable\[Number\] | Variable to assign |
+| value    | Array\[Number\]    | Numbers to select  |
 
 <h3 id=set_variable_multiple>
   <code>variable::set_values</code>
@@ -6619,10 +6619,10 @@ variable::set_values(variables=[`variables`, `variables`], values=["any value", 
 
 **Arguments:**
 
-| ID        | Type                                                      | Description                                                        |
-|-----------|-----------------------------------------------------------|--------------------------------------------------------------------|
-| variables | Message 'actions.array' not found in 'ru_RU'\[Variable\]  | creative_plus.action.set_variable_multiple.argument.variables.name |
-| values    | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | creative_plus.action.set_variable_multiple.argument.values.name    |
+| ID        | Type               | Description                                                        |
+|-----------|--------------------|--------------------------------------------------------------------|
+| variables | Array\[Variable\]  | creative_plus.action.set_variable_multiple.argument.variables.name |
+| values    | Array\[Any Value\] | creative_plus.action.set_variable_multiple.argument.values.name    |
 
 <h3 id=set_variable_multiply>
   <code>variable::multiply</code>
@@ -6648,10 +6648,10 @@ variable::multiply(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| ID       | Type                                                   | Description         |
-|----------|--------------------------------------------------------|---------------------|
-| variable | Variable\[Number\]                                     | Variable to assign  |
-| value    | Message 'actions.array' not found in 'ru_RU'\[Number\] | Numbers to Multiply |
+| ID       | Type               | Description         |
+|----------|--------------------|---------------------|
+| variable | Variable\[Number\] | Variable to assign  |
+| value    | Array\[Number\]    | Numbers to Multiply |
 
 <h3 id=set_variable_multiply_vector>
   <code>variable::multiply_vector</code>
@@ -6876,7 +6876,7 @@ variable::purge(names=["names", "names"], scope="GAME", match="ENDS_WITH", ignor
 
 | ID          | Type                                                                                                                                                                                                                                                                                                                       | Description      |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
-| names       | Message 'actions.array' not found in 'ru_RU'\[Text\]                                                                                                                                                                                                                                                                       | Names to Compare |
+| names       | Array\[Text\]                                                                                                                                                                                                                                                                                                              | Names to Compare |
 | scope       | Marker<br/>**GAME** - Game<br/>**LOCAL** - Local<br/>**SAVE** - Saved                                                                                                                                                                                                                                                      | Variable Type    |
 | match       | Marker<br/>**ENDS_WITH** - creative_plus.action.set_variable_purge.argument.match.enum.ends_with.name<br/>**EQUALS** - Full Match<br/>**NAME_CONTAINS** - Name contains text<br/>**PART_CONTAINS** - Text contains name<br/>**STARTS_WITH** - creative_plus.action.set_variable_purge.argument.match.enum.starts_with.name | Comparison Mode  |
 | ignore_case | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                                                                                                                                                                                                                                                                     | Ignore case      |
@@ -6905,10 +6905,10 @@ variable::random(variable=`variable`, values=["any value", "any value"]);
 
 **Arguments:**
 
-| ID       | Type                                                      | Description        |
-|----------|-----------------------------------------------------------|--------------------|
-| variable | Variable\[Any Value\]                                     | Variable to assign |
-| values   | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | Values to choose   |
+| ID       | Type                  | Description        |
+|----------|-----------------------|--------------------|
+| variable | Variable\[Any Value\] | Variable to assign |
+| values   | Array\[Any Value\]    | Values to choose   |
 
 <h3 id=set_variable_random_location>
   <code>variable::random_location</code>
@@ -7383,11 +7383,11 @@ variable::remove_item_potion_effects(variable=`variable`, effects=[potion("slow_
 
 **Arguments:**
 
-| ID       | Type                                                   | Description        |
-|----------|--------------------------------------------------------|--------------------|
-| variable | Variable\[Item\]                                       | Variable to assign |
-| effects  | Message 'actions.array' not found in 'ru_RU'\[Potion\] | Potion Effects     |
-| item     | Item                                                   | Item               |
+| ID       | Type             | Description        |
+|----------|------------------|--------------------|
+| variable | Variable\[Item\] | Variable to assign |
+| effects  | Array\[Potion\]  | Potion Effects     |
+| item     | Item             | Item               |
 
 <h3 id=set_variable_remove_list_duplicates>
   <code>variable::remove_list_duplicates</code>
@@ -7520,13 +7520,13 @@ variable::remove_map_entry(removed_value=`removed_value`, variable=`variable`, m
 
 **Arguments:**
 
-| ID            | Type                                                      | Description          |
-|---------------|-----------------------------------------------------------|----------------------|
-| removed_value | Variable\[Any Value\]                                     | Removed Value        |
-| variable      | Variable\[Dictionary\]                                    | Variable to assign   |
-| map           | Dictionary                                                | Dictionary to change |
-| key           | Any Value                                                 | Key                  |
-| values        | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | Values               |
+| ID            | Type                   | Description          |
+|---------------|------------------------|----------------------|
+| removed_value | Variable\[Any Value\]  | Removed Value        |
+| variable      | Variable\[Dictionary\] | Variable to assign   |
+| map           | Dictionary             | Dictionary to change |
+| key           | Any Value              | Key                  |
+| values        | Array\[Any Value\]     | Values               |
 
 <h3 id=set_variable_remove_text>
   <code>variable::remove_text</code>
@@ -7559,7 +7559,7 @@ variable::remove_text(variable=`variable`, remove=["remove", "remove"], text="te
 | ID       | Type                                                 | Description         |
 |----------|------------------------------------------------------|---------------------|
 | variable | Variable\[Text\]                                     | Variable to assign  |
-| remove   | Message 'actions.array' not found in 'ru_RU'\[Text\] | Text to Remove      |
+| remove   | Array\[Text\]                                        | Text to Remove      |
 | text     | Text                                                 | Original Text       |
 | regex    | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Regular Expressions |
 
@@ -7936,11 +7936,11 @@ variable::set_book_pages(variable=`variable`, book=item("stick"), text=["text", 
 
 **Arguments:**
 
-| ID       | Type                                                 | Description        |
-|----------|------------------------------------------------------|--------------------|
-| variable | Variable\[Item\]                                     | Variable to assign |
-| book     | Item                                                 | Book to change     |
-| text     | Message 'actions.array' not found in 'ru_RU'\[Text\] | New Text           |
+| ID       | Type             | Description        |
+|----------|------------------|--------------------|
+| variable | Variable\[Item\] | Variable to assign |
+| book     | Item             | Book to change     |
+| text     | Array\[Text\]    | New Text           |
 
 <h3 id=set_variable_set_bundle_items>
   <code>variable::set_bundle_items</code>
@@ -7974,7 +7974,7 @@ variable::set_bundle_items(variable=`variable`, bundle=item("stick"), items=[ite
 |--------------|--------------------------------------------------------------------|-----------------|
 | variable     | Variable\[Item\]                                                   | Variable to set |
 | bundle       | Item                                                               | Bundle          |
-| items        | Message 'actions.array' not found in 'ru_RU'\[Item\]               | Items           |
+| items        | Array\[Item\]                                                      | Items           |
 | setting_mode | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove<br/>**SET** - Set | Set mode        |
 
 <h3 id=set_variable_set_compass_lodestone>
@@ -8040,11 +8040,11 @@ variable::set_component_children(variable=`variable`, component="component", chi
 
 **Arguments:**
 
-| ID        | Type                                                 | Description             |
-|-----------|------------------------------------------------------|-------------------------|
-| variable  | Variable\[Text\]                                     | Variable to assign      |
-| component | Text                                                 | Main stylized text      |
-| children  | Message 'actions.array' not found in 'ru_RU'\[Text\] | Children stylized texts |
+| ID        | Type             | Description             |
+|-----------|------------------|-------------------------|
+| variable  | Variable\[Text\] | Variable to assign      |
+| component | Text             | Main stylized text      |
+| children  | Array\[Text\]    | Children stylized texts |
 
 <h3 id=set_variable_set_component_click>
   <code>variable::set_component_click</code>
@@ -8671,11 +8671,11 @@ variable::set_item_destroyable_blocks(variable=`variable`, destroyable=[item("st
 
 **Arguments:**
 
-| ID          | Type                                                 | Description                     |
-|-------------|------------------------------------------------------|---------------------------------|
-| variable    | Variable\[Item\]                                     | Variable to assign              |
-| destroyable | Message 'actions.array' not found in 'ru_RU'\[Item\] | Blocks Can Be Destroyed by Item |
-| item        | Item                                                 | Item                            |
+| ID          | Type             | Description                     |
+|-------------|------------------|---------------------------------|
+| variable    | Variable\[Item\] | Variable to assign              |
+| destroyable | Array\[Item\]    | Blocks Can Be Destroyed by Item |
+| item        | Item             | Item                            |
 
 <h3 id=set_variable_set_item_durability>
   <code>variable::set_item_durability</code>
@@ -8916,11 +8916,11 @@ variable::set_item_lore(variable=`variable`, item=item("stick"), lore=["lore", "
 
 **Arguments:**
 
-| ID       | Type                                                 | Description        |
-|----------|------------------------------------------------------|--------------------|
-| variable | Variable\[Item\]                                     | Variable to assign |
-| item     | Item                                                 | Item               |
-| lore     | Message 'actions.array' not found in 'ru_RU'\[Text\] | New Description    |
+| ID       | Type             | Description        |
+|----------|------------------|--------------------|
+| variable | Variable\[Item\] | Variable to assign |
+| item     | Item             | Item               |
+| lore     | Array\[Text\]    | New Description    |
 
 <h3 id=set_variable_set_item_lore_line>
   <code>variable::set_item_lore_line</code>
@@ -9091,11 +9091,11 @@ variable::set_item_placeable_blocks(variable=`variable`, placeable=[item("stick"
 
 **Arguments:**
 
-| ID        | Type                                                 | Description        |
-|-----------|------------------------------------------------------|--------------------|
-| variable  | Variable\[Item\]                                     | Variable to assign |
-| placeable | Message 'actions.array' not found in 'ru_RU'\[Item\] | Placeable Blocks   |
-| item      | Item                                                 | Item               |
+| ID        | Type             | Description        |
+|-----------|------------------|--------------------|
+| variable  | Variable\[Item\] | Variable to assign |
+| placeable | Array\[Item\]    | Placeable Blocks   |
+| item      | Item             | Item               |
 
 <h3 id=set_variable_set_item_rarity>
   <code>variable::set_item_rarity</code>
@@ -9440,12 +9440,12 @@ variable::set_map_value(variable=`variable`, map={"map":`map`}, key=["any value"
 
 **Arguments:**
 
-| ID       | Type                                                      | Description          |
-|----------|-----------------------------------------------------------|----------------------|
-| variable | Variable\[Dictionary\]                                    | Variable to assign   |
-| map      | Dictionary                                                | Dictionary to change |
-| key      | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | Key                  |
-| value    | Message 'actions.array' not found in 'ru_RU'\[Any Value\] | New Value            |
+| ID       | Type                   | Description          |
+|----------|------------------------|----------------------|
+| variable | Variable\[Dictionary\] | Variable to assign   |
+| map      | Dictionary             | Dictionary to change |
+| key      | Array\[Any Value\]     | Key                  |
+| value    | Array\[Any Value\]     | New Value            |
 
 <h3 id=set_variable_set_particle_amount>
   <code>variable::set_particle_amount</code>
@@ -10552,10 +10552,10 @@ variable::subtract(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| ID       | Type                                                   | Description         |
-|----------|--------------------------------------------------------|---------------------|
-| variable | Variable\[Number\]                                     | Variable to assign  |
-| value    | Message 'actions.array' not found in 'ru_RU'\[Number\] | Numbers to Subtract |
+| ID       | Type               | Description         |
+|----------|--------------------|---------------------|
+| variable | Variable\[Number\] | Variable to assign  |
+| value    | Array\[Number\]    | Numbers to Subtract |
 
 <h3 id=set_variable_subtract_vectors>
   <code>variable::subtract_vectors</code>
@@ -10581,10 +10581,10 @@ variable::subtract_vectors(variable=`variable`, vectors=[vector(0,0,0), vector(0
 
 **Arguments:**
 
-| ID       | Type                                                   | Description        |
-|----------|--------------------------------------------------------|--------------------|
-| variable | Variable\[Vector\]                                     | Variable to assign |
-| vectors  | Message 'actions.array' not found in 'ru_RU'\[Vector\] | Difference Vectors |
+| ID       | Type               | Description        |
+|----------|--------------------|--------------------|
+| variable | Variable\[Vector\] | Variable to assign |
+| vectors  | Array\[Vector\]    | Difference Vectors |
 
 <h3 id=set_variable_tangent>
   <code>variable::tangent</code>
@@ -10648,7 +10648,7 @@ variable::set_text(variable=`variable`, text=["text", "text"], merging="CONCATEN
 | ID       | Type                                                                                                           | Description        |
 |----------|----------------------------------------------------------------------------------------------------------------|--------------------|
 | variable | Variable\[Text\]                                                                                               | Variable to assign |
-| text     | Message 'actions.array' not found in 'ru_RU'\[Text\]                                                           | Text to set        |
+| text     | Array\[Text\]                                                                                                  | Text to set        |
 | merging  | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text         |
 
 <h3 id=set_variable_text_case>
@@ -11040,11 +11040,11 @@ variable::unset_item_components(variable=`variable`, item=item("stick"), compone
 
 **Arguments:**
 
-| ID         | Type                                                 | Description                                                                      |
-|------------|------------------------------------------------------|----------------------------------------------------------------------------------|
-| variable   | Variable\[Item\]                                     | creative_plus.action.set_variable_unset_item_components.argument.variable.name   |
-| item       | Item                                                 | creative_plus.action.set_variable_unset_item_components.argument.item.name       |
-| components | Message 'actions.array' not found in 'ru_RU'\[Text\] | creative_plus.action.set_variable_unset_item_components.argument.components.name |
+| ID         | Type             | Description                                                                      |
+|------------|------------------|----------------------------------------------------------------------------------|
+| variable   | Variable\[Item\] | creative_plus.action.set_variable_unset_item_components.argument.variable.name   |
+| item       | Item             | creative_plus.action.set_variable_unset_item_components.argument.item.name       |
+| components | Array\[Text\]    | creative_plus.action.set_variable_unset_item_components.argument.components.name |
 
 <h3 id=set_variable_value>
   <code>variable::set_value</code>

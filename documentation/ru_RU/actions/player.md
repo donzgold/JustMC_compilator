@@ -58,9 +58,9 @@ if(player::chat_message_equals(chat_messages=["chat_messages", "chat_messages"])
 
 **Аргументы:**
 
-| ID            | Тип                                                   | Описание  |
-|---------------|-------------------------------------------------------|-----------|
-| chat_messages | Message 'actions.array' not found in 'ru_RU'\[Текст\] | Сообщение |
+| ID            | Тип             | Описание  |
+|---------------|-----------------|-----------|
+| chat_messages | Список\[Текст\] | Сообщение |
 
 <h3 id=if_player_collides_at_location>
   <code>player::collides_at_location</code>
@@ -174,7 +174,7 @@ if(player::cursor_item_equals(items=[item("stick"), item("stick")], comparison_m
 
 | ID              | Тип                                                                                                                                                                                                                         | Описание              |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| items           | Message 'actions.array' not found in 'ru_RU'\[Предмет\]                                                                                                                                                                     | Предметы для проверки |
+| items           | Список\[Предмет\]                                                                                                                                                                                                           | Предметы для проверки |
 | comparison_mode | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения       |
 
 <h3 id=if_player_dummy>
@@ -275,7 +275,7 @@ if(player::has_item(items=[item("stick"), item("stick")], check_mode="ALL", comp
 
 | ID              | Тип                                                                                                                                                                                                                  | Описание              |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| items           | Message 'actions.array' not found in 'ru_RU'\[Предмет\]                                                                                                                                                              | Предметы для проверки |
+| items           | Список\[Предмет\]                                                                                                                                                                                                    | Предметы для проверки |
 | check_mode      | Маркер<br/>**ALL** - Все предметы<br/>**ANY** - Любой предмет                                                                                                                                                        | Режим проверки        |
 | comparison_mode | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения       |
 
@@ -335,8 +335,8 @@ if(player::has_item_in_slot(slots=[1, 2], items=[item("stick"), item("stick")], 
 
 | ID              | Тип                                                                                                                                                                                                                         | Описание                 |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| slots           | Message 'actions.array' not found in 'ru_RU'\[Число\]                                                                                                                                                                       | Номер слота для проверки |
-| items           | Message 'actions.array' not found in 'ru_RU'\[Предмет\]                                                                                                                                                                     | Предметы для проверки    |
+| slots           | Список\[Число\]                                                                                                                                                                                                             | Номер слота для проверки |
+| items           | Список\[Предмет\]                                                                                                                                                                                                           | Предметы для проверки    |
 | comparison_mode | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения          |
 
 <h3 id=if_player_has_potion_effect>
@@ -365,7 +365,7 @@ if(player::has_potion_effect(potions=[potion("slow_falling"), potion("slow_falli
 
 | ID         | Тип                                                         | Описание           |
 |------------|-------------------------------------------------------------|--------------------|
-| potions    | Message 'actions.array' not found in 'ru_RU'\[Зелье\]       | Зелья для проверки |
+| potions    | Список\[Зелье\]                                             | Зелья для проверки |
 | check_mode | Маркер<br/>**ALL** - Все эффекты<br/>**ANY** - Любой эффект | Режим проверки     |
 
 <h3 id=if_player_has_privilege>
@@ -425,7 +425,7 @@ if(player::has_room_for_item(items=[item("stick"), item("stick")], checked_slots
 
 | ID            | Тип                                                                                                                                                                                    | Описание                 |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| items         | Message 'actions.array' not found in 'ru_RU'\[Предмет\]                                                                                                                                | Предметы для проверки    |
+| items         | Список\[Предмет\]                                                                                                                                                                      | Предметы для проверки    |
 | checked_slots | Маркер<br/>**ARMOR** - Броня<br/>**ENTIRE_INVENTORY** - Весь инвентарь<br/>**HOTBAR** - Хот-бар<br/>**MAIN_INVENTORY** - Главный инвентарь<br/>**UPPER_INVENTORY** - Верхний инвентарь | Режим проверки слотов    |
 | check_mode    | Маркер<br/>**ALL** - Все предметы<br/>**ANY** - Любые предметы                                                                                                                         | Режим проверки предметов |
 
@@ -515,8 +515,8 @@ if(player::inventory_menu_slot_equals(slots=[1, 2], items=[item("stick"), item("
 
 | ID              | Тип                                                                                                                                                                                                                         | Описание                 |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| slots           | Message 'actions.array' not found in 'ru_RU'\[Число\]                                                                                                                                                                       | Номер слота для проверки |
-| items           | Message 'actions.array' not found in 'ru_RU'\[Предмет\]                                                                                                                                                                     | Предметы для проверки    |
+| slots           | Список\[Число\]                                                                                                                                                                                                             | Номер слота для проверки |
+| items           | Список\[Предмет\]                                                                                                                                                                                                           | Предметы для проверки    |
 | comparison_mode | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения          |
 
 <h3 id=if_player_inventory_type_open>
@@ -653,7 +653,7 @@ if(player::holding(items=[item("stick"), item("stick")], hand_slot="EITHER_HAND"
 
 | ID              | Тип                                                                                                                                                                                                                         | Описание              |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| items           | Message 'actions.array' not found in 'ru_RU'\[Предмет\]                                                                                                                                                                     | Предметы для проверки |
+| items           | Список\[Предмет\]                                                                                                                                                                                                           | Предметы для проверки |
 | hand_slot       | Маркер<br/>**EITHER_HAND** - Любая рука<br/>**MAIN_HAND** - Главная рука<br/>**OFF_HAND** - Второстепенная рука                                                                                                             | Рука                  |
 | comparison_mode | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения       |
 
@@ -683,8 +683,8 @@ if(player::is_looking_at_block(blocks=["minecraft:oak_log[axis=x]", "minecraft:o
 
 | ID         | Тип                                                                                                                               | Описание                                      |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| blocks     | Message 'actions.array' not found in 'ru_RU'\[Блок\]                                                                              | Блок(и) для проверки                          |
-| locations  | Message 'actions.array' not found in 'ru_RU'\[Местоположение\]                                                                    | Местоположение(я) для проверки                |
+| blocks     | Список\[Блок\]                                                                                                                    | Блок(и) для проверки                          |
+| locations  | Список\[Местоположение\]                                                                                                          | Местоположение(я) для проверки                |
 | distance   | Число                                                                                                                             | Максимальное расстояние до проверяемого блока |
 | fluid_mode | Маркер<br/>**ALWAYS** - Все виды жидкостей<br/>**NEVER** - Игнорировать жидкости<br/>**SOURCE_ONLY** - Только источники жидкостей | Режим жидкости                                |
 
@@ -776,7 +776,7 @@ if(player::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mod
 
 | ID           | Тип                                                                                                                                                                                                                                                                                          | Описание                                |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| entity_ids   | Message 'actions.array' not found in 'ru_RU'\[Текст\]                                                                                                                                                                                                                                        | Имя, UUID или тип существа для проверки |
+| entity_ids   | Список\[Текст\]                                                                                                                                                                                                                                                                              | Имя, UUID или тип существа для проверки |
 | compare_mode | Маркер<br/>**FARTHEST** - creative_plus.action.if_player_is_riding_entity.argument.compare_mode.enum.farthest.name<br/>**NAME_OR_UUID** - Имя или UUID<br/>**NEAREST** - creative_plus.action.if_player_is_riding_entity.argument.compare_mode.enum.nearest.name<br/>**TYPE** - Тип существа | Режим сравнения                         |
 
 <h3 id=if_player_is_self_disguised>
@@ -867,11 +867,11 @@ if(player::is_standing_on_block(blocks=["minecraft:oak_log[axis=x]", "minecraft:
 
 **Аргументы:**
 
-| ID         | Тип                                                            | Описание                    |
-|------------|----------------------------------------------------------------|-----------------------------|
-| blocks     | Message 'actions.array' not found in 'ru_RU'\[Блок\]           | Блоки для проверки          |
-| locations  | Message 'actions.array' not found in 'ru_RU'\[Местоположение\] | Местоположение для проверки |
-| only_solid | Маркер<br/>**FALSE** - Учитывать<br/>**TRUE** - Не учитывать   | Учитывать проходимые блоки  |
+| ID         | Тип                                                          | Описание                    |
+|------------|--------------------------------------------------------------|-----------------------------|
+| blocks     | Список\[Блок\]                                               | Блоки для проверки          |
+| locations  | Список\[Местоположение\]                                     | Местоположение для проверки |
+| only_solid | Маркер<br/>**FALSE** - Учитывать<br/>**TRUE** - Не учитывать | Учитывать проходимые блоки  |
 
 <h3 id=if_player_is_swimming>
   <code>player::is_swimming</code>
@@ -915,7 +915,7 @@ if(player::is_using_item(items=[item("stick"), item("stick")], comparison_mode="
 
 | ID              | Тип                                                                                                                                                                                                                         | Описание              |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| items           | Message 'actions.array' not found in 'ru_RU'\[Предмет\]                                                                                                                                                                     | Предметы для проверки |
+| items           | Список\[Предмет\]                                                                                                                                                                                                           | Предметы для проверки |
 | comparison_mode | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения       |
 
 <h3 id=if_player_is_wearing_item>
@@ -944,7 +944,7 @@ if(player::is_wearing_item(items=[item("stick"), item("stick")], check_mode="ALL
 
 | ID              | Тип                                                                                                                                                                                                                         | Описание             |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
-| items           | Message 'actions.array' not found in 'ru_RU'\[Предмет\]                                                                                                                                                                     | Предмет для проверки |
+| items           | Список\[Предмет\]                                                                                                                                                                                                           | Предмет для проверки |
 | check_mode      | Маркер<br/>**ALL** - Одет во все<br/>**ANY** - Одет во что-либо                                                                                                                                                             | Режим проверки       |
 | comparison_mode | Маркер<br/>**EXACTLY** - Полное сравнение<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Игнорировать количество и прочность<br/>**IGNORE_STACK_SIZE** - Игнорировать только количество<br/>**TYPE_ONLY** - Только тип предмета | Режим сравнения      |
 
@@ -972,9 +972,9 @@ if(player::item_is_not_on_cooldown(items=[item("stick"), item("stick")])){
 
 **Аргументы:**
 
-| ID    | Тип                                                     | Описание              |
-|-------|---------------------------------------------------------|-----------------------|
-| items | Message 'actions.array' not found in 'ru_RU'\[Предмет\] | Предметы для проверки |
+| ID    | Тип               | Описание              |
+|-------|-------------------|-----------------------|
+| items | Список\[Предмет\] | Предметы для проверки |
 
 <h3 id=if_player_name_equals>
   <code>player::name_equals</code>
@@ -1000,9 +1000,9 @@ if(player::name_equals(names_or_uuids=["names_or_uuids", "names_or_uuids"])){
 
 **Аргументы:**
 
-| ID             | Тип                                                   | Описание                    |
-|----------------|-------------------------------------------------------|-----------------------------|
-| names_or_uuids | Message 'actions.array' not found in 'ru_RU'\[Текст\] | Имена или UUID для проверки |
+| ID             | Тип             | Описание                    |
+|----------------|-----------------|-----------------------------|
+| names_or_uuids | Список\[Текст\] | Имена или UUID для проверки |
 
 <h3 id=if_player_text_filtering_enabled>
   <code>player::text_filtering_enabled</code>
@@ -1042,7 +1042,7 @@ player::add_inventory_menu_row(items=[item("stick"), item("stick")], position="B
 
 | ID       | Тип                                                                                | Описание       |
 |----------|------------------------------------------------------------------------------------|----------------|
-| items    | Message 'actions.array' not found in 'ru_RU'\[Предмет\]                            | Предметы       |
+| items    | Список\[Предмет\]                                                                  | Предметы       |
 | position | Маркер<br/>**BUTTON** - Добавить строку снизу<br/>**TOP** - Добавить строку сверху | Позиция строки |
 
 <h3 id=player_allow_placing_breaking_blocks>
@@ -1067,7 +1067,7 @@ player::allow_placing_breaking_blocks(blocks=["minecraft:oak_log[axis=x]", "mine
 
 | ID     | Тип                                                                                                                                                                                                                    | Описание                                                                       |
 |--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| blocks | Message 'actions.array' not found in 'ru_RU'\[Блок\]                                                                                                                                                                   | creative_plus.action.player_allow_placing_breaking_blocks.argument.blocks.name |
+| blocks | Список\[Блок\]                                                                                                                                                                                                         | creative_plus.action.player_allow_placing_breaking_blocks.argument.blocks.name |
 | allow  | Маркер<br/>**FALSE** - creative_plus.action.player_allow_placing_breaking_blocks.argument.allow.enum.false.name<br/>**TRUE** - creative_plus.action.player_allow_placing_breaking_blocks.argument.allow.enum.true.name | creative_plus.action.player_allow_placing_breaking_blocks.argument.allow.name  |
 
 <h3 id=player_boost_elytra>
@@ -1194,9 +1194,9 @@ player::clear_items(items=[item("stick"), item("stick")]);
 
 **Аргументы:**
 
-| ID    | Тип                                                     | Описание             |
-|-------|---------------------------------------------------------|----------------------|
-| items | Message 'actions.array' not found in 'ru_RU'\[Предмет\] | Предметы для очистки |
+| ID    | Тип               | Описание             |
+|-------|-------------------|----------------------|
+| items | Список\[Предмет\] | Предметы для очистки |
 
 <h3 id=player_clear_potion_effects>
   <code>player::clear_potion_effects</code>
@@ -1407,10 +1407,10 @@ player::display_block(location=[location(0,0,0,0,0), location(0,0,0,0,0)], block
 
 **Аргументы:**
 
-| ID       | Тип                                                            | Описание                           |
-|----------|----------------------------------------------------------------|------------------------------------|
-| location | Message 'actions.array' not found in 'ru_RU'\[Местоположение\] | Местоположение блока               |
-| block    | Блок                                                           | Блок, который требуется отобразить |
+| ID       | Тип                      | Описание                           |
+|----------|--------------------------|------------------------------------|
+| location | Список\[Местоположение\] | Местоположение блока               |
+| block    | Блок                     | Блок, который требуется отобразить |
 
 <h3 id=player_display_end_gateway_beam>
   <code>player::display_end_gateway_beam</code>
@@ -1508,10 +1508,10 @@ player::display_particle(particle=[particle("fire"), particle("fire")], location
 
 **Аргументы:**
 
-| ID       | Тип                                                            | Описание                      |
-|----------|----------------------------------------------------------------|-------------------------------|
-| particle | Message 'actions.array' not found in 'ru_RU'\[Эффект частиц\]  | Эффект частиц для отображения |
-| location | Message 'actions.array' not found in 'ru_RU'\[Местоположение\] | Местоположение эффекта        |
+| ID       | Тип                      | Описание                      |
+|----------|--------------------------|-------------------------------|
+| particle | Список\[Эффект частиц\]  | Эффект частиц для отображения |
+| location | Список\[Местоположение\] | Местоположение эффекта        |
 
 <h3 id=player_display_particle_circle>
   <code>player::display_particle_circle</code>
@@ -1803,10 +1803,10 @@ player::expand_inventory_menu(items=[item("stick"), item("stick")], size=1);
 
 **Аргументы:**
 
-| ID    | Тип                                                     | Описание                        |
-|-------|---------------------------------------------------------|---------------------------------|
-| items | Message 'actions.array' not found in 'ru_RU'\[Предмет\] | Предметы для заполнения         |
-| size  | Число                                                   | Количество строк для расширения |
+| ID    | Тип               | Описание                        |
+|-------|-------------------|---------------------------------|
+| items | Список\[Предмет\] | Предметы для заполнения         |
+| size  | Число             | Количество строк для расширения |
 
 <h3 id=player_face_location>
   <code>player::face_location</code>
@@ -1961,10 +1961,10 @@ player::give_items(items=[item("stick"), item("stick")], amount=1);
 
 **Аргументы:**
 
-| ID     | Тип                                                     | Описание                        |
-|--------|---------------------------------------------------------|---------------------------------|
-| items  | Message 'actions.array' not found in 'ru_RU'\[Предмет\] | Предметы для выдачи             |
-| amount | Число                                                   | Количество предметов для выдачи |
+| ID     | Тип               | Описание                        |
+|--------|-------------------|---------------------------------|
+| items  | Список\[Предмет\] | Предметы для выдачи             |
+| amount | Число             | Количество предметов для выдачи |
 
 <h3 id=player_give_potion_effect>
   <code>player::give_potion_effect</code>
@@ -1988,7 +1988,7 @@ player::give_potion_effect(potions=[potion("slow_falling"), potion("slow_falling
 
 | ID            | Тип                                                                          | Описание                            |
 |---------------|------------------------------------------------------------------------------|-------------------------------------|
-| potions       | Message 'actions.array' not found in 'ru_RU'\[Зелье\]                        | Эффекты для выдачи                  |
+| potions       | Список\[Зелье\]                                                              | Эффекты для выдачи                  |
 | show_icon     | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да                                 | Показывать иконку эффекта           |
 | overwrite     | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да                                 | Перезаписывать существующие эффекты |
 | particle_mode | Маркер<br/>**AMBIENT** - Прозрачными<br/>**NONE** - Нет<br/>**REGULAR** - Да | Показывать частицы                  |
@@ -2013,9 +2013,9 @@ player::give_random_item(items=[item("stick"), item("stick")]);
 
 **Аргументы:**
 
-| ID    | Тип                                                     | Описание            |
-|-------|---------------------------------------------------------|---------------------|
-| items | Message 'actions.array' not found in 'ru_RU'\[Предмет\] | Предметы для выбора |
+| ID    | Тип               | Описание            |
+|-------|-------------------|---------------------|
+| items | Список\[Предмет\] | Предметы для выбора |
 
 <h3 id=player_heal>
   <code>player::heal</code>
@@ -2063,7 +2063,7 @@ player::hide_entity(name_or_uuid=["name_or_uuid", "name_or_uuid"], hide="FALSE")
 
 | ID           | Тип                                                      | Описание              |
 |--------------|----------------------------------------------------------|-----------------------|
-| name_or_uuid | Message 'actions.array' not found in 'ru_RU'\[Текст\]    | Имя или UUID сущности |
+| name_or_uuid | Список\[Текст\]                                          | Имя или UUID сущности |
 | hide         | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Скрытие               |
 
 <h3 id=player_hide_scoreboard>
@@ -2439,10 +2439,10 @@ player::play_sound_from_entity(name_or_uuid="name_or_uuid", sounds=[sound("entit
 
 **Аргументы:**
 
-| ID           | Тип                                                  | Описание              |
-|--------------|------------------------------------------------------|-----------------------|
-| name_or_uuid | Текст                                                | Имя или UUID сущности |
-| sounds       | Message 'actions.array' not found in 'ru_RU'\[Звук\] | Звук для проигрывания |
+| ID           | Тип            | Описание              |
+|--------------|----------------|-----------------------|
+| name_or_uuid | Текст          | Имя или UUID сущности |
+| sounds       | Список\[Звук\] | Звук для проигрывания |
 
 <h3 id=player_play_sound_sequence>
   <code>player::play_sound_sequence</code>
@@ -2464,11 +2464,11 @@ player::play_sound_sequence(sounds=[sound("entity.zombie.hurt"), sound("entity.z
 
 **Аргументы:**
 
-| ID       | Тип                                                  | Описание               |
-|----------|------------------------------------------------------|------------------------|
-| sounds   | Message 'actions.array' not found in 'ru_RU'\[Звук\] | Звуки для проигрывания |
-| location | Местоположение                                       | Местоположение звука   |
-| delay    | Число                                                | Задержка в тиках       |
+| ID       | Тип            | Описание               |
+|----------|----------------|------------------------|
+| sounds   | Список\[Звук\] | Звуки для проигрывания |
+| location | Местоположение | Местоположение звука   |
+| delay    | Число          | Задержка в тиках       |
 
 <h3 id=player_randomized_teleport>
   <code>player::randomized_teleport</code>
@@ -2490,12 +2490,12 @@ player::randomized_teleport(locations=[location(0,0,0,0,0), location(0,0,0,0,0)]
 
 **Аргументы:**
 
-| ID            | Тип                                                            | Описание                     |
-|---------------|----------------------------------------------------------------|------------------------------|
-| locations     | Message 'actions.array' not found in 'ru_RU'\[Местоположение\] | Позиции для телепорта        |
-| keep_rotation | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено       | Оставить текущий поворот     |
-| keep_velocity | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить       | Сохранение инерции           |
-| dismount      | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да                   | Спешиться после телепортации |
+| ID            | Тип                                                      | Описание                     |
+|---------------|----------------------------------------------------------|------------------------------|
+| locations     | Список\[Местоположение\]                                 | Позиции для телепорта        |
+| keep_rotation | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Оставить текущий поворот     |
+| keep_velocity | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Сохранение инерции           |
+| dismount      | Маркер<br/>**FALSE** - Нет<br/>**TRUE** - Да             | Спешиться после телепортации |
 
 <h3 id=player_redirect_world>
   <code>player::redirect_world</code>
@@ -2629,9 +2629,9 @@ player::remove_items(items=[item("stick"), item("stick")]);
 
 **Аргументы:**
 
-| ID    | Тип                                                     | Описание              |
-|-------|---------------------------------------------------------|-----------------------|
-| items | Message 'actions.array' not found in 'ru_RU'\[Предмет\] | Предметы для удаления |
+| ID    | Тип               | Описание              |
+|-------|-------------------|-----------------------|
+| items | Список\[Предмет\] | Предметы для удаления |
 
 <h3 id=player_remove_pose>
   <code>player::remove_pose</code>
@@ -2667,9 +2667,9 @@ player::remove_potion_effect(potions=[potion("slow_falling"), potion("slow_falli
 
 **Аргументы:**
 
-| ID      | Тип                                                   | Описание             |
-|---------|-------------------------------------------------------|----------------------|
-| potions | Message 'actions.array' not found in 'ru_RU'\[Зелье\] | Эффекты для удаления |
+| ID      | Тип             | Описание             |
+|---------|-----------------|----------------------|
+| potions | Список\[Зелье\] | Эффекты для удаления |
 
 <h3 id=player_remove_self_disguise>
   <code>player::remove_self_disguise</code>
@@ -2733,11 +2733,11 @@ player::replace_items(items=[item("stick"), item("stick")], replace=item("stick"
 
 **Аргументы:**
 
-| ID      | Тип                                                     | Описание                        |
-|---------|---------------------------------------------------------|---------------------------------|
-| items   | Message 'actions.array' not found in 'ru_RU'\[Предмет\] | Заменяемые предметы             |
-| replace | Предмет                                                 | Заменяющий предмет              |
-| count   | Число                                                   | Количество предметов для замены |
+| ID      | Тип               | Описание                        |
+|---------|-------------------|---------------------------------|
+| items   | Список\[Предмет\] | Заменяемые предметы             |
+| replace | Предмет           | Заменяющий предмет              |
+| count   | Число             | Количество предметов для замены |
 
 <h3 id=player_reset_weather>
   <code>player::reset_weather</code>
@@ -2885,7 +2885,7 @@ player::send_action_bar(messages=["messages", "messages"], merging="CONCATENATIO
 
 | ID       | Тип                                                                             | Описание              |
 |----------|---------------------------------------------------------------------------------|-----------------------|
-| messages | Message 'actions.array' not found in 'ru_RU'\[Текст\]                           | Сообщения в экшн-баре |
+| messages | Список\[Текст\]                                                                 | Сообщения в экшн-баре |
 | merging  | Маркер<br/>**CONCATENATION** - Объединение<br/>**SPACES** - Разделение пробелом | Объединение текста    |
 
 <h3 id=player_send_advancement>
@@ -2934,10 +2934,10 @@ player::send_break_animation(locations=[location(0,0,0,0,0), location(0,0,0,0,0)
 
 **Аргументы:**
 
-| ID        | Тип                                                            | Описание                              |
-|-----------|----------------------------------------------------------------|---------------------------------------|
-| locations | Message 'actions.array' not found in 'ru_RU'\[Местоположение\] | Местоположения блоков                 |
-| stage     | Число                                                          | Уровень разрушения блока (от 0 до 10) |
+| ID        | Тип                      | Описание                              |
+|-----------|--------------------------|---------------------------------------|
+| locations | Список\[Местоположение\] | Местоположения блоков                 |
+| stage     | Число                    | Уровень разрушения блока (от 0 до 10) |
 
 <h3 id=player_send_dialogue>
   <code>player::send_dialogue</code>
@@ -2959,10 +2959,10 @@ player::send_dialogue(messages=["messages", "messages"], delay=1);
 
 **Аргументы:**
 
-| ID       | Тип                                                   | Описание                   |
-|----------|-------------------------------------------------------|----------------------------|
-| messages | Message 'actions.array' not found in 'ru_RU'\[Текст\] | Текст для отправки         |
-| delay    | Число                                                 | Задержка между сообщениями |
+| ID       | Тип             | Описание                   |
+|----------|-----------------|----------------------------|
+| messages | Список\[Текст\] | Текст для отправки         |
+| delay    | Число           | Задержка между сообщениями |
 
 <h3 id=player_send_hover>
   <code>player::send_hover</code>
@@ -3011,7 +3011,7 @@ player::message(messages=["messages", "messages"], merging="CONCATENATION");
 
 | ID       | Тип                                                                                                                           | Описание           |
 |----------|-------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| messages | Message 'actions.array' not found in 'ru_RU'\[Текст\]                                                                         | Текст для отправки |
+| messages | Список\[Текст\]                                                                                                               | Текст для отправки |
 | merging  | Маркер<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки<br/>**SPACES** - Разделение пробелом | Объединение текста |
 
 <h3 id=player_send_minimessage>
@@ -3346,7 +3346,7 @@ player::set_chat_completions(completions=["completions", "completions"], setting
 
 | ID           | Тип                                                                             | Описание       |
 |--------------|---------------------------------------------------------------------------------|----------------|
-| completions  | Message 'actions.array' not found in 'ru_RU'\[Текст\]                           | Подсказки      |
+| completions  | Список\[Текст\]                                                                 | Подсказки      |
 | setting_mode | Маркер<br/>**ADD** - Добавить<br/>**REMOVE** - Удалить<br/>**SET** - Установить | Тип обновления |
 
 <h3 id=player_set_collidable>
@@ -3517,9 +3517,9 @@ player::set_ender_chest_contents(items=[item("stick"), item("stick")]);
 
 **Аргументы:**
 
-| ID    | Тип                                                     | Описание               |
-|-------|---------------------------------------------------------|------------------------|
-| items | Message 'actions.array' not found in 'ru_RU'\[Предмет\] | Предметы для установки |
+| ID    | Тип               | Описание               |
+|-------|-------------------|------------------------|
+| items | Список\[Предмет\] | Предметы для установки |
 
 <h3 id=player_set_entity_glowing>
   <code>player::set_entity_glowing</code>
@@ -3543,7 +3543,7 @@ player::set_entity_glowing(name_or_uuid=["name_or_uuid", "name_or_uuid"], color=
 
 | ID           | Тип                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Описание              |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| name_or_uuid | Message 'actions.array' not found in 'ru_RU'\[Текст\]                                                                                                                                                                                                                                                                                                                                                                                                        | Имя или UUID сущности |
+| name_or_uuid | Список\[Текст\]                                                                                                                                                                                                                                                                                                                                                                                                                                              | Имя или UUID сущности |
 | color        | Маркер<br/>**AQUA** - Светло-синий<br/>**BLACK** - Чёрный<br/>**BLUE** - Синий<br/>**DARK_AQUA** - Бирюзовый<br/>**DARK_BLUE** - Тёмно-синий<br/>**DARK_GRAY** - Серый<br/>**DARK_GREEN** - Тёмно-зелёный<br/>**DARK_PURPLE** - Тёмно-фиолетовый<br/>**DARK_RED** - Тёмно-красный<br/>**GOLD** - Золотой<br/>**GRAY** - Светло-серый<br/>**GREEN** - Зелёный<br/>**PURPLE** - Фиолетовый<br/>**RED** - Красный<br/>**WHITE** - Белый<br/>**YELLOW** - Жёлтый | Цвет свечения         |
 | glow         | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить                                                                                                                                                                                                                                                                                                                                                                                                     | Свечение              |
 
@@ -4085,9 +4085,9 @@ player::set_items(items=[item("stick"), item("stick")]);
 
 **Аргументы:**
 
-| ID    | Тип                                                     | Описание                                    |
-|-------|---------------------------------------------------------|---------------------------------------------|
-| items | Message 'actions.array' not found in 'ru_RU'\[Предмет\] | Предметы для выдачи в соответствующие слоты |
+| ID    | Тип               | Описание                                    |
+|-------|-------------------|---------------------------------------------|
+| items | Список\[Предмет\] | Предметы для выдачи в соответствующие слоты |
 
 <h3 id=player_set_max_health>
   <code>player::set_max_health</code>
@@ -4185,7 +4185,7 @@ player::set_player_list_info(text=["text", "text"], merging="CONCATENATION", pos
 
 | ID       | Тип                                                                                                                           | Описание               |
 |----------|-------------------------------------------------------------------------------------------------------------------------------|------------------------|
-| text     | Message 'actions.array' not found in 'ru_RU'\[Текст\]                                                                         | Текст в списке игроков |
+| text     | Список\[Текст\]                                                                                                               | Текст в списке игроков |
 | merging  | Маркер<br/>**CONCATENATION** - Объединение<br/>**SEPARATE_LINES** - Разделение на строки<br/>**SPACES** - Разделение пробелом | Объединение текста     |
 | position | Маркер<br/>**FOOTER** - Снизу<br/>**HEADER** - Сверху                                                                         | Позиция                |
 
@@ -4725,7 +4725,7 @@ player::show_inventory_menu(items=[item("stick"), item("stick")], name="name", c
 
 | ID             | Тип                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Описание           |
 |----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| items          | Message 'actions.array' not found in 'ru_RU'\[Предмет\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Предметы инвентаря |
+| items          | Список\[Предмет\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Предметы инвентаря |
 | name           | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Название инвентаря |
 | custom_id      | Текст                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Кастомный ID       |
 | inventory_type | Маркер<br/>**ANVIL** - Наковальня<br/>**BARREL** - Бочка<br/>**BEACON** - Маяк<br/>**BLAST_FURNACE** - Плавильная печь<br/>**BREWING** - Зельеварка<br/>**CARTOGRAPHY** - Стол картографа<br/>**CHEST** - Сундук<br/>**COMPOSTER** - Компостер<br/>**CRAFTER** - Сборщик<br/>**CRAFTING** - Не открыт<br/>**CREATIVE** - Инвентарь креатива<br/>**DISPENSER** - Раздатчик<br/>**DROPPER** - Выбрасыватель<br/>**ENCHANTING** - Чародейский стол<br/>**ENDER_CHEST** - Эндер-сундук<br/>**FURNACE** - Печь<br/>**GRINDSTONE** - Точило<br/>**HOPPER** - Воронка<br/>**LECTERN** - Кафедра<br/>**LOOM** - Ткацкий станок<br/>**MERCHANT** - Торговец<br/>**PLAYER** - Инвентарь игрока<br/>**SHULKER_BOX** - Шалкеровый ящик<br/>**SMITHING** - Стол кузнеца<br/>**SMOKER** - Коптильня<br/>**STONECUTTER** - Камнерез<br/>**WORKBENCH** - Верстак | Тип инвентаря      |
@@ -4838,9 +4838,9 @@ player::stop_sound(sounds=[sound("entity.zombie.hurt"), sound("entity.zombie.hur
 
 **Аргументы:**
 
-| ID     | Тип                                                  | Описание              |
-|--------|------------------------------------------------------|-----------------------|
-| sounds | Message 'actions.array' not found in 'ru_RU'\[Звук\] | Эффекты для остановки |
+| ID     | Тип            | Описание              |
+|--------|----------------|-----------------------|
+| sounds | Список\[Звук\] | Эффекты для остановки |
 
 <h3 id=player_stop_sounds_by_source>
   <code>player::stop_sounds_by_source</code>
@@ -4939,8 +4939,8 @@ player::teleport_sequence(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], 
 
 **Аргументы:**
 
-| ID        | Тип                                                            | Описание                 |
-|-----------|----------------------------------------------------------------|--------------------------|
-| locations | Message 'actions.array' not found in 'ru_RU'\[Местоположение\] | Позиции для телепортации |
-| delay     | Число                                                          | Задержка в тиках         |
+| ID        | Тип                      | Описание                 |
+|-----------|--------------------------|--------------------------|
+| locations | Список\[Местоположение\] | Позиции для телепортации |
+| delay     | Число                    | Задержка в тиках         |
 

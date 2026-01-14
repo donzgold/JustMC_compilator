@@ -79,9 +79,9 @@ select::add_entity_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| ID           | Type                                                 | Description  |
-|--------------|------------------------------------------------------|--------------|
-| name_or_uuid | Message 'actions.array' not found in 'ru_RU'\[Text\] | Name or UUID |
+| ID           | Type          | Description  |
+|--------------|---------------|--------------|
+| name_or_uuid | Array\[Text\] | Name or UUID |
 
 <h3 id=select_add_event_target>
   <code>select::add_event_target</code>
@@ -155,9 +155,9 @@ select::add_mob_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| ID           | Type                                                 | Description  |
-|--------------|------------------------------------------------------|--------------|
-| name_or_uuid | Message 'actions.array' not found in 'ru_RU'\[Text\] | Name or UUID |
+| ID           | Type          | Description  |
+|--------------|---------------|--------------|
+| name_or_uuid | Array\[Text\] | Name or UUID |
 
 <h3 id=select_add_player_by_conditional>
   <code>select::add_player_by_conditional</code>
@@ -193,9 +193,9 @@ select::add_player_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| ID           | Type                                                 | Description  |
-|--------------|------------------------------------------------------|--------------|
-| name_or_uuid | Message 'actions.array' not found in 'ru_RU'\[Text\] | Name or UUID |
+| ID           | Type          | Description  |
+|--------------|---------------|--------------|
+| name_or_uuid | Array\[Text\] | Name or UUID |
 
 <h3 id=select_add_random_entity>
   <code>select::add_random_entity</code>
@@ -329,9 +329,9 @@ select::entity_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| ID           | Type                                                 | Description                |
-|--------------|------------------------------------------------------|----------------------------|
-| name_or_uuid | Message 'actions.array' not found in 'ru_RU'\[Text\] | Name or UUID of the target |
+| ID           | Type          | Description                |
+|--------------|---------------|----------------------------|
+| name_or_uuid | Array\[Text\] | Name or UUID of the target |
 
 <h3 id=select_event_target>
   <code>select::event_target</code>
@@ -515,9 +515,9 @@ select::mob_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| ID           | Type                                                 | Description                |
-|--------------|------------------------------------------------------|----------------------------|
-| name_or_uuid | Message 'actions.array' not found in 'ru_RU'\[Text\] | Name or UUID of the target |
+| ID           | Type          | Description                |
+|--------------|---------------|----------------------------|
+| name_or_uuid | Array\[Text\] | Name or UUID of the target |
 
 <h3 id=select_player_by_conditional>
   <code>select::player_by_conditional</code>
@@ -553,9 +553,9 @@ select::player_by_name(name_or_uuid=["name_or_uuid", "name_or_uuid"]);
 
 **Arguments:**
 
-| ID           | Type                                                 | Description                |
-|--------------|------------------------------------------------------|----------------------------|
-| name_or_uuid | Message 'actions.array' not found in 'ru_RU'\[Text\] | Name or UUID of the target |
+| ID           | Type          | Description                |
+|--------------|---------------|----------------------------|
+| name_or_uuid | Array\[Text\] | Name or UUID of the target |
 
 <h3 id=select_random_entity>
   <code>select::random_entity</code>

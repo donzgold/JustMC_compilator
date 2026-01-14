@@ -102,11 +102,11 @@ world::break_block(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], tool=it
 
 **Arguments:**
 
-| ID        | Type                                                     | Description     |
-|-----------|----------------------------------------------------------|-----------------|
-| locations | Message 'actions.array' not found in 'ru_RU'\[Location\] | Block Locations |
-| tool      | Item                                                     | Tool            |
-| drop_exp  | Marker<br/>**FALSE** - Turn off<br/>**TRUE** - Turn on   | Experience drop |
+| ID        | Type                                                   | Description     |
+|-----------|--------------------------------------------------------|-----------------|
+| locations | Array\[Location\]                                      | Block Locations |
+| tool      | Item                                                   | Tool            |
+| drop_exp  | Marker<br/>**FALSE** - Turn off<br/>**TRUE** - Turn on | Experience drop |
 
 <h3 id=game_cancel_event>
   <code>world::cancel_event</code>
@@ -170,10 +170,10 @@ world::clear_container_items(items=[item("stick"), item("stick")], location=loca
 
 **Arguments:**
 
-| ID       | Type                                                 | Description           |
-|----------|------------------------------------------------------|-----------------------|
-| items    | Message 'actions.array' not found in 'ru_RU'\[Item\] | Items                 |
-| location | Location                                             | Location of container |
+| ID       | Type          | Description           |
+|----------|---------------|-----------------------|
+| items    | Array\[Item\] | Items                 |
+| location | Location      | Location of container |
 
 <h3 id=game_clear_exploded_blocks>
   <code>world::clear_exploded_blocks</code>
@@ -198,9 +198,9 @@ world::clear_exploded_blocks(location=[location(0,0,0,0,0), location(0,0,0,0,0)]
 
 **Arguments:**
 
-| ID       | Type                                                     | Description     |
-|----------|----------------------------------------------------------|-----------------|
-| location | Message 'actions.array' not found in 'ru_RU'\[Location\] | Block Locations |
+| ID       | Type              | Description     |
+|----------|-------------------|-----------------|
+| location | Array\[Location\] | Block Locations |
 
 <h3 id=game_clear_region>
   <code>world::clear_region</code>
@@ -369,10 +369,10 @@ world::fill_container(items=[item("stick"), item("stick")], location=location(0,
 
 **Arguments:**
 
-| ID       | Type                                                 | Description           |
-|----------|------------------------------------------------------|-----------------------|
-| items    | Message 'actions.array' not found in 'ru_RU'\[Item\] | Items to Fill         |
-| location | Location                                             | Location of Container |
+| ID       | Type          | Description           |
+|----------|---------------|-----------------------|
+| items    | Array\[Item\] | Items to Fill         |
+| location | Location      | Location of Container |
 
 <h3 id=game_generate_tree>
   <code>world::generate_tree</code>
@@ -530,10 +530,10 @@ world::remove_container_items(items=[item("stick"), item("stick")], location=loc
 
 **Arguments:**
 
-| ID       | Type                                                 | Description           |
-|----------|------------------------------------------------------|-----------------------|
-| items    | Message 'actions.array' not found in 'ru_RU'\[Item\] | Items                 |
-| location | Location                                             | Location of Container |
+| ID       | Type          | Description           |
+|----------|---------------|-----------------------|
+| items    | Array\[Item\] | Items                 |
+| location | Location      | Location of Container |
 
 <h3 id=game_remove_scoreboard>
   <code>world::remove_scoreboard</code>
@@ -656,12 +656,12 @@ world::replace_blocks_in_region(old_block=["minecraft:oak_log[axis=x]", "minecra
 
 **Arguments:**
 
-| ID        | Type                                                  | Description               |
-|-----------|-------------------------------------------------------|---------------------------|
-| old_block | Message 'actions.array' not found in 'ru_RU'\[Block\] | Blocks to Replace         |
-| pos_1     | Location                                              | Region Corner             |
-| pos_2     | Location                                              | Opposite Corner of Region |
-| new_block | Block                                                 | New Block                 |
+| ID        | Type           | Description               |
+|-----------|----------------|---------------------------|
+| old_block | Array\[Block\] | Blocks to Replace         |
+| pos_1     | Location       | Region Corner             |
+| pos_2     | Location       | Opposite Corner of Region |
+| new_block | Block          | New Block                 |
 
 <h3 id=game_replace_container_items>
   <code>world::replace_container_items</code>
@@ -685,12 +685,12 @@ world::replace_container_items(items=[item("stick"), item("stick")], location=lo
 
 **Arguments:**
 
-| ID       | Type                                                 | Description                |
-|----------|------------------------------------------------------|----------------------------|
-| items    | Message 'actions.array' not found in 'ru_RU'\[Item\] | Replaceable Items          |
-| location | Location                                             | Location of container      |
-| replace  | Item                                                 | Replace Item               |
-| count    | Number                                               | Number of Items to Replace |
+| ID       | Type          | Description                |
+|----------|---------------|----------------------------|
+| items    | Array\[Item\] | Replaceable Items          |
+| location | Location      | Location of container      |
+| replace  | Item          | Replace Item               |
+| count    | Number        | Number of Items to Replace |
 
 <h3 id=game_send_web_request>
   <code>world::send_web_request</code>
@@ -769,7 +769,7 @@ world::set_block(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], block="mi
 
 | ID            | Type                                                      | Description            |
 |---------------|-----------------------------------------------------------|------------------------|
-| locations     | Message 'actions.array' not found in 'ru_RU'\[Location\]  | Block Set Locations    |
+| locations     | Array\[Location\]                                         | Block Set Locations    |
 | block         | Block                                                     | Block                  |
 | update_blocks | Marker<br/>**FALSE** - Don't update<br/>**TRUE** - Update | Update adjacent blocks |
 
@@ -1007,10 +1007,10 @@ world::set_container(items=[item("stick"), item("stick")], location=[location(0,
 
 **Arguments:**
 
-| ID       | Type                                                     | Description           |
-|----------|----------------------------------------------------------|-----------------------|
-| items    | Message 'actions.array' not found in 'ru_RU'\[Item\]     | Items to Set          |
-| location | Message 'actions.array' not found in 'ru_RU'\[Location\] | Location of Container |
+| ID       | Type              | Description           |
+|----------|-------------------|-----------------------|
+| items    | Array\[Item\]     | Items to Set          |
+| location | Array\[Location\] | Location of Container |
 
 <h3 id=game_set_container_lock>
   <code>world::set_container_lock</code>
@@ -1309,11 +1309,11 @@ world::set_event_enchantment_offers(enchantments=["enchantments", "enchantments"
 
 **Arguments:**
 
-| ID           | Type                                                 | Description                                                                       |
-|--------------|------------------------------------------------------|-----------------------------------------------------------------------------------|
-| enchantments | Message 'actions.array' not found in 'ru_RU'\[Text\] | creative_plus.action.game_set_event_enchantment_offers.argument.enchantments.name |
-| levels       | Message 'actions.array' not found in 'ru_RU'\[Text\] | creative_plus.action.game_set_event_enchantment_offers.argument.levels.name       |
-| costs        | Message 'actions.array' not found in 'ru_RU'\[Text\] | creative_plus.action.game_set_event_enchantment_offers.argument.costs.name        |
+| ID           | Type          | Description                                                                       |
+|--------------|---------------|-----------------------------------------------------------------------------------|
+| enchantments | Array\[Text\] | creative_plus.action.game_set_event_enchantment_offers.argument.enchantments.name |
+| levels       | Array\[Text\] | creative_plus.action.game_set_event_enchantment_offers.argument.levels.name       |
+| costs        | Array\[Text\] | creative_plus.action.game_set_event_enchantment_offers.argument.costs.name        |
 
 <h3 id=game_set_event_exhaustion>
   <code>world::set_event_exhaustion</code>
@@ -1509,9 +1509,9 @@ world::set_event_items(items=[item("stick"), item("stick")]);
 
 **Arguments:**
 
-| ID    | Type                                                 | Description  |
-|-------|------------------------------------------------------|--------------|
-| items | Message 'actions.array' not found in 'ru_RU'\[Item\] | Items to set |
+| ID    | Type          | Description  |
+|-------|---------------|--------------|
+| items | Array\[Item\] | Items to set |
 
 <h3 id=game_set_event_knockback_vector>
   <code>world::set_event_knockback_vector</code>
@@ -2529,14 +2529,14 @@ world::spawn_effect_cloud(location=location(0,0,0,0,0), duration=1, radius=2, ef
 
 **Arguments:**
 
-| ID          | Type                                                   | Description     |
-|-------------|--------------------------------------------------------|-----------------|
-| location    | Location                                               | Spawn Location  |
-| duration    | Number                                                 | Duration        |
-| radius      | Number                                                 | Cloud Radius    |
-| effects     | Message 'actions.array' not found in 'ru_RU'\[Potion\] | Potion Effects  |
-| particle    | Particle Effect                                        | Cloud Particles |
-| custom_name | Text                                                   | Name            |
+| ID          | Type            | Description     |
+|-------------|-----------------|-----------------|
+| location    | Location        | Spawn Location  |
+| duration    | Number          | Duration        |
+| radius      | Number          | Cloud Radius    |
+| effects     | Array\[Potion\] | Potion Effects  |
+| particle    | Particle Effect | Cloud Particles |
+| custom_name | Text            | Name            |
 
 <h3 id=game_spawn_end_crystal>
   <code>world::spawn_end_crystal</code>
@@ -2829,20 +2829,20 @@ world::spawn_mob(mob=item("stick"), location=location(0,0,0,0,0), health=1, cust
 
 **Arguments:**
 
-| ID                | Type                                                   | Description        |
-|-------------------|--------------------------------------------------------|--------------------|
-| mob               | Item                                                   | Mob Type           |
-| location          | Location                                               | Spawn Location     |
-| health            | Number                                                 | Amount of Health   |
-| custom_name       | Text                                                   | Name               |
-| potion_effects    | Message 'actions.array' not found in 'ru_RU'\[Potion\] | Effects            |
-| main_hand         | Item                                                   | Main Hand Item     |
-| helmet            | Item                                                   | Headgear           |
-| chestplate        | Item                                                   | Chestplate         |
-| leggings          | Item                                                   | Leggings           |
-| boots             | Item                                                   | Boots              |
-| off_hand          | Item                                                   | Offhand Item       |
-| natural_equipment | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable   | Standard Equipment |
+| ID                | Type                                                 | Description        |
+|-------------------|------------------------------------------------------|--------------------|
+| mob               | Item                                                 | Mob Type           |
+| location          | Location                                             | Spawn Location     |
+| health            | Number                                               | Amount of Health   |
+| custom_name       | Text                                                 | Name               |
+| potion_effects    | Array\[Potion\]                                      | Effects            |
+| main_hand         | Item                                                 | Main Hand Item     |
+| helmet            | Item                                                 | Headgear           |
+| chestplate        | Item                                                 | Chestplate         |
+| leggings          | Item                                                 | Leggings           |
+| boots             | Item                                                 | Boots              |
+| off_hand          | Item                                                 | Offhand Item       |
+| natural_equipment | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Standard Equipment |
 
 <h3 id=game_spawn_painting>
   <code>world::spawn_painting</code>
@@ -2947,7 +2947,7 @@ world::spawn_text_display(spawn_location=location(0,0,0,0,0), custom_name="custo
 |----------------|----------------------------------------------------------------------------------------------------------------|----------------|
 | spawn_location | Location                                                                                                       | Spawn Location |
 | custom_name    | Text                                                                                                           | Name           |
-| displayed_text | Message 'actions.array' not found in 'ru_RU'\[Text\]                                                           | Displayed Text |
+| displayed_text | Array\[Text\]                                                                                                  | Displayed Text |
 | merging_mode   | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text     |
 
 <h3 id=game_spawn_vehicle>
@@ -3038,10 +3038,10 @@ if(world::block_equals(blocks=["minecraft:oak_log[axis=x]", "minecraft:oak_log[a
 
 **Arguments:**
 
-| ID       | Type                                                  | Description         |
-|----------|-------------------------------------------------------|---------------------|
-| blocks   | Message 'actions.array' not found in 'ru_RU'\[Block\] | Block Type to Check |
-| location | Location                                              | Block Location      |
+| ID       | Type           | Description         |
+|----------|----------------|---------------------|
+| blocks   | Array\[Block\] | Block Type to Check |
+| location | Location       | Block Location      |
 
 <h3 id=if_game_block_powered>
   <code>world::block_powered</code>
@@ -3069,7 +3069,7 @@ if(world::block_powered(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], po
 
 | ID         | Type                                                                       | Description           |
 |------------|----------------------------------------------------------------------------|-----------------------|
-| locations  | Message 'actions.array' not found in 'ru_RU'\[Location\]                   | Block Location        |
+| locations  | Array\[Location\]                                                          | Block Location        |
 | power_mode | Marker<br/>**DIRECT** - Direct Powered<br/>**INDIRECT** - Indirect Powered | Redstone Powered Type |
 
 <h3 id=if_game_chunk_is_loaded>
@@ -3126,7 +3126,7 @@ if(world::container_has(items=[item("stick"), item("stick")], location=location(
 
 | ID              | Type                                                                                                                                                                                                   | Description           |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| items           | Message 'actions.array' not found in 'ru_RU'\[Item\]                                                                                                                                                   | Items to Check        |
+| items           | Array\[Item\]                                                                                                                                                                                          | Items to Check        |
 | location        | Location                                                                                                                                                                                               | Location of container |
 | check_mode      | Marker<br/>**ALL** - All Items<br/>**ANY** - Any Items                                                                                                                                                 | Comparison Type       |
 | comparison_mode | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item type only | Comparison Mode       |
@@ -3157,7 +3157,7 @@ if(world::container_has_room_for_item(items=[item("stick"), item("stick")], loca
 
 | ID         | Type                                                   | Description           |
 |------------|--------------------------------------------------------|-----------------------|
-| items      | Message 'actions.array' not found in 'ru_RU'\[Item\]   | Items to Check        |
+| items      | Array\[Item\]                                          | Items to Check        |
 | location   | Location                                               | Location of container |
 | check_mode | Marker<br/>**ALL** - All Items<br/>**ANY** - Any Items | Comparison Type       |
 
@@ -3245,10 +3245,10 @@ if(world::event_block_equals(blocks=["minecraft:oak_log[axis=x]", "minecraft:oak
 
 **Arguments:**
 
-| ID        | Type                                                     | Description              |
-|-----------|----------------------------------------------------------|--------------------------|
-| blocks    | Message 'actions.array' not found in 'ru_RU'\[Block\]    | Block Types to Check     |
-| locations | Message 'actions.array' not found in 'ru_RU'\[Location\] | Block Locations to Check |
+| ID        | Type              | Description              |
+|-----------|-------------------|--------------------------|
+| blocks    | Array\[Block\]    | Block Types to Check     |
+| locations | Array\[Location\] | Block Locations to Check |
 
 <h3 id=if_game_event_has_input>
   <code>world::event_has_input</code>
@@ -3324,7 +3324,7 @@ if(world::event_item_equals(items=[item("stick"), item("stick")], comparison_mod
 
 | ID              | Type                                                                                                                                                                                                   | Description     |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| items           | Message 'actions.array' not found in 'ru_RU'\[Item\]                                                                                                                                                   | Items to Check  |
+| items           | Array\[Item\]                                                                                                                                                                                          | Items to Check  |
 | comparison_mode | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore Quantity Only<br/>**TYPE_ONLY** - Item type only | Comparison Mode |
 
 <h3 id=if_game_has_player>
@@ -3351,9 +3351,9 @@ if(world::has_player(names_or_uuids=["names_or_uuids", "names_or_uuids"])){
 
 **Arguments:**
 
-| ID             | Type                                                 | Description             |
-|----------------|------------------------------------------------------|-------------------------|
-| names_or_uuids | Message 'actions.array' not found in 'ru_RU'\[Text\] | Player Nickname or UUID |
+| ID             | Type          | Description             |
+|----------------|---------------|-------------------------|
+| names_or_uuids | Array\[Text\] | Player Nickname or UUID |
 
 <h3 id=if_game_heal_cause_equals>
   <code>world::heal_cause_equals</code>
@@ -3494,7 +3494,7 @@ if(world::sign_contains(location=location(0,0,0,0,0), texts=["texts", "texts"], 
 | ID         | Type                                                                                                                                                                                                                                                          | Description      |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
 | location   | Location                                                                                                                                                                                                                                                      | Sign location    |
-| texts      | Message 'actions.array' not found in 'ru_RU'\[Text\]                                                                                                                                                                                                          | Text to check    |
+| texts      | Array\[Text\]                                                                                                                                                                                                                                                 | Text to check    |
 | check_side | Marker<br/>**ANY** - Any<br/>**BACK** - Back<br/>**FRONT** - Front                                                                                                                                                                                            | Sign Side        |
 | check_mode | Marker<br/>**ALL** - creative_plus.action.if_game_sign_contains.argument.check_mode.enum.all.name<br/>**ANY** - creative_plus.action.if_game_sign_contains.argument.check_mode.enum.any.name<br/>**CONTAINS** - Content Compare<br/>**EQUALS** - Full Compare | Comparison Type  |
 | lines      | Marker<br/>**ALL** - All Lines<br/>**ANY** - Any String<br/>**FIRST** - 1 line<br/>**FOURTH** - line 4<br/>**SECOND** - 2 line<br/>**THIRD** - 3 line                                                                                                         | Lines to Compare |
