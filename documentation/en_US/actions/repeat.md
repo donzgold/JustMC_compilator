@@ -244,12 +244,12 @@ repeat::on_path(variable=`variable`, step=1, locations=[location(0,0,0,0,0), loc
 
 **Arguments:**
 
-| ID        | Type                                                  | Description                         |
-|-----------|-------------------------------------------------------|-------------------------------------|
-| variable  | Variable                                              | To assign location                  |
-| step      | Number                                                | Distance between points             |
-| locations | Array\[Location\]                                     | Line End Locations                  |
-| rotation  | Marker<br/>**FALSE** - Don't Save<br/>**TRUE** - Keep | Keep rotation of specified location |
+| ID        | Type                                                  | Description                                                    |
+|-----------|-------------------------------------------------------|----------------------------------------------------------------|
+| variable  | Variable                                              | To assign location                                             |
+| step      | Number                                                | Distance between points                                        |
+| locations | Array\[Location\]                                     | Line End Locations<br>The argument supports list decomposition |
+| rotation  | Marker<br/>**FALSE** - Don't Save<br/>**TRUE** - Keep | Keep rotation of specified location                            |
 
 <h3 id=repeat_on_range>
   <code>repeat::on_range</code>

@@ -515,6 +515,7 @@
       {
         "id": "potions",
         "plural": true,
+        "support_arrays": true,
         "type": "potion",
         "valueSlots": [
           0,
@@ -825,6 +826,7 @@
       {
         "id": "materials",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -886,6 +888,7 @@
       {
         "id": "materials",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -1111,6 +1114,7 @@
       {
         "id": "effects",
         "plural": true,
+        "support_arrays": true,
         "type": "potion",
         "valueSlots": [
           0,
@@ -2381,6 +2385,7 @@
       {
         "id": "row_major_matrix",
         "plural": true,
+        "support_arrays": true,
         "type": "number",
         "valueSlots": [
           0,
@@ -4355,6 +4360,7 @@
       {
         "id": "displayed_text",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -5082,6 +5088,7 @@
       {
         "id": "locations",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           0,
@@ -5187,6 +5194,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -5249,6 +5257,7 @@
       {
         "id": "location",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           0,
@@ -5503,6 +5512,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -5790,6 +5800,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -5932,6 +5943,7 @@
       {
         "id": "old_block",
         "plural": true,
+        "support_arrays": true,
         "type": "block",
         "valueSlots": [
           0,
@@ -5997,6 +6009,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -6201,6 +6214,7 @@
       {
         "id": "locations",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           0,
@@ -6477,6 +6491,7 @@
       {
         "id": "location",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           36,
@@ -6504,6 +6519,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -6784,6 +6800,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -8152,6 +8169,7 @@
       {
         "id": "effects",
         "plural": true,
+        "support_arrays": true,
         "type": "potion",
         "valueSlots": [
           3,
@@ -8705,6 +8723,7 @@
       {
         "id": "potion_effects",
         "plural": true,
+        "support_arrays": true,
         "type": "potion",
         "valueSlots": [
           3,
@@ -8949,6 +8968,7 @@
       {
         "id": "displayed_text",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           2,
@@ -9185,6 +9205,7 @@
       {
         "id": "potions",
         "plural": true,
+        "support_arrays": true,
         "type": "potion",
         "valueSlots": [
           0,
@@ -9384,6 +9405,7 @@
       {
         "id": "entity_ids",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -9439,6 +9461,7 @@
       {
         "id": "blocks",
         "plural": true,
+        "support_arrays": true,
         "type": "block",
         "valueSlots": [
           0,
@@ -9472,6 +9495,7 @@
       {
         "id": "locations",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           5,
@@ -9526,6 +9550,7 @@
       {
         "id": "entity_types",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -9577,6 +9602,7 @@
       {
         "id": "names_or_uuids",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -9685,6 +9711,7 @@
       {
         "id": "blocks",
         "plural": true,
+        "support_arrays": true,
         "type": "block",
         "valueSlots": [
           0,
@@ -9736,6 +9763,7 @@
       {
         "id": "locations",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           0,
@@ -9821,6 +9849,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -9898,6 +9927,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -10005,6 +10035,7 @@
       {
         "id": "blocks",
         "plural": true,
+        "support_arrays": true,
         "type": "block",
         "valueSlots": [
           0,
@@ -10038,6 +10069,7 @@
       {
         "id": "locations",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           5,
@@ -10086,6 +10118,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -10143,6 +10176,7 @@
       {
         "id": "names_or_uuids",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -10285,6 +10319,7 @@
       {
         "id": "texts",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           1,
@@ -10363,6 +10398,7 @@
       {
         "id": "chat_messages",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -10487,6 +10523,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -10566,6 +10603,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -10677,6 +10715,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           5,
@@ -10702,6 +10741,7 @@
       {
         "id": "slots",
         "plural": true,
+        "support_arrays": true,
         "type": "number",
         "valueSlots": [
           0,
@@ -10750,6 +10790,7 @@
       {
         "id": "potions",
         "plural": true,
+        "support_arrays": true,
         "type": "potion",
         "valueSlots": [
           0,
@@ -10844,6 +10885,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -10933,6 +10975,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           5,
@@ -10958,6 +11001,7 @@
       {
         "id": "slots",
         "plural": true,
+        "support_arrays": true,
         "type": "number",
         "valueSlots": [
           0,
@@ -11078,6 +11122,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -11213,6 +11258,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -11257,6 +11303,7 @@
       {
         "id": "blocks",
         "plural": true,
+        "support_arrays": true,
         "type": "block",
         "valueSlots": [
           0,
@@ -11284,6 +11331,7 @@
       {
         "id": "locations",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           4,
@@ -11401,6 +11449,7 @@
       {
         "id": "entity_ids",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -11484,6 +11533,7 @@
       {
         "id": "blocks",
         "plural": true,
+        "support_arrays": true,
         "type": "block",
         "valueSlots": [
           0,
@@ -11517,6 +11567,7 @@
       {
         "id": "locations",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           5,
@@ -11578,6 +11629,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -11635,6 +11687,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -11703,6 +11756,7 @@
       {
         "id": "names_or_uuids",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -11758,6 +11812,7 @@
       {
         "id": "compare",
         "plural": true,
+        "support_arrays": true,
         "type": "any",
         "valueSlots": [
           2,
@@ -11981,6 +12036,7 @@
       {
         "id": "compare",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           2,
@@ -12199,6 +12255,7 @@
       {
         "id": "values",
         "plural": true,
+        "support_arrays": true,
         "type": "any",
         "valueSlots": [
           2,
@@ -12279,6 +12336,7 @@
       {
         "id": "values",
         "plural": true,
+        "support_arrays": true,
         "type": "any",
         "valueSlots": [
           2,
@@ -12401,6 +12459,7 @@
       {
         "id": "check",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           3,
@@ -12511,6 +12570,7 @@
       {
         "id": "values",
         "plural": true,
+        "support_arrays": true,
         "type": "any",
         "valueSlots": [
           2,
@@ -12567,6 +12627,7 @@
       {
         "id": "compare",
         "plural": true,
+        "support_arrays": true,
         "type": "any",
         "valueSlots": [
           2,
@@ -12687,6 +12748,7 @@
       {
         "id": "compare",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           2,
@@ -12756,6 +12818,7 @@
       {
         "id": "compare",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           2,
@@ -12825,6 +12888,7 @@
       {
         "id": "values",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           2,
@@ -12907,6 +12971,7 @@
       {
         "id": "compare",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           2,
@@ -12990,6 +13055,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -13049,6 +13115,7 @@
       {
         "id": "blocks",
         "plural": true,
+        "support_arrays": true,
         "type": "block",
         "valueSlots": [
           0,
@@ -13155,6 +13222,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -13377,6 +13445,7 @@
       {
         "id": "location",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           0,
@@ -13560,6 +13629,7 @@
       {
         "id": "particle",
         "plural": true,
+        "support_arrays": true,
         "type": "particle",
         "valueSlots": [
           0,
@@ -13593,6 +13663,7 @@
       {
         "id": "location",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           5,
@@ -14225,6 +14296,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -14360,6 +14432,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -14414,6 +14487,7 @@
       {
         "id": "potions",
         "plural": true,
+        "support_arrays": true,
         "type": "potion",
         "valueSlots": [
           0,
@@ -14492,6 +14566,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -14565,6 +14640,7 @@
       {
         "id": "name_or_uuid",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -14941,6 +15017,7 @@
       {
         "id": "sounds",
         "plural": true,
+        "support_arrays": true,
         "type": "sound",
         "valueSlots": [
           2,
@@ -15000,6 +15077,7 @@
       {
         "id": "sounds",
         "plural": true,
+        "support_arrays": true,
         "type": "sound",
         "valueSlots": [
           0,
@@ -15089,6 +15167,7 @@
       {
         "id": "locations",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           0,
@@ -15277,6 +15356,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -15328,6 +15408,7 @@
       {
         "id": "potions",
         "plural": true,
+        "support_arrays": true,
         "type": "potion",
         "valueSlots": [
           0,
@@ -15393,6 +15474,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -15558,6 +15640,7 @@
       {
         "id": "messages",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -15656,6 +15739,7 @@
       {
         "id": "locations",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           0,
@@ -15706,6 +15790,7 @@
       {
         "id": "messages",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -15790,6 +15875,7 @@
       {
         "id": "messages",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -16224,6 +16310,7 @@
       {
         "id": "completions",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -16358,6 +16445,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -16411,6 +16499,7 @@
       {
         "id": "name_or_uuid",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -16977,6 +17066,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -17123,6 +17213,7 @@
       {
         "id": "text",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -17778,6 +17869,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -17910,6 +18002,7 @@
       {
         "id": "sounds",
         "plural": true,
+        "support_arrays": true,
         "type": "sound",
         "valueSlots": [
           0,
@@ -18072,6 +18165,7 @@
       {
         "id": "locations",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           0,
@@ -18454,6 +18548,7 @@
       {
         "id": "locations",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           2,
@@ -18667,6 +18762,7 @@
       {
         "id": "name_or_uuid",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -18749,6 +18845,7 @@
       {
         "id": "name_or_uuid",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -18800,6 +18897,7 @@
       {
         "id": "name_or_uuid",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -18893,6 +18991,7 @@
       {
         "id": "name_or_uuid",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -19167,6 +19266,7 @@
       {
         "id": "name_or_uuid",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -19218,6 +19318,7 @@
       {
         "id": "name_or_uuid",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -19362,6 +19463,7 @@
       {
         "id": "value",
         "plural": true,
+        "support_arrays": true,
         "type": "number",
         "valueSlots": [
           2,
@@ -19483,6 +19585,7 @@
       {
         "id": "potions",
         "plural": true,
+        "support_arrays": true,
         "type": "potion",
         "valueSlots": [
           0,
@@ -19575,6 +19678,7 @@
       {
         "id": "vectors",
         "plural": true,
+        "support_arrays": true,
         "type": "vector",
         "valueSlots": [
           2,
@@ -19741,6 +19845,7 @@
       {
         "id": "components",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           2,
@@ -19897,6 +20002,7 @@
       {
         "id": "values",
         "plural": true,
+        "support_arrays": false,
         "type": "any",
         "valueSlots": [
           2,
@@ -19953,6 +20059,7 @@
       {
         "id": "value",
         "plural": true,
+        "support_arrays": true,
         "type": "number",
         "valueSlots": [
           2,
@@ -20070,6 +20177,7 @@
       {
         "id": "locations",
         "plural": true,
+        "support_arrays": true,
         "type": "location",
         "valueSlots": [
           2,
@@ -20334,6 +20442,7 @@
       {
         "id": "components",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           2,
@@ -20621,6 +20730,7 @@
       {
         "id": "values",
         "plural": true,
+        "support_arrays": false,
         "type": "any",
         "valueSlots": [
           2,
@@ -20726,6 +20836,7 @@
       {
         "id": "keys",
         "plural": true,
+        "support_arrays": false,
         "type": "any",
         "valueSlots": [
           2,
@@ -20753,6 +20864,7 @@
       {
         "id": "values",
         "plural": true,
+        "support_arrays": true,
         "type": "any",
         "valueSlots": [
           6,
@@ -20813,6 +20925,7 @@
       {
         "id": "args",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           2,
@@ -20941,6 +21054,7 @@
       {
         "id": "value",
         "plural": true,
+        "support_arrays": true,
         "type": "number",
         "valueSlots": [
           2,
@@ -25245,6 +25359,7 @@
       {
         "id": "value",
         "plural": true,
+        "support_arrays": true,
         "type": "number",
         "valueSlots": [
           2,
@@ -25302,6 +25417,7 @@
       {
         "id": "value",
         "plural": true,
+        "support_arrays": true,
         "type": "number",
         "valueSlots": [
           2,
@@ -25359,6 +25475,7 @@
       {
         "id": "value",
         "plural": true,
+        "support_arrays": true,
         "type": "number",
         "valueSlots": [
           2,
@@ -25678,6 +25795,7 @@
       {
         "id": "names",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -25769,6 +25887,7 @@
       {
         "id": "values",
         "plural": true,
+        "support_arrays": true,
         "type": "any",
         "valueSlots": [
           2,
@@ -26623,6 +26742,7 @@
       {
         "id": "effects",
         "plural": true,
+        "support_arrays": true,
         "type": "potion",
         "valueSlots": [
           0,
@@ -26853,6 +26973,7 @@
       {
         "id": "values",
         "plural": true,
+        "support_arrays": true,
         "type": "any",
         "valueSlots": [
           3,
@@ -26929,6 +27050,7 @@
       {
         "id": "remove",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           0,
@@ -27573,6 +27695,7 @@
       {
         "id": "text",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           2,
@@ -27640,6 +27763,7 @@
       {
         "id": "items",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           2,
@@ -27787,6 +27911,7 @@
       {
         "id": "children",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           2,
@@ -28601,6 +28726,7 @@
       {
         "id": "destroyable",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -28755,6 +28881,7 @@
       {
         "id": "lore",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           2,
@@ -28983,6 +29110,7 @@
       {
         "id": "placeable",
         "plural": true,
+        "support_arrays": true,
         "type": "item",
         "valueSlots": [
           0,
@@ -30879,6 +31007,7 @@
       {
         "id": "value",
         "plural": true,
+        "support_arrays": true,
         "type": "number",
         "valueSlots": [
           2,
@@ -30936,6 +31065,7 @@
       {
         "id": "vectors",
         "plural": true,
+        "support_arrays": true,
         "type": "vector",
         "valueSlots": [
           2,
@@ -31048,6 +31178,7 @@
       {
         "id": "text",
         "plural": true,
+        "support_arrays": true,
         "type": "text",
         "valueSlots": [
           2,

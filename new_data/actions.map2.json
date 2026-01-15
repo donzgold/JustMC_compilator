@@ -3,7 +3,7 @@
     {"id": "sound","plural": false,"valueSlots": [12],"type": "sound"},
     {"id": "location","plural": false,"valueSlots": [14],"type": "location"}]},
   "player_play_sound_sequence": {"id": "player_play_sound_sequence","type": "basic","args": [
-    {"id": "sounds","plural": false,"valueSlots": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42],"type": "sound"},
+    {"id": "sounds", "plural": true, "support_arrays": true,"valueSlots": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42],"type": "sound"},
     {"id": "delay","plural": false,"valueSlots": [44],"type": "number"},
     {"id": "location","plural": false,"valueSlots": [43],"type": "location"}]},
   "if_player_dummy": {"id":"if_player_dummy","type":"container","args": []},
@@ -11,13 +11,13 @@
   "if_entity_dummy": {"id":"if_player_dummy","type":"container","args": []},
   "if_entity_has_custom_tag" : {"id": "if_entity_has_custom_tag", "type": "container", "args": [
     {"id": "tag", "plural": false, "type": "text", "valueSlots": [0]},
-    {"id": "tag_value", "plural": true, "type": "text", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
+    {"id": "tag_value", "plural": true, "support_arrays": true, "type": "text", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
     {"id": "compare_type", "plural": false, "type": "enum", "valueSlots": [18], "values": ["EQUALS", "CONTAINS", "STARTS_WITH", "ENDS_WITH"]}]},
   "if_variable_dummy": {"id":"if_variable_dummy","type":"container","args": []},
   "if_variable_item_has_tag": {"id": "if_variable_item_has_tag", "type": "container", "args": [
     {"id": "item", "plural": false, "type": "item", "valueSlots": [0]},
     {"id": "tag", "plural": false, "type": "text", "valueSlots": [18]},
-    {"id": "value", "plural": false, "type": "text", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
+    {"id": "value", "plural": true, "support_arrays": true, "type": "text", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
     {"id": "compare_type", "plural": false, "type": "enum", "valueSlots": [35], "values": ["EQUALS", "CONTAINS", "STARTS_WITH", "ENDS_WITH"]}]},
   "game_dummy": {"id":"game_dummy","type":"basic","args": []},
   "if_game_dummy": {"id":"if_game_dummy","type":"container","args": []},
@@ -175,7 +175,7 @@
   "set_variable_create_translatable_component": {"id": "set_variable_create_translatable_component", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "key", "plural": false, "type": "text", "valueSlots": [18]},
-    {"id": "args", "plural": true, "type": "text", "valueSlots": [2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26, 29, 30, 31, 32, 33, 34, 35, 38, 39, 40, 41, 42, 43, 44]},
+    {"id": "args", "plural": true, "support_arrays": true, "type": "text", "valueSlots": [2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26, 29, 30, 31, 32, 33, 34, 35, 38, 39, 40, 41, 42, 43, 44]},
     {"id": "fallback", "plural": false, "type": "text", "valueSlots": [36]}]},
   "entity_set_hanging_facing_location": {"id": "entity_set_hanging_facing_location", "type": "basic", "args": [
     {"id": "facing", "plural": false, "type": "enum", "valueSlots": [0], "values": ["NORTH", "EAST", "SOUTH", "WEST", "UP", "DOWN"]},
@@ -203,7 +203,7 @@
   "set_variable_edit_item_custom_model_data": {"id": "set_variable_edit_item_custom_model_data", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
-    {"id": "data", "plural": true, "type": "any", "valueSlots": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]},
+    {"id": "data", "plural": true, "support_arrays": true, "type": "any", "valueSlots": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]},
     {"id": "value_type", "plural": false, "type": "enum", "valueSlots": [25], "values": ["FLOATS", "BOOLEANS", "STRINGS", "COLORS"]},
     {"id": "setup_mode", "plural": false, "type": "enum", "valueSlots": [26], "values": ["SET", "ADD", "REMOVE_ALL", "REMOVE_FIRST", "REMOVE_LAST"]}]},
   "set_variable_get_item_tooltip_style": {"id": "set_variable_get_item_tooltip_style", "type": "basic", "args": [
@@ -221,7 +221,7 @@
     {"id": "dialog_nbt", "plural": false, "type": "text", "valueSlots": [0]}]},
   "player_close_dialog_menu": {"id": "player_close_dialog_menu", "type": "basic", "args": []},
   "player_show_inventory_menu": {"id": "player_show_inventory_menu", "type": "basic", "args": [
-    {"id": "items", "plural": true, "type": "item", "valueSlots": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]},
+    {"id": "items", "plural": true, "support_arrays": true, "type": "item", "valueSlots": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]},
     {"id": "name", "plural": false, "type": "text", "valueSlots": [34]},
     {"id": "inventory_type", "values": ["ANVIL", "BARREL", "BEACON", "BLAST_FURNACE", "BREWING", "CARTOGRAPHY", "CHEST", "COMPOSTER", "CRAFTER", "CRAFTING", "CREATIVE", "DISPENSER", "DROPPER", "ENCHANTING", "ENDER_CHEST", "FURNACE", "GRINDSTONE", "HOPPER", "LECTERN", "LOOM", "MERCHANT", "PLAYER", "SHULKER_BOX", "SMITHING", "SMOKER", "STONECUTTER", "WORKBENCH"], "plural": false, "type": "enum", "valueSlots": [36]},
     {"id": "custom_id", "plural": false, "type": "text", "valueSlots": [35]}]},
@@ -281,8 +281,8 @@
   "entity_set_item_owner": {"id": "entity_set_item_owner", "type": "basic", "args": [
     {"id": "name_or_uuid", "plural": false, "type": "text", "valueSlots": [0]}]},
   "set_variable_multiple": {"id": "set_variable_multiple", "type": "basic", "args": [
-    {"id": "variables", "plural": true, "type": "variable", "valueSlots": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]},
-    {"id": "values", "plural": true, "type": "any", "valueSlots": [21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]}]},
+    {"id": "variables", "plural": true, "support_arrays": false, "type": "variable", "valueSlots": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]},
+    {"id": "values", "plural": true, "support_arrays": false, "type": "any", "valueSlots": [21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]}]},
   "entity_get_nbt": {"id": "entity_get_nbt", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "path", "plural": false, "type": "text", "valueSlots": [1]},
@@ -306,11 +306,11 @@
   "set_variable_unset_item_components": {"id": "set_variable_unset_item_components", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "item", "plural": false, "type": "item", "valueSlots": [18]},
-    {"id": "components", "plural": true, "type": "text", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]}]},
+    {"id": "components", "plural": true, "support_arrays": true, "type": "text", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]}]},
   "set_variable_hide_item_components": {"id": "set_variable_hide_item_components", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "item", "plural": false, "type": "item", "valueSlots": [18]},
-    {"id": "components", "plural": true, "type": "text", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
+    {"id": "components", "plural": true, "support_arrays": true, "type": "text", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
     {"id": "mode", "plural": false, "type": "enum", "valueSlots": [35], "values": ["SET", "ADD", "REMOVE"]}]},
   "set_variable_get_item_break_sound": {"id": "set_variable_get_item_break_sound", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
@@ -325,9 +325,9 @@
     {"id": "repair_cost_type", "plural": false, "type": "enum", "valueSlots": [1], "values": ["REPAIR_COST", "REPAIR_ITEM_COUNT_COST", "MAXIMUM_REPAIR_COST"]},
     {"id": "bypass_cost", "plural": false, "type": "enum", "valueSlots": [2], "values": ["TRUE", "FALSE"]}]},
   "game_set_event_enchantment_offers": {"id": "game_set_event_enchantment_offers", "type": "basic", "args": [
-    {"id": "enchantments", "plural": true, "type": "text", "valueSlots": [0,1,2]},
-    {"id": "levels", "plural": true, "type": "text", "valueSlots": [3,4,5]},
-    {"id": "costs", "plural": true, "type": "text", "valueSlots": [6,7,8]}]},
+    {"id": "enchantments", "plural": true, "support_arrays": true, "type": "text", "valueSlots": [0,1,2]},
+    {"id": "levels", "plural": true, "support_arrays": true, "type": "text", "valueSlots": [3,4,5]},
+    {"id": "costs", "plural": true, "support_arrays": true, "type": "text", "valueSlots": [6,7,8]}]},
   "entity_set_item_in_frame": {"id": "entity_set_item_in_frame", "type": "basic", "args": [
     {"id": "item", "plural": false, "type": "item", "valueSlots": [12]},
     {"id": "play_sound", "plural": false, "type": "enum", "valueSlots": [14], "values": ["TRUE", "FALSE"]}]},
@@ -336,8 +336,8 @@
   "set_variable_set_map_value": {"id": "set_variable_set_map_value","type": "basic","args": [
     {"id": "variable","plural": false,"type": "variable","valueSlots": [9]},
     {"id": "map", "plural": false, "type": "dictionary", "valueSlots": [27]},
-    {"id": "key","plural": true,"type": "any","valueSlots": [2,3,4,11,12,13,20,21,22,29,30,31,38,39,40]},
-    {"id": "value","plural": true,"type": "any","valueSlots": [6,7,8,15,16,17,24,25,26,33,34,35,42,43,44]}]},
+    {"id": "key","plural": true, "support_arrays": true,"type": "any","valueSlots": [2,3,4,11,12,13,20,21,22,29,30,31,38,39,40]},
+    {"id": "value","plural": true, "support_arrays": true,"type": "any","valueSlots": [6,7,8,15,16,17,24,25,26,33,34,35,42,43,44]}]},
   "player_set_inventory_menu_custom_id": {"id": "player_set_inventory_menu_custom_id","type": "basic", "args": [
     {"id": "custom_id","plural": false,"type": "text","valueSlots": [0]}]},
   "player_display_sign_text": {"id": "player_display_sign_text", "type": "basic", "args": [
@@ -353,14 +353,14 @@
     {"id": "deep", "plural": false, "type": "enum", "valueSlots": [17], "values": ["TRUE", "FALSE"]}]},
   "set_variable_average": {"id": "set_variable_average", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [9]},
-    {"id": "value", "plural": true, "type": "number", "valueSlots": [2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26]},
+    {"id": "value", "plural": true, "support_arrays": true, "type": "number", "valueSlots": [2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26]},
     {"id": "type", "plural": false, "type": "enum", "valueSlots": [27], "values": ["ARITHMETIC", "GEOMETRIC", "HARMONIC", "QUADRATIC"]}]},
   "if_variable_map_has_key": {"id": "if_variable_map_has_key", "type": "container", "args": [
     {"id": "map", "plural": false, "type": "dictionary", "valueSlots": [9]},
-    {"id": "key", "plural": true, "type": "any", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
+    {"id": "key", "plural": true, "support_arrays": true, "type": "any", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
     {"id": "check_mode", "plural": false, "type": "enum", "valueSlots": [35], "values": ["ANY", "ALL"]}]},
   "entity_set_display_correct_transformation_matrix": {"id": "entity_set_display_correct_transformation_matrix", "type": "basic", "args": [
-    {"id": "matrix","plural": true, "type": "number","valueSlots": [0, 1, 2, 3, 9, 10, 11, 12, 18, 19, 20, 21, 27, 28, 29, 30]}]},
+    {"id": "matrix","plural": true, "support_arrays": true, "type": "number","valueSlots": [0, 1, 2, 3, 9, 10, 11, 12, 18, 19, 20, 21, 27, 28, 29, 30]}]},
   "set_variable_set_component_shadow_color": {"id": "set_variable_set_component_shadow_color", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "component", "plural": false, "type": "text", "valueSlots": [1]},
@@ -368,7 +368,7 @@
   "set_variable_find_nearest_location": {"id": "set_variable_find_nearest_location", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "location", "plural": false, "type": "location", "valueSlots": [18]},
-    {"id": "locations", "plural": true, "type": "location", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
+    {"id": "locations", "plural": true, "support_arrays": true, "type": "location", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
     {"id": "distance_type", "plural": false, "type": "enum", "valueSlots": [35], "values": ["XYZ", "XZ", "Y"]}]},
   "set_variable_clamp_location": {"id": "set_variable_clamp_location", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
@@ -378,18 +378,18 @@
     {"id": "coordinates_mode", "plural": false, "type": "enum", "valueSlots": [4], "values": ["XYZ", "XZ", "Y"]}]},
   "set_variable_mathematical_expectation": {"id": "set_variable_mathematical_expectation", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [18]},
-    {"id": "values", "plural": true, "type": "number", "valueSlots": [2,3,4,11,12,13,20,21,22,29,30,31,38,39,40]},
-    {"id": "probabilities", "plural": true, "type": "number", "valueSlots": [6,7,8,15,16,17,24,25,26,33,34,35,42,43,44]}]},
+    {"id": "values", "plural": true, "support_arrays": true, "type": "number", "valueSlots": [2,3,4,11,12,13,20,21,22,29,30,31,38,39,40]},
+    {"id": "probabilities", "plural": true, "support_arrays": true, "type": "number", "valueSlots": [6,7,8,15,16,17,24,25,26,33,34,35,42,43,44]}]},
   "set_variable_median": {"id": "set_variable_median", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
-    {"id": "value", "plural": true, "type": "number", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]}]},
+    {"id": "value", "plural": true, "support_arrays": true, "type": "number", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]}]},
   "set_variable_find_nearest_number": {"id": "set_variable_find_nearest_number", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "number", "plural": false, "type": "number", "valueSlots": [18]},
-    {"id": "numbers", "plural": true, "type": "number", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]}]},
+    {"id": "numbers", "plural": true, "support_arrays": true, "type": "number", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]}]},
   "set_variable_bytes_to_text": {"id": "set_variable_bytes_to_text", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
-    {"id": "bytes", "plural": true, "type": "number", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
+    {"id": "bytes", "plural": true, "support_arrays": true, "type": "number", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
     {"id": "charset", "plural": false, "type": "enum", "valueSlots": [27], "values": ["UTF_8", "ASCII"]}]},
   "set_variable_text_to_bytes": {"id": "set_variable_text_to_bytes", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
@@ -400,7 +400,7 @@
     {"id": "slot", "plural": false, "type": "enum", "valueSlots": [1], "values": ["HAND", "OFF_HAND", "FEET", "LEGS", "CHEST", "HEAD", "BODY", "SADDLE"]}]},
   "set_variable_code_bytes": {"id": "set_variable_code_bytes", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
-    {"id": "input", "plural": true, "type": "number", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
+    {"id": "input", "plural": true, "support_arrays": true, "type": "number", "valueSlots": [2,3,4,5,6,7,8,11,12,13,14,15,16,17,20,21,22,23,24,25,26]},
     {"id": "codec", "plural": false, "type": "enum", "valueSlots": [27], "values": ["BASE64_ENCODE", "BASE64_DECODE", "ZLIB_COMPRESS", "ZLIB_DECOMPRESS"]}]},
   "controller_isolated_selection": {"id": "controller_isolated_selection", "type": "container", "args": [
     {"id": "selection_mode", "plural": false, "type": "enum", "valueSlots": [0], "values": ["DEFAULT", "CURRENT", "EMPTY", "FOR_EACH"]}]},
@@ -477,7 +477,7 @@
     {"id": "scope", "plural": false, "type": "enum", "valueSlots": [8]},
     {"id": "match", "plural": false, "type": "enum", "valueSlots": [17]},
     {"id": "ignore_case", "plural": false, "type": "enum", "valueSlots": [26]},
-    {"id": "names", "plural": false, "type": "text", "valueSlots": [2,3,4,5,6,7,11,12,13,14,15,16]}]},
+    {"id": "names", "plural": true, "support_arrays": true, "type": "text", "valueSlots": [2,3,4,5,6,7,11,12,13,14,15,16]}]},
   "set_variable_chunk_text": {"id": "set_variable_chunk_text", "type": "basic", "args": [
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "text", "plural": false, "type": "text", "valueSlots": [1]},

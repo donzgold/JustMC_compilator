@@ -499,7 +499,8 @@
       {
         "id": "potions",
         "type": "potion",
-        "array": 14
+        "array": 14,
+        "support_arrays": true
       },
       {
         "id": "overwrite",
@@ -702,7 +703,8 @@
       {
         "id": "materials",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "modification_mode",
@@ -723,7 +725,8 @@
       {
         "id": "materials",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "modification_mode",
@@ -846,7 +849,8 @@
       {
         "id": "effects",
         "type": "potion",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -1592,7 +1596,8 @@
       {
         "id": "matrix",
         "type": "number",
-        "array": 16
+        "array": 16,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -1781,7 +1786,8 @@
       {
         "id": "row_major_matrix",
         "type": "number",
-        "array": 16
+        "array": 16,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -3287,7 +3293,8 @@
       {
         "id": "displayed_text",
         "type": "text",
-        "array": 27
+        "array": 27,
+        "support_arrays": true
       },
       {
         "id": "merging_mode",
@@ -3774,7 +3781,8 @@
       {
         "id": "locations",
         "type": "location",
-        "array": 16
+        "array": 16,
+        "support_arrays": true
       },
       {
         "id": "tool",
@@ -3818,7 +3826,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 35
+        "array": 35,
+        "support_arrays": true
       },
       {
         "id": "location",
@@ -3835,7 +3844,8 @@
       {
         "id": "location",
         "type": "location",
-        "array": 27
+        "array": 27,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -3975,7 +3985,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 14
+        "array": 14,
+        "support_arrays": true
       },
       {
         "id": "location",
@@ -4130,7 +4141,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 35
+        "array": 35,
+        "support_arrays": true
       },
       {
         "id": "location",
@@ -4207,7 +4219,8 @@
       {
         "id": "old_block",
         "type": "block",
-        "array": 10
+        "array": 10,
+        "support_arrays": true
       },
       {
         "id": "pos_1",
@@ -4232,7 +4245,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 10
+        "array": 10,
+        "support_arrays": true
       },
       {
         "id": "location",
@@ -4313,7 +4327,8 @@
       {
         "id": "locations",
         "type": "location",
-        "array": 14
+        "array": 14,
+        "support_arrays": true
       },
       {
         "id": "block",
@@ -4492,12 +4507,14 @@
       {
         "id": "items",
         "type": "item",
-        "array": 27
+        "array": 27,
+        "support_arrays": true
       },
       {
         "id": "location",
         "type": "location",
-        "array": 9
+        "array": 9,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -4690,17 +4707,20 @@
       {
         "id": "enchantments",
         "type": "text",
-        "array": 3
+        "array": 3,
+        "support_arrays": true
       },
       {
         "id": "levels",
         "type": "text",
-        "array": 3
+        "array": 3,
+        "support_arrays": true
       },
       {
         "id": "costs",
         "type": "text",
-        "array": 3
+        "array": 3,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -4791,7 +4811,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 36
+        "array": 36,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -5632,7 +5653,8 @@
       {
         "id": "effects",
         "type": "potion",
-        "array": 6
+        "array": 6,
+        "support_arrays": true
       },
       {
         "id": "particle",
@@ -5964,7 +5986,8 @@
       {
         "id": "potion_effects",
         "type": "potion",
-        "array": 15
+        "array": 15,
+        "support_arrays": true
       },
       {
         "id": "main_hand",
@@ -6087,7 +6110,8 @@
       {
         "id": "displayed_text",
         "type": "text",
-        "array": 28
+        "array": 28,
+        "support_arrays": true
       },
       {
         "id": "merging_mode",
@@ -6219,7 +6243,8 @@
       {
         "id": "tag_value",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "compare_type",
@@ -6243,7 +6268,8 @@
       {
         "id": "potions",
         "type": "potion",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "check_mode",
@@ -6384,7 +6410,8 @@
       {
         "id": "entity_ids",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "compare_mode",
@@ -6408,12 +6435,14 @@
       {
         "id": "blocks",
         "type": "block",
-        "array": 20
+        "array": 20,
+        "support_arrays": true
       },
       {
         "id": "locations",
         "type": "location",
-        "array": 20
+        "array": 20,
+        "support_arrays": true
       },
       {
         "id": "only_solid",
@@ -6435,7 +6464,8 @@
       {
         "id": "entity_types",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "container",
@@ -6465,7 +6495,8 @@
       {
         "id": "names_or_uuids",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "container",
@@ -6529,7 +6560,8 @@
       {
         "id": "blocks",
         "type": "block",
-        "array": 26
+        "array": 26,
+        "support_arrays": true
       },
       {
         "id": "location",
@@ -6547,7 +6579,8 @@
       {
         "id": "locations",
         "type": "location",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "power_mode",
@@ -6582,7 +6615,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 16
+        "array": 16,
+        "support_arrays": true
       },
       {
         "id": "location",
@@ -6618,7 +6652,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 16
+        "array": 16,
+        "support_arrays": true
       },
       {
         "id": "location",
@@ -6708,12 +6743,14 @@
       {
         "id": "blocks",
         "type": "block",
-        "array": 20
+        "array": 20,
+        "support_arrays": true
       },
       {
         "id": "locations",
         "type": "location",
-        "array": 20
+        "array": 20,
+        "support_arrays": true
       }
     ],
     "type": "container",
@@ -6757,7 +6794,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "comparison_mode",
@@ -6781,7 +6819,8 @@
       {
         "id": "names_or_uuids",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "container",
@@ -6899,7 +6938,8 @@
       {
         "id": "texts",
         "type": "text",
-        "array": 16
+        "array": 16,
+        "support_arrays": true
       },
       {
         "id": "check_side",
@@ -6952,7 +6992,8 @@
       {
         "id": "chat_messages",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "container",
@@ -7017,7 +7058,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "comparison_mode",
@@ -7090,7 +7132,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "check_mode",
@@ -7149,12 +7192,14 @@
       {
         "id": "slots",
         "type": "number",
-        "array": 12
+        "array": 12,
+        "support_arrays": true
       },
       {
         "id": "items",
         "type": "item",
-        "array": 12
+        "array": 12,
+        "support_arrays": true
       },
       {
         "id": "comparison_mode",
@@ -7178,7 +7223,8 @@
       {
         "id": "potions",
         "type": "potion",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "check_mode",
@@ -7228,7 +7274,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "checked_slots",
@@ -7315,12 +7362,14 @@
       {
         "id": "slots",
         "type": "number",
-        "array": 12
+        "array": 12,
+        "support_arrays": true
       },
       {
         "id": "items",
         "type": "item",
-        "array": 12
+        "array": 12,
+        "support_arrays": true
       },
       {
         "id": "comparison_mode",
@@ -7430,7 +7479,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "hand_slot",
@@ -7463,12 +7513,14 @@
       {
         "id": "blocks",
         "type": "block",
-        "array": 15
+        "array": 15,
+        "support_arrays": true
       },
       {
         "id": "locations",
         "type": "location",
-        "array": 15
+        "array": 15,
+        "support_arrays": true
       },
       {
         "id": "distance",
@@ -7536,7 +7588,8 @@
       {
         "id": "entity_ids",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "compare_mode",
@@ -7592,12 +7645,14 @@
       {
         "id": "blocks",
         "type": "block",
-        "array": 20
+        "array": 20,
+        "support_arrays": true
       },
       {
         "id": "locations",
         "type": "location",
-        "array": 20
+        "array": 20,
+        "support_arrays": true
       },
       {
         "id": "only_solid",
@@ -7627,7 +7682,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "comparison_mode",
@@ -7651,7 +7707,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "check_mode",
@@ -7683,7 +7740,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "container",
@@ -7697,7 +7755,8 @@
       {
         "id": "names_or_uuids",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "container",
@@ -7762,7 +7821,8 @@
       {
         "id": "compare",
         "type": "any",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "container",
@@ -7883,7 +7943,8 @@
       {
         "id": "compare",
         "type": "item",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "comparison_mode",
@@ -7938,7 +7999,8 @@
       {
         "id": "value",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "compare_type",
@@ -8034,7 +8096,8 @@
       {
         "id": "values",
         "type": "any",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "check_mode",
@@ -8079,7 +8142,8 @@
       {
         "id": "values",
         "type": "any",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "container",
@@ -8133,7 +8197,8 @@
       {
         "id": "check",
         "type": "location",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "shape",
@@ -8162,7 +8227,8 @@
       {
         "id": "key",
         "type": "any",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "check_mode",
@@ -8193,7 +8259,8 @@
       {
         "id": "values",
         "type": "any",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "container",
@@ -8212,7 +8279,8 @@
       {
         "id": "compare",
         "type": "any",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "container",
@@ -8295,7 +8363,8 @@
       {
         "id": "compare",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "ignore_case",
@@ -8322,7 +8391,8 @@
       {
         "id": "compare",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "ignore_case",
@@ -8349,7 +8419,8 @@
       {
         "id": "values",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "regular_expressions",
@@ -8384,7 +8455,8 @@
       {
         "id": "compare",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "ignore_case",
@@ -8407,7 +8479,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 9
+        "array": 9,
+        "support_arrays": true
       },
       {
         "id": "position",
@@ -8428,7 +8501,8 @@
       {
         "id": "blocks",
         "type": "block",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "allow",
@@ -8508,7 +8582,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -8649,7 +8724,8 @@
       {
         "id": "location",
         "type": "location",
-        "array": 27
+        "array": 27,
+        "support_arrays": true
       },
       {
         "id": "block",
@@ -8714,12 +8790,14 @@
       {
         "id": "particle",
         "type": "particle",
-        "array": 20
+        "array": 20,
+        "support_arrays": true
       },
       {
         "id": "location",
         "type": "location",
-        "array": 20
+        "array": 20,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -9021,7 +9099,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 27
+        "array": 27,
+        "support_arrays": true
       },
       {
         "id": "size",
@@ -9185,7 +9264,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 17
+        "array": 17,
+        "support_arrays": true
       },
       {
         "id": "amount",
@@ -9202,7 +9282,8 @@
       {
         "id": "potions",
         "type": "potion",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "show_icon",
@@ -9240,7 +9321,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 27
+        "array": 27,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -9265,7 +9347,8 @@
       {
         "id": "name_or_uuid",
         "type": "text",
-        "array": 14
+        "array": 14,
+        "support_arrays": true
       },
       {
         "id": "hide",
@@ -9562,7 +9645,8 @@
       {
         "id": "sounds",
         "type": "sound",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -9575,7 +9659,8 @@
       {
         "id": "sounds",
         "type": "sound",
-        "array": 43
+        "array": 43,
+        "support_arrays": true
       },
       {
         "id": "location",
@@ -9596,7 +9681,8 @@
       {
         "id": "locations",
         "type": "location",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "keep_rotation",
@@ -9700,7 +9786,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -9720,7 +9807,8 @@
       {
         "id": "potions",
         "type": "potion",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -9754,7 +9842,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 28
+        "array": 28,
+        "support_arrays": true
       },
       {
         "id": "replace",
@@ -9837,7 +9926,8 @@
       {
         "id": "messages",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "merging",
@@ -9883,7 +9973,8 @@
       {
         "id": "locations",
         "type": "location",
-        "array": 14
+        "array": 14,
+        "support_arrays": true
       },
       {
         "id": "stage",
@@ -9900,7 +9991,8 @@
       {
         "id": "messages",
         "type": "text",
-        "array": 17
+        "array": 17,
+        "support_arrays": true
       },
       {
         "id": "delay",
@@ -9933,7 +10025,8 @@
       {
         "id": "messages",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "merging",
@@ -10222,7 +10315,8 @@
       {
         "id": "completions",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "setting_mode",
@@ -10328,7 +10422,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 27
+        "array": 27,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -10341,7 +10436,8 @@
       {
         "id": "name_or_uuid",
         "type": "text",
-        "array": 14
+        "array": 14,
+        "support_arrays": true
       },
       {
         "id": "color",
@@ -10729,7 +10825,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 36
+        "array": 36,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -10798,7 +10895,8 @@
       {
         "id": "text",
         "type": "text",
-        "array": 16
+        "array": 16,
+        "support_arrays": true
       },
       {
         "id": "merging",
@@ -11189,7 +11287,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 27
+        "array": 27,
+        "support_arrays": true
       },
       {
         "id": "name",
@@ -11290,7 +11389,8 @@
       {
         "id": "sounds",
         "type": "sound",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -11379,7 +11479,8 @@
       {
         "id": "locations",
         "type": "location",
-        "array": 14
+        "array": 14,
+        "support_arrays": true
       },
       {
         "id": "delay",
@@ -11620,7 +11721,8 @@
       {
         "id": "locations",
         "type": "location",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "rotation",
@@ -11751,7 +11853,8 @@
       {
         "id": "name_or_uuid",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -11798,7 +11901,8 @@
       {
         "id": "name_or_uuid",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -11818,7 +11922,8 @@
       {
         "id": "name_or_uuid",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -11887,7 +11992,8 @@
       {
         "id": "name_or_uuid",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -12045,7 +12151,8 @@
       {
         "id": "name_or_uuid",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -12065,7 +12172,8 @@
       {
         "id": "name_or_uuid",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "basic"
@@ -12133,7 +12241,8 @@
       {
         "id": "value",
         "type": "number",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -12187,7 +12296,8 @@
       {
         "id": "potions",
         "type": "potion",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "item",
@@ -12240,7 +12350,8 @@
       {
         "id": "vectors",
         "type": "vector",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -12342,7 +12453,8 @@
       {
         "id": "components",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "merging",
@@ -12428,7 +12540,8 @@
       {
         "id": "values",
         "type": "any",
-        "array": 21
+        "array": 21,
+        "support_arrays": false
       }
     ],
     "type": "basic",
@@ -12472,7 +12585,8 @@
       {
         "id": "value",
         "type": "number",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "type",
@@ -12546,7 +12660,8 @@
       {
         "id": "bytes",
         "type": "number",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "charset",
@@ -12578,7 +12693,8 @@
       {
         "id": "locations",
         "type": "location",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -12791,7 +12907,8 @@
       {
         "id": "input",
         "type": "number",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "codec",
@@ -12847,7 +12964,8 @@
       {
         "id": "components",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -13028,7 +13146,8 @@
       {
         "id": "values",
         "type": "any",
-        "array": 21
+        "array": 21,
+        "support_arrays": false
       }
     ],
     "type": "basic",
@@ -13077,12 +13196,14 @@
       {
         "id": "keys",
         "type": "any",
-        "array": 15
+        "array": 15,
+        "support_arrays": false
       },
       {
         "id": "values",
         "type": "any",
-        "array": 15
+        "array": 15,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -13113,7 +13234,8 @@
       {
         "id": "args",
         "type": "text",
-        "array": 35
+        "array": 35,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -13153,7 +13275,8 @@
       {
         "id": "value",
         "type": "number",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "division_mode",
@@ -13223,7 +13346,8 @@
       {
         "id": "data",
         "type": "any",
-        "array": 19
+        "array": 19,
+        "support_arrays": true
       },
       {
         "id": "value_type",
@@ -13299,7 +13423,8 @@
       {
         "id": "locations",
         "type": "location",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "distance_type",
@@ -13336,7 +13461,8 @@
       {
         "id": "numbers",
         "type": "number",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -15283,7 +15409,8 @@
       {
         "id": "names",
         "type": "text",
-        "array": 12
+        "array": 12,
+        "support_arrays": true
       },
       {
         "id": "scope",
@@ -16642,7 +16769,8 @@
       {
         "id": "components",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "mode",
@@ -16952,12 +17080,14 @@
       {
         "id": "values",
         "type": "number",
-        "array": 15
+        "array": 15,
+        "support_arrays": true
       },
       {
         "id": "probabilities",
         "type": "number",
-        "array": 15
+        "array": 15,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -16980,7 +17110,8 @@
       {
         "id": "value",
         "type": "number",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -17003,7 +17134,8 @@
       {
         "id": "value",
         "type": "number",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -17026,7 +17158,8 @@
       {
         "id": "value",
         "type": "number",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -17045,12 +17178,14 @@
       {
         "id": "variables",
         "type": "variable",
-        "array": 20
+        "array": 20,
+        "support_arrays": false
       },
       {
         "id": "values",
         "type": "any",
-        "array": 20
+        "array": 20,
+        "support_arrays": false
       }
     ],
     "type": "basic"
@@ -17067,7 +17202,8 @@
       {
         "id": "value",
         "type": "number",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -17286,7 +17422,8 @@
       {
         "id": "names",
         "type": "text",
-        "array": 16
+        "array": 16,
+        "support_arrays": true
       },
       {
         "id": "scope",
@@ -17331,7 +17468,8 @@
       {
         "id": "values",
         "type": "any",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -17893,7 +18031,8 @@
       {
         "id": "effects",
         "type": "potion",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "item",
@@ -18027,7 +18166,8 @@
       {
         "id": "values",
         "type": "any",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -18055,7 +18195,8 @@
       {
         "id": "remove",
         "type": "text",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "text",
@@ -18445,7 +18586,8 @@
       {
         "id": "text",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -18473,7 +18615,8 @@
       {
         "id": "items",
         "type": "item",
-        "array": 35
+        "array": 35,
+        "support_arrays": true
       },
       {
         "id": "setting_mode",
@@ -18545,7 +18688,8 @@
       {
         "id": "children",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -19182,7 +19326,8 @@
       {
         "id": "destroyable",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "item",
@@ -19413,7 +19558,8 @@
       {
         "id": "lore",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -19557,7 +19703,8 @@
       {
         "id": "placeable",
         "type": "item",
-        "array": 18
+        "array": 18,
+        "support_arrays": true
       },
       {
         "id": "item",
@@ -19919,12 +20066,14 @@
       {
         "id": "key",
         "type": "any",
-        "array": 15
+        "array": 15,
+        "support_arrays": true
       },
       {
         "id": "value",
         "type": "any",
-        "array": 15
+        "array": 15,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -20934,7 +21083,8 @@
       {
         "id": "value",
         "type": "number",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -20957,7 +21107,8 @@
       {
         "id": "vectors",
         "type": "vector",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
@@ -21021,7 +21172,8 @@
       {
         "id": "text",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       },
       {
         "id": "merging",
@@ -21384,7 +21536,8 @@
       {
         "id": "components",
         "type": "text",
-        "array": 21
+        "array": 21,
+        "support_arrays": true
       }
     ],
     "type": "basic",
