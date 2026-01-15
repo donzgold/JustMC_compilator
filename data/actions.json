@@ -1790,7 +1790,8 @@
         "support_arrays": true
       }
     ],
-    "type": "basic"
+    "type": "basic",
+    "hidden": true
   },
   {
     "id": "entity_set_display_translation",
@@ -4379,7 +4380,8 @@
         "type": "text"
       }
     ],
-    "type": "basic"
+    "type": "basic",
+    "hidden": true
   },
   {
     "id": "game_set_block_data",
@@ -13767,7 +13769,8 @@
         "id": "variable",
         "type": "any"
       }
-    ]
+    ],
+    "hidden": true
   },
   {
     "id": "set_variable_get_block_data",
@@ -14659,7 +14662,8 @@
         "type": "number"
       }
     ],
-    "origin": "item"
+    "origin": "item",
+    "hidden": true
   },
   {
     "id": "set_variable_get_item_custom_tag",
@@ -17963,7 +17967,8 @@
         "type": "item"
       }
     ],
-    "origin": "item"
+    "origin": "item",
+    "hidden": true
   },
   {
     "id": "set_variable_remove_item_custom_tag",
@@ -19281,7 +19286,8 @@
         "type": "item"
       }
     ],
-    "origin": "item"
+    "origin": "item",
+    "hidden": true
   },
   {
     "id": "set_variable_set_item_custom_tag",

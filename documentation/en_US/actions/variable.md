@@ -114,10 +114,10 @@ if(variable::equals(value="any value", compare=["any value", "any value"])){
 
 **Arguments:**
 
-| ID      | Type               | Description                                                |
-|---------|--------------------|------------------------------------------------------------|
-| value   | Any Value          | Comparison Variable                                        |
-| compare | Array\[Any Value\] | Compare Values<br>The argument supports list decomposition |
+| ID      | Type               | Description                                                 |
+|---------|--------------------|-------------------------------------------------------------|
+| value   | Any Value          | Comparison Variable                                         |
+| compare | Array\[Any Value\] | Compare Values<br/>The argument supports list decomposition |
 
 <h3 id=if_variable_exists>
   <code>variable::exists</code>
@@ -327,11 +327,11 @@ if(variable::item_equals(value=item("stick"), compare=[item("stick"), item("stic
 
 **Arguments:**
 
-| ID              | Type                                                                                                                                                                                              | Description                                                |
-|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
-| value           | Item                                                                                                                                                                                              | Item Variable to Compare                                   |
-| compare         | Array\[Item\]                                                                                                                                                                                     | Compare Values<br>The argument supports list decomposition |
-| comparison_mode | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore quantity<br/>**TYPE_ONLY** - Item type only | Comparison Mode                                            |
+| ID              | Type                                                                                                                                                                                              | Description                                                 |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| value           | Item                                                                                                                                                                                              | Item Variable to Compare                                    |
+| compare         | Array\[Item\]                                                                                                                                                                                     | Compare Values<br/>The argument supports list decomposition |
+| comparison_mode | Marker<br/>**EXACTLY** - Full Comparison<br/>**IGNORE_DURABILITY_AND_STACK_SIZE** - Ignore Quantity and Durability<br/>**IGNORE_STACK_SIZE** - Ignore quantity<br/>**TYPE_ONLY** - Item type only | Comparison Mode                                             |
 
 <h3 id=if_variable_item_has_enchantment>
   <code>variable::item_has_enchantment</code>
@@ -399,12 +399,12 @@ if(variable::item_has_tag(item=item("stick"), tag="tag", value=["value", "value"
 
 **Arguments:**
 
-| ID           | Type                                                                                                                       | Description                                           |
-|--------------|----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-| item         | Item                                                                                                                       | Item Variable                                         |
-| tag          | Text                                                                                                                       | Tag name                                              |
-| value        | Array\[Text\]                                                                                                              | Tag Value<br>The argument supports list decomposition |
-| compare_type | Marker<br/>**CONTAINS** - Contains<br/>**ENDS_WITH** - Ends With<br/>**EQUALS** - Equals<br/>**STARTS_WITH** - Starts With | Comparison Type                                       |
+| ID           | Type                                                                                                                       | Description                                            |
+|--------------|----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| item         | Item                                                                                                                       | Item Variable                                          |
+| tag          | Text                                                                                                                       | Tag name                                               |
+| value        | Array\[Text\]                                                                                                              | Tag Value<br/>The argument supports list decomposition |
+| compare_type | Marker<br/>**CONTAINS** - Contains<br/>**ENDS_WITH** - Ends With<br/>**EQUALS** - Equals<br/>**STARTS_WITH** - Starts With | Comparison Type                                        |
 
 <h3 id=if_variable_item_is_block>
   <code>variable::item_is_block</code>
@@ -571,11 +571,11 @@ if(variable::list_contains_value(list=[`list`, `list`], values=["any value", "an
 
 **Arguments:**
 
-| ID         | Type                                                    | Description                                                 |
-|------------|---------------------------------------------------------|-------------------------------------------------------------|
-| list       | List                                                    | List to check                                               |
-| values     | Array\[Any Value\]                                      | Values to Check<br>The argument supports list decomposition |
-| check_mode | Marker<br/>**ALL** - All Values<br/>**ANY** - Any Value | Check Mode                                                  |
+| ID         | Type                                                    | Description                                                  |
+|------------|---------------------------------------------------------|--------------------------------------------------------------|
+| list       | List                                                    | List to check                                                |
+| values     | Array\[Any Value\]                                      | Values to Check<br/>The argument supports list decomposition |
+| check_mode | Marker<br/>**ALL** - All Values<br/>**ANY** - Any Value | Check Mode                                                   |
 
 <h3 id=if_variable_list_is_empty>
   <code>variable::list_is_empty</code>
@@ -648,11 +648,11 @@ if(variable::list_value_equals(list=[`list`, `list`], index=1, values=["any valu
 
 **Arguments:**
 
-| ID     | Type               | Description                                                   |
-|--------|--------------------|---------------------------------------------------------------|
-| list   | List               | List to check                                                 |
-| index  | Number             | Value index                                                   |
-| values | Array\[Any Value\] | Comparable Values<br>The argument supports list decomposition |
+| ID     | Type               | Description                                                    |
+|--------|--------------------|----------------------------------------------------------------|
+| list   | List               | List to check                                                  |
+| index  | Number             | Value index                                                    |
+| values | Array\[Any Value\] | Comparable Values<br/>The argument supports list decomposition |
 
 <h3 id=if_variable_location_in_range>
   <code>variable::location_in_range</code>
@@ -721,12 +721,12 @@ if(variable::location_is_near(location=location(0,0,0,0,0), radius=1, check=[loc
 
 **Arguments:**
 
-| ID       | Type                                                                                               | Description                                                       |
-|----------|----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-| location | Location                                                                                           | Location to check                                                 |
-| radius   | Number                                                                                             | Check Radius                                                      |
-| check    | Array\[Location\]                                                                                  | Shape Center Location<br>The argument supports list decomposition |
-| shape    | Marker<br/>**CIRCLE** - Circle<br/>**CUBE** - Cube<br/>**SPHERE** - Sphere<br/>**SQUARE** - Square | Shape                                                             |
+| ID       | Type                                                                                               | Description                                                        |
+|----------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| location | Location                                                                                           | Location to check                                                  |
+| radius   | Number                                                                                             | Check Radius                                                       |
+| check    | Array\[Location\]                                                                                  | Shape Center Location<br/>The argument supports list decomposition |
+| shape    | Marker<br/>**CIRCLE** - Circle<br/>**CUBE** - Cube<br/>**SPHERE** - Sphere<br/>**SQUARE** - Square | Shape                                                              |
 
 <h3 id=if_variable_map_has_key>
   <code>variable::map_has_key</code>
@@ -761,7 +761,7 @@ if(variable::map_has_key(map={"map":`map`}, key=["any value", "any value"], chec
 | ID         | Type                                                                                                                                                                                             | Description                                                           |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
 | map        | Dictionary                                                                                                                                                                                       | Dictionary to check                                                   |
-| key        | Array\[Any Value\]                                                                                                                                                                               | Key<br>The argument supports list decomposition                       |
+| key        | Array\[Any Value\]                                                                                                                                                                               | Key<br/>The argument supports list decomposition                      |
 | check_mode | Marker<br/>**ALL** - creative_plus.action.if_variable_map_has_key.argument.check_mode.enum.all.name<br/>**ANY** - creative_plus.action.if_variable_map_has_key.argument.check_mode.enum.any.name | creative_plus.action.if_variable_map_has_key.argument.check_mode.name |
 
 <h3 id=if_variable_map_value_equals>
@@ -794,11 +794,11 @@ if(variable::map_value_equals(map={"map":`map`}, key="any value", values=["any v
 
 **Arguments:**
 
-| ID     | Type               | Description                                                   |
-|--------|--------------------|---------------------------------------------------------------|
-| map    | Dictionary         | Dictionary to check                                           |
-| key    | Any Value          | Key                                                           |
-| values | Array\[Any Value\] | Comparable Values<br>The argument supports list decomposition |
+| ID     | Type               | Description                                                    |
+|--------|--------------------|----------------------------------------------------------------|
+| map    | Dictionary         | Dictionary to check                                            |
+| key    | Any Value          | Key                                                            |
+| values | Array\[Any Value\] | Comparable Values<br/>The argument supports list decomposition |
 
 <h3 id=if_variable_not_equals>
   <code>variable::not_equals</code>
@@ -830,10 +830,10 @@ if(variable::not_equals(value="any value", compare=["any value", "any value"])){
 
 **Arguments:**
 
-| ID      | Type               | Description                                                |
-|---------|--------------------|------------------------------------------------------------|
-| value   | Any Value          | Comparable Variable                                        |
-| compare | Array\[Any Value\] | Compare Values<br>The argument supports list decomposition |
+| ID      | Type               | Description                                                 |
+|---------|--------------------|-------------------------------------------------------------|
+| value   | Any Value          | Comparable Variable                                         |
+| compare | Array\[Any Value\] | Compare Values<br/>The argument supports list decomposition |
 
 <h3 id=if_variable_number_in_range>
   <code>variable::number_in_range</code>
@@ -928,11 +928,11 @@ if(variable::text_contains(value="value", compare=["compare", "compare"], ignore
 
 **Arguments:**
 
-| ID          | Type                                           | Description                                               |
-|-------------|------------------------------------------------|-----------------------------------------------------------|
-| value       | Text                                           | Variable to check                                         |
-| compare     | Array\[Text\]                                  | Text to check<br>The argument supports list decomposition |
-| ignore_case | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Ignore case                                               |
+| ID          | Type                                           | Description                                                |
+|-------------|------------------------------------------------|------------------------------------------------------------|
+| value       | Text                                           | Variable to check                                          |
+| compare     | Array\[Text\]                                  | Text to check<br/>The argument supports list decomposition |
+| ignore_case | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes | Ignore case                                                |
 
 <h3 id=if_variable_text_ends_with>
   <code>variable::text_ends_with</code>
@@ -964,11 +964,11 @@ if(variable::text_ends_with(value="value", compare=["compare", "compare"], ignor
 
 **Arguments:**
 
-| ID          | Type                                         | Description                                              |
-|-------------|----------------------------------------------|----------------------------------------------------------|
-| value       | Text                                         | Text variable to test                                    |
-| compare     | Array\[Text\]                                | Compare Text<br>The argument supports list decomposition |
-| ignore_case | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Ignore case                                              |
+| ID          | Type                                         | Description                                               |
+|-------------|----------------------------------------------|-----------------------------------------------------------|
+| value       | Text                                         | Text variable to test                                     |
+| compare     | Array\[Text\]                                | Compare Text<br/>The argument supports list decomposition |
+| ignore_case | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Ignore case                                               |
 
 <h3 id=if_variable_text_matches>
   <code>variable::text_matches</code>
@@ -1000,12 +1000,12 @@ if(variable::text_matches(match="match", values=["values", "values"], regular_ex
 
 **Arguments:**
 
-| ID                  | Type                                                          | Description                                                            |
-|---------------------|---------------------------------------------------------------|------------------------------------------------------------------------|
-| match               | Text                                                          | Text or Regular Expression                                             |
-| values              | Array\[Text\]                                                 | Text Variables to Validate<br>The argument supports list decomposition |
-| regular_expressions | Marker<br/>**FALSE** - Text<br/>**TRUE** - Regular Expression | Validation Method                                                      |
-| ignore_case         | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                | Ignore case                                                            |
+| ID                  | Type                                                          | Description                                                             |
+|---------------------|---------------------------------------------------------------|-------------------------------------------------------------------------|
+| match               | Text                                                          | Text or Regular Expression                                              |
+| values              | Array\[Text\]                                                 | Text Variables to Validate<br/>The argument supports list decomposition |
+| regular_expressions | Marker<br/>**FALSE** - Text<br/>**TRUE** - Regular Expression | Validation Method                                                       |
+| ignore_case         | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                | Ignore case                                                             |
 
 <h3 id=if_variable_text_starts_with>
   <code>variable::text_starts_with</code>
@@ -1037,11 +1037,11 @@ if(variable::text_starts_with(value="value", compare=["compare", "compare"], ign
 
 **Arguments:**
 
-| ID          | Type                                         | Description                                              |
-|-------------|----------------------------------------------|----------------------------------------------------------|
-| value       | Text                                         | Text variable to test                                    |
-| compare     | Array\[Text\]                                | Compare Text<br>The argument supports list decomposition |
-| ignore_case | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Ignore Case                                              |
+| ID          | Type                                         | Description                                               |
+|-------------|----------------------------------------------|-----------------------------------------------------------|
+| value       | Text                                         | Text variable to test                                     |
+| compare     | Array\[Text\]                                | Compare Text<br/>The argument supports list decomposition |
+| ignore_case | Marker<br/>**FALSE** - No<br/>**TRUE** - Yes | Ignore Case                                               |
 
 <h3 id=set_variable_absolute>
   <code>variable::absolute</code>
@@ -1100,10 +1100,10 @@ variable::add(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| ID       | Type               | Description                                                |
-|----------|--------------------|------------------------------------------------------------|
-| variable | Variable\[Number\] | Variable to assign                                         |
-| value    | Array\[Number\]    | Numbers to Add<br>The argument supports list decomposition |
+| ID       | Type               | Description                                                 |
+|----------|--------------------|-------------------------------------------------------------|
+| variable | Variable\[Number\] | Variable to assign                                          |
+| value    | Array\[Number\]    | Numbers to Add<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_add_item_enchantment>
   <code>variable::add_item_enchantment</code>
@@ -1168,14 +1168,14 @@ variable::add_item_potion_effects(variable=`variable`, potions=[potion("slow_fal
 
 **Arguments:**
 
-| ID            | Type                                                                           | Description                                                |
-|---------------|--------------------------------------------------------------------------------|------------------------------------------------------------|
-| variable      | Variable\[Item\]                                                               | Variable to assign                                         |
-| potions       | Array\[Potion\]                                                                | Potion Effects<br>The argument supports list decomposition |
-| item          | Item                                                                           | Item                                                       |
-| overwrite     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Overwrite existing effects                                 |
-| show_icon     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Show Effect Icon                                           |
-| particle_mode | Marker<br/>**AMBIENT** - Transparent<br/>**NONE** - None<br/>**REGULAR** - Yes | Show Particles                                             |
+| ID            | Type                                                                           | Description                                                 |
+|---------------|--------------------------------------------------------------------------------|-------------------------------------------------------------|
+| variable      | Variable\[Item\]                                                               | Variable to assign                                          |
+| potions       | Array\[Potion\]                                                                | Potion Effects<br/>The argument supports list decomposition |
+| item          | Item                                                                           | Item                                                        |
+| overwrite     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Overwrite existing effects                                  |
+| show_icon     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Show Effect Icon                                            |
+| particle_mode | Marker<br/>**AMBIENT** - Transparent<br/>**NONE** - None<br/>**REGULAR** - Yes | Show Particles                                              |
 
 <h3 id=set_variable_add_vectors>
   <code>variable::add_vectors</code>
@@ -1201,10 +1201,10 @@ variable::add_vectors(variable=`variable`, vectors=[vector(0,0,0), vector(0,0,0)
 
 **Arguments:**
 
-| ID       | Type               | Description                                                |
-|----------|--------------------|------------------------------------------------------------|
-| variable | Variable\[Vector\] | Variable to assign                                         |
-| vectors  | Array\[Vector\]    | Vectors to Add<br>The argument supports list decomposition |
+| ID       | Type               | Description                                                 |
+|----------|--------------------|-------------------------------------------------------------|
+| variable | Variable\[Vector\] | Variable to assign                                          |
+| vectors  | Array\[Vector\]    | Vectors to Add<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_align_location>
   <code>variable::align_location</code>
@@ -1300,11 +1300,11 @@ variable::append_component(variable=`variable`, components=["components", "compo
 
 **Arguments:**
 
-| ID         | Type                                                                                                        | Description                                                 |
-|------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
-| variable   | Variable\[Text\]                                                                                            | Variable to set                                             |
-| components | Array\[Text\]                                                                                               | Texts to append<br>The argument supports list decomposition |
-| merging    | Marker<br/>**CONCATENATION** - Merging<br/>**SEPARATE_LINES** - Separate with lines<br/>**SPACES** - Spaces | Merge Text                                                  |
+| ID         | Type                                                                                                        | Description                                                  |
+|------------|-------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| variable   | Variable\[Text\]                                                                                            | Variable to set                                              |
+| components | Array\[Text\]                                                                                               | Texts to append<br/>The argument supports list decomposition |
+| merging    | Marker<br/>**CONCATENATION** - Merging<br/>**SEPARATE_LINES** - Separate with lines<br/>**SPACES** - Spaces | Merge Text                                                   |
 
 <h3 id=set_variable_append_list>
   <code>variable::append_list</code>
@@ -1457,11 +1457,11 @@ variable::average(variable=`variable`, value=[1, 2], type="ARITHMETIC");
 
 **Arguments:**
 
-| ID       | Type                                                                                                                                                                                                                                                                                                                                                                                                   | Description                                                      |
-|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
-| variable | Variable\[Number\]                                                                                                                                                                                                                                                                                                                                                                                     | Variable to assign                                               |
-| value    | Array\[Number\]                                                                                                                                                                                                                                                                                                                                                                                        | Numbers to get value<br>The argument supports list decomposition |
-| type     | Marker<br/>**ARITHMETIC** - creative_plus.action.set_variable_average.argument.type.enum.arithmetic.name<br/>**GEOMETRIC** - creative_plus.action.set_variable_average.argument.type.enum.geometric.name<br/>**HARMONIC** - creative_plus.action.set_variable_average.argument.type.enum.harmonic.name<br/>**QUADRATIC** - creative_plus.action.set_variable_average.argument.type.enum.quadratic.name | creative_plus.action.set_variable_average.argument.type.name     |
+| ID       | Type                                                                                                                                                                                                                                                                                                                                                                                                   | Description                                                       |
+|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+| variable | Variable\[Number\]                                                                                                                                                                                                                                                                                                                                                                                     | Variable to assign                                                |
+| value    | Array\[Number\]                                                                                                                                                                                                                                                                                                                                                                                        | Numbers to get value<br/>The argument supports list decomposition |
+| type     | Marker<br/>**ARITHMETIC** - creative_plus.action.set_variable_average.argument.type.enum.arithmetic.name<br/>**GEOMETRIC** - creative_plus.action.set_variable_average.argument.type.enum.geometric.name<br/>**HARMONIC** - creative_plus.action.set_variable_average.argument.type.enum.harmonic.name<br/>**QUADRATIC** - creative_plus.action.set_variable_average.argument.type.enum.quadratic.name | creative_plus.action.set_variable_average.argument.type.name      |
 
 <h3 id=set_variable_bitwise_operation>
   <code>variable::bitwise_operation</code>
@@ -1518,11 +1518,11 @@ variable::bytes_to_text(variable=`variable`, bytes=[1, 2], charset="UTF_16");
 
 **Arguments:**
 
-| ID       | Type                                                                                                                                                                                                                             | Description                                                  |
-|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| variable | Variable\[Text\]                                                                                                                                                                                                                 | Variable to assign                                           |
-| bytes    | Array\[Number\]                                                                                                                                                                                                                  | Bytes to convert<br>The argument supports list decomposition |
-| charset  | Marker<br/>**UTF_16** - creative_plus.action.set_variable_bytes_to_text.argument.charset.enum.utf_16.name<br/>**UTF_8** - creative_plus.action.set_variable_bytes_to_text.argument.charset.enum.utf_8.name<br/>**ASCII** - ASCII | Encoding                                                     |
+| ID       | Type                                                                                                                                                                                                                             | Description                                                   |
+|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| variable | Variable\[Text\]                                                                                                                                                                                                                 | Variable to assign                                            |
+| bytes    | Array\[Number\]                                                                                                                                                                                                                  | Bytes to convert<br/>The argument supports list decomposition |
+| charset  | Marker<br/>**UTF_16** - creative_plus.action.set_variable_bytes_to_text.argument.charset.enum.utf_16.name<br/>**UTF_8** - creative_plus.action.set_variable_bytes_to_text.argument.charset.enum.utf_8.name<br/>**ASCII** - ASCII | Encoding                                                      |
 
 <h3 id=set_variable_center_location>
   <code>variable::center_location</code>
@@ -1548,10 +1548,10 @@ variable::center_location(variable=`variable`, locations=[location(0,0,0,0,0), l
 
 **Arguments:**
 
-| ID        | Type                 | Description                                                  |
-|-----------|----------------------|--------------------------------------------------------------|
-| variable  | Variable\[Location\] | Variable to assign                                           |
-| locations | Array\[Location\]    | Locations to Set<br>The argument supports list decomposition |
+| ID        | Type                 | Description                                                   |
+|-----------|----------------------|---------------------------------------------------------------|
+| variable  | Variable\[Location\] | Variable to assign                                            |
+| locations | Array\[Location\]    | Locations to Set<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_change_component_parsing>
   <code>variable::change_component_parsing</code>
@@ -1810,11 +1810,11 @@ variable::code_bytes(variable=`variable`, input=[1, 2], codec="BASE64_ENCODE");
 
 **Arguments:**
 
-| ID       | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Description                                                                                                  |
-|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| variable | Variable\[List\]                                                                                                                                                                                                                                                                                                                                                                                                                                           | creative_plus.action.set_variable_code_bytes.argument.variable.name                                          |
-| input    | Array\[Number\]                                                                                                                                                                                                                                                                                                                                                                                                                                            | creative_plus.action.set_variable_code_bytes.argument.input.name<br>The argument supports list decomposition |
-| codec    | Marker<br/>**BASE64_ENCODE** - creative_plus.action.set_variable_code_bytes.argument.codec.enum.base64_encode.name<br/>**BASE64_DECODE** - creative_plus.action.set_variable_code_bytes.argument.codec.enum.base64_decode.name<br/>**ZLIB_COMPRESS** - creative_plus.action.set_variable_code_bytes.argument.codec.enum.zlib_compress.name<br/>**ZLIB_DECOMPRESS** - creative_plus.action.set_variable_code_bytes.argument.codec.enum.zlib_decompress.name | creative_plus.action.set_variable_code_bytes.argument.codec.name                                             |
+| ID       | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Description                                                                                                   |
+|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| variable | Variable\[List\]                                                                                                                                                                                                                                                                                                                                                                                                                                           | creative_plus.action.set_variable_code_bytes.argument.variable.name                                           |
+| input    | Array\[Number\]                                                                                                                                                                                                                                                                                                                                                                                                                                            | creative_plus.action.set_variable_code_bytes.argument.input.name<br/>The argument supports list decomposition |
+| codec    | Marker<br/>**BASE64_ENCODE** - creative_plus.action.set_variable_code_bytes.argument.codec.enum.base64_encode.name<br/>**BASE64_DECODE** - creative_plus.action.set_variable_code_bytes.argument.codec.enum.base64_decode.name<br/>**ZLIB_COMPRESS** - creative_plus.action.set_variable_code_bytes.argument.codec.enum.zlib_compress.name<br/>**ZLIB_DECOMPRESS** - creative_plus.action.set_variable_code_bytes.argument.codec.enum.zlib_decompress.name | creative_plus.action.set_variable_code_bytes.argument.codec.name                                              |
 
 <h3 id=set_variable_compact_component>
   <code>variable::compact_component</code>
@@ -1873,10 +1873,10 @@ variable::component_of_children(variable=`variable`, components=["components", "
 
 **Arguments:**
 
-| ID         | Type             | Description                                                |
-|------------|------------------|------------------------------------------------------------|
-| variable   | Variable\[Text\] | Variable to assign                                         |
-| components | Array\[Text\]    | Stylized texts<br>The argument supports list decomposition |
+| ID         | Type             | Description                                                 |
+|------------|------------------|-------------------------------------------------------------|
+| variable   | Variable\[Text\] | Variable to assign                                          |
+| components | Array\[Text\]    | Stylized texts<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_convert_number_to_text>
   <code>variable::convert_number_to_text</code>
@@ -2137,11 +2137,11 @@ variable::create_map_from_values(variable=`variable`, keys=["any value", "any va
 
 **Arguments:**
 
-| ID       | Type                   | Description                                        |
-|----------|------------------------|----------------------------------------------------|
-| variable | Variable\[Dictionary\] | Variable to assign                                 |
-| keys     | Array\[Any Value\]     | Keys                                               |
-| values   | Array\[Any Value\]     | Values<br>The argument supports list decomposition |
+| ID       | Type                   | Description                                         |
+|----------|------------------------|-----------------------------------------------------|
+| variable | Variable\[Dictionary\] | Variable to assign                                  |
+| keys     | Array\[Any Value\]     | Keys                                                |
+| values   | Array\[Any Value\]     | Values<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_create_translatable_component>
   <code>variable::create_translatable_component</code>
@@ -2174,7 +2174,7 @@ variable::create_translatable_component(variable=`variable`, key="key", fallback
 | variable | Variable\[Text\] | Variable to assign                                                                     |
 | key      | Text             | Key                                                                                    |
 | fallback | Text             | creative_plus.action.set_variable_create_translatable_component.argument.fallback.name |
-| args     | Array\[Text\]    | Arguments to add<br>The argument supports list decomposition                           |
+| args     | Array\[Text\]    | Arguments to add<br/>The argument supports list decomposition                          |
 
 <h3 id=set_variable_decrement>
   <code>variable::decrement</code>
@@ -2229,11 +2229,11 @@ variable::divide(variable=`variable`, value=[1, 2], division_mode="CEIL");
 
 **Arguments:**
 
-| ID            | Type                                                                                                                        | Description                                                   |
-|---------------|-----------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
-| variable      | Variable\[Number\]                                                                                                          | Variable to assign                                            |
-| value         | Array\[Number\]                                                                                                             | Numbers to Divide<br>The argument supports list decomposition |
-| division_mode | Marker<br/>**CEIL** - Round up<br/>**DEFAULT** - Default<br/>**FLOOR** - Round down<br/>**ROUND_TO_INT** - Round To Integer | Division Mode                                                 |
+| ID            | Type                                                                                                                        | Description                                                    |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| variable      | Variable\[Number\]                                                                                                          | Variable to assign                                             |
+| value         | Array\[Number\]                                                                                                             | Numbers to Divide<br/>The argument supports list decomposition |
+| division_mode | Marker<br/>**CEIL** - Round up<br/>**DEFAULT** - Default<br/>**FLOOR** - Round down<br/>**ROUND_TO_INT** - Round To Integer | Division Mode                                                  |
 
 <h3 id=set_variable_divide_vector>
   <code>variable::divide_vector</code>
@@ -2307,13 +2307,13 @@ variable::edit_item_custom_model_data(variable=`variable`, item=item("stick"), d
 
 **Arguments:**
 
-| ID         | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Description                                                                                                                  |
-|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| variable   | Variable\[Item\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | creative_plus.action.set_variable_edit_item_custom_model_data.argument.variable.name                                         |
-| item       | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | creative_plus.action.set_variable_edit_item_custom_model_data.argument.item.name                                             |
-| data       | Array\[Any Value\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | creative_plus.action.set_variable_edit_item_custom_model_data.argument.data.name<br>The argument supports list decomposition |
-| value_type | Marker<br/>**FLOATS** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.enum.floats.name<br/>**BOOLEANS** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.enum.booleans.name<br/>**STRINGS** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.enum.strings.name<br/>**COLORS** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.enum.colors.name                                                                                                                                 | creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.name                                       |
-| setup_mode | Marker<br/>**SET** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.set.name<br/>**ADD** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.add.name<br/>**REMOVE_ALL** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.remove_all.name<br/>**REMOVE_FIRST** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.remove_first.name<br/>**REMOVE_LAST** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.remove_last.name | creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.name                                       |
+| ID         | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Description                                                                                                                   |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| variable   | Variable\[Item\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | creative_plus.action.set_variable_edit_item_custom_model_data.argument.variable.name                                          |
+| item       | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | creative_plus.action.set_variable_edit_item_custom_model_data.argument.item.name                                              |
+| data       | Array\[Any Value\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | creative_plus.action.set_variable_edit_item_custom_model_data.argument.data.name<br/>The argument supports list decomposition |
+| value_type | Marker<br/>**FLOATS** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.enum.floats.name<br/>**BOOLEANS** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.enum.booleans.name<br/>**STRINGS** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.enum.strings.name<br/>**COLORS** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.enum.colors.name                                                                                                                                 | creative_plus.action.set_variable_edit_item_custom_model_data.argument.value_type.name                                        |
+| setup_mode | Marker<br/>**SET** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.set.name<br/>**ADD** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.add.name<br/>**REMOVE_ALL** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.remove_all.name<br/>**REMOVE_FIRST** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.remove_first.name<br/>**REMOVE_LAST** - creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.enum.remove_last.name | creative_plus.action.set_variable_edit_item_custom_model_data.argument.setup_mode.name                                        |
 
 <h3 id=set_variable_face_location>
   <code>variable::face_location</code>
@@ -2377,12 +2377,12 @@ variable::find_nearest_location(variable=`variable`, location=location(0,0,0,0,0
 
 **Arguments:**
 
-| ID            | Type                                                                                                                                                                                                                                                                                                                              | Description                                                                                                                 |
-|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| variable      | Variable\[Location\]                                                                                                                                                                                                                                                                                                              | creative_plus.action.set_variable_find_nearest_location.argument.variable.name                                              |
-| location      | Location                                                                                                                                                                                                                                                                                                                          | creative_plus.action.set_variable_find_nearest_location.argument.location.name                                              |
-| locations     | Array\[Location\]                                                                                                                                                                                                                                                                                                                 | creative_plus.action.set_variable_find_nearest_location.argument.locations.name<br>The argument supports list decomposition |
-| distance_type | Marker<br/>**XYZ** - creative_plus.action.set_variable_find_nearest_location.argument.distance_type.enum.xyz.name<br/>**XZ** - creative_plus.action.set_variable_find_nearest_location.argument.distance_type.enum.xz.name<br/>**Y** - creative_plus.action.set_variable_find_nearest_location.argument.distance_type.enum.y.name | creative_plus.action.set_variable_find_nearest_location.argument.distance_type.name                                         |
+| ID            | Type                                                                                                                                                                                                                                                                                                                              | Description                                                                                                                  |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| variable      | Variable\[Location\]                                                                                                                                                                                                                                                                                                              | creative_plus.action.set_variable_find_nearest_location.argument.variable.name                                               |
+| location      | Location                                                                                                                                                                                                                                                                                                                          | creative_plus.action.set_variable_find_nearest_location.argument.location.name                                               |
+| locations     | Array\[Location\]                                                                                                                                                                                                                                                                                                                 | creative_plus.action.set_variable_find_nearest_location.argument.locations.name<br/>The argument supports list decomposition |
+| distance_type | Marker<br/>**XYZ** - creative_plus.action.set_variable_find_nearest_location.argument.distance_type.enum.xyz.name<br/>**XZ** - creative_plus.action.set_variable_find_nearest_location.argument.distance_type.enum.xz.name<br/>**Y** - creative_plus.action.set_variable_find_nearest_location.argument.distance_type.enum.y.name | creative_plus.action.set_variable_find_nearest_location.argument.distance_type.name                                          |
 
 <h3 id=set_variable_find_nearest_number>
   <code>variable::find_nearest_number</code>
@@ -2412,11 +2412,11 @@ variable::find_nearest_number(variable=`variable`, number=1, numbers=[2, 3]);
 
 **Arguments:**
 
-| ID       | Type               | Description                                                                                                             |
-|----------|--------------------|-------------------------------------------------------------------------------------------------------------------------|
-| variable | Variable\[Number\] | creative_plus.action.set_variable_find_nearest_number.argument.variable.name                                            |
-| number   | Number             | creative_plus.action.set_variable_find_nearest_number.argument.number.name                                              |
-| numbers  | Array\[Number\]    | creative_plus.action.set_variable_find_nearest_number.argument.numbers.name<br>The argument supports list decomposition |
+| ID       | Type               | Description                                                                                                              |
+|----------|--------------------|--------------------------------------------------------------------------------------------------------------------------|
+| variable | Variable\[Number\] | creative_plus.action.set_variable_find_nearest_number.argument.variable.name                                             |
+| number   | Number             | creative_plus.action.set_variable_find_nearest_number.argument.number.name                                               |
+| numbers  | Array\[Number\]    | creative_plus.action.set_variable_find_nearest_number.argument.numbers.name<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_flatten_list>
   <code>variable::flatten_list</code>
@@ -2666,6 +2666,8 @@ variable::get_angle_between_vectors(variable=`variable`, vector_1=vector(0,0,0),
 **Name:** creative_plus.action.set_variable_get_block_custom_tag.name\
 **Action type:** An action that returns a value\
 **Description:** creative_plus.action.set_variable_get_block_custom_tag.description
+
+Currently hidden. Most likely, it is either outdated or does not work.
 
 **Usage example:**
 ```ts
@@ -3676,6 +3678,8 @@ variable::get_item_component(variable=`variable`, item=item("stick"), component=
 **Action type:** An action that returns a value\
 **Description:** Gets the item's model data (CustomModelData) and assigns the result to a variable.
 
+Currently hidden. Most likely, it is either outdated or does not work.
+
 **Usage example:**
 ```ts
 `variable` = variable::get_item_custom_model_data(item("stick"));
@@ -4660,13 +4664,13 @@ variable::get_list_variables(variable=`variable`, names=["names", "names"], scop
 
 **Arguments:**
 
-| ID          | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Description                                                                                                          |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| variable    | Variable\[List\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Variable to assign                                                                                                   |
-| names       | Array\[Text\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | creative_plus.action.set_variable_get_list_variables.argument.names.name<br>The argument supports list decomposition |
-| scope       | Marker<br/>**GAME** - Game<br/>**SAVE** - Saved<br/>**LOCAL** - Local                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Variable Type                                                                                                        |
-| match       | Marker<br/>**EQUALS** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.equals.name<br/>**NAME_CONTAINS** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.name_contains.name<br/>**PART_CONTAINS** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.part_contains.name<br/>**STARTS_WITH** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.starts_with.name<br/>**ENDS_WITH** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.ends_with.name | creative_plus.action.set_variable_get_list_variables.argument.match.name                                             |
-| ignore_case | Marker<br/>**TRUE** - creative_plus.action.set_variable_get_list_variables.argument.ignore_case.enum.true.name<br/>**FALSE** - creative_plus.action.set_variable_get_list_variables.argument.ignore_case.enum.false.name                                                                                                                                                                                                                                                                                                                                                         | creative_plus.action.set_variable_get_list_variables.argument.ignore_case.name                                       |
+| ID          | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Description                                                                                                           |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| variable    | Variable\[List\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Variable to assign                                                                                                    |
+| names       | Array\[Text\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | creative_plus.action.set_variable_get_list_variables.argument.names.name<br/>The argument supports list decomposition |
+| scope       | Marker<br/>**GAME** - Game<br/>**SAVE** - Saved<br/>**LOCAL** - Local                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Variable Type                                                                                                         |
+| match       | Marker<br/>**EQUALS** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.equals.name<br/>**NAME_CONTAINS** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.name_contains.name<br/>**PART_CONTAINS** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.part_contains.name<br/>**STARTS_WITH** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.starts_with.name<br/>**ENDS_WITH** - creative_plus.action.set_variable_get_list_variables.argument.match.enum.ends_with.name | creative_plus.action.set_variable_get_list_variables.argument.match.name                                              |
+| ignore_case | Marker<br/>**TRUE** - creative_plus.action.set_variable_get_list_variables.argument.ignore_case.enum.true.name<br/>**FALSE** - creative_plus.action.set_variable_get_list_variables.argument.ignore_case.enum.false.name                                                                                                                                                                                                                                                                                                                                                         | creative_plus.action.set_variable_get_list_variables.argument.ignore_case.name                                        |
 
 <h3 id=set_variable_get_location_direction>
   <code>variable::get_location_direction</code>
@@ -6201,12 +6205,12 @@ variable::hide_item_components(variable=`variable`, item=item("stick"), componen
 
 **Arguments:**
 
-| ID         | Type                                                                                                                                                                                                                                                                                                            | Description                                                                                                                 |
-|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| variable   | Variable\[Item\]                                                                                                                                                                                                                                                                                                | creative_plus.action.set_variable_hide_item_components.argument.variable.name                                               |
-| item       | Item                                                                                                                                                                                                                                                                                                            | creative_plus.action.set_variable_hide_item_components.argument.item.name                                                   |
-| components | Array\[Text\]                                                                                                                                                                                                                                                                                                   | creative_plus.action.set_variable_hide_item_components.argument.components.name<br>The argument supports list decomposition |
-| mode       | Marker<br/>**SET** - creative_plus.action.set_variable_hide_item_components.argument.mode.enum.set.name<br/>**ADD** - creative_plus.action.set_variable_hide_item_components.argument.mode.enum.add.name<br/>**REMOVE** - creative_plus.action.set_variable_hide_item_components.argument.mode.enum.remove.name | creative_plus.action.set_variable_hide_item_components.argument.mode.name                                                   |
+| ID         | Type                                                                                                                                                                                                                                                                                                            | Description                                                                                                                  |
+|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| variable   | Variable\[Item\]                                                                                                                                                                                                                                                                                                | creative_plus.action.set_variable_hide_item_components.argument.variable.name                                                |
+| item       | Item                                                                                                                                                                                                                                                                                                            | creative_plus.action.set_variable_hide_item_components.argument.item.name                                                    |
+| components | Array\[Text\]                                                                                                                                                                                                                                                                                                   | creative_plus.action.set_variable_hide_item_components.argument.components.name<br/>The argument supports list decomposition |
+| mode       | Marker<br/>**SET** - creative_plus.action.set_variable_hide_item_components.argument.mode.enum.set.name<br/>**ADD** - creative_plus.action.set_variable_hide_item_components.argument.mode.enum.add.name<br/>**REMOVE** - creative_plus.action.set_variable_hide_item_components.argument.mode.enum.remove.name | creative_plus.action.set_variable_hide_item_components.argument.mode.name                                                    |
 
 <h3 id=set_variable_increment>
   <code>variable::increment</code>
@@ -6506,11 +6510,11 @@ variable::mathematical_expectation(variable=`variable`, values=[1, 2], probabili
 
 **Arguments:**
 
-| ID            | Type               | Description                                                                                                                        |
-|---------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| variable      | Variable\[Number\] | creative_plus.action.set_variable_mathematical_expectation.argument.variable.name                                                  |
-| values        | Array\[Number\]    | creative_plus.action.set_variable_mathematical_expectation.argument.values.name<br>The argument supports list decomposition        |
-| probabilities | Array\[Number\]    | creative_plus.action.set_variable_mathematical_expectation.argument.probabilities.name<br>The argument supports list decomposition |
+| ID            | Type               | Description                                                                                                                         |
+|---------------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| variable      | Variable\[Number\] | creative_plus.action.set_variable_mathematical_expectation.argument.variable.name                                                   |
+| values        | Array\[Number\]    | creative_plus.action.set_variable_mathematical_expectation.argument.values.name<br/>The argument supports list decomposition        |
+| probabilities | Array\[Number\]    | creative_plus.action.set_variable_mathematical_expectation.argument.probabilities.name<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_max>
   <code>variable::max</code>
@@ -6536,10 +6540,10 @@ variable::max(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| ID       | Type               | Description                                                   |
-|----------|--------------------|---------------------------------------------------------------|
-| variable | Variable\[Number\] | Variable to assign                                            |
-| value    | Array\[Number\]    | Numbers to select<br>The argument supports list decomposition |
+| ID       | Type               | Description                                                    |
+|----------|--------------------|----------------------------------------------------------------|
+| variable | Variable\[Number\] | Variable to assign                                             |
+| value    | Array\[Number\]    | Numbers to select<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_median>
   <code>variable::median</code>
@@ -6565,10 +6569,10 @@ variable::median(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| ID       | Type               | Description                                                                                              |
-|----------|--------------------|----------------------------------------------------------------------------------------------------------|
-| variable | Variable\[Number\] | creative_plus.action.set_variable_median.argument.variable.name                                          |
-| value    | Array\[Number\]    | creative_plus.action.set_variable_median.argument.value.name<br>The argument supports list decomposition |
+| ID       | Type               | Description                                                                                               |
+|----------|--------------------|-----------------------------------------------------------------------------------------------------------|
+| variable | Variable\[Number\] | creative_plus.action.set_variable_median.argument.variable.name                                           |
+| value    | Array\[Number\]    | creative_plus.action.set_variable_median.argument.value.name<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_min>
   <code>variable::min</code>
@@ -6594,10 +6598,10 @@ variable::min(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| ID       | Type               | Description                                                   |
-|----------|--------------------|---------------------------------------------------------------|
-| variable | Variable\[Number\] | Variable to assign                                            |
-| value    | Array\[Number\]    | Numbers to select<br>The argument supports list decomposition |
+| ID       | Type               | Description                                                    |
+|----------|--------------------|----------------------------------------------------------------|
+| variable | Variable\[Number\] | Variable to assign                                             |
+| value    | Array\[Number\]    | Numbers to select<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_multiple>
   <code>variable::set_values</code>
@@ -6648,10 +6652,10 @@ variable::multiply(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| ID       | Type               | Description                                                     |
-|----------|--------------------|-----------------------------------------------------------------|
-| variable | Variable\[Number\] | Variable to assign                                              |
-| value    | Array\[Number\]    | Numbers to Multiply<br>The argument supports list decomposition |
+| ID       | Type               | Description                                                      |
+|----------|--------------------|------------------------------------------------------------------|
+| variable | Variable\[Number\] | Variable to assign                                               |
+| value    | Array\[Number\]    | Numbers to Multiply<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_multiply_vector>
   <code>variable::multiply_vector</code>
@@ -6874,12 +6878,12 @@ variable::purge(names=["names", "names"], scope="GAME", match="ENDS_WITH", ignor
 
 **Arguments:**
 
-| ID          | Type                                                                                                                                                                                                                                                                                                                       | Description                                                  |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| names       | Array\[Text\]                                                                                                                                                                                                                                                                                                              | Names to Compare<br>The argument supports list decomposition |
-| scope       | Marker<br/>**GAME** - Game<br/>**LOCAL** - Local<br/>**SAVE** - Saved                                                                                                                                                                                                                                                      | Variable Type                                                |
-| match       | Marker<br/>**ENDS_WITH** - creative_plus.action.set_variable_purge.argument.match.enum.ends_with.name<br/>**EQUALS** - Full Match<br/>**NAME_CONTAINS** - Name contains text<br/>**PART_CONTAINS** - Text contains name<br/>**STARTS_WITH** - creative_plus.action.set_variable_purge.argument.match.enum.starts_with.name | Comparison Mode                                              |
-| ignore_case | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                                                                                                                                                                                                                                                                     | Ignore case                                                  |
+| ID          | Type                                                                                                                                                                                                                                                                                                                       | Description                                                   |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| names       | Array\[Text\]                                                                                                                                                                                                                                                                                                              | Names to Compare<br/>The argument supports list decomposition |
+| scope       | Marker<br/>**GAME** - Game<br/>**LOCAL** - Local<br/>**SAVE** - Saved                                                                                                                                                                                                                                                      | Variable Type                                                 |
+| match       | Marker<br/>**ENDS_WITH** - creative_plus.action.set_variable_purge.argument.match.enum.ends_with.name<br/>**EQUALS** - Full Match<br/>**NAME_CONTAINS** - Name contains text<br/>**PART_CONTAINS** - Text contains name<br/>**STARTS_WITH** - creative_plus.action.set_variable_purge.argument.match.enum.starts_with.name | Comparison Mode                                               |
+| ignore_case | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled                                                                                                                                                                                                                                                                     | Ignore case                                                   |
 
 <h3 id=set_variable_random>
   <code>variable::random</code>
@@ -6905,10 +6909,10 @@ variable::random(variable=`variable`, values=["any value", "any value"]);
 
 **Arguments:**
 
-| ID       | Type                  | Description                                                  |
-|----------|-----------------------|--------------------------------------------------------------|
-| variable | Variable\[Any Value\] | Variable to assign                                           |
-| values   | Array\[Any Value\]    | Values to choose<br>The argument supports list decomposition |
+| ID       | Type                  | Description                                                   |
+|----------|-----------------------|---------------------------------------------------------------|
+| variable | Variable\[Any Value\] | Variable to assign                                            |
+| values   | Array\[Any Value\]    | Values to choose<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_random_location>
   <code>variable::random_location</code>
@@ -7263,6 +7267,8 @@ variable::remove_item_attribute(variable=`variable`, item=item("stick"), name_or
 **Action type:** An action that returns a value\
 **Description:** Removes item model data (CustomModelData) and assigns the result to a variable.
 
+Currently hidden. Most likely, it is either outdated or does not work.
+
 **Usage example:**
 ```ts
 `variable` = variable::remove_item_custom_model_data(item("stick"));
@@ -7383,11 +7389,11 @@ variable::remove_item_potion_effects(variable=`variable`, effects=[potion("slow_
 
 **Arguments:**
 
-| ID       | Type             | Description                                                |
-|----------|------------------|------------------------------------------------------------|
-| variable | Variable\[Item\] | Variable to assign                                         |
-| effects  | Array\[Potion\]  | Potion Effects<br>The argument supports list decomposition |
-| item     | Item             | Item                                                       |
+| ID       | Type             | Description                                                 |
+|----------|------------------|-------------------------------------------------------------|
+| variable | Variable\[Item\] | Variable to assign                                          |
+| effects  | Array\[Potion\]  | Potion Effects<br/>The argument supports list decomposition |
+| item     | Item             | Item                                                        |
 
 <h3 id=set_variable_remove_list_duplicates>
   <code>variable::remove_list_duplicates</code>
@@ -7520,13 +7526,13 @@ variable::remove_map_entry(removed_value=`removed_value`, variable=`variable`, m
 
 **Arguments:**
 
-| ID            | Type                   | Description                                        |
-|---------------|------------------------|----------------------------------------------------|
-| removed_value | Variable\[Any Value\]  | Removed Value                                      |
-| variable      | Variable\[Dictionary\] | Variable to assign                                 |
-| map           | Dictionary             | Dictionary to change                               |
-| key           | Any Value              | Key                                                |
-| values        | Array\[Any Value\]     | Values<br>The argument supports list decomposition |
+| ID            | Type                   | Description                                         |
+|---------------|------------------------|-----------------------------------------------------|
+| removed_value | Variable\[Any Value\]  | Removed Value                                       |
+| variable      | Variable\[Dictionary\] | Variable to assign                                  |
+| map           | Dictionary             | Dictionary to change                                |
+| key           | Any Value              | Key                                                 |
+| values        | Array\[Any Value\]     | Values<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_remove_text>
   <code>variable::remove_text</code>
@@ -7556,12 +7562,12 @@ variable::remove_text(variable=`variable`, remove=["remove", "remove"], text="te
 
 **Arguments:**
 
-| ID       | Type                                                 | Description                                                |
-|----------|------------------------------------------------------|------------------------------------------------------------|
-| variable | Variable\[Text\]                                     | Variable to assign                                         |
-| remove   | Array\[Text\]                                        | Text to Remove<br>The argument supports list decomposition |
-| text     | Text                                                 | Original Text                                              |
-| regex    | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Regular Expressions                                        |
+| ID       | Type                                                 | Description                                                 |
+|----------|------------------------------------------------------|-------------------------------------------------------------|
+| variable | Variable\[Text\]                                     | Variable to assign                                          |
+| remove   | Array\[Text\]                                        | Text to Remove<br/>The argument supports list decomposition |
+| text     | Text                                                 | Original Text                                               |
+| regex    | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Regular Expressions                                         |
 
 <h3 id=set_variable_repeat_text>
   <code>variable::repeat_text</code>
@@ -7936,11 +7942,11 @@ variable::set_book_pages(variable=`variable`, book=item("stick"), text=["text", 
 
 **Arguments:**
 
-| ID       | Type             | Description                                          |
-|----------|------------------|------------------------------------------------------|
-| variable | Variable\[Item\] | Variable to assign                                   |
-| book     | Item             | Book to change                                       |
-| text     | Array\[Text\]    | New Text<br>The argument supports list decomposition |
+| ID       | Type             | Description                                           |
+|----------|------------------|-------------------------------------------------------|
+| variable | Variable\[Item\] | Variable to assign                                    |
+| book     | Item             | Book to change                                        |
+| text     | Array\[Text\]    | New Text<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_set_bundle_items>
   <code>variable::set_bundle_items</code>
@@ -7970,12 +7976,12 @@ variable::set_bundle_items(variable=`variable`, bundle=item("stick"), items=[ite
 
 **Arguments:**
 
-| ID           | Type                                                               | Description                                       |
-|--------------|--------------------------------------------------------------------|---------------------------------------------------|
-| variable     | Variable\[Item\]                                                   | Variable to set                                   |
-| bundle       | Item                                                               | Bundle                                            |
-| items        | Array\[Item\]                                                      | Items<br>The argument supports list decomposition |
-| setting_mode | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove<br/>**SET** - Set | Set mode                                          |
+| ID           | Type                                                               | Description                                        |
+|--------------|--------------------------------------------------------------------|----------------------------------------------------|
+| variable     | Variable\[Item\]                                                   | Variable to set                                    |
+| bundle       | Item                                                               | Bundle                                             |
+| items        | Array\[Item\]                                                      | Items<br/>The argument supports list decomposition |
+| setting_mode | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove<br/>**SET** - Set | Set mode                                           |
 
 <h3 id=set_variable_set_compass_lodestone>
   <code>variable::set_compass_lodestone</code>
@@ -8040,11 +8046,11 @@ variable::set_component_children(variable=`variable`, component="component", chi
 
 **Arguments:**
 
-| ID        | Type             | Description                                                         |
-|-----------|------------------|---------------------------------------------------------------------|
-| variable  | Variable\[Text\] | Variable to assign                                                  |
-| component | Text             | Main stylized text                                                  |
-| children  | Array\[Text\]    | Children stylized texts<br>The argument supports list decomposition |
+| ID        | Type             | Description                                                          |
+|-----------|------------------|----------------------------------------------------------------------|
+| variable  | Variable\[Text\] | Variable to assign                                                   |
+| component | Text             | Main stylized text                                                   |
+| children  | Array\[Text\]    | Children stylized texts<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_set_component_click>
   <code>variable::set_component_click</code>
@@ -8583,6 +8589,8 @@ variable::set_item_component(variable=`variable`, item=item("stick"), component=
 **Action type:** An action that returns a value\
 **Description:** Sets the item's model data (CustomModelData) and assigns the result to a variable.
 
+Currently hidden. Most likely, it is either outdated or does not work.
+
 **Usage example:**
 ```ts
 `variable` = variable::set_item_custom_model_data(item("stick"), 1);
@@ -8671,11 +8679,11 @@ variable::set_item_destroyable_blocks(variable=`variable`, destroyable=[item("st
 
 **Arguments:**
 
-| ID          | Type             | Description                                                                 |
-|-------------|------------------|-----------------------------------------------------------------------------|
-| variable    | Variable\[Item\] | Variable to assign                                                          |
-| destroyable | Array\[Item\]    | Blocks Can Be Destroyed by Item<br>The argument supports list decomposition |
-| item        | Item             | Item                                                                        |
+| ID          | Type             | Description                                                                  |
+|-------------|------------------|------------------------------------------------------------------------------|
+| variable    | Variable\[Item\] | Variable to assign                                                           |
+| destroyable | Array\[Item\]    | Blocks Can Be Destroyed by Item<br/>The argument supports list decomposition |
+| item        | Item             | Item                                                                         |
 
 <h3 id=set_variable_set_item_durability>
   <code>variable::set_item_durability</code>
@@ -8916,11 +8924,11 @@ variable::set_item_lore(variable=`variable`, item=item("stick"), lore=["lore", "
 
 **Arguments:**
 
-| ID       | Type             | Description                                                 |
-|----------|------------------|-------------------------------------------------------------|
-| variable | Variable\[Item\] | Variable to assign                                          |
-| item     | Item             | Item                                                        |
-| lore     | Array\[Text\]    | New Description<br>The argument supports list decomposition |
+| ID       | Type             | Description                                                  |
+|----------|------------------|--------------------------------------------------------------|
+| variable | Variable\[Item\] | Variable to assign                                           |
+| item     | Item             | Item                                                         |
+| lore     | Array\[Text\]    | New Description<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_set_item_lore_line>
   <code>variable::set_item_lore_line</code>
@@ -9091,11 +9099,11 @@ variable::set_item_placeable_blocks(variable=`variable`, placeable=[item("stick"
 
 **Arguments:**
 
-| ID        | Type             | Description                                                  |
-|-----------|------------------|--------------------------------------------------------------|
-| variable  | Variable\[Item\] | Variable to assign                                           |
-| placeable | Array\[Item\]    | Placeable Blocks<br>The argument supports list decomposition |
-| item      | Item             | Item                                                         |
+| ID        | Type             | Description                                                   |
+|-----------|------------------|---------------------------------------------------------------|
+| variable  | Variable\[Item\] | Variable to assign                                            |
+| placeable | Array\[Item\]    | Placeable Blocks<br/>The argument supports list decomposition |
+| item      | Item             | Item                                                          |
 
 <h3 id=set_variable_set_item_rarity>
   <code>variable::set_item_rarity</code>
@@ -9440,12 +9448,12 @@ variable::set_map_value(variable=`variable`, map={"map":`map`}, key=["any value"
 
 **Arguments:**
 
-| ID       | Type                   | Description                                           |
-|----------|------------------------|-------------------------------------------------------|
-| variable | Variable\[Dictionary\] | Variable to assign                                    |
-| map      | Dictionary             | Dictionary to change                                  |
-| key      | Array\[Any Value\]     | Key<br>The argument supports list decomposition       |
-| value    | Array\[Any Value\]     | New Value<br>The argument supports list decomposition |
+| ID       | Type                   | Description                                            |
+|----------|------------------------|--------------------------------------------------------|
+| variable | Variable\[Dictionary\] | Variable to assign                                     |
+| map      | Dictionary             | Dictionary to change                                   |
+| key      | Array\[Any Value\]     | Key<br/>The argument supports list decomposition       |
+| value    | Array\[Any Value\]     | New Value<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_set_particle_amount>
   <code>variable::set_particle_amount</code>
@@ -10552,10 +10560,10 @@ variable::subtract(variable=`variable`, value=[1, 2]);
 
 **Arguments:**
 
-| ID       | Type               | Description                                                     |
-|----------|--------------------|-----------------------------------------------------------------|
-| variable | Variable\[Number\] | Variable to assign                                              |
-| value    | Array\[Number\]    | Numbers to Subtract<br>The argument supports list decomposition |
+| ID       | Type               | Description                                                      |
+|----------|--------------------|------------------------------------------------------------------|
+| variable | Variable\[Number\] | Variable to assign                                               |
+| value    | Array\[Number\]    | Numbers to Subtract<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_subtract_vectors>
   <code>variable::subtract_vectors</code>
@@ -10581,10 +10589,10 @@ variable::subtract_vectors(variable=`variable`, vectors=[vector(0,0,0), vector(0
 
 **Arguments:**
 
-| ID       | Type               | Description                                                    |
-|----------|--------------------|----------------------------------------------------------------|
-| variable | Variable\[Vector\] | Variable to assign                                             |
-| vectors  | Array\[Vector\]    | Difference Vectors<br>The argument supports list decomposition |
+| ID       | Type               | Description                                                     |
+|----------|--------------------|-----------------------------------------------------------------|
+| variable | Variable\[Vector\] | Variable to assign                                              |
+| vectors  | Array\[Vector\]    | Difference Vectors<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_tangent>
   <code>variable::tangent</code>
@@ -10645,11 +10653,11 @@ variable::set_text(variable=`variable`, text=["text", "text"], merging="CONCATEN
 
 **Arguments:**
 
-| ID       | Type                                                                                                           | Description                                             |
-|----------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
-| variable | Variable\[Text\]                                                                                               | Variable to assign                                      |
-| text     | Array\[Text\]                                                                                                  | Text to set<br>The argument supports list decomposition |
-| merging  | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text                                              |
+| ID       | Type                                                                                                           | Description                                              |
+|----------|----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| variable | Variable\[Text\]                                                                                               | Variable to assign                                       |
+| text     | Array\[Text\]                                                                                                  | Text to set<br/>The argument supports list decomposition |
+| merging  | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text                                               |
 
 <h3 id=set_variable_text_case>
   <code>variable::set_text_case</code>
@@ -11040,11 +11048,11 @@ variable::unset_item_components(variable=`variable`, item=item("stick"), compone
 
 **Arguments:**
 
-| ID         | Type             | Description                                                                                                                  |
-|------------|------------------|------------------------------------------------------------------------------------------------------------------------------|
-| variable   | Variable\[Item\] | creative_plus.action.set_variable_unset_item_components.argument.variable.name                                               |
-| item       | Item             | creative_plus.action.set_variable_unset_item_components.argument.item.name                                                   |
-| components | Array\[Text\]    | creative_plus.action.set_variable_unset_item_components.argument.components.name<br>The argument supports list decomposition |
+| ID         | Type             | Description                                                                                                                   |
+|------------|------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| variable   | Variable\[Item\] | creative_plus.action.set_variable_unset_item_components.argument.variable.name                                                |
+| item       | Item             | creative_plus.action.set_variable_unset_item_components.argument.item.name                                                    |
+| components | Array\[Text\]    | creative_plus.action.set_variable_unset_item_components.argument.components.name<br/>The argument supports list decomposition |
 
 <h3 id=set_variable_value>
   <code>variable::set_value</code>

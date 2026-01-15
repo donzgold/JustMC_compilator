@@ -454,12 +454,12 @@ entity::give_potion_effects(potions=[potion("slow_falling"), potion("slow_fallin
 
 **Arguments:**
 
-| ID            | Type                                                                           | Description                                                 |
-|---------------|--------------------------------------------------------------------------------|-------------------------------------------------------------|
-| potions       | Array\[Potion\]                                                                | Effects to Give<br>The argument supports list decomposition |
-| overwrite     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Overwrite existing effects                                  |
-| show_icon     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Show Effect Icon                                            |
-| particle_mode | Marker<br/>**AMBIENT** - Transparent<br/>**NONE** - None<br/>**REGULAR** - Yes | Give Particles                                              |
+| ID            | Type                                                                           | Description                                                  |
+|---------------|--------------------------------------------------------------------------------|--------------------------------------------------------------|
+| potions       | Array\[Potion\]                                                                | Effects to Give<br/>The argument supports list decomposition |
+| overwrite     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Overwrite existing effects                                   |
+| show_icon     | Marker<br/>**FALSE** - None<br/>**TRUE** - Yes                                 | Show Effect Icon                                             |
+| particle_mode | Marker<br/>**AMBIENT** - Transparent<br/>**NONE** - None<br/>**REGULAR** - Yes | Give Particles                                               |
 
 <h3 id=entity_heal>
   <code>entity::heal</code>
@@ -687,10 +687,10 @@ entity::modify_piglin_barter_materials(materials=[item("stick"), item("stick")],
 
 **Arguments:**
 
-| ID                | Type                                             | Description                                           |
-|-------------------|--------------------------------------------------|-------------------------------------------------------|
-| materials         | Array\[Item\]                                    | Materials<br>The argument supports list decomposition |
-| modification_mode | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove | Modification mode                                     |
+| ID                | Type                                             | Description                                            |
+|-------------------|--------------------------------------------------|--------------------------------------------------------|
+| materials         | Array\[Item\]                                    | Materials<br/>The argument supports list decomposition |
+| modification_mode | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove | Modification mode                                      |
 
 <h3 id=entity_modify_piglin_interested_materials>
   <code>entity::modify_piglin_interested_materials</code>
@@ -716,10 +716,10 @@ entity::modify_piglin_interested_materials(materials=[item("stick"), item("stick
 
 **Arguments:**
 
-| ID                | Type                                             | Description                                           |
-|-------------------|--------------------------------------------------|-------------------------------------------------------|
-| materials         | Array\[Item\]                                    | Materials<br>The argument supports list decomposition |
-| modification_mode | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove | Modification mode                                     |
+| ID                | Type                                             | Description                                            |
+|-------------------|--------------------------------------------------|--------------------------------------------------------|
+| materials         | Array\[Item\]                                    | Materials<br/>The argument supports list decomposition |
+| modification_mode | Marker<br/>**ADD** - Add<br/>**REMOVE** - Remove | Modification mode                                      |
 
 <h3 id=entity_move_to_location>
   <code>entity::move_to_location</code>
@@ -937,9 +937,9 @@ entity::remove_potion_effect(effects=[potion("slow_falling"), potion("slow_falli
 
 **Arguments:**
 
-| ID      | Type            | Description                                                   |
-|---------|-----------------|---------------------------------------------------------------|
-| effects | Array\[Potion\] | Effects to Remove<br>The argument supports list decomposition |
+| ID      | Type            | Description                                                    |
+|---------|-----------------|----------------------------------------------------------------|
+| effects | Array\[Potion\] | Effects to Remove<br/>The argument supports list decomposition |
 
 <h3 id=entity_reset_display_brightness>
   <code>entity::reset_display_brightness</code>
@@ -2074,9 +2074,9 @@ entity::set_display_correct_transformation_matrix(matrix=[1, 2]);
 
 **Arguments:**
 
-| ID     | Type            | Description                                                                                                                            |
-|--------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| matrix | Array\[Number\] | creative_plus.action.entity_set_display_correct_transformation_matrix.argument.matrix.name<br>The argument supports list decomposition |
+| ID     | Type            | Description                                                                                                                             |
+|--------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| matrix | Array\[Number\] | creative_plus.action.entity_set_display_correct_transformation_matrix.argument.matrix.name<br/>The argument supports list decomposition |
 
 <h3 id=entity_set_display_culling_suze>
   <code>entity::set_display_culling_size</code>
@@ -2311,6 +2311,8 @@ entity::set_display_teleport_duration(duration=1);
 **Work_with:**\
 &nbsp;&nbsp;Any Render Entity
 
+Currently hidden. Most likely, it is either outdated or does not work.
+
 **Usage example:**
 ```ts
 entity::set_display_transformation_matrix([1, 2]);
@@ -2322,9 +2324,9 @@ entity::set_display_transformation_matrix(row_major_matrix=[1, 2]);
 
 **Arguments:**
 
-| ID               | Type            | Description                                                  |
-|------------------|-----------------|--------------------------------------------------------------|
-| row_major_matrix | Array\[Number\] | 16 Number Matrix<br>The argument supports list decomposition |
+| ID               | Type            | Description                                                   |
+|------------------|-----------------|---------------------------------------------------------------|
+| row_major_matrix | Array\[Number\] | 16 Number Matrix<br/>The argument supports list decomposition |
 
 <h3 id=entity_set_display_translation>
   <code>entity::set_display_translation</code>
@@ -4651,10 +4653,10 @@ entity::set_text_display_text(displayed_text=["displayed_text", "displayed_text"
 
 **Arguments:**
 
-| ID             | Type                                                                                                           | Description                                                |
-|----------------|----------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
-| displayed_text | Array\[Text\]                                                                                                  | Displayed Text<br>The argument supports list decomposition |
-| merging_mode   | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text                                                 |
+| ID             | Type                                                                                                           | Description                                                 |
+|----------------|----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| displayed_text | Array\[Text\]                                                                                                  | Displayed Text<br/>The argument supports list decomposition |
+| merging_mode   | Marker<br/>**CONCATENATION** - Merge<br/>**SEPARATE_LINES** - Separate Lines<br/>**SPACES** - Space Separation | Merge Text                                                  |
 
 <h3 id=entity_set_text_display_text_shadow>
   <code>entity::set_text_display_text_shadow</code>
@@ -5331,11 +5333,11 @@ if(entity::has_custom_tag(tag="tag", tag_value=["tag_value", "tag_value"], compa
 
 **Arguments:**
 
-| ID           | Type                                                                                                                       | Description                                           |
-|--------------|----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-| tag          | Text                                                                                                                       | Tag Name                                              |
-| tag_value    | Array\[Text\]                                                                                                              | Tag Value<br>The argument supports list decomposition |
-| compare_type | Marker<br/>**CONTAINS** - Contains<br/>**ENDS_WITH** - Ends With<br/>**EQUALS** - Equals<br/>**STARTS_WITH** - Starts With | Comparison Type                                       |
+| ID           | Type                                                                                                                       | Description                                            |
+|--------------|----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| tag          | Text                                                                                                                       | Tag Name                                               |
+| tag_value    | Array\[Text\]                                                                                                              | Tag Value<br/>The argument supports list decomposition |
+| compare_type | Marker<br/>**CONTAINS** - Contains<br/>**ENDS_WITH** - Ends With<br/>**EQUALS** - Equals<br/>**STARTS_WITH** - Starts With | Comparison Type                                        |
 
 <h3 id=if_entity_has_potion_effect>
   <code>entity::has_potion_effect</code>
@@ -5361,10 +5363,10 @@ if(entity::has_potion_effect(potions=[potion("slow_falling"), potion("slow_falli
 
 **Arguments:**
 
-| ID         | Type                                                      | Description                                                 |
-|------------|-----------------------------------------------------------|-------------------------------------------------------------|
-| potions    | Array\[Potion\]                                           | Potions to Test<br>The argument supports list decomposition |
-| check_mode | Marker<br/>**ALL** - All Effects<br/>**ANY** - Any Effect | Check Mode                                                  |
+| ID         | Type                                                      | Description                                                  |
+|------------|-----------------------------------------------------------|--------------------------------------------------------------|
+| potions    | Array\[Potion\]                                           | Potions to Test<br/>The argument supports list decomposition |
+| check_mode | Marker<br/>**ALL** - All Effects<br/>**ANY** - Any Effect | Check Mode                                                   |
 
 <h3 id=if_entity_in_area>
   <code>entity::in_area</code>
@@ -5562,10 +5564,10 @@ if(entity::is_riding_entity(entity_ids=["entity_ids", "entity_ids"], compare_mod
 
 **Arguments:**
 
-| ID           | Type                                                                                                                                                                                                                                                                                          | Description                                                          |
-|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
-| entity_ids   | Array\[Text\]                                                                                                                                                                                                                                                                                 | Name or UUID of entities<br>The argument supports list decomposition |
-| compare_mode | Marker<br/>**FARTHEST** - creative_plus.action.if_entity_is_riding_entity.argument.compare_mode.enum.farthest.name<br/>**NAME_OR_UUID** - Name or UUID<br/>**NEAREST** - creative_plus.action.if_entity_is_riding_entity.argument.compare_mode.enum.nearest.name<br/>**TYPE** - Creature Type | Riding Mode                                                          |
+| ID           | Type                                                                                                                                                                                                                                                                                          | Description                                                           |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| entity_ids   | Array\[Text\]                                                                                                                                                                                                                                                                                 | Name or UUID of entities<br/>The argument supports list decomposition |
+| compare_mode | Marker<br/>**FARTHEST** - creative_plus.action.if_entity_is_riding_entity.argument.compare_mode.enum.farthest.name<br/>**NAME_OR_UUID** - Name or UUID<br/>**NEAREST** - creative_plus.action.if_entity_is_riding_entity.argument.compare_mode.enum.nearest.name<br/>**TYPE** - Creature Type | Riding Mode                                                           |
 
 <h3 id=if_entity_is_standing_on_block>
   <code>entity::is_standing_on_block</code>
@@ -5593,8 +5595,8 @@ if(entity::is_standing_on_block(blocks=["minecraft:oak_log[axis=x]", "minecraft:
 
 | ID         | Type                                                                                                                                                                                                                 | Description                                                                  |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| blocks     | Array\[Block\]                                                                                                                                                                                                       | Blocks to Check<br>The argument supports list decomposition                  |
-| locations  | Array\[Location\]                                                                                                                                                                                                    | Locations to Check<br>The argument supports list decomposition               |
+| blocks     | Array\[Block\]                                                                                                                                                                                                       | Blocks to Check<br/>The argument supports list decomposition                 |
+| locations  | Array\[Location\]                                                                                                                                                                                                    | Locations to Check<br/>The argument supports list decomposition              |
 | only_solid | Marker<br/>**FALSE** - creative_plus.action.if_entity_is_standing_on_block.argument.only_solid.enum.false.name<br/>**TRUE** - creative_plus.action.if_entity_is_standing_on_block.argument.only_solid.enum.true.name | creative_plus.action.if_entity_is_standing_on_block.argument.only_solid.name |
 
 <h3 id=if_entity_is_type>
@@ -5621,9 +5623,9 @@ if(entity::is_type(entity_types=[item("stick"), item("stick")])){
 
 **Arguments:**
 
-| ID           | Type          | Description                                             |
-|--------------|---------------|---------------------------------------------------------|
-| entity_types | Array\[Item\] | Entity Type<br>The argument supports list decomposition |
+| ID           | Type          | Description                                              |
+|--------------|---------------|----------------------------------------------------------|
+| entity_types | Array\[Item\] | Entity Type<br/>The argument supports list decomposition |
 
 <h3 id=if_entity_is_undead>
   <code>entity::is_undead</code>
@@ -5681,9 +5683,9 @@ if(entity::name_equals(names_or_uuids=["names_or_uuids", "names_or_uuids"])){
 
 **Arguments:**
 
-| ID             | Type          | Description                                                         |
-|----------------|---------------|---------------------------------------------------------------------|
-| names_or_uuids | Array\[Text\] | Names or UUIDs to check<br>The argument supports list decomposition |
+| ID             | Type          | Description                                                          |
+|----------------|---------------|----------------------------------------------------------------------|
+| names_or_uuids | Array\[Text\] | Names or UUIDs to check<br/>The argument supports list decomposition |
 
 <h3 id=if_entity_spawn_reason_equals>
   <code>entity::spawn_reason_equals</code>

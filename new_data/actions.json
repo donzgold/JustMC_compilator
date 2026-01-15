@@ -221,6 +221,7 @@
     "id": "empty",
     "category": "empty",
     "subcategory": null,
+    "hidden":  true,
     "type": "basic",
     "args": []
   },
@@ -2381,6 +2382,7 @@
     "category": "entity",
     "subcategory": "display_entity",
     "type": "basic",
+    "hidden": true,
     "args": [
       {
         "id": "row_major_matrix",
@@ -6262,6 +6264,7 @@
     "category": "game",
     "subcategory": null,
     "type": "basic",
+    "hidden":  true,
     "args": [
       {
         "id": "location",
@@ -21575,6 +21578,7 @@
     "category": "set_variable",
     "subcategory": null,
     "type": "basic",
+    "hidden":  true,
     "args": [
       {
         "id": "variable",
@@ -22585,6 +22589,7 @@
     "category": "set_variable",
     "subcategory": "item",
     "type": "basic",
+    "hidden": true,
     "args": [
       {
         "id": "variable",
@@ -26562,6 +26567,7 @@
     "category": "set_variable",
     "subcategory": "item",
     "type": "basic",
+    "hidden": true,
     "args": [
       {
         "id": "variable",
@@ -28606,6 +28612,7 @@
     "category": "set_variable",
     "subcategory": "item",
     "type": "basic",
+    "hidden": true,
     "args": [
       {
         "id": "variable",
