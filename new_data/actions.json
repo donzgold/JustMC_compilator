@@ -6260,48 +6260,6 @@
     ]
   },
   {
-    "id": "game_set_block_custom_tag",
-    "category": "game",
-    "subcategory": null,
-    "type": "basic",
-    "hidden":  true,
-    "args": [
-      {
-        "id": "location",
-        "plural": false,
-        "type": "location",
-        "valueSlots": [
-          11
-        ],
-        "descriptionSlots": [
-          20
-        ]
-      },
-      {
-        "id": "tag_name",
-        "plural": false,
-        "type": "text",
-        "valueSlots": [
-          13
-        ],
-        "descriptionSlots": [
-          22
-        ]
-      },
-      {
-        "id": "tag_value",
-        "plural": false,
-        "type": "text",
-        "valueSlots": [
-          15
-        ],
-        "descriptionSlots": [
-          24
-        ]
-      }
-    ]
-  },
-  {
     "id": "game_set_block_data",
     "category": "game",
     "subcategory": "block",
@@ -21569,70 +21527,6 @@
         "values": [
           "DEGREES",
           "RADIANS"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "set_variable_get_block_custom_tag",
-    "category": "set_variable",
-    "subcategory": null,
-    "type": "basic",
-    "hidden":  true,
-    "args": [
-      {
-        "id": "variable",
-        "plural": false,
-        "type": "variable",
-        "valueSlots": [
-          9
-        ],
-        "descriptionSlots": [
-          18
-        ]
-      },
-      {
-        "id": "location",
-        "plural": false,
-        "type": "location",
-        "valueSlots": [
-          11
-        ],
-        "descriptionSlots": [
-          20
-        ]
-      },
-      {
-        "id": "tag_name",
-        "plural": false,
-        "type": "text",
-        "valueSlots": [
-          13
-        ],
-        "descriptionSlots": [
-          22
-        ]
-      },
-      {
-        "id": "tag_value",
-        "plural": false,
-        "type": "text",
-        "valueSlots": [
-          15
-        ],
-        "descriptionSlots": [
-          24
-        ]
-      },
-      {
-        "id": "default_value",
-        "plural": false,
-        "type": "any",
-        "valueSlots": [
-          17
-        ],
-        "descriptionSlots": [
-          26
         ]
       }
     ]

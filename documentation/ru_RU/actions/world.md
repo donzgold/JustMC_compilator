@@ -800,34 +800,6 @@ world::set_block_analogue_power(location=location(0,0,0,0,0), power_level=1);
 | location    | Местоположение | Местоположение блока |
 | power_level | Число          | Новая сила сигнала   |
 
-<h3 id=game_set_block_custom_tag>
-  <code>world::set_block_custom_tag</code>
-  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
-</h3>
-
-**Имя:** creative_plus.action.game_set_block_custom_tag.name\
-**Тип:** Действие без значения\
-**Описание:** creative_plus.action.game_set_block_custom_tag.description
-
-В настоящий момент скрыто. Скорее всего, либо устарело, либо не работает.
-
-**Пример использования:**
-```ts
-world::set_block_custom_tag(location(0,0,0,0,0), "tag_name", "tag_value");
-
-//Или в сухую по ключам
-
-world::set_block_custom_tag(location=location(0,0,0,0,0), tag_name="tag_name", tag_value="tag_value");
-```
-
-**Аргументы:**
-
-| ID        | Тип            | Описание                                                               |
-|-----------|----------------|------------------------------------------------------------------------|
-| location  | Местоположение | creative_plus.action.game_set_block_custom_tag.argument.location.name  |
-| tag_name  | Текст          | creative_plus.action.game_set_block_custom_tag.argument.tag_name.name  |
-| tag_value | Текст          | creative_plus.action.game_set_block_custom_tag.argument.tag_value.name |
-
 <h3 id=game_set_block_data>
   <code>world::set_block_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

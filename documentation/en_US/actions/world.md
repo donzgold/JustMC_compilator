@@ -800,34 +800,6 @@ world::set_block_analogue_power(location=location(0,0,0,0,0), power_level=1);
 | location    | Location | Block Location      |
 | power_level | Number   | New Signal Strength |
 
-<h3 id=game_set_block_custom_tag>
-  <code>world::set_block_custom_tag</code>
-  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
-</h3>
-
-**Name:** creative_plus.action.game_set_block_custom_tag.name\
-**Action type:** Action without value\
-**Description:** creative_plus.action.game_set_block_custom_tag.description
-
-Currently hidden. Most likely, it is either outdated or does not work.
-
-**Usage example:**
-```ts
-world::set_block_custom_tag(location(0,0,0,0,0), "tag_name", "tag_value");
-
-//Or dry by keywords
-
-world::set_block_custom_tag(location=location(0,0,0,0,0), tag_name="tag_name", tag_value="tag_value");
-```
-
-**Arguments:**
-
-| ID        | Type     | Description                                                            |
-|-----------|----------|------------------------------------------------------------------------|
-| location  | Location | creative_plus.action.game_set_block_custom_tag.argument.location.name  |
-| tag_name  | Text     | creative_plus.action.game_set_block_custom_tag.argument.tag_name.name  |
-| tag_value | Text     | creative_plus.action.game_set_block_custom_tag.argument.tag_value.name |
-
 <h3 id=game_set_block_data>
   <code>world::set_block_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>

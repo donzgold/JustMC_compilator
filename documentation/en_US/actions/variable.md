@@ -2019,6 +2019,36 @@ variable::cotangent(variable=`variable`, number=1, variant="ARCCOTANGENT", input
 | variant  | Marker<br/>**ARCCOTANGENT** - Arccotangent<br/>**COTANGENT** - Cotangent<br/>**HYPERBOLIC_ARCCOTANGENT** - Hyperbolic Arccotangent<br/>**HYPERBOLIC_COTANGENT** - Hyperbolic Cotangent | Operation Type          |
 | input    | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians                                                                                                                             | Angle Type              |
 
+<h3 id=set_variable_create_head_object_component>
+  <code>variable::create_head_object_component</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.set_variable_create_head_object_component.name\
+**Action type:** An action that returns a value\
+**Description:** creative_plus.action.set_variable_create_head_object_component.description
+
+**Usage example:**
+```ts
+`variable` = variable::create_head_object_component("name_or_uuid", "TRUE");
+
+//Or dry by positionals
+
+variable::create_head_object_component(`variable`, "name_or_uuid", "TRUE");
+
+//Or dry by keywords
+
+variable::create_head_object_component(variable=`variable`, name_or_uuid="name_or_uuid", hat="TRUE");
+```
+
+**Arguments:**
+
+| ID           | Type                                                                                                                                                                                                                         | Description                                                                               |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| variable     | Variable\[Text\]                                                                                                                                                                                                             | creative_plus.action.set_variable_create_head_object_component.argument.variable.name     |
+| name_or_uuid | Text                                                                                                                                                                                                                         | creative_plus.action.set_variable_create_head_object_component.argument.name_or_uuid.name |
+| hat          | Marker<br/>**TRUE** - creative_plus.action.set_variable_create_head_object_component.argument.hat.enum.true.name<br/>**FALSE** - creative_plus.action.set_variable_create_head_object_component.argument.hat.enum.false.name | creative_plus.action.set_variable_create_head_object_component.argument.hat.name          |
+
 <h3 id=set_variable_create_keybind_component>
   <code>variable::create_keybind_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2142,6 +2172,38 @@ variable::create_map_from_values(variable=`variable`, keys=["any value", "any va
 | variable | Variable\[Dictionary\] | Variable to assign                                  |
 | keys     | Array\[Any Value\]     | Keys                                                |
 | values   | Array\[Any Value\]     | Values<br/>The argument supports list decomposition |
+
+<h3 id=set_variable_create_sprite_object_component>
+  <code>variable::create_sprite_object_component</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.set_variable_create_sprite_object_component.name\
+**Action type:** An action that returns a value\
+**Description:** creative_plus.action.set_variable_create_sprite_object_component.description\
+**Additional info:**\
+&nbsp;&nbsp;creative_plus.action.set_variable_create_sprite_object_component.additional_information.default_atlas_is_block_atlas
+
+**Usage example:**
+```ts
+`variable` = variable::create_sprite_object_component("sprite", "atlas");
+
+//Or dry by positionals
+
+variable::create_sprite_object_component(`variable`, "sprite", "atlas");
+
+//Or dry by keywords
+
+variable::create_sprite_object_component(variable=`variable`, sprite="sprite", atlas="atlas");
+```
+
+**Arguments:**
+
+| ID       | Type             | Description                                                                             |
+|----------|------------------|-----------------------------------------------------------------------------------------|
+| variable | Variable\[Text\] | creative_plus.action.set_variable_create_sprite_object_component.argument.variable.name |
+| sprite   | Text             | creative_plus.action.set_variable_create_sprite_object_component.argument.sprite.name   |
+| atlas    | Text             | creative_plus.action.set_variable_create_sprite_object_component.argument.atlas.name    |
 
 <h3 id=set_variable_create_translatable_component>
   <code>variable::create_translatable_component</code>
@@ -2657,40 +2719,6 @@ variable::get_angle_between_vectors(variable=`variable`, vector_1=vector(0,0,0),
 | vector_1    | Vector                                                     | First Vector       |
 | vector_2    | Vector                                                     | Second Vector      |
 | angle_units | Marker<br/>**DEGREES** - Degrees<br/>**RADIANS** - Radians | Angle Type         |
-
-<h3 id=set_variable_get_block_custom_tag>
-  <code>variable::get_block_custom_tag</code>
-  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
-</h3>
-
-**Name:** creative_plus.action.set_variable_get_block_custom_tag.name\
-**Action type:** An action that returns a value\
-**Description:** creative_plus.action.set_variable_get_block_custom_tag.description
-
-Currently hidden. Most likely, it is either outdated or does not work.
-
-**Usage example:**
-```ts
-`variable` = variable::get_block_custom_tag(location(0,0,0,0,0), "tag_name", "tag_value", "any value");
-
-//Or dry by positionals
-
-variable::get_block_custom_tag(`variable`, location(0,0,0,0,0), "tag_name", "tag_value", "any value");
-
-//Or dry by keywords
-
-variable::get_block_custom_tag(variable=`variable`, location=location(0,0,0,0,0), tag_name="tag_name", tag_value="tag_value", default_value="any value");
-```
-
-**Arguments:**
-
-| ID            | Type                  | Description                                                                        |
-|---------------|-----------------------|------------------------------------------------------------------------------------|
-| variable      | Variable\[Any Value\] | creative_plus.action.set_variable_get_block_custom_tag.argument.variable.name      |
-| location      | Location              | creative_plus.action.set_variable_get_block_custom_tag.argument.location.name      |
-| tag_name      | Text                  | creative_plus.action.set_variable_get_block_custom_tag.argument.tag_name.name      |
-| tag_value     | Text                  | creative_plus.action.set_variable_get_block_custom_tag.argument.tag_value.name     |
-| default_value | Any Value             | creative_plus.action.set_variable_get_block_custom_tag.argument.default_value.name |
 
 <h3 id=set_variable_get_block_data>
   <code>variable::get_block_data</code>
@@ -3527,6 +3555,36 @@ variable::get_item_amount(variable=`variable`, item=item("stick"));
 | variable | Variable\[Number\] | Variable to assign |
 | item     | Item               | Item               |
 
+<h3 id=set_variable_get_item_attack_range>
+  <code>variable::get_item_attack_range</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.set_variable_get_item_attack_range.name\
+**Action type:** An action that returns a value\
+**Description:** creative_plus.action.set_variable_get_item_attack_range.description
+
+**Usage example:**
+```ts
+`variable` = variable::get_item_attack_range(item("stick"), "MIN_RANGE");
+
+//Or dry by positionals
+
+variable::get_item_attack_range(`variable`, item("stick"), "MIN_RANGE");
+
+//Or dry by keywords
+
+variable::get_item_attack_range(variable=`variable`, item=item("stick"), property="MIN_RANGE");
+```
+
+**Arguments:**
+
+| ID       | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                                                                    |
+|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| variable | Variable\[Any Value\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | creative_plus.action.set_variable_get_item_attack_range.argument.variable.name |
+| item     | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | creative_plus.action.set_variable_get_item_attack_range.argument.item.name     |
+| property | Marker<br/>**MIN_RANGE** - creative_plus.action.set_variable_get_item_attack_range.argument.property.enum.min_range.name<br/>**MAX_RANGE** - creative_plus.action.set_variable_get_item_attack_range.argument.property.enum.max_range.name<br/>**MIN_CREATIVE_RANGE** - creative_plus.action.set_variable_get_item_attack_range.argument.property.enum.min_creative_range.name<br/>**MAX_CREATIVE_RANGE** - creative_plus.action.set_variable_get_item_attack_range.argument.property.enum.max_creative_range.name<br/>**HITBOX_MARGIN** - creative_plus.action.set_variable_get_item_attack_range.argument.property.enum.hitbox_margin.name<br/>**MOB_FACTORY** - creative_plus.action.set_variable_get_item_attack_range.argument.property.enum.mob_factory.name | creative_plus.action.set_variable_get_item_attack_range.argument.property.name |
+
 <h3 id=set_variable_get_item_attribute>
   <code>variable::get_item_attribute</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4239,6 +4297,36 @@ variable::get_item_rarity(variable=`variable`, item=item("stick"));
 |----------|------------------|--------------------|
 | variable | Variable\[Text\] | Variable to assign |
 | item     | Item             | Item               |
+
+<h3 id=set_variable_get_item_swing_animation>
+  <code>variable::get_item_swing_animation</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.set_variable_get_item_swing_animation.name\
+**Action type:** An action that returns a value\
+**Description:** creative_plus.action.set_variable_get_item_swing_animation.description
+
+**Usage example:**
+```ts
+`variable` = variable::get_item_swing_animation(item("stick"), "DURATION");
+
+//Or dry by positionals
+
+variable::get_item_swing_animation(`variable`, item("stick"), "DURATION");
+
+//Or dry by keywords
+
+variable::get_item_swing_animation(variable=`variable`, item=item("stick"), property="DURATION");
+```
+
+**Arguments:**
+
+| ID       | Type                                                                                                                                                                                                                                           | Description                                                                       |
+|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| variable | Variable\[Any Value\]                                                                                                                                                                                                                          | creative_plus.action.set_variable_get_item_swing_animation.argument.variable.name |
+| item     | Item                                                                                                                                                                                                                                           | creative_plus.action.set_variable_get_item_swing_animation.argument.item.name     |
+| property | Marker<br/>**DURATION** - creative_plus.action.set_variable_get_item_swing_animation.argument.property.enum.duration.name<br/>**ANIMATION** - creative_plus.action.set_variable_get_item_swing_animation.argument.property.enum.animation.name | creative_plus.action.set_variable_get_item_swing_animation.argument.property.name |
 
 <h3 id=set_variable_get_item_tooltip_style>
   <code>variable::get_item_tooltip_style</code>
@@ -8433,6 +8521,41 @@ variable::set_item_amount(variable=`variable`, item=item("stick"), amount=1);
 | item     | Item             | Item               |
 | amount   | Number           | Amount             |
 
+<h3 id=set_variable_set_item_attack_range>
+  <code>variable::set_item_attack_range</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.set_variable_set_item_attack_range.name\
+**Action type:** An action that returns a value\
+**Description:** creative_plus.action.set_variable_set_item_attack_range.description
+
+**Usage example:**
+```ts
+`variable` = variable::set_item_attack_range(item("stick"), 1, 2, 3, 4, "hitbox_margin", "mob_factor");
+
+//Or dry by positionals
+
+variable::set_item_attack_range(`variable`, item("stick"), 1, 2, 3, 4, "hitbox_margin", "mob_factor");
+
+//Or dry by keywords
+
+variable::set_item_attack_range(variable=`variable`, item=item("stick"), min_reach=1, max_reach=2, min_creative_range=3, max_creative_range=4, hitbox_margin="hitbox_margin", mob_factor="mob_factor");
+```
+
+**Arguments:**
+
+| ID                 | Type             | Description                                                                              |
+|--------------------|------------------|------------------------------------------------------------------------------------------|
+| variable           | Variable\[Item\] | creative_plus.action.set_variable_set_item_attack_range.argument.variable.name           |
+| item               | Item             | creative_plus.action.set_variable_set_item_attack_range.argument.item.name               |
+| min_reach          | Number           | creative_plus.action.set_variable_set_item_attack_range.argument.min_reach.name          |
+| max_reach          | Number           | creative_plus.action.set_variable_set_item_attack_range.argument.max_reach.name          |
+| min_creative_range | Number           | creative_plus.action.set_variable_set_item_attack_range.argument.min_creative_range.name |
+| max_creative_range | Number           | creative_plus.action.set_variable_set_item_attack_range.argument.max_creative_range.name |
+| hitbox_margin      | Text             | creative_plus.action.set_variable_set_item_attack_range.argument.hitbox_margin.name      |
+| mob_factor         | Text             | creative_plus.action.set_variable_set_item_attack_range.argument.mob_factor.name         |
+
 <h3 id=set_variable_set_item_attribute>
   <code>variable::set_item_attribute</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9139,6 +9262,36 @@ variable::set_item_rarity(variable=`variable`, item=item("stick"), rarity="NONE"
 | item     | Item                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | creative_plus.action.set_variable_set_item_rarity.argument.item.name     |
 | rarity   | Marker<br/>**NONE** - creative_plus.action.set_variable_set_item_rarity.argument.rarity.enum.none.name<br/>**COMMON** - creative_plus.action.set_variable_set_item_rarity.argument.rarity.enum.common.name<br/>**UNCOMMON** - creative_plus.action.set_variable_set_item_rarity.argument.rarity.enum.uncommon.name<br/>**RARE** - creative_plus.action.set_variable_set_item_rarity.argument.rarity.enum.rare.name<br/>**EPIC** - creative_plus.action.set_variable_set_item_rarity.argument.rarity.enum.epic.name | creative_plus.action.set_variable_set_item_rarity.argument.rarity.name   |
 
+<h3 id=set_variable_set_item_swing_animation>
+  <code>variable::set_item_swing_animation</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.set_variable_set_item_swing_animation.name\
+**Action type:** An action that returns a value\
+**Description:** creative_plus.action.set_variable_set_item_swing_animation.description
+
+**Usage example:**
+```ts
+`variable` = variable::set_item_swing_animation(item("stick"), 1);
+
+//Or dry by positionals
+
+variable::set_item_swing_animation(`variable`, item("stick"), 1);
+
+//Or dry by keywords
+
+variable::set_item_swing_animation(variable=`variable`, item=item("stick"), duration=1);
+```
+
+**Arguments:**
+
+| ID       | Type             | Description                                                                       |
+|----------|------------------|-----------------------------------------------------------------------------------|
+| variable | Variable\[Item\] | creative_plus.action.set_variable_set_item_swing_animation.argument.variable.name |
+| item     | Item             | creative_plus.action.set_variable_set_item_swing_animation.argument.item.name     |
+| duration | Number           | creative_plus.action.set_variable_set_item_swing_animation.argument.duration.name |
+
 <h3 id=set_variable_set_item_tooltip_style>
   <code>variable::set_item_tooltip_style</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9240,6 +9393,38 @@ variable::set_item_unbreakable(variable=`variable`, item=item("stick"), unbreaka
 | variable    | Variable\[Item\]                                     | Variable to assign |
 | item        | Item                                                 | Item               |
 | unbreakable | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Unbreakable        |
+
+<h3 id=set_variable_set_item_use_effects>
+  <code>variable::set_item_use_effects</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.set_variable_set_item_use_effects.name\
+**Action type:** An action that returns a value\
+**Description:** creative_plus.action.set_variable_set_item_use_effects.description
+
+**Usage example:**
+```ts
+`variable` = variable::set_item_use_effects(item("stick"), "TRUE", "TRUE", 1);
+
+//Or dry by positionals
+
+variable::set_item_use_effects(`variable`, item("stick"), "TRUE", "TRUE", 1);
+
+//Or dry by keywords
+
+variable::set_item_use_effects(variable=`variable`, item=item("stick"), can_sprint="TRUE", interact_vibrations="TRUE", argument=1);
+```
+
+**Arguments:**
+
+| ID                  | Type                                                                                                                                                                                                                                         | Description                                                                              |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| variable            | Variable\[Item\]                                                                                                                                                                                                                             | creative_plus.action.set_variable_set_item_use_effects.argument.variable.name            |
+| item                | Item                                                                                                                                                                                                                                         | creative_plus.action.set_variable_set_item_use_effects.argument.item.name                |
+| can_sprint          | Marker<br/>**TRUE** - creative_plus.action.set_variable_set_item_use_effects.argument.can_sprint.enum.true.name<br/>**FALSE** - creative_plus.action.set_variable_set_item_use_effects.argument.can_sprint.enum.false.name                   | creative_plus.action.set_variable_set_item_use_effects.argument.can_sprint.name          |
+| interact_vibrations | Marker<br/>**TRUE** - creative_plus.action.set_variable_set_item_use_effects.argument.interact_vibrations.enum.true.name<br/>**FALSE** - creative_plus.action.set_variable_set_item_use_effects.argument.interact_vibrations.enum.false.name | creative_plus.action.set_variable_set_item_use_effects.argument.interact_vibrations.name |
+| argument            | Number                                                                                                                                                                                                                                       | creative_plus.action.set_variable_set_item_use_effects.argument.argument.name            |
 
 <h3 id=set_variable_set_item_use_remainder>
   <code>variable::set_item_use_remainder</code>

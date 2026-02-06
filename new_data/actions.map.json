@@ -959,5 +959,17 @@
   "game_set_tile_block_custom_tag" : {"name": "set_tile_block_custom_tag", "object": "world"},
   "player_mimic_disguise_from_entity" : {"name": "mimic_disguise_from_entity", "object": "player"},
   "set_variable_get_tile_block_custom_tag" : {"name": "get_tile_block_custom_tag", "object": "variable", "assign": [{"variable": "text"}]},
-  "set_variable_get_tile_block_nbt" : {"name": "get_tile_block_nbt", "object": "variable", "assign": [{"variable": "any"}]}
+  "set_variable_get_tile_block_nbt" : {"name": "get_tile_block_nbt", "object": "variable", "assign": [{"variable": "any"}]},
+  "player_connect_to_server" : {"name": "connect_to_server", "object": "player"},
+  "send_currency_transaction" : {"name": "send_currency_transaction", "object": "player"},
+  "player_reset_waypoint_color" : {"name": "reset_waypoint_color", "object": "player"},
+  "player_set_waypoint_color" : {"name": "set_waypoint_color", "object": "player"},
+  "player_set_waypoint_style" : {"name": "set_waypoint_style", "object": "player"},
+  "set_variable_create_head_object_component" : {"name": "create_head_object_component", "object": "variable", "assign": [{"variable": "text"}]},
+  "set_variable_create_sprite_object_component" : {"name": "create_sprite_object_component", "object": "variable", "assign": [{"variable": "text"}]},
+  "set_variable_get_item_attack_range" : {"name": "get_item_attack_range", "object": "variable", "assign": [{"variable": "any"}]},
+  "set_variable_get_item_swing_animation" : {"name": "get_item_swing_animation", "object": "variable", "assign": [{"variable": "any"}]},
+  "set_variable_set_item_attack_range" : {"name": "set_item_attack_range", "object": "variable", "assign": [{"variable": "item"}]},
+  "set_variable_set_item_swing_animation" : {"name": "set_item_swing_animation", "object": "variable", "assign": [{"variable": "item"}]},
+  "set_variable_set_item_use_effects" : {"name": "set_item_use_effects", "object": "variable", "assign": [{"variable": "item"}]}
 }

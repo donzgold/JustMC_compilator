@@ -39,5 +39,6 @@
   "player_prepare_result": {"cancellable": true},
   "player_prepare_item_enchant": {"cancellable": true},
   "experience_orb_merge": {"cancellable": true},
-  "player_prepare_item_craft": {"cancellable": false}
+  "player_prepare_item_craft": {"cancellable": false},
+  "player_currency_transaction": {"cancellable": false, "need_permission": true}
 }

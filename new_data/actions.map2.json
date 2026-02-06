@@ -507,5 +507,53 @@
     {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
     {"id": "location", "plural": false, "type": "location", "valueSlots": [1]},
     {"id": "path", "plural": false, "type": "text", "valueSlots": [2]},
-    {"id": "value_type", "plural": false, "type": "enum", "valueSlots": [3]}]}
+    {"id": "value_type", "plural": false, "type": "enum", "valueSlots": [3]}]},
+  "player_connect_to_server": {"id": "player_connect_to_server", "type": "basic", "need_permission": true, "args": [
+    {"id": "server_name", "plural": false, "type": "text", "valueSlots": [0]}]},
+  "send_currency_transaction": {"id": "send_currency_transaction", "type": "basic", "need_permission": true, "args": [
+    {"id": "amount", "plural": false, "type": "number", "valueSlots": [0]},
+    {"id": "description", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "reason", "plural": false, "type": "text", "valueSlots": [2]}]},
+  "player_set_waypoint_style": {"id": "player_set_waypoint_style", "hidden": true, "type": "basic", "args": [
+    {"id": "style", "plural": false, "type": "text", "valueSlots": [0]}]},
+  "player_set_waypoint_color": {"id": "player_set_waypoint_color", "hidden": true, "type": "basic", "args": [
+    {"id": "red", "plural": false, "type": "number", "valueSlots": [0]},
+    {"id": "green", "plural": false, "type": "number", "valueSlots": [1]},
+    {"id": "blue", "plural": false, "type": "number", "valueSlots": [2]}]},
+  "player_reset_waypoint_color": {"id": "player_reset_waypoint_color", "hidden": true, "type": "basic", "args": []},
+  "set_variable_create_sprite_object_component": {"id": "set_variable_create_sprite_object_component", "type": "basic", "hidden": true, "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "sprite", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "atlas", "plural": false, "type": "text", "valueSlots": [2]}]},
+  "set_variable_create_head_object_component": {"id": "set_variable_create_head_object_component", "type": "basic", "hidden": true, "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "name_or_uuid", "plural": false, "type": "text", "valueSlots": [1]},
+    {"id": "hat", "plural": false, "type": "enum", "valueSlots": [2]}]},
+  "set_variable_set_item_use_effects": {"id": "set_variable_set_item_use_effects", "type": "basic", "hidden": true, "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "can_sprint", "plural": false, "type": "enum", "valueSlots": [2]},
+    {"id": "interact_vibrations", "plural": false, "type": "enum", "valueSlots": [3]},
+    {"id": "argument", "plural": false, "type": "number", "valueSlots": [4]}]},
+  "set_variable_get_item_swing_animation": {"id": "set_variable_get_item_swing_animation", "type": "basic", "hidden": true, "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "property", "plural": false, "type": "enum", "valueSlots": [2]}]},
+  "set_variable_set_item_swing_animation": {"id": "set_variable_set_item_swing_animation", "type": "basic", "hidden": true, "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "duration", "plural": false, "type": "number", "valueSlots": [2]}]},
+  "set_variable_get_item_attack_range": {"id": "set_variable_get_item_attack_range", "type": "basic", "hidden": true, "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "property", "plural": false, "type": "enum", "valueSlots": [2]}]},
+  "set_variable_set_item_attack_range": {"id": "set_variable_set_item_attack_range", "type": "basic", "hidden": true, "args": [
+    {"id": "variable", "plural": false, "type": "variable", "valueSlots": [0]},
+    {"id": "item", "plural": false, "type": "item", "valueSlots": [1]},
+    {"id": "min_reach", "plural": false, "type": "number", "valueSlots": [2]},
+    {"id": "max_reach", "plural": false, "type": "number", "valueSlots": [2]},
+    {"id": "min_creative_range", "plural": false, "type": "number", "valueSlots": [2]},
+    {"id": "max_creative_range", "plural": false, "type": "number", "valueSlots": [2]},
+    {"id": "hitbox_margin", "plural": false, "type": "text", "valueSlots": [2]},
+    {"id": "mob_factor", "plural": false, "type": "text", "valueSlots": [2]}]}
 }

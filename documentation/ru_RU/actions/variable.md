@@ -2019,6 +2019,36 @@ variable::cotangent(variable=`variable`, number=1, variant="ARCCOTANGENT", input
 | variant  | Маркер<br/>**ARCCOTANGENT** - Арккотангенс<br/>**COTANGENT** - Котангенс<br/>**HYPERBOLIC_ARCCOTANGENT** - Гиперболический арккотангенс<br/>**HYPERBOLIC_COTANGENT** - Гиперболический котангенс | Тип операции                   |
 | input    | Маркер<br/>**DEGREES** - Градусы<br/>**RADIANS** - Радианы                                                                                                                                       | Тип угла                       |
 
+<h3 id=set_variable_create_head_object_component>
+  <code>variable::create_head_object_component</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Создать стилизуемый текст с головой\
+**Тип:** Действие, возращающее значение\
+**Описание:** Присваивает к переменной стилизуемый текст, содержащий указанную голову.
+
+**Пример использования:**
+```ts
+`variable` = variable::create_head_object_component("name_or_uuid", "TRUE");
+
+//Или в сухую позиционно
+
+variable::create_head_object_component(`variable`, "name_or_uuid", "TRUE");
+
+//Или в сухую по ключам
+
+variable::create_head_object_component(variable=`variable`, name_or_uuid="name_or_uuid", hat="TRUE");
+```
+
+**Аргументы:**
+
+| ID           | Тип                                                  | Описание                  |
+|--------------|------------------------------------------------------|---------------------------|
+| variable     | Переменная\[Текст\]                                  | Переменная для присвоения |
+| name_or_uuid | Текст                                                | Имя или UUID скина        |
+| hat          | Маркер<br/>**TRUE** - Видно<br/>**FALSE** - Не видно | Видимость второго слоя    |
+
 <h3 id=set_variable_create_keybind_component>
   <code>variable::create_keybind_component</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2142,6 +2172,38 @@ variable::create_map_from_values(variable=`variable`, keys=["any value", "any va
 | variable | Переменная\[Словарь\]    | Переменная для присвоения                             |
 | keys     | Список\[Любое значение\] | Ключи                                                 |
 | values   | Список\[Любое значение\] | Значения<br/>Аргумент поддерживает разложение списков |
+
+<h3 id=set_variable_create_sprite_object_component>
+  <code>variable::create_sprite_object_component</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Создать стилизуемый текст со спрайтом\
+**Тип:** Действие, возращающее значение\
+**Описание:** Присваивает к переменной стилизуемый текст, содержащий указанный спрайт.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Если не указать аргумент "Атлас спрайта", для спрайта будет выбран атлас "block".
+
+**Пример использования:**
+```ts
+`variable` = variable::create_sprite_object_component("sprite", "atlas");
+
+//Или в сухую позиционно
+
+variable::create_sprite_object_component(`variable`, "sprite", "atlas");
+
+//Или в сухую по ключам
+
+variable::create_sprite_object_component(variable=`variable`, sprite="sprite", atlas="atlas");
+```
+
+**Аргументы:**
+
+| ID       | Тип                 | Описание                  |
+|----------|---------------------|---------------------------|
+| variable | Переменная\[Текст\] | Переменная для присвоения |
+| sprite   | Текст               | Имя спрайта               |
+| atlas    | Текст               | Атлас спрайта             |
 
 <h3 id=set_variable_create_translatable_component>
   <code>variable::create_translatable_component</code>
@@ -2657,40 +2719,6 @@ variable::get_angle_between_vectors(variable=`variable`, vector_1=vector(0,0,0),
 | vector_1    | Вектор                                                     | Первый вектор             |
 | vector_2    | Вектор                                                     | Второй вектор             |
 | angle_units | Маркер<br/>**DEGREES** - Градусы<br/>**RADIANS** - Радианы | Тип угла                  |
-
-<h3 id=set_variable_get_block_custom_tag>
-  <code>variable::get_block_custom_tag</code>
-  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
-</h3>
-
-**Имя:** creative_plus.action.set_variable_get_block_custom_tag.name\
-**Тип:** Действие, возращающее значение\
-**Описание:** creative_plus.action.set_variable_get_block_custom_tag.description
-
-В настоящий момент скрыто. Скорее всего, либо устарело, либо не работает.
-
-**Пример использования:**
-```ts
-`variable` = variable::get_block_custom_tag(location(0,0,0,0,0), "tag_name", "tag_value", "any value");
-
-//Или в сухую позиционно
-
-variable::get_block_custom_tag(`variable`, location(0,0,0,0,0), "tag_name", "tag_value", "any value");
-
-//Или в сухую по ключам
-
-variable::get_block_custom_tag(variable=`variable`, location=location(0,0,0,0,0), tag_name="tag_name", tag_value="tag_value", default_value="any value");
-```
-
-**Аргументы:**
-
-| ID            | Тип                          | Описание                                                                           |
-|---------------|------------------------------|------------------------------------------------------------------------------------|
-| variable      | Переменная\[Любое значение\] | creative_plus.action.set_variable_get_block_custom_tag.argument.variable.name      |
-| location      | Местоположение               | creative_plus.action.set_variable_get_block_custom_tag.argument.location.name      |
-| tag_name      | Текст                        | creative_plus.action.set_variable_get_block_custom_tag.argument.tag_name.name      |
-| tag_value     | Текст                        | creative_plus.action.set_variable_get_block_custom_tag.argument.tag_value.name     |
-| default_value | Любое значение               | creative_plus.action.set_variable_get_block_custom_tag.argument.default_value.name |
 
 <h3 id=set_variable_get_block_data>
   <code>variable::get_block_data</code>
@@ -3527,6 +3555,36 @@ variable::get_item_amount(variable=`variable`, item=item("stick"));
 | variable | Переменная\[Число\] | Переменная для присвоения |
 | item     | Предмет             | Предмет                   |
 
+<h3 id=set_variable_get_item_attack_range>
+  <code>variable::get_item_attack_range</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить радиус атаки\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает радиус атаки указанного предмета и присваивает результат к переменной.
+
+**Пример использования:**
+```ts
+`variable` = variable::get_item_attack_range(item("stick"), "MIN_RANGE");
+
+//Или в сухую позиционно
+
+variable::get_item_attack_range(`variable`, item("stick"), "MIN_RANGE");
+
+//Или в сухую по ключам
+
+variable::get_item_attack_range(variable=`variable`, item=item("stick"), property="MIN_RANGE");
+```
+
+**Аргументы:**
+
+| ID       | Тип                                                                                                                                                                                                                                                                                                                       | Описание                  |
+|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| variable | Переменная\[Любое значение\]                                                                                                                                                                                                                                                                                              | Переменная для присвоения |
+| item     | Предмет                                                                                                                                                                                                                                                                                                                   | Предмет                   |
+| property | Маркер<br/>**MIN_RANGE** - Минимальный радиус<br/>**MAX_RANGE** - Максимальный радиус<br/>**MIN_CREATIVE_RANGE** - Минимальный радиус в творческом режиме<br/>**MAX_CREATIVE_RANGE** - Максимальный радиус в творческом режиме<br/>**HITBOX_MARGIN** - Смещение хитбокса<br/>**MOB_FACTORY** - Множитель радиуса для моба | Вид данных                |
+
 <h3 id=set_variable_get_item_attribute>
   <code>variable::get_item_attribute</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4239,6 +4297,36 @@ variable::get_item_rarity(variable=`variable`, item=item("stick"));
 |----------|---------------------|---------------------------|
 | variable | Переменная\[Текст\] | Переменная для присвоения |
 | item     | Предмет             | Предмет                   |
+
+<h3 id=set_variable_get_item_swing_animation>
+  <code>variable::get_item_swing_animation</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить данные анимации замаха\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает данные анимации замаха указанного предмета и присваивает результат к переменной.
+
+**Пример использования:**
+```ts
+`variable` = variable::get_item_swing_animation(item("stick"), "DURATION");
+
+//Или в сухую позиционно
+
+variable::get_item_swing_animation(`variable`, item("stick"), "DURATION");
+
+//Или в сухую по ключам
+
+variable::get_item_swing_animation(variable=`variable`, item=item("stick"), property="DURATION");
+```
+
+**Аргументы:**
+
+| ID       | Тип                                                                          | Описание                  |
+|----------|------------------------------------------------------------------------------|---------------------------|
+| variable | Переменная\[Любое значение\]                                                 | Переменная для присвоения |
+| item     | Предмет                                                                      | Предмет                   |
+| property | Маркер<br/>**DURATION** - Длительность анимации<br/>**ANIMATION** - Анимация | Вид данных                |
 
 <h3 id=set_variable_get_item_tooltip_style>
   <code>variable::get_item_tooltip_style</code>
@@ -8433,6 +8521,41 @@ variable::set_item_amount(variable=`variable`, item=item("stick"), amount=1);
 | item     | Предмет               | Предмет                   |
 | amount   | Число                 | Количество                |
 
+<h3 id=set_variable_set_item_attack_range>
+  <code>variable::set_item_attack_range</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить радиус атаки\
+**Тип:** Действие, возращающее значение\
+**Описание:** Устанавливает радиус атаки указанного предмета и присваивает результат к переменной.
+
+**Пример использования:**
+```ts
+`variable` = variable::set_item_attack_range(item("stick"), 1, 2, 3, 4, "hitbox_margin", "mob_factor");
+
+//Или в сухую позиционно
+
+variable::set_item_attack_range(`variable`, item("stick"), 1, 2, 3, 4, "hitbox_margin", "mob_factor");
+
+//Или в сухую по ключам
+
+variable::set_item_attack_range(variable=`variable`, item=item("stick"), min_reach=1, max_reach=2, min_creative_range=3, max_creative_range=4, hitbox_margin="hitbox_margin", mob_factor="mob_factor");
+```
+
+**Аргументы:**
+
+| ID                 | Тип                   | Описание                                |
+|--------------------|-----------------------|-----------------------------------------|
+| variable           | Переменная\[Предмет\] | Переменная для присвоения               |
+| item               | Предмет               | Предмет                                 |
+| min_reach          | Число                 | Минимальный радиус                      |
+| max_reach          | Число                 | Максимальный радиус                     |
+| min_creative_range | Число                 | Минимальный радиус в творческом режиме  |
+| max_creative_range | Число                 | Максимальный радиус в творческом режиме |
+| hitbox_margin      | Текст                 | Смещение хитбокса                       |
+| mob_factor         | Текст                 | Множитель радиуса у моба                |
+
 <h3 id=set_variable_set_item_attribute>
   <code>variable::set_item_attribute</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9139,6 +9262,36 @@ variable::set_item_rarity(variable=`variable`, item=item("stick"), rarity="NONE"
 | item     | Предмет                                                                                                                                                                     | Предмет                   |
 | rarity   | Маркер<br/>**NONE** - Никакая (none)<br/>**COMMON** - Обычная (common)<br/>**UNCOMMON** - Необычная (uncommon)<br/>**RARE** - Редкая (rare)<br/>**EPIC** - Эпическая (epic) | Редкость                  |
 
+<h3 id=set_variable_set_item_swing_animation>
+  <code>variable::set_item_swing_animation</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить данные анимации замаха\
+**Тип:** Действие, возращающее значение\
+**Описание:** Устанавливает данные анимации замаха указанного предмета и присваивает результат к переменной.
+
+**Пример использования:**
+```ts
+`variable` = variable::set_item_swing_animation(item("stick"), 1);
+
+//Или в сухую позиционно
+
+variable::set_item_swing_animation(`variable`, item("stick"), 1);
+
+//Или в сухую по ключам
+
+variable::set_item_swing_animation(variable=`variable`, item=item("stick"), duration=1);
+```
+
+**Аргументы:**
+
+| ID       | Тип                   | Описание                  |
+|----------|-----------------------|---------------------------|
+| variable | Переменная\[Предмет\] | Переменная для присвоения |
+| item     | Предмет               | Предмет                   |
+| duration | Число                 | Длительность анимации     |
+
 <h3 id=set_variable_set_item_tooltip_style>
   <code>variable::set_item_tooltip_style</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9240,6 +9393,38 @@ variable::set_item_unbreakable(variable=`variable`, item=item("stick"), unbreaka
 | variable    | Переменная\[Предмет\]                                    | Переменная для присвоения |
 | item        | Предмет                                                  | Предмет                   |
 | unbreakable | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Неломаемость              |
+
+<h3 id=set_variable_set_item_use_effects>
+  <code>variable::set_item_use_effects</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить эффекты использования\
+**Тип:** Действие, возращающее значение\
+**Описание:** Устанавливает предмету эффекты, появляющиеся при использовании, и присваивает результат к переменной.
+
+**Пример использования:**
+```ts
+`variable` = variable::set_item_use_effects(item("stick"), "TRUE", "TRUE", 1);
+
+//Или в сухую позиционно
+
+variable::set_item_use_effects(`variable`, item("stick"), "TRUE", "TRUE", 1);
+
+//Или в сухую по ключам
+
+variable::set_item_use_effects(variable=`variable`, item=item("stick"), can_sprint="TRUE", interact_vibrations="TRUE", argument=1);
+```
+
+**Аргументы:**
+
+| ID                  | Тип                                          | Описание                                                                      |
+|---------------------|----------------------------------------------|-------------------------------------------------------------------------------|
+| variable            | Переменная\[Предмет\]                        | Переменная для присвоения                                                     |
+| item                | Предмет                                      | Предмет                                                                       |
+| can_sprint          | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Возможность бегать                                                            |
+| interact_vibrations | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Вызов вибраций                                                                |
+| argument            | Число                                        | creative_plus.action.set_variable_set_item_use_effects.argument.argument.name |
 
 <h3 id=set_variable_set_item_use_remainder>
   <code>variable::set_item_use_remainder</code>

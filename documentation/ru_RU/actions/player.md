@@ -1254,6 +1254,30 @@ player::close_inventory();
 player::complete_using_active_item();
 ```
 
+<h3 id=player_connect_to_server>
+  <code>player::connect_to_server</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Отправить игрока на другой сервер\
+**Тип:** Действие без значения\
+**Описание:** Отправляет игрока на сервер с указанным именем (например, "cr-0").
+
+**Пример использования:**
+```ts
+player::connect_to_server("server_name");
+
+//Или в сухую по ключам
+
+player::connect_to_server(server_name="server_name");
+```
+
+**Аргументы:**
+
+| ID          | Тип   | Описание    |
+|-------------|-------|-------------|
+| server_name | Текст | Имя сервера |
+
 <h3 id=player_damage>
   <code>player::damage</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2738,6 +2762,22 @@ player::replace_items(items=[item("stick"), item("stick")], replace=item("stick"
 | items   | Список\[Предмет\] | Заменяемые предметы<br/>Аргумент поддерживает разложение списков |
 | replace | Предмет           | Заменяющий предмет                                               |
 | count   | Число             | Количество предметов для замены                                  |
+
+<h3 id=player_reset_waypoint_color>
+  <code>player::reset_waypoint_color</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Сбросить цвет значка на локаторе\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает игроку цвет значка, отображаемого на локаторе, по умолчанию.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Для работы действия, игровое значение "Видимость локатора игроков" должно быть включено.
+
+**Пример использования:**
+```ts
+player::reset_waypoint_color();
+```
 
 <h3 id=player_reset_weather>
   <code>player::reset_weather</code>
@@ -4557,6 +4597,62 @@ player::set_visual_fire(visual_fire="FALSE");
 |-------------|-----------------------------------------------------------------------------------------|------------------|
 | visual_fire | Маркер<br/>**FALSE** - Выключить<br/>**NOT_SET** - По умолчанию<br/>**TRUE** - Включить | Визуальный огонь |
 
+<h3 id=player_set_waypoint_color>
+  <code>player::set_waypoint_color</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить цвет значка на локаторе\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает игроку цвет значка, отображаемого на локаторе.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Для работы действия, игровое значение "Видимость локатора игроков" должно быть включено.
+
+**Пример использования:**
+```ts
+player::set_waypoint_color(1, 2, 3);
+
+//Или в сухую по ключам
+
+player::set_waypoint_color(red=1, green=2, blue=3);
+```
+
+**Аргументы:**
+
+| ID    | Тип   | Описание        |
+|-------|-------|-----------------|
+| red   | Число | Красный (0-255) |
+| green | Число | Зелёный (0-255) |
+| blue  | Число | Синий (0-255)   |
+
+<h3 id=player_set_waypoint_style>
+  <code>player::set_waypoint_style</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить стиль значка на локаторе\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает игроку стиль значка, отображаемого на локаторе.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Для работы действия, игровое значение "Видимость локатора игроков" должно быть включено.\
+&nbsp;&nbsp;По умолчанию, значения "minecraft:default" и "minecraft:bowtie" уже установлены.\
+&nbsp;&nbsp;Оставьте аргумент "Ключ стиля" пустым, чтобы вернуть значение по умолчанию.
+
+**Пример использования:**
+```ts
+player::set_waypoint_style("style");
+
+//Или в сухую по ключам
+
+player::set_waypoint_style(style="style");
+```
+
+**Аргументы:**
+
+| ID    | Тип   | Описание   |
+|-------|-------|------------|
+| style | Текст | Ключ стиля |
+
 <h3 id=player_set_weather>
   <code>player::set_weather</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4943,4 +5039,30 @@ player::teleport_sequence(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], 
 |-----------|--------------------------|-----------------------------------------------------------------------|
 | locations | Список\[Местоположение\] | Позиции для телепортации<br/>Аргумент поддерживает разложение списков |
 | delay     | Число                    | Задержка в тиках                                                      |
+
+<h3 id=send_currency_transaction>
+  <code>player::send_currency_transaction</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Запросить транзакцию\
+**Тип:** Действие без значения\
+**Описание:** Отправляет игроку запрос на совершение транзакции в изумрудах.
+
+**Пример использования:**
+```ts
+player::send_currency_transaction(1, "description", "reason");
+
+//Или в сухую по ключам
+
+player::send_currency_transaction(amount=1, description="description", reason="reason");
+```
+
+**Аргументы:**
+
+| ID          | Тип   | Описание                   |
+|-------------|-------|----------------------------|
+| amount      | Число | Количество изумрудов       |
+| description | Текст | Описание транзакции        |
+| reason      | Текст | Причина запроса транзакции |
 

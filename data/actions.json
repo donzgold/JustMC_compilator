@@ -21798,5 +21798,17 @@
       }
     ],
     "type": "basic"
+  },
+  {
+    "id": "player_connect_to_server",
+    "name": "connect_to_server",
+    "object": "player",
+    "args": [
+      {
+        "id": "server_name",
+        "type": "text"
+      }
+    ],
+    "type": "basic"
   }
 ]

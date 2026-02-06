@@ -1254,6 +1254,30 @@ player::close_inventory();
 player::complete_using_active_item();
 ```
 
+<h3 id=player_connect_to_server>
+  <code>player::connect_to_server</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.player_connect_to_server.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.player_connect_to_server.description
+
+**Usage example:**
+```ts
+player::connect_to_server("server_name");
+
+//Or dry by keywords
+
+player::connect_to_server(server_name="server_name");
+```
+
+**Arguments:**
+
+| ID          | Type | Description                                                             |
+|-------------|------|-------------------------------------------------------------------------|
+| server_name | Text | creative_plus.action.player_connect_to_server.argument.server_name.name |
+
 <h3 id=player_damage>
   <code>player::damage</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -2738,6 +2762,22 @@ player::replace_items(items=[item("stick"), item("stick")], replace=item("stick"
 | items   | Array\[Item\] | Replace Items<br/>The argument supports list decomposition |
 | replace | Item          | Replacement Item                                           |
 | count   | Number        | Number of Items to Replace                                 |
+
+<h3 id=player_reset_waypoint_color>
+  <code>player::reset_waypoint_color</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.player_reset_waypoint_color.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.player_reset_waypoint_color.description\
+**Additional info:**\
+&nbsp;&nbsp;creative_plus.action.player_reset_waypoint_color.additional_information.needs_enabled_gamerule_location_bar
+
+**Usage example:**
+```ts
+player::reset_waypoint_color();
+```
 
 <h3 id=player_reset_weather>
   <code>player::reset_weather</code>
@@ -4557,6 +4597,62 @@ player::set_visual_fire(visual_fire="FALSE");
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
 | visual_fire | Marker<br/>**FALSE** - Disable<br/>**NOT_SET** - creative_plus.action.player_set_visual_fire.argument.visual_fire.enum.not_set.name<br/>**TRUE** - Enable | Visual Fire |
 
+<h3 id=player_set_waypoint_color>
+  <code>player::set_waypoint_color</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.player_set_waypoint_color.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.player_set_waypoint_color.description\
+**Additional info:**\
+&nbsp;&nbsp;creative_plus.action.player_set_waypoint_color.additional_information.needs_enabled_gamerule_location_bar
+
+**Usage example:**
+```ts
+player::set_waypoint_color(1, 2, 3);
+
+//Or dry by keywords
+
+player::set_waypoint_color(red=1, green=2, blue=3);
+```
+
+**Arguments:**
+
+| ID    | Type   | Description                                                        |
+|-------|--------|--------------------------------------------------------------------|
+| red   | Number | creative_plus.action.player_set_waypoint_color.argument.red.name   |
+| green | Number | creative_plus.action.player_set_waypoint_color.argument.green.name |
+| blue  | Number | creative_plus.action.player_set_waypoint_color.argument.blue.name  |
+
+<h3 id=player_set_waypoint_style>
+  <code>player::set_waypoint_style</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.player_set_waypoint_style.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.player_set_waypoint_style.description\
+**Additional info:**\
+&nbsp;&nbsp;creative_plus.action.player_set_waypoint_style.additional_information.needs_enabled_gamerule_location_bar\
+&nbsp;&nbsp;creative_plus.action.player_set_waypoint_style.additional_information.exist_build_in_vanilla_keys\
+&nbsp;&nbsp;creative_plus.action.player_set_waypoint_style.additional_information.empty_to_reset
+
+**Usage example:**
+```ts
+player::set_waypoint_style("style");
+
+//Or dry by keywords
+
+player::set_waypoint_style(style="style");
+```
+
+**Arguments:**
+
+| ID    | Type | Description                                                        |
+|-------|------|--------------------------------------------------------------------|
+| style | Text | creative_plus.action.player_set_waypoint_style.argument.style.name |
+
 <h3 id=player_set_weather>
   <code>player::set_weather</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4943,4 +5039,30 @@ player::teleport_sequence(locations=[location(0,0,0,0,0), location(0,0,0,0,0)], 
 |-----------|-------------------|-----------------------------------------------------------------|
 | locations | Array\[Location\] | Teleport Locations<br/>The argument supports list decomposition |
 | delay     | Number            | Delay in ticks                                                  |
+
+<h3 id=send_currency_transaction>
+  <code>player::send_currency_transaction</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.send_currency_transaction.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.send_currency_transaction.description
+
+**Usage example:**
+```ts
+player::send_currency_transaction(1, "description", "reason");
+
+//Or dry by keywords
+
+player::send_currency_transaction(amount=1, description="description", reason="reason");
+```
+
+**Arguments:**
+
+| ID          | Type   | Description                                                              |
+|-------------|--------|--------------------------------------------------------------------------|
+| amount      | Number | creative_plus.action.send_currency_transaction.argument.amount.name      |
+| description | Text   | creative_plus.action.send_currency_transaction.argument.description.name |
+| reason      | Text   | creative_plus.action.send_currency_transaction.argument.reason.name      |
 

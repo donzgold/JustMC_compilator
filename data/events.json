@@ -750,5 +750,9 @@
   {
     "id": "world_web_response",
     "cancellable": false
+  },
+  {
+    "id": "player_currency_transaction",
+    "cancellable": false
   }
 ]
