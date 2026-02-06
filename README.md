@@ -41,7 +41,7 @@
 ### Использование
 
 _Перед тем как использовать `jmcc`, убедитесь что вы знаете [синтаксис](#синтаксис) для создания программ.\
-Так же для использования jmcc, необходим установленный [python](https://www.python.org/downloads/) и модуль [requests](https://requests.readthedocs.io/en/latest/user/install/#install)_
+Так же для использования jmcc, необходим установленный [python 3.12](https://www.python.org/downloads/) и модуль [requests](https://requests.readthedocs.io/en/latest/user/install/#install)_
 
 
 Создайте файл с расширением `.jc` и таким содержанием:
