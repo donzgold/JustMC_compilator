@@ -332,6 +332,10 @@
     "cancellable": true
   },
   {
+    "id": "player_currency_transaction",
+    "cancellable": false
+  },
+  {
     "id": "player_custom_click",
     "cancellable": false
   },
@@ -749,10 +753,6 @@
   },
   {
     "id": "world_web_response",
-    "cancellable": false
-  },
-  {
-    "id": "player_currency_transaction",
     "cancellable": false
   }
 ]

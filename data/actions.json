@@ -870,8 +870,22 @@
     "type": "basic"
   },
   {
+    "id": "entity_reset_mannequin_description",
+    "name": "reset_mannequin_description",
+    "object": "entity",
+    "args": [],
+    "type": "basic"
+  },
+  {
     "id": "entity_reset_text_display_background",
     "name": "reset_text_display_background",
+    "object": "entity",
+    "args": [],
+    "type": "basic"
+  },
+  {
+    "id": "entity_reset_waypoint_color",
+    "name": "reset_waypoint_color",
     "object": "entity",
     "args": [],
     "type": "basic"
@@ -1389,6 +1403,46 @@
           "FALSE",
           "TRUE"
         ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_copper_golem_oxidizing",
+    "name": "set_copper_golem_oxidizing",
+    "object": "entity",
+    "args": [
+      {
+        "id": "oxidizing_state",
+        "type": "enum",
+        "values": [
+          "WAXED",
+          "UNSET"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_copper_golem_oxidizing_at_time",
+    "name": "set_copper_golem_oxidizing_at_time",
+    "object": "entity",
+    "args": [
+      {
+        "id": "time",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_copper_golem_weathering",
+    "name": "set_copper_golem_weathering",
+    "object": "entity",
+    "args": [
+      {
+        "id": "weathering_state",
+        "type": "number"
       }
     ],
     "type": "basic"
@@ -2469,6 +2523,179 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_mannequin_description",
+    "name": "set_mannequin_description",
+    "object": "entity",
+    "args": [
+      {
+        "id": "description",
+        "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_mannequin_immovable",
+    "name": "set_mannequin_immovable",
+    "object": "entity",
+    "args": [
+      {
+        "id": "immovable",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_mannequin_main_hand",
+    "name": "set_mannequin_main_hand",
+    "object": "entity",
+    "args": [
+      {
+        "id": "hand",
+        "type": "enum",
+        "values": [
+          "RIGHT",
+          "LEFT"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_mannequin_skin",
+    "name": "set_mannequin_skin",
+    "object": "entity",
+    "args": [
+      {
+        "id": "name_or_uuid",
+        "type": "text"
+      },
+      {
+        "id": "server_type",
+        "type": "enum",
+        "values": [
+          "MOJANG",
+          "SERVER"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_mannequin_skin_model",
+    "name": "set_mannequin_skin_model",
+    "object": "entity",
+    "args": [
+      {
+        "id": "model",
+        "type": "enum",
+        "values": [
+          "CLASSIC",
+          "SLIM",
+          "UNSET"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_mannequin_skin_parts",
+    "name": "set_mannequin_skin_parts",
+    "object": "entity",
+    "args": [
+      {
+        "id": "hat",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE",
+          "NOT_SET"
+        ]
+      },
+      {
+        "id": "jacket",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE",
+          "NOT_SET"
+        ]
+      },
+      {
+        "id": "left_sleeve",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE",
+          "NOT_SET"
+        ]
+      },
+      {
+        "id": "right_sleeve",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE",
+          "NOT_SET"
+        ]
+      },
+      {
+        "id": "left_pants",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE",
+          "NOT_SET"
+        ]
+      },
+      {
+        "id": "right_pants",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE",
+          "NOT_SET"
+        ]
+      },
+      {
+        "id": "cape",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE",
+          "NOT_SET"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_mannequin_skin_patch",
+    "name": "set_mannequin_skin_patch",
+    "object": "entity",
+    "args": [
+      {
+        "id": "texture_key",
+        "type": "text"
+      },
+      {
+        "id": "patch_target",
+        "type": "enum",
+        "values": [
+          "BODY",
+          "CAPE",
+          "ELYTRA"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_marker",
     "name": "set_marker",
     "object": "entity",
@@ -3538,6 +3765,38 @@
     "type": "basic"
   },
   {
+    "id": "entity_set_waypoint_color",
+    "name": "set_waypoint_color",
+    "object": "entity",
+    "args": [
+      {
+        "id": "red",
+        "type": "number"
+      },
+      {
+        "id": "green",
+        "type": "number"
+      },
+      {
+        "id": "blue",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_waypoint_style",
+    "name": "set_waypoint_style",
+    "object": "entity",
+    "args": [
+      {
+        "id": "style",
+        "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "entity_set_wearing_saddle",
     "name": "set_wearing_saddle",
     "object": "entity",
@@ -3619,6 +3878,22 @@
         "values": [
           "FALSE",
           "TRUE"
+        ]
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "entity_set_zombie_nautilus_variant",
+    "name": "set_zombie_nautilus_variant",
+    "object": "entity",
+    "args": [
+      {
+        "id": "variant",
+        "type": "enum",
+        "values": [
+          "TEMPERATE",
+          "WARM"
         ]
       }
     ],
@@ -4363,27 +4638,6 @@
     "type": "basic"
   },
   {
-    "id": "game_set_block_custom_tag",
-    "name": "set_block_custom_tag",
-    "object": "world",
-    "args": [
-      {
-        "id": "location",
-        "type": "location"
-      },
-      {
-        "id": "tag_name",
-        "type": "text"
-      },
-      {
-        "id": "tag_value",
-        "type": "text"
-      }
-    ],
-    "type": "basic",
-    "hidden": true
-  },
-  {
     "id": "game_set_block_data",
     "name": "set_block_data",
     "object": "world",
@@ -4549,6 +4803,28 @@
       {
         "id": "name",
         "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "game_set_copper_golem_statue_pose",
+    "name": "set_copper_golem_statue_pose",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "pose",
+        "type": "enum",
+        "values": [
+          "STANDING",
+          "SITTING",
+          "RUNNING",
+          "STAR"
+        ]
       }
     ],
     "type": "basic"
@@ -5472,7 +5748,10 @@
           "DO_VINES_SPREAD",
           "ALLOW_FIRE_TICKS_AWAY_FROM_PLAYER",
           "TNT_EXPLODER",
-          "LOCATOR_BAR"
+          "LOCATOR_BAR",
+          "SPAWN_MONSTERS",
+          "PVP",
+          "SPAWNER_BLOCKS_WORK"
         ]
       },
       {
@@ -6162,6 +6441,26 @@
       {
         "id": "location",
         "type": "location"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "game_wobble_decorated_pot",
+    "name": "wobble_decorated_pot",
+    "object": "world",
+    "args": [
+      {
+        "id": "location",
+        "type": "location"
+      },
+      {
+        "id": "style",
+        "type": "enum",
+        "values": [
+          "POSITIVE",
+          "NEGATIVE"
+        ]
       }
     ],
     "type": "basic"
@@ -6996,6 +7295,14 @@
         "type": "text",
         "array": 18,
         "support_arrays": true
+      },
+      {
+        "id": "ignore_case",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
       }
     ],
     "type": "container",
@@ -8619,6 +8926,18 @@
     "type": "basic"
   },
   {
+    "id": "player_connect_to_server",
+    "name": "connect_to_server",
+    "object": "player",
+    "args": [
+      {
+        "id": "server_name",
+        "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "player_damage",
     "name": "damage",
     "object": "player",
@@ -9856,6 +10175,13 @@
         "type": "number"
       }
     ],
+    "type": "basic"
+  },
+  {
+    "id": "player_reset_waypoint_color",
+    "name": "reset_waypoint_color",
+    "object": "player",
+    "args": [],
     "type": "basic"
   },
   {
@@ -11171,6 +11497,38 @@
     "type": "basic"
   },
   {
+    "id": "player_set_waypoint_color",
+    "name": "set_waypoint_color",
+    "object": "player",
+    "args": [
+      {
+        "id": "red",
+        "type": "number"
+      },
+      {
+        "id": "green",
+        "type": "number"
+      },
+      {
+        "id": "blue",
+        "type": "number"
+      }
+    ],
+    "type": "basic"
+  },
+  {
+    "id": "player_set_waypoint_style",
+    "name": "set_waypoint_style",
+    "object": "player",
+    "args": [
+      {
+        "id": "style",
+        "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "player_set_weather",
     "name": "set_weather",
     "object": "player",
@@ -12209,6 +12567,26 @@
     "type": "basic"
   },
   {
+    "id": "send_currency_transaction",
+    "name": "send_currency_transaction",
+    "object": "player",
+    "args": [
+      {
+        "id": "amount",
+        "type": "number"
+      },
+      {
+        "id": "description",
+        "type": "text"
+      },
+      {
+        "id": "reason",
+        "type": "text"
+      }
+    ],
+    "type": "basic"
+  },
+  {
     "id": "set_variable_absolute",
     "name": "absolute",
     "object": "variable",
@@ -13115,6 +13493,36 @@
     "origin": "number"
   },
   {
+    "id": "set_variable_create_head_object_component",
+    "name": "create_head_object_component",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "name_or_uuid",
+        "type": "text"
+      },
+      {
+        "id": "hat",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "text"
+      }
+    ]
+  },
+  {
     "id": "set_variable_create_keybind_component",
     "name": "create_keybind_component",
     "object": "variable",
@@ -13213,6 +13621,32 @@
       {
         "id": "variable",
         "type": "map"
+      }
+    ]
+  },
+  {
+    "id": "set_variable_create_sprite_object_component",
+    "name": "create_sprite_object_component",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "sprite",
+        "type": "text"
+      },
+      {
+        "id": "atlas",
+        "type": "text"
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "text"
       }
     ]
   },
@@ -13736,41 +14170,6 @@
         "type": "number"
       }
     ]
-  },
-  {
-    "id": "set_variable_get_block_custom_tag",
-    "name": "get_block_custom_tag",
-    "object": "variable",
-    "args": [
-      {
-        "id": "variable",
-        "type": "variable"
-      },
-      {
-        "id": "location",
-        "type": "location"
-      },
-      {
-        "id": "tag_name",
-        "type": "text"
-      },
-      {
-        "id": "tag_value",
-        "type": "text"
-      },
-      {
-        "id": "default_value",
-        "type": "any"
-      }
-    ],
-    "type": "basic",
-    "assign": [
-      {
-        "id": "variable",
-        "type": "any"
-      }
-    ],
-    "hidden": true
   },
   {
     "id": "set_variable_get_block_data",
@@ -14467,6 +14866,40 @@
     "origin": "item"
   },
   {
+    "id": "set_variable_get_item_attack_range",
+    "name": "get_item_attack_range",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "property",
+        "type": "enum",
+        "values": [
+          "MIN_RANGE",
+          "MAX_RANGE",
+          "MIN_CREATIVE_RANGE",
+          "MAX_CREATIVE_RANGE",
+          "HITBOX_MARGIN",
+          "MOB_FACTORY"
+        ]
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "any"
+      }
+    ]
+  },
+  {
     "id": "set_variable_get_item_attribute",
     "name": "get_item_attribute",
     "object": "variable",
@@ -14926,6 +15359,28 @@
     "origin": "item"
   },
   {
+    "id": "set_variable_get_item_minimum_attack_charge",
+    "name": "get_item_minimum_attack_charge",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "number"
+      }
+    ]
+  },
+  {
     "id": "set_variable_get_item_model_data",
     "name": "get_item_model_data",
     "object": "variable",
@@ -15070,6 +15525,36 @@
       }
     ],
     "origin": "item"
+  },
+  {
+    "id": "set_variable_get_item_swing_animation",
+    "name": "get_item_swing_animation",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "property",
+        "type": "enum",
+        "values": [
+          "DURATION",
+          "ANIMATION"
+        ]
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "any"
+      }
+    ]
   },
   {
     "id": "set_variable_get_item_tooltip_style",
@@ -19071,6 +19556,52 @@
     "origin": "item"
   },
   {
+    "id": "set_variable_set_item_attack_range",
+    "name": "set_item_attack_range",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "min_reach",
+        "type": "number"
+      },
+      {
+        "id": "min_max",
+        "type": "number"
+      },
+      {
+        "id": "min_creative_reach",
+        "type": "number"
+      },
+      {
+        "id": "max_creative_reach",
+        "type": "number"
+      },
+      {
+        "id": "hitbox_margin",
+        "type": "text"
+      },
+      {
+        "id": "mob_factor",
+        "type": "text"
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ]
+  },
+  {
     "id": "set_variable_set_item_attribute",
     "name": "set_item_attribute",
     "object": "variable",
@@ -19644,6 +20175,32 @@
     "origin": "item"
   },
   {
+    "id": "set_variable_set_item_minimum_attack_charge",
+    "name": "set_item_minimum_attack_charge",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "minimum_attack_charge",
+        "type": "number"
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ]
+  },
+  {
     "id": "set_variable_set_item_model_data",
     "name": "set_item_model_data",
     "object": "variable",
@@ -19696,6 +20253,52 @@
       }
     ],
     "origin": "item"
+  },
+  {
+    "id": "set_variable_set_item_piercing_weapon",
+    "name": "set_item_piercing_weapon",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "deals_knockback",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "dismounts",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "sound",
+        "type": "text"
+      },
+      {
+        "id": "hit_sound",
+        "type": "text"
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ]
   },
   {
     "id": "set_variable_set_item_placeable_blocks",
@@ -19759,6 +20362,41 @@
       }
     ],
     "origin": "item"
+  },
+  {
+    "id": "set_variable_set_item_swing_animation",
+    "name": "set_item_swing_animation",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "duration",
+        "type": "number"
+      },
+      {
+        "id": "animation",
+        "type": "enum",
+        "values": [
+          "NONE",
+          "WHACK",
+          "STAB"
+        ]
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ]
   },
   {
     "id": "set_variable_set_item_tooltip_style",
@@ -19844,6 +20482,48 @@
       }
     ],
     "origin": "item"
+  },
+  {
+    "id": "set_variable_set_item_use_effects",
+    "name": "set_item_use_effects",
+    "object": "variable",
+    "args": [
+      {
+        "id": "variable",
+        "type": "variable"
+      },
+      {
+        "id": "item",
+        "type": "item"
+      },
+      {
+        "id": "can_sprint",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "interact_vibrations",
+        "type": "enum",
+        "values": [
+          "TRUE",
+          "FALSE"
+        ]
+      },
+      {
+        "id": "speed_multiplier",
+        "type": "number"
+      }
+    ],
+    "type": "basic",
+    "assign": [
+      {
+        "id": "variable",
+        "type": "item"
+      }
+    ]
   },
   {
     "id": "set_variable_set_item_use_remainder",
@@ -21795,18 +22475,6 @@
       {
         "id": "args",
         "type": "map"
-      }
-    ],
-    "type": "basic"
-  },
-  {
-    "id": "player_connect_to_server",
-    "name": "connect_to_server",
-    "object": "player",
-    "args": [
-      {
-        "id": "server_name",
-        "type": "text"
       }
     ],
     "type": "basic"

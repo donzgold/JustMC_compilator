@@ -7,7 +7,7 @@
           "eroded_badlands",
           "wooded_badlands"
         ],
-        "color": 9470285
+        "color": -7306931
       },
       {
         "keys": [
@@ -75,7 +75,7 @@
         "keys": [
           "cherry_grove"
         ],
-        "color": 11983713
+        "color": -4793503
       },
       {
         "keys": [
@@ -94,7 +94,7 @@
         "keys": [
           "pale_garden"
         ],
-        "color": 7832178
+        "color": -8945038
       }
     ]
   },
@@ -106,7 +106,7 @@
           "eroded_badlands",
           "wooded_badlands"
         ],
-        "color": 10387789
+        "color": -6389427
       },
       {
         "keys": [
@@ -175,25 +175,25 @@
         "keys": [
           "cherry_grove"
         ],
-        "color": 11983713
+        "color": -4793503
       },
       {
         "keys": [
           "mangrove_swamp"
         ],
-        "color": 9285927
+        "color": -7491289
       },
       {
         "keys": [
           "pale_garden"
         ],
-        "color": 8883574
+        "color": -7893642
       },
       {
         "keys": [
           "swamp"
         ],
-        "color": 6975545
+        "color": -9801671
       }
     ]
   },
@@ -252,13 +252,13 @@
           "windswept_savanna",
           "wooded_badlands"
         ],
-        "color": 4159204
+        "color": -12618012
       },
       {
         "keys": [
           "cherry_grove"
         ],
-        "color": 6141935
+        "color": -10635281
       },
       {
         "keys": [
@@ -267,7 +267,7 @@
           "snowy_beach",
           "snowy_taiga"
         ],
-        "color": 4020182
+        "color": -12757034
       },
       {
         "keys": [
@@ -275,44 +275,44 @@
           "frozen_ocean",
           "frozen_river"
         ],
-        "color": 3750089
+        "color": -13027127
       },
       {
         "keys": [
           "deep_lukewarm_ocean",
           "lukewarm_ocean"
         ],
-        "color": 4566514
+        "color": -12210702
       },
       {
         "keys": [
           "mangrove_swamp"
         ],
-        "color": 3832426
+        "color": -12944790
       },
       {
         "keys": [
           "meadow"
         ],
-        "color": 937679
+        "color": -15839537
       },
       {
         "keys": [
           "pale_garden"
         ],
-        "color": 7768221
+        "color": -9008995
       },
       {
         "keys": [
           "swamp"
         ],
-        "color": 6388580
+        "color": -10388636
       },
       {
         "keys": [
           "warm_ocean"
         ],
-        "color": 4445678
+        "color": -12331538
       }
     ]
   },

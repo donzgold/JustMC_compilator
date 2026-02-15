@@ -1,786 +1,997 @@
 [
   {
     "id": "absorption_health",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "age",
-    "type": "number"
+    "type": "number",
+    "selector": "entity"
   },
   {
     "id": "armor_items",
-    "type": "array"
+    "type": "array",
+    "selector": "both"
   },
   {
     "id": "armor_points",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "armor_toughness",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "arrows_in_body",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "attached_leads",
-    "type": "array"
+    "type": "array",
+    "selector": "entity"
   },
   {
     "id": "attack_cooldown_strength",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "attack_cooldown_ticks",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "attack_damage",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "attack_speed",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "block_beneath",
-    "type": "location"
+    "type": "location",
+    "selector": "both"
   },
   {
     "id": "blocks_beneath",
-    "type": "array"
+    "type": "array",
+    "selector": "both"
   },
   {
     "id": "body_yaw",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "cape_location",
-    "type": "location"
+    "type": "location",
+    "selector": "player"
   },
   {
     "id": "cardinal_direction",
-    "type": "text"
+    "type": "text",
+    "selector": "both"
   },
   {
     "id": "chat_visibility",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "client_brand_name",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "client_view_distance",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "clientside_locale",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "cpu_usage",
-    "type": "number"
+    "type": "number",
+    "selector": null
+  },
+  {
+    "id": "currency_transaction_amount",
+    "type": "text",
+    "selector": "player"
+  },
+  {
+    "id": "currency_transaction_reason",
+    "type": "text",
+    "selector": "player"
+  },
+  {
+    "id": "currency_transaction_result",
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "current_health",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "current_input_list",
-    "type": "array"
+    "type": "array",
+    "selector": "player"
   },
   {
     "id": "cursor_item",
-    "type": "item"
+    "type": "item",
+    "selector": "player"
   },
   {
     "id": "custom_inventory_items",
-    "type": "array"
+    "type": "array",
+    "selector": "player"
   },
   {
     "id": "death_screen_score",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "direction_of_view",
-    "type": "vector"
+    "type": "vector",
+    "selector": "both"
   },
   {
     "id": "display_entity_left_rotation",
-    "type": "vector"
+    "type": "vector",
+    "selector": "entity"
   },
   {
     "id": "display_entity_right_rotation",
-    "type": "vector"
+    "type": "vector",
+    "selector": "entity"
   },
   {
     "id": "display_entity_scale",
-    "type": "vector"
+    "type": "vector",
+    "selector": "entity"
   },
   {
     "id": "display_entity_translation",
-    "type": "vector"
+    "type": "vector",
+    "selector": "entity"
   },
   {
     "id": "display_name",
-    "type": "text"
+    "type": "text",
+    "selector": "both"
   },
   {
     "id": "entity_fuse_ticks",
-    "type": "number"
+    "type": "number",
+    "selector": "entity"
   },
   {
     "id": "entity_height",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "entity_item",
-    "type": "item"
+    "type": "item",
+    "selector": "entity"
   },
   {
     "id": "entity_pick_item_stack",
-    "type": "item"
+    "type": "item",
+    "selector": "entity"
   },
   {
     "id": "entity_ticks_lived",
-    "type": "number"
+    "type": "number",
+    "selector": "entity"
   },
   {
     "id": "entity_type",
-    "type": "text"
+    "type": "text",
+    "selector": "entity"
   },
   {
     "id": "entity_width_x",
-    "type": "number"
+    "type": "number",
+    "selector": "entity"
   },
   {
     "id": "entity_width_z",
-    "type": "number"
+    "type": "number",
+    "selector": "entity"
   },
   {
     "id": "event_added_items",
-    "type": "map"
+    "type": "map",
+    "selector": null
   },
   {
     "id": "event_advancement_tab_name",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_anvil_rename_input",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_block",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_block_face",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_block_location",
-    "type": "location"
+    "type": "location",
+    "selector": null
   },
   {
     "id": "event_blocks_involved",
-    "type": "array"
+    "type": "array",
+    "selector": null
   },
   {
     "id": "event_chat_message",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_close_inventory_cause",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_combust_duration",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_combust_reason",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_custom_click_dialog_view_data",
-    "type": "any"
+    "type": "any",
+    "selector": null
   },
   {
     "id": "event_custom_click_key",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_damage",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_damage_cause",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_death_screen_message",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_drag_type",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_enchantment_bonus",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_enchantment_hint",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_enchantment_level_hint",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_enchantment_offers",
-    "type": "array"
+    "type": "array",
+    "selector": null
   },
   {
     "id": "event_enchantments_to_add",
-    "type": "map"
+    "type": "map",
+    "selector": null
   },
   {
     "id": "event_equipment_slot",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_exhaustion_amount",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_exhaustion_reason",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_experience",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_fail_move_reason",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_final_damage",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_fish_state",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_food_level",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_from_location",
-    "type": "location"
+    "type": "location",
+    "selector": null
   },
   {
     "id": "event_gamemode",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_hanging_break_cause",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_heal_amount",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_heal_cause",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_hotbar_slot",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_input_list",
-    "type": "array"
+    "type": "array",
+    "selector": null
   },
   {
     "id": "event_interaction",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_inventory_action",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_inventory_click_type",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_item",
-    "type": "item"
+    "type": "item",
+    "selector": null
   },
   {
     "id": "event_item_cooldown",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_item_cooldown_group",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_items",
-    "type": "array"
+    "type": "array",
+    "selector": null
   },
   {
     "id": "event_knockback_cause",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_knockback_event_type",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_knockback_vector",
-    "type": "vector"
+    "type": "vector",
+    "selector": null
   },
   {
     "id": "event_message",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_new_equipments",
-    "type": "map"
+    "type": "map",
+    "selector": null
   },
   {
     "id": "event_new_fishing_hook_state",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_new_location",
-    "type": "location"
+    "type": "location",
+    "selector": null
   },
   {
     "id": "event_new_potion_effect",
-    "type": "potion"
+    "type": "potion",
+    "selector": null
   },
   {
     "id": "event_new_vault_state",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_old_equipments",
-    "type": "map"
+    "type": "map",
+    "selector": null
   },
   {
     "id": "event_old_vault_state",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_power",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_projectile_item",
-    "type": "item"
+    "type": "item",
+    "selector": null
   },
   {
     "id": "event_query_info",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_replaced_block",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_sign_lines",
-    "type": "array"
+    "type": "array",
+    "selector": null
   },
   {
     "id": "event_sign_side",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_slot",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_slot_type",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_slots_involved",
-    "type": "array"
+    "type": "array",
+    "selector": null
   },
   {
     "id": "event_teleport_cause",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_ticks_held_for",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_time_skip_amount",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "event_time_skip_reason",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_transform_reason",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_transformed_entities",
-    "type": "array"
+    "type": "array",
+    "selector": null
   },
   {
     "id": "event_tree_type",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "event_velocity",
-    "type": "vector"
+    "type": "vector",
+    "selector": null
   },
   {
     "id": "experience_level",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "experience_progress",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "eye_location",
-    "type": "location"
+    "type": "location",
+    "selector": "both"
   },
   {
     "id": "fall_distance",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "fire_ticks",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "flying_speed",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "food_exhaustion",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "food_level",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "food_saturation",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "freeze_ticks",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "gamemode",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "held_slot",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "hitbox_midpoint_location",
-    "type": "location"
+    "type": "location",
+    "selector": "both"
   },
   {
     "id": "hotbar_items",
-    "type": "array"
+    "type": "array",
+    "selector": "player"
   },
   {
     "id": "inventory_items",
-    "type": "array"
+    "type": "array",
+    "selector": "player"
   },
   {
     "id": "invulnerability_ticks",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "item_usage_progress",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "last_damage_cause",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "lead_holder",
-    "type": "text"
+    "type": "text",
+    "selector": "entity"
   },
   {
     "id": "location",
-    "type": "location"
+    "type": "location",
+    "selector": "both"
   },
   {
     "id": "main_hand",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "main_hand_item",
-    "type": "item"
+    "type": "item",
+    "selector": "both"
   },
   {
     "id": "max_health",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "max_invulnerability_ticks",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "merchant_recipe_count",
-    "type": "number"
+    "type": "number",
+    "selector": "entity"
   },
   {
     "id": "name",
-    "type": "text"
+    "type": "text",
+    "selector": "both"
   },
   {
     "id": "off_hand_item",
-    "type": "item"
+    "type": "item",
+    "selector": "player"
   },
   {
     "id": "open_inventory_custom_id",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "open_inventory_size",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "open_inventory_title",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "open_inventory_type",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "origin",
-    "type": "location"
+    "type": "location",
+    "selector": "both"
   },
   {
     "id": "owner_uuid",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "particle_cpu_usage",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "particle_visibility",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "passengers",
-    "type": "array"
+    "type": "array",
+    "selector": "both"
   },
   {
     "id": "ping",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "pitch",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "player_count",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "player_enderchest_items",
-    "type": "array"
+    "type": "array",
+    "selector": "player"
   },
   {
     "id": "pose",
-    "type": "text"
+    "type": "text",
+    "selector": "entity"
   },
   {
     "id": "potion_effects",
-    "type": "array"
+    "type": "array",
+    "selector": "both"
   },
   {
     "id": "projectile_owner_uuid",
-    "type": "text"
+    "type": "text",
+    "selector": "entity"
   },
   {
     "id": "projectile_power",
-    "type": "vector"
+    "type": "vector",
+    "selector": "entity"
   },
   {
     "id": "protocol_version",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "remaining_air",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "response_headers",
-    "type": "map"
+    "type": "map",
+    "selector": null
   },
   {
     "id": "saddle_item",
-    "type": "item"
+    "type": "item",
+    "selector": "entity"
   },
   {
     "id": "selection_size",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "selection_target_names",
-    "type": "array"
+    "type": "array",
+    "selector": null
   },
   {
     "id": "selection_target_uuids",
-    "type": "array"
+    "type": "array",
+    "selector": null
   },
   {
     "id": "server_current_tick",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "server_stopped_time",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "server_tps",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "spawn_location",
-    "type": "location"
+    "type": "location",
+    "selector": null
   },
   {
     "id": "spawn_reason",
-    "type": "text"
+    "type": "text",
+    "selector": "both"
   },
   {
     "id": "steer_forward",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "steer_sideways",
-    "type": "number"
+    "type": "number",
+    "selector": "player"
   },
   {
     "id": "target_block_face",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "target_block_location",
-    "type": "location"
+    "type": "location",
+    "selector": "player"
   },
   {
     "id": "target_fluid_location",
-    "type": "location"
+    "type": "location",
+    "selector": "player"
   },
   {
     "id": "targeted_entity",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "timestamp",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "url",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "url_response",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "url_response_code",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "user_locale",
-    "type": "text"
+    "type": "text",
+    "selector": "player"
   },
   {
     "id": "uuid",
-    "type": "text"
+    "type": "text",
+    "selector": "both"
   },
   {
     "id": "vehicle",
-    "type": "text"
+    "type": "text",
+    "selector": "both"
   },
   {
     "id": "velocity",
-    "type": "vector"
+    "type": "vector",
+    "selector": "both"
   },
   {
     "id": "walking_speed",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "world_clear_weather_duration",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "world_game_time",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "world_id",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "world_moon_phase",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "world_size",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "world_thunder_duration",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "world_time",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "world_weather",
-    "type": "text"
+    "type": "text",
+    "selector": null
   },
   {
     "id": "world_weather_duration",
-    "type": "number"
+    "type": "number",
+    "selector": null
   },
   {
     "id": "x_coordinate",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "y_coordinate",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "yaw",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   },
   {
     "id": "z_coordinate",
-    "type": "number"
+    "type": "number",
+    "selector": "both"
   }
 ]

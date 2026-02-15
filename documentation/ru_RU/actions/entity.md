@@ -974,6 +974,22 @@ entity::reset_display_brightness();
 entity::reset_display_glow_color();
 ```
 
+<h3 id=entity_reset_mannequin_description>
+  <code>entity::reset_mannequin_description</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Очистить описание маникена\
+**Тип:** Действие без значения\
+**Описание:** Очищает описание маникена.\
+**Работает с:**\
+&nbsp;&nbsp;Маникенами
+
+**Пример использования:**
+```ts
+entity::reset_mannequin_description();
+```
+
 <h3 id=entity_reset_text_display_background>
   <code>entity::reset_text_display_background</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -988,6 +1004,24 @@ entity::reset_display_glow_color();
 **Пример использования:**
 ```ts
 entity::reset_text_display_background();
+```
+
+<h3 id=entity_reset_waypoint_color>
+  <code>entity::reset_waypoint_color</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Сбросить цвет значка на локаторе\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает сущности цвет значка, отображаемого на локаторе, по умолчанию.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Для работы действия, игровое значение "Видимость локатора" должно быть включено.\
+**Работает с:**\
+&nbsp;&nbsp;Мобами
+
+**Пример использования:**
+```ts
+entity::reset_waypoint_color();
 ```
 
 <h3 id=entity_retrieve_fishing_hook>
@@ -1725,6 +1759,84 @@ entity::set_collidable(collidable="FALSE");
 | ID         | Тип                                                                                                          | Описание           |
 |------------|--------------------------------------------------------------------------------------------------------------|--------------------|
 | collidable | Маркер<br/>**FALSE** - Не сталкивается с другими существами<br/>**TRUE** - Сталкивается с другими существами | Режим столкновения |
+
+<h3 id=entity_set_copper_golem_oxidizing>
+  <code>entity::set_copper_golem_oxidizing</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить вощённость медного голема\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает вощённость медного голема.\
+**Работает с:**\
+&nbsp;&nbsp;Медными големами
+
+**Пример использования:**
+```ts
+entity::set_copper_golem_oxidizing("WAXED");
+
+//Или в сухую по ключам
+
+entity::set_copper_golem_oxidizing(oxidizing_state="WAXED");
+```
+
+**Аргументы:**
+
+| ID              | Тип                                           | Описание   |
+|-----------------|-----------------------------------------------|------------|
+| oxidizing_state | Маркер<br/>**WAXED** - Да<br/>**UNSET** - Нет | Вощённость |
+
+<h3 id=entity_set_copper_golem_oxidizing_at_time>
+  <code>entity::set_copper_golem_oxidizing_at_time</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить время окисления медного голема\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает время, за которое медный голем повышает уровень окисления под дождём.\
+**Работает с:**\
+&nbsp;&nbsp;Медными големами
+
+**Пример использования:**
+```ts
+entity::set_copper_golem_oxidizing_at_time(1);
+
+//Или в сухую по ключам
+
+entity::set_copper_golem_oxidizing_at_time(time=1);
+```
+
+**Аргументы:**
+
+| ID   | Тип   | Описание         |
+|------|-------|------------------|
+| time | Число | Количество тиков |
+
+<h3 id=entity_set_copper_golem_weathering>
+  <code>entity::set_copper_golem_weathering</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить окисление медного голема\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает степень окисления медного голема.\
+**Работает с:**\
+&nbsp;&nbsp;Медными големами
+
+**Пример использования:**
+```ts
+entity::set_copper_golem_weathering(1);
+
+//Или в сухую по ключам
+
+entity::set_copper_golem_weathering(weathering_state=1);
+```
+
+**Аргументы:**
+
+| ID               | Тип   | Описание          |
+|------------------|-------|-------------------|
+| weathering_state | Число | Степень окисления |
 
 <h3 id=entity_set_cow_type>
   <code>entity::set_cow_type</code>
@@ -3370,6 +3482,198 @@ entity::set_location(velocity=vector(0,0,0), increment="FALSE");
 | velocity  | Вектор                                                   | Вектор движения           |
 | increment | Маркер<br/>**FALSE** - Выключено<br/>**TRUE** - Включено | Учитывать текущую инерцию |
 
+<h3 id=entity_set_mannequin_description>
+  <code>entity::set_mannequin_description</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить описание маникена\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает описание маникена.\
+**Работает с:**\
+&nbsp;&nbsp;Маникенами
+
+**Пример использования:**
+```ts
+entity::set_mannequin_description("description");
+
+//Или в сухую по ключам
+
+entity::set_mannequin_description(description="description");
+```
+
+**Аргументы:**
+
+| ID          | Тип   | Описание          |
+|-------------|-------|-------------------|
+| description | Текст | Описание маникена |
+
+<h3 id=entity_set_mannequin_immovable>
+  <code>entity::set_mannequin_immovable</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить передвижение маникена\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает возможность передвижения для маникена.\
+**Работает с:**\
+&nbsp;&nbsp;Маникенами
+
+**Пример использования:**
+```ts
+entity::set_mannequin_immovable("TRUE");
+
+//Или в сухую по ключам
+
+entity::set_mannequin_immovable(immovable="TRUE");
+```
+
+**Аргументы:**
+
+| ID        | Тип                                          | Описание                 |
+|-----------|----------------------------------------------|--------------------------|
+| immovable | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Возможность передвижения |
+
+<h3 id=entity_set_mannequin_main_hand>
+  <code>entity::set_mannequin_main_hand</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить ведущую руку маникена\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает ведущую руку маникена.\
+**Работает с:**\
+&nbsp;&nbsp;Маникенами
+
+**Пример использования:**
+```ts
+entity::set_mannequin_main_hand("RIGHT");
+
+//Или в сухую по ключам
+
+entity::set_mannequin_main_hand(hand="RIGHT");
+```
+
+**Аргументы:**
+
+| ID   | Тип                                                | Описание |
+|------|----------------------------------------------------|----------|
+| hand | Маркер<br/>**RIGHT** - Правая<br/>**LEFT** - Левая | Рука     |
+
+<h3 id=entity_set_mannequin_skin>
+  <code>entity::set_mannequin_skin</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить скин маникена\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает скин маникена.\
+**Работает с:**\
+&nbsp;&nbsp;Маникенами
+
+**Пример использования:**
+```ts
+entity::set_mannequin_skin("name_or_uuid", "MOJANG");
+
+//Или в сухую по ключам
+
+entity::set_mannequin_skin(name_or_uuid="name_or_uuid", server_type="MOJANG");
+```
+
+**Аргументы:**
+
+| ID           | Тип                                                              | Описание           |
+|--------------|------------------------------------------------------------------|--------------------|
+| name_or_uuid | Текст                                                            | Имя или UUID скина |
+| server_type  | Маркер<br/>**MOJANG** - Скин Mojang<br/>**SERVER** - Скин JustMC | Тип сервера скинов |
+
+<h3 id=entity_set_mannequin_skin_model>
+  <code>entity::set_mannequin_skin_model</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить тип модели маникена\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает тип модели скина маникена\
+**Работает с:**\
+&nbsp;&nbsp;Маникенами
+
+**Пример использования:**
+```ts
+entity::set_mannequin_skin_model("CLASSIC");
+
+//Или в сухую по ключам
+
+entity::set_mannequin_skin_model(model="CLASSIC");
+```
+
+**Аргументы:**
+
+| ID    | Тип                                                                                                     | Описание   |
+|-------|---------------------------------------------------------------------------------------------------------|------------|
+| model | Маркер<br/>**CLASSIC** - Классическая (Стив)<br/>**SLIM** - Тонкая (Алекс)<br/>**UNSET** - По умолчанию | Тип модели |
+
+<h3 id=entity_set_mannequin_skin_parts>
+  <code>entity::set_mannequin_skin_parts</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить слои скина маникена\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает отображение слоев скина маникена.\
+**Работает с:**\
+&nbsp;&nbsp;Маникенами
+
+**Пример использования:**
+```ts
+entity::set_mannequin_skin_parts("TRUE", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE");
+
+//Или в сухую по ключам
+
+entity::set_mannequin_skin_parts(hat="TRUE", jacket="TRUE", left_sleeve="TRUE", right_sleeve="TRUE", left_pants="TRUE", right_pants="TRUE", cape="TRUE");
+```
+
+**Аргументы:**
+
+| ID           | Тип                                                                                           | Описание    |
+|--------------|-----------------------------------------------------------------------------------------------|-------------|
+| hat          | Маркер<br/>**TRUE** - Отображать<br/>**FALSE** - Не отображать<br/>**NOT_SET** - По умолчанию | Голова      |
+| jacket       | Маркер<br/>**TRUE** - Отображать<br/>**FALSE** - Не отображать<br/>**NOT_SET** - По умолчанию | Туловище    |
+| left_sleeve  | Маркер<br/>**TRUE** - Отображать<br/>**FALSE** - Не отображать<br/>**NOT_SET** - По умолчанию | Левая рука  |
+| right_sleeve | Маркер<br/>**TRUE** - Отображать<br/>**FALSE** - Не отображать<br/>**NOT_SET** - По умолчанию | Правая рука |
+| left_pants   | Маркер<br/>**TRUE** - Отображать<br/>**FALSE** - Не отображать<br/>**NOT_SET** - По умолчанию | Левая нога  |
+| right_pants  | Маркер<br/>**TRUE** - Отображать<br/>**FALSE** - Не отображать<br/>**NOT_SET** - По умолчанию | Правая нога |
+| cape         | Маркер<br/>**TRUE** - Отображать<br/>**FALSE** - Не отображать<br/>**NOT_SET** - По умолчанию | Плащ        |
+
+<h3 id=entity_set_mannequin_skin_patch>
+  <code>entity::set_mannequin_skin_patch</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить текстуру части маникена\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает текстуру для указанной части маникена.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Если не указать аргумент "Ключ текстуры", будет применена текстура по умолчанию.\
+**Работает с:**\
+&nbsp;&nbsp;Маникенами
+
+**Пример использования:**
+```ts
+entity::set_mannequin_skin_patch("texture_key", "BODY");
+
+//Или в сухую по ключам
+
+entity::set_mannequin_skin_patch(texture_key="texture_key", patch_target="BODY");
+```
+
+**Аргументы:**
+
+| ID           | Тип                                                                    | Описание       |
+|--------------|------------------------------------------------------------------------|----------------|
+| texture_key  | Текст                                                                  | Ключ текстуры  |
+| patch_target | Маркер<br/>**BODY** - Тело<br/>**CAPE** - Плащ<br/>**ELYTRA** - Элитры | Часть маникена |
+
 <h3 id=entity_set_marker>
   <code>entity::set_marker</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4922,6 +5226,66 @@ entity::set_warden_digging(digging="DIG_DOWN");
 |---------|------------------------------------------------------------------|-------------------|
 | digging | Маркер<br/>**DIG_DOWN** - Закапывание<br/>**EMERGE** - Появление | Состояние копания |
 
+<h3 id=entity_set_waypoint_color>
+  <code>entity::set_waypoint_color</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить цвет значка на локаторе\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает сущности цвет значка, отображаемого на локаторе.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Для работы действия, игровое значение "Видимость локатора" должно быть включено.\
+**Работает с:**\
+&nbsp;&nbsp;Мобами
+
+**Пример использования:**
+```ts
+entity::set_waypoint_color(1, 2, 3);
+
+//Или в сухую по ключам
+
+entity::set_waypoint_color(red=1, green=2, blue=3);
+```
+
+**Аргументы:**
+
+| ID    | Тип   | Описание        |
+|-------|-------|-----------------|
+| red   | Число | Красный (0-255) |
+| green | Число | Зелёный (0-255) |
+| blue  | Число | Синий (0-255)   |
+
+<h3 id=entity_set_waypoint_style>
+  <code>entity::set_waypoint_style</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить стиль значка на локаторе\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает сущности стиль значка, отображаемого на локаторе.\
+**Дополнительная информация:**\
+&nbsp;&nbsp;Для работы действия, игровое значение "Видимость локатора" должно быть включено.\
+&nbsp;&nbsp;По умолчанию в игре есть два стиля для значка: "minecraft:default" и "minecraft:bowtie".\
+&nbsp;&nbsp;Оставьте аргумент "Ключ стиля" пустым, чтобы вернуть значение по умолчанию.\
+**Работает с:**\
+&nbsp;&nbsp;Мобами
+
+**Пример использования:**
+```ts
+entity::set_waypoint_style("style");
+
+//Или в сухую по ключам
+
+entity::set_waypoint_style(style="style");
+```
+
+**Аргументы:**
+
+| ID    | Тип   | Описание   |
+|-------|-------|------------|
+| style | Текст | Ключ стиля |
+
 <h3 id=entity_set_wearing_saddle>
   <code>entity::set_wearing_saddle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5053,6 +5417,32 @@ entity::set_zombie_arms_raised(arms_raised="FALSE");
 | ID          | Тип                                                      | Описание     |
 |-------------|----------------------------------------------------------|--------------|
 | arms_raised | Маркер<br/>**FALSE** - Выключить<br/>**TRUE** - Включить | Поднятие рук |
+
+<h3 id=entity_set_zombie_nautilus_variant>
+  <code>entity::set_zombie_nautilus_variant</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить тип зомби-наутилуса\
+**Тип:** Действие без значения\
+**Описание:** Устанавливает тип зомби-наутилуса.\
+**Работает с:**\
+&nbsp;&nbsp;Зомби-наутилусами
+
+**Пример использования:**
+```ts
+entity::set_zombie_nautilus_variant("TEMPERATE");
+
+//Или в сухую по ключам
+
+entity::set_zombie_nautilus_variant(variant="TEMPERATE");
+```
+
+**Аргументы:**
+
+| ID      | Тип                                                        | Описание            |
+|---------|------------------------------------------------------------|---------------------|
+| variant | Маркер<br/>**TEMPERATE** - Умеренный<br/>**WARM** - Тёплый | Тип зомби-наутилуса |
 
 <h3 id=entity_shear>
   <code>entity::shear</code>

@@ -414,7 +414,7 @@
     "treasureOnly": false,
     "curse": false,
     "exclude": [],
-    "category": "sword",
+    "category": "melee_weapon",
     "weight": 5,
     "tradeable": true,
     "discoverable": true
@@ -435,7 +435,7 @@
     "treasureOnly": false,
     "curse": false,
     "exclude": [],
-    "category": "sword",
+    "category": "melee_weapon",
     "weight": 2,
     "tradeable": true,
     "discoverable": true
@@ -486,6 +486,27 @@
   },
   {
     "id": 21,
+    "name": "lunge",
+    "displayName": "Lunge",
+    "maxLevel": 3,
+    "minCost": {
+      "a": 2,
+      "b": 1
+    },
+    "maxCost": {
+      "a": 2,
+      "b": 1
+    },
+    "treasureOnly": false,
+    "curse": false,
+    "exclude": [],
+    "category": "lunge",
+    "weight": 5,
+    "tradeable": true,
+    "discoverable": true
+  },
+  {
+    "id": 22,
     "name": "lure",
     "displayName": "Lure",
     "maxLevel": 3,
@@ -506,7 +527,7 @@
     "discoverable": true
   },
   {
-    "id": 22,
+    "id": 23,
     "name": "mending",
     "displayName": "Mending",
     "maxLevel": 1,
@@ -529,7 +550,7 @@
     "discoverable": true
   },
   {
-    "id": 23,
+    "id": 24,
     "name": "multishot",
     "displayName": "Multishot",
     "maxLevel": 1,
@@ -552,7 +573,7 @@
     "discoverable": true
   },
   {
-    "id": 24,
+    "id": 25,
     "name": "piercing",
     "displayName": "Piercing",
     "maxLevel": 4,
@@ -575,7 +596,7 @@
     "discoverable": true
   },
   {
-    "id": 25,
+    "id": 26,
     "name": "power",
     "displayName": "Power",
     "maxLevel": 5,
@@ -596,7 +617,7 @@
     "discoverable": true
   },
   {
-    "id": 26,
+    "id": 27,
     "name": "projectile_protection",
     "displayName": "Projectile Protection",
     "maxLevel": 4,
@@ -621,7 +642,7 @@
     "discoverable": true
   },
   {
-    "id": 27,
+    "id": 28,
     "name": "protection",
     "displayName": "Protection",
     "maxLevel": 4,
@@ -646,7 +667,7 @@
     "discoverable": true
   },
   {
-    "id": 28,
+    "id": 29,
     "name": "punch",
     "displayName": "Punch",
     "maxLevel": 2,
@@ -667,7 +688,7 @@
     "discoverable": true
   },
   {
-    "id": 29,
+    "id": 30,
     "name": "quick_charge",
     "displayName": "Quick Charge",
     "maxLevel": 3,
@@ -688,7 +709,7 @@
     "discoverable": true
   },
   {
-    "id": 30,
+    "id": 31,
     "name": "respiration",
     "displayName": "Respiration",
     "maxLevel": 3,
@@ -709,7 +730,7 @@
     "discoverable": true
   },
   {
-    "id": 31,
+    "id": 32,
     "name": "riptide",
     "displayName": "Riptide",
     "maxLevel": 3,
@@ -733,7 +754,7 @@
     "discoverable": true
   },
   {
-    "id": 32,
+    "id": 33,
     "name": "sharpness",
     "displayName": "Sharpness",
     "maxLevel": 5,
@@ -760,7 +781,7 @@
     "discoverable": true
   },
   {
-    "id": 33,
+    "id": 34,
     "name": "silk_touch",
     "displayName": "Silk Touch",
     "maxLevel": 1,
@@ -783,7 +804,7 @@
     "discoverable": true
   },
   {
-    "id": 34,
+    "id": 35,
     "name": "smite",
     "displayName": "Smite",
     "maxLevel": 5,
@@ -810,7 +831,7 @@
     "discoverable": true
   },
   {
-    "id": 35,
+    "id": 36,
     "name": "soul_speed",
     "displayName": "Soul Speed",
     "maxLevel": 3,
@@ -831,7 +852,7 @@
     "discoverable": false
   },
   {
-    "id": 36,
+    "id": 37,
     "name": "sweeping_edge",
     "displayName": "Sweeping Edge",
     "maxLevel": 3,
@@ -846,13 +867,13 @@
     "treasureOnly": false,
     "curse": false,
     "exclude": [],
-    "category": "sword",
+    "category": "sweeping",
     "weight": 2,
     "tradeable": true,
     "discoverable": true
   },
   {
-    "id": 37,
+    "id": 38,
     "name": "swift_sneak",
     "displayName": "Swift Sneak",
     "maxLevel": 3,
@@ -873,7 +894,7 @@
     "discoverable": false
   },
   {
-    "id": 38,
+    "id": 39,
     "name": "thorns",
     "displayName": "Thorns",
     "maxLevel": 3,
@@ -894,7 +915,7 @@
     "discoverable": true
   },
   {
-    "id": 39,
+    "id": 40,
     "name": "unbreaking",
     "displayName": "Unbreaking",
     "maxLevel": 3,
@@ -915,7 +936,7 @@
     "discoverable": true
   },
   {
-    "id": 40,
+    "id": 41,
     "name": "vanishing_curse",
     "displayName": "Curse of Vanishing",
     "maxLevel": 1,
@@ -936,7 +957,7 @@
     "discoverable": true
   },
   {
-    "id": 41,
+    "id": 42,
     "name": "wind_burst",
     "displayName": "Wind Burst",
     "maxLevel": 3,

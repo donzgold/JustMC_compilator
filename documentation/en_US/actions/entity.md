@@ -974,6 +974,22 @@ entity::reset_display_brightness();
 entity::reset_display_glow_color();
 ```
 
+<h3 id=entity_reset_mannequin_description>
+  <code>entity::reset_mannequin_description</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_reset_mannequin_description.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_reset_mannequin_description.description\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_reset_mannequin_description.work_with.mannequin
+
+**Usage example:**
+```ts
+entity::reset_mannequin_description();
+```
+
 <h3 id=entity_reset_text_display_background>
   <code>entity::reset_text_display_background</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -988,6 +1004,24 @@ entity::reset_display_glow_color();
 **Usage example:**
 ```ts
 entity::reset_text_display_background();
+```
+
+<h3 id=entity_reset_waypoint_color>
+  <code>entity::reset_waypoint_color</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_reset_waypoint_color.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_reset_waypoint_color.description\
+**Additional info:**\
+&nbsp;&nbsp;creative_plus.action.entity_reset_waypoint_color.additional_information.needs_enabled_gamerule_location_bar\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_reset_waypoint_color.work_with.living_entity
+
+**Usage example:**
+```ts
+entity::reset_waypoint_color();
 ```
 
 <h3 id=entity_retrieve_fishing_hook>
@@ -1725,6 +1759,84 @@ entity::set_collidable(collidable="FALSE");
 | ID         | Type                                                                                                 | Description    |
 |------------|------------------------------------------------------------------------------------------------------|----------------|
 | collidable | Marker<br/>**FALSE** - Does not collide with other creatures<br/>**TRUE** - Collides other creatures | Collision Mode |
+
+<h3 id=entity_set_copper_golem_oxidizing>
+  <code>entity::set_copper_golem_oxidizing</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_copper_golem_oxidizing.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_copper_golem_oxidizing.description\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_copper_golem_oxidizing.work_with.copper_golem
+
+**Usage example:**
+```ts
+entity::set_copper_golem_oxidizing("WAXED");
+
+//Or dry by keywords
+
+entity::set_copper_golem_oxidizing(oxidizing_state="WAXED");
+```
+
+**Arguments:**
+
+| ID              | Type                                                                                                                                                                                                                                   | Description                                                                          |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| oxidizing_state | Marker<br/>**WAXED** - creative_plus.action.entity_set_copper_golem_oxidizing.argument.oxidizing_state.enum.waxed.name<br/>**UNSET** - creative_plus.action.entity_set_copper_golem_oxidizing.argument.oxidizing_state.enum.unset.name | creative_plus.action.entity_set_copper_golem_oxidizing.argument.oxidizing_state.name |
+
+<h3 id=entity_set_copper_golem_oxidizing_at_time>
+  <code>entity::set_copper_golem_oxidizing_at_time</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_copper_golem_oxidizing_at_time.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_copper_golem_oxidizing_at_time.description\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_copper_golem_oxidizing_at_time.work_with.copper_golem
+
+**Usage example:**
+```ts
+entity::set_copper_golem_oxidizing_at_time(1);
+
+//Or dry by keywords
+
+entity::set_copper_golem_oxidizing_at_time(time=1);
+```
+
+**Arguments:**
+
+| ID   | Type   | Description                                                                       |
+|------|--------|-----------------------------------------------------------------------------------|
+| time | Number | creative_plus.action.entity_set_copper_golem_oxidizing_at_time.argument.time.name |
+
+<h3 id=entity_set_copper_golem_weathering>
+  <code>entity::set_copper_golem_weathering</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_copper_golem_weathering.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_copper_golem_weathering.description\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_copper_golem_weathering.work_with.copper_golem
+
+**Usage example:**
+```ts
+entity::set_copper_golem_weathering(1);
+
+//Or dry by keywords
+
+entity::set_copper_golem_weathering(weathering_state=1);
+```
+
+**Arguments:**
+
+| ID               | Type   | Description                                                                            |
+|------------------|--------|----------------------------------------------------------------------------------------|
+| weathering_state | Number | creative_plus.action.entity_set_copper_golem_weathering.argument.weathering_state.name |
 
 <h3 id=entity_set_cow_type>
   <code>entity::set_cow_type</code>
@@ -3370,6 +3482,198 @@ entity::set_location(velocity=vector(0,0,0), increment="FALSE");
 | velocity  | Vector                                                 | Motion Vector            |
 | increment | Marker<br/>**FALSE** - Disabled<br/>**TRUE** - Enabled | Consider current inertia |
 
+<h3 id=entity_set_mannequin_description>
+  <code>entity::set_mannequin_description</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_mannequin_description.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_mannequin_description.description\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_mannequin_description.work_with.mannequin
+
+**Usage example:**
+```ts
+entity::set_mannequin_description("description");
+
+//Or dry by keywords
+
+entity::set_mannequin_description(description="description");
+```
+
+**Arguments:**
+
+| ID          | Type | Description                                                                     |
+|-------------|------|---------------------------------------------------------------------------------|
+| description | Text | creative_plus.action.entity_set_mannequin_description.argument.description.name |
+
+<h3 id=entity_set_mannequin_immovable>
+  <code>entity::set_mannequin_immovable</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_mannequin_immovable.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_mannequin_immovable.description\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_mannequin_immovable.work_with.mannequin
+
+**Usage example:**
+```ts
+entity::set_mannequin_immovable("TRUE");
+
+//Or dry by keywords
+
+entity::set_mannequin_immovable(immovable="TRUE");
+```
+
+**Arguments:**
+
+| ID        | Type                                                                                                                                                                                                               | Description                                                                 |
+|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| immovable | Marker<br/>**TRUE** - creative_plus.action.entity_set_mannequin_immovable.argument.immovable.enum.true.name<br/>**FALSE** - creative_plus.action.entity_set_mannequin_immovable.argument.immovable.enum.false.name | creative_plus.action.entity_set_mannequin_immovable.argument.immovable.name |
+
+<h3 id=entity_set_mannequin_main_hand>
+  <code>entity::set_mannequin_main_hand</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_mannequin_main_hand.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_mannequin_main_hand.description\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_mannequin_main_hand.work_with.mannequin
+
+**Usage example:**
+```ts
+entity::set_mannequin_main_hand("RIGHT");
+
+//Or dry by keywords
+
+entity::set_mannequin_main_hand(hand="RIGHT");
+```
+
+**Arguments:**
+
+| ID   | Type                                                                                                                                                                                                     | Description                                                            |
+|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| hand | Marker<br/>**RIGHT** - creative_plus.action.entity_set_mannequin_main_hand.argument.hand.enum.right.name<br/>**LEFT** - creative_plus.action.entity_set_mannequin_main_hand.argument.hand.enum.left.name | creative_plus.action.entity_set_mannequin_main_hand.argument.hand.name |
+
+<h3 id=entity_set_mannequin_skin>
+  <code>entity::set_mannequin_skin</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_mannequin_skin.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_mannequin_skin.description\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_mannequin_skin.work_with.mannequin
+
+**Usage example:**
+```ts
+entity::set_mannequin_skin("name_or_uuid", "MOJANG");
+
+//Or dry by keywords
+
+entity::set_mannequin_skin(name_or_uuid="name_or_uuid", server_type="MOJANG");
+```
+
+**Arguments:**
+
+| ID           | Type                                                                                                                                                                                                               | Description                                                               |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| name_or_uuid | Text                                                                                                                                                                                                               | creative_plus.action.entity_set_mannequin_skin.argument.name_or_uuid.name |
+| server_type  | Marker<br/>**MOJANG** - creative_plus.action.entity_set_mannequin_skin.argument.server_type.enum.mojang.name<br/>**SERVER** - creative_plus.action.entity_set_mannequin_skin.argument.server_type.enum.server.name | creative_plus.action.entity_set_mannequin_skin.argument.server_type.name  |
+
+<h3 id=entity_set_mannequin_skin_model>
+  <code>entity::set_mannequin_skin_model</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_mannequin_skin_model.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_mannequin_skin_model.description\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_mannequin_skin_model.work_with.mannequin
+
+**Usage example:**
+```ts
+entity::set_mannequin_skin_model("CLASSIC");
+
+//Or dry by keywords
+
+entity::set_mannequin_skin_model(model="CLASSIC");
+```
+
+**Arguments:**
+
+| ID    | Type                                                                                                                                                                                                                                                                                                                 | Description                                                              |
+|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| model | Marker<br/>**CLASSIC** - creative_plus.action.entity_set_mannequin_skin_model.argument.model.enum.classic.name<br/>**SLIM** - creative_plus.action.entity_set_mannequin_skin_model.argument.model.enum.slim.name<br/>**UNSET** - creative_plus.action.entity_set_mannequin_skin_model.argument.model.enum.unset.name | creative_plus.action.entity_set_mannequin_skin_model.argument.model.name |
+
+<h3 id=entity_set_mannequin_skin_parts>
+  <code>entity::set_mannequin_skin_parts</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_mannequin_skin_parts.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_mannequin_skin_parts.description\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_mannequin_skin_parts.work_with.mannequin
+
+**Usage example:**
+```ts
+entity::set_mannequin_skin_parts("TRUE", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE", "TRUE");
+
+//Or dry by keywords
+
+entity::set_mannequin_skin_parts(hat="TRUE", jacket="TRUE", left_sleeve="TRUE", right_sleeve="TRUE", left_pants="TRUE", right_pants="TRUE", cape="TRUE");
+```
+
+**Arguments:**
+
+| ID           | Type                                                                                                                                                                                                                                                                                                                                      | Description                                                                     |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| hat          | Marker<br/>**TRUE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.hat.enum.true.name<br/>**FALSE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.hat.enum.false.name<br/>**NOT_SET** - creative_plus.action.entity_set_mannequin_skin_parts.argument.hat.enum.not_set.name                            | creative_plus.action.entity_set_mannequin_skin_parts.argument.hat.name          |
+| jacket       | Marker<br/>**TRUE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.jacket.enum.true.name<br/>**FALSE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.jacket.enum.false.name<br/>**NOT_SET** - creative_plus.action.entity_set_mannequin_skin_parts.argument.jacket.enum.not_set.name                   | creative_plus.action.entity_set_mannequin_skin_parts.argument.jacket.name       |
+| left_sleeve  | Marker<br/>**TRUE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.left_sleeve.enum.true.name<br/>**FALSE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.left_sleeve.enum.false.name<br/>**NOT_SET** - creative_plus.action.entity_set_mannequin_skin_parts.argument.left_sleeve.enum.not_set.name    | creative_plus.action.entity_set_mannequin_skin_parts.argument.left_sleeve.name  |
+| right_sleeve | Marker<br/>**TRUE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.right_sleeve.enum.true.name<br/>**FALSE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.right_sleeve.enum.false.name<br/>**NOT_SET** - creative_plus.action.entity_set_mannequin_skin_parts.argument.right_sleeve.enum.not_set.name | creative_plus.action.entity_set_mannequin_skin_parts.argument.right_sleeve.name |
+| left_pants   | Marker<br/>**TRUE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.left_pants.enum.true.name<br/>**FALSE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.left_pants.enum.false.name<br/>**NOT_SET** - creative_plus.action.entity_set_mannequin_skin_parts.argument.left_pants.enum.not_set.name       | creative_plus.action.entity_set_mannequin_skin_parts.argument.left_pants.name   |
+| right_pants  | Marker<br/>**TRUE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.right_pants.enum.true.name<br/>**FALSE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.right_pants.enum.false.name<br/>**NOT_SET** - creative_plus.action.entity_set_mannequin_skin_parts.argument.right_pants.enum.not_set.name    | creative_plus.action.entity_set_mannequin_skin_parts.argument.right_pants.name  |
+| cape         | Marker<br/>**TRUE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.cape.enum.true.name<br/>**FALSE** - creative_plus.action.entity_set_mannequin_skin_parts.argument.cape.enum.false.name<br/>**NOT_SET** - creative_plus.action.entity_set_mannequin_skin_parts.argument.cape.enum.not_set.name                         | creative_plus.action.entity_set_mannequin_skin_parts.argument.cape.name         |
+
+<h3 id=entity_set_mannequin_skin_patch>
+  <code>entity::set_mannequin_skin_patch</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_mannequin_skin_patch.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_mannequin_skin_patch.description\
+**Additional info:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_mannequin_skin_patch.additional_information.empty_key_to_unset\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_mannequin_skin_patch.work_with.mannequin
+
+**Usage example:**
+```ts
+entity::set_mannequin_skin_patch("texture_key", "BODY");
+
+//Or dry by keywords
+
+entity::set_mannequin_skin_patch(texture_key="texture_key", patch_target="BODY");
+```
+
+**Arguments:**
+
+| ID           | Type                                                                                                                                                                                                                                                                                                                                  | Description                                                                     |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| texture_key  | Text                                                                                                                                                                                                                                                                                                                                  | creative_plus.action.entity_set_mannequin_skin_patch.argument.texture_key.name  |
+| patch_target | Marker<br/>**BODY** - creative_plus.action.entity_set_mannequin_skin_patch.argument.patch_target.enum.body.name<br/>**CAPE** - creative_plus.action.entity_set_mannequin_skin_patch.argument.patch_target.enum.cape.name<br/>**ELYTRA** - creative_plus.action.entity_set_mannequin_skin_patch.argument.patch_target.enum.elytra.name | creative_plus.action.entity_set_mannequin_skin_patch.argument.patch_target.name |
+
 <h3 id=entity_set_marker>
   <code>entity::set_marker</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -4922,6 +5226,66 @@ entity::set_warden_digging(digging="DIG_DOWN");
 |---------|----------------------------------------------------------|--------------|
 | digging | Marker<br/>**DIG_DOWN** - Burrow<br/>**EMERGE** - Emerge | Digging Type |
 
+<h3 id=entity_set_waypoint_color>
+  <code>entity::set_waypoint_color</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_waypoint_color.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_waypoint_color.description\
+**Additional info:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_waypoint_color.additional_information.needs_enabled_gamerule_location_bar\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_waypoint_color.work_with.living_entity
+
+**Usage example:**
+```ts
+entity::set_waypoint_color(1, 2, 3);
+
+//Or dry by keywords
+
+entity::set_waypoint_color(red=1, green=2, blue=3);
+```
+
+**Arguments:**
+
+| ID    | Type   | Description                                                        |
+|-------|--------|--------------------------------------------------------------------|
+| red   | Number | creative_plus.action.entity_set_waypoint_color.argument.red.name   |
+| green | Number | creative_plus.action.entity_set_waypoint_color.argument.green.name |
+| blue  | Number | creative_plus.action.entity_set_waypoint_color.argument.blue.name  |
+
+<h3 id=entity_set_waypoint_style>
+  <code>entity::set_waypoint_style</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_waypoint_style.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_waypoint_style.description\
+**Additional info:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_waypoint_style.additional_information.needs_enabled_gamerule_location_bar\
+&nbsp;&nbsp;creative_plus.action.entity_set_waypoint_style.additional_information.exist_build_in_vanilla_keys\
+&nbsp;&nbsp;creative_plus.action.entity_set_waypoint_style.additional_information.empty_to_reset\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_waypoint_style.work_with.living_entity
+
+**Usage example:**
+```ts
+entity::set_waypoint_style("style");
+
+//Or dry by keywords
+
+entity::set_waypoint_style(style="style");
+```
+
+**Arguments:**
+
+| ID    | Type | Description                                                        |
+|-------|------|--------------------------------------------------------------------|
+| style | Text | creative_plus.action.entity_set_waypoint_style.argument.style.name |
+
 <h3 id=entity_set_wearing_saddle>
   <code>entity::set_wearing_saddle</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -5053,6 +5417,32 @@ entity::set_zombie_arms_raised(arms_raised="FALSE");
 | ID          | Type                                                 | Description |
 |-------------|------------------------------------------------------|-------------|
 | arms_raised | Marker<br/>**FALSE** - Disable<br/>**TRUE** - Enable | Raise Hands |
+
+<h3 id=entity_set_zombie_nautilus_variant>
+  <code>entity::set_zombie_nautilus_variant</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.entity_set_zombie_nautilus_variant.name\
+**Action type:** Action without value\
+**Description:** creative_plus.action.entity_set_zombie_nautilus_variant.description\
+**Work_with:**\
+&nbsp;&nbsp;creative_plus.action.entity_set_zombie_nautilus_variant.work_with.zombie_nautilus
+
+**Usage example:**
+```ts
+entity::set_zombie_nautilus_variant("TEMPERATE");
+
+//Or dry by keywords
+
+entity::set_zombie_nautilus_variant(variant="TEMPERATE");
+```
+
+**Arguments:**
+
+| ID      | Type                                                                                                                                                                                                                           | Description                                                                   |
+|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| variant | Marker<br/>**TEMPERATE** - creative_plus.action.entity_set_zombie_nautilus_variant.argument.variant.enum.temperate.name<br/>**WARM** - creative_plus.action.entity_set_zombie_nautilus_variant.argument.variant.enum.warm.name | creative_plus.action.entity_set_zombie_nautilus_variant.argument.variant.name |
 
 <h3 id=entity_shear>
   <code>entity::shear</code>

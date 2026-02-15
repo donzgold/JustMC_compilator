@@ -149,6 +149,28 @@
       "1"
     ]
   },
+  "acacia_shelf": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "side_chain": [
+      "unconnected",
+      "right",
+      "center",
+      "left"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "acacia_sign": {
     "rotation": [
       "0",
@@ -584,6 +606,28 @@
     ]
   },
   "bamboo_sapling": {},
+  "bamboo_shelf": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "side_chain": [
+      "unconnected",
+      "right",
+      "center",
+      "left"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "bamboo_sign": {
     "rotation": [
       "0",
@@ -955,6 +999,28 @@
     "stage": [
       "0",
       "1"
+    ]
+  },
+  "birch_shelf": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "side_chain": [
+      "unconnected",
+      "right",
+      "center",
+      "left"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
     ]
   },
   "birch_sign": {
@@ -1830,17 +1896,6 @@
       "true"
     ]
   },
-  "chain": {
-    "axis": [
-      "x",
-      "y",
-      "z"
-    ],
-    "waterlogged": [
-      "false",
-      "true"
-    ]
-  },
   "chain_command_block": {
     "conditional": [
       "false",
@@ -2003,6 +2058,28 @@
     "stage": [
       "0",
       "1"
+    ]
+  },
+  "cherry_shelf": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "side_chain": [
+      "unconnected",
+      "right",
+      "center",
+      "left"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
     ]
   },
   "cherry_sign": {
@@ -2420,6 +2497,28 @@
       "true"
     ]
   },
+  "copper_bars": {
+    "east": [
+      "false",
+      "true"
+    ],
+    "north": [
+      "false",
+      "true"
+    ],
+    "south": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ],
+    "west": [
+      "false",
+      "true"
+    ]
+  },
   "copper_block": {},
   "copper_bulb": {
     "lit": [
@@ -2427,6 +2526,34 @@
       "true"
     ],
     "powered": [
+      "false",
+      "true"
+    ]
+  },
+  "copper_chain": {
+    "axis": [
+      "x",
+      "y",
+      "z"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "copper_chest": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "type": [
+      "single",
+      "left",
+      "right"
+    ],
+    "waterlogged": [
       "false",
       "true"
     ]
@@ -2455,13 +2582,42 @@
       "true"
     ]
   },
+  "copper_golem_statue": {
+    "copper_golem_pose": [
+      "standing",
+      "sitting",
+      "running",
+      "star"
+    ],
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "copper_grate": {
     "waterlogged": [
       "false",
       "true"
     ]
   },
+  "copper_lantern": {
+    "hanging": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "copper_ore": {},
+  "copper_torch": {},
   "copper_trapdoor": {
     "facing": [
       "north",
@@ -2484,6 +2640,14 @@
     "waterlogged": [
       "false",
       "true"
+    ]
+  },
+  "copper_wall_torch": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
     ]
   },
   "cornflower": {},
@@ -2697,6 +2861,28 @@
     ]
   },
   "crimson_roots": {},
+  "crimson_shelf": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "side_chain": [
+      "unconnected",
+      "right",
+      "center",
+      "left"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "crimson_sign": {
     "rotation": [
       "0",
@@ -3139,6 +3325,28 @@
     "stage": [
       "0",
       "1"
+    ]
+  },
+  "dark_oak_shelf": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "side_chain": [
+      "unconnected",
+      "right",
+      "center",
+      "left"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
     ]
   },
   "dark_oak_sign": {
@@ -3884,12 +4092,62 @@
   },
   "exposed_chiseled_copper": {},
   "exposed_copper": {},
+  "exposed_copper_bars": {
+    "east": [
+      "false",
+      "true"
+    ],
+    "north": [
+      "false",
+      "true"
+    ],
+    "south": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ],
+    "west": [
+      "false",
+      "true"
+    ]
+  },
   "exposed_copper_bulb": {
     "lit": [
       "false",
       "true"
     ],
     "powered": [
+      "false",
+      "true"
+    ]
+  },
+  "exposed_copper_chain": {
+    "axis": [
+      "x",
+      "y",
+      "z"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "exposed_copper_chest": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "type": [
+      "single",
+      "left",
+      "right"
+    ],
+    "waterlogged": [
       "false",
       "true"
     ]
@@ -3918,7 +4176,35 @@
       "true"
     ]
   },
+  "exposed_copper_golem_statue": {
+    "copper_golem_pose": [
+      "standing",
+      "sitting",
+      "running",
+      "star"
+    ],
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "exposed_copper_grate": {
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "exposed_copper_lantern": {
+    "hanging": [
+      "false",
+      "true"
+    ],
     "waterlogged": [
       "false",
       "true"
@@ -3977,6 +4263,24 @@
       "inner_right",
       "outer_left",
       "outer_right"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "exposed_lightning_rod": {
+    "facing": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+    ],
+    "powered": [
+      "false",
+      "true"
     ],
     "waterlogged": [
       "false",
@@ -4587,6 +4891,17 @@
     ]
   },
   "iron_block": {},
+  "iron_chain": {
+    "axis": [
+      "x",
+      "y",
+      "z"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "iron_door": {
     "facing": [
       "north",
@@ -4814,6 +5129,28 @@
     "stage": [
       "0",
       "1"
+    ]
+  },
+  "jungle_shelf": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "side_chain": [
+      "unconnected",
+      "right",
+      "center",
+      "left"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
     ]
   },
   "jungle_sign": {
@@ -5771,6 +6108,28 @@
       "true"
     ]
   },
+  "mangrove_shelf": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "side_chain": [
+      "unconnected",
+      "right",
+      "center",
+      "left"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "mangrove_sign": {
     "rotation": [
       "0",
@@ -6477,6 +6836,28 @@
       "1"
     ]
   },
+  "oak_shelf": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "side_chain": [
+      "unconnected",
+      "right",
+      "center",
+      "left"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "oak_sign": {
     "rotation": [
       "0",
@@ -6729,12 +7110,62 @@
   "oxeye_daisy": {},
   "oxidized_chiseled_copper": {},
   "oxidized_copper": {},
+  "oxidized_copper_bars": {
+    "east": [
+      "false",
+      "true"
+    ],
+    "north": [
+      "false",
+      "true"
+    ],
+    "south": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ],
+    "west": [
+      "false",
+      "true"
+    ]
+  },
   "oxidized_copper_bulb": {
     "lit": [
       "false",
       "true"
     ],
     "powered": [
+      "false",
+      "true"
+    ]
+  },
+  "oxidized_copper_chain": {
+    "axis": [
+      "x",
+      "y",
+      "z"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "oxidized_copper_chest": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "type": [
+      "single",
+      "left",
+      "right"
+    ],
+    "waterlogged": [
       "false",
       "true"
     ]
@@ -6763,7 +7194,35 @@
       "true"
     ]
   },
+  "oxidized_copper_golem_statue": {
+    "copper_golem_pose": [
+      "standing",
+      "sitting",
+      "running",
+      "star"
+    ],
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "oxidized_copper_grate": {
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "oxidized_copper_lantern": {
+    "hanging": [
+      "false",
+      "true"
+    ],
     "waterlogged": [
       "false",
       "true"
@@ -6822,6 +7281,24 @@
       "inner_right",
       "outer_left",
       "outer_right"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "oxidized_lightning_rod": {
+    "facing": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+    ],
+    "powered": [
+      "false",
+      "true"
     ],
     "waterlogged": [
       "false",
@@ -7011,6 +7488,28 @@
     "stage": [
       "0",
       "1"
+    ]
+  },
+  "pale_oak_shelf": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "side_chain": [
+      "unconnected",
+      "right",
+      "center",
+      "left"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
     ]
   },
   "pale_oak_sign": {
@@ -9322,6 +9821,28 @@
       "1"
     ]
   },
+  "spruce_shelf": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "side_chain": [
+      "unconnected",
+      "right",
+      "center",
+      "left"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "spruce_sign": {
     "rotation": [
       "0",
@@ -10318,6 +10839,28 @@
     ]
   },
   "warped_roots": {},
+  "warped_shelf": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "side_chain": [
+      "unconnected",
+      "right",
+      "center",
+      "left"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "warped_sign": {
     "rotation": [
       "0",
@@ -10460,6 +11003,28 @@
     ]
   },
   "waxed_chiseled_copper": {},
+  "waxed_copper_bars": {
+    "east": [
+      "false",
+      "true"
+    ],
+    "north": [
+      "false",
+      "true"
+    ],
+    "south": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ],
+    "west": [
+      "false",
+      "true"
+    ]
+  },
   "waxed_copper_block": {},
   "waxed_copper_bulb": {
     "lit": [
@@ -10467,6 +11032,34 @@
       "true"
     ],
     "powered": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_copper_chain": {
+    "axis": [
+      "x",
+      "y",
+      "z"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_copper_chest": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "type": [
+      "single",
+      "left",
+      "right"
+    ],
+    "waterlogged": [
       "false",
       "true"
     ]
@@ -10495,7 +11088,35 @@
       "true"
     ]
   },
+  "waxed_copper_golem_statue": {
+    "copper_golem_pose": [
+      "standing",
+      "sitting",
+      "running",
+      "star"
+    ],
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "waxed_copper_grate": {
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_copper_lantern": {
+    "hanging": [
+      "false",
+      "true"
+    ],
     "waterlogged": [
       "false",
       "true"
@@ -10562,12 +11183,62 @@
   },
   "waxed_exposed_chiseled_copper": {},
   "waxed_exposed_copper": {},
+  "waxed_exposed_copper_bars": {
+    "east": [
+      "false",
+      "true"
+    ],
+    "north": [
+      "false",
+      "true"
+    ],
+    "south": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ],
+    "west": [
+      "false",
+      "true"
+    ]
+  },
   "waxed_exposed_copper_bulb": {
     "lit": [
       "false",
       "true"
     ],
     "powered": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_exposed_copper_chain": {
+    "axis": [
+      "x",
+      "y",
+      "z"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_exposed_copper_chest": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "type": [
+      "single",
+      "left",
+      "right"
+    ],
+    "waterlogged": [
       "false",
       "true"
     ]
@@ -10596,7 +11267,35 @@
       "true"
     ]
   },
+  "waxed_exposed_copper_golem_statue": {
+    "copper_golem_pose": [
+      "standing",
+      "sitting",
+      "running",
+      "star"
+    ],
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "waxed_exposed_copper_grate": {
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_exposed_copper_lantern": {
+    "hanging": [
+      "false",
+      "true"
+    ],
     "waterlogged": [
       "false",
       "true"
@@ -10661,14 +11360,100 @@
       "true"
     ]
   },
+  "waxed_exposed_lightning_rod": {
+    "facing": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_lightning_rod": {
+    "facing": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "waxed_oxidized_chiseled_copper": {},
   "waxed_oxidized_copper": {},
+  "waxed_oxidized_copper_bars": {
+    "east": [
+      "false",
+      "true"
+    ],
+    "north": [
+      "false",
+      "true"
+    ],
+    "south": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ],
+    "west": [
+      "false",
+      "true"
+    ]
+  },
   "waxed_oxidized_copper_bulb": {
     "lit": [
       "false",
       "true"
     ],
     "powered": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_oxidized_copper_chain": {
+    "axis": [
+      "x",
+      "y",
+      "z"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_oxidized_copper_chest": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "type": [
+      "single",
+      "left",
+      "right"
+    ],
+    "waterlogged": [
       "false",
       "true"
     ]
@@ -10697,7 +11482,35 @@
       "true"
     ]
   },
+  "waxed_oxidized_copper_golem_statue": {
+    "copper_golem_pose": [
+      "standing",
+      "sitting",
+      "running",
+      "star"
+    ],
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "waxed_oxidized_copper_grate": {
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_oxidized_copper_lantern": {
+    "hanging": [
+      "false",
+      "true"
+    ],
     "waterlogged": [
       "false",
       "true"
@@ -10762,14 +11575,82 @@
       "true"
     ]
   },
+  "waxed_oxidized_lightning_rod": {
+    "facing": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "waxed_weathered_chiseled_copper": {},
   "waxed_weathered_copper": {},
+  "waxed_weathered_copper_bars": {
+    "east": [
+      "false",
+      "true"
+    ],
+    "north": [
+      "false",
+      "true"
+    ],
+    "south": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ],
+    "west": [
+      "false",
+      "true"
+    ]
+  },
   "waxed_weathered_copper_bulb": {
     "lit": [
       "false",
       "true"
     ],
     "powered": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_weathered_copper_chain": {
+    "axis": [
+      "x",
+      "y",
+      "z"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_weathered_copper_chest": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "type": [
+      "single",
+      "left",
+      "right"
+    ],
+    "waterlogged": [
       "false",
       "true"
     ]
@@ -10798,7 +11679,35 @@
       "true"
     ]
   },
+  "waxed_weathered_copper_golem_statue": {
+    "copper_golem_pose": [
+      "standing",
+      "sitting",
+      "running",
+      "star"
+    ],
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "waxed_weathered_copper_grate": {
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "waxed_weathered_copper_lantern": {
+    "hanging": [
+      "false",
+      "true"
+    ],
     "waterlogged": [
       "false",
       "true"
@@ -10863,14 +11772,82 @@
       "true"
     ]
   },
+  "waxed_weathered_lightning_rod": {
+    "facing": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+    ],
+    "powered": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "weathered_chiseled_copper": {},
   "weathered_copper": {},
+  "weathered_copper_bars": {
+    "east": [
+      "false",
+      "true"
+    ],
+    "north": [
+      "false",
+      "true"
+    ],
+    "south": [
+      "false",
+      "true"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ],
+    "west": [
+      "false",
+      "true"
+    ]
+  },
   "weathered_copper_bulb": {
     "lit": [
       "false",
       "true"
     ],
     "powered": [
+      "false",
+      "true"
+    ]
+  },
+  "weathered_copper_chain": {
+    "axis": [
+      "x",
+      "y",
+      "z"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "weathered_copper_chest": {
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "type": [
+      "single",
+      "left",
+      "right"
+    ],
+    "waterlogged": [
       "false",
       "true"
     ]
@@ -10899,7 +11876,35 @@
       "true"
     ]
   },
+  "weathered_copper_golem_statue": {
+    "copper_golem_pose": [
+      "standing",
+      "sitting",
+      "running",
+      "star"
+    ],
+    "facing": [
+      "north",
+      "south",
+      "west",
+      "east"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
   "weathered_copper_grate": {
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "weathered_copper_lantern": {
+    "hanging": [
+      "false",
+      "true"
+    ],
     "waterlogged": [
       "false",
       "true"
@@ -10958,6 +11963,24 @@
       "inner_right",
       "outer_left",
       "outer_right"
+    ],
+    "waterlogged": [
+      "false",
+      "true"
+    ]
+  },
+  "weathered_lightning_rod": {
+    "facing": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+    ],
+    "powered": [
+      "false",
+      "true"
     ],
     "waterlogged": [
       "false",

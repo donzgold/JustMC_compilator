@@ -45,22 +45,23 @@ if(player::chat_colors_enabled()){
 
 **Usage example:**
 ```ts
-if(player::chat_message_equals(["chat_messages", "chat_messages"])){
+if(player::chat_message_equals(["chat_messages", "chat_messages"], "TRUE")){
     player::message("Condition is true");
 }
 
 //Or dry by keywords
 
-if(player::chat_message_equals(chat_messages=["chat_messages", "chat_messages"])){
+if(player::chat_message_equals(chat_messages=["chat_messages", "chat_messages"], ignore_case="TRUE")){
     player::message("Condition is true");
 }
 ```
 
 **Arguments:**
 
-| ID            | Type          | Description                                          |
-|---------------|---------------|------------------------------------------------------|
-| chat_messages | Array\[Text\] | Message<br/>The argument supports list decomposition |
+| ID            | Type                                                                                                                                                                                                                 | Description                                                                  |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| chat_messages | Array\[Text\]                                                                                                                                                                                                        | Message<br/>The argument supports list decomposition                         |
+| ignore_case   | Marker<br/>**TRUE** - creative_plus.action.if_player_chat_message_equals.argument.ignore_case.enum.true.name<br/>**FALSE** - creative_plus.action.if_player_chat_message_equals.argument.ignore_case.enum.false.name | creative_plus.action.if_player_chat_message_equals.argument.ignore_case.name |
 
 <h3 id=if_player_collides_at_location>
   <code>player::collides_at_location</code>

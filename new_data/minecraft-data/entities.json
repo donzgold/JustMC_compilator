@@ -333,7 +333,7 @@
       "mob_flags",
       "baby",
       "flags",
-      "remaining_anger_time"
+      "anger_end_time"
     ]
   },
   {
@@ -565,6 +565,38 @@
   {
     "id": 20,
     "internalId": 20,
+    "name": "camel_husk",
+    "displayName": "Camel Husk",
+    "width": 1.7,
+    "height": 2.375,
+    "type": "animal",
+    "category": "Passive mobs",
+    "metadataKeys": [
+      "shared_flags",
+      "air_supply",
+      "custom_name",
+      "custom_name_visible",
+      "silent",
+      "no_gravity",
+      "pose",
+      "ticks_frozen",
+      "living_entity_flags",
+      "health",
+      "effect_particles",
+      "effect_ambience",
+      "arrow_count",
+      "stinger_count",
+      "sleeping_pos",
+      "mob_flags",
+      "baby",
+      "flags",
+      "dash",
+      "last_pose_change_tick"
+    ]
+  },
+  {
+    "id": 21,
+    "internalId": 21,
     "name": "cat",
     "displayName": "Cat",
     "width": 0.6,
@@ -598,8 +630,8 @@
     ]
   },
   {
-    "id": 21,
-    "internalId": 21,
+    "id": 22,
+    "internalId": 22,
     "name": "cave_spider",
     "displayName": "Cave Spider",
     "width": 0.7,
@@ -627,8 +659,8 @@
     ]
   },
   {
-    "id": 22,
-    "internalId": 22,
+    "id": 23,
+    "internalId": 23,
     "name": "cherry_boat",
     "displayName": "Cherry Boat",
     "width": 1.375,
@@ -653,8 +685,8 @@
     ]
   },
   {
-    "id": 23,
-    "internalId": 23,
+    "id": 24,
+    "internalId": 24,
     "name": "cherry_chest_boat",
     "displayName": "Cherry Boat with Chest",
     "width": 1.375,
@@ -679,8 +711,8 @@
     ]
   },
   {
-    "id": 24,
-    "internalId": 24,
+    "id": 25,
+    "internalId": 25,
     "name": "chest_minecart",
     "displayName": "Minecart with Chest",
     "width": 0.98,
@@ -704,8 +736,8 @@
     ]
   },
   {
-    "id": 25,
-    "internalId": 25,
+    "id": 26,
+    "internalId": 26,
     "name": "chicken",
     "displayName": "Chicken",
     "width": 0.4,
@@ -734,13 +766,13 @@
     ]
   },
   {
-    "id": 26,
-    "internalId": 26,
+    "id": 27,
+    "internalId": 27,
     "name": "cod",
     "displayName": "Cod",
     "width": 0.5,
     "height": 0.3,
-    "type": "water_creature",
+    "type": "mob",
     "category": "Passive mobs",
     "metadataKeys": [
       "shared_flags",
@@ -763,8 +795,38 @@
     ]
   },
   {
-    "id": 27,
-    "internalId": 27,
+    "id": 28,
+    "internalId": 28,
+    "name": "copper_golem",
+    "displayName": "Copper Golem",
+    "width": 0.49,
+    "height": 0.98,
+    "type": "mob",
+    "category": "Passive mobs",
+    "metadataKeys": [
+      "shared_flags",
+      "air_supply",
+      "custom_name",
+      "custom_name_visible",
+      "silent",
+      "no_gravity",
+      "pose",
+      "ticks_frozen",
+      "living_entity_flags",
+      "health",
+      "effect_particles",
+      "effect_ambience",
+      "arrow_count",
+      "stinger_count",
+      "sleeping_pos",
+      "mob_flags",
+      "weather_state",
+      "copper_golem_state"
+    ]
+  },
+  {
+    "id": 29,
+    "internalId": 29,
     "name": "command_block_minecart",
     "displayName": "Minecart with Command Block",
     "width": 0.98,
@@ -790,8 +852,8 @@
     ]
   },
   {
-    "id": 28,
-    "internalId": 28,
+    "id": 30,
+    "internalId": 30,
     "name": "cow",
     "displayName": "Cow",
     "width": 0.9,
@@ -820,8 +882,8 @@
     ]
   },
   {
-    "id": 29,
-    "internalId": 29,
+    "id": 31,
+    "internalId": 31,
     "name": "creaking",
     "displayName": "Creaking",
     "width": 0.9,
@@ -852,8 +914,8 @@
     ]
   },
   {
-    "id": 30,
-    "internalId": 30,
+    "id": 32,
+    "internalId": 32,
     "name": "creeper",
     "displayName": "Creeper",
     "width": 0.6,
@@ -883,8 +945,8 @@
     ]
   },
   {
-    "id": 31,
-    "internalId": 31,
+    "id": 33,
+    "internalId": 33,
     "name": "dark_oak_boat",
     "displayName": "Dark Oak Boat",
     "width": 1.375,
@@ -909,8 +971,8 @@
     ]
   },
   {
-    "id": 32,
-    "internalId": 32,
+    "id": 34,
+    "internalId": 34,
     "name": "dark_oak_chest_boat",
     "displayName": "Dark Oak Boat with Chest",
     "width": 1.375,
@@ -935,8 +997,8 @@
     ]
   },
   {
-    "id": 33,
-    "internalId": 33,
+    "id": 35,
+    "internalId": 35,
     "name": "dolphin",
     "displayName": "Dolphin",
     "width": 0.9,
@@ -966,8 +1028,8 @@
     ]
   },
   {
-    "id": 34,
-    "internalId": 34,
+    "id": 36,
+    "internalId": 36,
     "name": "donkey",
     "displayName": "Donkey",
     "width": 1.3964844,
@@ -997,8 +1059,8 @@
     ]
   },
   {
-    "id": 35,
-    "internalId": 35,
+    "id": 37,
+    "internalId": 37,
     "name": "dragon_fireball",
     "displayName": "Dragon Fireball",
     "width": 1,
@@ -1017,8 +1079,8 @@
     ]
   },
   {
-    "id": 36,
-    "internalId": 36,
+    "id": 38,
+    "internalId": 38,
     "name": "drowned",
     "displayName": "Drowned",
     "width": 0.6,
@@ -1048,8 +1110,8 @@
     ]
   },
   {
-    "id": 37,
-    "internalId": 37,
+    "id": 39,
+    "internalId": 39,
     "name": "egg",
     "displayName": "Thrown Egg",
     "width": 0.25,
@@ -1069,8 +1131,8 @@
     ]
   },
   {
-    "id": 38,
-    "internalId": 38,
+    "id": 40,
+    "internalId": 40,
     "name": "elder_guardian",
     "displayName": "Elder Guardian",
     "width": 1.9975,
@@ -1099,8 +1161,8 @@
     ]
   },
   {
-    "id": 39,
-    "internalId": 39,
+    "id": 41,
+    "internalId": 41,
     "name": "enderman",
     "displayName": "Enderman",
     "width": 0.6,
@@ -1130,8 +1192,8 @@
     ]
   },
   {
-    "id": 40,
-    "internalId": 40,
+    "id": 42,
+    "internalId": 42,
     "name": "endermite",
     "displayName": "Endermite",
     "width": 0.4,
@@ -1158,8 +1220,8 @@
     ]
   },
   {
-    "id": 41,
-    "internalId": 41,
+    "id": 43,
+    "internalId": 43,
     "name": "ender_dragon",
     "displayName": "Ender Dragon",
     "width": 16,
@@ -1187,8 +1249,8 @@
     ]
   },
   {
-    "id": 42,
-    "internalId": 42,
+    "id": 44,
+    "internalId": 44,
     "name": "ender_pearl",
     "displayName": "Thrown Ender Pearl",
     "width": 0.25,
@@ -1208,8 +1270,8 @@
     ]
   },
   {
-    "id": 43,
-    "internalId": 43,
+    "id": 45,
+    "internalId": 45,
     "name": "end_crystal",
     "displayName": "End Crystal",
     "width": 2,
@@ -1230,8 +1292,8 @@
     ]
   },
   {
-    "id": 44,
-    "internalId": 44,
+    "id": 46,
+    "internalId": 46,
     "name": "evoker",
     "displayName": "Evoker",
     "width": 0.6,
@@ -1260,8 +1322,8 @@
     ]
   },
   {
-    "id": 45,
-    "internalId": 45,
+    "id": 47,
+    "internalId": 47,
     "name": "evoker_fangs",
     "displayName": "Evoker Fangs",
     "width": 0.5,
@@ -1280,8 +1342,8 @@
     ]
   },
   {
-    "id": 46,
-    "internalId": 46,
+    "id": 48,
+    "internalId": 48,
     "name": "experience_bottle",
     "displayName": "Thrown Bottle o' Enchanting",
     "width": 0.25,
@@ -1301,8 +1363,8 @@
     ]
   },
   {
-    "id": 47,
-    "internalId": 47,
+    "id": 49,
+    "internalId": 49,
     "name": "experience_orb",
     "displayName": "Experience Orb",
     "width": 0.5,
@@ -1322,8 +1384,8 @@
     ]
   },
   {
-    "id": 48,
-    "internalId": 48,
+    "id": 50,
+    "internalId": 50,
     "name": "eye_of_ender",
     "displayName": "Eye of Ender",
     "width": 0.25,
@@ -1343,8 +1405,8 @@
     ]
   },
   {
-    "id": 49,
-    "internalId": 49,
+    "id": 51,
+    "internalId": 51,
     "name": "falling_block",
     "displayName": "Falling Block",
     "width": 0.98,
@@ -1364,8 +1426,8 @@
     ]
   },
   {
-    "id": 50,
-    "internalId": 50,
+    "id": 52,
+    "internalId": 52,
     "name": "fireball",
     "displayName": "Fireball",
     "width": 1,
@@ -1385,8 +1447,8 @@
     ]
   },
   {
-    "id": 51,
-    "internalId": 51,
+    "id": 53,
+    "internalId": 53,
     "name": "firework_rocket",
     "displayName": "Firework Rocket",
     "width": 0.25,
@@ -1408,8 +1470,8 @@
     ]
   },
   {
-    "id": 52,
-    "internalId": 52,
+    "id": 54,
+    "internalId": 54,
     "name": "fox",
     "displayName": "Fox",
     "width": 0.6,
@@ -1441,8 +1503,8 @@
     ]
   },
   {
-    "id": 53,
-    "internalId": 53,
+    "id": 55,
+    "internalId": 55,
     "name": "frog",
     "displayName": "Frog",
     "width": 0.5,
@@ -1472,8 +1534,8 @@
     ]
   },
   {
-    "id": 54,
-    "internalId": 54,
+    "id": 56,
+    "internalId": 56,
     "name": "furnace_minecart",
     "displayName": "Minecart with Furnace",
     "width": 0.98,
@@ -1498,8 +1560,8 @@
     ]
   },
   {
-    "id": 55,
-    "internalId": 55,
+    "id": 57,
+    "internalId": 57,
     "name": "ghast",
     "displayName": "Ghast",
     "width": 4,
@@ -1527,8 +1589,8 @@
     ]
   },
   {
-    "id": 56,
-    "internalId": 56,
+    "id": 58,
+    "internalId": 58,
     "name": "happy_ghast",
     "displayName": "Happy Ghast",
     "width": 4,
@@ -1558,8 +1620,8 @@
     ]
   },
   {
-    "id": 57,
-    "internalId": 57,
+    "id": 59,
+    "internalId": 59,
     "name": "giant",
     "displayName": "Giant",
     "width": 3.6,
@@ -1586,8 +1648,8 @@
     ]
   },
   {
-    "id": 58,
-    "internalId": 58,
+    "id": 60,
+    "internalId": 60,
     "name": "glow_item_frame",
     "displayName": "Glow Item Frame",
     "width": 0.5,
@@ -1609,14 +1671,14 @@
     ]
   },
   {
-    "id": 59,
-    "internalId": 59,
+    "id": 61,
+    "internalId": 61,
     "name": "glow_squid",
     "displayName": "Glow Squid",
     "width": 0.8,
     "height": 0.8,
     "type": "passive",
-    "category": "UNKNOWN",
+    "category": "Passive mobs",
     "metadataKeys": [
       "shared_flags",
       "air_supply",
@@ -1639,8 +1701,8 @@
     ]
   },
   {
-    "id": 60,
-    "internalId": 60,
+    "id": 62,
+    "internalId": 62,
     "name": "goat",
     "displayName": "Goat",
     "width": 0.9,
@@ -1671,8 +1733,8 @@
     ]
   },
   {
-    "id": 61,
-    "internalId": 61,
+    "id": 63,
+    "internalId": 63,
     "name": "guardian",
     "displayName": "Guardian",
     "width": 0.85,
@@ -1701,8 +1763,8 @@
     ]
   },
   {
-    "id": 62,
-    "internalId": 62,
+    "id": 64,
+    "internalId": 64,
     "name": "hoglin",
     "displayName": "Hoglin",
     "width": 1.3964844,
@@ -1731,8 +1793,8 @@
     ]
   },
   {
-    "id": 63,
-    "internalId": 63,
+    "id": 65,
+    "internalId": 65,
     "name": "hopper_minecart",
     "displayName": "Minecart with Hopper",
     "width": 0.98,
@@ -1756,8 +1818,8 @@
     ]
   },
   {
-    "id": 64,
-    "internalId": 64,
+    "id": 66,
+    "internalId": 66,
     "name": "horse",
     "displayName": "Horse",
     "width": 1.3964844,
@@ -1787,8 +1849,8 @@
     ]
   },
   {
-    "id": 65,
-    "internalId": 65,
+    "id": 67,
+    "internalId": 67,
     "name": "husk",
     "displayName": "Husk",
     "width": 0.6,
@@ -1818,8 +1880,8 @@
     ]
   },
   {
-    "id": 66,
-    "internalId": 66,
+    "id": 68,
+    "internalId": 68,
     "name": "illusioner",
     "displayName": "Illusioner",
     "width": 0.6,
@@ -1848,8 +1910,8 @@
     ]
   },
   {
-    "id": 67,
-    "internalId": 67,
+    "id": 69,
+    "internalId": 69,
     "name": "interaction",
     "displayName": "Interaction",
     "width": 0,
@@ -1871,8 +1933,8 @@
     ]
   },
   {
-    "id": 68,
-    "internalId": 68,
+    "id": 70,
+    "internalId": 70,
     "name": "iron_golem",
     "displayName": "Iron Golem",
     "width": 1.4,
@@ -1900,8 +1962,8 @@
     ]
   },
   {
-    "id": 69,
-    "internalId": 69,
+    "id": 71,
+    "internalId": 71,
     "name": "item",
     "displayName": "Item",
     "width": 0.25,
@@ -1921,8 +1983,8 @@
     ]
   },
   {
-    "id": 70,
-    "internalId": 70,
+    "id": 72,
+    "internalId": 72,
     "name": "item_display",
     "displayName": "Item Display",
     "width": 0,
@@ -1958,8 +2020,8 @@
     ]
   },
   {
-    "id": 71,
-    "internalId": 71,
+    "id": 73,
+    "internalId": 73,
     "name": "item_frame",
     "displayName": "Item Frame",
     "width": 0.5,
@@ -1981,8 +2043,8 @@
     ]
   },
   {
-    "id": 72,
-    "internalId": 72,
+    "id": 74,
+    "internalId": 74,
     "name": "jungle_boat",
     "displayName": "Jungle Boat",
     "width": 1.375,
@@ -2007,8 +2069,8 @@
     ]
   },
   {
-    "id": 73,
-    "internalId": 73,
+    "id": 75,
+    "internalId": 75,
     "name": "jungle_chest_boat",
     "displayName": "Jungle Boat with Chest",
     "width": 1.375,
@@ -2033,8 +2095,8 @@
     ]
   },
   {
-    "id": 74,
-    "internalId": 74,
+    "id": 76,
+    "internalId": 76,
     "name": "leash_knot",
     "displayName": "Leash Knot",
     "width": 0.375,
@@ -2053,8 +2115,8 @@
     ]
   },
   {
-    "id": 75,
-    "internalId": 75,
+    "id": 77,
+    "internalId": 77,
     "name": "lightning_bolt",
     "displayName": "Lightning Bolt",
     "width": 0,
@@ -2073,8 +2135,8 @@
     ]
   },
   {
-    "id": 76,
-    "internalId": 76,
+    "id": 78,
+    "internalId": 78,
     "name": "llama",
     "displayName": "Llama",
     "width": 0.9,
@@ -2106,8 +2168,8 @@
     ]
   },
   {
-    "id": 77,
-    "internalId": 77,
+    "id": 79,
+    "internalId": 79,
     "name": "llama_spit",
     "displayName": "Llama Spit",
     "width": 0.25,
@@ -2126,8 +2188,8 @@
     ]
   },
   {
-    "id": 78,
-    "internalId": 78,
+    "id": 80,
+    "internalId": 80,
     "name": "magma_cube",
     "displayName": "Magma Cube",
     "width": 0.52,
@@ -2155,8 +2217,8 @@
     ]
   },
   {
-    "id": 79,
-    "internalId": 79,
+    "id": 81,
+    "internalId": 81,
     "name": "mangrove_boat",
     "displayName": "Mangrove Boat",
     "width": 1.375,
@@ -2181,8 +2243,8 @@
     ]
   },
   {
-    "id": 80,
-    "internalId": 80,
+    "id": 82,
+    "internalId": 82,
     "name": "mangrove_chest_boat",
     "displayName": "Mangrove Boat with Chest",
     "width": 1.375,
@@ -2207,8 +2269,40 @@
     ]
   },
   {
-    "id": 81,
-    "internalId": 81,
+    "id": 83,
+    "internalId": 83,
+    "name": "mannequin",
+    "displayName": "Mannequin",
+    "width": 0.6,
+    "height": 1.8,
+    "type": "living",
+    "category": "Immobile",
+    "metadataKeys": [
+      "shared_flags",
+      "air_supply",
+      "custom_name",
+      "custom_name_visible",
+      "silent",
+      "no_gravity",
+      "pose",
+      "ticks_frozen",
+      "living_entity_flags",
+      "health",
+      "effect_particles",
+      "effect_ambience",
+      "arrow_count",
+      "stinger_count",
+      "sleeping_pos",
+      "player_main_hand",
+      "player_mode_customisation",
+      "profile",
+      "immovable",
+      "description"
+    ]
+  },
+  {
+    "id": 84,
+    "internalId": 84,
     "name": "marker",
     "displayName": "Marker",
     "width": 0,
@@ -2227,8 +2321,8 @@
     ]
   },
   {
-    "id": 82,
-    "internalId": 82,
+    "id": 85,
+    "internalId": 85,
     "name": "minecart",
     "displayName": "Minecart",
     "width": 0.98,
@@ -2252,8 +2346,8 @@
     ]
   },
   {
-    "id": 83,
-    "internalId": 83,
+    "id": 86,
+    "internalId": 86,
     "name": "mooshroom",
     "displayName": "Mooshroom",
     "width": 0.9,
@@ -2282,8 +2376,8 @@
     ]
   },
   {
-    "id": 84,
-    "internalId": 84,
+    "id": 87,
+    "internalId": 87,
     "name": "mule",
     "displayName": "Mule",
     "width": 1.3964844,
@@ -2313,8 +2407,40 @@
     ]
   },
   {
-    "id": 85,
-    "internalId": 85,
+    "id": 88,
+    "internalId": 88,
+    "name": "nautilus",
+    "displayName": "Nautilus",
+    "width": 0.875,
+    "height": 0.95,
+    "type": "animal",
+    "category": "Passive mobs",
+    "metadataKeys": [
+      "shared_flags",
+      "air_supply",
+      "custom_name",
+      "custom_name_visible",
+      "silent",
+      "no_gravity",
+      "pose",
+      "ticks_frozen",
+      "living_entity_flags",
+      "health",
+      "effect_particles",
+      "effect_ambience",
+      "arrow_count",
+      "stinger_count",
+      "sleeping_pos",
+      "mob_flags",
+      "baby",
+      "flags",
+      "owneruuid",
+      "dash"
+    ]
+  },
+  {
+    "id": 89,
+    "internalId": 89,
     "name": "oak_boat",
     "displayName": "Oak Boat",
     "width": 1.375,
@@ -2339,8 +2465,8 @@
     ]
   },
   {
-    "id": 86,
-    "internalId": 86,
+    "id": 90,
+    "internalId": 90,
     "name": "oak_chest_boat",
     "displayName": "Oak Boat with Chest",
     "width": 1.375,
@@ -2365,8 +2491,8 @@
     ]
   },
   {
-    "id": 87,
-    "internalId": 87,
+    "id": 91,
+    "internalId": 91,
     "name": "ocelot",
     "displayName": "Ocelot",
     "width": 0.6,
@@ -2395,8 +2521,8 @@
     ]
   },
   {
-    "id": 88,
-    "internalId": 88,
+    "id": 92,
+    "internalId": 92,
     "name": "ominous_item_spawner",
     "displayName": "Ominous Item Spawner",
     "width": 0.25,
@@ -2416,8 +2542,8 @@
     ]
   },
   {
-    "id": 89,
-    "internalId": 89,
+    "id": 93,
+    "internalId": 93,
     "name": "painting",
     "displayName": "Painting",
     "width": 0.5,
@@ -2438,8 +2564,8 @@
     ]
   },
   {
-    "id": 90,
-    "internalId": 90,
+    "id": 94,
+    "internalId": 94,
     "name": "pale_oak_boat",
     "displayName": "Pale Oak Boat",
     "width": 1.375,
@@ -2464,8 +2590,8 @@
     ]
   },
   {
-    "id": 91,
-    "internalId": 91,
+    "id": 95,
+    "internalId": 95,
     "name": "pale_oak_chest_boat",
     "displayName": "Pale Oak Boat with Chest",
     "width": 1.375,
@@ -2490,8 +2616,8 @@
     ]
   },
   {
-    "id": 92,
-    "internalId": 92,
+    "id": 96,
+    "internalId": 96,
     "name": "panda",
     "displayName": "Panda",
     "width": 1.3,
@@ -2525,8 +2651,36 @@
     ]
   },
   {
-    "id": 93,
-    "internalId": 93,
+    "id": 97,
+    "internalId": 97,
+    "name": "parched",
+    "displayName": "Parched",
+    "width": 0.6,
+    "height": 1.99,
+    "type": "hostile",
+    "category": "Hostile mobs",
+    "metadataKeys": [
+      "shared_flags",
+      "air_supply",
+      "custom_name",
+      "custom_name_visible",
+      "silent",
+      "no_gravity",
+      "pose",
+      "ticks_frozen",
+      "living_entity_flags",
+      "health",
+      "effect_particles",
+      "effect_ambience",
+      "arrow_count",
+      "stinger_count",
+      "sleeping_pos",
+      "mob_flags"
+    ]
+  },
+  {
+    "id": 98,
+    "internalId": 98,
     "name": "parrot",
     "displayName": "Parrot",
     "width": 0.5,
@@ -2557,8 +2711,8 @@
     ]
   },
   {
-    "id": 94,
-    "internalId": 94,
+    "id": 99,
+    "internalId": 99,
     "name": "phantom",
     "displayName": "Phantom",
     "width": 0.9,
@@ -2586,8 +2740,8 @@
     ]
   },
   {
-    "id": 95,
-    "internalId": 95,
+    "id": 100,
+    "internalId": 100,
     "name": "pig",
     "displayName": "Pig",
     "width": 0.9,
@@ -2617,8 +2771,8 @@
     ]
   },
   {
-    "id": 96,
-    "internalId": 96,
+    "id": 101,
+    "internalId": 101,
     "name": "piglin",
     "displayName": "Piglin",
     "width": 0.6,
@@ -2649,8 +2803,8 @@
     ]
   },
   {
-    "id": 97,
-    "internalId": 97,
+    "id": 102,
+    "internalId": 102,
     "name": "piglin_brute",
     "displayName": "Piglin Brute",
     "width": 0.6,
@@ -2678,8 +2832,8 @@
     ]
   },
   {
-    "id": 98,
-    "internalId": 98,
+    "id": 103,
+    "internalId": 103,
     "name": "pillager",
     "displayName": "Pillager",
     "width": 0.6,
@@ -2708,8 +2862,8 @@
     ]
   },
   {
-    "id": 99,
-    "internalId": 99,
+    "id": 104,
+    "internalId": 104,
     "name": "polar_bear",
     "displayName": "Polar Bear",
     "width": 1.4,
@@ -2738,8 +2892,8 @@
     ]
   },
   {
-    "id": 100,
-    "internalId": 100,
+    "id": 105,
+    "internalId": 105,
     "name": "splash_potion",
     "displayName": "Splash Potion",
     "width": 0.25,
@@ -2759,8 +2913,8 @@
     ]
   },
   {
-    "id": 101,
-    "internalId": 101,
+    "id": 106,
+    "internalId": 106,
     "name": "lingering_potion",
     "displayName": "Lingering Potion",
     "width": 0.25,
@@ -2780,13 +2934,13 @@
     ]
   },
   {
-    "id": 102,
-    "internalId": 102,
+    "id": 107,
+    "internalId": 107,
     "name": "pufferfish",
     "displayName": "Pufferfish",
     "width": 0.7,
     "height": 0.7,
-    "type": "water_creature",
+    "type": "mob",
     "category": "Passive mobs",
     "metadataKeys": [
       "shared_flags",
@@ -2810,8 +2964,8 @@
     ]
   },
   {
-    "id": 103,
-    "internalId": 103,
+    "id": 108,
+    "internalId": 108,
     "name": "rabbit",
     "displayName": "Rabbit",
     "width": 0.4,
@@ -2840,8 +2994,8 @@
     ]
   },
   {
-    "id": 104,
-    "internalId": 104,
+    "id": 109,
+    "internalId": 109,
     "name": "ravager",
     "displayName": "Ravager",
     "width": 1.95,
@@ -2869,13 +3023,13 @@
     ]
   },
   {
-    "id": 105,
-    "internalId": 105,
+    "id": 110,
+    "internalId": 110,
     "name": "salmon",
     "displayName": "Salmon",
     "width": 0.7,
     "height": 0.4,
-    "type": "water_creature",
+    "type": "mob",
     "category": "Passive mobs",
     "metadataKeys": [
       "shared_flags",
@@ -2899,8 +3053,8 @@
     ]
   },
   {
-    "id": 106,
-    "internalId": 106,
+    "id": 111,
+    "internalId": 111,
     "name": "sheep",
     "displayName": "Sheep",
     "width": 0.9,
@@ -2929,8 +3083,8 @@
     ]
   },
   {
-    "id": 107,
-    "internalId": 107,
+    "id": 112,
+    "internalId": 112,
     "name": "shulker",
     "displayName": "Shulker",
     "width": 1,
@@ -2960,8 +3114,8 @@
     ]
   },
   {
-    "id": 108,
-    "internalId": 108,
+    "id": 113,
+    "internalId": 113,
     "name": "shulker_bullet",
     "displayName": "Shulker Bullet",
     "width": 0.3125,
@@ -2980,8 +3134,8 @@
     ]
   },
   {
-    "id": 109,
-    "internalId": 109,
+    "id": 114,
+    "internalId": 114,
     "name": "silverfish",
     "displayName": "Silverfish",
     "width": 0.4,
@@ -3008,8 +3162,8 @@
     ]
   },
   {
-    "id": 110,
-    "internalId": 110,
+    "id": 115,
+    "internalId": 115,
     "name": "skeleton",
     "displayName": "Skeleton",
     "width": 0.6,
@@ -3037,8 +3191,8 @@
     ]
   },
   {
-    "id": 111,
-    "internalId": 111,
+    "id": 116,
+    "internalId": 116,
     "name": "skeleton_horse",
     "displayName": "Skeleton Horse",
     "width": 1.3964844,
@@ -3067,8 +3221,8 @@
     ]
   },
   {
-    "id": 112,
-    "internalId": 112,
+    "id": 117,
+    "internalId": 117,
     "name": "slime",
     "displayName": "Slime",
     "width": 0.52,
@@ -3096,8 +3250,8 @@
     ]
   },
   {
-    "id": 113,
-    "internalId": 113,
+    "id": 118,
+    "internalId": 118,
     "name": "small_fireball",
     "displayName": "Small Fireball",
     "width": 0.3125,
@@ -3117,8 +3271,8 @@
     ]
   },
   {
-    "id": 114,
-    "internalId": 114,
+    "id": 119,
+    "internalId": 119,
     "name": "sniffer",
     "displayName": "Sniffer",
     "width": 1.9,
@@ -3148,8 +3302,8 @@
     ]
   },
   {
-    "id": 115,
-    "internalId": 115,
+    "id": 120,
+    "internalId": 120,
     "name": "snowball",
     "displayName": "Snowball",
     "width": 0.25,
@@ -3169,8 +3323,8 @@
     ]
   },
   {
-    "id": 116,
-    "internalId": 116,
+    "id": 121,
+    "internalId": 121,
     "name": "snow_golem",
     "displayName": "Snow Golem",
     "width": 0.7,
@@ -3198,8 +3352,8 @@
     ]
   },
   {
-    "id": 117,
-    "internalId": 117,
+    "id": 122,
+    "internalId": 122,
     "name": "spawner_minecart",
     "displayName": "Minecart with Monster Spawner",
     "width": 0.98,
@@ -3223,8 +3377,8 @@
     ]
   },
   {
-    "id": 118,
-    "internalId": 118,
+    "id": 123,
+    "internalId": 123,
     "name": "spectral_arrow",
     "displayName": "Spectral Arrow",
     "width": 0.5,
@@ -3246,8 +3400,8 @@
     ]
   },
   {
-    "id": 119,
-    "internalId": 119,
+    "id": 124,
+    "internalId": 124,
     "name": "spider",
     "displayName": "Spider",
     "width": 1.4,
@@ -3275,8 +3429,8 @@
     ]
   },
   {
-    "id": 120,
-    "internalId": 120,
+    "id": 125,
+    "internalId": 125,
     "name": "spruce_boat",
     "displayName": "Spruce Boat",
     "width": 1.375,
@@ -3301,8 +3455,8 @@
     ]
   },
   {
-    "id": 121,
-    "internalId": 121,
+    "id": 126,
+    "internalId": 126,
     "name": "spruce_chest_boat",
     "displayName": "Spruce Boat with Chest",
     "width": 1.375,
@@ -3327,8 +3481,8 @@
     ]
   },
   {
-    "id": 122,
-    "internalId": 122,
+    "id": 127,
+    "internalId": 127,
     "name": "squid",
     "displayName": "Squid",
     "width": 0.8,
@@ -3356,8 +3510,8 @@
     ]
   },
   {
-    "id": 123,
-    "internalId": 123,
+    "id": 128,
+    "internalId": 128,
     "name": "stray",
     "displayName": "Stray",
     "width": 0.6,
@@ -3384,8 +3538,8 @@
     ]
   },
   {
-    "id": 124,
-    "internalId": 124,
+    "id": 129,
+    "internalId": 129,
     "name": "strider",
     "displayName": "Strider",
     "width": 0.9,
@@ -3415,13 +3569,13 @@
     ]
   },
   {
-    "id": 125,
-    "internalId": 125,
+    "id": 130,
+    "internalId": 130,
     "name": "tadpole",
     "displayName": "Tadpole",
     "width": 0.4,
     "height": 0.3,
-    "type": "water_creature",
+    "type": "mob",
     "category": "Passive mobs",
     "metadataKeys": [
       "shared_flags",
@@ -3444,8 +3598,8 @@
     ]
   },
   {
-    "id": 126,
-    "internalId": 126,
+    "id": 131,
+    "internalId": 131,
     "name": "text_display",
     "displayName": "Text Display",
     "width": 0,
@@ -3484,8 +3638,8 @@
     ]
   },
   {
-    "id": 127,
-    "internalId": 127,
+    "id": 132,
+    "internalId": 132,
     "name": "tnt",
     "displayName": "Primed TNT",
     "width": 0.98,
@@ -3506,8 +3660,8 @@
     ]
   },
   {
-    "id": 128,
-    "internalId": 128,
+    "id": 133,
+    "internalId": 133,
     "name": "tnt_minecart",
     "displayName": "Minecart with TNT",
     "width": 0.98,
@@ -3531,8 +3685,8 @@
     ]
   },
   {
-    "id": 129,
-    "internalId": 129,
+    "id": 134,
+    "internalId": 134,
     "name": "trader_llama",
     "displayName": "Trader Llama",
     "width": 0.9,
@@ -3564,8 +3718,8 @@
     ]
   },
   {
-    "id": 130,
-    "internalId": 130,
+    "id": 135,
+    "internalId": 135,
     "name": "trident",
     "displayName": "Trident",
     "width": 0.5,
@@ -3589,13 +3743,13 @@
     ]
   },
   {
-    "id": 131,
-    "internalId": 131,
+    "id": 136,
+    "internalId": 136,
     "name": "tropical_fish",
     "displayName": "Tropical Fish",
     "width": 0.5,
     "height": 0.4,
-    "type": "water_creature",
+    "type": "mob",
     "category": "Passive mobs",
     "metadataKeys": [
       "shared_flags",
@@ -3619,8 +3773,8 @@
     ]
   },
   {
-    "id": 132,
-    "internalId": 132,
+    "id": 137,
+    "internalId": 137,
     "name": "turtle",
     "displayName": "Turtle",
     "width": 1.2,
@@ -3650,8 +3804,8 @@
     ]
   },
   {
-    "id": 133,
-    "internalId": 133,
+    "id": 138,
+    "internalId": 138,
     "name": "vex",
     "displayName": "Vex",
     "width": 0.4,
@@ -3679,8 +3833,8 @@
     ]
   },
   {
-    "id": 134,
-    "internalId": 134,
+    "id": 139,
+    "internalId": 139,
     "name": "villager",
     "displayName": "Villager",
     "width": 0.6,
@@ -3710,8 +3864,8 @@
     ]
   },
   {
-    "id": 135,
-    "internalId": 135,
+    "id": 140,
+    "internalId": 140,
     "name": "vindicator",
     "displayName": "Vindicator",
     "width": 0.6,
@@ -3739,8 +3893,8 @@
     ]
   },
   {
-    "id": 136,
-    "internalId": 136,
+    "id": 141,
+    "internalId": 141,
     "name": "wandering_trader",
     "displayName": "Wandering Trader",
     "width": 0.6,
@@ -3769,8 +3923,8 @@
     ]
   },
   {
-    "id": 137,
-    "internalId": 137,
+    "id": 142,
+    "internalId": 142,
     "name": "warden",
     "displayName": "Warden",
     "width": 0.9,
@@ -3798,8 +3952,8 @@
     ]
   },
   {
-    "id": 138,
-    "internalId": 138,
+    "id": 143,
+    "internalId": 143,
     "name": "wind_charge",
     "displayName": "Wind Charge",
     "width": 0.3125,
@@ -3818,8 +3972,8 @@
     ]
   },
   {
-    "id": 139,
-    "internalId": 139,
+    "id": 144,
+    "internalId": 144,
     "name": "witch",
     "displayName": "Witch",
     "width": 0.6,
@@ -3848,8 +4002,8 @@
     ]
   },
   {
-    "id": 140,
-    "internalId": 140,
+    "id": 145,
+    "internalId": 145,
     "name": "wither",
     "displayName": "Wither",
     "width": 0.9,
@@ -3880,8 +4034,8 @@
     ]
   },
   {
-    "id": 141,
-    "internalId": 141,
+    "id": 146,
+    "internalId": 146,
     "name": "wither_skeleton",
     "displayName": "Wither Skeleton",
     "width": 0.7,
@@ -3908,8 +4062,8 @@
     ]
   },
   {
-    "id": 142,
-    "internalId": 142,
+    "id": 147,
+    "internalId": 147,
     "name": "wither_skull",
     "displayName": "Wither Skull",
     "width": 0.3125,
@@ -3929,8 +4083,8 @@
     ]
   },
   {
-    "id": 143,
-    "internalId": 143,
+    "id": 148,
+    "internalId": 148,
     "name": "wolf",
     "displayName": "Wolf",
     "width": 0.6,
@@ -3959,14 +4113,14 @@
       "owneruuid",
       "interested",
       "collar_color",
-      "remaining_anger_time",
+      "anger_end_time",
       "variant",
       "sound_variant"
     ]
   },
   {
-    "id": 144,
-    "internalId": 144,
+    "id": 149,
+    "internalId": 149,
     "name": "zoglin",
     "displayName": "Zoglin",
     "width": 1.3964844,
@@ -3994,8 +4148,8 @@
     ]
   },
   {
-    "id": 145,
-    "internalId": 145,
+    "id": 150,
+    "internalId": 150,
     "name": "zombie",
     "displayName": "Zombie",
     "width": 0.6,
@@ -4025,8 +4179,8 @@
     ]
   },
   {
-    "id": 146,
-    "internalId": 146,
+    "id": 151,
+    "internalId": 151,
     "name": "zombie_horse",
     "displayName": "Zombie Horse",
     "width": 1.3964844,
@@ -4055,8 +4209,41 @@
     ]
   },
   {
-    "id": 147,
-    "internalId": 147,
+    "id": 152,
+    "internalId": 152,
+    "name": "zombie_nautilus",
+    "displayName": "Zombie Nautilus",
+    "width": 0.875,
+    "height": 0.95,
+    "type": "animal",
+    "category": "Passive mobs",
+    "metadataKeys": [
+      "shared_flags",
+      "air_supply",
+      "custom_name",
+      "custom_name_visible",
+      "silent",
+      "no_gravity",
+      "pose",
+      "ticks_frozen",
+      "living_entity_flags",
+      "health",
+      "effect_particles",
+      "effect_ambience",
+      "arrow_count",
+      "stinger_count",
+      "sleeping_pos",
+      "mob_flags",
+      "baby",
+      "flags",
+      "owneruuid",
+      "dash",
+      "variant"
+    ]
+  },
+  {
+    "id": 153,
+    "internalId": 153,
     "name": "zombie_villager",
     "displayName": "Zombie Villager",
     "width": 0.6,
@@ -4088,8 +4275,8 @@
     ]
   },
   {
-    "id": 148,
-    "internalId": 148,
+    "id": 154,
+    "internalId": 154,
     "name": "zombified_piglin",
     "displayName": "Zombified Piglin",
     "width": 0.6,
@@ -4119,8 +4306,8 @@
     ]
   },
   {
-    "id": 149,
-    "internalId": 149,
+    "id": 155,
+    "internalId": 155,
     "name": "player",
     "displayName": "Player",
     "width": 0.6,
@@ -4143,17 +4330,17 @@
       "arrow_count",
       "stinger_count",
       "sleeping_pos",
+      "player_main_hand",
+      "player_mode_customisation",
       "player_absorption",
       "score",
-      "player_mode_customisation",
-      "player_main_hand",
-      "shoulder_left",
-      "shoulder_right"
+      "shoulder_parrot_left",
+      "shoulder_parrot_right"
     ]
   },
   {
-    "id": 150,
-    "internalId": 150,
+    "id": 156,
+    "internalId": 156,
     "name": "fishing_bobber",
     "displayName": "Fishing Bobber",
     "width": 0.25,

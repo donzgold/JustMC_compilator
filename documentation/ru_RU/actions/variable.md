@@ -4099,6 +4099,35 @@ variable::get_item_max_stack_size(variable=`variable`, item=item("stick"));
 | variable | Переменная\[Число\] | Переменная для присвоения |
 | item     | Предмет             | Предмет                   |
 
+<h3 id=set_variable_get_item_minimum_attack_charge>
+  <code>variable::get_item_minimum_attack_charge</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Получить минимальный заряд атаки\
+**Тип:** Действие, возращающее значение\
+**Описание:** Получает мннимальный заряд предмета, необходимый для атаки, и присваивает результат к переменной.
+
+**Пример использования:**
+```ts
+`variable` = variable::get_item_minimum_attack_charge(item("stick"));
+
+//Или в сухую позиционно
+
+variable::get_item_minimum_attack_charge(`variable`, item("stick"));
+
+//Или в сухую по ключам
+
+variable::get_item_minimum_attack_charge(variable=`variable`, item=item("stick"));
+```
+
+**Аргументы:**
+
+| ID       | Тип                 | Описание                  |
+|----------|---------------------|---------------------------|
+| variable | Переменная\[Число\] | Переменная для присвоения |
+| item     | Предмет             | Предмет                   |
+
 <h3 id=set_variable_get_item_model_data>
   <code>variable::get_item_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -6496,12 +6525,12 @@ variable::locations_distance(variable=`variable`, location_1=location(0,0,0,0,0)
 
 **Аргументы:**
 
-| ID         | Тип                                                                                                                                                                    | Описание                  |
-|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| variable   | Переменная\[Число\]                                                                                                                                                    | Переменная для присвоения |
-| location_1 | Местоположение                                                                                                                                                         | Первое местоположение     |
-| location_2 | Местоположение                                                                                                                                                         | Второе местоположение     |
-| type       | Маркер<br/>**ALTITUDE** - По высоте<br/>**SQUARED_2D** - Округленное в 2D<br/>**SQUARED_3D** - Округленное в 3D<br/>**THREE_D** - В объёме<br/>**TWO_D** - В плоскости | Тип расстояния            |
+| ID         | Тип                                                                                                                                                                                                                | Описание                  |
+|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| variable   | Переменная\[Число\]                                                                                                                                                                                                | Переменная для присвоения |
+| location_1 | Местоположение                                                                                                                                                                                                     | Первое местоположение     |
+| location_2 | Местоположение                                                                                                                                                                                                     | Второе местоположение     |
+| type       | Маркер<br/>**ALTITUDE** - По высоте<br/>**SQUARED_2D** - Квадрат расстояния в плоскости (x²+z²)<br/>**SQUARED_3D** - Квадрат расстояния в объёме (x²+y²+z²)<br/>**THREE_D** - В объёме<br/>**TWO_D** - В плоскости | Тип расстояния            |
 
 <h3 id=set_variable_log>
   <code>variable::log</code>
@@ -8540,7 +8569,7 @@ variable::set_item_attack_range(`variable`, item("stick"), 1, 2, 3, 4, "hitbox_m
 
 //Или в сухую по ключам
 
-variable::set_item_attack_range(variable=`variable`, item=item("stick"), min_reach=1, max_reach=2, min_creative_range=3, max_creative_range=4, hitbox_margin="hitbox_margin", mob_factor="mob_factor");
+variable::set_item_attack_range(variable=`variable`, item=item("stick"), min_reach=1, min_max=2, min_creative_reach=3, max_creative_reach=4, hitbox_margin="hitbox_margin", mob_factor="mob_factor");
 ```
 
 **Аргументы:**
@@ -8550,9 +8579,9 @@ variable::set_item_attack_range(variable=`variable`, item=item("stick"), min_rea
 | variable           | Переменная\[Предмет\] | Переменная для присвоения               |
 | item               | Предмет               | Предмет                                 |
 | min_reach          | Число                 | Минимальный радиус                      |
-| max_reach          | Число                 | Максимальный радиус                     |
-| min_creative_range | Число                 | Минимальный радиус в творческом режиме  |
-| max_creative_range | Число                 | Максимальный радиус в творческом режиме |
+| min_max            | Число                 | Максимальный радиус                     |
+| min_creative_reach | Число                 | Минимальный радиус в творческом режиме  |
+| max_creative_reach | Число                 | Максимальный радиус в творческом режиме |
 | hitbox_margin      | Текст                 | Смещение хитбокса                       |
 | mob_factor         | Текст                 | Множитель радиуса у моба                |
 
@@ -9126,6 +9155,36 @@ variable::set_item_max_stack_size(variable=`variable`, item=item("stick"), size=
 | item     | Предмет               | Предмет                      |
 | size     | Число                 | Количество предметов в стаке |
 
+<h3 id=set_variable_set_item_minimum_attack_charge>
+  <code>variable::set_item_minimum_attack_charge</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить минимальный заряд атаки\
+**Тип:** Действие, возращающее значение\
+**Описание:** Устанавливает минимальный заряд предмета, необходимый для атаки, и присваивает результат к переменной.
+
+**Пример использования:**
+```ts
+`variable` = variable::set_item_minimum_attack_charge(item("stick"), 1);
+
+//Или в сухую позиционно
+
+variable::set_item_minimum_attack_charge(`variable`, item("stick"), 1);
+
+//Или в сухую по ключам
+
+variable::set_item_minimum_attack_charge(variable=`variable`, item=item("stick"), minimum_attack_charge=1);
+```
+
+**Аргументы:**
+
+| ID                    | Тип                   | Описание                  |
+|-----------------------|-----------------------|---------------------------|
+| variable              | Переменная\[Предмет\] | Переменная для присвоения |
+| item                  | Предмет               | Предмет                   |
+| minimum_attack_charge | Число                 | Минимальный заряд (0-1)   |
+
 <h3 id=set_variable_set_item_model_data>
   <code>variable::set_item_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9193,6 +9252,39 @@ variable::set_item_name(variable=`variable`, item=item("stick"), text="text");
 | variable | Переменная\[Предмет\] | Переменная для присвоения |
 | item     | Предмет               | Предмет                   |
 | text     | Текст                 | Имя                       |
+
+<h3 id=set_variable_set_item_piercing_weapon>
+  <code>variable::set_item_piercing_weapon</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Имя:** Установить пробитие\
+**Тип:** Действие, возращающее значение\
+**Описание:** Устанавливает пробитие предмету и присваивает результат к переменной.
+
+**Пример использования:**
+```ts
+`variable` = variable::set_item_piercing_weapon(item("stick"), "TRUE", "TRUE", "sound", "hit_sound");
+
+//Или в сухую позиционно
+
+variable::set_item_piercing_weapon(`variable`, item("stick"), "TRUE", "TRUE", "sound", "hit_sound");
+
+//Или в сухую по ключам
+
+variable::set_item_piercing_weapon(variable=`variable`, item=item("stick"), deals_knockback="TRUE", dismounts="TRUE", sound="sound", hit_sound="hit_sound");
+```
+
+**Аргументы:**
+
+| ID              | Тип                                          | Описание                  |
+|-----------------|----------------------------------------------|---------------------------|
+| variable        | Переменная\[Предмет\]                        | Переменная для присвоения |
+| item            | Предмет                                      | Предмет                   |
+| deals_knockback | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Отталкивание              |
+| dismounts       | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Спешивание                |
+| sound           | Текст                                        | Звук пробития             |
+| hit_sound       | Текст                                        | Звук удара                |
 
 <h3 id=set_variable_set_item_placeable_blocks>
   <code>variable::set_item_placeable_blocks</code>
@@ -9273,24 +9365,25 @@ variable::set_item_rarity(variable=`variable`, item=item("stick"), rarity="NONE"
 
 **Пример использования:**
 ```ts
-`variable` = variable::set_item_swing_animation(item("stick"), 1);
+`variable` = variable::set_item_swing_animation(item("stick"), 1, "NONE");
 
 //Или в сухую позиционно
 
-variable::set_item_swing_animation(`variable`, item("stick"), 1);
+variable::set_item_swing_animation(`variable`, item("stick"), 1, "NONE");
 
 //Или в сухую по ключам
 
-variable::set_item_swing_animation(variable=`variable`, item=item("stick"), duration=1);
+variable::set_item_swing_animation(variable=`variable`, item=item("stick"), duration=1, animation="NONE");
 ```
 
 **Аргументы:**
 
-| ID       | Тип                   | Описание                  |
-|----------|-----------------------|---------------------------|
-| variable | Переменная\[Предмет\] | Переменная для присвоения |
-| item     | Предмет               | Предмет                   |
-| duration | Число                 | Длительность анимации     |
+| ID        | Тип                                                                                    | Описание                  |
+|-----------|----------------------------------------------------------------------------------------|---------------------------|
+| variable  | Переменная\[Предмет\]                                                                  | Переменная для присвоения |
+| item      | Предмет                                                                                | Предмет                   |
+| duration  | Число                                                                                  | Длительность анимации     |
+| animation | Маркер<br/>**NONE** - Нет<br/>**WHACK** - Выбивание (whack)<br/>**STAB** - Укол (stab) | Анимация                  |
 
 <h3 id=set_variable_set_item_tooltip_style>
   <code>variable::set_item_tooltip_style</code>
@@ -9413,18 +9506,18 @@ variable::set_item_use_effects(`variable`, item("stick"), "TRUE", "TRUE", 1);
 
 //Или в сухую по ключам
 
-variable::set_item_use_effects(variable=`variable`, item=item("stick"), can_sprint="TRUE", interact_vibrations="TRUE", argument=1);
+variable::set_item_use_effects(variable=`variable`, item=item("stick"), can_sprint="TRUE", interact_vibrations="TRUE", speed_multiplier=1);
 ```
 
 **Аргументы:**
 
-| ID                  | Тип                                          | Описание                                                                      |
-|---------------------|----------------------------------------------|-------------------------------------------------------------------------------|
-| variable            | Переменная\[Предмет\]                        | Переменная для присвоения                                                     |
-| item                | Предмет                                      | Предмет                                                                       |
-| can_sprint          | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Возможность бегать                                                            |
-| interact_vibrations | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Вызов вибраций                                                                |
-| argument            | Число                                        | creative_plus.action.set_variable_set_item_use_effects.argument.argument.name |
+| ID                  | Тип                                          | Описание                  |
+|---------------------|----------------------------------------------|---------------------------|
+| variable            | Переменная\[Предмет\]                        | Переменная для присвоения |
+| item                | Предмет                                      | Предмет                   |
+| can_sprint          | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Возможность бегать        |
+| interact_vibrations | Маркер<br/>**TRUE** - Да<br/>**FALSE** - Нет | Вызов вибраций            |
+| speed_multiplier    | Число                                        | Множитель скорости        |
 
 <h3 id=set_variable_set_item_use_remainder>
   <code>variable::set_item_use_remainder</code>

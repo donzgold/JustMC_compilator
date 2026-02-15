@@ -4099,6 +4099,35 @@ variable::get_item_max_stack_size(variable=`variable`, item=item("stick"));
 | variable | Variable\[Number\] | Variable to assign |
 | item     | Item               | Item               |
 
+<h3 id=set_variable_get_item_minimum_attack_charge>
+  <code>variable::get_item_minimum_attack_charge</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.set_variable_get_item_minimum_attack_charge.name\
+**Action type:** An action that returns a value\
+**Description:** creative_plus.action.set_variable_get_item_minimum_attack_charge.description
+
+**Usage example:**
+```ts
+`variable` = variable::get_item_minimum_attack_charge(item("stick"));
+
+//Or dry by positionals
+
+variable::get_item_minimum_attack_charge(`variable`, item("stick"));
+
+//Or dry by keywords
+
+variable::get_item_minimum_attack_charge(variable=`variable`, item=item("stick"));
+```
+
+**Arguments:**
+
+| ID       | Type               | Description                                                                             |
+|----------|--------------------|-----------------------------------------------------------------------------------------|
+| variable | Variable\[Number\] | creative_plus.action.set_variable_get_item_minimum_attack_charge.argument.variable.name |
+| item     | Item               | creative_plus.action.set_variable_get_item_minimum_attack_charge.argument.item.name     |
+
 <h3 id=set_variable_get_item_model_data>
   <code>variable::get_item_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -8540,7 +8569,7 @@ variable::set_item_attack_range(`variable`, item("stick"), 1, 2, 3, 4, "hitbox_m
 
 //Or dry by keywords
 
-variable::set_item_attack_range(variable=`variable`, item=item("stick"), min_reach=1, max_reach=2, min_creative_range=3, max_creative_range=4, hitbox_margin="hitbox_margin", mob_factor="mob_factor");
+variable::set_item_attack_range(variable=`variable`, item=item("stick"), min_reach=1, min_max=2, min_creative_reach=3, max_creative_reach=4, hitbox_margin="hitbox_margin", mob_factor="mob_factor");
 ```
 
 **Arguments:**
@@ -8550,9 +8579,9 @@ variable::set_item_attack_range(variable=`variable`, item=item("stick"), min_rea
 | variable           | Variable\[Item\] | creative_plus.action.set_variable_set_item_attack_range.argument.variable.name           |
 | item               | Item             | creative_plus.action.set_variable_set_item_attack_range.argument.item.name               |
 | min_reach          | Number           | creative_plus.action.set_variable_set_item_attack_range.argument.min_reach.name          |
-| max_reach          | Number           | creative_plus.action.set_variable_set_item_attack_range.argument.max_reach.name          |
-| min_creative_range | Number           | creative_plus.action.set_variable_set_item_attack_range.argument.min_creative_range.name |
-| max_creative_range | Number           | creative_plus.action.set_variable_set_item_attack_range.argument.max_creative_range.name |
+| min_max            | Number           | creative_plus.action.set_variable_set_item_attack_range.argument.min_max.name            |
+| min_creative_reach | Number           | creative_plus.action.set_variable_set_item_attack_range.argument.min_creative_reach.name |
+| max_creative_reach | Number           | creative_plus.action.set_variable_set_item_attack_range.argument.max_creative_reach.name |
 | hitbox_margin      | Text             | creative_plus.action.set_variable_set_item_attack_range.argument.hitbox_margin.name      |
 | mob_factor         | Text             | creative_plus.action.set_variable_set_item_attack_range.argument.mob_factor.name         |
 
@@ -9126,6 +9155,36 @@ variable::set_item_max_stack_size(variable=`variable`, item=item("stick"), size=
 | item     | Item             | Item                               |
 | size     | Number           | Number of maximum items in a stack |
 
+<h3 id=set_variable_set_item_minimum_attack_charge>
+  <code>variable::set_item_minimum_attack_charge</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.set_variable_set_item_minimum_attack_charge.name\
+**Action type:** An action that returns a value\
+**Description:** creative_plus.action.set_variable_set_item_minimum_attack_charge.description
+
+**Usage example:**
+```ts
+`variable` = variable::set_item_minimum_attack_charge(item("stick"), 1);
+
+//Or dry by positionals
+
+variable::set_item_minimum_attack_charge(`variable`, item("stick"), 1);
+
+//Or dry by keywords
+
+variable::set_item_minimum_attack_charge(variable=`variable`, item=item("stick"), minimum_attack_charge=1);
+```
+
+**Arguments:**
+
+| ID                    | Type             | Description                                                                                          |
+|-----------------------|------------------|------------------------------------------------------------------------------------------------------|
+| variable              | Variable\[Item\] | creative_plus.action.set_variable_set_item_minimum_attack_charge.argument.variable.name              |
+| item                  | Item             | creative_plus.action.set_variable_set_item_minimum_attack_charge.argument.item.name                  |
+| minimum_attack_charge | Number           | creative_plus.action.set_variable_set_item_minimum_attack_charge.argument.minimum_attack_charge.name |
+
 <h3 id=set_variable_set_item_model_data>
   <code>variable::set_item_model_data</code>
   <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
@@ -9193,6 +9252,39 @@ variable::set_item_name(variable=`variable`, item=item("stick"), text="text");
 | variable | Variable\[Item\] | Variable to assign |
 | item     | Item             | Item               |
 | text     | Text             | Name               |
+
+<h3 id=set_variable_set_item_piercing_weapon>
+  <code>variable::set_item_piercing_weapon</code>
+  <a href="#" style="font-size: 12px; margin-left:">⬆️</a>
+</h3>
+
+**Name:** creative_plus.action.set_variable_set_item_piercing_weapon.name\
+**Action type:** An action that returns a value\
+**Description:** creative_plus.action.set_variable_set_item_piercing_weapon.description
+
+**Usage example:**
+```ts
+`variable` = variable::set_item_piercing_weapon(item("stick"), "TRUE", "TRUE", "sound", "hit_sound");
+
+//Or dry by positionals
+
+variable::set_item_piercing_weapon(`variable`, item("stick"), "TRUE", "TRUE", "sound", "hit_sound");
+
+//Or dry by keywords
+
+variable::set_item_piercing_weapon(variable=`variable`, item=item("stick"), deals_knockback="TRUE", dismounts="TRUE", sound="sound", hit_sound="hit_sound");
+```
+
+**Arguments:**
+
+| ID              | Type                                                                                                                                                                                                                                         | Description                                                                              |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| variable        | Variable\[Item\]                                                                                                                                                                                                                             | creative_plus.action.set_variable_set_item_piercing_weapon.argument.variable.name        |
+| item            | Item                                                                                                                                                                                                                                         | creative_plus.action.set_variable_set_item_piercing_weapon.argument.item.name            |
+| deals_knockback | Marker<br/>**TRUE** - creative_plus.action.set_variable_set_item_piercing_weapon.argument.deals_knockback.enum.true.name<br/>**FALSE** - creative_plus.action.set_variable_set_item_piercing_weapon.argument.deals_knockback.enum.false.name | creative_plus.action.set_variable_set_item_piercing_weapon.argument.deals_knockback.name |
+| dismounts       | Marker<br/>**TRUE** - creative_plus.action.set_variable_set_item_piercing_weapon.argument.dismounts.enum.true.name<br/>**FALSE** - creative_plus.action.set_variable_set_item_piercing_weapon.argument.dismounts.enum.false.name             | creative_plus.action.set_variable_set_item_piercing_weapon.argument.dismounts.name       |
+| sound           | Text                                                                                                                                                                                                                                         | creative_plus.action.set_variable_set_item_piercing_weapon.argument.sound.name           |
+| hit_sound       | Text                                                                                                                                                                                                                                         | creative_plus.action.set_variable_set_item_piercing_weapon.argument.hit_sound.name       |
 
 <h3 id=set_variable_set_item_placeable_blocks>
   <code>variable::set_item_placeable_blocks</code>
@@ -9273,24 +9365,25 @@ variable::set_item_rarity(variable=`variable`, item=item("stick"), rarity="NONE"
 
 **Usage example:**
 ```ts
-`variable` = variable::set_item_swing_animation(item("stick"), 1);
+`variable` = variable::set_item_swing_animation(item("stick"), 1, "NONE");
 
 //Or dry by positionals
 
-variable::set_item_swing_animation(`variable`, item("stick"), 1);
+variable::set_item_swing_animation(`variable`, item("stick"), 1, "NONE");
 
 //Or dry by keywords
 
-variable::set_item_swing_animation(variable=`variable`, item=item("stick"), duration=1);
+variable::set_item_swing_animation(variable=`variable`, item=item("stick"), duration=1, animation="NONE");
 ```
 
 **Arguments:**
 
-| ID       | Type             | Description                                                                       |
-|----------|------------------|-----------------------------------------------------------------------------------|
-| variable | Variable\[Item\] | creative_plus.action.set_variable_set_item_swing_animation.argument.variable.name |
-| item     | Item             | creative_plus.action.set_variable_set_item_swing_animation.argument.item.name     |
-| duration | Number           | creative_plus.action.set_variable_set_item_swing_animation.argument.duration.name |
+| ID        | Type                                                                                                                                                                                                                                                                                                                                         | Description                                                                        |
+|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| variable  | Variable\[Item\]                                                                                                                                                                                                                                                                                                                             | creative_plus.action.set_variable_set_item_swing_animation.argument.variable.name  |
+| item      | Item                                                                                                                                                                                                                                                                                                                                         | creative_plus.action.set_variable_set_item_swing_animation.argument.item.name      |
+| duration  | Number                                                                                                                                                                                                                                                                                                                                       | creative_plus.action.set_variable_set_item_swing_animation.argument.duration.name  |
+| animation | Marker<br/>**NONE** - creative_plus.action.set_variable_set_item_swing_animation.argument.animation.enum.none.name<br/>**WHACK** - creative_plus.action.set_variable_set_item_swing_animation.argument.animation.enum.whack.name<br/>**STAB** - creative_plus.action.set_variable_set_item_swing_animation.argument.animation.enum.stab.name | creative_plus.action.set_variable_set_item_swing_animation.argument.animation.name |
 
 <h3 id=set_variable_set_item_tooltip_style>
   <code>variable::set_item_tooltip_style</code>
@@ -9413,7 +9506,7 @@ variable::set_item_use_effects(`variable`, item("stick"), "TRUE", "TRUE", 1);
 
 //Or dry by keywords
 
-variable::set_item_use_effects(variable=`variable`, item=item("stick"), can_sprint="TRUE", interact_vibrations="TRUE", argument=1);
+variable::set_item_use_effects(variable=`variable`, item=item("stick"), can_sprint="TRUE", interact_vibrations="TRUE", speed_multiplier=1);
 ```
 
 **Arguments:**
@@ -9424,7 +9517,7 @@ variable::set_item_use_effects(variable=`variable`, item=item("stick"), can_spri
 | item                | Item                                                                                                                                                                                                                                         | creative_plus.action.set_variable_set_item_use_effects.argument.item.name                |
 | can_sprint          | Marker<br/>**TRUE** - creative_plus.action.set_variable_set_item_use_effects.argument.can_sprint.enum.true.name<br/>**FALSE** - creative_plus.action.set_variable_set_item_use_effects.argument.can_sprint.enum.false.name                   | creative_plus.action.set_variable_set_item_use_effects.argument.can_sprint.name          |
 | interact_vibrations | Marker<br/>**TRUE** - creative_plus.action.set_variable_set_item_use_effects.argument.interact_vibrations.enum.true.name<br/>**FALSE** - creative_plus.action.set_variable_set_item_use_effects.argument.interact_vibrations.enum.false.name | creative_plus.action.set_variable_set_item_use_effects.argument.interact_vibrations.name |
-| argument            | Number                                                                                                                                                                                                                                       | creative_plus.action.set_variable_set_item_use_effects.argument.argument.name            |
+| speed_multiplier    | Number                                                                                                                                                                                                                                       | creative_plus.action.set_variable_set_item_use_effects.argument.speed_multiplier.name    |
 
 <h3 id=set_variable_set_item_use_remainder>
   <code>variable::set_item_use_remainder</code>
